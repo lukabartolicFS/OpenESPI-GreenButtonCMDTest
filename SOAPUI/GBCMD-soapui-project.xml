@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project activeEnvironment="Default" name="GBCMD" resourceRoot="${projectDir}" soapui-version="4.6.2" abortOnError="false" runType="SEQUENTIAL" defaultScriptLanguage="Groovy" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="Port">8080</con:setting><con:setting id="Set endpoint for HTTP Tunnel:">http://localhost:8080</con:setting><con:setting id="HTTP tunnel - KeyStore"/><con:setting id="HTTP tunnel - Password"/><con:setting id="HTTP tunnel - KeyPassword"/><con:setting id="HTTP tunnel - TrustStore"/><con:setting id="HTTP tunnel - TrustStore Password"/><con:setting id="Reuse request state">false</con:setting><con:setting id="HTTP tunnel - Set SSL Client Key Store path"/><con:setting id="Content types to monitor">*/html, */xml, */soap+xml, */json, */x-json, */javascript, */x-amf</con:setting><con:setting id="HTTP tunnel - Set SSL Client Key Store Password"/></con:settings><con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://localhost:8080" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://localhost:8080</con:endpoint></con:endpoints><con:resource name="DataCustodian" path="/DataCustodian"><con:settings/><con:parameters/><con:method name="DataCustodian" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>200</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://192.168.1.6:8080</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:testSuite name="Web TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UploadTestData" searchProperties="true"><con:settings/><con:testStep type="groovy" name="LogIntoDataCustodianAndUploadSubscription"><con:settings/><con:config><script>/////////////////////////////////////////////////////////
+<con:soapui-project activeEnvironment="Default" name="GBCMD" resourceRoot="${projectDir}" soapui-version="4.6.2" abortOnError="false" runType="SEQUENTIAL" defaultScriptLanguage="Groovy" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="Port">8080</con:setting><con:setting id="Set endpoint for HTTP Tunnel:">http://localhost:8080</con:setting><con:setting id="HTTP tunnel - KeyStore"/><con:setting id="HTTP tunnel - Password"/><con:setting id="HTTP tunnel - KeyPassword"/><con:setting id="HTTP tunnel - TrustStore"/><con:setting id="HTTP tunnel - TrustStore Password"/><con:setting id="Reuse request state">false</con:setting><con:setting id="HTTP tunnel - Set SSL Client Key Store path"/><con:setting id="Content types to monitor">*/html, */xml, */soap+xml, */json, */x-json, */javascript, */x-amf</con:setting><con:setting id="HTTP tunnel - Set SSL Client Key Store Password"/></con:settings><con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://localhost:8080" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://localhost:8080</con:endpoint></con:endpoints><con:resource name="DataCustodian" path="/DataCustodian"><con:settings/><con:parameters/><con:method name="DataCustodian" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>200</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://192.168.1.6:8080</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:testSuite name="Web TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="IntegrationTests" searchProperties="true"><con:settings/><con:testStep type="groovy" name="UploadTestUsageDataFile"><con:settings/><con:config><script>/////////////////////////////////////////////////////////
 // Note: Generated by capture using Selenium in FF. 
 // Export to Java / JUnit 4 / WebDriver
 // Copy and paste into Groovy Script with minor tweaks
@@ -41,7 +41,9 @@ log.info("We are talking to: " + ServiceEndpoint)
 log.info("Test File Path: "+ TestFile)
 
 
+/////////////////////////////////////////////////////////
 // Create a new instance of the Firefox driver
+/////////////////////////////////////////////////////////
 WebDriver driver = new FirefoxDriver()
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -64,7 +66,6 @@ driver.findElement(By.name("submit")).click()
 /////////////////////////////////////////////////////////
 driver.findElement(By.linkText("Upload")).click();
 driver.findElement(By.name("file")).sendKeys(TestFile);
-//driver.findElement(By.name("file")).sendKeys("C:\\_Project\\NIST\\NISTGreenButton\\Source\\OpenESPI-Greenbutton-java\\OpenESPI-DataCustodian-java\\src\\main\\resources\\fixtures\\test_usage_data.xml");
 driver.findElement(By.name("upload")).click();
 driver.findElement(By.linkText("Customer List")).click();
 driver.findElement(By.linkText(TestRetailCustomer)).click();
@@ -92,7 +93,7 @@ driver.findElement(By.id("logout")).click();
 
 //Close the browser
 driver.quit()
-</script></con:config></con:testStep><con:testStep type="groovy" name="LogIntoDataCustodian"><con:settings/><con:config><script>/////////////////////////////////////////////////////////
+</script></con:config></con:testStep><con:testStep type="groovy" name="AuthorizationFromDataCustodianStart"><con:settings/><con:config><script>/////////////////////////////////////////////////////////
 // Note: Generated by capture using Selenium in FF. 
 // Export to Java / JUnit 4 / WebDriver
 // Copy and paste into Groovy Script with minor tweaks
@@ -128,106 +129,13 @@ def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
 def TestFile=project.getPropertyValue("TestFile")
 def projectPath = groovyUtils.projectPath
 
-//projectPath.replaceAll("\x5c","\x5c\x5c")
-
 log.info("We are talking to: " + ServiceEndpoint)
 log.info("Test File Path: "+ TestFile)
 
 
+/////////////////////////////////////////////////////////
 // Create a new instance of the Firefox driver
-WebDriver driver = new FirefoxDriver()
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
-
-// Open the DataCustodian Page
-driver.get("http://"+ServiceEndpoint+"/DataCustodian/")
-
 /////////////////////////////////////////////////////////
-// Log in as Manager
-/////////////////////////////////////////////////////////
-driver.findElement(By.id("login")).click();
-driver.findElement(By.name("j_username")).clear()
-driver.findElement(By.name("j_username")).sendKeys(TestManager)
-driver.findElement(By.name("j_password")).clear()
-driver.findElement(By.name("j_password")).sendKeys(TestManagerPW)
-driver.findElement(By.name("submit")).click()
-
-/////////////////////////////////////////////////////////
-// Now to the upload
-/////////////////////////////////////////////////////////
-driver.findElement(By.linkText("Upload")).click();
-driver.findElement(By.name("file")).sendKeys(TestFile);
-//driver.findElement(By.name("file")).sendKeys("C:\\_Project\\NIST\\NISTGreenButton\\Source\\OpenESPI-Greenbutton-java\\OpenESPI-DataCustodian-java\\src\\main\\resources\\fixtures\\test_usage_data.xml");
-driver.findElement(By.name("upload")).click();
-driver.findElement(By.linkText("Customer List")).click();
-driver.findElement(By.linkText(TestRetailCustomer)).click();
-driver.findElement(By.partialLinkText("Add Usage")).click();
-driver.findElement(By.id("UUID")).clear();
-driver.findElement(By.id("UUID")).sendKeys("48C2A019-5598-4E16-B0F9-49E4FF27F5FB");
-driver.findElement(By.id("description")).clear();
-driver.findElement(By.id("description")).sendKeys("test_usage_data");
-driver.findElement(By.name("create")).click();
-driver.findElement(By.id("logout")).click();
-
-/////////////////////////////////////////////////////////
-// now look at data as Retail Customer
-/////////////////////////////////////////////////////////
-driver.findElement(By.id("login")).click();
-driver.findElement(By.name("j_username")).clear()
-driver.findElement(By.name("j_username")).sendKeys(TestRetailCustomer)
-driver.findElement(By.name("j_password")).clear()
-driver.findElement(By.name("j_password")).sendKeys(TestRetailCustomerPW)
-driver.findElement(By.name("submit")).click()
-driver.findElement(By.linkText("Usage Points")).click();
-
-sleep(5000)
-driver.findElement(By.id("logout")).click();
-
-//Close the browser
-driver.quit()
-</script></con:config></con:testStep><con:testStep type="groovy" name="AuthorizationStep"><con:settings/><con:config><script>/////////////////////////////////////////////////////////
-// Note: Generated by capture using Selenium in FF. 
-// Export to Java / JUnit 4 / WebDriver
-// Copy and paste into Groovy Script with minor tweaks
-/////////////////////////////////////////////////////////
-
-/////////////////////////////////////////////////////////
-// Need these imports to run tests
-/////////////////////////////////////////////////////////
-import org.openqa.selenium.By
-import org.openqa.selenium.WebDriver
-import org.openqa.selenium.WebElement
-import org.openqa.selenium.firefox.FirefoxDriver
-import org.openqa.selenium.support.ui.ExpectedCondition
-import org.openqa.selenium.support.ui.WebDriverWait
-import java.util.concurrent.TimeUnit;
-import java.util.regex.Pattern;
-import java.util.concurrent.TimeUnit;
-import org.junit.*;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-
-/////////////////////////////////////////////////////////
-// get variables from the project Custom Properties
-/////////////////////////////////////////////////////////
-def project = testRunner.testCase.testSuite.project
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-
-def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
-def TestManager=project.getPropertyValue("TestManager")
-def TestManagerPW=project.getPropertyValue("TestManagerPW")
-def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
-def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=project.getPropertyValue("TestFile")
-def projectPath = groovyUtils.projectPath
-
-//projectPath.replaceAll("\x5c","\x5c\x5c")
-
-log.info("We are talking to: " + ServiceEndpoint)
-log.info("Test File Path: "+ TestFile)
-
-
-// Create a new instance of the Firefox driver
 WebDriver driver = new FirefoxDriver()
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -251,31 +159,35 @@ driver.findElement(By.id("logout")).click();
 /////////////////////////////////////////////////////////
 // Log in as Alan and do the OAuth thing
 /////////////////////////////////////////////////////////
+driver.findElement(By.id("login")).click();
+driver.findElement(By.name("j_username")).clear();
+driver.findElement(By.name("j_username")).sendKeys(TestRetailCustomer);
+driver.findElement(By.name("j_password")).clear();
+driver.findElement(By.name("j_password")).sendKeys(TestRetailCustomerPW);
+driver.findElement(By.name("submit")).click();
+driver.findElement(By.linkText("Third Parties")).click();
+driver.findElement(By.name("Third_party")).click();
+driver.findElement(By.cssSelector("label")).click();
+driver.findElement(By.name("next")).click();
+driver.findElement(By.name("j_username")).clear();
+driver.findElement(By.name("j_username")).sendKeys(TestRetailCustomer);
+driver.findElement(By.name("j_password")).clear();
+driver.findElement(By.name("j_password")).sendKeys(TestRetailCustomerPW);
+driver.findElement(By.name("submit")).click();
+driver.findElement(By.name("scope")).click();
+driver.findElement(By.name("next")).click();
+driver.findElement(By.name("authorize")).click();
+driver.findElement(By.linkText("Usage Points")).click();
+driver.findElement(By.linkText("test_usage_data")).click();
 
-    driver.findElement(By.id("login")).click();
-    driver.findElement(By.name("j_username")).clear();
-    driver.findElement(By.name("j_username")).sendKeys("alan");
-    driver.findElement(By.name("j_password")).clear();
-    driver.findElement(By.name("j_password")).sendKeys("koala");
-    driver.findElement(By.name("submit")).click();
-    driver.findElement(By.linkText("Third Parties")).click();
-    driver.findElement(By.name("Third_party")).click();
-    driver.findElement(By.cssSelector("label")).click();
-    driver.findElement(By.name("next")).click();
-    driver.findElement(By.name("j_username")).clear();
-    driver.findElement(By.name("j_username")).sendKeys("alan");
-    driver.findElement(By.name("j_password")).clear();
-    driver.findElement(By.name("j_password")).sendKeys("koala");
-    driver.findElement(By.name("submit")).click();
-    driver.findElement(By.name("scope")).click();
-    driver.findElement(By.name("next")).click();
-    driver.findElement(By.name("authorize")).click();
-    driver.findElement(By.linkText("Usage Points")).click();
-    driver.findElement(By.linkText("test_usage_data")).click();
 
+sleep(5000)
+
+/////////////////////////////////////////////////////////
 //Close the browser
+/////////////////////////////////////////////////////////
 driver.quit()
-</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="true" maxResults="0" name="UploadTestDataSave" searchProperties="true" id="f1f07eaf-a2b0-479a-9200-2e5727777c1b" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings/><con:testStep type="httprequest" name="LoadDataCustodianPage"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="LoadDataCustodianPage" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#ServiceEndpoint}/DataCustodian</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="Http Test Step 2 [/DataCustodian/login]"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="Http Test Step 2 [/DataCustodian/login]" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+</script></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>sessionid</con:name><con:value>null</con:value></con:property></con:properties></con:testSuite><con:testSuite name="Play"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="true" maxResults="0" name="UploadTestDataSave" searchProperties="true" id="f1f07eaf-a2b0-479a-9200-2e5727777c1b" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings/><con:testStep type="httprequest" name="LoadDataCustodianPage"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="LoadDataCustodianPage" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#ServiceEndpoint}/DataCustodian</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="Http Test Step 2 [/DataCustodian/login]"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="Http Test Step 2 [/DataCustodian/login]" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
   <con:entry key="Accept-Language" value="en-us,en;q=0.5"/>
   <con:entry key="Host" value="localhost:8080"/>
   <con:entry key="Accept-Charset" value="ISO-8859-1,utf-8;q=0.7,*;q=0.7"/>
@@ -12853,7 +12765,100 @@ permissions and limitations under the License.
   <con:entry key="Accept-Encoding" value="gzip,deflate"/>
   <con:entry key="User-Agent" value="Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2) Gecko"/>
   <con:entry key="Accept" value="text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"/>
-</xml-fragment>]]></con:setting></con:settings><con:endpoint>http://${#Project#ServiceEndpoint}/DataCustodian/custodian/retailcustomers</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:properties><con:property><con:name>sessionid</con:name><con:value>1</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SeleniumTest" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Groovy"><con:settings/><con:config><script>import org.openqa.selenium.By
+</xml-fragment>]]></con:setting></con:settings><con:endpoint>http://${#Project#ServiceEndpoint}/DataCustodian/custodian/retailcustomers</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:properties><con:property><con:name>sessionid</con:name><con:value>1</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SeleniumTestSave" searchProperties="true"><con:settings/><con:testStep type="groovy" name="LogIntoDataCustodian"><con:settings/><con:config><script>/////////////////////////////////////////////////////////
+// Note: Generated by capture using Selenium in FF. 
+// Export to Java / JUnit 4 / WebDriver
+// Copy and paste into Groovy Script with minor tweaks
+/////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////
+// Need these imports to run tests
+/////////////////////////////////////////////////////////
+import org.openqa.selenium.By
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.firefox.FirefoxDriver
+import org.openqa.selenium.support.ui.ExpectedCondition
+import org.openqa.selenium.support.ui.WebDriverWait
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+
+/////////////////////////////////////////////////////////
+// get variables from the project Custom Properties
+/////////////////////////////////////////////////////////
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+
+def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+def TestManager=project.getPropertyValue("TestManager")
+def TestManagerPW=project.getPropertyValue("TestManagerPW")
+def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+def TestFile=project.getPropertyValue("TestFile")
+def projectPath = groovyUtils.projectPath
+
+//projectPath.replaceAll("\x5c","\x5c\x5c")
+
+log.info("We are talking to: " + ServiceEndpoint)
+log.info("Test File Path: "+ TestFile)
+
+
+// Create a new instance of the Firefox driver
+WebDriver driver = new FirefoxDriver()
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+
+// Open the DataCustodian Page
+driver.get("http://"+ServiceEndpoint+"/DataCustodian/")
+
+/////////////////////////////////////////////////////////
+// Log in as Manager
+/////////////////////////////////////////////////////////
+driver.findElement(By.id("login")).click();
+driver.findElement(By.name("j_username")).clear()
+driver.findElement(By.name("j_username")).sendKeys(TestManager)
+driver.findElement(By.name("j_password")).clear()
+driver.findElement(By.name("j_password")).sendKeys(TestManagerPW)
+driver.findElement(By.name("submit")).click()
+
+/////////////////////////////////////////////////////////
+// Now to the upload
+/////////////////////////////////////////////////////////
+driver.findElement(By.linkText("Upload")).click();
+driver.findElement(By.name("file")).sendKeys(TestFile);
+//driver.findElement(By.name("file")).sendKeys("C:\\_Project\\NIST\\NISTGreenButton\\Source\\OpenESPI-Greenbutton-java\\OpenESPI-DataCustodian-java\\src\\main\\resources\\fixtures\\test_usage_data.xml");
+driver.findElement(By.name("upload")).click();
+driver.findElement(By.linkText("Customer List")).click();
+driver.findElement(By.linkText(TestRetailCustomer)).click();
+driver.findElement(By.partialLinkText("Add Usage")).click();
+driver.findElement(By.id("UUID")).clear();
+driver.findElement(By.id("UUID")).sendKeys("48C2A019-5598-4E16-B0F9-49E4FF27F5FB");
+driver.findElement(By.id("description")).clear();
+driver.findElement(By.id("description")).sendKeys("test_usage_data");
+driver.findElement(By.name("create")).click();
+driver.findElement(By.id("logout")).click();
+
+/////////////////////////////////////////////////////////
+// now look at data as Retail Customer
+/////////////////////////////////////////////////////////
+driver.findElement(By.id("login")).click();
+driver.findElement(By.name("j_username")).clear()
+driver.findElement(By.name("j_username")).sendKeys(TestRetailCustomer)
+driver.findElement(By.name("j_password")).clear()
+driver.findElement(By.name("j_password")).sendKeys(TestRetailCustomerPW)
+driver.findElement(By.name("submit")).click()
+driver.findElement(By.linkText("Usage Points")).click();
+
+sleep(5000)
+driver.findElement(By.id("logout")).click();
+
+//Close the browser
+driver.quit()
+</script></con:config></con:testStep><con:testStep type="groovy" name="Groovy"><con:settings/><con:config><script>import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.firefox.FirefoxDriver
@@ -13023,4 +13028,4 @@ log.info("here is a message")
         }
 
 
-</script></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>sessionid</con:name><con:value>null</con:value></con:property></con:properties></con:testSuite><con:properties><con:property><con:name>ServiceEndpoint</con:name><con:value>services.greenbuttondata.org</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>C:\_Project\NIST\NISTGreenButton\Source\OpenESPI-GreenButtonCMDTest\data\test_usage_data.xml</con:value></con:property></con:properties><con:wssContainer/><con:sensitiveInformation/></con:soapui-project>
+</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>ServiceEndpoint</con:name><con:value>services.greenbuttondata.org</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>C:\_Project\NIST\NISTGreenButton\Source\OpenESPI-GreenButtonCMDTest\data\test_usage_data.xml</con:value></con:property></con:properties><con:wssContainer/><con:sensitiveInformation/></con:soapui-project>
