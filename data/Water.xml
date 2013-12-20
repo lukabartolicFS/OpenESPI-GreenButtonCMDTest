@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="GreenButtonDataStyleSheet.xslt"?>
+
+<!--
+=========================================================
+=========================================================
+=========================================================
+=========================================================
+=========================================================
+=========================================================
+
+To view this data file in a browser in a more readable tabluar form
+please download the GreenButtonDataStyleSheet.xslt file by copying and
+pasting the following link in your browser and place the file in the same
+directory as this XML file:
+=====|
+http://www.greenbuttondata.org/data/downloading.aspx?file=GreenButtonDataStyleSheet.xslt
+|=====
+
+Please leave this heading comment section in this file.
+
+=========================================================
+=========================================================
+=========================================================
+=========================================================
+=========================================================
+=========================================================
+-->
+<!--
+==========================================================================
+Sample Green Button Data File:  Water.xml
+Version: 0.7 20130920
+     Author: Ron Pasquarelli, Marty Burns (Hypertek for NIST)
+     Notice: This is draft prototype developed for SGIP by the Administrator Technical Team (EnerNex)
+==========================================================================
+Copyright (c) 2012,2013 EnergyOS.org
+
+Licensed by EnergyOS.org under one or more contributor license agreements.
+
+See the NOTICE file distributed with this work for additional 
+information regarding copyright ownership. The EnergyOS.org licenses this 
+file to you under the Apache License, Version 2.0 (the "; License; "); 
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at:
+http://www.apache.org/licenses/LICENSE-2.0
+  
+Unless required by applicable law or agreed to in writing, software 
+distributed under the License is distributed on an "AS IS" BASIS, 
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or 
+implied.  See the License for the specific language governing 
+permissions and limitations under the License.
+-->
+    
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:espi="http://naesb.org/espi"  xsi:schemaLocation="http://naesb.org/espi espiDerived.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <id>urn:uuid:AF1AEBBF-8462-4BAB-8625-E400488C8B11</id>
+ <title>Green Button Subscription Feed</title>
+ <updated>2012-10-24T00:00:00Z</updated>
+ <link rel="self" href="/espi/1_1/resource/Subscription/83e269c1"/>
+    <entry>
+    <id>urn:uuid:A8914B45-719D-4131-BB8C-80FC48CD7C9E</id>
+        <link rel="self" href="/espi/1_1/resource/RetailCustomer/9B6C7071/UsagePoint/5446AF3F"/>
+        <link rel="up" href="/espi/1_1/resource/RetailCustomer/9B6C7071/UsagePoint"/>
+        <link rel="related" href="/espi/1_1/resource/RetailCustomer/9B6C7071/UsagePoint/5446AF3F/MeterReading"/>
+        <link rel="related" href="/espi/1_1/resource/RetailCustomer/9B6C7071/UsagePoint/5446AF3F/ElectricPowerUsageSummary"/>
+        <link rel="related" href="/espi/1_1/resource/LocalTimeParameters/01"/>
+        <title>a galaxy far, far away</title>
+        <content>
+            <UsagePoint xmlns="http://naesb.org/espi">
+                <ServiceCategory>
+                    <kind>2</kind>
+                </ServiceCategory>
+            </UsagePoint>
+        </content>
+        <published>2012-10-24T00:00:00Z</published>
+        <updated>2012-10-24T00:00:00Z</updated>
+    </entry>
+    <entry>
+    <id>urn:uuid:C9E9F65A-B7F7-4C0B-9788-0641FBB3E45A</id>
+            <link rel="self" href="/espi/1_1/resource/LocalTimeParameters/01"/>
+            <link rel="up" href="/espi/1_1/resource/LocalTimeParameters"/>
+            <title>DST For North America</title>
+            <content>
+            <LocalTimeParameters xmlns="http://naesb.org/espi">
+                        <dstEndRule>B40E2000</dstEndRule>
+                        <dstOffset>3600</dstOffset>
+                        <dstStartRule>360E2000</dstStartRule>
+                        <tzOffset>-18000</tzOffset>
+            </LocalTimeParameters>
+        </content>
+        <published>2012-10-24T00:00:00Z</published>
+        <updated>2012-10-24T00:00:00Z</updated>
+    </entry>
+    <entry>
+    <id>urn:uuid:ABCFC01A-DC35-401C-B26A-3340065DCDE2</id>
+        <link rel="self" href="/espi/1_1/resource/RetailCustomer/9B6C7071/UsagePoint/5446AF3F/MeterReading/01"/>
+        <link rel="up" href="/espi/1_1/resource/RetailCustomer/9B6C7071/UsagePoint/5446AF3F/MeterReading"/>
+        <link rel="related" href="/espi/1_1/resource/RetailCustomer/9B6C7071/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
+        <link rel="related" href="/espi/1_1/resource/ReadingType/07"/>
+        <title>Monthly Water Consumption</title>
+        <content>
+            <MeterReading xmlns="http://naesb.org/espi"/>
+        </content>
+        <published>2012-10-24T00:00:00Z</published>
+        <updated>2012-10-24T00:00:00Z</updated>
+    </entry>
+    <entry>
+    <id>urn:uuid:4BD49EB4-CCC2-48A9-AB46-BE6F79CAE36C</id>
+        <link rel="self" href="/espi/1_1/resource/ReadingType/07"/>
+        <link rel="up" href="/espi/1_1/resource/ReadingType"/>
+        <title>Type of Meter Reading Data</title>
+        <content>
+            <ReadingType xmlns="http://naesb.org/espi">
+                <accumulationBehaviour>4</accumulationBehaviour>
+                <commodity>9</commodity>
+                <currency>840</currency>
+                <dataQualifier>12</dataQualifier>
+                <flowDirection>1</flowDirection>
+                <intervalLength>2678400</intervalLength>
+                <kind>12</kind>
+                <powerOfTenMultiplier>3</powerOfTenMultiplier>
+                <timeAttribute>0</timeAttribute>
+                <uom>128</uom>
+            </ReadingType>
+        </content>
+        <published>2012-10-24T00:00:00Z</published>
+        <updated>2012-10-24T00:00:00Z</updated>
+    </entry>
+<entry>
+    <id>urn:uuid:B05C5B94-88A7-4511-AC65-DB9FA1746D4B</id>
+    <link rel="self" href="/espi/1_1/resource/RetailCustomer/9B6C7071/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/173"/>
+    <link rel="up" href="/espi/1_1/resource/RetailCustomer/9B6C7071/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
+    <title/>
+    <content>
+<IntervalBlock xmlns="http://naesb.org/espi">
+    <interval>
+        <duration>2592000</duration>
+        <start>1333252800</start>
+        <!-- start date: 4/1/2012 4:00:00 AM -->
+    </interval>
+<IntervalReading>
+    <cost>33729</cost>
+    <timePeriod>
+        <duration>2592000</duration>
+        <start>1333252800</start>
+         <!-- 4/1/2012 4:00:00 AM  -->
+    </timePeriod>
+    <value>24720</value>
+</IntervalReading>
+</IntervalBlock>
+    </content>
+    <published>2012-10-24T00:00:00Z</published>
+    <updated>2012-10-24T00:00:00Z</updated>
+</entry>
+<entry>
+    <id>urn:uuid:BC31216E-227A-4343-BBAB-7C6A53A62027</id>
+    <link rel="self" href="/espi/1_1/resource/RetailCustomer/9B6C7071/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/174"/>
+    <link rel="up" href="/espi/1_1/resource/RetailCustomer/9B6C7071/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
+    <title/>
+    <content>
+<IntervalBlock xmlns="http://naesb.org/espi">
+    <interval>
+        <duration>345600</duration>
+        <start>1335844800</start>
+        <!-- start date: 5/1/2012 4:00:00 AM -->
+    </interval>
+<IntervalReading>
+    <cost>5594</cost>
+    <timePeriod>
+        <duration>345600</duration>
+        <start>1335844800</start>
+         <!-- 5/1/2012 4:00:00 AM  -->
+    </timePeriod>
+    <value>2685</value>
+</IntervalReading>
+</IntervalBlock>
+    </content>
+    <published>2012-10-24T00:00:00Z</published>
+    <updated>2012-10-24T00:00:00Z</updated>
+</entry>
+    <entry>
+    <id>urn:uuid:9F40C5F6-C2F3-4170-B32E-3F8C6CA3BBCD</id>
+        <link rel="self" href="/espi/1_1/resource/RetailCustomer/9B6C7071/UsagePoint/5446AF3F/ElectricPowerUsageSummary/01"/>
+        <link rel="up" href="/espi/1_1/resource/RetailCustomer/9B6C7071/UsagePoint/5446AF3F/ElectricPowerUsageSummary"/>
+        <title>Usage Summary</title>
+        <content>
+            <ElectricPowerUsageSummary xmlns="http://naesb.org/espi">
+                <billingPeriod>
+                    <duration>2592000</duration>
+                    <start>1333252800</start>
+                </billingPeriod>
+                <billLastPeriod>1884000</billLastPeriod>
+                <billToDate>6000</billToDate>
+                <costAdditionalLastPeriod>1850000</costAdditionalLastPeriod>
+                <currency>840</currency>
+                <overallConsumptionLastPeriod>
+                    <powerOfTenMultiplier>3</powerOfTenMultiplier>
+                    <uom>128</uom>
+                    <value>24720</value>
+                </overallConsumptionLastPeriod>
+                <currentBillingPeriodOverAllConsumption>
+                    <powerOfTenMultiplier>3</powerOfTenMultiplier>
+                    <timeStamp>1336190400</timeStamp>
+                    <uom>128</uom>
+                    <value>2685</value>
+                </currentBillingPeriodOverAllConsumption>
+                <qualityOfReading>14</qualityOfReading>
+                <statusTimeStamp>1336190400</statusTimeStamp>
+            </ElectricPowerUsageSummary>
+        </content>
+        <published>2012-10-24T00:00:00Z</published>
+        <updated>2012-10-24T00:00:00Z</updated>
+    </entry>
+</feed>
