@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entry xml:lang="en-us" xsi:schemaLocation="http://naesb.org/espi espiDerived.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.w3.org/2005/Atom" xmlns:espi="http://naesb.org/espi">
+	<id>urn:uuid:979313AE-885D-4860-B6C2-60B42B36B323</id>
+	<link rel="self" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F"/>
+	<link rel="up" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint"/>
+	<link rel="related" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading"/>
+	<link rel="related" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/ElectricPowerUsageSummary"/>
+	<link rel="related" href="/espi/1_1/resource/LocalTimeParameters/01"/>
+	<title>A Great Third Party</title>
+	<content>
+		<ApplicationInformation xmlns="http://naesb.org/espi">
+			<dataCustodianApplicationStatus>2</dataCustodianApplicationStatus>
+			<dataCustodianDefaultBatchResource>http://localhost:8080</dataCustodianDefaultBatchResource>
+			<dataCustodianDefaultSubscriptionResource>http://localhost:8080/espi/1_1/resource/Subscriptions</dataCustodianDefaultSubscriptionResource>
+			<thirdPartyApplicationDescription>Third Party Sample Application Description</thirdPartyApplicationDescription>
+			<thirdPartyApplicationStatus>1</thirdPartyApplicationStatus>
+			<thirdPartyApplicationType>1</thirdPartyApplicationType>
+			<thirdPartyApplicationUse>1</thirdPartyApplicationUse>
+			<thirdPartyPhone>(800) 673-6377</thirdPartyPhone>
+			<authorizationServerUri>http://localhost:8080</authorizationServerUri>
+			<thirdPartyNotifyUri>http://localhost:8080/espi/1_1/Notify_SubscriptionAvailable</thirdPartyNotifyUri>
+			<AuthorizationServerAuthorizationEndpoint>http://localhost:8080/oauth/authorize</AuthorizationServerAuthorizationEndpoint>
+			<AuthorizationServerRegistrationEndpoint>http://localhost:8080/espi/1_1/register</AuthorizationServerRegistrationEndpoint>
+			<AuthorizationServerTokenEndpoint>http://localhost:8080/oauth/token</AuthorizationServerTokenEndpoint>
+			<DataCustodianBulkRequestURI>http://localhost:8080</DataCustodianBulkRequestURI>
+			<DataCustodianThirdPartySelectionScreenURI>http://localhost:8080/RetailCustomer/{RetailCustomerID}/ThirdPartyList</DataCustodianThirdPartySelectionScreenURI>
+			<DataCustodianResourceEndpoint>http://localhost:8080</DataCustodianResourceEndpoint>
+			<ThirdPartyDataCustodianSelectionScreenURI>http://localhost:8080/RetailCustomer/{RetailCustomerID}/DataCustodianList</ThirdPartyDataCustodianSelectionScreenURI>
+			<ThirdPartyLoginScreenURI>http://localhost:8080/login</ThirdPartyLoginScreenURI>
+			<ThirdPartyScopeSelectionScreenURI>http://localhost:8080/RetailCustomer/{RetailCustomerID}/ScopeSelection</ThirdPartyScopeSelectionScreenURI>
+			<ThirdPartyUserPortalScreenURI>http://localhost:8080/RetailCustomer/{RetailCustomerID}/home</ThirdPartyUserPortalScreenURI>
+			<client_secret>third_party_client_secret</client_secret>
+			<logo_uri>http://localhost:8080</logo_uri>
+			<client_name>EnergyOS</client_name>
+			<client_uri>http://localhost:8080</client_uri>
+			<redirect_uri>http://localhost:8080/espi/1_1/OAuthCallBack</redirect_uri>
+			<client_id>third_party</client_id>
+			<tos_uri>http://localhost:8080</tos_uri>
+			<policy_uri>http://localhost:8080</policy_uri>
+			<software_id>1.00.00</software_id>
+			<software_version>version 001</software_version>
+			<client_id_issued_at>2147483647</client_id_issued_at>
+			<client_secret_expires_at>2147483647</client_secret_expires_at>
+			<contacts>john.teeter@nist.gov, john.teeter@energyos.org, marty@hypertek.us, donald.coffin@reminetworks.com</contacts>
+			<token_endpoint_auth_method>client_secret_basic</token_endpoint_auth_method>
+			<scope>FB=4_5_12_15_16;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</scope>
+			<grant_types>authorization_code</grant_types>
+			<grant_types>client_credentials</grant_types>
+			<grant_types>refresh_token</grant_types>
+			<response_types>code</response_types>
+			<registration_client_uri>http://localhost:8080/espi/1_1/resource/ApplicationInformation/{ApplicationInformationID}/</registration_client_uri>
+			<registration_access_token>3abbc0c4-8dba-45c4-a54b-042737c39dc9</registration_access_token>
+		</ApplicationInformation>
+	</content>
+	<published>2012-10-24T00:00:00Z</published>
+	<updated>2012-10-24T00:00:00Z</updated>
+</entry>
