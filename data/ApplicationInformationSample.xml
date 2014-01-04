@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <entry xml:lang="en-us" xsi:schemaLocation="http://naesb.org/espi espiDerived.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.w3.org/2005/Atom" xmlns:espi="http://naesb.org/espi">
 	<id>urn:uuid:979313AE-885D-4860-B6C2-60B42B36B323</id>
-	<link rel="self" href="/espi/1_1/resource/ApplicationInformation/{ApplicationInformationId}"/>
-	<link rel="up" href="/espi/1_1/resource/ApplicationInformation"/>
+	<link rel="self" href="https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource/ApplicationInformation/{ApplicationInformationId}"/>
+	<link rel="up" href="https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource/ApplicationInformation"/>
 	<title>EnergyOS Green Button  Third Party</title>
 	<content>
 		<ApplicationInformation xmlns="http://naesb.org/espi">
 			<dataCustodianApplicationStatus>2</dataCustodianApplicationStatus>
 			<dataCustodianDefaultBatchResource>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource/ThirdParty/{ThirdPartyId}/Batch</dataCustodianDefaultBatchResource>
 			<dataCustodianDefaultSubscriptionResource>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource/Subscription</dataCustodianDefaultSubscriptionResource>
+			<thirdPartyApplicationName>EnergyOS Green Button Third Party Application</thirdPartyApplicationName>
 			<thirdPartyApplicationDescription>Energyos Green Button Third Party Sample Application Description</thirdPartyApplicationDescription>
 			<thirdPartyApplicationStatus>1</thirdPartyApplicationStatus>
 			<thirdPartyApplicationType>1</thirdPartyApplicationType>
@@ -24,7 +25,7 @@
 			<DataCustodianResourceEndpoint>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource</DataCustodianResourceEndpoint>
 			<ThirdPartyDataCustodianSelectionScreenURI>https://services.greenbuttondata.org/ThirdParty/RetailCustomer/{RetailCustomerID}/DataCustodianList</ThirdPartyDataCustodianSelectionScreenURI>
 			<ThirdPartyLoginScreenURI>https://services.greenbuttondata.org/ThirdParty/login</ThirdPartyLoginScreenURI>
-			<ThirdPartyScopeSelectionScreenURI>https://services.greenbuttondata.org/ThirdParty/espi/1_1/RetailCustomer/{RetailCustomerID}/ScopeSelection</ThirdPartyScopeSelectionScreenURI>
+			<ThirdPartyScopeSelectionScreenURI>https://services.greenbuttondata.org/DataCustodian/espi/1_1/RetailCustomer/{RetailCustomerID}/ScopeSelection</ThirdPartyScopeSelectionScreenURI>
 			<ThirdPartyUserPortalScreenURI>https://services.greenbuttondata.org/ThirdParty/espi/1_1/RetailCustomer/{RetailCustomerID}/home</ThirdPartyUserPortalScreenURI>
 			<client_secret>third_party_client_secret</client_secret>
 			<logo_uri>http://services.greenbuttondata.org/ThirdParty/favicon.png</logo_uri>
