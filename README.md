@@ -61,7 +61,7 @@ AuthorizationInformationSample.xml
 
 Test GreenButton_10.xml: 
 
-https://s3.amazonaws.com/openespi/TestGreenButtonFiles/Test+GreenButton_10.xml
+https://s3.amazonaws.com/openespi/TestGreenButtonFiles/Test_GreenButton_10.xml
 
 	UUID of Usage Point: 
 	
