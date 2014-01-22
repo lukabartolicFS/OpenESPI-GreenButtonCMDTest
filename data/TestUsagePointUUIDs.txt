@@ -23,7 +23,7 @@ Larger Files remote on Amazonws
 =======================================
 Test GreenButton_10.xml: 
 	UUID of Usage Point: 9c226002-f1e7-4f56-98b0-cbf227660b48
-	https://s3.amazonaws.com/openespi/TestGreenButtonFiles/Test+GreenButton_10.xml
+	https://s3.amazonaws.com/openespi/TestGreenButtonFiles/Test_GreenButton_10.xml
 
 Bulk_10Customer_1UsagePoints_15MinuteInterval_1Year.xml:
 	https://s3.amazonaws.com/openespi/TestGreenButtonFiles/Bulk_10Customer_1UsagePoints_15MinuteInterval_1Year.xml
