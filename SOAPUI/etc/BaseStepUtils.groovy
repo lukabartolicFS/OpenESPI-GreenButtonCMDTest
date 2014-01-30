@@ -30,6 +30,15 @@ public class BaseStepUtilsA {
 		_driver.quit();
 	}
 
+	public static void Before()
+	{	
+        _driver.get(THIRD_PARTY_BASE_URL + "/j_spring_security_logout");
+        _driver.get(DATA_CUSTODIAN_BASE_URL + "/logout.do");
+        login(DATA_CUSTODIAN_BASE_URL, "grace", "koala");    
+        _driver.get(DATA_CUSTODIAN_BASE_URL + "/custodian/removealltokens");
+        _driver.get(DATA_CUSTODIAN_BASE_URL + "/logout.do");	     	
+	}
+
 	public static void login(String strEndpoint,String strUserName,String strPassword)
 	{
 		_driver.get(strEndpoint);
@@ -51,6 +60,11 @@ public class BaseStepUtilsA {
 		_driver.findElement(By.name(strLink)).sendKeys(strValue);
 	}
 	
+	public static void clickByXpath(String strLink)
+	{
+		_driver.findElement(By.xpath(strLink)).click();
+	}
+
 	public static void clickLinkByText(String strLink)
 	{
         WebElement link = _driver.findElement(By.linkText(strLink));
@@ -83,6 +97,16 @@ public class BaseStepUtilsA {
 	public static clickByName(String strName)
 	{
 		_driver.findElement(By.name(strName)).click();
+	}
+
+	public static assertUrlContains(String strValue)
+	{
+		if(!_driver.getCurrentUrl().contains(strValue))
+		{
+			log.error("Current URL does not contain: '" + strValue + "'");
+			_driver.quit();
+			assert false;			
+		}
 	}
 
 	public static assertUrlEndsWith(String strValue)
