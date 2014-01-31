@@ -12473,7 +12473,7 @@ permissions and limitations under the License.
 	<entry>
 		<id>urn:uuid:DEB0A337-C1B5-4658-99BA-4688E253A99B</id>
 		<link rel="self" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/ElectricPowerQualitySummary/01"/>
-		<link rel="up" type="" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/ElectricPowerQualitySummary"/>
+		<link rel="up" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/ElectricPowerQualitySummary"/>
 		<title>Quality Summary</title>
 		<content>
 			<ElectricPowerQualitySummary xmlns="http://naesb.org/espi">
