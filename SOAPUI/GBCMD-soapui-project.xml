@@ -16139,7 +16139,7 @@ count(//ns3:entry)</path><content>14</content><allowWildcards>false</allowWildca
       </ServiceCategory>
     </UsagePoint>
   </content>
-</entry>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CucumberTests Feature: Retail Customers" searchProperties="true" id="fa3949ff-a0a7-4274-ace9-674a8169ebd4"><con:settings/><con:testStep type="groovy" name="Feature: Retail Customers"><con:settings/><con:config><script>//******************************************************************************************************************
+</entry>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Feature: Retail Customers" searchProperties="true" id="fa3949ff-a0a7-4274-ace9-674a8169ebd4"><con:settings/><con:testStep type="groovy" name="Feature: Retail Customers"><con:settings/><con:config><script>//******************************************************************************************************************
 //******************************************************************************************************************
 log.info("Feature: Retail Customers");
 log.info("  As a Retail Customer,");
@@ -16147,7 +16147,9 @@ log.info("  I want to be able to view my usage point in my browser");
 log.info("  So that I can see my UsagePoints");
 //******************************************************************************************************************
 //******************************************************************************************************************
-</script></con:config></con:testStep><con:testStep type="groovy" name="Scenario: Retail Customer authorizes Usage Points access"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
+</script></con:config></con:testStep><con:testStep type="groovy" name="Scenario: Retail Customer authorizes Usage Points access"><con:settings/><con:config><script>import static org.junit.Assert.*;
+
+def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
@@ -16160,112 +16162,121 @@ def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
 
 Object StepUtils = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(log);
 
-
-//*********************************************************
-log.info("Scenario: Retail Customer authorizes Usage Points access");
-//*********************************************************
-// reset DB : run library groovy script
-testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
-// Browser Init
-StepUtils.Before();
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.logStep("Given a Retail Customer with Usage Points");
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.login(ServiceEndpoint+"/DataCustodian/",TestManager,TestManagerPW);
-StepUtils.assertUrlEndsWith("/DataCustodian/custodian/home");
-
-// add usage point linkage
-StepUtils.clickLinkByText("Customer List");
-StepUtils.clickLinkByText(TestRetailCustomer);
-StepUtils.clickBypartialLinkText("Add Usage");
-StepUtils.fillInById("UUID","48C2A019-5598-4E16-B0F9-49E4FF27F5FB");
-StepUtils.fillInById("description","test_usage_data");
-StepUtils.clickByName("create");
-
-// upload usage point file
-StepUtils.clickLinkByText("Upload");
-StepUtils.sendKeysByName("file",TestFile);
-StepUtils.clickByName("upload");
-StepUtils.assertDoesNotContain("Unable to process file");
-
-StepUtils.logout(ServiceEndpoint+"/DataCustodian/");
-
-StepUtils.login(ServiceEndpoint+"/ThirdParty/",TestRetailCustomer,TestRetailCustomerPW);
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.logStep("When I look at my Usage Points page");
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.clickLinkByText("Usage Points");
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.logStep("Then I should see Data Custodian selection page");
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.assertUrlEndsWith("/DataCustodianList");
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.logStep("And I select a Data Custodian from the list");
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.clickLinkByText("Data Custodians");
-//StepUtils.clickByClass("data-custodian");
-StepUtils.clickByName("Data_custodian");
-StepUtils.clickByName("next");
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.logStep("When I log into Data Custodian");
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.fillInByName("j_username", TestRetailCustomer);
-StepUtils.fillInByName("j_password", TestRetailCustomerPW);
-StepUtils.clickByName("submit");
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.logStep("Then I should see Scope selection screen");
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.assertContains("Select Scope");
-StepUtils.assertContains("FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13");
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.logStep("When I select Scopes");
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.clickByClass("scope");
-StepUtils.clickByXpath("(//input[@name='scope'])[2]");
-StepUtils.clickByName("next");
-        
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.logStep("Then I should see authorization screen");
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.assertContains("Please Confirm");
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.logStep("When I authorize Third Party");
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.clickByName("authorize");
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.logStep("Then I should see all my authorizations");
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.assertContains("Authorizations");
-//StepUtils.assertContains("ConEdison");
-StepUtils.assertContains("data_custodian");
-//StepUtils.assertContains("DataCustodian/espi/1_1/resource/Batch/Subscription/1");
-StepUtils.assertContains("DataCustodian/espi/1_1/resource/Batch/Subscription/");
-        
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.logStep("When I look at my Usage Points page");
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//StepUtils.clickLinkByText("Usage Points");
-        
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.logStep("Then I should see a Usage Point");
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//StepUtils.assertContains("Front Electric Meter");
-
+//StepUtils._bLogActions = true;
+String strResult = "";
+try{
+	//*********************************************************
+	log.info("Scenario: Retail Customer authorizes Usage Points access");
+	//*********************************************************
+	// reset DB : run library groovy script
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
+	// Browser Init
+	StepUtils.Before();
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.logStep("Given a Retail Customer with Usage Points");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.login(ServiceEndpoint+"/DataCustodian/",TestManager,TestManagerPW);
+	StepUtils.assertUrlEndsWith("/DataCustodian/custodian/home");
+	
+	// add usage point linkage
+	StepUtils.clickLinkByText("Customer List");
+	StepUtils.clickLinkByText(TestRetailCustomer);
+	StepUtils.clickBypartialLinkText("Add Usage");
+	StepUtils.fillInById("UUID","48C2A019-5598-4E16-B0F9-49E4FF27F5FB");
+	StepUtils.fillInById("description","test_usage_data");
+	StepUtils.clickByName("create");
+	
+	// upload usage point file
+	StepUtils.clickLinkByText("Upload");
+	StepUtils.sendKeysByName("file",TestFile);
+	StepUtils.clickByName("upload");
+	StepUtils.assertDoesNotContain("Unable to process file");
+	
+	StepUtils.logout(ServiceEndpoint+"/DataCustodian/");
+	
+	StepUtils.login(ServiceEndpoint+"/ThirdParty/",TestRetailCustomer,TestRetailCustomerPW);
+	
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.logStep("When I look at my Usage Points page");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.clickLinkByText("Usage Points");
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.logStep("Then I should see Data Custodian selection page");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.assertUrlEndsWith("/DataCustodianList");
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.logStep("And I select a Data Custodian from the list");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.clickLinkByText("Data Custodians");
+	//StepUtils.clickByClass("data-custodian");
+	StepUtils.clickByName("Data_custodian");
+	StepUtils.clickByName("next");
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.logStep("When I log into Data Custodian");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.fillInByName("j_username", TestRetailCustomer);
+	StepUtils.fillInByName("j_password", TestRetailCustomerPW);
+	StepUtils.clickByName("submit");
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.logStep("Then I should see Scope selection screen");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.assertContains("Select Scope");
+	StepUtils.assertContains("FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13");
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.logStep("When I select Scopes");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.clickByClass("scope");
+	StepUtils.clickByXpath("(//input[@name='scope'])[2]");
+	StepUtils.clickByName("next");
+	        
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.logStep("Then I should see authorization screen");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.assertContains("Please Confirm");
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.logStep("When I authorize Third Party");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.clickByName("authorize");
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.logStep("Then I should see all my authorizations");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.assertContains("Authorizations");
+	//StepUtils.assertContains("ConEdison");
+	StepUtils.assertContains("data_custodian");
+	//StepUtils.assertContains("DataCustodian/espi/1_1/resource/Batch/Subscription/1");
+	StepUtils.assertContains("DataCustodian/espi/1_1/resource/Batch/Subscription/");
+	        
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.logStep("When I look at my Usage Points page");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.clickLinkByText("Usage Points");
+	        
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.logStep("Then I should see a Usage Point");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.assertContains("Front Electric Meter");
+	
+} catch(Exception e) {
+	strResult = "Failed performing: Action from script line[" + StepUtils._iActionLineNum + "]:" + StepUtils._strActionMethodName;
+	log.error(strResult);
+}
 
 //Close the browser
 StepUtils.quit();
 
-</script></con:config></con:testStep><con:testStep type="groovy" name="Scenario: Retail Customer views Usage Points with Meter Readings"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
+assertTrue(strResult, strResult.length()==0);
+</script></con:config></con:testStep><con:testStep type="groovy" name="Scenario: Retail Customer views Usage Points with Meter Readings"><con:settings/><con:config><script>import static org.junit.Assert.*;
+
+def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
@@ -16278,140 +16289,148 @@ def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
 
 Object StepUtils = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(log);
 
-//*********************************************************
-log.info("Scenario: Retail Customer views Usage Points with Meter Readings");
-//*********************************************************
-// reset DB : run library groovy script
-testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
-// Browser Init
-StepUtils.Before();
-
-///////////////////////////////////////////////////////////  
-StepUtils.logStep("Given a Retail Customer with Usage Points");
-///////////////////////////////////////////////////////////
-StepUtils.login(ServiceEndpoint+"/DataCustodian/",TestManager,TestManagerPW);
-StepUtils.assertUrlEndsWith("/DataCustodian/custodian/home");
-
-// add usage point linkage
-StepUtils.clickLinkByText("Customer List");
-StepUtils.clickLinkByText(TestRetailCustomer);
-StepUtils.clickBypartialLinkText("Add Usage");
-StepUtils.fillInById("UUID","48C2A019-5598-4E16-B0F9-49E4FF27F5FB");
-StepUtils.fillInById("description","test_usage_data");
-StepUtils.clickByName("create");
-
-// upload usage point file
-StepUtils.clickLinkByText("Upload");
-StepUtils.sendKeysByName("file",TestFile);
-StepUtils.clickByName("upload");
-StepUtils.assertDoesNotContain("Unable to process file");
-
-StepUtils.logout(ServiceEndpoint+"/DataCustodian/");
-
-StepUtils.login(ServiceEndpoint+"/ThirdParty/",TestRetailCustomer,TestRetailCustomerPW);
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("When I look at my Usage Points page");
-///////////////////////////////////////////////////////////
-StepUtils.clickLinkByText("Usage Points");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("And I should see Data Custodian selection page");
-///////////////////////////////////////////////////////////
-StepUtils.assertUrlEndsWith("/DataCustodianList");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("And I select a Data Custodian from the list");
-///////////////////////////////////////////////////////////
-StepUtils.clickLinkByText("Data Custodians");
-//StepUtils.clickByClass("data-custodian");
-StepUtils.clickByName("Data_custodian");
-StepUtils.clickByName("next");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("When I log into Data Custodian");
-///////////////////////////////////////////////////////////
-StepUtils.fillInByName("j_username", TestRetailCustomer);
-StepUtils.fillInByName("j_password", TestRetailCustomerPW);
-StepUtils.clickByName("submit");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("Then I should see Scope selection screen");
-///////////////////////////////////////////////////////////
-StepUtils.assertContains("Select Scope");
-StepUtils.assertContains("FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("When I select Scopes");
-///////////////////////////////////////////////////////////
-StepUtils.clickByClass("scope");
-StepUtils.clickByXpath("(//input[@name='scope'])[2]");
-StepUtils.clickByName("next");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("Then I should see authorization screen");
-///////////////////////////////////////////////////////////
-StepUtils.assertContains("Please Confirm");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("When I authorize Third Party");
-///////////////////////////////////////////////////////////
-StepUtils.clickByName("authorize");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("Then I should see all my authorizations");
-///////////////////////////////////////////////////////////
-StepUtils.assertContains("Authorizations");
-//StepUtils.assertContains("ConEdison");
-StepUtils.assertContains("data_custodian");
-//StepUtils.assertContains("DataCustodian/espi/1_1/resource/Batch/Subscription/1");
-StepUtils.assertContains("DataCustodian/espi/1_1/resource/Batch/Subscription/");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("When I look at my Usage Points page");
-///////////////////////////////////////////////////////////
-StepUtils.clickLinkByText("Usage Points");
-
-StepUtils.quit();
-return;
-///////////////////////////////////////////////////////////
-StepUtils.logStep("Then I should see a Usage Point");
-///////////////////////////////////////////////////////////
-StepUtils.assertContains("Front Electric Meter");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("When I select Usage Point");
-///////////////////////////////////////////////////////////
-StepUtils.clickLinkByText("Front Electric Meter");
-        
-///////////////////////////////////////////////////////////
-StepUtils.logStep("Then I should see Usage Point details");
-///////////////////////////////////////////////////////////
-StepUtils.assertContains("Usage Summary");
-StepUtils.assertContains("Quality Summary");
-StepUtils.assertContains("Local time zone offset from UTCTime");
-StepUtils.assertContains("-18000");
-        
-///////////////////////////////////////////////////////////
-StepUtils.logStep("When I select Meter Reading");
-///////////////////////////////////////////////////////////
-StepUtils.clickLinkByText("Fifteen Minute Electricity Consumption");
-        
-///////////////////////////////////////////////////////////
-StepUtils.logStep("Then I should see Meter Reading details");
-///////////////////////////////////////////////////////////
-StepUtils.assertContains("Fifteen Minute Electricity Consumption");
-StepUtils.assertContains("Type of Meter Reading Data");
-StepUtils.assertContains("86400");
-StepUtils.assertContains("974");
-StepUtils.assertContains("900");
-StepUtils.assertContains("965");
-
+//StepUtils._bLogActions = true;
+String strResult = "";
+try{
+	//*********************************************************
+	log.info("Scenario: Retail Customer views Usage Points with Meter Readings");
+	//*********************************************************
+	// reset DB : run library groovy script
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
+	// Browser Init
+	StepUtils.Before();
+	
+	///////////////////////////////////////////////////////////  
+	StepUtils.logStep("Given a Retail Customer with Usage Points");
+	///////////////////////////////////////////////////////////
+	StepUtils.login(ServiceEndpoint+"/DataCustodian/",TestManager,TestManagerPW);
+	StepUtils.assertUrlEndsWith("/DataCustodian/custodian/home");
+	
+	// add usage point linkage
+	StepUtils.clickLinkByText("Customer List");
+	StepUtils.clickLinkByText(TestRetailCustomer);
+	StepUtils.clickBypartialLinkText("Add Usage");
+	StepUtils.fillInById("UUID","48C2A019-5598-4E16-B0F9-49E4FF27F5FB");
+	StepUtils.fillInById("description","test_usage_data");
+	StepUtils.clickByName("create");
+	
+	// upload usage point file
+	StepUtils.clickLinkByText("Upload");
+	StepUtils.sendKeysByName("file",TestFile);
+	StepUtils.clickByName("upload");
+	StepUtils.assertDoesNotContain("Unable to process file");
+	
+	StepUtils.logout(ServiceEndpoint+"/DataCustodian/");
+	
+	StepUtils.login(ServiceEndpoint+"/ThirdParty/",TestRetailCustomer,TestRetailCustomerPW);
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("When I look at my Usage Points page");
+	///////////////////////////////////////////////////////////
+	StepUtils.clickLinkByText("Usage Points");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("And I should see Data Custodian selection page");
+	///////////////////////////////////////////////////////////
+	StepUtils.assertUrlEndsWith("/DataCustodianList");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("And I select a Data Custodian from the list");
+	///////////////////////////////////////////////////////////
+	StepUtils.clickLinkByText("Data Custodians");
+	//StepUtils.clickByClass("data-custodian");
+	StepUtils.clickByName("Data_custodian");
+	StepUtils.clickByName("next");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("When I log into Data Custodian");
+	///////////////////////////////////////////////////////////
+	StepUtils.fillInByName("j_username", TestRetailCustomer);
+	StepUtils.fillInByName("j_password", TestRetailCustomerPW);
+	StepUtils.clickByName("submit");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("Then I should see Scope selection screen");
+	///////////////////////////////////////////////////////////
+	StepUtils.assertContains("Select Scope");
+	StepUtils.assertContains("FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("When I select Scopes");
+	///////////////////////////////////////////////////////////
+	StepUtils.clickByClass("scope");
+	StepUtils.clickByXpath("(//input[@name='scope'])[2]");
+	StepUtils.clickByName("next");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("Then I should see authorization screen");
+	///////////////////////////////////////////////////////////
+	StepUtils.assertContains("Please Confirm");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("When I authorize Third Party");
+	///////////////////////////////////////////////////////////
+	StepUtils.clickByName("authorize");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("Then I should see all my authorizations");
+	///////////////////////////////////////////////////////////
+	StepUtils.assertContains("Authorizations");
+	//StepUtils.assertContains("ConEdison");
+	StepUtils.assertContains("data_custodian");
+	//StepUtils.assertContains("DataCustodian/espi/1_1/resource/Batch/Subscription/1");
+	StepUtils.assertContains("DataCustodian/espi/1_1/resource/Batch/Subscription/");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("When I look at my Usage Points page");
+	///////////////////////////////////////////////////////////
+	StepUtils.clickLinkByText("Usage Points");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("Then I should see a Usage Point");
+	///////////////////////////////////////////////////////////
+	StepUtils.assertContains("Front Electric Meter");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("When I select Usage Point");
+	///////////////////////////////////////////////////////////
+	StepUtils.clickLinkByText("Front Electric Meter");
+	        
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("Then I should see Usage Point details");
+	///////////////////////////////////////////////////////////
+	StepUtils.assertContains("Usage Summary");
+	StepUtils.assertContains("Quality Summary");
+	StepUtils.assertContains("Local time zone offset from UTCTime");
+	StepUtils.assertContains("-18000");
+	        
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("When I select Meter Reading");
+	///////////////////////////////////////////////////////////
+	StepUtils.clickLinkByText("Fifteen Minute Electricity Consumption");
+	        
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("Then I should see Meter Reading details");
+	///////////////////////////////////////////////////////////
+	StepUtils.assertContains("Fifteen Minute Electricity Consumption");
+	StepUtils.assertContains("Type of Meter Reading Data");
+	StepUtils.assertContains("86400");
+	StepUtils.assertContains("974");
+	StepUtils.assertContains("900");
+	StepUtils.assertContains("965");
+	
+} catch(Exception e) {
+	strResult = "Failed performing: Action from script line[" + StepUtils._iActionLineNum + "]:" + StepUtils._strActionMethodName;
+	log.error(strResult);
+}
 
 //Close the browser
 StepUtils.quit();
 
-</script></con:config></con:testStep><con:testStep type="groovy" name="Scenario: Retail Customer authorizes Scope"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
+assertTrue(strResult, strResult.length()==0);
+</script></con:config></con:testStep><con:testStep type="groovy" name="Scenario: Retail Customer authorizes Scope"><con:settings/><con:config><script>import static org.junit.Assert.*;
+
+def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
@@ -16422,310 +16441,357 @@ def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
 def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
 
-Object StepUtils = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(log);
-
-
-//*********************************************************
-log.info("Scenario: Retail Customer authorizes Scope");
-//*********************************************************  
-// reset DB : run library groovy script
-testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
-// Browser Init
-StepUtils.Before();
-
-///////////////////////////////////////////////////////////  
-StepUtils.logStep("Given I have a Retail Customer account");
-///////////////////////////////////////////////////////////
-// Seed Data
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("When I log in as Alan Turing into Third Party");
-///////////////////////////////////////////////////////////
-StepUtils.login(ServiceEndpoint+"/ThirdParty/",TestRetailCustomer,TestRetailCustomerPW);
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("And I select a Data Custodian from the list");
-///////////////////////////////////////////////////////////
-StepUtils.clickLinkByText("Data Custodians");
-//StepUtils.clickByClass("data-custodian");
-StepUtils.clickByName("Data_custodian");
-StepUtils.clickByName("next");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("When I log into Data Custodian");
-///////////////////////////////////////////////////////////
-StepUtils.fillInByName("j_username", TestRetailCustomer);
-StepUtils.fillInByName("j_password", TestRetailCustomerPW);
-StepUtils.clickByName("submit");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("Then I should see Scope selection screen");
-///////////////////////////////////////////////////////////
-StepUtils.assertContains("Select Scope");
-StepUtils.assertContains("FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("When I select Scopes");
-///////////////////////////////////////////////////////////
-StepUtils.clickByClass("scope");
-StepUtils.clickByXpath("(//input[@name='scope'])[2]");
-StepUtils.clickByName("next");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("Then I should see authorization screen");
-///////////////////////////////////////////////////////////
-StepUtils.assertContains("Please Confirm");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("When I authorize Third Party");
-///////////////////////////////////////////////////////////
-StepUtils.clickByName("authorize");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("Then I should see all my authorizations");
-///////////////////////////////////////////////////////////
-StepUtils.assertContains("Authorizations");
-//StepUtils.assertContains("ConEdison");
-StepUtils.assertContains("data_custodian");
-//StepUtils.assertContains("DataCustodian/espi/1_1/resource/Batch/Subscription/1");
-StepUtils.assertContains("DataCustodian/espi/1_1/resource/Batch/Subscription/");
-
-//Close the browser
-StepUtils.quit();</script></con:config></con:testStep><con:testStep type="groovy" name="Scenario: Retail Customer denies Scope"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-def projectPath = groovyUtils.projectPath
-
-def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
-def TestManager=project.getPropertyValue("TestManager")
-def TestManagerPW=project.getPropertyValue("TestManagerPW")
-def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
-def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
 
 Object StepUtils = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(log);
 
+//StepUtils._bLogActions = true;
+String strResult = "";
+try{
+	//*********************************************************
+	log.info("Scenario: Retail Customer authorizes Scope");
+	//*********************************************************  
+	// reset DB : run library groovy script
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
+	// Browser Init
+	StepUtils.Before();
+	
+	///////////////////////////////////////////////////////////  
+	StepUtils.logStep("Given I have a Retail Customer account");
+	///////////////////////////////////////////////////////////
+	// Seed Data
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("When I log in as Alan Turing into Third Party");
+	///////////////////////////////////////////////////////////
+	StepUtils.login(ServiceEndpoint+"/ThirdParty/",TestRetailCustomer,TestRetailCustomerPW);
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("And I select a Data Custodian from the list");
+	///////////////////////////////////////////////////////////
+	StepUtils.clickLinkByText("Data Custodians");
+	//StepUtils.clickByClass("data-custodian");
+	StepUtils.clickByName("Data_custodian");
+	StepUtils.clickByName("next");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("When I log into Data Custodian");
+	///////////////////////////////////////////////////////////
+	StepUtils.fillInByName("j_username", TestRetailCustomer);
+	StepUtils.fillInByName("j_password", TestRetailCustomerPW);
+	StepUtils.clickByName("submit");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("Then I should see Scope selection screen");
+	///////////////////////////////////////////////////////////
+	StepUtils.assertContains("Select Scope");
+	StepUtils.assertContains("FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("When I select Scopes");
+	///////////////////////////////////////////////////////////
+	StepUtils.clickByClass("scope");
+	StepUtils.clickByXpath("(//input[@name='scope'])[2]");
+	StepUtils.clickByName("next");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("Then I should see authorization screen");
+	///////////////////////////////////////////////////////////
+	StepUtils.assertContains("Please Confirm");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("When I authorize Third Party");
+	///////////////////////////////////////////////////////////
+	StepUtils.clickByName("authorize");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("Then I should see all my authorizations");
+	///////////////////////////////////////////////////////////
+	StepUtils.assertContains("Authorizations");
+	//StepUtils.assertContains("ConEdison");
+	StepUtils.assertContains("data_custodian");
+	//StepUtils.assertContains("DataCustodian/espi/1_1/resource/Batch/Subscription/1");
+	StepUtils.assertContains("DataCustodian/espi/1_1/resource/Batch/Subscription/");
 
-//*********************************************************
-log.info("Scenario: Retail Customer denies Scope");
-//********************************************************* 
-// reset DB : run library groovy script
-testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
-// Browser Init
-StepUtils.Before();
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("Given I have a Retail Customer account");
-///////////////////////////////////////////////////////////
-// Seed Data
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("When I log in as Alan Turing into Third Party");
-///////////////////////////////////////////////////////////
-StepUtils.login(ServiceEndpoint+"/ThirdParty/",TestRetailCustomer,TestRetailCustomerPW);
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("And I select a Data Custodian from the list");
-///////////////////////////////////////////////////////////
-StepUtils.clickLinkByText("Data Custodians");
-//StepUtils.clickByClass("data-custodian");
-StepUtils.clickByName("Data_custodian");
-StepUtils.clickByName("next");
-
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("When I log into Data Custodian");
-///////////////////////////////////////////////////////////
-StepUtils.fillInByName("j_username", TestRetailCustomer);
-StepUtils.fillInByName("j_password", TestRetailCustomerPW);
-StepUtils.clickByName("submit");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("Then I should see Scope selection screen");
-///////////////////////////////////////////////////////////
-StepUtils.assertContains("Select Scope");
-StepUtils.assertContains("FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("When I select Scopes");
-///////////////////////////////////////////////////////////
-StepUtils.clickByClass("scope");
-StepUtils.clickByXpath("(//input[@name='scope'])[2]");
-StepUtils.clickByName("next");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("Then I should see authorization screen");
-///////////////////////////////////////////////////////////
-StepUtils.assertContains("Please Confirm");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("When I deny Third Party");
-///////////////////////////////////////////////////////////
-StepUtils.clickByName("deny");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("Then I should be redirected to the home page");
-///////////////////////////////////////////////////////////
-StepUtils.assertUrlContains("RetailCustomer");
-StepUtils.assertUrlEndsWith("/home");
-
-//Close the browser
-StepUtils.quit();</script></con:config></con:testStep><con:testStep type="groovy" name="Scenario: Retail Customer authorizes Scope from Data Custodian"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-def projectPath = groovyUtils.projectPath
-
-def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
-def TestManager=project.getPropertyValue("TestManager")
-def TestManagerPW=project.getPropertyValue("TestManagerPW")
-def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
-def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
-
-Object StepUtils = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(log);
-
-
-//*********************************************************
-log.info("Scenario: Retail Customer authorizes Scope from Data Custodian");
-//*********************************************************
-// reset DB : run library groovy script
-testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
-// Browser Init
-StepUtils.Before();
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("Given I have a Retail Customer account");
-///////////////////////////////////////////////////////////
-// Seed Data
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("When I log in as Alan Turing into Data Custodian");
-///////////////////////////////////////////////////////////
-StepUtils.login(ServiceEndpoint+"/DataCustodian/",TestRetailCustomer,TestRetailCustomerPW);
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("And I select a Third Party from the list");
-///////////////////////////////////////////////////////////
-StepUtils.clickLinkByText("Third Parties");
-StepUtils.clickByClass("third-party");
-StepUtils.clickByName("next");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("When I log into Third Party");
-///////////////////////////////////////////////////////////
-StepUtils.fillInByName("j_username", TestRetailCustomer);
-StepUtils.fillInByName("j_password", TestRetailCustomerPW);
-StepUtils.clickByName("submit");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("Then I should see Scope selection screen");
-///////////////////////////////////////////////////////////
-StepUtils.assertContains("Select Scope");
-StepUtils.assertContains("FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("When I select Scopes");
-///////////////////////////////////////////////////////////
-StepUtils.clickByClass("scope");
-StepUtils.clickByXpath("(//input[@name='scope'])[2]");
-StepUtils.clickByName("next");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("Then I should see authorization screen");
-///////////////////////////////////////////////////////////
-StepUtils.assertContains("Please Confirm");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("When I authorize Third Party");
-///////////////////////////////////////////////////////////
-StepUtils.clickByName("authorize");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("Then I should see all my authorizations");
-///////////////////////////////////////////////////////////
-StepUtils.assertContains("Authorizations");
-//StepUtils.assertContains("ConEdison");
-StepUtils.assertContains("data_custodian");
-//StepUtils.assertContains("DataCustodian/espi/1_1/resource/Batch/Subscription/1");
-StepUtils.assertContains("DataCustodian/espi/1_1/resource/Batch/Subscription/");
-
-//Close the browser
-StepUtils.quit();</script></con:config></con:testStep><con:testStep type="groovy" name="Scenario: Retail Customer denies Scope from Data Custodian"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-def projectPath = groovyUtils.projectPath
-
-def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
-def TestManager=project.getPropertyValue("TestManager")
-def TestManagerPW=project.getPropertyValue("TestManagerPW")
-def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
-def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
-
-Object StepUtils = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(log);
-
-
-//*********************************************************
-log.info("Scenario: Retail Customer denies Scope from Data Custodian");
-//*********************************************************  
-// reset DB : run library groovy script
-testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
-// Browser Init
-StepUtils.Before();
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("Given I have a Retail Customer account");
-///////////////////////////////////////////////////////////
-// Seed Data
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("When I log in as Alan Turing into Data Custodian");
-///////////////////////////////////////////////////////////
-StepUtils.login(ServiceEndpoint+"/DataCustodian/",TestRetailCustomer,TestRetailCustomerPW);
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("And I select a Third Party from the list");
-///////////////////////////////////////////////////////////
-StepUtils.clickLinkByText("Third Parties");
-StepUtils.clickByClass("third-party");
-StepUtils.clickByName("next");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("When I log into Third Party");
-///////////////////////////////////////////////////////////
-StepUtils.fillInByName("j_username", TestRetailCustomer);
-StepUtils.fillInByName("j_password", TestRetailCustomerPW);
-StepUtils.clickByName("submit");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("Then I should see Scope selection screen");
-///////////////////////////////////////////////////////////
-StepUtils.assertContains("Select Scope");
-StepUtils.assertContains("FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("When I select Scopes");
-///////////////////////////////////////////////////////////
-StepUtils.clickByClass("scope");
-StepUtils.clickByXpath("(//input[@name='scope'])[2]");
-StepUtils.clickByName("next");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("Then I should see authorization screen");
-///////////////////////////////////////////////////////////
-StepUtils.assertContains("Please Confirm");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("When I deny Third Party");
-///////////////////////////////////////////////////////////
-StepUtils.clickByName("deny");
-
-///////////////////////////////////////////////////////////
-StepUtils.logStep("Then I should be redirected to the home page");
-///////////////////////////////////////////////////////////
-StepUtils.assertUrlContains("RetailCustomer");
-StepUtils.assertUrlEndsWith("/home");
+} catch(Exception e) {
+	strResult = "Failed performing: Action from script line[" + StepUtils._iActionLineNum + "]:" + StepUtils._strActionMethodName;
+	log.error(strResult);
+}
 
 //Close the browser
 StepUtils.quit();
-</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Feature: Notification" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Feature: Notification"><con:settings/><con:config><script>//******************************************************************************************************************
+
+assertTrue(strResult, strResult.length()==0);
+</script></con:config></con:testStep><con:testStep type="groovy" name="Scenario: Retail Customer denies Scope"><con:settings/><con:config><script>import static org.junit.Assert.*;
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+def TestManager=project.getPropertyValue("TestManager")
+def TestManagerPW=project.getPropertyValue("TestManagerPW")
+def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+
+Object StepUtils = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(log);
+
+//StepUtils._bLogActions = true;
+String strResult = "";
+try{
+	//*********************************************************
+	log.info("Scenario: Retail Customer denies Scope");
+	//********************************************************* 
+	// reset DB : run library groovy script
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
+	// Browser Init
+	StepUtils.Before();
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("Given I have a Retail Customer account");
+	///////////////////////////////////////////////////////////
+	// Seed Data
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("When I log in as Alan Turing into Third Party");
+	///////////////////////////////////////////////////////////
+	StepUtils.login(ServiceEndpoint+"/ThirdParty/",TestRetailCustomer,TestRetailCustomerPW);
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("And I select a Data Custodian from the list");
+	///////////////////////////////////////////////////////////
+	StepUtils.clickLinkByText("Data Custodians");
+	//StepUtils.clickByClass("data-custodian");
+	StepUtils.clickByName("Data_custodian");
+	StepUtils.clickByName("next");
+	
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("When I log into Data Custodian");
+	///////////////////////////////////////////////////////////
+	StepUtils.fillInByName("j_username", TestRetailCustomer);
+	StepUtils.fillInByName("j_password", TestRetailCustomerPW);
+	StepUtils.clickByName("submit");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("Then I should see Scope selection screen");
+	///////////////////////////////////////////////////////////
+	StepUtils.assertContains("Select Scope");
+	StepUtils.assertContains("FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("When I select Scopes");
+	///////////////////////////////////////////////////////////
+	StepUtils.clickByClass("scope");
+	StepUtils.clickByXpath("(//input[@name='scope'])[2]");
+	StepUtils.clickByName("next");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("Then I should see authorization screen");
+	///////////////////////////////////////////////////////////
+	StepUtils.assertContains("Please Confirm");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("When I deny Third Party");
+	///////////////////////////////////////////////////////////
+	StepUtils.clickByName("deny");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("Then I should be redirected to the home page");
+	///////////////////////////////////////////////////////////
+	StepUtils.assertUrlContains("RetailCustomer");
+	StepUtils.assertUrlEndsWith("/home");
+
+} catch(Exception e) {
+	strResult = "Failed performing: Action from script line[" + StepUtils._iActionLineNum + "]:" + StepUtils._strActionMethodName;
+	log.error(strResult);
+}
+
+//Close the browser
+StepUtils.quit();
+
+assertTrue(strResult, strResult.length()==0);
+</script></con:config></con:testStep><con:testStep type="groovy" name="Scenario: Retail Customer authorizes Scope from Data Custodian"><con:settings/><con:config><script>import static org.junit.Assert.*;
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+def TestManager=project.getPropertyValue("TestManager")
+def TestManagerPW=project.getPropertyValue("TestManagerPW")
+def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+
+Object StepUtils = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(log);
+
+//StepUtils._bLogActions = true;
+String strResult = "";
+try{
+	//*********************************************************
+	log.info("Scenario: Retail Customer authorizes Scope from Data Custodian");
+	//*********************************************************
+	// reset DB : run library groovy script
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
+	// Browser Init
+	StepUtils.Before();
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("Given I have a Retail Customer account");
+	///////////////////////////////////////////////////////////
+	// Seed Data
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("When I log in as Alan Turing into Data Custodian");
+	///////////////////////////////////////////////////////////
+	StepUtils.login(ServiceEndpoint+"/DataCustodian/",TestRetailCustomer,TestRetailCustomerPW);
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("And I select a Third Party from the list");
+	///////////////////////////////////////////////////////////
+	StepUtils.clickLinkByText("Third Parties");
+	StepUtils.clickByClass("third-party");
+	StepUtils.clickByName("next");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("When I log into Third Party");
+	///////////////////////////////////////////////////////////
+	StepUtils.fillInByName("j_username", TestRetailCustomer);
+	StepUtils.fillInByName("j_password", TestRetailCustomerPW);
+	StepUtils.clickByName("submit");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("Then I should see Scope selection screen");
+	///////////////////////////////////////////////////////////
+	StepUtils.assertContains("Select Scope");
+	StepUtils.assertContains("FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("When I select Scopes");
+	///////////////////////////////////////////////////////////
+	StepUtils.clickByClass("scope");
+	StepUtils.clickByXpath("(//input[@name='scope'])[2]");
+	StepUtils.clickByName("next");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("Then I should see authorization screen");
+	///////////////////////////////////////////////////////////
+	StepUtils.assertContains("Please Confirm");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("When I authorize Third Party");
+	///////////////////////////////////////////////////////////
+	StepUtils.clickByName("authorize");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("Then I should see all my authorizations");
+	///////////////////////////////////////////////////////////
+	StepUtils.assertContains("Authorizations");
+	//StepUtils.assertContains("ConEdison");
+	StepUtils.assertContains("data_custodian");
+	//StepUtils.assertContains("DataCustodian/espi/1_1/resource/Batch/Subscription/1");
+	StepUtils.assertContains("DataCustodian/espi/1_1/resource/Batch/Subscription/");
+
+} catch(Exception e) {
+	strResult = "Failed performing: Action from script line[" + StepUtils._iActionLineNum + "]:" + StepUtils._strActionMethodName;
+	log.error(strResult);
+}
+
+//Close the browser
+StepUtils.quit();
+
+assertTrue(strResult, strResult.length()==0);
+</script></con:config></con:testStep><con:testStep type="groovy" name="Scenario: Retail Customer denies Scope from Data Custodian"><con:settings/><con:config><script>import static org.junit.Assert.*;
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+def TestManager=project.getPropertyValue("TestManager")
+def TestManagerPW=project.getPropertyValue("TestManagerPW")
+def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+
+Object StepUtils = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(log);
+
+//StepUtils._bLogActions = true;
+String strResult = "";
+try{
+	//*********************************************************
+	log.info("Scenario: Retail Customer denies Scope from Data Custodian");
+	//*********************************************************  
+	// reset DB : run library groovy script
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
+	// Browser Init
+	StepUtils.Before();
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("Given I have a Retail Customer account");
+	///////////////////////////////////////////////////////////
+	// Seed Data
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("When I log in as Alan Turing into Data Custodian");
+	///////////////////////////////////////////////////////////
+	StepUtils.login(ServiceEndpoint+"/DataCustodian/",TestRetailCustomer,TestRetailCustomerPW);
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("And I select a Third Party from the list");
+	///////////////////////////////////////////////////////////
+	StepUtils.clickLinkByText("Third Parties");
+	StepUtils.clickByClass("third-party");
+	StepUtils.clickByName("next");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("When I log into Third Party");
+	///////////////////////////////////////////////////////////
+	StepUtils.fillInByName("j_username", TestRetailCustomer);
+	StepUtils.fillInByName("j_password", TestRetailCustomerPW);
+	StepUtils.clickByName("submit");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("Then I should see Scope selection screen");
+	///////////////////////////////////////////////////////////
+	StepUtils.assertContains("Select Scope");
+	StepUtils.assertContains("FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("When I select Scopes");
+	///////////////////////////////////////////////////////////
+	StepUtils.clickByClass("scope");
+	StepUtils.clickByXpath("(//input[@name='scope'])[2]");
+	StepUtils.clickByName("next");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("Then I should see authorization screen");
+	///////////////////////////////////////////////////////////
+	StepUtils.assertContains("Please Confirm");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("When I deny Third Party");
+	///////////////////////////////////////////////////////////
+	StepUtils.clickByName("deny");
+	
+	///////////////////////////////////////////////////////////
+	StepUtils.logStep("Then I should be redirected to the home page");
+	///////////////////////////////////////////////////////////
+	StepUtils.assertUrlContains("RetailCustomer");
+	StepUtils.assertUrlEndsWith("/home");
+
+} catch(Exception e) {
+	strResult = "Failed performing: Action from script line[" + StepUtils._iActionLineNum + "]:" + StepUtils._strActionMethodName;
+	log.error(strResult);
+}
+
+//Close the browser
+StepUtils.quit();
+
+assertTrue(strResult, strResult.length()==0);
+
+</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Feature: Notification" searchProperties="true" id="0b86062c-c041-4957-b41a-22a9fcb7ad41"><con:settings/><con:testStep type="groovy" name="Feature: Notification"><con:settings/><con:config><script>//******************************************************************************************************************
 //******************************************************************************************************************
 log.info("Feature: Notification");
 log.info("  As Data Custodian,");
@@ -16733,7 +16799,9 @@ log.info("  I should be able to notify Third Party about data updates,");
 log.info("  So Third Party can download updated data");
 //******************************************************************************************************************
 //******************************************************************************************************************
-</script></con:config></con:testStep><con:testStep type="groovy" name="Scenario: Data Custodian notifies Third Party of updated Subscription"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
+</script></con:config></con:testStep><con:testStep type="groovy" name="Scenario: Data Custodian notifies Third Party of updated Subscription"><con:settings/><con:config><script>import static org.junit.Assert.*;
+
+def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
@@ -16748,112 +16816,269 @@ def TestFile2 = projectPath + "/../data/Gas.xml";
 
 Object StepUtils = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(log);
 
-
-//*********************************************************
-log.info("Scenario: Data Custodian notifies Third Party of updated Subscription");
-//*********************************************************
-// reset DB : run library groovy script
-testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
-// Browser Init
-StepUtils.Before();
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.logStep("Given a Retail Customer with Usage Points");
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.login(ServiceEndpoint + "/DataCustodian/",TestManager,TestManagerPW);
-StepUtils.assertUrlEndsWith("/DataCustodian/custodian/home");
-
-// add usage point linkage
-StepUtils.clickLinkByText("Customer List");
-StepUtils.clickLinkByText(TestRetailCustomer);
-StepUtils.clickBypartialLinkText("Add Usage");
-StepUtils.fillInById("UUID","48C2A019-5598-4E16-B0F9-49E4FF27F5FB");
-StepUtils.fillInById("description","test_usage_data");
-StepUtils.clickByName("create");
-
-// upload usage point file
-StepUtils.clickLinkByText("Upload");
-StepUtils.sendKeysByName("file",TestFile);
-StepUtils.clickByName("upload");
-StepUtils.assertDoesNotContain("Unable to process file");
-
-StepUtils.logout(ServiceEndpoint + "/DataCustodian/");
-//StepUtils.clickLinkByText("Logout");
-
-//StepUtils.login(ServiceEndpoint+"/ThirdParty/",TestRetailCustomer,TestRetailCustomerPW);
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.logStep("And a Third Party with an updated subscription");
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.login(ServiceEndpoint + "/ThirdParty/",TestManager,TestManagerPW);
-StepUtils.navigateTo(StepUtils.THIRD_PARTY_CONTEXT, "/batchLists");
-//CucumberSession.setNumberOfSubscriptions(driver.findElements(By.tagName("h2")).size());
-int OriginalnumberOfSubscriptions = StepUtils.GetNumElsByTagName("h2");
-//logoutThirdParty();
-StepUtils.logout(ServiceEndpoint + "/ThirdParty/");
-//StepUtils.clickLinkByText("Logout");
-
-StepUtils.login(ServiceEndpoint + "/ThirdParty/",TestRetailCustomer,TestRetailCustomerPW);
-StepUtils.clickLinkByText("Data Custodians");
-StepUtils.clickByName("Data_custodian");
-StepUtils.clickByName("next");
-
-//submitLoginForm(CucumberSession.getUsername(), StepUtils.PASSWORD);
-StepUtils.sendKeysByName("j_username",TestRetailCustomer);
-StepUtils.sendKeysByName("j_password",TestRetailCustomerPW);
-StepUtils.clickByName("submit");
-
-
-StepUtils.clickByName("scope");
-StepUtils.clickByName("next");
-StepUtils.clickByName("authorize");
-//StepUtils.clickLinkByText("Logout");
-StepUtils.logout(ServiceEndpoint + "/DataCustodian/");
-
-StepUtils.login(ServiceEndpoint+"/DataCustodian/", TestManager,TestManagerPW);
-
-//uploadUsagePoints("Sweet Usage Point");
-// upload usage point file
-StepUtils.clickLinkByText("Upload");
-StepUtils.sendKeysByName("file",TestFile2);
-StepUtils.clickByName("upload");
-StepUtils.assertDoesNotContain("Unable to process file");
-
-
-//addUsagePoint(CucumberSession.getUsername(), CucumberSession.getUUID().toString());
-// add usage point linkage
-StepUtils.clickLinkByText("Customer List");
-StepUtils.clickLinkByText(TestRetailCustomer);
-StepUtils.clickBypartialLinkText("Add Usage");
-StepUtils.fillInById("UUID","0642EABA-8E42-4D1A-A375-AF54993C007B");
-StepUtils.fillInById("description","Gas");
-StepUtils.clickByName("create");
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.logStep("When I notify the Third Party");
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//notifyThirdParty();
-//login(DATA_CUSTODIAN_CONTEXT, CUSTODIAN_USERNAME, CUSTODIAN_PASSWORD);
-StepUtils.logout(ServiceEndpoint + "/DataCustodian/");
-//StepUtils.quit();
-return
-StepUtils.login(ServiceEndpoint+"/DataCustodian/",TestManager,TestManagerPW);
-StepUtils.clickLinkByText("Notify Third Party");
-        
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.logStep("Then the Third Party should be notified of the update");
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-StepUtils.logout(ServiceEndpoint + "/DataCustodian/");
-StepUtils.login(ServiceEndpoint+"/ThirdParty/",TestManager,TestManagerPW);
-StepUtils.navigateTo(StepUtils.THIRD_PARTY_CONTEXT, "/batchLists");
-int numberOfSubscriptions = GetNumElsByTagName("h2");
-
-if(!(numberOfSubscriptions > OriginalnumberOfSubscriptions))
-{
-	log.error("unexpected number of subscriptions");
-	assert false
+//StepUtils._bLogActions = true;
+String strResult = "";
+try{
+	//*********************************************************
+	log.info("Scenario: Data Custodian notifies Third Party of updated Subscription");
+	//*********************************************************
+	// reset DB : run library groovy script
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
+	// Browser Init
+	StepUtils.Before();
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.logStep("Given a Retail Customer with Usage Points");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.login(ServiceEndpoint + "/DataCustodian/",TestManager,TestManagerPW);
+	StepUtils.assertUrlEndsWith("/DataCustodian/custodian/home");
+	
+	// add usage point linkage
+	StepUtils.clickLinkByText("Customer List");
+	StepUtils.clickLinkByText(TestRetailCustomer);
+	StepUtils.clickBypartialLinkText("Add Usage");
+	StepUtils.fillInById("UUID","48C2A019-5598-4E16-B0F9-49E4FF27F5FB");
+	StepUtils.fillInById("description","test_usage_data");
+	StepUtils.clickByName("create");
+	
+	// upload usage point file
+	StepUtils.clickLinkByText("Upload");
+	StepUtils.sendKeysByName("file",TestFile);
+	StepUtils.clickByName("upload");
+	StepUtils.assertDoesNotContain("Unable to process file");
+	
+	StepUtils.logout(ServiceEndpoint + "/DataCustodian/");
+	//StepUtils.clickLinkByText("Logout");
+	
+	//StepUtils.login(ServiceEndpoint+"/ThirdParty/",TestRetailCustomer,TestRetailCustomerPW);
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.logStep("And a Third Party with an updated subscription");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.login(ServiceEndpoint + "/ThirdParty/",TestManager,TestManagerPW);
+	StepUtils.navigateTo(StepUtils.THIRD_PARTY_CONTEXT, "/batchLists");
+	//CucumberSession.setNumberOfSubscriptions(driver.findElements(By.tagName("h2")).size());
+	int OriginalnumberOfSubscriptions = StepUtils.GetNumElsByTagName("h2");
+	//logoutThirdParty();
+	StepUtils.logout(ServiceEndpoint + "/ThirdParty/");
+	//StepUtils.clickLinkByText("Logout");
+	
+	StepUtils.login(ServiceEndpoint + "/ThirdParty/",TestRetailCustomer,TestRetailCustomerPW);
+	StepUtils.clickLinkByText("Data Custodians");
+	StepUtils.clickByName("Data_custodian");
+	StepUtils.clickByName("next");
+	
+	StepUtils.submitLoginForm(TestRetailCustomer,TestRetailCustomerPW);
+	
+	StepUtils.clickByName("scope");
+	StepUtils.clickByName("next");
+	StepUtils.clickByName("authorize");
+	//StepUtils.clickLinkByText("Logout");
+	StepUtils.logout(ServiceEndpoint + "/DataCustodian/");
+	
+	StepUtils.login(ServiceEndpoint+"/DataCustodian/", TestManager,TestManagerPW);
+	
+	//uploadUsagePoints("Sweet Usage Point");
+	// upload usage point file
+	StepUtils.clickLinkByText("Upload");
+	StepUtils.sendKeysByName("file",TestFile2);
+	StepUtils.clickByName("upload");
+	StepUtils.assertDoesNotContain("Unable to process file");
+	
+	
+	//addUsagePoint(CucumberSession.getUsername(), CucumberSession.getUUID().toString());
+	// add usage point linkage
+	StepUtils.clickLinkByText("Customer List");
+	StepUtils.clickLinkByText(TestRetailCustomer);
+	StepUtils.clickBypartialLinkText("Add Usage");
+	StepUtils.fillInById("UUID","0642EABA-8E42-4D1A-A375-AF54993C007B");
+	StepUtils.fillInById("description","Gas");
+	StepUtils.clickByName("create");
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.logStep("When I notify the Third Party");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//notifyThirdParty();
+	//login(DATA_CUSTODIAN_CONTEXT, CUSTODIAN_USERNAME, CUSTODIAN_PASSWORD);
+	StepUtils.logout(ServiceEndpoint + "/DataCustodian/");
+	StepUtils.login(ServiceEndpoint+"/DataCustodian/",TestManager,TestManagerPW);
+	StepUtils.clickLinkByText("Notify Third Party");
+	        
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.logStep("Then the Third Party should be notified of the update");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.logout(ServiceEndpoint + "/DataCustodian/");
+	StepUtils.login(ServiceEndpoint+"/ThirdParty/",TestManager,TestManagerPW);
+	StepUtils.navigateTo(StepUtils.THIRD_PARTY_CONTEXT, "/batchLists");
+	int numberOfSubscriptions = GetNumElsByTagName("h2");
+	
+	if(!(numberOfSubscriptions > OriginalnumberOfSubscriptions))
+	{
+		log.error("unexpected number of subscriptions");
+		assert false
+	}
+} catch(Exception e) {
+	strResult = "Failed performing: Action from script line[" + StepUtils._iActionLineNum + "]:" + StepUtils._strActionMethodName;
+	log.error(strResult);
 }
 
 //Close the browser
 StepUtils.quit();
-        </script></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>ServiceEndpoint</con:name><con:value>http://localhost:8080</con:value></con:property><con:property><con:name>linkEndpoint</con:name><con:value>https://localhost:8080/DataCustodian</con:value></con:property><con:property><con:name>mysqlCmd</con:name><con:value>/usr/local/mysql/bin/mysql</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property><con:property><con:name>usagePointId</con:name><con:value>1</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>meterReadingId</con:name><con:value>1</con:value></con:property><con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>intervalBlockId</con:name><con:value>1</con:value></con:property></con:properties><con:wssContainer/><con:sensitiveInformation/></con:soapui-project>
+
+assertTrue(strResult, strResult.length()==0);
+</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Feature: Subscription" searchProperties="true" id="d7224ab1-0cfd-4bae-b06b-87490390bdc2"><con:settings/><con:testStep type="groovy" name="Feature: Subscription"><con:settings/><con:config><script>//******************************************************************************************************************
+//******************************************************************************************************************
+log.info("Feature: Subscription");
+log.info("  As a Third Party");
+log.info("  I want to access Retail Customer data");
+log.info("  So that I can display Retail Customer data");
+//******************************************************************************************************************
+//******************************************************************************************************************
+</script></con:config></con:testStep><con:testStep type="groovy" name="Scenario: Third Party accesses Subscription"><con:settings/><con:config><script>import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import static org.custommonkey.xmlunit.XMLAssert.assertXpathExists;
+import static org.junit.Assert.*;
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+def TestManager=project.getPropertyValue("TestManager")
+def TestManagerPW=project.getPropertyValue("TestManagerPW")
+def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+
+Object StepUtils = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(log);
+
+//StepUtils._bLogActions = true;
+String strResult = "";
+
+try{
+	//*********************************************************
+	log.info("Scenario: Third Party accesses Subscription");
+	//*********************************************************
+	// reset DB : run library groovy script
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
+	// Browser Init
+	StepUtils.Before();
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.logStep("Given an authorized Third Party");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.login(ServiceEndpoint+"/ThirdParty/",TestRetailCustomer,TestRetailCustomerPW);
+	StepUtils.clickLinkByText("Data Custodians");
+	StepUtils.clickByName("Data_custodian");
+	StepUtils.clickByName("next");
+	
+	StepUtils.submitLoginForm(TestRetailCustomer,TestRetailCustomerPW);
+	
+	StepUtils.clickByName("scope");
+	StepUtils.clickByName("next");
+	StepUtils.clickByName("authorize");
+	StepUtils.clickLinkByText("Logout");
+	        
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.logStep("And I log in as Alan Turing into Data Custodian");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//StepUtils.login(StepUtils.DATA_CUSTODIAN_CONTEXT, "alan", "koala");
+	StepUtils.login(ServiceEndpoint+"/DataCustodian/",TestRetailCustomer,TestRetailCustomerPW);
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.logStep("When I log in as Alan Turing");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//StepUtils.login(StepUtils.THIRD_PARTY_CONTEXT, StepUtils.USERNAME, StepUtils.PASSWORD);
+	StepUtils.login(ServiceEndpoint+"/ThirdParty/",TestRetailCustomer,TestRetailCustomerPW);
+	 
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.logStep("And I request a Subscription using the REST API");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.navigateTo(StepUtils.THIRD_PARTY_CONTEXT, "/RetailCustomer/1/AuthorizationList");
+	List&lt;WebElement> rows = StepUtils.driver.findElements(By.cssSelector("#authorizations tr td.subscription_id"));
+	String subscriptionId = rows.get(rows.size() - 1).getText();
+	
+	//driver.get(StepUtils.DATA_CUSTODIAN_BASE_URL + "/espi/1_1/resource/Subscription/" + subscriptionId);
+	StepUtils.navigateTo(ServiceEndpoint + "/DataCustodian/" + "/espi/1_1/resource/Subscription/" + subscriptionId);
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.logStep("Then I should receive XML for that Subscription");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	assertXpathExists("/:feed", StepUtils.driver.getPageSource());
+
+} catch(Exception e) {
+	strResult = "Failed performing: Action from script line[" + StepUtils._iActionLineNum + "]:" + StepUtils._strActionMethodName;
+	log.error(strResult);
+}
+
+//Close the browser
+StepUtils.quit();
+
+assertTrue(strResult, strResult.length()==0);
+</script></con:config></con:testStep><con:testStep type="groovy" name="Scenario: Third Party customer accesses Authorizations page"><con:settings/><con:config><script>import static org.junit.Assert.*;
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+def TestManager=project.getPropertyValue("TestManager")
+def TestManagerPW=project.getPropertyValue("TestManagerPW")
+def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+
+Object StepUtils = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(log);
+
+//StepUtils._bLogActions = true;
+String strResult = "";
+
+try{
+	//*********************************************************
+	log.info("Scenario: Third Party customer accesses Authorizations page");
+	//*********************************************************
+	// reset DB : run library groovy script
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
+	// Browser Init
+	StepUtils.Before();
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.logStep("Given an authorized Third Party");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.login(ServiceEndpoint+"/ThirdParty/",TestRetailCustomer,TestRetailCustomerPW);
+	StepUtils.clickLinkByText("Data Custodians");
+	StepUtils.clickByName("Data_custodian");
+	StepUtils.clickByName("next");
+	StepUtils.submitLoginForm(TestRetailCustomer,TestRetailCustomerPW);
+	StepUtils.clickByName("scope");
+	StepUtils.clickByName("next");
+	StepUtils.clickByName("authorize");
+	StepUtils.clickLinkByText("Logout");
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.logStep("When I log in as Alan Turing");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.login(ServiceEndpoint+"/ThirdParty/",TestRetailCustomer,TestRetailCustomerPW);
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.logStep("And I navigate to the Authorizations page");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.clickLinkByText("Authorizations");
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.logStep("Then I should see a list of Authorizations");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.assertContains("Authorizations");
+	assertThat(StepUtils.driver.findElement(By.cssSelector("#authorizations tr td.access_token")).getText(), not(isEmptyString()));
+	assertThat(StepUtils.driver.findElement(By.cssSelector("#authorizations tr td.subscription_id")).getText(), not(isEmptyString()));
+
+} catch(Exception e) {
+	strResult = "Failed performing: Action from script line[" + StepUtils._iActionLineNum + "]:" + StepUtils._strActionMethodName;
+	log.error(strResult);
+}
+
+//Close the browser
+StepUtils.quit();
+
+assertTrue(strResult, strResult.length()==0);
+</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>ServiceEndpoint</con:name><con:value>http://localhost:8080</con:value></con:property><con:property><con:name>linkEndpoint</con:name><con:value>https://localhost:8080/DataCustodian</con:value></con:property><con:property><con:name>mysqlCmd</con:name><con:value>/usr/local/mysql/bin/mysql</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property><con:property><con:name>usagePointId</con:name><con:value>1</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>meterReadingId</con:name><con:value>1</con:value></con:property><con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>intervalBlockId</con:name><con:value>1</con:value></con:property></con:properties><con:wssContainer/><con:sensitiveInformation/></con:soapui-project>

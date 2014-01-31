@@ -25,28 +25,46 @@ public class BaseStepUtilsA {
 	public static final String CUSTODIAN_USERNAME = "grace";
 	public static final String CUSTODIAN_PASSWORD = "koala";
 
-	private static boolean _bLogActions = true;
+	private static boolean _bLogActions = false;
+	public static int _iActionLineNum = 0;
+	public static String _strActionMethodName = "";
 
 	public static quit()
 	{
 		_driver.quit();
 	}
 
-	private static void LogAction()
+	private static void CaptureAction()
 	{
+ 		//log.info("Stack:" + Thread.currentThread().getStackTrace());
+		_iActionLineNum = 0;
+		_strActionMethodName = "";
+
+		for(int i=0;i<Thread.currentThread().getStackTrace().length;i++)
+		{
+			String strTrace = Thread.currentThread().getStackTrace()[i].toString();
+
+			//log.info("Trace[:" + i + "]:" + strTrace);
+
+			if((strTrace.contains("(Script")) && (strTrace.contains(".groovy:")))
+			{
+				_iActionLineNum = Thread.currentThread().getStackTrace()[i].getLineNumber();
+			}
+  			if(strTrace.contains("BaseStepUtils.groovy"))
+			{
+				_strActionMethodName = Thread.currentThread().getStackTrace()[i].getMethodName();
+			}  			
+		}
+
 	    if(_bLogActions)
         {
-        	if(Thread.currentThread().getStackTrace()[8].getLineNumber()!=-1)
-        	{
-        		log.info("Action from script line[" + Thread.currentThread().getStackTrace()[8].getLineNumber() + "]:" + Thread.currentThread().getStackTrace()[3].getMethodName())
-    		}
-    		//log.info("Stack:" + Thread.currentThread().getStackTrace());
-        }	
+   			log.info("Action from script line[" + _iActionLineNum + "]:" + _strActionMethodName);
+   		}	
 	}
 
 	public static void Before()
 	{	
-		LogAction();
+		CaptureAction();
         _driver.get(THIRD_PARTY_BASE_URL + "/j_spring_security_logout");
         _driver.get(DATA_CUSTODIAN_BASE_URL + "/logout.do");
         login(DATA_CUSTODIAN_BASE_URL, "grace", "koala");    
@@ -61,7 +79,7 @@ public class BaseStepUtilsA {
         //    logout();
         //}
         //logout(); 
-        LogAction();
+        CaptureAction();
 		_driver.get(strEndpoint);
 		_driver.findElement(By.id("login")).click();
 		_driver.findElement(By.name("j_username")).clear();
@@ -71,16 +89,26 @@ public class BaseStepUtilsA {
 		_driver.findElement(By.name("submit")).click();
 	}
 
+	public static void submitLoginForm(String strUserName,String strPassword)
+	{
+	    CaptureAction();	
+		_driver.findElement(By.name("j_username")).clear();
+		_driver.findElement(By.name("j_username")).sendKeys(strUserName);
+		_driver.findElement(By.name("j_password")).clear();
+		_driver.findElement(By.name("j_password")).sendKeys(strPassword);
+		_driver.findElement(By.name("submit")).click();
+	}
+
 	public int GetNumElsByTagName(String strTagName)
 	{
-		LogAction();
+		CaptureAction();
 
 		return _driver.findElements(By.tagName(strTagName)).size();
 	}
 
 	public static void logout(String strContext)
 	{
-		LogAction();
+		CaptureAction();
 	    _driver.get(strContext);
         if (_driver.findElements(By.id("logout")).size() > 0) {
             _driver.findElement(By.id("logout")).click();
@@ -91,63 +119,63 @@ public class BaseStepUtilsA {
 
     public static void navigateTo(String context, String path) 
     {
-    	LogAction();
+    	CaptureAction();
         _driver.get(BASE_URL + context + path);
     }
 
 	public static void sendKeysByName(String strLink,String strValue)
 	{
-		LogAction();
+		CaptureAction();
 		_driver.findElement(By.name(strLink)).sendKeys(strValue);
 	}
 	
 	public static void clickByXpath(String strLink)
 	{
-		LogAction();
+		CaptureAction();
 		_driver.findElement(By.xpath(strLink)).click();
 	}
 
 	public static void clickLinkByText(String strLink)
 	{
-		LogAction();
+		CaptureAction();
         _driver.findElement(By.linkText(strLink)).click();	
 	}
 
 	public static clickByClass(String strLink)
 	{
-		LogAction();
+		CaptureAction();
         _driver.findElement(By.className(strLink)).click();
 	}
 
 	public static clickBypartialLinkText(String strLink)
 	{
-		LogAction();
+		CaptureAction();
 		_driver.findElement(By.partialLinkText(strLink)).click();	
 	}
 
 	public static fillInById(String strName,String strValue)
 	{
-		LogAction();
+		CaptureAction();
 		_driver.findElement(By.id(strName)).clear();
 		_driver.findElement(By.id(strName)).sendKeys(strValue);
 	}
 
 	public static fillInByName(String strName,String strValue)
 	{
-		LogAction();
+		CaptureAction();
 		_driver.findElement(By.name(strName)).clear();
 		_driver.findElement(By.name(strName)).sendKeys(strValue);
 	}
 
 	public static clickByName(String strName)
 	{
-		LogAction();
+		CaptureAction();
 		_driver.findElement(By.name(strName)).click();
 	}
 
 	public static assertUrlContains(String strValue)
 	{
-		LogAction();
+		CaptureAction();
 		if(!_driver.getCurrentUrl().contains(strValue))
 		{
 			log.error("Current URL does not contain: '" + strValue + "'");
@@ -158,7 +186,7 @@ public class BaseStepUtilsA {
 
 	public static assertUrlEndsWith(String strValue)
 	{
-		LogAction();
+		CaptureAction();
 		if(!_driver.getCurrentUrl().endsWith(strValue))
 		{
 			log.error("Current URL does not contain: '" + strValue + "'");
@@ -169,7 +197,7 @@ public class BaseStepUtilsA {
 
 	public static assertContains(String strValue)
 	{
-		LogAction();
+		CaptureAction();
 		//assertTrue("Page source did not contain '" + strValue + "'", _driver.getPageSource().contains(strValue));
 
 		if(!_driver.getPageSource().contains(strValue))
@@ -183,7 +211,7 @@ public class BaseStepUtilsA {
 
 	public static assertDoesNotContain(String strValue)
 	{
-		LogAction();
+		CaptureAction();
 		//assertTrue("Page source did not contain '" + strValue + "'", _driver.getPageSource().contains(strValue));
 
 		if(_driver.getPageSource().contains(strValue))
@@ -196,7 +224,9 @@ public class BaseStepUtilsA {
 
 	public static logStep(String strStep)
 	{
+		log.info("//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////");
 		log.info(strStep);
+		log.info("//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////");
 		//sleep(5000);
 	}
 }
