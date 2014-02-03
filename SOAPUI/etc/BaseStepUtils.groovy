@@ -117,9 +117,23 @@ public class BaseStepUtilsA {
 		//_driver.findElement(By.id("logout")).click();
 	}
 
+
+	public static List<WebElement> FindElementsByXpath(String strXpath)
+	{
+		CaptureAction();
+		return _driver.findElements(By.xpath(strXpath));
+	}
+
+    public static void get(String path) 
+    {
+    	CaptureAction();
+        _driver.get(path);
+    }
+
     public static void navigateTo(String context, String path) 
     {
     	CaptureAction();
+    	log.info("navto:" + BASE_URL + context + path);
         _driver.get(BASE_URL + context + path);
     }
 
@@ -220,6 +234,12 @@ public class BaseStepUtilsA {
 			_driver.quit();
 			assert false;
 		}
+	}
+
+	public static assertXpathExists(String strSearch)
+	{
+		CaptureAction();
+		assertXpathExists(strSearch, _driver.getPageSource());
 	}
 
 	public static logStep(String strStep)
