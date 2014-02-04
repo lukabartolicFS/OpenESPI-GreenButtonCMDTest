@@ -185,7 +185,7 @@
    </content>
    <published>2013-12-26T18:39:09-05:00</published>
    <updated>2013-12-26T18:39:09-05:00</updated>
-</entry>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request></con:method><con:method name="Delete Authorization Path" method="DELETE"><con:settings/><con:parameters/><con:request name="DELETE XPath" mediaType="application/json"><con:settings/><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request></con:method></con:resource><con:resource name="resource" path="/espi/1_1/resource"><con:settings/><con:parameters/><con:resource name="RetailCustomer/{retailCustomerId}" path="RetailCustomer/${#Project#retailCustomerId}"><con:settings/><con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint" path="UsagePoint"><con:settings/><con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint/{usagePointId}" path="${#Project#usagePointId}"><con:settings/><con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint/{usagePointId}/MeterReading" path="MeterReading"><con:settings/><con:parameters/><con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint/{usagePointId}/MeterReading/{meterReadingId}" path="${#Project#meterReadingId}"><con:settings/><con:resource name="ReadingType" path="ReadingType"><con:settings/><con:parameters/><con:resource name="${#Project#readingTypeId}" path="${#Project#readingTypeId}"><con:settings/><con:method name="Get ReadingType" method="GET"><con:settings/><con:parameters/><con:request name="Get ReadingType" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry><con:entry>#Project#meterReadingId</con:entry><con:entry>#Project#readingTypeId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>#Project#readingTypeId</con:name><con:value>#Project#readingTypeId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#readingTypeId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get ReadingType feed" method="GET"><con:settings/><con:parameters/><con:request name="Get ReadingType feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry><con:entry>#Project#meterReadingId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method></con:resource><con:resource name="IntervalBlock" path="IntervalBlock"><con:settings/><con:parameters/><con:resource name="${#Project#intervalBlockId}" path="${#Project#intervalBlockId}"><con:settings/><con:method name="Get IntervalBlock" method="GET"><con:settings/><con:parameters/><con:request name="Get IntervalBlock" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry><con:entry>#Project#meterReadingId</con:entry><con:entry>#Project#intervalBlockId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>#Project#intervalBlockId</con:name><con:value>#Project#intervalBlockId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#intervalBlockId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get IntervalBlock feed" method="GET"><con:settings/><con:parameters/><con:request name="Get IntervalBlock feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry><con:entry>#Project#meterReadingId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method></con:resource><con:method name="Get MeterReading" method="GET"><con:settings/><con:parameters/><con:request name="Get MeterReading" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry><con:entry>#Project#meterReadingId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/atom+xml</con:mediaType><con:status>400</con:status><con:params/></con:representation></con:method><con:parameters><con:parameter><con:name>#Project#meterReadingId</con:name><con:value>#Project#meterReadingId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#meterReadingId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get MeterReading feed" method="GET"><con:settings/><con:parameters/><con:request name="Get MeterReading feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method></con:resource><con:method name="Get UsagePoint" method="GET"><con:settings/><con:parameters/><con:request name="Get UsagePoint" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/atom+xml</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>#Project#usagePointId</con:name><con:value>#Project#usagePointId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#usagePointId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get UsagePoint feed" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Get UsagePoint feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation></con:method><con:method name="Post UsagePoint" method="POST"><con:settings/><con:parameters/><con:request name="Post UsagePoint" mediaType="application/json" postQueryString="false"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request></con:method><con:parameters><con:parameter><con:name>#Project#usagePointId</con:name><con:value>#Project#usagePointId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#usagePointId</con:default></con:parameter></con:parameters></con:resource><con:parameters><con:parameter><con:name>#Project#retailCustomerId</con:name><con:value>#Project#retailCustomerId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#retailCustomerId</con:default></con:parameter></con:parameters></con:resource><con:resource name="IntervalBlock" path="IntervalBlock"><con:settings/><con:parameters/><con:resource name="${#Project@#intervalBlockId}" path="${#Project#intervalBlockId}"><con:settings/><con:method name="Get root IntervalBlock" method="GET"><con:settings/><con:parameters/><con:request name="Get root IntervalBlock" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project@#intervalBlockId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>#Project@#intervalBlockId</con:name><con:value>#Project@#intervalBlockId</con:value><con:style>TEMPLATE</con:style><con:default>#Project@#intervalBlockId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get root IntervalBlock feed" method="GET"><con:settings/><con:parameters/><con:request name="Get root IntervalBlock feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method></con:resource><con:resource name="UsagePoint" path="UsagePoint"><con:settings/><con:parameters/><con:resource name="${Project#usagePointId}" path="${#Project#usagePointId}"><con:settings/><con:method name="Get root UsagePoint" method="GET"><con:settings/><con:parameters/><con:request name="Get root UsagePoint" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:parameterOrder><con:entry>Project#usagePointId</con:entry></con:parameterOrder></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/atom+xml</con:mediaType><con:status>400</con:status><con:params/></con:representation></con:method><con:parameters><con:parameter><con:name>Project#usagePointId</con:name><con:value>Project#usagePointId</con:value><con:style>TEMPLATE</con:style><con:default>Project#usagePointId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get root UsagePoint feed" method="GET"><con:settings/><con:parameters/><con:request name="Get root UsagePoint feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method></con:resource><con:resource name="MeterReading" path="MeterReading"><con:settings/><con:parameters/><con:resource name="${#Project#meterReadingId}" path="${#Project#meterReadingId}"><con:settings/><con:method name="Get root MeterReading" method="GET"><con:settings/><con:parameters/><con:request name="Get root MeterReading" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#meterReadingId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>#Project#meterReadingId</con:name><con:value>#Project#meterReadingId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#meterReadingId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get root MeterReading feed" method="GET"><con:settings/><con:parameters/><con:request name="Get root MeterReading feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method></con:resource><con:resource name="ReadingType" path="ReadingType"><con:settings/><con:parameters/><con:resource name="${#Project#readingTypeId}" path="${#Project#readingTypeId}"><con:settings/><con:method name="Get root ReadingType" method="GET"><con:settings/><con:parameters/><con:request name="Get root ReadingType" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#readingTypeId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>#Project#readingTypeId</con:name><con:value>#Project#readingTypeId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#readingTypeId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get root ReadingType feed" method="GET"><con:settings/><con:parameters/><con:request name="Get root ReadingType feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method></con:resource><con:resource name="Batch" path="Batch"><con:settings/><con:parameters/><con:resource name="Subscription" path="Subscription"><con:settings/><con:parameters/><con:resource name="{subscriptionID}" path="${#Project#subscriptionID}"><con:settings/><con:method name="Method 1" method="GET"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>subscriptionID</con:name><con:value>subscriptionID</con:value><con:style>TEMPLATE</con:style><con:default>subscriptionID</con:default></con:parameter></con:parameters></con:resource><con:method name="Method 1" method="GET"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request></con:method></con:resource><con:resource name="RetailCustomer" path="RetailCustomer"><con:settings/><con:parameters/><con:resource name="{retailCustomerId}" path="${#Project#retailCustomerId}"><con:settings/><con:resource name="UsagePoint" path="UsagePoint"><con:settings/><con:parameters/><con:method name="Method 1" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>405</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:method name="Method 1" method="GET"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>405</con:status><con:params/><con:element>html</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>retailCustomerId</con:name><con:value>retailCustomerId</con:value><con:style>TEMPLATE</con:style><con:default>retailCustomerId</con:default></con:parameter></con:parameters></con:resource><con:method name="Method 1" method="GET"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request></con:method></con:resource><con:method name="Get Batch Collection" method="GET"><con:settings/><con:parameters/><con:request name="Get Batch Collection (NOP)" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request></con:method></con:resource></con:resource><con:endpoints><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:endpoint>192.168.1.3:8080</con:endpoint><con:endpoint>http://localhost:8080</con:endpoint></con:endpoints></con:interface><con:testSuite name="Web TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="IntegrationTests" searchProperties="true"><con:settings/><con:testStep type="groovy" name="UploadTestUsageDataFile"><con:settings/><con:config><script>/////////////////////////////////////////////////////////
+</entry>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request></con:method><con:method name="Delete Authorization Path" method="DELETE"><con:settings/><con:parameters/><con:request name="DELETE XPath" mediaType="application/json"><con:settings/><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request></con:method></con:resource><con:resource name="resource" path="/espi/1_1/resource"><con:settings/><con:parameters/><con:resource name="RetailCustomer/{retailCustomerId}" path="RetailCustomer/${#Project#retailCustomerId}"><con:settings/><con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint" path="UsagePoint"><con:settings/><con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint/{usagePointId}" path="${#Project#usagePointId}"><con:settings/><con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint/{usagePointId}/MeterReading" path="MeterReading"><con:settings/><con:parameters/><con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint/{usagePointId}/MeterReading/{meterReadingId}" path="${#Project#meterReadingId}"><con:settings/><con:resource name="ReadingType" path="ReadingType"><con:settings/><con:parameters/><con:resource name="${#Project#readingTypeId}" path="${#Project#readingTypeId}"><con:settings/><con:method name="Get ReadingType" method="GET"><con:settings/><con:parameters/><con:request name="Get ReadingType" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry><con:entry>#Project#meterReadingId</con:entry><con:entry>#Project#readingTypeId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>#Project#readingTypeId</con:name><con:value>#Project#readingTypeId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#readingTypeId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get ReadingType feed" method="GET"><con:settings/><con:parameters/><con:request name="Get ReadingType feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry><con:entry>#Project#meterReadingId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method></con:resource><con:resource name="IntervalBlock" path="IntervalBlock"><con:settings/><con:parameters/><con:resource name="${#Project#intervalBlockId}" path="${#Project#intervalBlockId}"><con:settings/><con:method name="Get IntervalBlock" method="GET"><con:settings/><con:parameters/><con:request name="Get IntervalBlock" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry><con:entry>#Project#meterReadingId</con:entry><con:entry>#Project#intervalBlockId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>#Project#intervalBlockId</con:name><con:value>#Project#intervalBlockId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#intervalBlockId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get IntervalBlock feed" method="GET"><con:settings/><con:parameters/><con:request name="Get IntervalBlock feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry><con:entry>#Project#meterReadingId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method></con:resource><con:method name="Get MeterReading" method="GET"><con:settings/><con:parameters/><con:request name="Get MeterReading" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry><con:entry>#Project#meterReadingId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/atom+xml</con:mediaType><con:status>400</con:status><con:params/></con:representation></con:method><con:parameters><con:parameter><con:name>#Project#meterReadingId</con:name><con:value>#Project#meterReadingId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#meterReadingId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get MeterReading feed" method="GET"><con:settings/><con:parameters/><con:request name="Get MeterReading feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method></con:resource><con:method name="Get UsagePoint" method="GET"><con:settings/><con:parameters/><con:request name="Get UsagePoint" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/atom+xml</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>#Project#usagePointId</con:name><con:value>#Project#usagePointId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#usagePointId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get UsagePoint feed" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Get UsagePoint feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation></con:method><con:method name="Post UsagePoint" method="POST"><con:settings/><con:parameters/><con:request name="Post UsagePoint" mediaType="application/json" postQueryString="false"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request></con:method><con:parameters><con:parameter><con:name>#Project#usagePointId</con:name><con:value>#Project#usagePointId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#usagePointId</con:default></con:parameter></con:parameters></con:resource><con:parameters><con:parameter><con:name>#Project#retailCustomerId</con:name><con:value>#Project#retailCustomerId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#retailCustomerId</con:default></con:parameter></con:parameters></con:resource><con:resource name="IntervalBlock" path="IntervalBlock"><con:settings/><con:parameters/><con:resource name="${#Project@#intervalBlockId}" path="${#Project#intervalBlockId}"><con:settings/><con:method name="Get root IntervalBlock" method="GET"><con:settings/><con:parameters/><con:request name="Get root IntervalBlock" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project@#intervalBlockId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>#Project@#intervalBlockId</con:name><con:value>#Project@#intervalBlockId</con:value><con:style>TEMPLATE</con:style><con:default>#Project@#intervalBlockId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get root IntervalBlock feed" method="GET"><con:settings/><con:parameters/><con:request name="Get root IntervalBlock feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method></con:resource><con:resource name="UsagePoint" path="UsagePoint"><con:settings/><con:parameters/><con:resource name="${Project#usagePointId}" path="${#Project#usagePointId}"><con:settings/><con:method name="Get root UsagePoint" method="GET"><con:settings/><con:parameters/><con:request name="Get root UsagePoint" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:parameterOrder><con:entry>Project#usagePointId</con:entry></con:parameterOrder></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/atom+xml</con:mediaType><con:status>400</con:status><con:params/></con:representation></con:method><con:parameters><con:parameter><con:name>Project#usagePointId</con:name><con:value>Project#usagePointId</con:value><con:style>TEMPLATE</con:style><con:default>Project#usagePointId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get root UsagePoint feed" method="GET"><con:settings/><con:parameters/><con:request name="Get root UsagePoint feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method></con:resource><con:resource name="MeterReading" path="MeterReading"><con:settings/><con:parameters/><con:resource name="${#Project#meterReadingId}" path="${#Project#meterReadingId}"><con:settings/><con:method name="Get root MeterReading" method="GET"><con:settings/><con:parameters/><con:request name="Get root MeterReading" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#meterReadingId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>#Project#meterReadingId</con:name><con:value>#Project#meterReadingId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#meterReadingId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get root MeterReading feed" method="GET"><con:settings/><con:parameters/><con:request name="Get root MeterReading feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method></con:resource><con:resource name="ReadingType" path="ReadingType"><con:settings/><con:parameters/><con:resource name="${#Project#readingTypeId}" path="${#Project#readingTypeId}"><con:settings/><con:method name="Get root ReadingType" method="GET"><con:settings/><con:parameters/><con:request name="Get root ReadingType" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#readingTypeId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>#Project#readingTypeId</con:name><con:value>#Project#readingTypeId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#readingTypeId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get root ReadingType feed" method="GET"><con:settings/><con:parameters/><con:request name="Get root ReadingType feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method></con:resource><con:resource name="Batch" path="Batch"><con:settings/><con:parameters/><con:resource name="Subscription" path="Subscription"><con:settings/><con:parameters/><con:resource name="{subscriptionID}" path="${#Project#subscriptionID}"><con:settings/><con:method name="Method 1" method="GET"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>subscriptionID</con:name><con:value>subscriptionID</con:value><con:style>TEMPLATE</con:style><con:default>subscriptionID</con:default></con:parameter></con:parameters></con:resource><con:method name="Method 1" method="GET"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request></con:method></con:resource><con:resource name="RetailCustomer" path="RetailCustomer"><con:settings/><con:parameters/><con:resource name="{retailCustomerId}" path="${#Project#retailCustomerId}"><con:settings/><con:resource name="UsagePoint" path="UsagePoint"><con:settings/><con:parameters/><con:method name="Method 1" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>405</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:method name="Method 1" method="GET"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>405</con:status><con:params/><con:element>html</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>retailCustomerId</con:name><con:value>retailCustomerId</con:value><con:style>TEMPLATE</con:style><con:default>retailCustomerId</con:default></con:parameter></con:parameters></con:resource><con:method name="Method 1" method="GET"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request></con:method></con:resource><con:method name="Get Batch Collection" method="GET"><con:settings/><con:parameters/><con:request name="Get Batch Collection (NOP)" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request></con:method></con:resource></con:resource><con:endpoints><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:endpoint>192.168.1.3:8080</con:endpoint><con:endpoint>http://localhost:8080</con:endpoint></con:endpoints></con:interface><con:testSuite name="MartySandbox"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SeleniumTestSave" searchProperties="true"><con:settings/><con:testStep type="groovy" name="LogIntoDataCustodian"><con:settings/><con:config><script>/////////////////////////////////////////////////////////
 // Note: Generated by capture using Selenium in FF. 
 // Export to Java / JUnit 4 / WebDriver
 // Copy and paste into Groovy Script with minor tweaks
@@ -195,15 +195,11 @@
 // Need these imports to run tests
 /////////////////////////////////////////////////////////
 import org.openqa.selenium.By
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.firefox.FirefoxDriver
-//import org.openqa.selenium.support.ui.ExpectedCondition
-//import org.openqa.selenium.support.ui.WebDriverWait
-//import org.openqa.selenium.JavascriptExecutor;
-//import org.openqa.selenium.support.ui.ExpectedConditions
-
+import org.openqa.selenium.support.ui.ExpectedCondition
+import org.openqa.selenium.support.ui.WebDriverWait
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
@@ -216,16 +212,14 @@ import static org.hamcrest.CoreMatchers.*;
 /////////////////////////////////////////////////////////
 def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-def projectPath = groovyUtils.projectPath
 
 def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
 def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-
-
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestFile=project.getPropertyValue("TestFile")
+def projectPath = groovyUtils.projectPath
 
 //projectPath.replaceAll("\x5c","\x5c\x5c")
 
@@ -233,15 +227,13 @@ log.info("We are talking to: " + ServiceEndpoint)
 log.info("Test File Path: "+ TestFile)
 
 
-/////////////////////////////////////////////////////////
 // Create a new instance of the Firefox driver
-/////////////////////////////////////////////////////////
 WebDriver driver = new FirefoxDriver()
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 // Open the DataCustodian Page
-driver.get(ServiceEndpoint)
+driver.get("http://"+ServiceEndpoint+"/DataCustodian/")
 
 /////////////////////////////////////////////////////////
 // Log in as Manager
@@ -258,6 +250,7 @@ driver.findElement(By.name("submit")).click()
 /////////////////////////////////////////////////////////
 driver.findElement(By.linkText("Upload")).click();
 driver.findElement(By.name("file")).sendKeys(TestFile);
+//driver.findElement(By.name("file")).sendKeys("C:\\_Project\\NIST\\NISTGreenButton\\Source\\OpenESPI-Greenbutton-java\\OpenESPI-DataCustodian-java\\src\\main\\resources\\fixtures\\test_usage_data.xml");
 driver.findElement(By.name("upload")).click();
 driver.findElement(By.linkText("Customer List")).click();
 driver.findElement(By.linkText(TestRetailCustomer)).click();
@@ -280,206 +273,181 @@ driver.findElement(By.name("j_password")).sendKeys(TestRetailCustomerPW)
 driver.findElement(By.name("submit")).click()
 driver.findElement(By.linkText("Usage Points")).click();
 
-driver.findElement(By.linkText("test_usage_data")).click();
-
 sleep(5000)
 driver.findElement(By.id("logout")).click();
 
 //Close the browser
 driver.quit()
-</script></con:config></con:testStep><con:testStep type="groovy" name="AuthorizationFromDataCustodianStart"><con:settings/><con:config><script>///////////////////////////////////////////////////////// 
-// Note: Generated by capture using Selenium in FF.
-// Export to Java / JUnit 4 / WebDriver // Copy and paste into Groovy Script with minor tweaks
-/////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////// 
-// Need these imports to run tests
-/////////////////////////////////////////////////////////
-import org.openqa.selenium.By
+</script></con:config></con:testStep><con:testStep type="groovy" name="Groovy"><con:settings/><con:config><script>import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.support.ui.ExpectedCondition
 import org.openqa.selenium.support.ui.WebDriverWait
-import java.util.concurrent.TimeUnit;
+
+        // Create a new instance of the Firefox driver
+        // Notice that the remainder of the code relies on the interface, 
+        // not the implementation.
+        WebDriver driver = new FirefoxDriver()
+
+        // And now use this to visit Google
+//        driver.get("http://www.google.com")
+		driver.get("http://services.greenbuttondata.org/DataCustodian/")
+
+        // Find the text input element by its name
+//        WebElement element = driver.findElement(By.name("q"))
+WebElement element = driver.findElement(By.id("login"))
+element.click()
+
+
+// 		driver.findElement(By.id("login")).click()
+        
+sleep(1000)
+
+        // Enter something to search for
+        driver.findElement(By.name("j_username")).clear()
+        driver.findElement(By.name("j_username")).sendKeys("alan")
+        driver.findElement(By.name("j_password")).clear()
+        driver.findElement(By.name("j_password")).sendKeys("koala")
+        driver.findElement(By.name("submit")).click()
+
+        // Now submit the form. WebDriver will find the form for us from the element
+ //       element.submit()
+
+        // Check the title of the page
+        log.info("Page title is: " + driver.getTitle())
+        
+		sleep(5000)
+
+/*        
+        // Google's search is rendered dynamically with JavaScript.
+        // Wait for the page to load, timeout after 10 seconds
+        (new WebDriverWait(driver, 10)).until(new ExpectedCondition() {
+            public Boolean apply(WebDriver d) {
+                return d.getTitle().toLowerCase().startsWith("cheese!")
+            }
+        });
+*/
+        // Should see: "cheese! - Google Search"
+        log.info("Page title is: " + driver.getTitle())
+
+        
+        //Close the browser
+        driver.quit()</script></con:config></con:testStep><con:testStep type="groovy" name="Java"><con:settings/><con:config><script>package com.example.tests;
+
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 import org.junit.*;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
-///////////////////////////////////////////////////////// 
-// get variables from the project Custom Properties
-/////////////////////////////////////////////////////////
-def project = testRunner.testCase.testSuite.project
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
-def TestManager=project.getPropertyValue("TestManager")
-def TestManagerPW=project.getPropertyValue("TestManagerPW")
-def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
-def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=project.getPropertyValue("TestFile")
-def projectPath = groovyUtils.projectPath
-log.info("We are talking to: " + ServiceEndpoint) 
-log.info("Test File Path: "+ TestFile)
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 
- ///////////////////////////////////////////////////////// 
- // Create a new instance of the Firefox driver
- ///////////////////////////////////////////////////////// 
- WebDriver driver = new FirefoxDriver()
+public class TestSelenium {
+  private WebDriver driver;
+  private String baseUrl;
+  private boolean acceptNextAlert = true;
+  private StringBuffer verificationErrors = new StringBuffer();
 
- driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
- // Open the DataCustodian Page 
- driver.get(ServiceEndpoint)
-
- ///////////////////////////////////////////////////////// 
- // Log in as Manager
- /////////////////////////////////////////////////////////
-driver.findElement(By.id("login")).click();
-driver.findElement(By.name("j_username")).clear()
-driver.findElement(By.name("j_username")).sendKeys(TestManager)
-driver.findElement(By.name("j_password")).clear()
-driver.findElement(By.name("j_password")).sendKeys(TestManagerPW)
-driver.findElement(By.name("submit")).click()
-driver.findElement(By.linkText("Remove all OAuth tokens")).click();
-driver.findElement(By.id("logout")).click();
-///////////////////////////////////////////////////////// 
-// Log in as Alan and do the OAuth thing
-/////////////////////////////////////////////////////////
-driver.findElement(By.id("login")).click();
-driver.findElement(By.name("j_username")).clear();
-driver.findElement(By.name("j_username")).sendKeys(TestRetailCustomer);
-driver.findElement(By.name("j_password")).clear();
-driver.findElement(By.name("j_password")).sendKeys(TestRetailCustomerPW);
-driver.findElement(By.name("submit")).click();
-driver.findElement(By.linkText("Third Parties")).click();
-driver.findElement(By.name("Third_party")).click();
-driver.findElement(By.cssSelector("label")).click();
-driver.findElement(By.name("next")).click();
-driver.findElement(By.name("j_username")).clear();
-driver.findElement(By.name("j_username")).sendKeys(TestRetailCustomer);
-driver.findElement(By.name("j_password")).clear();
-driver.findElement(By.name("j_password")).sendKeys(TestRetailCustomerPW);
-driver.findElement(By.name("submit")).click();
-driver.findElement(By.name("scope")).click();
-driver.findElement(By.name("next")).click();
-driver.findElement(By.name("authorize")).click(); sleep(1000)
-driver.findElement(By.linkText("Usage Points")).click();
-driver.findElement(By.linkText("test_usage_data")).click();
-sleep(5000)
-///////////////////////////////////////////////////////// 
-//Close the browser
-/////////////////////////////////////////////////////////
-driver.quit() </script></con:config></con:testStep><con:testStep type="groovy" name="test"><con:settings/><con:config><script>/////////////////////////////////////////////////////////
-// Note: Generated by capture using Selenium in FF. 
-// Export to Java / JUnit 4 / WebDriver
-// Copy and paste into Groovy Script with minor tweaks
-/////////////////////////////////////////////////////////
-
-/////////////////////////////////////////////////////////
-// Need these imports to run tests
-/////////////////////////////////////////////////////////
-import org.openqa.selenium.By
-import org.openqa.selenium.WebDriver
-import org.openqa.selenium.WebElement
-import org.openqa.selenium.firefox.FirefoxDriver
-import org.openqa.selenium.support.ui.ExpectedCondition
-import org.openqa.selenium.support.ui.WebDriverWait
-import java.util.concurrent.TimeUnit;
-import java.util.regex.Pattern;
-import java.util.concurrent.TimeUnit;
-import org.junit.*;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-
-/////////////////////////////////////////////////////////
-// get variables from the project Custom Properties
-/////////////////////////////////////////////////////////
-def project = testRunner.testCase.testSuite.project
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-
-def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
-def TestManager=project.getPropertyValue("TestManager")
-def TestManagerPW=project.getPropertyValue("TestManagerPW")
-def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
-def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=project.getPropertyValue("TestFile")
-def projectPath = groovyUtils.projectPath
-
-log.info("We are talking to: " + ServiceEndpoint)
-log.info("Test File Path: "+ TestFile)
-
-
-/////////////////////////////////////////////////////////
-// Create a new instance of the Firefox driver
-/////////////////////////////////////////////////////////
-WebDriver driver = new FirefoxDriver()
+  @Before
+  public void setUp() throws Exception {
+    driver = new FirefoxDriver();
+    baseUrl = "https://www.google.com/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+  }
 
+  @Test
+  public void testSelenium() throws Exception {
+    driver.get(baseUrl + "/search?q=search&amp;ie=utf-8&amp;oe=utf-8&amp;aq=t&amp;rls=org.mozilla:en-US:official&amp;client=firefox-a");
+    driver.findElement(By.xpath("//a[contains(text(),'Maps')]")).click();
+  }
 
-// Open the DataCustodian Page
-driver.get(ServiceEndpoint+"/ThirdParty/")
+  @After
+  public void tearDown() throws Exception {
+    driver.quit();
+    String verificationErrorString = verificationErrors.toString();
+    if (!"".equals(verificationErrorString)) {
+      fail(verificationErrorString);
+    }
+  }
 
+  private boolean isElementPresent(By by) {
+    try {
+      driver.findElement(by);
+      return true;
+    } catch (NoSuchElementException e) {
+      return false;
+    }
+  }
 
-/////////////////////////////////////////////////////////
-// Log in as Alan and do the OAuth thing
-/////////////////////////////////////////////////////////
-driver.findElement(By.id("login")).click();
-driver.findElement(By.name("j_username")).clear();
-driver.findElement(By.name("j_username")).sendKeys(TestRetailCustomer);
-driver.findElement(By.name("j_password")).clear();
-driver.findElement(By.name("j_password")).sendKeys(TestRetailCustomerPW);
-driver.findElement(By.name("submit")).click();
+  private boolean isAlertPresent() {
+    try {
+      driver.switchTo().alert();
+      return true;
+    } catch (NoAlertPresentException e) {
+      return false;
+    }
+  }
 
-sleep(5000)
-
-driver.findElement(By.linkText("Usage Points")).click();
-driver.findElement(By.linkText("test_usage_data")).click();
-
-sleep(5000)
-
-/////////////////////////////////////////////////////////
-//Close the browser
-/////////////////////////////////////////////////////////
-driver.quit()
-</script></con:config></con:testStep><con:testStep type="restrequest" name="GET UsagePoint"><con:settings/><con:config service="ESPI Resources" resourcePath="/DataCustodian/espi/1_1/resource/RetailCustomer/1/UsagePoint/1" methodName="GET UsagePoint Path" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET UsagePoint" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
-  &lt;con:entry key="Authorization" value="Bearer 11111"/>
-  &lt;con:entry key="Content-Type" value="application/atom+xml"/>
-&lt;/xml-fragment></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="GET LocalTimeParameters"><con:settings/><con:config service="ESPI Resources" resourcePath="/DataCustodian/espi/1_1/resource/RetailCustomer/1/UsagePoint/1/LocalTimeParameters" methodName="GET LocalTimeParameters Path" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET LocalTimeParameters" mediaType="application/json" sslKeystore=""><con:encoding/><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>sessionid</con:name><con:value>null</con:value></con:property></con:properties></con:testSuite><con:testSuite name="Play"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Library" searchProperties="true"><con:settings/><con:testStep type="groovy" name="resetDB"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-def projectPath = groovyUtils.projectPath
-
-def mysqlCmd=project.getPropertyValue("mysqlCmd")
-
-
-def cmdClean = projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/cleantables.sql"
-
-log.info("exec: " + cmdClean);
-
-def doClean = cmdClean.execute()
-
-doClean.waitFor()
-
-if(doClean.exitValue()!=0)
-{
-	log.error "return code: ${ doClean.exitValue()}"
-	log.error "stderr: ${doClean.err.text}"
-	log.error "stdout: ${doClean.in.text}"
+  private String closeAlertAndGetItsText() {
+    try {
+      Alert alert = driver.switchTo().alert();
+      String alertText = alert.getText();
+      if (acceptNextAlert) {
+        alert.accept();
+      } else {
+        alert.dismiss();
+      }
+      return alertText;
+    } finally {
+      acceptNextAlert = true;
+    }
+  }
 }
+</script></con:config></con:testStep><con:testStep type="groovy" name="GoogleSuggest"><con:settings/><con:config><script>import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition
+import org.openqa.selenium.support.ui.WebDriverWait
+
+log.info("here is a message")
+	def s;
 
 
-def cmdPopulate = projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/prepopulatesql_localhost8080.sql"
+	Integer i;
+    	
+        // The Firefox driver supports javascript 
+        WebDriver driver = new FirefoxDriver();
+        
+        // Go to the Google Suggest home page
+        driver.get("http://www.google.com/webhp?complete=1&amp;hl=en");
+        
+        // Enter the query string "Cheese"
+        WebElement query = driver.findElement(By.name("q"));
+        query.sendKeys("Cheese");
 
-log.info("exec: " + cmdPopulate);
+        // Sleep until the div we want is visible or 5 seconds is over
+        long end = System.currentTimeMillis() + 5000;
+        while (System.currentTimeMillis() &lt; end) {
+            WebElement resultsDiv = driver.findElement(By.className("gssb_e"));
 
-def doPopulate = cmdPopulate.execute()
+            // If results have been returned, the results are displayed in a drop down.
+            if (resultsDiv.isDisplayed()) {
+              break;
+            }
+        }
 
-doPopulate.waitFor()
+        // And now list the suggestions
+        List&lt;WebElement> allSuggestions = driver.findElements(By.xpath("//td[@class='gssb_a gbqfsf']"));
+        
+        for (WebElement suggestion : allSuggestions) {
+        	 log.info( suggestion.getText());
 
-if(doPopulate.exitValue()!=0)
-{
-	log.error "return code: ${ doPopulate.exitValue()}"
-	log.error "stderr: ${doPopulate.err.text}"
-	log.error "stdout: ${doPopulate.in.text}"
-}
+        }
+
+
 </script></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="true" maxResults="0" name="UploadTestDataSave" searchProperties="true" id="f1f07eaf-a2b0-479a-9200-2e5727777c1b" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings/><con:testStep type="httprequest" name="LoadDataCustodianPage"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="LoadDataCustodianPage" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:endpoint>http://${#Project#ServiceEndpoint}/DataCustodian</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:config></con:testStep><con:testStep type="httprequest" name="Http Test Step 2 [/DataCustodian/login]"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="Http Test Step 2 [/DataCustodian/login]" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:endpoint>http://${#Project#ServiceEndpoint}/DataCustodian/login</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
   <con:entry key="Accept-Language" value="en-us,en;q=0.5"/>
   <con:entry key="Host" value="localhost:8080"/>
@@ -13058,7 +13026,190 @@ permissions and limitations under the License.
   <con:entry key="Accept-Encoding" value="gzip,deflate"/>
   <con:entry key="User-Agent" value="Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2) Gecko"/>
   <con:entry key="Accept" value="text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"/>
-</xml-fragment>]]></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:config></con:testStep><con:properties><con:property><con:name>sessionid</con:name><con:value>1</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SeleniumTestSave" searchProperties="true"><con:settings/><con:testStep type="groovy" name="LogIntoDataCustodian"><con:settings/><con:config><script>/////////////////////////////////////////////////////////
+</xml-fragment>]]></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:config></con:testStep><con:properties><con:property><con:name>sessionid</con:name><con:value>1</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="IntegrationTests" searchProperties="true"><con:settings/><con:testStep type="groovy" name="UploadTestUsageDataFile"><con:settings/><con:config><script>/////////////////////////////////////////////////////////
+// Note: Generated by capture using Selenium in FF. 
+// Export to Java / JUnit 4 / WebDriver
+// Copy and paste into Groovy Script with minor tweaks
+/////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////
+// Need these imports to run tests
+/////////////////////////////////////////////////////////
+import org.openqa.selenium.By
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.firefox.FirefoxDriver
+//import org.openqa.selenium.support.ui.ExpectedCondition
+//import org.openqa.selenium.support.ui.WebDriverWait
+//import org.openqa.selenium.JavascriptExecutor;
+//import org.openqa.selenium.support.ui.ExpectedConditions
+
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+
+/////////////////////////////////////////////////////////
+// get variables from the project Custom Properties
+/////////////////////////////////////////////////////////
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+def TestManager=project.getPropertyValue("TestManager")
+def TestManagerPW=project.getPropertyValue("TestManagerPW")
+def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+
+
+def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+
+//projectPath.replaceAll("\x5c","\x5c\x5c")
+
+log.info("We are talking to: " + ServiceEndpoint)
+log.info("Test File Path: "+ TestFile)
+
+
+/////////////////////////////////////////////////////////
+// Create a new instance of the Firefox driver
+/////////////////////////////////////////////////////////
+WebDriver driver = new FirefoxDriver()
+
+driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+// Open the DataCustodian Page
+driver.get(ServiceEndpoint)
+
+/////////////////////////////////////////////////////////
+// Log in as Manager
+/////////////////////////////////////////////////////////
+driver.findElement(By.id("login")).click();
+driver.findElement(By.name("j_username")).clear()
+driver.findElement(By.name("j_username")).sendKeys(TestManager)
+driver.findElement(By.name("j_password")).clear()
+driver.findElement(By.name("j_password")).sendKeys(TestManagerPW)
+driver.findElement(By.name("submit")).click()
+
+/////////////////////////////////////////////////////////
+// Now to the upload
+/////////////////////////////////////////////////////////
+driver.findElement(By.linkText("Upload")).click();
+driver.findElement(By.name("file")).sendKeys(TestFile);
+driver.findElement(By.name("upload")).click();
+driver.findElement(By.linkText("Customer List")).click();
+driver.findElement(By.linkText(TestRetailCustomer)).click();
+driver.findElement(By.partialLinkText("Add Usage")).click();
+driver.findElement(By.id("UUID")).clear();
+driver.findElement(By.id("UUID")).sendKeys("48C2A019-5598-4E16-B0F9-49E4FF27F5FB");
+driver.findElement(By.id("description")).clear();
+driver.findElement(By.id("description")).sendKeys("test_usage_data");
+driver.findElement(By.name("create")).click();
+driver.findElement(By.id("logout")).click();
+
+/////////////////////////////////////////////////////////
+// now look at data as Retail Customer
+/////////////////////////////////////////////////////////
+driver.findElement(By.id("login")).click();
+driver.findElement(By.name("j_username")).clear()
+driver.findElement(By.name("j_username")).sendKeys(TestRetailCustomer)
+driver.findElement(By.name("j_password")).clear()
+driver.findElement(By.name("j_password")).sendKeys(TestRetailCustomerPW)
+driver.findElement(By.name("submit")).click()
+driver.findElement(By.linkText("Usage Points")).click();
+
+driver.findElement(By.linkText("test_usage_data")).click();
+
+sleep(5000)
+driver.findElement(By.id("logout")).click();
+
+//Close the browser
+driver.quit()
+</script></con:config></con:testStep><con:testStep type="groovy" name="AuthorizationFromDataCustodianStart"><con:settings/><con:config><script>///////////////////////////////////////////////////////// 
+// Note: Generated by capture using Selenium in FF.
+// Export to Java / JUnit 4 / WebDriver // Copy and paste into Groovy Script with minor tweaks
+/////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////// 
+// Need these imports to run tests
+/////////////////////////////////////////////////////////
+import org.openqa.selenium.By
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.firefox.FirefoxDriver
+import org.openqa.selenium.support.ui.ExpectedCondition
+import org.openqa.selenium.support.ui.WebDriverWait
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+///////////////////////////////////////////////////////// 
+// get variables from the project Custom Properties
+/////////////////////////////////////////////////////////
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+def TestManager=project.getPropertyValue("TestManager")
+def TestManagerPW=project.getPropertyValue("TestManagerPW")
+def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+def TestFile=project.getPropertyValue("TestFile")
+def projectPath = groovyUtils.projectPath
+log.info("We are talking to: " + ServiceEndpoint) 
+log.info("Test File Path: "+ TestFile)
+
+ ///////////////////////////////////////////////////////// 
+ // Create a new instance of the Firefox driver
+ ///////////////////////////////////////////////////////// 
+ WebDriver driver = new FirefoxDriver()
+
+ driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+ // Open the DataCustodian Page 
+ driver.get(ServiceEndpoint)
+
+ ///////////////////////////////////////////////////////// 
+ // Log in as Manager
+ /////////////////////////////////////////////////////////
+driver.findElement(By.id("login")).click();
+driver.findElement(By.name("j_username")).clear()
+driver.findElement(By.name("j_username")).sendKeys(TestManager)
+driver.findElement(By.name("j_password")).clear()
+driver.findElement(By.name("j_password")).sendKeys(TestManagerPW)
+driver.findElement(By.name("submit")).click()
+driver.findElement(By.linkText("Remove all OAuth tokens")).click();
+driver.findElement(By.id("logout")).click();
+///////////////////////////////////////////////////////// 
+// Log in as Alan and do the OAuth thing
+/////////////////////////////////////////////////////////
+driver.findElement(By.id("login")).click();
+driver.findElement(By.name("j_username")).clear();
+driver.findElement(By.name("j_username")).sendKeys(TestRetailCustomer);
+driver.findElement(By.name("j_password")).clear();
+driver.findElement(By.name("j_password")).sendKeys(TestRetailCustomerPW);
+driver.findElement(By.name("submit")).click();
+driver.findElement(By.linkText("Third Parties")).click();
+driver.findElement(By.name("Third_party")).click();
+driver.findElement(By.cssSelector("label")).click();
+driver.findElement(By.name("next")).click();
+driver.findElement(By.name("j_username")).clear();
+driver.findElement(By.name("j_username")).sendKeys(TestRetailCustomer);
+driver.findElement(By.name("j_password")).clear();
+driver.findElement(By.name("j_password")).sendKeys(TestRetailCustomerPW);
+driver.findElement(By.name("submit")).click();
+driver.findElement(By.name("scope")).click();
+driver.findElement(By.name("next")).click();
+driver.findElement(By.name("authorize")).click(); sleep(1000)
+driver.findElement(By.linkText("Usage Points")).click();
+driver.findElement(By.linkText("test_usage_data")).click();
+sleep(5000)
+///////////////////////////////////////////////////////// 
+//Close the browser
+/////////////////////////////////////////////////////////
+driver.quit() </script></con:config></con:testStep><con:testStep type="groovy" name="test"><con:settings/><con:config><script>/////////////////////////////////////////////////////////
 // Note: Generated by capture using Selenium in FF. 
 // Export to Java / JUnit 4 / WebDriver
 // Copy and paste into Groovy Script with minor tweaks
@@ -13094,233 +13245,82 @@ def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
 def TestFile=project.getPropertyValue("TestFile")
 def projectPath = groovyUtils.projectPath
 
-//projectPath.replaceAll("\x5c","\x5c\x5c")
-
 log.info("We are talking to: " + ServiceEndpoint)
 log.info("Test File Path: "+ TestFile)
 
 
+/////////////////////////////////////////////////////////
 // Create a new instance of the Firefox driver
+/////////////////////////////////////////////////////////
 WebDriver driver = new FirefoxDriver()
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 
 // Open the DataCustodian Page
-driver.get("http://"+ServiceEndpoint+"/DataCustodian/")
+driver.get(ServiceEndpoint+"/ThirdParty/")
+
 
 /////////////////////////////////////////////////////////
-// Log in as Manager
+// Log in as Alan and do the OAuth thing
 /////////////////////////////////////////////////////////
 driver.findElement(By.id("login")).click();
-driver.findElement(By.name("j_username")).clear()
-driver.findElement(By.name("j_username")).sendKeys(TestManager)
-driver.findElement(By.name("j_password")).clear()
-driver.findElement(By.name("j_password")).sendKeys(TestManagerPW)
-driver.findElement(By.name("submit")).click()
-
-/////////////////////////////////////////////////////////
-// Now to the upload
-/////////////////////////////////////////////////////////
-driver.findElement(By.linkText("Upload")).click();
-driver.findElement(By.name("file")).sendKeys(TestFile);
-//driver.findElement(By.name("file")).sendKeys("C:\\_Project\\NIST\\NISTGreenButton\\Source\\OpenESPI-Greenbutton-java\\OpenESPI-DataCustodian-java\\src\\main\\resources\\fixtures\\test_usage_data.xml");
-driver.findElement(By.name("upload")).click();
-driver.findElement(By.linkText("Customer List")).click();
-driver.findElement(By.linkText(TestRetailCustomer)).click();
-driver.findElement(By.partialLinkText("Add Usage")).click();
-driver.findElement(By.id("UUID")).clear();
-driver.findElement(By.id("UUID")).sendKeys("48C2A019-5598-4E16-B0F9-49E4FF27F5FB");
-driver.findElement(By.id("description")).clear();
-driver.findElement(By.id("description")).sendKeys("test_usage_data");
-driver.findElement(By.name("create")).click();
-driver.findElement(By.id("logout")).click();
-
-/////////////////////////////////////////////////////////
-// now look at data as Retail Customer
-/////////////////////////////////////////////////////////
-driver.findElement(By.id("login")).click();
-driver.findElement(By.name("j_username")).clear()
-driver.findElement(By.name("j_username")).sendKeys(TestRetailCustomer)
-driver.findElement(By.name("j_password")).clear()
-driver.findElement(By.name("j_password")).sendKeys(TestRetailCustomerPW)
-driver.findElement(By.name("submit")).click()
-driver.findElement(By.linkText("Usage Points")).click();
+driver.findElement(By.name("j_username")).clear();
+driver.findElement(By.name("j_username")).sendKeys(TestRetailCustomer);
+driver.findElement(By.name("j_password")).clear();
+driver.findElement(By.name("j_password")).sendKeys(TestRetailCustomerPW);
+driver.findElement(By.name("submit")).click();
 
 sleep(5000)
-driver.findElement(By.id("logout")).click();
 
+driver.findElement(By.linkText("Usage Points")).click();
+driver.findElement(By.linkText("test_usage_data")).click();
+
+sleep(5000)
+
+/////////////////////////////////////////////////////////
 //Close the browser
+/////////////////////////////////////////////////////////
 driver.quit()
-</script></con:config></con:testStep><con:testStep type="groovy" name="Groovy"><con:settings/><con:config><script>import org.openqa.selenium.By
-import org.openqa.selenium.WebDriver
-import org.openqa.selenium.WebElement
-import org.openqa.selenium.firefox.FirefoxDriver
-import org.openqa.selenium.support.ui.ExpectedCondition
-import org.openqa.selenium.support.ui.WebDriverWait
+</script></con:config></con:testStep><con:testStep type="restrequest" name="GET UsagePoint"><con:settings/><con:config service="ESPI Resources" resourcePath="/DataCustodian/espi/1_1/resource/RetailCustomer/1/UsagePoint/1" methodName="GET UsagePoint Path" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET UsagePoint" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Authorization" value="Bearer 11111"/>
+  &lt;con:entry key="Content-Type" value="application/atom+xml"/>
+&lt;/xml-fragment></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="GET LocalTimeParameters"><con:settings/><con:config service="ESPI Resources" resourcePath="/DataCustodian/espi/1_1/resource/RetailCustomer/1/UsagePoint/1/LocalTimeParameters" methodName="GET LocalTimeParameters Path" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET LocalTimeParameters" mediaType="application/json" sslKeystore=""><con:encoding/><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>sessionid</con:name><con:value>null</con:value></con:property></con:properties></con:testSuite><con:testSuite name="OpenEspiIntegrationTests"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Library" searchProperties="true"><con:settings/><con:testStep type="groovy" name="resetDB"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
 
-        // Create a new instance of the Firefox driver
-        // Notice that the remainder of the code relies on the interface, 
-        // not the implementation.
-        WebDriver driver = new FirefoxDriver()
-
-        // And now use this to visit Google
-//        driver.get("http://www.google.com")
-		driver.get("http://services.greenbuttondata.org/DataCustodian/")
-
-        // Find the text input element by its name
-//        WebElement element = driver.findElement(By.name("q"))
-WebElement element = driver.findElement(By.id("login"))
-element.click()
+def mysqlCmd=project.getPropertyValue("mysqlCmd")
 
 
-// 		driver.findElement(By.id("login")).click()
-        
-sleep(1000)
+def cmdClean = projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/cleantables.sql"
 
-        // Enter something to search for
-        driver.findElement(By.name("j_username")).clear()
-        driver.findElement(By.name("j_username")).sendKeys("alan")
-        driver.findElement(By.name("j_password")).clear()
-        driver.findElement(By.name("j_password")).sendKeys("koala")
-        driver.findElement(By.name("submit")).click()
+log.info("exec: " + cmdClean);
 
-        // Now submit the form. WebDriver will find the form for us from the element
- //       element.submit()
+def doClean = cmdClean.execute()
 
-        // Check the title of the page
-        log.info("Page title is: " + driver.getTitle())
-        
-		sleep(5000)
+doClean.waitFor()
 
-/*        
-        // Google's search is rendered dynamically with JavaScript.
-        // Wait for the page to load, timeout after 10 seconds
-        (new WebDriverWait(driver, 10)).until(new ExpectedCondition() {
-            public Boolean apply(WebDriver d) {
-                return d.getTitle().toLowerCase().startsWith("cheese!")
-            }
-        });
-*/
-        // Should see: "cheese! - Google Search"
-        log.info("Page title is: " + driver.getTitle())
-
-        
-        //Close the browser
-        driver.quit()</script></con:config></con:testStep><con:testStep type="groovy" name="Java"><con:settings/><con:config><script>package com.example.tests;
-
-import java.util.regex.Pattern;
-import java.util.concurrent.TimeUnit;
-import org.junit.*;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
-
-public class TestSelenium {
-  private WebDriver driver;
-  private String baseUrl;
-  private boolean acceptNextAlert = true;
-  private StringBuffer verificationErrors = new StringBuffer();
-
-  @Before
-  public void setUp() throws Exception {
-    driver = new FirefoxDriver();
-    baseUrl = "https://www.google.com/";
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-  }
-
-  @Test
-  public void testSelenium() throws Exception {
-    driver.get(baseUrl + "/search?q=search&amp;ie=utf-8&amp;oe=utf-8&amp;aq=t&amp;rls=org.mozilla:en-US:official&amp;client=firefox-a");
-    driver.findElement(By.xpath("//a[contains(text(),'Maps')]")).click();
-  }
-
-  @After
-  public void tearDown() throws Exception {
-    driver.quit();
-    String verificationErrorString = verificationErrors.toString();
-    if (!"".equals(verificationErrorString)) {
-      fail(verificationErrorString);
-    }
-  }
-
-  private boolean isElementPresent(By by) {
-    try {
-      driver.findElement(by);
-      return true;
-    } catch (NoSuchElementException e) {
-      return false;
-    }
-  }
-
-  private boolean isAlertPresent() {
-    try {
-      driver.switchTo().alert();
-      return true;
-    } catch (NoAlertPresentException e) {
-      return false;
-    }
-  }
-
-  private String closeAlertAndGetItsText() {
-    try {
-      Alert alert = driver.switchTo().alert();
-      String alertText = alert.getText();
-      if (acceptNextAlert) {
-        alert.accept();
-      } else {
-        alert.dismiss();
-      }
-      return alertText;
-    } finally {
-      acceptNextAlert = true;
-    }
-  }
+if(doClean.exitValue()!=0)
+{
+	log.error "return code: ${ doClean.exitValue()}"
+	log.error "stderr: ${doClean.err.text}"
+	log.error "stdout: ${doClean.in.text}"
 }
-</script></con:config></con:testStep><con:testStep type="groovy" name="GoogleSuggest"><con:settings/><con:config><script>import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition
-import org.openqa.selenium.support.ui.WebDriverWait
-
-log.info("here is a message")
-	def s;
 
 
-	Integer i;
-    	
-        // The Firefox driver supports javascript 
-        WebDriver driver = new FirefoxDriver();
-        
-        // Go to the Google Suggest home page
-        driver.get("http://www.google.com/webhp?complete=1&amp;hl=en");
-        
-        // Enter the query string "Cheese"
-        WebElement query = driver.findElement(By.name("q"));
-        query.sendKeys("Cheese");
+def cmdPopulate = projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/prepopulatesql_localhost8080.sql"
 
-        // Sleep until the div we want is visible or 5 seconds is over
-        long end = System.currentTimeMillis() + 5000;
-        while (System.currentTimeMillis() &lt; end) {
-            WebElement resultsDiv = driver.findElement(By.className("gssb_e"));
+log.info("exec: " + cmdPopulate);
 
-            // If results have been returned, the results are displayed in a drop down.
-            if (resultsDiv.isDisplayed()) {
-              break;
-            }
-        }
+def doPopulate = cmdPopulate.execute()
 
-        // And now list the suggestions
-        List&lt;WebElement> allSuggestions = driver.findElements(By.xpath("//td[@class='gssb_a gbqfsf']"));
-        
-        for (WebElement suggestion : allSuggestions) {
-        	 log.info( suggestion.getText());
+doPopulate.waitFor()
 
-        }
-
-
+if(doPopulate.exitValue()!=0)
+{
+	log.error "return code: ${ doPopulate.exitValue()}"
+	log.error "stderr: ${doPopulate.err.text}"
+	log.error "stdout: ${doPopulate.in.text}"
+}
 </script></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="50000" name="ResourceTests" searchProperties="true" id="a536dcbe-f106-47e2-9c97-93c2d78cffa9" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.panels.testcase.JTestRunLog$OptionsForm@max_rows">20000</con:setting><con:setting id="com.eviware.soapui.impl.wsdl.panels.testcase.JTestRunLog$OptionsForm@errors_only">false</con:setting></con:settings><con:testStep type="groovy" name="InitializeDataSets"><con:settings/><con:config><script><![CDATA[import org.xml.sax.SAXException;
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
@@ -16234,7 +16234,8 @@ def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
-def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+def ServiceEndpointDataCustodian = project.getPropertyValue("ServiceEndpointDataCustodian")
+def ServiceEndpointThirdParty = project.getPropertyValue("ServiceEndpointThirdParty")
 def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
@@ -16250,14 +16251,14 @@ try{
 	log.info("Scenario: Retail Customer authorizes Usage Points access");
 	//*********************************************************
 	// reset DB : run library groovy script
-	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resetDB']);
 	// Browser Init
 	StepUtils.Before();
 	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("Given a Retail Customer with Usage Points");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	StepUtils.login(ServiceEndpoint+"/DataCustodian/",TestManager,TestManagerPW);
+	StepUtils.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
 	StepUtils.assertUrlEndsWith("/DataCustodian/custodian/home");
 	
 	// add usage point linkage
@@ -16275,9 +16276,9 @@ try{
 	StepUtils.assertDoesNotContain("Unable to process file");
 
 	
-	StepUtils.logout(ServiceEndpoint+"/DataCustodian/");
+	StepUtils.logout(ServiceEndpointDataCustodian);
 	
-	StepUtils.login(ServiceEndpoint+"/ThirdParty/",TestRetailCustomer,TestRetailCustomerPW);
+	StepUtils.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
 	
 	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -16359,7 +16360,8 @@ def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
-def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+def ServiceEndpointDataCustodian = project.getPropertyValue("ServiceEndpointDataCustodian")
+def ServiceEndpointThirdParty = project.getPropertyValue("ServiceEndpointThirdParty")
 def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
@@ -16375,14 +16377,14 @@ try{
 	log.info("Scenario: Retail Customer views Usage Points with Meter Readings");
 	//*********************************************************
 	// reset DB : run library groovy script
-	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resetDB']);
 	// Browser Init
 	StepUtils.Before();
 	
 	///////////////////////////////////////////////////////////  
 	StepUtils.logStep("Given a Retail Customer with Usage Points");
 	///////////////////////////////////////////////////////////
-	StepUtils.login(ServiceEndpoint+"/DataCustodian/",TestManager,TestManagerPW);
+	StepUtils.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
 	StepUtils.assertUrlEndsWith("/DataCustodian/custodian/home");
 	
 	// add usage point linkage
@@ -16399,9 +16401,9 @@ try{
 	StepUtils.clickByName("upload");
 	StepUtils.assertDoesNotContain("Unable to process file");
 	
-	StepUtils.logout(ServiceEndpoint+"/DataCustodian/");
+	StepUtils.logout(ServiceEndpointDataCustodian);
 	
-	StepUtils.login(ServiceEndpoint+"/ThirdParty/",TestRetailCustomer,TestRetailCustomerPW);
+	StepUtils.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
 	
 	///////////////////////////////////////////////////////////
 	StepUtils.logStep("When I look at my Usage Points page");
@@ -16511,7 +16513,8 @@ def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
-def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+def ServiceEndpointDataCustodian = project.getPropertyValue("ServiceEndpointDataCustodian")
+def ServiceEndpointThirdParty = project.getPropertyValue("ServiceEndpointThirdParty")
 def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
@@ -16528,7 +16531,7 @@ try{
 	log.info("Scenario: Retail Customer authorizes Scope");
 	//*********************************************************  
 	// reset DB : run library groovy script
-	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resetDB']);
 	// Browser Init
 	StepUtils.Before();
 	
@@ -16540,7 +16543,7 @@ try{
 	///////////////////////////////////////////////////////////
 	StepUtils.logStep("When I log in as Alan Turing into Third Party");
 	///////////////////////////////////////////////////////////
-	StepUtils.login(ServiceEndpoint+"/ThirdParty/",TestRetailCustomer,TestRetailCustomerPW);
+	StepUtils.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
 	
 	///////////////////////////////////////////////////////////
 	StepUtils.logStep("And I select a Data Custodian from the list");
@@ -16603,7 +16606,8 @@ def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
-def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+def ServiceEndpointDataCustodian = project.getPropertyValue("ServiceEndpointDataCustodian")
+def ServiceEndpointThirdParty = project.getPropertyValue("ServiceEndpointThirdParty")
 def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
@@ -16619,7 +16623,7 @@ try{
 	log.info("Scenario: Retail Customer denies Scope");
 	//********************************************************* 
 	// reset DB : run library groovy script
-	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resetDB']);
 	// Browser Init
 	StepUtils.Before();
 	
@@ -16631,7 +16635,7 @@ try{
 	///////////////////////////////////////////////////////////
 	StepUtils.logStep("When I log in as Alan Turing into Third Party");
 	///////////////////////////////////////////////////////////
-	StepUtils.login(ServiceEndpoint+"/ThirdParty/",TestRetailCustomer,TestRetailCustomerPW);
+	StepUtils.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
 	
 	///////////////////////////////////////////////////////////
 	StepUtils.logStep("And I select a Data Custodian from the list");
@@ -16692,7 +16696,8 @@ def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
-def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+def ServiceEndpointDataCustodian = project.getPropertyValue("ServiceEndpointDataCustodian")
+def ServiceEndpointThirdParty = project.getPropertyValue("ServiceEndpointThirdParty")
 def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
@@ -16708,7 +16713,7 @@ try{
 	log.info("Scenario: Retail Customer authorizes Scope from Data Custodian");
 	//*********************************************************
 	// reset DB : run library groovy script
-	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resetDB']);
 	// Browser Init
 	StepUtils.Before();
 	
@@ -16720,7 +16725,7 @@ try{
 	///////////////////////////////////////////////////////////
 	StepUtils.logStep("When I log in as Alan Turing into Data Custodian");
 	///////////////////////////////////////////////////////////
-	StepUtils.login(ServiceEndpoint+"/DataCustodian/",TestRetailCustomer,TestRetailCustomerPW);
+	StepUtils.login(ServiceEndpointDataCustodian,TestRetailCustomer,TestRetailCustomerPW);
 	
 	///////////////////////////////////////////////////////////
 	StepUtils.logStep("And I select a Third Party from the list");
@@ -16781,7 +16786,8 @@ def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
-def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+def ServiceEndpointDataCustodian = project.getPropertyValue("ServiceEndpointDataCustodian")
+def ServiceEndpointThirdParty = project.getPropertyValue("ServiceEndpointThirdParty")
 def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
@@ -16797,7 +16803,7 @@ try{
 	log.info("Scenario: Retail Customer denies Scope from Data Custodian");
 	//*********************************************************  
 	// reset DB : run library groovy script
-	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resetDB']);
 	// Browser Init
 	StepUtils.Before();
 	
@@ -16809,7 +16815,7 @@ try{
 	///////////////////////////////////////////////////////////
 	StepUtils.logStep("When I log in as Alan Turing into Data Custodian");
 	///////////////////////////////////////////////////////////
-	StepUtils.login(ServiceEndpoint+"/DataCustodian/",TestRetailCustomer,TestRetailCustomerPW);
+	StepUtils.login(ServiceEndpointDataCustodian,TestRetailCustomer,TestRetailCustomerPW);
 	
 	///////////////////////////////////////////////////////////
 	StepUtils.logStep("And I select a Third Party from the list");
@@ -16878,7 +16884,8 @@ def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
-def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+def ServiceEndpointDataCustodian = project.getPropertyValue("ServiceEndpointDataCustodian")
+def ServiceEndpointThirdParty = project.getPropertyValue("ServiceEndpointThirdParty")
 def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
@@ -16896,14 +16903,14 @@ try{
 	log.info("Scenario: Data Custodian notifies Third Party of updated Subscription");
 	//*********************************************************
 	// reset DB : run library groovy script
-	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resetDB']);
 	// Browser Init
 	StepUtils.Before();
 	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("Given a Retail Customer with Usage Points");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	StepUtils.login(ServiceEndpoint + "/DataCustodian/",TestManager,TestManagerPW);
+	StepUtils.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
 	StepUtils.assertUrlEndsWith("/DataCustodian/custodian/home");
 	
 	// add usage point linkage
@@ -16920,7 +16927,7 @@ try{
 	StepUtils.clickByName("upload");
 	StepUtils.assertDoesNotContain("Unable to process file");
 	
-	StepUtils.logout(ServiceEndpoint + "/DataCustodian/");
+	StepUtils.logout(ServiceEndpointDataCustodian);
 	//StepUtils.clickLinkByText("Logout");
 	
 	//StepUtils.login(ServiceEndpoint+"/ThirdParty/",TestRetailCustomer,TestRetailCustomerPW);
@@ -16928,7 +16935,7 @@ try{
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("And a Third Party with an updated subscription");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	StepUtils.login(ServiceEndpoint + "/ThirdParty/",TestManager,TestManagerPW);
+	StepUtils.login(ServiceEndpointThirdParty,TestManager,TestManagerPW);
 	StepUtils.navigateTo(StepUtils.THIRD_PARTY_CONTEXT, "/batchLists");
 
 // TODO:
@@ -16936,10 +16943,10 @@ try{
 int OriginalnumberOfSubscriptions = 0;
 	log.info("Original number of subscriptions=" + OriginalnumberOfSubscriptions);
 	//logoutThirdParty();
-	StepUtils.logout(ServiceEndpoint + "/ThirdParty/");
+	StepUtils.logout(ServiceEndpointThirdParty);
 	//StepUtils.clickLinkByText("Logout");
 	
-	StepUtils.login(ServiceEndpoint + "/ThirdParty/",TestRetailCustomer,TestRetailCustomerPW);
+	StepUtils.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
 	StepUtils.clickLinkByText("Data Custodians");
 	StepUtils.clickByName("Data_custodian");
 	StepUtils.clickByName("next");
@@ -16950,11 +16957,11 @@ int OriginalnumberOfSubscriptions = 0;
 	StepUtils.clickByName("next");
 	StepUtils.clickByName("authorize");
 	//StepUtils.clickLinkByText("Logout");
-	StepUtils.logout(ServiceEndpoint + "/DataCustodian/");
+	StepUtils.logout(ServiceEndpointDataCustodian);
 
-	StepUtils.logout(ServiceEndpoint + "/ThirdParty/");
+	StepUtils.logout(ServiceEndpointThirdParty);
 	
-	StepUtils.login(ServiceEndpoint+"/DataCustodian/", TestManager,TestManagerPW);
+	StepUtils.login(ServiceEndpointDataCustodian, TestManager,TestManagerPW);
 	
 	//uploadUsagePoints("Sweet Usage Point");
 	// upload usage point file
@@ -16978,15 +16985,15 @@ int OriginalnumberOfSubscriptions = 0;
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//notifyThirdParty();
 	//login(DATA_CUSTODIAN_CONTEXT, CUSTODIAN_USERNAME, CUSTODIAN_PASSWORD);
-	StepUtils.logout(ServiceEndpoint + "/DataCustodian/");
-	StepUtils.login(ServiceEndpoint+"/DataCustodian/",TestManager,TestManagerPW);
+	StepUtils.logout(ServiceEndpointDataCustodian);
+	StepUtils.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
 	StepUtils.clickLinkByText("Notify Third Party");
 	        
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("Then the Third Party should be notified of the update");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	StepUtils.logout(ServiceEndpoint + "/DataCustodian/");
-	StepUtils.login(ServiceEndpoint+"/ThirdParty/",TestManager,TestManagerPW);
+	StepUtils.logout(ServiceEndpointDataCustodian);
+	StepUtils.login(ServiceEndpointThirdParty,TestManager,TestManagerPW);
 
 // TODO The following code sometimes works sometimes does not	
 //sleep(5000);
@@ -17042,7 +17049,8 @@ def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
-def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+def ServiceEndpointDataCustodian = project.getPropertyValue("ServiceEndpointDataCustodian")
+def ServiceEndpointThirdParty = project.getPropertyValue("ServiceEndpointThirdParty")
 def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
@@ -17059,14 +17067,14 @@ try{
 	log.info("Scenario: Third Party accesses Subscription");
 	//*********************************************************
 	// reset DB : run library groovy script
-	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resetDB']);
 	// Browser Init
 	StepUtils.Before();
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("Given a Retail Customer with Usage Points");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	StepUtils.login(ServiceEndpoint+"/DataCustodian/",TestManager,TestManagerPW);
+	StepUtils.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
 	StepUtils.assertUrlEndsWith("/DataCustodian/custodian/home");
 	
 	// add usage point linkage
@@ -17083,13 +17091,13 @@ try{
 	StepUtils.clickByName("upload");
 	StepUtils.assertDoesNotContain("Unable to process file");
 	
-	StepUtils.logout(ServiceEndpoint+"/DataCustodian/");
+	StepUtils.logout(ServiceEndpointDataCustodian);
 	
 	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("Given an authorized Third Party");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	StepUtils.login(ServiceEndpoint+"/ThirdParty/",TestRetailCustomer,TestRetailCustomerPW);
+	StepUtils.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
 	StepUtils.clickLinkByText("Data Custodians");
 	StepUtils.clickByName("Data_custodian");
 	StepUtils.clickByName("next");
@@ -17101,10 +17109,10 @@ try{
 	StepUtils.clickByName("authorize");
 
 	// logout of Third Party	
-	StepUtils.logout(ServiceEndpoint+"/ThirdParty/");
+	StepUtils.logout(ServiceEndpointThirdParty);
 
 	// logout of DataCustodian	
-	StepUtils.logout(ServiceEndpoint+"/DataCustodian/");
+	StepUtils.logout(ServiceEndpointDataCustodian);
 	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//StepUtils.logStep("And I log in as Alan Turing into Data Custodian");
@@ -17115,7 +17123,7 @@ try{
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("When I log in as Alan Turing");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	StepUtils.login(ServiceEndpoint + "/ThirdParty/",TestRetailCustomer,TestRetailCustomerPW);
+	StepUtils.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
 	StepUtils.assertContains("Welcome");
 	 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -17155,7 +17163,8 @@ def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
-def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+def ServiceEndpointDataCustodian = project.getPropertyValue("ServiceEndpointDataCustodian")
+def ServiceEndpointThirdParty = project.getPropertyValue("ServiceEndpointThirdParty")
 def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
@@ -17172,14 +17181,14 @@ try{
 	log.info("Scenario: Third Party customer accesses Authorizations page");
 	//*********************************************************
 	// reset DB : run library groovy script
-	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resetDB']);
 	// Browser Init
 	StepUtils.Before();
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("Given a Retail Customer with Usage Points");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	StepUtils.login(ServiceEndpoint+"/DataCustodian/",TestManager,TestManagerPW);
+	StepUtils.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
 	StepUtils.assertUrlEndsWith("/DataCustodian/custodian/home");
 	
 	// add usage point linkage
@@ -17196,12 +17205,12 @@ try{
 	StepUtils.clickByName("upload");
 	StepUtils.assertDoesNotContain("Unable to process file");
 	
-	StepUtils.logout(ServiceEndpoint+"/DataCustodian/");	
+	StepUtils.logout(ServiceEndpointDataCustodian);	
 	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("Given an authorized Third Party");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	StepUtils.login(ServiceEndpoint+"/ThirdParty/",TestRetailCustomer,TestRetailCustomerPW);
+	StepUtils.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
 	StepUtils.clickLinkByText("Data Custodians");
 	StepUtils.clickByName("Data_custodian");
 	StepUtils.clickByName("next");
@@ -17211,15 +17220,15 @@ try{
 	StepUtils.clickByName("authorize");
 
 	// logout of Third Party	
-	StepUtils.logout(ServiceEndpoint+"/ThirdParty/");
+	StepUtils.logout(ServiceEndpointThirdParty);
 
 	// logout of DataCustodian	
-	StepUtils.logout(ServiceEndpoint+"/DataCustodian/");
+	StepUtils.logout(ServiceEndpointDataCustodian);
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("When I log in as Alan Turing");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	StepUtils.login(ServiceEndpoint+"/ThirdParty/",TestRetailCustomer,TestRetailCustomerPW);
+	StepUtils.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
 	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("And I navigate to the Authorizations page");
@@ -17267,7 +17276,8 @@ def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
-def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+def ServiceEndpointDataCustodian = project.getPropertyValue("ServiceEndpointDataCustodian")
+def ServiceEndpointThirdParty = project.getPropertyValue("ServiceEndpointThirdParty")
 def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
@@ -17284,7 +17294,7 @@ try{
 	log.info("Scenario: Retail Customer views Data Custodian list");
 	//*********************************************************
 	// reset DB : run library groovy script
-	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resetDB']);
 	// Browser Init
 	StepUtils.Before();
 		
@@ -17315,7 +17325,8 @@ def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
-def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+def ServiceEndpointDataCustodian = project.getPropertyValue("ServiceEndpointDataCustodian")
+def ServiceEndpointThirdParty = project.getPropertyValue("ServiceEndpointThirdParty")
 def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
@@ -17332,7 +17343,7 @@ try{
 	log.info("Scenario: Retail Customer selects Data Custodian for the list");
 	//*********************************************************
 	// reset DB : run library groovy script
-	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resetDB']);
 	// Browser Init
 	StepUtils.Before();
 		
@@ -17363,7 +17374,8 @@ def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
-def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+def ServiceEndpointDataCustodian = project.getPropertyValue("ServiceEndpointDataCustodian")
+def ServiceEndpointThirdParty = project.getPropertyValue("ServiceEndpointThirdParty")
 def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
@@ -17380,7 +17392,7 @@ try{
 	log.info("Scenario: Retail Customer selects Scope");
 	//*********************************************************
 	// reset DB : run library groovy script
-	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resetDB']);
 	// Browser Init
 	StepUtils.Before();
 		
@@ -17419,7 +17431,8 @@ def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
-def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+def ServiceEndpointDataCustodian = project.getPropertyValue("ServiceEndpointDataCustodian")
+def ServiceEndpointThirdParty = project.getPropertyValue("ServiceEndpointThirdParty")
 def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
@@ -17436,7 +17449,7 @@ try{
 	log.info("Scenario: Retail Customer authorizes Third Party");
 	//*********************************************************
 	// reset DB : run library groovy script
-	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Play'].testCases['Library'].testSteps['resetDB']);
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resetDB']);
 	// Browser Init
 	StepUtils.Before();
 		
