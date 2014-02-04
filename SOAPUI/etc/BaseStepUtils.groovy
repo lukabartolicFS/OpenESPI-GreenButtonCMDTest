@@ -152,7 +152,8 @@ public class BaseStepUtilsA {
 	public static void clickLinkByText(String strLink)
 	{
 		CaptureAction();
-        _driver.findElement(By.linkText(strLink)).click();	
+        WebElement link = _driver.findElement(By.linkText(strLink));	
+        link.click();
 	}
 
 	public static clickByClass(String strLink)

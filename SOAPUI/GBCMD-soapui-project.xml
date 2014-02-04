@@ -17301,14 +17301,38 @@ try{
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("Given a Retail Customer with Usage Points");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
+	StepUtils.assertUrlEndsWith("/DataCustodian/custodian/home");
 	
+	// add usage point linkage
+	StepUtils.clickLinkByText("Customer List");
+	StepUtils.clickLinkByText(TestRetailCustomer);
+	StepUtils.clickBypartialLinkText("Add Usage");
+	StepUtils.fillInById("UUID","48C2A019-5598-4E16-B0F9-49E4FF27F5FB");
+	StepUtils.fillInById("description","test_usage_data");
+	StepUtils.clickByName("create");
+	
+	// upload usage point file
+	StepUtils.clickLinkByText("Upload");
+	StepUtils.sendKeysByName("file",TestFile);
+	StepUtils.clickByName("upload");
+	StepUtils.assertDoesNotContain("Unable to process file");
+
+	
+	StepUtils.logout(ServiceEndpointDataCustodian);
+	
+	StepUtils.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
+		
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("When I navigate to Data Custodian list");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//return
+	StepUtils.clickLinkByText("Data Custodians");
 	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("Then I should see a list of Data Custodians");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	assertContains("data_custodian");
 
 } catch(Exception e) {
 	strResult = "Failed performing: Action from script line[" + StepUtils._iActionLineNum + "]:" + StepUtils._strActionMethodName;
@@ -17350,15 +17374,41 @@ try{
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("Given a Retail Customer with Usage Points");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
+	StepUtils.assertUrlEndsWith("/DataCustodian/custodian/home");
 	
+	// add usage point linkage
+	StepUtils.clickLinkByText("Customer List");
+	StepUtils.clickLinkByText(TestRetailCustomer);
+	StepUtils.clickBypartialLinkText("Add Usage");
+	StepUtils.fillInById("UUID","48C2A019-5598-4E16-B0F9-49E4FF27F5FB");
+	StepUtils.fillInById("description","test_usage_data");
+	StepUtils.clickByName("create");
+	
+	// upload usage point file
+	StepUtils.clickLinkByText("Upload");
+	StepUtils.sendKeysByName("file",TestFile);
+	StepUtils.clickByName("upload");
+	StepUtils.assertDoesNotContain("Unable to process file");
+
+	
+	StepUtils.logout(ServiceEndpointDataCustodian);
+	
+	StepUtils.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
+		
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("When I select a Data Custodian from the list");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
+	StepUtils.clickLinkByText("Data Custodians");
+	StepUtils.clickByName("Data_custodian");
+	StepUtils.clickByName("next");
+		
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("Then I should see the Data Custodian login screen");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+	StepUtils.assertUrlContains("/DataCustodian");
+	StepUtils.assertContains("Login");
+        
 } catch(Exception e) {
 	strResult = "Failed performing: Action from script line[" + StepUtils._iActionLineNum + "]:" + StepUtils._strActionMethodName;
 	log.error(strResult);
@@ -17399,23 +17449,53 @@ try{
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("Given a Retail Customer with Usage Points");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
+	StepUtils.assertUrlEndsWith("/DataCustodian/custodian/home");
 	
+	// add usage point linkage
+	StepUtils.clickLinkByText("Customer List");
+	StepUtils.clickLinkByText(TestRetailCustomer);
+	StepUtils.clickBypartialLinkText("Add Usage");
+	StepUtils.fillInById("UUID","48C2A019-5598-4E16-B0F9-49E4FF27F5FB");
+	StepUtils.fillInById("description","test_usage_data");
+	StepUtils.clickByName("create");
+	
+	// upload usage point file
+	StepUtils.clickLinkByText("Upload");
+	StepUtils.sendKeysByName("file",TestFile);
+	StepUtils.clickByName("upload");
+	StepUtils.assertDoesNotContain("Unable to process file");
+
+	
+	StepUtils.logout(ServiceEndpointDataCustodian);
+	
+	StepUtils.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("When I select a Data Custodian from the list");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
+	StepUtils.clickLinkByText("Data Custodians");
+	StepUtils.clickByName("Data_custodian");
+	StepUtils.clickByName("next");
+			
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("Then I should see the Data Custodian login screen");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
+	StepUtils.assertUrlContains("/DataCustodian");
+	StepUtils.assertContains("Login");
+		
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("When I log into Data Custodian");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
+	StepUtils.fillInByName("j_username", TestRetailCustomer);
+	StepUtils.fillInByName("j_password", TestRetailCustomerPW);
+	StepUtils.clickByName("submit");
+		
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("Then I should see Scope selection screen");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+	StepUtils.assertContains("Select Scope");
+	StepUtils.assertContains("FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13");
+	
 } catch(Exception e) {
 	strResult = "Failed performing: Action from script line[" + StepUtils._iActionLineNum + "]:" + StepUtils._strActionMethodName;
 	log.error(strResult);
@@ -17456,39 +17536,78 @@ try{
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("Given a Retail Customer with Usage Points");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
+	StepUtils.assertUrlEndsWith("/DataCustodian/custodian/home");
 	
+	// add usage point linkage
+	StepUtils.clickLinkByText("Customer List");
+	StepUtils.clickLinkByText(TestRetailCustomer);
+	StepUtils.clickBypartialLinkText("Add Usage");
+	StepUtils.fillInById("UUID","48C2A019-5598-4E16-B0F9-49E4FF27F5FB");
+	StepUtils.fillInById("description","test_usage_data");
+	StepUtils.clickByName("create");
+	
+	// upload usage point file
+	StepUtils.clickLinkByText("Upload");
+	StepUtils.sendKeysByName("file",TestFile);
+	StepUtils.clickByName("upload");
+	StepUtils.assertDoesNotContain("Unable to process file");
+
+	
+	StepUtils.logout(ServiceEndpointDataCustodian);
+	
+	StepUtils.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);	
+		
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("When I select a Data Custodian from the list");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	StepUtils.clickLinkByText("Data Custodians");
+	StepUtils.clickByName("Data_custodian");
+	StepUtils.clickByName("next");
 	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("Then I should see the Data Custodian login screen");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
+	StepUtils.assertUrlContains("/DataCustodian");
+	StepUtils.assertContains("Login");
+		
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("When I log into Data Custodian");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
+	StepUtils.fillInByName("j_username", TestRetailCustomer);
+	StepUtils.fillInByName("j_password", TestRetailCustomerPW);
+	StepUtils.clickByName("submit");
+		
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("Then I should see Scope selection screen");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
+	StepUtils.assertContains("Select Scope");
+	StepUtils.assertContains("FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13");
+		
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("When I select Scopes");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
+	StepUtils.clickByClass("scope");
+	StepUtils.clickByXpath("(//input[@name='scope'])[2]");
+	StepUtils.clickByName("next");
+		
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("Then I should see authorization screen");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
+	StepUtils.assertContains("Please Confirm");
+		
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("When I authorize Third Party");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
+	StepUtils.clickByName("authorize");
+		
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	StepUtils.logStep("Then I should see all my authorizations");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+	StepUtils.assertContains("Authorizations");
+	StepUtils.assertContains("data_custodian");
+	StepUtils.assertContains("DataCustodian/espi/1_1/resource/Batch/Subscription/1");
+	
 } catch(Exception e) {
 	strResult = "Failed performing: Action from script line[" + StepUtils._iActionLineNum + "]:" + StepUtils._strActionMethodName;
 	log.error(strResult);
