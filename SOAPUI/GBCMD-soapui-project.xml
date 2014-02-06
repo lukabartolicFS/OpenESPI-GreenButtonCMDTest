@@ -185,7 +185,25 @@
    </content>
    <published>2013-12-26T18:39:09-05:00</published>
    <updated>2013-12-26T18:39:09-05:00</updated>
-</entry>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request></con:method><con:method name="Delete Authorization Path" method="DELETE"><con:settings/><con:parameters/><con:request name="DELETE XPath" mediaType="application/json"><con:settings/><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request></con:method></con:resource><con:resource name="resource" path="/espi/1_1/resource"><con:settings/><con:parameters/><con:resource name="RetailCustomer/{retailCustomerId}" path="RetailCustomer/${#Project#retailCustomerId}"><con:settings/><con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint" path="UsagePoint"><con:settings/><con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint/{usagePointId}" path="${#Project#usagePointId}"><con:settings/><con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint/{usagePointId}/MeterReading" path="MeterReading"><con:settings/><con:parameters/><con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint/{usagePointId}/MeterReading/{meterReadingId}" path="${#Project#meterReadingId}"><con:settings/><con:resource name="ReadingType" path="ReadingType"><con:settings/><con:parameters/><con:resource name="${#Project#readingTypeId}" path="${#Project#readingTypeId}"><con:settings/><con:method name="Get ReadingType" method="GET"><con:settings/><con:parameters/><con:request name="Get ReadingType" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry><con:entry>#Project#meterReadingId</con:entry><con:entry>#Project#readingTypeId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>#Project#readingTypeId</con:name><con:value>#Project#readingTypeId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#readingTypeId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get ReadingType feed" method="GET"><con:settings/><con:parameters/><con:request name="Get ReadingType feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry><con:entry>#Project#meterReadingId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method></con:resource><con:resource name="IntervalBlock" path="IntervalBlock"><con:settings/><con:parameters/><con:resource name="${#Project#intervalBlockId}" path="${#Project#intervalBlockId}"><con:settings/><con:method name="Get IntervalBlock" method="GET"><con:settings/><con:parameters/><con:request name="Get IntervalBlock" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry><con:entry>#Project#meterReadingId</con:entry><con:entry>#Project#intervalBlockId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>#Project#intervalBlockId</con:name><con:value>#Project#intervalBlockId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#intervalBlockId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get IntervalBlock feed" method="GET"><con:settings/><con:parameters/><con:request name="Get IntervalBlock feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry><con:entry>#Project#meterReadingId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method></con:resource><con:method name="Get MeterReading" method="GET"><con:settings/><con:parameters/><con:request name="Get MeterReading" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry><con:entry>#Project#meterReadingId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/atom+xml</con:mediaType><con:status>400</con:status><con:params/></con:representation></con:method><con:parameters><con:parameter><con:name>#Project#meterReadingId</con:name><con:value>#Project#meterReadingId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#meterReadingId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get MeterReading feed" method="GET"><con:settings/><con:parameters/><con:request name="Get MeterReading feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method></con:resource><con:method name="Get UsagePoint" method="GET"><con:settings/><con:parameters/><con:request name="Get UsagePoint" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/atom+xml</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>#Project#usagePointId</con:name><con:value>#Project#usagePointId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#usagePointId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get UsagePoint feed" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Get UsagePoint feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation></con:method><con:method name="Post UsagePoint" method="POST"><con:settings/><con:parameters/><con:request name="Post UsagePoint" mediaType="application/json" postQueryString="false"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request></con:method><con:parameters><con:parameter><con:name>#Project#usagePointId</con:name><con:value>#Project#usagePointId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#usagePointId</con:default></con:parameter></con:parameters></con:resource><con:parameters><con:parameter><con:name>#Project#retailCustomerId</con:name><con:value>#Project#retailCustomerId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#retailCustomerId</con:default></con:parameter></con:parameters></con:resource><con:resource name="IntervalBlock" path="IntervalBlock"><con:settings/><con:parameters/><con:resource name="${#Project@#intervalBlockId}" path="${#Project#intervalBlockId}"><con:settings/><con:method name="Get root IntervalBlock" method="GET"><con:settings/><con:parameters/><con:request name="Get root IntervalBlock" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project@#intervalBlockId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>#Project@#intervalBlockId</con:name><con:value>#Project@#intervalBlockId</con:value><con:style>TEMPLATE</con:style><con:default>#Project@#intervalBlockId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get root IntervalBlock feed" method="GET"><con:settings/><con:parameters/><con:request name="Get root IntervalBlock feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method></con:resource><con:resource name="UsagePoint" path="UsagePoint"><con:settings/><con:parameters/><con:resource name="${Project#usagePointId}" path="${#Project#usagePointId}"><con:settings/><con:method name="Get root UsagePoint" method="GET"><con:settings/><con:parameters/><con:request name="Get root UsagePoint" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:parameterOrder><con:entry>Project#usagePointId</con:entry></con:parameterOrder></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/atom+xml</con:mediaType><con:status>400</con:status><con:params/></con:representation></con:method><con:parameters><con:parameter><con:name>Project#usagePointId</con:name><con:value>Project#usagePointId</con:value><con:style>TEMPLATE</con:style><con:default>Project#usagePointId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get root UsagePoint feed" method="GET"><con:settings/><con:parameters/><con:request name="Get root UsagePoint feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method></con:resource><con:resource name="MeterReading" path="MeterReading"><con:settings/><con:parameters/><con:resource name="${#Project#meterReadingId}" path="${#Project#meterReadingId}"><con:settings/><con:method name="Get root MeterReading" method="GET"><con:settings/><con:parameters/><con:request name="Get root MeterReading" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#meterReadingId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>#Project#meterReadingId</con:name><con:value>#Project#meterReadingId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#meterReadingId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get root MeterReading feed" method="GET"><con:settings/><con:parameters/><con:request name="Get root MeterReading feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method></con:resource><con:resource name="ReadingType" path="ReadingType"><con:settings/><con:parameters/><con:resource name="${#Project#readingTypeId}" path="${#Project#readingTypeId}"><con:settings/><con:method name="Get root ReadingType" method="GET"><con:settings/><con:parameters/><con:request name="Get root ReadingType" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#readingTypeId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>#Project#readingTypeId</con:name><con:value>#Project#readingTypeId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#readingTypeId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get root ReadingType feed" method="GET"><con:settings/><con:parameters/><con:request name="Get root ReadingType feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method></con:resource><con:resource name="Batch" path="Batch"><con:settings/><con:parameters/><con:resource name="Subscription" path="Subscription"><con:settings/><con:parameters/><con:resource name="{subscriptionID}" path="${#Project#subscriptionID}"><con:settings/><con:method name="Method 1" method="GET"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>subscriptionID</con:name><con:value>subscriptionID</con:value><con:style>TEMPLATE</con:style><con:default>subscriptionID</con:default></con:parameter></con:parameters></con:resource><con:method name="Method 1" method="GET"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request></con:method></con:resource><con:resource name="RetailCustomer" path="RetailCustomer"><con:settings/><con:parameters/><con:resource name="{retailCustomerId}" path="${#Project#retailCustomerId}"><con:settings/><con:resource name="UsagePoint" path="UsagePoint"><con:settings/><con:parameters/><con:method name="Method 1" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>405</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:method name="Method 1" method="GET"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>405</con:status><con:params/><con:element>html</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>retailCustomerId</con:name><con:value>retailCustomerId</con:value><con:style>TEMPLATE</con:style><con:default>retailCustomerId</con:default></con:parameter></con:parameters></con:resource><con:method name="Method 1" method="GET"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request></con:method></con:resource><con:method name="Get Batch Collection" method="GET"><con:settings/><con:parameters/><con:request name="Get Batch Collection (NOP)" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request></con:method></con:resource></con:resource><con:endpoints><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:endpoint>192.168.1.3:8080</con:endpoint><con:endpoint>http://localhost:8080</con:endpoint></con:endpoints></con:interface><con:testSuite name="MartySandbox"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SeleniumTestSave" searchProperties="true"><con:settings/><con:testStep type="groovy" name="LogIntoDataCustodian"><con:settings/><con:config><script>/////////////////////////////////////////////////////////
+</entry>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request></con:method><con:method name="Delete Authorization Path" method="DELETE"><con:settings/><con:parameters/><con:request name="DELETE XPath" mediaType="application/json"><con:settings/><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request></con:method></con:resource><con:resource name="resource" path="/espi/1_1/resource"><con:settings/><con:parameters/><con:resource name="RetailCustomer/{retailCustomerId}" path="RetailCustomer/${#Project#retailCustomerId}"><con:settings/><con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint" path="UsagePoint"><con:settings/><con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint/{usagePointId}" path="${#Project#usagePointId}"><con:settings/><con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint/{usagePointId}/MeterReading" path="MeterReading"><con:settings/><con:parameters/><con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint/{usagePointId}/MeterReading/{meterReadingId}" path="${#Project#meterReadingId}"><con:settings/><con:resource name="ReadingType" path="ReadingType"><con:settings/><con:parameters/><con:resource name="${#Project#readingTypeId}" path="${#Project#readingTypeId}"><con:settings/><con:method name="Get ReadingType" method="GET"><con:settings/><con:parameters/><con:request name="Get ReadingType" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry><con:entry>#Project#meterReadingId</con:entry><con:entry>#Project#readingTypeId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>#Project#readingTypeId</con:name><con:value>#Project#readingTypeId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#readingTypeId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get ReadingType feed" method="GET"><con:settings/><con:parameters/><con:request name="Get ReadingType feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry><con:entry>#Project#meterReadingId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method></con:resource><con:resource name="IntervalBlock" path="IntervalBlock"><con:settings/><con:parameters/><con:resource name="${#Project#intervalBlockId}" path="${#Project#intervalBlockId}"><con:settings/><con:method name="Get IntervalBlock" method="GET"><con:settings/><con:parameters/><con:request name="Get IntervalBlock" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry><con:entry>#Project#meterReadingId</con:entry><con:entry>#Project#intervalBlockId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>#Project#intervalBlockId</con:name><con:value>#Project#intervalBlockId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#intervalBlockId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get IntervalBlock feed" method="GET"><con:settings/><con:parameters/><con:request name="Get IntervalBlock feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry><con:entry>#Project#meterReadingId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method></con:resource><con:method name="Get MeterReading" method="GET"><con:settings/><con:parameters/><con:request name="Get MeterReading" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry><con:entry>#Project#meterReadingId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/atom+xml</con:mediaType><con:status>400</con:status><con:params/></con:representation></con:method><con:parameters><con:parameter><con:name>#Project#meterReadingId</con:name><con:value>#Project#meterReadingId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#meterReadingId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get MeterReading feed" method="GET"><con:settings/><con:parameters/><con:request name="Get MeterReading feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method></con:resource><con:method name="Get UsagePoint" method="GET"><con:settings/><con:parameters/><con:request name="Get UsagePoint" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/atom+xml</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>#Project#usagePointId</con:name><con:value>#Project#usagePointId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#usagePointId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get UsagePoint feed" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Get UsagePoint feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation></con:method><con:method name="Post UsagePoint" method="POST"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/atom+xml</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:request name="Post UsagePoint" mediaType="application/json" postQueryString="false"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request><![CDATA[<ns3:entry xmlns:espi="http://naesb.org/espi" xmlns:ns3="http://www.w3.org/2005/Atom">
+   <ns3:id>urn:uuid:48C2A019-5598-4E16-B0F9-49E4FF27F5FB</ns3:id>
+   <ns3:link href="https://localhost:8080/DataCustodian/espi/1_1/resource/RetailCustomer/1/UsagePoint/1" rel="self"/>
+   <ns3:link href="https://localhost:8080/DataCustodian/espi/1_1/resource/RetailCustomer/1/UsagePoint" rel="up"/>
+   <ns3:link href="https://localhost:8080/DataCustodian/espi/1_1/resource/RetailCustomer/1/UsagePoint/1/MeterReading" rel="related"/>
+   <ns3:link href="https://localhost:8080/DataCustodian/espi/1_1/resource/RetailCustomer/1/UsagePoint/1/ElectricPowerUsageSummary" rel="related"/>
+   <ns3:link href="https://localhost:8080/DataCustodian/espi/1_1/resource/RetailCustomer/1/UsagePoint/1/ElectricPowerQualitySummary" rel="related"/>
+   <ns3:link href="https://localhost:8080/DataCustodian/espi/1_1/resource/LocalTimeParameters/1" rel="related"/>
+   <ns3:title>Front Electric Meter</ns3:title>
+   <ns3:content>
+      <espi:UsagePoint>
+         <espi:ServiceCategory>
+            <espi:kind>0</espi:kind>
+         </espi:ServiceCategory>
+      </espi:UsagePoint>
+   </ns3:content>
+   <ns3:published>2012-10-24T00:00:00Z</ns3:published>
+   <ns3:updated>2012-10-24T00:00:00Z</ns3:updated>
+</ns3:entry>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request></con:method><con:parameters><con:parameter><con:name>#Project#usagePointId</con:name><con:value>#Project#usagePointId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#usagePointId</con:default></con:parameter></con:parameters></con:resource><con:parameters><con:parameter><con:name>#Project#retailCustomerId</con:name><con:value>#Project#retailCustomerId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#retailCustomerId</con:default></con:parameter></con:parameters></con:resource><con:resource name="IntervalBlock" path="IntervalBlock"><con:settings/><con:parameters/><con:resource name="${#Project@#intervalBlockId}" path="${#Project#intervalBlockId}"><con:settings/><con:method name="Get root IntervalBlock" method="GET"><con:settings/><con:parameters/><con:request name="Get root IntervalBlock" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project@#intervalBlockId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>#Project@#intervalBlockId</con:name><con:value>#Project@#intervalBlockId</con:value><con:style>TEMPLATE</con:style><con:default>#Project@#intervalBlockId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get root IntervalBlock feed" method="GET"><con:settings/><con:parameters/><con:request name="Get root IntervalBlock feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method></con:resource><con:resource name="UsagePoint" path="UsagePoint"><con:settings/><con:parameters/><con:resource name="${Project#usagePointId}" path="${#Project#usagePointId}"><con:settings/><con:method name="Get root UsagePoint" method="GET"><con:settings/><con:parameters/><con:request name="Get root UsagePoint" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:parameterOrder><con:entry>Project#usagePointId</con:entry></con:parameterOrder></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/atom+xml</con:mediaType><con:status>400</con:status><con:params/></con:representation></con:method><con:parameters><con:parameter><con:name>Project#usagePointId</con:name><con:value>Project#usagePointId</con:value><con:style>TEMPLATE</con:style><con:default>Project#usagePointId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get root UsagePoint feed" method="GET"><con:settings/><con:parameters/><con:request name="Get root UsagePoint feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method></con:resource><con:resource name="MeterReading" path="MeterReading"><con:settings/><con:parameters/><con:resource name="${#Project#meterReadingId}" path="${#Project#meterReadingId}"><con:settings/><con:method name="Get root MeterReading" method="GET"><con:settings/><con:parameters/><con:request name="Get root MeterReading" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#meterReadingId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>#Project#meterReadingId</con:name><con:value>#Project#meterReadingId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#meterReadingId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get root MeterReading feed" method="GET"><con:settings/><con:parameters/><con:request name="Get root MeterReading feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method></con:resource><con:resource name="ReadingType" path="ReadingType"><con:settings/><con:parameters/><con:resource name="${#Project#readingTypeId}" path="${#Project#readingTypeId}"><con:settings/><con:method name="Get root ReadingType" method="GET"><con:settings/><con:parameters/><con:request name="Get root ReadingType" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#readingTypeId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>#Project#readingTypeId</con:name><con:value>#Project#readingTypeId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#readingTypeId</con:default></con:parameter></con:parameters></con:resource><con:method name="Get root ReadingType feed" method="GET"><con:settings/><con:parameters/><con:request name="Get root ReadingType feed" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation></con:method></con:resource><con:resource name="Batch" path="Batch"><con:settings/><con:parameters/><con:resource name="Subscription" path="Subscription"><con:settings/><con:parameters/><con:resource name="{subscriptionID}" path="${#Project#subscriptionID}"><con:settings/><con:method name="Method 1" method="GET"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>subscriptionID</con:name><con:value>subscriptionID</con:value><con:style>TEMPLATE</con:style><con:default>subscriptionID</con:default></con:parameter></con:parameters></con:resource><con:method name="Method 1" method="GET"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request></con:method></con:resource><con:resource name="RetailCustomer" path="RetailCustomer"><con:settings/><con:parameters/><con:resource name="{retailCustomerId}" path="${#Project#retailCustomerId}"><con:settings/><con:resource name="UsagePoint" path="UsagePoint"><con:settings/><con:parameters/><con:method name="Method 1" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>405</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:method name="Method 1" method="GET"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>405</con:status><con:params/><con:element>html</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>retailCustomerId</con:name><con:value>retailCustomerId</con:value><con:style>TEMPLATE</con:style><con:default>retailCustomerId</con:default></con:parameter></con:parameters></con:resource><con:method name="Method 1" method="GET"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request></con:method></con:resource><con:method name="Get Batch Collection" method="GET"><con:settings/><con:parameters/><con:request name="Get Batch Collection (NOP)" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request></con:method></con:resource></con:resource><con:endpoints><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:endpoint>192.168.1.3:8080</con:endpoint><con:endpoint>http://localhost:8080</con:endpoint></con:endpoints></con:interface><con:testSuite name="MartySandbox"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SeleniumTestSave" searchProperties="true"><con:settings/><con:testStep type="groovy" name="LogIntoDataCustodian"><con:settings/><con:config><script>/////////////////////////////////////////////////////////
 // Note: Generated by capture using Selenium in FF. 
 // Export to Java / JUnit 4 / WebDriver
 // Copy and paste into Groovy Script with minor tweaks
@@ -13284,7 +13302,25 @@ driver.quit()
 </script></con:config></con:testStep><con:testStep type="restrequest" name="GET UsagePoint"><con:settings/><con:config service="ESPI Resources" resourcePath="/DataCustodian/espi/1_1/resource/RetailCustomer/1/UsagePoint/1" methodName="GET UsagePoint Path" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET UsagePoint" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
   &lt;con:entry key="Authorization" value="Bearer 11111"/>
   &lt;con:entry key="Content-Type" value="application/atom+xml"/>
-&lt;/xml-fragment></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="GET LocalTimeParameters"><con:settings/><con:config service="ESPI Resources" resourcePath="/DataCustodian/espi/1_1/resource/RetailCustomer/1/UsagePoint/1/LocalTimeParameters" methodName="GET LocalTimeParameters Path" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET LocalTimeParameters" mediaType="application/json" sslKeystore=""><con:encoding/><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>sessionid</con:name><con:value>null</con:value></con:property></con:properties></con:testSuite><con:testSuite name="OpenEspiIntegrationTests"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Library" searchProperties="true" id="73736828-3934-44f5-af9f-866f8478c216"><con:settings/><con:testStep type="groovy" name="resetDB"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
+&lt;/xml-fragment></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="GET LocalTimeParameters"><con:settings/><con:config service="ESPI Resources" resourcePath="/DataCustodian/espi/1_1/resource/RetailCustomer/1/UsagePoint/1/LocalTimeParameters" methodName="GET LocalTimeParameters Path" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET LocalTimeParameters" mediaType="application/json" sslKeystore=""><con:encoding/><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Resources" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="Post UsagePoint - Post UsagePoint"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/RetailCustomer/${#Project#retailCustomerId}/UsagePoint" methodName="Post UsagePoint" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Post UsagePoint - Post UsagePoint" mediaType="application/json" postQueryString="false"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request><![CDATA[<ns3:entry xmlns:espi="http://naesb.org/espi" xmlns:ns3="http://www.w3.org/2005/Atom">
+   <ns3:id>urn:uuid:48C2A019-5598-4E16-B0F9-49E4FF27F5FB</ns3:id>
+   <ns3:link href="https://localhost:8080/DataCustodian/espi/1_1/resource/RetailCustomer/1/UsagePoint/1" rel="self"/>
+   <ns3:link href="https://localhost:8080/DataCustodian/espi/1_1/resource/RetailCustomer/1/UsagePoint" rel="up"/>
+   <ns3:link href="https://localhost:8080/DataCustodian/espi/1_1/resource/RetailCustomer/1/UsagePoint/1/MeterReading" rel="related"/>
+   <ns3:link href="https://localhost:8080/DataCustodian/espi/1_1/resource/RetailCustomer/1/UsagePoint/1/ElectricPowerUsageSummary" rel="related"/>
+   <ns3:link href="https://localhost:8080/DataCustodian/espi/1_1/resource/RetailCustomer/1/UsagePoint/1/ElectricPowerQualitySummary" rel="related"/>
+   <ns3:link href="https://localhost:8080/DataCustodian/espi/1_1/resource/LocalTimeParameters/1" rel="related"/>
+   <ns3:title>Front Electric Meter</ns3:title>
+   <ns3:content>
+      <espi:UsagePoint>
+         <espi:ServiceCategory>
+            <espi:kind>0</espi:kind>
+         </espi:ServiceCategory>
+      </espi:UsagePoint>
+   </ns3:content>
+   <ns3:published>2012-10-24T00:00:00Z</ns3:published>
+   <ns3:updated>2012-10-24T00:00:00Z</ns3:updated>
+</ns3:entry>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="#Project#retailCustomerId" value="2" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>sessionid</con:name><con:value>null</con:value></con:property></con:properties></con:testSuite><con:testSuite name="OpenEspiIntegrationTests"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Library" searchProperties="true" id="73736828-3934-44f5-af9f-866f8478c216"><con:settings/><con:testStep type="groovy" name="resetDB"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
@@ -13425,7 +13461,7 @@ private static boolean CompareLinks(Node nodeSource,Node nodeResult,Object log) 
 
 				if((strHrefRes.equals(strHrefSrc)) && (strRelRes.equals(strRelSrc)))
 				{
-					return true;
+					return false;
 				}
 			}
 		}
@@ -13433,7 +13469,7 @@ private static boolean CompareLinks(Node nodeSource,Node nodeResult,Object log) 
 
 	log.error("Did not find matching link for href:" + strHrefSrc + " rel:" + strRelSrc);
 
-	return false;
+	return true;
 }
 
 private static boolean CompareNodes(Node nodeSource,Node nodeResult,Object log) {
@@ -13483,7 +13519,7 @@ private static boolean CompareNodes(Node nodeSource,Node nodeResult,Object log) 
 				if(strSrcNodeName.equals("espi:IntervalBlock"))
 				{
 					//log.info("espi:IntervalBlock");
-					bFailure = bFailure  & CompareNodes(nlSrc.item(i),nlRes.item(i),log);
+					bFailure = bFailure  | CompareNodes(nlSrc.item(i),nlRes.item(i),log);
 				}
 				else if(!nlSrc.item(i).getNodeName().equals("ns3:link"))
 				{
@@ -13498,13 +13534,13 @@ private static boolean CompareNodes(Node nodeSource,Node nodeResult,Object log) 
 					}
 					else
 					{
-						bFailure = bFailure  & CompareNodes(nlSrc.item(i),elResultChild,log);
+						bFailure = bFailure  | CompareNodes(nlSrc.item(i),elResultChild,log);
 					}
 				}
 				else
 				{
 					// treat links specially
-					bFailure = bFailure  & CompareLinks(nlSrc.item(i),nodeResult,log);				
+					bFailure = bFailure  | CompareLinks(nlSrc.item(i),nodeResult,log);				
 				}
 			}
 		}
@@ -13513,19 +13549,21 @@ private static boolean CompareNodes(Node nodeSource,Node nodeResult,Object log) 
 	return bFailure;
 }
 
-public static void TestGet(String strBaseEndpoint,Object log,String strTypePrefix,String strInputFile,DocumentBuilder builder,Document doc,String href)
+
+
+public static boolean TestGet(String strBaseEndpoint,Object log,String strTypePrefix,String strInputFile,DocumentBuilder builder,Document doc,String href)
 {
 	boolean bFailure = false;
-		
-	def http = new HTTPBuilder(strBaseEndpoint);
 
+  	def http = new HTTPBuilder(strBaseEndpoint);
+  
 	try
 	{
 		def result = http.get( path : href, contentType : TEXT );
 
 		String strResult = result.text;
 
-		//log.info("response: " + strResult);
+		log.info("GET response: " + strResult);
 	
 		def Document docResult = builder.parse(new InputSource(new StringReader(strResult)));
 
@@ -13540,23 +13578,27 @@ public static void TestGet(String strBaseEndpoint,Object log,String strTypePrefi
 			file.print(strResult);
 			file.flush();
 			file.close();
+
+			log.error ("Failed processing: " + strInputFile);
+			
+			return true;
 		}
+
+		return false;
 
 	}
 	catch ( HttpResponseException ex ) {
 	    // default failure handler throws an exception:
-	    log.error "Unexpected response error: ${ex.statusCode}"
-	    bFailure = false;
+	    log.error "GET Unexpected response error: ${ex.statusCode}"
+	    return true;
 	}
 
 	if(bFailure)
 	{
-		log.error ("Failed processing: " + strInputFile);
+		log.error ("GET Failed processing: " + strInputFile);
 	}
-	else
-	{
-		log.info ("Successfully processed: " + strInputFile);
-	}	
+
+	return true;
 }
 
 public static String ReplaceLinks(String strEntryName,String strOriginal)
@@ -13611,8 +13653,12 @@ public static String ReplaceLinks(String strEntryName,String strOriginal)
 	}				
 }
 
-static public void doPOST(String strBaseEndpoint,Object log,String strTypePrefix,String strInputFile,String href)
+
+static public boolean doPOST(String strBaseEndpoint,Object log,String strInputFile,String href)
 {
+	// used for creating new record
+
+	log.info("POST XPATH endpoint: " + strBaseEndpoint + " resource:" + href);
 	
 	try {
 		
@@ -13622,41 +13668,134 @@ static public void doPOST(String strBaseEndpoint,Object log,String strTypePrefix
 			
 			def http = new HTTPBuilder(strBaseEndpoint);
 	
-			http.request(Method.PUT) { req ->
+			def res = http.request(Method.POST) { req ->
 			    uri.path = href
 			    send("application/xml", strContent)
 			 
 			    //response.'201' = { resp ->
 			    //   
-			    //    log.info("resp 201: " + resp.status);
+			    //    log.info("POST resp 201: " + resp.status);
 			    //}
-			 
+			 /*
 			    response.success = { resp, object ->
 			        
-			        log.info("PUT succeeded: " + resp.status);
+			        log.info("POST succeeded: " + resp.status);
 			    }
 			 
 			    response.failure = { resp ->
 			       
-			        log.error("PUT Failed: " + resp.statusLine);
-			    }
+			        log.error("POST Failed: " + resp.statusLine);
+			    }*/
+
+			    
 			}
 		      		
 		}catch ( HttpResponseException ex ) {
 		    
 		    // default failure handler throws an exception:
-		    log.error "Unexpected response error: ${ex.statusCode}"
+		    log.error "POST Unexpected response error: ${ex.statusCode}"
+		    return true;
 		}			
 	} catch (IOException e) {
 		
 		//e.printStackTrace();
 
-		log.error("Error reading file: " + strInputFile);
+		log.error("POST Error reading file: " + strInputFile);
+		return true;
 	}
-	
+
+	return false;
 }
 
-static public boolean TestPOST2(String strBaseEndpoint,String strLinkPrefixForReplace,Object log,String strInputFile)
+
+static public boolean doPUT(String strBaseEndpoint,Object log,String strInputFile,String href)
+{
+	log.info("PUT XPATH endpoint: " + strBaseEndpoint + " resource:" + href);
+		
+	// used for putdating record
+	try {
+		
+		String strContent = FileUtils.readFileToString(new File(strInputFile));
+
+		try {
+			
+			def http = new HTTPBuilder(strBaseEndpoint);
+	
+			def res = http.request(Method.PUT) { req ->
+			    uri.path = href
+			    send("application/xml", strContent)
+			 
+			    //response.'201' = { resp ->
+			    //   
+			    //    log.info("PUT resp 201: " + resp.status);
+			    //}
+			 /*
+			    response.success = { resp, object ->
+			        
+			        log.info("PUT( succeeded: " + resp.status);
+			    }
+			 
+			    response.failure = { resp ->
+			       
+			        log.error("PUT( Failed: " + resp.statusLine);
+			    }*/
+
+			    
+			}
+		      		
+		}catch ( HttpResponseException ex ) {
+		    
+		    // default failure handler throws an exception:
+		    log.error "PUT Unexpected response error: ${ex.statusCode}"
+		    return true;
+		}			
+	} catch (IOException e) {
+		
+		//e.printStackTrace();
+
+		log.error("PUT Error reading file: " + strInputFile);
+		return true;
+	}
+
+	return false;
+}
+
+static public boolean TestPOST(String strBaseEndpoint,String strLinkPrefixForReplace,Object log,String strInputFile)
+{
+	DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
+	domFactory.setNamespaceAware(true); 
+	DocumentBuilder builder = domFactory.newDocumentBuilder();
+	
+	// parse source document "Xpath form
+	Document srcDocXPath = builder.parse(strInputFile);
+	
+	XPath xpath = XPathFactory.newInstance().newXPath();
+	
+	// add namespaces
+	HashMap<String, String> prefMap = new HashMap<String, String>() {{
+	    put("espi", "http://naesb.org/espi");
+	    put("ns3", "http://www.w3.org/2005/Atom");
+	}};
+	
+	SimpleNamespaceContext namespaces = new SimpleNamespaceContext(prefMap);
+	
+	xpath.setNamespaceContext(namespaces);
+	
+	// find resource self link
+	String strExpr = "/ns3:entry/ns3:link[@rel='self']/@href";
+	XPathExpression expr = xpath.compile(strExpr);
+	String href = expr.evaluate(srcDocXPath);
+	
+	// remove endpoint root prefix
+	href = href.replace(strLinkPrefixForReplace,"");
+
+	int idx = href.lastIndexOf("/");
+	href = href.substring(0,idx);
+	
+	return doPOST(strBaseEndpoint,log,strInputFile,href);	
+}
+
+static public boolean TestPUT(String strBaseEndpoint,String strLinkPrefixForReplace,Object log,String strInputFile)
 {
 	DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
 	domFactory.setNamespaceAware(true); 
@@ -13685,12 +13824,10 @@ static public boolean TestPOST2(String strBaseEndpoint,String strLinkPrefixForRe
 	// remove endpoint root prefix
 	href = href.replace(strLinkPrefixForReplace,"");
 	
-	// issue xpath resource style put
-	log.info("POST XPATH endpoint: " + strBaseEndpoint + " resource:" + href);
-	return doPOST(strBaseEndpoint,log,"xpath",strInputFile,href);	
+	return doPUT(strBaseEndpoint,log,strInputFile,href);	
 }
 
-public static boolean TestGetXPATH2(String strBaseEndpoint,String strLinkPrefixForReplace,Object log,String strInputFile)
+public static boolean TestGetXPATH(String strBaseEndpoint,String strLinkPrefixForReplace,Object log,String strInputFile)
 {
 	DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
 	domFactory.setNamespaceAware(true); 
@@ -13724,7 +13861,7 @@ public static boolean TestGetXPATH2(String strBaseEndpoint,String strLinkPrefixF
 	return TestGet(strBaseEndpoint,log,"xpath",strInputFile,builder,srcDocXPath,href);				
 }
 
-public static boolean TestGetROOT2(String strBaseEndpoint,String strLinkPrefixForReplace,Object log,String strInputFile,String strRootFileName)
+public static boolean TestGetROOT(String strBaseEndpoint,String strLinkPrefixForReplace,Object log,String strInputFile)
 {
 	DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
 	domFactory.setNamespaceAware(true); 
@@ -13775,11 +13912,12 @@ public static boolean TestGetROOT2(String strBaseEndpoint,String strLinkPrefixFo
 	href = ReplaceLinks(strEntryName,href);		
 
 	// parse secondary root resource source file
-	Document srcDocRoot = builder.parse(strRootFileName);
+	//Document srcDocRoot = builder.parse(strRootFileName);
 
 	// read back root style resource and validate response against source
-	log.info("Get ROOT resource Entry: " + strEntryName + " href:" + href + "Fname = " + strRootFileName);
-	return TestGet(strBaseEndpoint,log,"root",strInputFile,builder,srcDocRoot,href);				
+	log.info("Get ROOT resource Entry: " + strEntryName + " href:" + href);
+	//return TestGet(strBaseEndpoint,log,"root",strInputFile,builder,srcDocRoot,href);				
+	return TestGet(strBaseEndpoint,log,"root",strInputFile,builder,srcDocXPath,href);
 }
 
 public static boolean DoThreeStepTest(Object testRunner,Object context,Object log,String strInputFile)
@@ -13795,19 +13933,26 @@ public static boolean DoThreeStepTest(Object testRunner,Object context,Object lo
 	
 	def String StoragePath = projectPath + "/../data/testSets/";
 	String strBaseEndpoint = ServiceEndpointDataCustodian + "/";
-	String strLinkPrefixForReplace = "https://localhost:8080/DataCustodian/";
+	
+	//String strLinkPrefixForReplace = "https://localhost:8080/DataCustodian/";
+	String strLinkPrefixForReplace = "http://localhost:8080/DataCustodian/";
 
 	boolean bFailure = false;
-	
-	log.info("Processing: " + StoragePath + strInputFile);
 
-	bFailure = bFailure & TestPOST2(strBaseEndpoint,strLinkPrefixForReplace,log,StoragePath + strInputFile);
+	log.info("**********************************************");
+	log.info("** Processing: " + StoragePath + strInputFile);
+	log.info("**********************************************");
 
-	bFailure = bFailure & TestGetXPATH2(strBaseEndpoint,strLinkPrefixForReplace,log,StoragePath + strInputFile)
+	bFailure = bFailure | TestPOST(strBaseEndpoint,strLinkPrefixForReplace,log,StoragePath + strInputFile);
 
-	String strRootFileName = StoragePath + "root_" + strInputFile;
+	if(bFailure)
+	{
+		return true;
+	}
 
-	bFailure = bFailure & TestGetROOT2(strBaseEndpoint,strLinkPrefixForReplace,log,StoragePath + strInputFile,strRootFileName);	
+	bFailure = bFailure | TestGetXPATH(strBaseEndpoint,strLinkPrefixForReplace,log,StoragePath + strInputFile)
+
+	bFailure = bFailure | TestGetROOT(strBaseEndpoint,strLinkPrefixForReplace,log,StoragePath + strInputFile);	
 
 	return bFailure;
 }
@@ -13822,12 +13967,15 @@ public static boolean DoThreeStepTest(Object testRunner,Object context,Object lo
 
 	boolean bFailure = DoThreeStepTest(testRunner,context,log,resourceTestFileName);
 
-	testRunner.fail("Failed processing resource:" + resourceTestFileName)
-
+	if(bFailure)
+	{
+		testRunner.fail("Failed processing resource:" + resourceTestFileName)
+	}
+	
 	return;
 
 
-	]]></script></con:config></con:testStep><con:properties><con:property><con:name>resourceTestFileName</con:name><con:value>entry_UsagePoint_0.xml</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="50000" name="ResourceTests" searchProperties="true" id="a536dcbe-f106-47e2-9c97-93c2d78cffa9" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.panels.testcase.JTestRunLog$OptionsForm@max_rows">20000</con:setting><con:setting id="com.eviware.soapui.impl.wsdl.panels.testcase.JTestRunLog$OptionsForm@errors_only">false</con:setting></con:settings><con:testStep type="groovy" name="InitializeDataSets"><con:settings/><con:config><script><![CDATA[import org.xml.sax.SAXException;
+	]]></script></con:config></con:testStep><con:properties><con:property><con:name>resourceTestFileName</con:name><con:value>entry_ElectricPowerQualitySummary_19.xml</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="50000" name="ResourceTests" searchProperties="true" id="a536dcbe-f106-47e2-9c97-93c2d78cffa9" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.panels.testcase.JTestRunLog$OptionsForm@max_rows">20000</con:setting><con:setting id="com.eviware.soapui.impl.wsdl.panels.testcase.JTestRunLog$OptionsForm@errors_only">false</con:setting></con:settings><con:testStep type="groovy" name="InitializeDataSets"><con:settings/><con:config><script><![CDATA[import org.xml.sax.SAXException;
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
 import javax.xml.transform.stream.*;
@@ -14180,7 +14328,7 @@ class XMLHelper {
 	def TestFile = projectPath + "/../data/" + project.getPropertyValue("TestFile");
 	def String StoragePath = projectPath + "/../data/testSets/";
 
-	ServiceEndpointDataCustodian = ServiceEndpointDataCustodian.replace("http:","https:");
+	//ServiceEndpointDataCustodian = ServiceEndpointDataCustodian.replace("http:","https:");
 	
 	DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 	DocumentBuilder db = dbf.newDocumentBuilder();	
@@ -14191,7 +14339,7 @@ class XMLHelper {
 		Element feed = doc.getDocumentElement();
 		
 		XMLHelper.ConvertToEntry(ServiceEndpointDataCustodian,feed,StoragePath,log);
-		XMLHelper.ConvertToRootEntry(ServiceEndpointDataCustodian,feed,StoragePath,log);
+		//XMLHelper.ConvertToRootEntry(ServiceEndpointDataCustodian,feed,StoragePath,log);
 		
 		
 	}
@@ -14237,7 +14385,7 @@ def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
-Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+//Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
 
 
 
@@ -14248,6 +14396,11 @@ Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/B
 //
 ///////////////////////////////
 
+
+	
+
+	DoResourceTest("entry_UsagePoint_0.xml");
+/*
 
 try{
 	//*********************************************************
@@ -14281,10 +14434,12 @@ try{
 }
 
 //Close the browser
-driver.quit();	
+driver.quit();
 
-	DoResourceTest("entry_UsagePoint_0.xml");
-	/*DoResourceTest("entry_LocalTimeParameters_1.xml");
+*/
+
+	
+	DoResourceTest("entry_LocalTimeParameters_1.xml");
 	DoResourceTest("entry_MeterReading_2.xml");
 	DoResourceTest("entry_ReadingType_3.xml");
 	DoResourceTest("entry_IntervalBlock_4.xml");
@@ -14302,7 +14457,7 @@ driver.quit();
 	DoResourceTest("entry_IntervalBlock_16.xml");
 	DoResourceTest("entry_IntervalBlock_17.xml");
 	DoResourceTest("entry_ElectricPowerUsageSummary_18.xml");
-	DoResourceTest("entry_ElectricPowerQualitySummary_19.xml");*/
+	DoResourceTest("entry_ElectricPowerQualitySummary_19.xml");
 
 	return;
 </script></con:config></con:testStep><con:testStep type="restrequest" name="Get UsagePoint feed" disabled="true"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/RetailCustomer/${#Project#retailCustomerId}/UsagePoint" methodName="Get UsagePoint feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Get UsagePoint feed" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:assertion type="Simple Contains" name="Contains"><con:configuration><token><![CDATA[   <link href="${#Project#XXlinkEndpoint}/espi/1_1/resource/RetailCustomer/${#Project#retailCustomerId}/UsagePoint" rel="self"/>
@@ -16479,12 +16634,21 @@ try{
 	driver.logout(ServiceEndpointDataCustodian);
 	
 	driver.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
-	
-	
+
+/*
+ * 	old software behaved differently- it would route the use to the DC page
+ * 	Instread of showwing no authorized usage points
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	driver.logStep("When I look at my Usage Points page");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	driver.findElement(By.linkText("Usage Points")).click();	
+*/
+
+	// Corrected to the following step
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("When I look at my Data Custodians page");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.findElement(By.linkText("Data Custodians")).click();
 	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	driver.logStep("Then I should see Data Custodian selection page");
@@ -16613,10 +16777,21 @@ try{
 	
 	driver.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
 	
-	///////////////////////////////////////////////////////////
+/*
+ * 	old software behaved differently- it would route the use to the DC page
+ * 	Instread of showwing no authorized usage points
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	driver.logStep("When I look at my Usage Points page");
-	///////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	driver.findElement(By.linkText("Usage Points")).click();	
+*/
+
+	// Corrected to the following step
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("When I look at my Data Custodians page");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.findElement(By.linkText("Data Custodians")).click();
+	
 	///////////////////////////////////////////////////////////
 	driver.logStep("And I should see Data Custodian selection page");
 	///////////////////////////////////////////////////////////
@@ -17170,7 +17345,8 @@ try{
 	
 	driver.findElement(By.linkText("Batch Lists")).click();
 	driver.assertDoesNotContain("Whoops");
-	
+
+	log.info("The following step may take up to 30 seconds to complete.");
 	int OriginalnumberOfSubscriptions = driver.GetNumElsByTagName("h2");
 	log.info("Original number of subscriptions=" + OriginalnumberOfSubscriptions);
 
@@ -17277,6 +17453,7 @@ Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/B
 
 
 //driver._bLogActions = true;
+//driver._iSleepBetweenStepsMs = 2000;
 
 try{
 	//*********************************************************
