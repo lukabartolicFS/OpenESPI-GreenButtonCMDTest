@@ -71,6 +71,13 @@ public class DriverHelper {
    		{
    			sleep(_iSleepBetweenStepsMs);
    		}
+
+   		if(_driver.getPageSource().contains("Application Error"))
+		{
+			log.error("Page source contains 'Application Error'");
+ 			Exception e;
+			throw e;  
+		}		
 	}
 
 	public void Before()
