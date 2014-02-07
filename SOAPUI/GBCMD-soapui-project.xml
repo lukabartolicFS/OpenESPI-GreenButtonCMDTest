@@ -13325,6 +13325,7 @@ def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
 def mysqlCmd=project.getPropertyValue("mysqlCmd")
+def DBprepopulateScriptName = project.getPropertyValue("DBprepopulateScriptName")
 
 
 def cmdClean = projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/cleantables.sql"
@@ -13343,7 +13344,7 @@ if(doClean.exitValue()!=0)
 }
 
 
-def cmdPopulate = projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/prepopulatesql_localhost8080.sql"
+def cmdPopulate = projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/" + DBprepopulateScriptName
 
 log.info("exec: " + cmdPopulate);
 
@@ -13550,8 +13551,115 @@ private static boolean CompareNodes(Node nodeSource,Node nodeResult,Object log) 
 }
 
 
+public static String ReplaceLinks(String strEntryName,String strOriginal)
+{
+	String strReturn;
+	
+	if(strEntryName.equals("espi:IntervalBlock")) {
+	
+		strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}/UsagePoint\\/[0-9A-Fa-f]{1,20}/MeterReading\\/[0-9A-Fa-f]{1,20}","");						
+		//strReturn = strOriginal.replaceAll("/IntervalBlock\\/[0-9A-Fa-f]{1,20}","/IntervalBlock/" + _intervalBlockId);
+	}
+	else if(strEntryName.equals("espi:UsagePoint")) {
+		
+		strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}","");
+		//strReturn = strOriginal.replaceAll("/UsagePoint\\/[0-9A-Fa-f]{1,20}","/UsagePoint/" + _usagePointId);
+	}
+	else if(strEntryName.equals("espi:MeterReading")) {
+	
+		strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}/UsagePoint\\/[0-9A-Fa-f]{1,20}","");
+		//strReturn = strOriginal.replaceAll("/MeterReading\\/[0-9A-Fa-f]{1,20}","/MeterReading/" + _meterReadingId);
+	}
+	else if(strEntryName.equals("espi:ReadingType")) {
+	
+		strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}/UsagePoint\\/[0-9A-Fa-f]{1,20}","");
+		//strReturn = strOriginal.replaceAll("/MeterReading\\/[0-9A-Fa-f]{1,20}","/MeterReading/" + _meterReadingId);
+	}	
+	else if(strEntryName.equals("espi:ElectricPowerUsageSummary")) {
+		
+		strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}/UsagePoint\\/[0-9A-Fa-f]{1,20}","");
+		//strReturn = strOriginal.replaceAll("/ElectricPowerUsageSummary\\/[0-9A-Fa-f]{1,20}","/ElectricPowerUsageSummary/" + _ElectricPowerUsageSummaryId);
+			
+	}
+	else if(strEntryName.equals("espi:ElectricPowerQualitySummary")) {
+		
+		strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}/UsagePoint\\/[0-9A-Fa-f]{1,20}","");
+		//strReturn = strOriginal.replaceAll("/ElectricPowerQualitySummary\\/[0-9A-Fa-f]{1,20}","/ElectricPowerQualitySummary/" + _ElectricPowerQualitySummaryId);					
+	}
+	else if(strEntryName.equals("espi:LocalTimeParameters")) {
+		
+		strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}/UsagePoint\\/[0-9A-Fa-f]{1,20}","");
+		//strReturn = strOriginal.replaceAll("/LocalTimeParameters\\/[0-9A-Fa-f]{1,20}","/LocalTimeParameters/" + _localTimeParametersId);					
+	}	
+	else
+	{
+		
+		//strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}","/RetailCustomer/" + _retailCustomerId);
+		//strReturn = strOriginal.replaceAll("/UsagePoint\\/[0-9A-Fa-f]{1,20}","/UsagePoint/" + _usagePointId);
+		//strReturn = strOriginal.replaceAll("/MeterReading\\/[0-9A-Fa-f]{1,20}","/MeterReading/" + _meterReadingId);
+		//strReturn = strOriginal.replaceAll("/ReadingType\\/[0-9A-Fa-f]{1,20}","/ReadingType/" + _readingTypeId);
+		//strReturn = strOriginal.replaceAll("/IntervalBlock\\/[0-9A-Fa-f]{1,20}","/IntervalBlock/" + _intervalBlockId);
+		//strReturn = strOriginal.replaceAll("/resource\\/[0-9A-Fa-f]{1,20}","/resource/" + _resourceId);							
+	}				
+}
 
-public static boolean TestDelete(boolean bShouldPass,String strBaseEndpoint,Object log,String href)
+static public Document parseDocument(String strInputFile)
+{
+	DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
+	domFactory.setNamespaceAware(true); 
+	DocumentBuilder builder = domFactory.newDocumentBuilder();
+	
+	// parse source document "Xpath form
+	Document srcDoc = builder.parse(strInputFile);
+
+	return srcDoc;
+}
+
+static public String parseSelfLink(Document srcDoc)
+{
+	XPath xpath = XPathFactory.newInstance().newXPath();
+	
+	// add namespaces
+	HashMap<String, String> prefMap = new HashMap<String, String>() {{
+	    put("espi", "http://naesb.org/espi");
+	    put("ns3", "http://www.w3.org/2005/Atom");
+	}};
+	
+	SimpleNamespaceContext namespaces = new SimpleNamespaceContext(prefMap);
+	
+	xpath.setNamespaceContext(namespaces);
+	
+	// find resource self link
+	String strExpr = "/ns3:entry/ns3:link[@rel='self']/@href";
+	XPathExpression expr = xpath.compile(strExpr);
+	String href = expr.evaluate(srcDoc);
+
+	return href; 
+}
+
+
+static public String parseEntryName(Document srcDoc)
+{
+	String strEntryName;
+	
+	//find tag name of espi content
+	Element feed = srcDoc.getDocumentElement();
+	NodeList nlContent = feed.getElementsByTagName("ns3:content");
+	NodeList nlContentChildren = nlContent.item(0).getChildNodes();
+
+	for(int j = 0 ; j < nlContentChildren.getLength();j++) {
+		if(nlContentChildren.item(j).getNodeType()==Node.ELEMENT_NODE)
+		{
+			Element espi = (Element) nlContentChildren.item(j);
+			strEntryName = espi.getNodeName();
+		}
+	}
+
+	return strEntryName;
+}
+
+
+public static boolean doDELETE(boolean bShouldPass,String strBaseEndpoint,Object log,String href)
 {
 
 	boolean bFailure = false;
@@ -13623,7 +13731,7 @@ public static boolean TestDelete(boolean bShouldPass,String strBaseEndpoint,Obje
 	return true;
 }
 
-public static boolean TestGet(boolean bShouldPass,String strBaseEndpoint,Object log,String strTypePrefix,String strInputFile,Document doc,String href)
+public static boolean doGET(boolean bShouldPass,String strBaseEndpoint,Object log,String strTypePrefix,String strInputFile,Document doc,String href)
 {
 	boolean bFailure = false;
 	String strResult = "";
@@ -13652,38 +13760,6 @@ public static boolean TestGet(boolean bShouldPass,String strBaseEndpoint,Object 
 				bFailure = true;
 			}  
 		}
-
-		/*
-		def result = http.get( path : href, contentType : TEXT );
-
-		String strResult = result.text;
-
-		//log.info("GET response: " + strResult);
-
-		DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
-		domFactory.setNamespaceAware(true); 
-		DocumentBuilder builder = domFactory.newDocumentBuilder();
-	
-		def Document docResult = builder.parse(new InputSource(new StringReader(strResult)));
-
-		Element feedSrc = doc.getDocumentElement();
-		Element feedResult = docResult.getDocumentElement();
-	
-		bFailure = CompareNodes(feedSrc,feedResult,log);
-
-		if(bFailure)
-		{			
-			def file = new PrintWriter (strInputFile + "." + strTypePrefix + ".response.txt");
-			file.print(strResult);
-			file.flush();
-			file.close();
-
-			log.error ("Failed processing: " + strInputFile);
-			
-			return true;
-		}
-
-		return false;*/
 
 	}
 	catch ( HttpResponseException ex ) {
@@ -13741,57 +13817,6 @@ public static boolean TestGet(boolean bShouldPass,String strBaseEndpoint,Object 
 	return true;
 }
 
-public static String ReplaceLinks(String strEntryName,String strOriginal)
-{
-	String strReturn;
-	
-	if(strEntryName.equals("espi:IntervalBlock")) {
-	
-		strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}/UsagePoint\\/[0-9A-Fa-f]{1,20}/MeterReading\\/[0-9A-Fa-f]{1,20}","");						
-		//strReturn = strOriginal.replaceAll("/IntervalBlock\\/[0-9A-Fa-f]{1,20}","/IntervalBlock/" + _intervalBlockId);
-	}
-	else if(strEntryName.equals("espi:UsagePoint")) {
-		
-		strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}","");
-		//strReturn = strOriginal.replaceAll("/UsagePoint\\/[0-9A-Fa-f]{1,20}","/UsagePoint/" + _usagePointId);
-	}
-	else if(strEntryName.equals("espi:MeterReading")) {
-	
-		strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}/UsagePoint\\/[0-9A-Fa-f]{1,20}","");
-		//strReturn = strOriginal.replaceAll("/MeterReading\\/[0-9A-Fa-f]{1,20}","/MeterReading/" + _meterReadingId);
-	}
-	else if(strEntryName.equals("espi:ReadingType")) {
-	
-		strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}/UsagePoint\\/[0-9A-Fa-f]{1,20}","");
-		//strReturn = strOriginal.replaceAll("/MeterReading\\/[0-9A-Fa-f]{1,20}","/MeterReading/" + _meterReadingId);
-	}	
-	else if(strEntryName.equals("espi:ElectricPowerUsageSummary")) {
-		
-		strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}/UsagePoint\\/[0-9A-Fa-f]{1,20}","");
-		//strReturn = strOriginal.replaceAll("/ElectricPowerUsageSummary\\/[0-9A-Fa-f]{1,20}","/ElectricPowerUsageSummary/" + _ElectricPowerUsageSummaryId);
-			
-	}
-	else if(strEntryName.equals("espi:ElectricPowerQualitySummary")) {
-		
-		strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}/UsagePoint\\/[0-9A-Fa-f]{1,20}","");
-		//strReturn = strOriginal.replaceAll("/ElectricPowerQualitySummary\\/[0-9A-Fa-f]{1,20}","/ElectricPowerQualitySummary/" + _ElectricPowerQualitySummaryId);					
-	}
-	else if(strEntryName.equals("espi:LocalTimeParameters")) {
-		
-		strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}/UsagePoint\\/[0-9A-Fa-f]{1,20}","");
-		//strReturn = strOriginal.replaceAll("/LocalTimeParameters\\/[0-9A-Fa-f]{1,20}","/LocalTimeParameters/" + _localTimeParametersId);					
-	}	
-	else
-	{
-		
-		//strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}","/RetailCustomer/" + _retailCustomerId);
-		//strReturn = strOriginal.replaceAll("/UsagePoint\\/[0-9A-Fa-f]{1,20}","/UsagePoint/" + _usagePointId);
-		//strReturn = strOriginal.replaceAll("/MeterReading\\/[0-9A-Fa-f]{1,20}","/MeterReading/" + _meterReadingId);
-		//strReturn = strOriginal.replaceAll("/ReadingType\\/[0-9A-Fa-f]{1,20}","/ReadingType/" + _readingTypeId);
-		//strReturn = strOriginal.replaceAll("/IntervalBlock\\/[0-9A-Fa-f]{1,20}","/IntervalBlock/" + _intervalBlockId);
-		//strReturn = strOriginal.replaceAll("/resource\\/[0-9A-Fa-f]{1,20}","/resource/" + _resourceId);							
-	}				
-}
 
 
 static public boolean doPOST(boolean bShouldPass,String strBaseEndpoint,Object log,String strInputFile,String href)
@@ -13956,39 +13981,6 @@ static public boolean doPUT(boolean bShouldPass,String strBaseEndpoint,Object lo
 	return true;
 }
 
-static public Document parseDocument(String strInputFile)
-{
-	DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
-	domFactory.setNamespaceAware(true); 
-	DocumentBuilder builder = domFactory.newDocumentBuilder();
-	
-	// parse source document "Xpath form
-	Document srcDoc = builder.parse(strInputFile);
-
-	return srcDoc;
-}
-
-static public String parseSelfLink(Document srcDoc)
-{
-	XPath xpath = XPathFactory.newInstance().newXPath();
-	
-	// add namespaces
-	HashMap<String, String> prefMap = new HashMap<String, String>() {{
-	    put("espi", "http://naesb.org/espi");
-	    put("ns3", "http://www.w3.org/2005/Atom");
-	}};
-	
-	SimpleNamespaceContext namespaces = new SimpleNamespaceContext(prefMap);
-	
-	xpath.setNamespaceContext(namespaces);
-	
-	// find resource self link
-	String strExpr = "/ns3:entry/ns3:link[@rel='self']/@href";
-	XPathExpression expr = xpath.compile(strExpr);
-	String href = expr.evaluate(srcDoc);
-
-	return href; 
-}
 
 public static boolean TestDeleteXPATH(boolean bShouldPass,String strBaseEndpoint,String strLinkPrefixForReplace,Object log,String strInputFile)
 {
@@ -14000,8 +13992,8 @@ public static boolean TestDeleteXPATH(boolean bShouldPass,String strBaseEndpoint
 
 	// read back xpath style resource and validate response against source
 	log.info("Delete XPATH resource:" + href);
-	
-	return TestDelete(bShouldPass,strBaseEndpoint,log,href);				
+
+	return doDELETE(bShouldPass,strBaseEndpoint,log,href);				
 }
 
 static public boolean TestPostXPATH(boolean bShouldPass,String strBaseEndpoint,String strLinkPrefixForReplace,Object log,String strInputFile)
@@ -14042,18 +14034,7 @@ static public boolean TestPutROOT(boolean bShouldPass,String strBaseEndpoint,Str
 	href = href.replace(strLinkPrefixForReplace,"");
 
 	//find tag name of espi content
-	Element feed = srcDoc.getDocumentElement();
-	NodeList nlContent = feed.getElementsByTagName("ns3:content");
-	NodeList nlContentChildren = nlContent.item(0).getChildNodes();
-	String strEntryName;
-
-	for(int j = 0 ; j < nlContentChildren.getLength();j++) {
-		if(nlContentChildren.item(j).getNodeType()==Node.ELEMENT_NODE)
-		{
-			Element espi = (Element) nlContentChildren.item(j);
-			strEntryName = espi.getNodeName();
-		}
-	}
+	String strEntryName = parseEntryName(srcDoc);
 
 	// based on entry type replace links 
 	href = ReplaceLinks(strEntryName,href);	
@@ -14072,24 +14053,11 @@ static public boolean TestPostROOT(boolean bShouldPass,String strBaseEndpoint,St
 	href = href.replace(strLinkPrefixForReplace,"");
 
 	//find tag name of espi content
-	Element feed = srcDoc.getDocumentElement();
-	NodeList nlContent = feed.getElementsByTagName("ns3:content");
-	NodeList nlContentChildren = nlContent.item(0).getChildNodes();
-	String strEntryName;
-
-	for(int j = 0 ; j < nlContentChildren.getLength();j++) {
-		
-		if(nlContentChildren.item(j).getNodeType()==Node.ELEMENT_NODE)
-		{
-			Element espi = (Element) nlContentChildren.item(j);
-			strEntryName = espi.getNodeName();
-		}
-	}
+	String strEntryName = parseEntryName(srcDoc);
 
 	// based on entry type replace links 
 	href = ReplaceLinks(strEntryName,href);	
 
-	
 	int idx = href.lastIndexOf("/");
 	href = href.substring(0,idx);
 
@@ -14110,11 +14078,12 @@ public static boolean TestGetXPATH(boolean bShouldPass,String strBaseEndpoint,St
 	// read back xpath style resource and validate response against source
 	log.info("Get XPATH resource:" + href);
 	
-	return TestGet(bShouldPass,strBaseEndpoint,log,"xpath",strInputFile,srcDoc,href);				
+	return doGET(bShouldPass,strBaseEndpoint,log,"xpath",strInputFile,srcDoc,href);				
 }
 
 public static boolean TestGetROOT(boolean bShouldPass,String strBaseEndpoint,String strLinkPrefixForReplace,Object log,String strInputFile)
 {
+
 	Document srcDoc = parseDocument(strInputFile);
 	String href = parseSelfLink(srcDoc);
 
@@ -14122,18 +14091,7 @@ public static boolean TestGetROOT(boolean bShouldPass,String strBaseEndpoint,Str
 	href = href.replace(strLinkPrefixForReplace,"");
 
 	//find tag name of espi content
-	Element feed = srcDoc.getDocumentElement();
-	NodeList nlContent = feed.getElementsByTagName("ns3:content");
-	NodeList nlContentChildren = nlContent.item(0).getChildNodes();
-	String strEntryName;
-
-	for(int j = 0 ; j < nlContentChildren.getLength();j++) {
-		if(nlContentChildren.item(j).getNodeType()==Node.ELEMENT_NODE)
-		{
-			Element espi = (Element) nlContentChildren.item(j);
-			strEntryName = espi.getNodeName();
-		}
-	}
+	String strEntryName = parseEntryName(srcDoc);
 
 	// based on entry type replace links 
 	href = ReplaceLinks(strEntryName,href);		
@@ -14141,54 +14099,72 @@ public static boolean TestGetROOT(boolean bShouldPass,String strBaseEndpoint,Str
 	// read back root style resource and validate response against source
 	log.info("Get ROOT resource Entry: " + strEntryName + " href:" + href);
 				
-	return TestGet(bShouldPass,strBaseEndpoint,log,"root",strInputFile,srcDoc,href);
+	return doGET(bShouldPass,strBaseEndpoint,log,"root",strInputFile,srcDoc,href);
 }
 
 public static boolean TestType1(Object testRunner,Object context,Object log,String strInputFile)
 {
+
+/*
+
+POST XPATH (should fail)
+PUT XPATH
+GET XPATH
+GET ROOT
+DELETE XPATH
+GET XPATH (should fail)
+GET ROOT (should fail)
+PUT XPATH 
+GET XPATH 
+DELETE XPATH 
+DELETE XPATH (should fail)
+
+*/
+	
 	def project = testRunner.testCase.testSuite.project
 	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 	def projectPath = groovyUtils.projectPath	
+	
 	def BaseURL = project.getPropertyValue("BaseURL")
 	def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
 	def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
+	def linkPrefixForReplace = project.getPropertyValue("linkPrefixForReplace")
+	
 	def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
 	def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
 	
-	def String StoragePath = projectPath + "/../data/testSets/";
 	String strBaseEndpoint = ServiceEndpointDataCustodian + "/";
+	String strSourceDataFile = projectPath + "/../data/testSets/" + strInputFile;
 	
-	//String strLinkPrefixForReplace = "https://localhost:8080/DataCustodian/";
-	String strLinkPrefixForReplace = "http://localhost:8080/DataCustodian/";
 
 	boolean bFailure = false;
 
 	log.info("**********************************************");
-	log.info("** Processing: " + StoragePath + strInputFile);
+	log.info("** Processing: " + strSourceDataFile);
 	log.info("**********************************************");
 
 
-	bFailure = bFailure | TestPostXPATH(false,strBaseEndpoint,strLinkPrefixForReplace,log,StoragePath + strInputFile);
+	bFailure = bFailure | TestPostXPATH(false,strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile);
 	
-	bFailure = bFailure | TestPutXPATH(true,strBaseEndpoint,strLinkPrefixForReplace,log,StoragePath + strInputFile);
+	bFailure = bFailure | TestPutXPATH(true,strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile);
 	
-	bFailure = bFailure | TestGetXPATH(true,strBaseEndpoint,strLinkPrefixForReplace,log,StoragePath + strInputFile)
+	bFailure = bFailure | TestGetXPATH(true,strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile)
 
-	bFailure = bFailure | TestGetROOT(true,strBaseEndpoint,strLinkPrefixForReplace,log,StoragePath + strInputFile);	
+	bFailure = bFailure | TestGetROOT(true,strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile);	
 
-	bFailure = bFailure | TestDeleteXPATH(true, strBaseEndpoint,strLinkPrefixForReplace,log,StoragePath + strInputFile);
+	bFailure = bFailure | TestDeleteXPATH(true, strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile);
 
-	bFailure = bFailure | TestGetXPATH(false,strBaseEndpoint,strLinkPrefixForReplace,log,StoragePath + strInputFile)
+	bFailure = bFailure | TestGetXPATH(false,strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile)
 
-	bFailure = bFailure | TestGetROOT(false,strBaseEndpoint,strLinkPrefixForReplace,log,StoragePath + strInputFile);	
+	bFailure = bFailure | TestGetROOT(false,strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile);	
 
-	bFailure = bFailure | TestPutXPATH(true,strBaseEndpoint,strLinkPrefixForReplace,log,StoragePath + strInputFile);	
+	bFailure = bFailure | TestPutXPATH(true,strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile);	
 
-	bFailure = bFailure | TestGetXPATH(true,strBaseEndpoint,strLinkPrefixForReplace,log,StoragePath + strInputFile)	
+	bFailure = bFailure | TestGetXPATH(true,strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile)	
 
-	bFailure = bFailure | TestDeleteXPATH(true,strBaseEndpoint,strLinkPrefixForReplace,log,StoragePath + strInputFile);
+	bFailure = bFailure | TestDeleteXPATH(true,strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile);
 
-	bFailure = bFailure | TestDeleteXPATH(false,strBaseEndpoint,strLinkPrefixForReplace,log,StoragePath + strInputFile);
+	bFailure = bFailure | TestDeleteXPATH(false,strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile);
 	
 	return bFailure;
 }
@@ -14196,35 +14172,42 @@ public static boolean TestType1(Object testRunner,Object context,Object log,Stri
 
 public static boolean TestType2(Object testRunner,Object context,Object log,String strInputFile)
 {
+/*
+POST ROOT
+POST XPATH
+GET XPATH
+GET ROOT
+*/
+	
 	def project = testRunner.testCase.testSuite.project
 	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 	def projectPath = groovyUtils.projectPath	
+	
 	def BaseURL = project.getPropertyValue("BaseURL")
 	def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
 	def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
+	def linkPrefixForReplace = project.getPropertyValue("linkPrefixForReplace")
+	
 	def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
 	def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
 	
-	def String StoragePath = projectPath + "/../data/testSets/";
 	String strBaseEndpoint = ServiceEndpointDataCustodian + "/";
-	
-	//String strLinkPrefixForReplace = "https://localhost:8080/DataCustodian/";
-	String strLinkPrefixForReplace = "http://localhost:8080/DataCustodian/";
+	String strSourceDataFile = projectPath + "/../data/testSets/" + strInputFile;
 
 	boolean bFailure = false;
 
 	log.info("**********************************************");
-	log.info("** Processing: " + StoragePath + strInputFile);
+	log.info("** Processing: " + strSourceDataFile);
 	log.info("**********************************************");
 
 
-	bFailure = bFailure | TestPostROOT(true,strBaseEndpoint,strLinkPrefixForReplace,log,StoragePath + strInputFile);
+	bFailure = bFailure | TestPostROOT(true,strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile);
 
-	bFailure = bFailure | TestPostXPATH(true,strBaseEndpoint,strLinkPrefixForReplace,log,StoragePath + strInputFile);
+	bFailure = bFailure | TestPostXPATH(true,strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile);
 	
-	bFailure = bFailure | TestGetXPATH(true,strBaseEndpoint,strLinkPrefixForReplace,log,StoragePath + strInputFile)
+	bFailure = bFailure | TestGetXPATH(true,strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile)
 
-	bFailure = bFailure | TestGetROOT(true,strBaseEndpoint,strLinkPrefixForReplace,log,StoragePath + strInputFile);	
+	bFailure = bFailure | TestGetROOT(true,strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile);	
 	
 	return bFailure;
 }
@@ -18439,4 +18422,4 @@ try{
 
 //Close the browser
 driver.quit();
-	</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>BaseURL</con:name><con:value>http://localhost:8080</con:value></con:property><con:property><con:name>ServiceEndpoint</con:name><con:value>${#Project#BaseURL}/DataCustodian</con:value></con:property><con:property><con:name>DataCustodianContext</con:name><con:value>DataCustodian</con:value></con:property><con:property><con:name>ThirdPartyContext</con:name><con:value>ThirdParty</con:value></con:property><con:property><con:name>mysqlCmd</con:name><con:value>/usr/local/mysql/bin/mysql</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property><con:property><con:name>usagePointId</con:name><con:value>1</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>meterReadingId</con:name><con:value>1</con:value></con:property><con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>intervalBlockId</con:name><con:value>1</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>usagePointUUID1</con:name><con:value>48C2A019-5598-4E16-B0F9-49E4FF27F5FB</con:value></con:property><con:property><con:name>usagePointDescription1</con:name><con:value>test_usage_data</con:value></con:property><con:property><con:name>TestFile2</con:name><con:value>Gas.xml</con:value></con:property><con:property><con:name>usagePointUUID2</con:name><con:value>642EABA-8E42-4D1A-A375-AF54993C007B</con:value></con:property><con:property><con:name>usagePointDescription2</con:name><con:value>Gas</con:value></con:property></con:properties><con:wssContainer/><con:sensitiveInformation/></con:soapui-project>
+	</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>BaseURL</con:name><con:value>http://localhost:8080</con:value></con:property><con:property><con:name>ServiceEndpoint</con:name><con:value>${#Project#BaseURL}/DataCustodian</con:value></con:property><con:property><con:name>DataCustodianContext</con:name><con:value>DataCustodian</con:value></con:property><con:property><con:name>ThirdPartyContext</con:name><con:value>ThirdParty</con:value></con:property><con:property><con:name>linkPrefixForReplace</con:name><con:value>http://localhost:8080/DataCustodian/</con:value></con:property><con:property><con:name>mysqlCmd</con:name><con:value>/usr/local/mysql/bin/mysql</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property><con:property><con:name>usagePointId</con:name><con:value>1</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>meterReadingId</con:name><con:value>1</con:value></con:property><con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>intervalBlockId</con:name><con:value>1</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>usagePointUUID1</con:name><con:value>48C2A019-5598-4E16-B0F9-49E4FF27F5FB</con:value></con:property><con:property><con:name>usagePointDescription1</con:name><con:value>test_usage_data</con:value></con:property><con:property><con:name>TestFile2</con:name><con:value>Gas.xml</con:value></con:property><con:property><con:name>usagePointUUID2</con:name><con:value>642EABA-8E42-4D1A-A375-AF54993C007B</con:value></con:property><con:property><con:name>usagePointDescription2</con:name><con:value>Gas</con:value></con:property><con:property><con:name>DBprepopulateScriptName</con:name><con:value>prepopulatesql_localhost8080.sql</con:value></con:property></con:properties><con:wssContainer/><con:sensitiveInformation/></con:soapui-project>
