@@ -77,7 +77,22 @@ public class DriverHelper {
 			log.error("Page source contains 'Application Error'");
  			Exception e;
 			throw e;  
-		}		
+		}	
+
+  		if(_driver.getPageSource().contains("JPA transaction"))
+		{
+			log.error("Page source contains 'JPA transaction'");
+ 			Exception e;
+			throw e;  
+		}
+
+   		if(_driver.getPageSource().contains("unexpected error"))
+		{
+			log.error("Page source contains 'unexpected error'");
+ 			Exception e;
+			throw e;  
+		}
+
 	}
 
 	public void Before()
