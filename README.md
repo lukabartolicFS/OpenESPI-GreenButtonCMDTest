@@ -91,3 +91,11 @@ Bulk_400Customer_1UsagePoints_15MinuteInterval_1Year.xml
 
 https://s3.amazonaws.com/openespi/TestGreenButtonFiles/Bulk_400Customer_1UsagePoints_15MinuteInterval_1Year.xml	
 
+##	Configuring SOAPUI Project
+Select the GBCMD project in the SOAPUI projects tree. On the bottom left, select Custom Properties and change according to your configuration. Most common fields to change are:
+
+BaseURL -- the URL of the target system you are running tests against
+
+mysqlCmd -- the shell command to access mysql on your platform (required by some of the scripts)
+
+TestFile -- a path to the test file used in the regression tests
