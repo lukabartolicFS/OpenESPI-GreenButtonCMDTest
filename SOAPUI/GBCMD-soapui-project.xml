@@ -15218,20 +15218,6 @@ import java.io.FilenameFilter;
 import org.apache.commons.io.FileUtils;
 
 
-
-public class Filter {
-
-	public static File[] finder( String dirName){
-	File dirList = new File(dirName);
-	
-	return dirList.listFiles(new FilenameFilter() { 
-	         public boolean accept(File dir, String filename)
-	              { return filename.endsWith(".xml"); }
-	} );
-	
-	}
-}
-
 public class SimpleNamespaceContext implements NamespaceContext {
 
     private final Map<String, String> PREF_MAP = new HashMap<String, String>();
@@ -15254,831 +15240,855 @@ public class SimpleNamespaceContext implements NamespaceContext {
 
 }
 
-private static Element getDirectChild(Element parent, String name) {
-	
-    for(Node child = parent.getFirstChild(); child != null; child = child.getNextSibling())
-    {
-        if(child instanceof Element && name.equals(child.getNodeName())) return (Element) child;
-    }
-    
-    return null;
-}
 
-private static String getNodeValue( Node node ) {
-	
-    NodeList childNodes = node.getChildNodes();
-    
-    for (int x = 0; x < childNodes.getLength(); x++ ) {
-    	
-        Node data = childNodes.item(x);
-        if ( data.getNodeType() == Node.TEXT_NODE )
-            return data.getNodeValue().trim();
-    }
-    
-    return "";
-}
+public class ResourceTester {
 
-private static boolean CompareLinks(Node nodeSource,Node nodeResult,Object log) {
-	
-	String strHrefSrc = nodeSource.getAttribute("href");
-	String strRelSrc = nodeSource.getAttribute("rel");
+	Object log;
+	public String _strError = "";
 
-	//log.info("Compare link: href:" + strHrefSrc + " rel:" + strRelSrc); 
+	ResourceTester(Object theLog)
+	{
+		log = theLog;
+	}
 	
-	NodeList nlRes = nodeResult.getChildNodes();
-
-	for (int i = 0; i < nlRes.getLength(); i++) 
-	{	
-		if(nlRes.item(i).getNodeType()==Node.ELEMENT_NODE)
-		{
-			String strResNodeName = nlRes.item(i).getNodeName();
-			if(strResNodeName.equals("ns3:link"))
+	public String parseSelfLink(Document srcDoc)
+	{
+		XPath xpath = XPathFactory.newInstance().newXPath();
+		
+		// add namespaces
+		HashMap<String, String> prefMap = new HashMap<String, String>() {{
+		    put("espi", "http://naesb.org/espi");
+		    put("ns3", "http://www.w3.org/2005/Atom");
+		}};
+		
+		SimpleNamespaceContext namespaces = new SimpleNamespaceContext(prefMap);
+		
+		xpath.setNamespaceContext(namespaces);
+		
+		// find resource self link
+		String strExpr = "/ns3:entry/ns3:link[@rel='self']/@href";
+		XPathExpression expr = xpath.compile(strExpr);
+		String href = expr.evaluate(srcDoc);
+	
+		return href; 
+	}
+	
+	
+	public String parseEntryName(Document srcDoc)
+	{
+		String strEntryName;
+		
+		//find tag name of espi content
+		Element feed = srcDoc.getDocumentElement();
+		NodeList nlContent = feed.getElementsByTagName("ns3:content");
+		NodeList nlContentChildren = nlContent.item(0).getChildNodes();
+	
+		for(int j = 0 ; j < nlContentChildren.getLength();j++) {
+			if(nlContentChildren.item(j).getNodeType()==Node.ELEMENT_NODE)
 			{
-				String strHrefRes = nlRes.item(i).getAttribute("href");
-				String strRelRes = nlRes.item(i).getAttribute("rel");		
-
-				if((strHrefRes.equals(strHrefSrc)) && (strRelRes.equals(strRelSrc)))
-				{
-					return false;
-				}
+				Element espi = (Element) nlContentChildren.item(j);
+				strEntryName = espi.getNodeName();
 			}
 		}
+	
+		return strEntryName;
 	}
 
-	log.error("Did not find matching link for href:" + strHrefSrc + " rel:" + strRelSrc);
-
-	return true;
-}
-
-private static boolean CompareNodes(Node nodeSource,Node nodeResult,Object log) {
+	public Document parseDocument(String strInputFile)
+	{
+		DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
+		domFactory.setNamespaceAware(true); 
+		DocumentBuilder builder = domFactory.newDocumentBuilder();
+		
+		// parse source document "Xpath form
+		Document srcDoc = builder.parse(strInputFile);
 	
-	boolean bFailure = false;
+		return srcDoc;
+	}
+
+
+	private Element getDirectChild(Element parent, String name) {
+		
+	    for(Node child = parent.getFirstChild(); child != null; child = child.getNextSibling())
+	    {
+	        if(child instanceof Element && name.equals(child.getNodeName())) return (Element) child;
+	    }
+	    
+	    return null;
+	}
 	
-	if(nodeSource.getNodeType()==Node.ELEMENT_NODE) {
-
-		String strSrcNodeName = nodeSource.getNodeName();	 
-		String strResNodeName = nodeResult.getNodeName();	 
-
-		//log.info("Comparing nodes: " + strSrcNodeName + " and " + strResNodeName);
-
-		if(!strSrcNodeName.equals(strResNodeName)) {
-			log.error("Node: " + strSrcNodeName + " names not equal");
-
-			bFailure = true;
-		}
-
-		String strSrcNodeValue = getNodeValue(nodeSource);	 
-		String strResNodeValue = getNodeValue(nodeResult);
-
-		if(strSrcNodeName.equals("ns3:id"))
-		{
-			strSrcNodeValue = strSrcNodeValue.toUpperCase();
-			strResNodeValue = strResNodeValue.toUpperCase();
-		}
-
-		//log.info("Node: " + strSrcNodeName + "SrcNodeVal: " + strSrcNodeValue + " ResNodeVal: " + strResNodeValue);
-
-		if(!strSrcNodeName.equals("ns3:published") && !strSrcNodeName.equals("ns3:updated")) {	
-			if(!strSrcNodeValue.equals(strResNodeValue))
+	private String getNodeValue( Node node ) {
+		
+	    NodeList childNodes = node.getChildNodes();
+	    
+	    for (int x = 0; x < childNodes.getLength(); x++ ) {
+	    	
+	        Node data = childNodes.item(x);
+	        if ( data.getNodeType() == Node.TEXT_NODE )
+	            return data.getNodeValue().trim();
+	    }
+	    
+	    return "";
+	}
+	
+	private boolean CompareLinks(Node nodeSource,Node nodeResult,Object log) {
+		
+		String strHrefSrc = nodeSource.getAttribute("href");
+		String strRelSrc = nodeSource.getAttribute("rel");
+	
+		//log.info("Compare link: href:" + strHrefSrc + " rel:" + strRelSrc); 
+		
+		NodeList nlRes = nodeResult.getChildNodes();
+	
+		for (int i = 0; i < nlRes.getLength(); i++) 
+		{	
+			if(nlRes.item(i).getNodeType()==Node.ELEMENT_NODE)
 			{
-				log.error("Node: " + strSrcNodeName + " values not equal: SrcNodeVal: " + strSrcNodeValue + " ResNodeVal: " + strResNodeValue);	
+				String strResNodeName = nlRes.item(i).getNodeName();
+				if(strResNodeName.equals("ns3:link"))
+				{
+					String strHrefRes = nlRes.item(i).getAttribute("href");
+					String strRelRes = nlRes.item(i).getAttribute("rel");		
 	
-				bFailure = true;
+					if((strHrefRes.equals(strHrefSrc)) && (strRelRes.equals(strRelSrc)))
+					{
+						return false;
+					}
+				}
 			}
 		}
+	
+		log.error("Did not find matching link for href:" + strHrefSrc + " rel:" + strRelSrc);
 
-		NodeList nlSrc = nodeSource.getChildNodes();
-		NodeList nlRes = nodeResult.getChildNodes();
-
-		for (int i = 0; i < nlSrc.getLength(); i++) 
-		{
-			if(nlSrc.item(i).getNodeType()==Node.ELEMENT_NODE)
+		_strError = _strError + "Did not find matching link for href:" + strHrefSrc + " rel:" + strRelSrc;
+		
+		return true;
+	}
+	
+	private boolean CompareNodes(Node nodeSource,Node nodeResult,Object log) {
+		
+		boolean bFailure = false;
+		
+		if(nodeSource.getNodeType()==Node.ELEMENT_NODE) {
+	
+			String strSrcNodeName = nodeSource.getNodeName();	 
+			String strResNodeName = nodeResult.getNodeName();	 
+	
+			//log.info("Comparing nodes: " + strSrcNodeName + " and " + strResNodeName);
+	
+			if(!strSrcNodeName.equals(strResNodeName)) {
+				log.error("Node: " + strSrcNodeName + " names not equal");
+				_strError = _strError + "Node: " + strSrcNodeName + " names not equal";
+				bFailure = true;
+			}
+	
+			String strSrcNodeValue = getNodeValue(nodeSource);	 
+			String strResNodeValue = getNodeValue(nodeResult);
+	
+			if(strSrcNodeName.equals("ns3:id"))
 			{
-				if(strSrcNodeName.equals("espi:IntervalBlock"))
+				strSrcNodeValue = strSrcNodeValue.toUpperCase();
+				strResNodeValue = strResNodeValue.toUpperCase();
+			}
+	
+			//log.info("Node: " + strSrcNodeName + "SrcNodeVal: " + strSrcNodeValue + " ResNodeVal: " + strResNodeValue);
+	
+			if(!strSrcNodeName.equals("ns3:published") && !strSrcNodeName.equals("ns3:updated")) {	
+				if(!strSrcNodeValue.equals(strResNodeValue))
 				{
-					//log.info("espi:IntervalBlock");
-					bFailure = bFailure  | CompareNodes(nlSrc.item(i),nlRes.item(i),log);
+					log.error("Node: " + strSrcNodeName + " values not equal: SrcNodeVal: " + strSrcNodeValue + " ResNodeVal: " + strResNodeValue);	
+					_strError = _strError + "Node: " + strSrcNodeName + " values not equal: SrcNodeVal: " + strSrcNodeValue + " ResNodeVal: " + strResNodeValue;
+					bFailure = true;
 				}
-				else if(!nlSrc.item(i).getNodeName().equals("ns3:link"))
+			}
+	
+			NodeList nlSrc = nodeSource.getChildNodes();
+			NodeList nlRes = nodeResult.getChildNodes();
+	
+			for (int i = 0; i < nlSrc.getLength(); i++) 
+			{
+				if(nlSrc.item(i).getNodeType()==Node.ELEMENT_NODE)
 				{
-
-					Element elResultChild = getDirectChild(nodeResult,nlSrc.item(i).getNodeName());
-					if(elResultChild==null)
+					if(strSrcNodeName.equals("espi:IntervalBlock"))
 					{
-						log.error("Node: " + strSrcNodeName + " Result does not contain Child: " + nlSrc.item(i).getNodeName());
-
-						bFailure = true;
-						
+						//log.info("espi:IntervalBlock");
+						bFailure = bFailure  | CompareNodes(nlSrc.item(i),nlRes.item(i),log);
+					}
+					else if(!nlSrc.item(i).getNodeName().equals("ns3:link"))
+					{
+	
+						Element elResultChild = getDirectChild(nodeResult,nlSrc.item(i).getNodeName());
+						if(elResultChild==null)
+						{
+							log.error("Node: " + strSrcNodeName + " Result does not contain Child: " + nlSrc.item(i).getNodeName());
+							_strError = _strError + "Node: " + strSrcNodeName + " Result does not contain Child: " + nlSrc.item(i).getNodeName();
+							bFailure = true;
+							
+						}
+						else
+						{
+							bFailure = bFailure  | CompareNodes(nlSrc.item(i),elResultChild,log);
+						}
 					}
 					else
 					{
-						bFailure = bFailure  | CompareNodes(nlSrc.item(i),elResultChild,log);
+						// treat links specially
+						bFailure = bFailure  | CompareLinks(nlSrc.item(i),nodeResult,log);				
 					}
 				}
-				else
-				{
-					// treat links specially
-					bFailure = bFailure  | CompareLinks(nlSrc.item(i),nodeResult,log);				
+			}
+		}
+	
+		return bFailure;
+	}
+	
+	
+	public String ReplaceLinks(String strEntryName,String strOriginal)
+	{
+		String strReturn;
+		
+		if(strEntryName.equals("espi:IntervalBlock")) {
+		
+			strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}/UsagePoint\\/[0-9A-Fa-f]{1,20}/MeterReading\\/[0-9A-Fa-f]{1,20}","");						
+			//strReturn = strOriginal.replaceAll("/IntervalBlock\\/[0-9A-Fa-f]{1,20}","/IntervalBlock/" + _intervalBlockId);
+		}
+		else if(strEntryName.equals("espi:UsagePoint")) {
+			
+			strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}","");
+			//strReturn = strOriginal.replaceAll("/UsagePoint\\/[0-9A-Fa-f]{1,20}","/UsagePoint/" + _usagePointId);
+		}
+		else if(strEntryName.equals("espi:MeterReading")) {
+		
+			strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}/UsagePoint\\/[0-9A-Fa-f]{1,20}","");
+			//strReturn = strOriginal.replaceAll("/MeterReading\\/[0-9A-Fa-f]{1,20}","/MeterReading/" + _meterReadingId);
+		}
+		else if(strEntryName.equals("espi:ReadingType")) {
+		
+			strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}/UsagePoint\\/[0-9A-Fa-f]{1,20}","");
+			//strReturn = strOriginal.replaceAll("/MeterReading\\/[0-9A-Fa-f]{1,20}","/MeterReading/" + _meterReadingId);
+		}	
+		else if(strEntryName.equals("espi:ElectricPowerUsageSummary")) {
+			
+			strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}/UsagePoint\\/[0-9A-Fa-f]{1,20}","");
+			//strReturn = strOriginal.replaceAll("/ElectricPowerUsageSummary\\/[0-9A-Fa-f]{1,20}","/ElectricPowerUsageSummary/" + _ElectricPowerUsageSummaryId);
+				
+		}
+		else if(strEntryName.equals("espi:ElectricPowerQualitySummary")) {
+			
+			strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}/UsagePoint\\/[0-9A-Fa-f]{1,20}","");
+			//strReturn = strOriginal.replaceAll("/ElectricPowerQualitySummary\\/[0-9A-Fa-f]{1,20}","/ElectricPowerQualitySummary/" + _ElectricPowerQualitySummaryId);					
+		}
+		else if(strEntryName.equals("espi:LocalTimeParameters")) {
+			
+			strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}/UsagePoint\\/[0-9A-Fa-f]{1,20}","");
+			//strReturn = strOriginal.replaceAll("/LocalTimeParameters\\/[0-9A-Fa-f]{1,20}","/LocalTimeParameters/" + _localTimeParametersId);					
+		}	
+		else
+		{
+			
+			//strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}","/RetailCustomer/" + _retailCustomerId);
+			//strReturn = strOriginal.replaceAll("/UsagePoint\\/[0-9A-Fa-f]{1,20}","/UsagePoint/" + _usagePointId);
+			//strReturn = strOriginal.replaceAll("/MeterReading\\/[0-9A-Fa-f]{1,20}","/MeterReading/" + _meterReadingId);
+			//strReturn = strOriginal.replaceAll("/ReadingType\\/[0-9A-Fa-f]{1,20}","/ReadingType/" + _readingTypeId);
+			//strReturn = strOriginal.replaceAll("/IntervalBlock\\/[0-9A-Fa-f]{1,20}","/IntervalBlock/" + _intervalBlockId);
+			//strReturn = strOriginal.replaceAll("/resource\\/[0-9A-Fa-f]{1,20}","/resource/" + _resourceId);							
+		}				
+	}
+	
+
+	public boolean doDELETE(boolean bShouldPass,String strBaseEndpoint,String href) {
+	
+		boolean bFailure = false;
+		String strResult = "";
+			
+		try {
+			
+			def http = new HTTPBuilder(strBaseEndpoint);
+	
+			def res = http.request(Method.DELETE) { req ->
+			    uri.path = href			 
+			    response.success = { resp, object ->			        
+			        strResult = "DELETE succeeded: " + resp.status;
+			    }		 
+			    response.failure = { resp ->
+			       
+			        strResult = "DELETE Failed: " + resp.statusLine;
+			        bFailure = true;
+			    }	    
+			}		      		
+		} catch ( HttpResponseException ex ) {
+		    
+		    // default failure handler throws an exception:
+		    strResult = "DELETE Unexpected response error: ${ex.statusCode}";
+		    _strError = strResult;
+		    bFailure = true;
+		    return true;
+		}			
+	
+	
+		if(bShouldPass) {
+			if(bFailure) {
+				_strError = strResult;
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			if(!bFailure) {
+				_strError = "DELETE did not fail as expected " + strResult ;
+				return true;
+			} else {
+				return false;
+			}		
+		}
+		
+		return true;
+	}
+	
+	public boolean doGET(boolean bShouldPass,String strBaseEndpoint,String strTypePrefix,String strInputFile,Document doc,String href) {
+		
+		boolean bFailure = false;
+		String strResult = "";
+		String strBody = "";
+		
+	  	def http = new HTTPBuilder();
+	  
+		try {
+	
+			http.request( strBaseEndpoint, GET, TEXT ) { req ->
+				uri.path = href
+				headers.Accept = 'application/xml'
+				
+				response.success = { resp, reader ->
+					//assert resp.statusLine.statusCode == 200
+					//log.info "Got response: ${resp.statusLine}"
+					//log.info "Content-Type: ${resp.headers.'Content-Type'}"
+					//log.info reader.text
+					strBody = reader.text;				
+				}						
+				response.failure = { resp ->
+					strResult = "GET Failed: " + resp.statusLine;
+					bFailure = true;
+				}  
+			}
+		} catch ( HttpResponseException ex ) {
+		    // default failure handler throws an exception:
+		    strResult ="GET Unexpected response error: ${ex.statusCode}"
+		    _strError = strResult;
+		    bFailure = true;
+		    return true;
+		}
+	
+		if(bShouldPass) {
+			if(!bFailure) {
+				
+				DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
+				domFactory.setNamespaceAware(true); 
+				DocumentBuilder builder = domFactory.newDocumentBuilder();
+			
+				def Document docResult = builder.parse(new InputSource(new StringReader(strBody)));
+		
+				Element feedSrc = doc.getDocumentElement();
+				Element feedResult = docResult.getDocumentElement();
+			
+				bFailure = CompareNodes(feedSrc,feedResult,log);			
+	
+				if(bFailure) {
+					_strError = "GET content veification failure" + _strError;
+					return true;
+				} else {
+					return false;
 				}
+			} else {
+				_strError = strResult;
+				return true;
+			}
+		} else {
+			if(bFailure) {
+				return false;
+			} else {
+				_strError = "GET did not fail as expected: " + _strError + strResult;
+				return true;
 			}
 		}
-	}
-
-	return bFailure;
-}
-
-
-public static String ReplaceLinks(String strEntryName,String strOriginal)
-{
-	String strReturn;
 	
-	if(strEntryName.equals("espi:IntervalBlock")) {
-	
-		strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}/UsagePoint\\/[0-9A-Fa-f]{1,20}/MeterReading\\/[0-9A-Fa-f]{1,20}","");						
-		//strReturn = strOriginal.replaceAll("/IntervalBlock\\/[0-9A-Fa-f]{1,20}","/IntervalBlock/" + _intervalBlockId);
+		return true;
 	}
-	else if(strEntryName.equals("espi:UsagePoint")) {
+	
+	
+	
+	public boolean doPOST(boolean bShouldPass,String strBaseEndpoint,String strInputFile,String href) {
 		
-		strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}","");
-		//strReturn = strOriginal.replaceAll("/UsagePoint\\/[0-9A-Fa-f]{1,20}","/UsagePoint/" + _usagePointId);
-	}
-	else if(strEntryName.equals("espi:MeterReading")) {
+		// used for creating new record
 	
-		strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}/UsagePoint\\/[0-9A-Fa-f]{1,20}","");
-		//strReturn = strOriginal.replaceAll("/MeterReading\\/[0-9A-Fa-f]{1,20}","/MeterReading/" + _meterReadingId);
-	}
-	else if(strEntryName.equals("espi:ReadingType")) {
-	
-		strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}/UsagePoint\\/[0-9A-Fa-f]{1,20}","");
-		//strReturn = strOriginal.replaceAll("/MeterReading\\/[0-9A-Fa-f]{1,20}","/MeterReading/" + _meterReadingId);
-	}	
-	else if(strEntryName.equals("espi:ElectricPowerUsageSummary")) {
+		boolean bFailure = false;
+		String strResult = "";
 		
-		strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}/UsagePoint\\/[0-9A-Fa-f]{1,20}","");
-		//strReturn = strOriginal.replaceAll("/ElectricPowerUsageSummary\\/[0-9A-Fa-f]{1,20}","/ElectricPowerUsageSummary/" + _ElectricPowerUsageSummaryId);
+		try {
 			
-	}
-	else if(strEntryName.equals("espi:ElectricPowerQualitySummary")) {
+			String strContent = FileUtils.readFileToString(new File(strInputFile));
+	
+			try {
+				
+				def http = new HTTPBuilder(strBaseEndpoint);
 		
-		strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}/UsagePoint\\/[0-9A-Fa-f]{1,20}","");
-		//strReturn = strOriginal.replaceAll("/ElectricPowerQualitySummary\\/[0-9A-Fa-f]{1,20}","/ElectricPowerQualitySummary/" + _ElectricPowerQualitySummaryId);					
-	}
-	else if(strEntryName.equals("espi:LocalTimeParameters")) {
-		
-		strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}/UsagePoint\\/[0-9A-Fa-f]{1,20}","");
-		//strReturn = strOriginal.replaceAll("/LocalTimeParameters\\/[0-9A-Fa-f]{1,20}","/LocalTimeParameters/" + _localTimeParametersId);					
-	}	
-	else
-	{
-		
-		//strReturn = strOriginal.replaceAll("/RetailCustomer\\/[0-9A-Fa-f]{1,20}","/RetailCustomer/" + _retailCustomerId);
-		//strReturn = strOriginal.replaceAll("/UsagePoint\\/[0-9A-Fa-f]{1,20}","/UsagePoint/" + _usagePointId);
-		//strReturn = strOriginal.replaceAll("/MeterReading\\/[0-9A-Fa-f]{1,20}","/MeterReading/" + _meterReadingId);
-		//strReturn = strOriginal.replaceAll("/ReadingType\\/[0-9A-Fa-f]{1,20}","/ReadingType/" + _readingTypeId);
-		//strReturn = strOriginal.replaceAll("/IntervalBlock\\/[0-9A-Fa-f]{1,20}","/IntervalBlock/" + _intervalBlockId);
-		//strReturn = strOriginal.replaceAll("/resource\\/[0-9A-Fa-f]{1,20}","/resource/" + _resourceId);							
-	}				
-}
-
-static public Document parseDocument(String strInputFile)
-{
-	DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
-	domFactory.setNamespaceAware(true); 
-	DocumentBuilder builder = domFactory.newDocumentBuilder();
-	
-	// parse source document "Xpath form
-	Document srcDoc = builder.parse(strInputFile);
-
-	return srcDoc;
-}
-
-static public String parseSelfLink(Document srcDoc)
-{
-	XPath xpath = XPathFactory.newInstance().newXPath();
-	
-	// add namespaces
-	HashMap<String, String> prefMap = new HashMap<String, String>() {{
-	    put("espi", "http://naesb.org/espi");
-	    put("ns3", "http://www.w3.org/2005/Atom");
-	}};
-	
-	SimpleNamespaceContext namespaces = new SimpleNamespaceContext(prefMap);
-	
-	xpath.setNamespaceContext(namespaces);
-	
-	// find resource self link
-	String strExpr = "/ns3:entry/ns3:link[@rel='self']/@href";
-	XPathExpression expr = xpath.compile(strExpr);
-	String href = expr.evaluate(srcDoc);
-
-	return href; 
-}
-
-
-static public String parseEntryName(Document srcDoc)
-{
-	String strEntryName;
-	
-	//find tag name of espi content
-	Element feed = srcDoc.getDocumentElement();
-	NodeList nlContent = feed.getElementsByTagName("ns3:content");
-	NodeList nlContentChildren = nlContent.item(0).getChildNodes();
-
-	for(int j = 0 ; j < nlContentChildren.getLength();j++) {
-		if(nlContentChildren.item(j).getNodeType()==Node.ELEMENT_NODE)
-		{
-			Element espi = (Element) nlContentChildren.item(j);
-			strEntryName = espi.getNodeName();
-		}
-	}
-
-	return strEntryName;
-}
-
-
-public static boolean doDELETE(boolean bShouldPass,String strBaseEndpoint,Object log,String href)
-{
-
-	boolean bFailure = false;
-	String strResult = "";
-		
-	try {
-		
-		def http = new HTTPBuilder(strBaseEndpoint);
-
-		def res = http.request(Method.DELETE) { req ->
-		    uri.path = href
-		    //send("application/xml", strContent)
-		 
-		    //response.'201' = { resp ->
-		    //   
-		    //    log.info("POST resp 201: " + resp.status);
-		    //}
-		 
-		    response.success = { resp, object ->
-		        
-		        strResult = "DELETE succeeded: " + resp.status;
-		    }
-		 
-		    response.failure = { resp ->
-		       
-		        strResult = "DELETE Failed: " + resp.statusLine;
-		        bFailure = true;
-		    }
-	    
-		}
-	      		
-	}catch ( HttpResponseException ex ) {
-	    
-	    // default failure handler throws an exception:
-	    strResult = "DELETE Unexpected response error: ${ex.statusCode}";
-	    bFailure = true;
-	}			
-
-
-	if(bShouldPass)
-	{
-		if(bFailure)
-		{
-			log.error(strResult);
+				def res = http.request(Method.POST) { req ->
+				    uri.path = href
+				    send("application/xml", strContent)
+				 
+				    response.success = { resp, object ->
+				    		strResult = "POST succeeded: " + resp.status;	   
+				    }
+				 
+				    response.failure = { resp ->
+					    strResult = "POST Failed: " + resp.statusLine;
+				        	bFailure = true;
+				    }			 
+				}
+			      		
+			} catch ( HttpResponseException ex ) {
+			    
+			    // default failure handler throws an exception:
+			    strResult = "POST Unexpected response error: ${ex.statusCode}"
+			    _strError = strResult;
+			    bFailure = true;
+			    return true;
+			}			
+		} catch (IOException e) {			
+			//e.printStackTrace();
+			_strError = "POST Error reading file: " + strInputFile;
+			bFailure = true;
 			return true;
 		}
-		else
-		{
-			log.info(strResult);
-			return false;
-		}
-	}
-	else
-	{
-		if(!bFailure)
-		{
-			log.error(strResult);
-			log.error("DELETE did not fail as expected");
-			return true;
-		}
-		else
-		{
-			log.info(strResult);
-			log.info("DELETE failed as expected");
-			return false;
-		}		
-	}
 	
-	return true;
-}
-
-public static boolean doGET(boolean bShouldPass,String strBaseEndpoint,Object log,String strTypePrefix,String strInputFile,Document doc,String href)
-{
-	boolean bFailure = false;
-	String strResult = "";
-	String strBody = "";
 	
-  	//def http = new HTTPBuilder(strBaseEndpoint);
-  	def http = new HTTPBuilder();
-  
-	try
-	{
-
-		http.request( strBaseEndpoint, GET, TEXT ) { req ->
-			uri.path = href
-			headers.Accept = 'application/xml'
-			
-			response.success = { resp, reader ->
-				//assert resp.statusLine.statusCode == 200
-				log.info "Got response: ${resp.statusLine}"
-				//log.info "Content-Type: ${resp.headers.'Content-Type'}"
-				//log.info reader.text
-				strBody = reader.text;				
+		if(bShouldPass) {
+			if(bFailure) {
+				_strError = strResult;
+				return true;
+			} else {
+				return false;
 			}
-						
-			response.failure = { resp ->
-				strResult = "GET Failed: " + resp.statusLine;
-				bFailure = true;
-			}  
+		} else {
+			if(!bFailure) {
+				_strError = "POST did not fail as expected " + strResult;
+				return true;
+			} else {
+				return false;
+			}		
 		}
-
-	}
-	catch ( HttpResponseException ex ) {
-	    // default failure handler throws an exception:
-	    log.error "GET Unexpected response error: ${ex.statusCode}"
-	    bFailure = true;
-	}
-
-	if(bShouldPass)
-	{
-		if(!bFailure)
-		{
-			DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
-			domFactory.setNamespaceAware(true); 
-			DocumentBuilder builder = domFactory.newDocumentBuilder();
 		
-			def Document docResult = builder.parse(new InputSource(new StringReader(strBody)));
+		return true;
+	}
 	
-			Element feedSrc = doc.getDocumentElement();
-			Element feedResult = docResult.getDocumentElement();
+	
+	public boolean doPUT(boolean bShouldPass,String strBaseEndpoint,String strInputFile,String href) {
 		
-			bFailure = CompareNodes(feedSrc,feedResult,log);			
-
+		boolean bFailure = false;
+		String strResult = "";
+			
+		// used for putdating record
+		try {
+			
+			String strContent = FileUtils.readFileToString(new File(strInputFile));
+	
+			try {
+				
+				def http = new HTTPBuilder(strBaseEndpoint);
+		
+				def res = http.request(Method.PUT) { req ->
+				    uri.path = href
+				    send("application/xml", strContent)	
+				 
+				    response.success = { resp, object ->
+				        strResult = "PUT succeeded: " + resp.status;		        
+				    }			 
+				    response.failure = { resp ->	       
+				        strResult = "PUT Failed: " + resp.statusLine;				    
+				        bFailure = true;
+				    }
+				}
+			      		
+			}catch ( HttpResponseException ex ) {
+			    
+			    // default failure handler throws an exception:
+			    strResult = "PUT Unexpected response error: ${ex.statusCode}";
+			    bFailure = true;
+			}			
+		} catch (IOException e) {
+			
+			//e.printStackTrace();
+			strResult = "PUT Error reading file: " + strInputFile;
+			_strError = strResult;
+			return true;
+		}
+	
+		if(bShouldPass)
+		{
 			if(bFailure)
 			{
-				log.error("GET content veification failure");
+				_strError = strResult;
 				return true;
 			}
 			else
 			{
-				log.info("GET content veification success");
 				return false;
 			}
 		}
 		else
 		{
-			log.error(strResult);
-			return true;
-		}
-	}
-	else
-	{
-		if(bFailure)
-		{
-			log.info("GET failed as expected");
-			return false;
-		}
-		else
-		{
-			log.error("GET did not fail as expected");
-			return true;
-		}
-	}
-
-	return true;
-}
-
-
-
-static public boolean doPOST(boolean bShouldPass,String strBaseEndpoint,Object log,String strInputFile,String href)
-{
-	// used for creating new record
-
-	boolean bFailure = false;
-	String strResult = "";
-	
-	try {
-		
-		String strContent = FileUtils.readFileToString(new File(strInputFile));
-
-		try {
-			
-			def http = new HTTPBuilder(strBaseEndpoint);
-	
-			def res = http.request(Method.POST) { req ->
-			    uri.path = href
-			    send("application/xml", strContent)
-			 
-			    //response.'201' = { resp ->
-			    //   
-			    //    log.info("POST resp 201: " + resp.status);
-			    //}
-			 
-			    response.success = { resp, object ->
-			    		strResult = "POST succeeded: " + resp.status;	   
-			    }
-			 
-			    response.failure = { resp ->
-				    strResult = "POST Failed: " + resp.statusLine;
-			        	bFailure = true;
-			    }
-			 
+			if(!bFailure)
+			{
+				_strError = "PUT did not fail as expected" + strResult;
+				return true;
 			}
-		      		
-		}catch ( HttpResponseException ex ) {
-		    
-		    // default failure handler throws an exception:
-		    strResult = "POST Unexpected response error: ${ex.statusCode}"
-		    bFailure = true;
-		}			
-	} catch (IOException e) {
-		
-		//e.printStackTrace();
-
-		log.error("POST Error reading file: " + strInputFile);
-		bFailure = true;
-	}
-
-
-	if(bShouldPass)
-	{
-		if(bFailure)
-		{
-			log.error(strResult);
-			return true;
+			else
+			{
+				return false;
+			}		
 		}
-		else
-		{
-			log.info(strResult);
-			return false;
-		}
-	}
-	else
-	{
-		if(!bFailure)
-		{
-			log.error(strResult);
-			log.info("POST did not fail as expected");
-			return true;
-		}
-		else
-		{
-			log.info(strResult);
-			log.info("POST failed as expected");
-			return false;
-		}		
-	}
-	
-	return true;
-}
-
-
-static public boolean doPUT(boolean bShouldPass,String strBaseEndpoint,Object log,String strInputFile,String href)
-{
-	boolean bFailure = false;
-	String strResult = "";
 		
-	// used for putdating record
-	try {
-		
-		String strContent = FileUtils.readFileToString(new File(strInputFile));
-
-		try {
-			
-			def http = new HTTPBuilder(strBaseEndpoint);
-	
-			def res = http.request(Method.PUT) { req ->
-			    uri.path = href
-			    send("application/xml", strContent)
-			 
-			    //response.'201' = { resp ->
-			    //   
-			    //    log.info("PUT resp 201: " + resp.status);
-			    //}
-			 
-			    response.success = { resp, object ->
-			        strResult = "PUT succeeded: " + resp.status;		        
-			    }
-			 
-			    response.failure = { resp ->	       
-			        strResult = "PUT Failed: " + resp.statusLine;
-			        bFailure = true;
-			    }
-			}
-		      		
-		}catch ( HttpResponseException ex ) {
-		    
-		    // default failure handler throws an exception:
-		    log.error "PUT Unexpected response error: ${ex.statusCode}"
-		    bFailure = true;
-		}			
-	} catch (IOException e) {
-		
-		//e.printStackTrace();
-
-		log.error("PUT Error reading file: " + strInputFile);
 		return true;
 	}
-
-	if(bShouldPass)
-	{
-		if(bFailure)
-		{
-			log.error(strResult);
-			return true;
-		}
-		else
-		{
-			log.info(strResult);
-			return false;
-		}
-	}
-	else
-	{
-		if(!bFailure)
-		{
-			log.error(strResult);
-			log.info("PUT did not fail as expected");
-			return true;
-		}
-		else
-		{
-			log.info(strResult);
-			log.info("PUT failed as expected");
-			return false;
-		}		
-	}
 	
-	return true;
-}
-
-
-public static boolean TestDeleteXPATH(boolean bShouldPass,String strBaseEndpoint,String strLinkPrefixForReplace,Object log,String strInputFile)
-{
-	Document srcDoc = parseDocument(strInputFile);
-	String href = parseSelfLink(srcDoc);
-
-	// remove endpoint root prefix
-	href = href.replace(strLinkPrefixForReplace,"");
-
-	// read back xpath style resource and validate response against source
-	log.info("Delete XPATH resource:" + href);
-
-	return doDELETE(bShouldPass,strBaseEndpoint,log,href);				
-}
-
-static public boolean TestPostXPATH(boolean bShouldPass,String strBaseEndpoint,String strLinkPrefixForReplace,Object log,String strInputFile)
-{
-	Document srcDoc = parseDocument(strInputFile);
-	String href = parseSelfLink(srcDoc);
 	
-	// remove endpoint root prefix
-	href = href.replace(strLinkPrefixForReplace,"");
-
-	int idx = href.lastIndexOf("/");
-	href = href.substring(0,idx);
-
-	log.info("POST XPATH endpoint: " + strBaseEndpoint + " resource:" + href);	
-	
-	return doPOST(bShouldPass,strBaseEndpoint,log,strInputFile,href);	
-}
-
-static public boolean TestPutXPATH(boolean bShouldPass,String strBaseEndpoint,String strLinkPrefixForReplace,Object log,String strInputFile)
-{
-	Document srcDoc = parseDocument(strInputFile);
-	String href = parseSelfLink(srcDoc);
-	
-	// remove endpoint root prefix
-	href = href.replace(strLinkPrefixForReplace,"");
-
-	log.info("PUT XPATH endpoint: " + strBaseEndpoint + " resource:" + href);
+	public boolean TestDeleteXPATH(boolean bShouldPass,String strBaseEndpoint,String strLinkPrefixForReplace,String strInputFile) {
 		
-	return doPUT(bShouldPass,strBaseEndpoint,log,strInputFile,href);	
+		Document srcDoc = parseDocument(strInputFile);
+		String href = parseSelfLink(srcDoc);
+	
+		// remove endpoint root prefix
+		href = href.replace(strLinkPrefixForReplace,"");
+	
+		// read back xpath style resource and validate response against source
+		log.info("Delete XPATH " + strBaseEndpoint + href);	
+		return doDELETE(bShouldPass,strBaseEndpoint,href);				
+	}
+	
+	public boolean TestPostXPATH(boolean bShouldPass,String strBaseEndpoint,String strLinkPrefixForReplace,String strInputFile)
+	{
+		Document srcDoc = parseDocument(strInputFile);
+		String href = parseSelfLink(srcDoc);
+		
+		// remove endpoint root prefix
+		href = href.replace(strLinkPrefixForReplace,"");
+	
+		int idx = href.lastIndexOf("/");
+		href = href.substring(0,idx);
+	
+		log.info("POST XPATH " + strBaseEndpoint + href);		
+		return doPOST(bShouldPass,strBaseEndpoint,strInputFile,href);	
+	}
+	
+	public boolean TestPutXPATH(boolean bShouldPass,String strBaseEndpoint,String strLinkPrefixForReplace,String strInputFile) {
+		
+		Document srcDoc = parseDocument(strInputFile);
+		String href = parseSelfLink(srcDoc);
+		
+		// remove endpoint root prefix
+		href = href.replace(strLinkPrefixForReplace,"");
+	
+		log.info("PUT XPATH " + strBaseEndpoint + href);			
+		return doPUT(bShouldPass,strBaseEndpoint,strInputFile,href);	
+	}
+	
+	public boolean TestPutROOT(boolean bShouldPass,String strBaseEndpoint,String strLinkPrefixForReplace,String strInputFile) {
+		
+		Document srcDoc = parseDocument(strInputFile);
+		String href = parseSelfLink(srcDoc);
+	
+		// remove endpoint root prefix
+		href = href.replace(strLinkPrefixForReplace,"");
+	
+		//find tag name of espi content
+		String strEntryName = parseEntryName(srcDoc);
+	
+		// based on entry type replace links 
+		href = ReplaceLinks(strEntryName,href);	
+	
+		log.info("PUT ROOT " + strBaseEndpoint + href);		
+		return doPUT(bShouldPass,strBaseEndpoint,strInputFile,href);	
+	}
+	
+	public boolean TestPostROOT(boolean bShouldPass,String strBaseEndpoint,String strLinkPrefixForReplace,String strInputFile) {
+		
+		Document srcDoc = parseDocument(strInputFile);
+		String href = parseSelfLink(srcDoc);
+	
+		// remove endpoint root prefix
+		href = href.replace(strLinkPrefixForReplace,"");
+	
+		//find tag name of espi content
+		String strEntryName = parseEntryName(srcDoc);
+	
+		// based on entry type replace links 
+		href = ReplaceLinks(strEntryName,href);	
+	
+		int idx = href.lastIndexOf("/");
+		href = href.substring(0,idx);
+	
+		log.info("POST ROOT " + strBaseEndpoint + href);		
+		return doPOST(bShouldPass,strBaseEndpoint,strInputFile,href);	
+	}
+	
+	
+	public boolean TestGetXPATH(boolean bShouldPass,String strBaseEndpoint,String strLinkPrefixForReplace,String strInputFile) {
+		
+		Document srcDoc = parseDocument(strInputFile);
+		String href = parseSelfLink(srcDoc);
+	
+		// remove endpoint root prefix
+		href = href.replace(strLinkPrefixForReplace,"");
+	
+		// read back xpath style resource and validate response against source
+		log.info("Get XPATH " + strBaseEndpoint + href);		
+		return doGET(bShouldPass,strBaseEndpoint,"xpath",strInputFile,srcDoc,href);				
+	}
+	
+	public boolean TestGetROOT(boolean bShouldPass,String strBaseEndpoint,String strLinkPrefixForReplace,String strInputFile) {
+	
+		Document srcDoc = parseDocument(strInputFile);
+		String href = parseSelfLink(srcDoc);
+	
+		// remove endpoint root prefix
+		href = href.replace(strLinkPrefixForReplace,"");
+	
+		//find tag name of espi content
+		String strEntryName = parseEntryName(srcDoc);
+	
+		// based on entry type replace links 
+		href = ReplaceLinks(strEntryName,href);		
+	
+		// read back root style resource and validate response against source
+		log.info("Get ROOT " + strBaseEndpoint + href);				
+		return doGET(bShouldPass,strBaseEndpoint,"root",strInputFile,srcDoc,href);
+	}
+	
+	public boolean TestType1(Object testRunner,Object context,String strInputFile) {
+	
+	/*
+	
+	POST XPATH (should fail)
+	PUT XPATH
+	GET XPATH
+	GET ROOT
+	DELETE XPATH
+	GET XPATH (should fail)
+	GET ROOT (should fail)
+	PUT XPATH 
+	GET XPATH 
+	DELETE XPATH 
+	DELETE XPATH (should fail)
+	
+	*/
+		
+		def project = testRunner.testCase.testSuite.project
+		def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+		def projectPath = groovyUtils.projectPath	
+		
+		def BaseURL = project.getPropertyValue("BaseURL")
+		def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
+		def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
+		def linkPrefixForReplace = project.getPropertyValue("linkPrefixForReplace")
+		
+		def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
+		def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
+		
+		String strBaseEndpoint = ServiceEndpointDataCustodian + "/";
+		String strSourceDataFile = projectPath + "/../data/testSets/" + strInputFile;
+		
+	
+		boolean bFailure = false;
+	
+		//log.info("**********************************************");
+		//log.info("** Processing: " + strSourceDataFile);
+		//log.info("**********************************************");
+	
+	
+		bFailure = bFailure | TestPostXPATH(false,strBaseEndpoint,linkPrefixForReplace,strSourceDataFile);
+		
+		bFailure = bFailure | TestPutXPATH(true,strBaseEndpoint,linkPrefixForReplace,strSourceDataFile);
+		
+		bFailure = bFailure | TestGetXPATH(true,strBaseEndpoint,linkPrefixForReplace,strSourceDataFile)
+	
+		bFailure = bFailure | TestGetROOT(true,strBaseEndpoint,linkPrefixForReplace,strSourceDataFile);	
+	
+		bFailure = bFailure | TestDeleteXPATH(true, strBaseEndpoint,linkPrefixForReplace,strSourceDataFile);
+	
+		bFailure = bFailure | TestGetXPATH(false,strBaseEndpoint,linkPrefixForReplace,strSourceDataFile)
+	
+		bFailure = bFailure | TestGetROOT(false,strBaseEndpoint,linkPrefixForReplace,strSourceDataFile);	
+	
+		bFailure = bFailure | TestPutXPATH(true,strBaseEndpoint,linkPrefixForReplace,strSourceDataFile);	
+	
+		bFailure = bFailure | TestGetXPATH(true,strBaseEndpoint,linkPrefixForReplace,strSourceDataFile)	
+	
+		bFailure = bFailure | TestDeleteXPATH(true,strBaseEndpoint,linkPrefixForReplace,strSourceDataFile);
+	
+		bFailure = bFailure | TestDeleteXPATH(false,strBaseEndpoint,linkPrefixForReplace,strSourceDataFile);
+		
+		return bFailure;
+	}
+	
+	
+	public boolean TestType2(Object testRunner,Object context,String strInputFile) {
+		
+	/*
+	POST ROOT
+	POST XPATH
+	GET XPATH
+	GET ROOT
+	*/
+		
+		def project = testRunner.testCase.testSuite.project
+		def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+		def projectPath = groovyUtils.projectPath	
+		
+		def BaseURL = project.getPropertyValue("BaseURL")
+		def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
+		def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
+		def linkPrefixForReplace = project.getPropertyValue("linkPrefixForReplace")
+		
+		def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
+		def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
+		
+		String strBaseEndpoint = ServiceEndpointDataCustodian + "/";
+		String strSourceDataFile = projectPath + "/../data/testSets/" + strInputFile;
+	
+		boolean bFailure = false;
+	
+		//log.info("**********************************************");
+		//log.info("** Processing: " + strSourceDataFile);
+		//log.info("**********************************************");
+	
+	
+		bFailure = bFailure | TestPostROOT(true,strBaseEndpoint,linkPrefixForReplace,strSourceDataFile);
+	
+		bFailure = bFailure | TestPostXPATH(true,strBaseEndpoint,linkPrefixForReplace,strSourceDataFile);
+		
+		bFailure = bFailure | TestGetXPATH(true,strBaseEndpoint,linkPrefixForReplace,strSourceDataFile)
+	
+		bFailure = bFailure | TestGetROOT(true,strBaseEndpoint,linkPrefixForReplace,strSourceDataFile);	
+		
+		return bFailure;
+	}
 }
-
-static public boolean TestPutROOT(boolean bShouldPass,String strBaseEndpoint,String strLinkPrefixForReplace,Object log,String strInputFile)
-{
-	Document srcDoc = parseDocument(strInputFile);
-	String href = parseSelfLink(srcDoc);
-
-	// remove endpoint root prefix
-	href = href.replace(strLinkPrefixForReplace,"");
-
-	//find tag name of espi content
-	String strEntryName = parseEntryName(srcDoc);
-
-	// based on entry type replace links 
-	href = ReplaceLinks(strEntryName,href);	
-
-	log.info("PUT ROOT endpoint: " + strBaseEndpoint + " resource:" + href);	
-	
-	return doPUT(bShouldPass,strBaseEndpoint,log,strInputFile,href);	
-}
-
-static public boolean TestPostROOT(boolean bShouldPass,String strBaseEndpoint,String strLinkPrefixForReplace,Object log,String strInputFile)
-{
-	Document srcDoc = parseDocument(strInputFile);
-	String href = parseSelfLink(srcDoc);
-
-	// remove endpoint root prefix
-	href = href.replace(strLinkPrefixForReplace,"");
-
-	//find tag name of espi content
-	String strEntryName = parseEntryName(srcDoc);
-
-	// based on entry type replace links 
-	href = ReplaceLinks(strEntryName,href);	
-
-	int idx = href.lastIndexOf("/");
-	href = href.substring(0,idx);
-
-	log.info("POST ROOT endpoint: " + strBaseEndpoint + " resource:" + href);	
-	
-	return doPOST(bShouldPass,strBaseEndpoint,log,strInputFile,href);	
-}
-
-
-public static boolean TestGetXPATH(boolean bShouldPass,String strBaseEndpoint,String strLinkPrefixForReplace,Object log,String strInputFile)
-{
-	Document srcDoc = parseDocument(strInputFile);
-	String href = parseSelfLink(srcDoc);
-
-	// remove endpoint root prefix
-	href = href.replace(strLinkPrefixForReplace,"");
-
-	// read back xpath style resource and validate response against source
-	log.info("Get XPATH resource:" + href);
-	
-	return doGET(bShouldPass,strBaseEndpoint,log,"xpath",strInputFile,srcDoc,href);				
-}
-
-public static boolean TestGetROOT(boolean bShouldPass,String strBaseEndpoint,String strLinkPrefixForReplace,Object log,String strInputFile)
-{
-
-	Document srcDoc = parseDocument(strInputFile);
-	String href = parseSelfLink(srcDoc);
-
-	// remove endpoint root prefix
-	href = href.replace(strLinkPrefixForReplace,"");
-
-	//find tag name of espi content
-	String strEntryName = parseEntryName(srcDoc);
-
-	// based on entry type replace links 
-	href = ReplaceLinks(strEntryName,href);		
-
-	// read back root style resource and validate response against source
-	log.info("Get ROOT resource Entry: " + strEntryName + " href:" + href);
-				
-	return doGET(bShouldPass,strBaseEndpoint,log,"root",strInputFile,srcDoc,href);
-}
-
-public static boolean TestType1(Object testRunner,Object context,Object log,String strInputFile)
-{
-
-/*
-
-POST XPATH (should fail)
-PUT XPATH
-GET XPATH
-GET ROOT
-DELETE XPATH
-GET XPATH (should fail)
-GET ROOT (should fail)
-PUT XPATH 
-GET XPATH 
-DELETE XPATH 
-DELETE XPATH (should fail)
-
-*/
-	
-	def project = testRunner.testCase.testSuite.project
-	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-	def projectPath = groovyUtils.projectPath	
-	
-	def BaseURL = project.getPropertyValue("BaseURL")
-	def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
-	def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
-	def linkPrefixForReplace = project.getPropertyValue("linkPrefixForReplace")
-	
-	def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
-	def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
-	
-	String strBaseEndpoint = ServiceEndpointDataCustodian + "/";
-	String strSourceDataFile = projectPath + "/../data/testSets/" + strInputFile;
-	
-
-	boolean bFailure = false;
-
-	log.info("**********************************************");
-	log.info("** Processing: " + strSourceDataFile);
-	log.info("**********************************************");
-
-
-	bFailure = bFailure | TestPostXPATH(false,strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile);
-	
-	bFailure = bFailure | TestPutXPATH(true,strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile);
-	
-	bFailure = bFailure | TestGetXPATH(true,strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile)
-
-	bFailure = bFailure | TestGetROOT(true,strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile);	
-
-	bFailure = bFailure | TestDeleteXPATH(true, strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile);
-
-	bFailure = bFailure | TestGetXPATH(false,strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile)
-
-	bFailure = bFailure | TestGetROOT(false,strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile);	
-
-	bFailure = bFailure | TestPutXPATH(true,strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile);	
-
-	bFailure = bFailure | TestGetXPATH(true,strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile)	
-
-	bFailure = bFailure | TestDeleteXPATH(true,strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile);
-
-	bFailure = bFailure | TestDeleteXPATH(false,strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile);
-	
-	return bFailure;
-}
-
-
-public static boolean TestType2(Object testRunner,Object context,Object log,String strInputFile)
-{
-/*
-POST ROOT
-POST XPATH
-GET XPATH
-GET ROOT
-*/
-	
-	def project = testRunner.testCase.testSuite.project
-	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-	def projectPath = groovyUtils.projectPath	
-	
-	def BaseURL = project.getPropertyValue("BaseURL")
-	def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
-	def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
-	def linkPrefixForReplace = project.getPropertyValue("linkPrefixForReplace")
-	
-	def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
-	def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
-	
-	String strBaseEndpoint = ServiceEndpointDataCustodian + "/";
-	String strSourceDataFile = projectPath + "/../data/testSets/" + strInputFile;
-
-	boolean bFailure = false;
-
-	log.info("**********************************************");
-	log.info("** Processing: " + strSourceDataFile);
-	log.info("**********************************************");
-
-
-	bFailure = bFailure | TestPostROOT(true,strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile);
-
-	bFailure = bFailure | TestPostXPATH(true,strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile);
-	
-	bFailure = bFailure | TestGetXPATH(true,strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile)
-
-	bFailure = bFailure | TestGetROOT(true,strBaseEndpoint,linkPrefixForReplace,log,strSourceDataFile);	
-	
-	return bFailure;
-}
-
 
 ///////////////////////////////
 // 
 //	Main Body
 //
 ///////////////////////////////
-
+	def project = testRunner.testCase.testSuite.project
+	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+	def projectPath = groovyUtils.projectPath	
+	
+	def BaseURL = project.getPropertyValue("BaseURL")
+	def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
+	def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
+	def linkPrefixForReplace = project.getPropertyValue("linkPrefixForReplace")
+	
+	def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
+	def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
+	
+	String strBaseEndpoint = ServiceEndpointDataCustodian + "/";
 	String resourceTestFileName = testRunner.testCase.testSuite.project.testSuites["OpenEspiIntegrationTests"].testCases["Library"].getPropertyValue("resourceTestFileName");
+	String testShouldPass = testRunner.testCase.testSuite.project.testSuites["OpenEspiIntegrationTests"].testCases["Library"].getPropertyValue("testShouldPass");
 	String testType = testRunner.testCase.testSuite.project.testSuites["OpenEspiIntegrationTests"].testCases["Library"].getPropertyValue("testType");
+	String strSourceDataFile = projectPath + "/../data/testSets/" + resourceTestFileName;
+
+	boolean bShouldPass = true;
+
+	testShouldPass = testShouldPass.toUpperCase();
+	
+	if(testShouldPass.equals("FALSE")) {
+		bShouldPass = false;
+	}
 
 	boolean bFailure = false;
 
-	if(testType.equals("testType1"))
-	{
-		bFailure = TestType1(testRunner,context,log,resourceTestFileName);
-	}
-	else if(testType.equals("testType2"))
-	{
-		bFailure = TestType2(testRunner,context,log,resourceTestFileName);
-	}	
+	ResourceTester resourceTester = new ResourceTester(log);
 
-	if(bFailure)
-	{
-		testRunner.fail("Failed processing resource:" + resourceTestFileName)
+	if(testType.equals("testType1")) {
+		
+		bFailure = resourceTester.TestType1(testRunner,context,resourceTestFileName);
+		
+	} else if(testType.equals("testType2")) {
+		
+		bFailure = resourceTester.TestType2(testRunner,context,resourceTestFileName);
+		
+	} else if(testType.equals("PostXPATH")) {
+		
+		bFailure = resourceTester.TestPostXPATH(bShouldPass,strBaseEndpoint,linkPrefixForReplace,strSourceDataFile);
+		
+	} else if(testType.equals("PostROOT")) {
+		
+		bFailure = resourceTester.TestPostROOT(bShouldPass,strBaseEndpoint,linkPrefixForReplace,strSourceDataFile);
+		
+	} else if(testType.equals("PutROOT")) {
+		
+		bFailure = resourceTester.TestPutROOT(bShouldPass,strBaseEndpoint,linkPrefixForReplace,strSourceDataFile);
+		
+	} else if(testType.equals("PutXPATH")) {
+		
+		bFailure = resourceTester.TestPutXPATH(bShouldPass,strBaseEndpoint,linkPrefixForReplace,strSourceDataFile);
+		
+	} else if(testType.equals("GetXPATH")) {
+		
+		bFailure = resourceTester.TestGetXPATH(bShouldPass,strBaseEndpoint,linkPrefixForReplace,strSourceDataFile)
+		
+	} else if(testType.equals("GetROOT")) {
+		
+		bFailure = resourceTester.TestGetROOT(bShouldPass,strBaseEndpoint,linkPrefixForReplace,strSourceDataFile);
+			
+	} else if(testType.equals("DeleteXPATH")) {
+		
+		bFailure = resourceTester.TestDeleteXPATH(bShouldPass,strBaseEndpoint,linkPrefixForReplace,strSourceDataFile);	
+				
+	} else if(testType.equals("DeleteROOT")) {
+		
+		bFailure = resourceTester.TestDeleteROOT(bShouldPass,strBaseEndpoint,linkPrefixForReplace,strSourceDataFile);	
+		
+	}
+
+	if(bFailure) {
+		
+		testRunner.fail("Failed processing resource:" + resourceTestFileName + " With error: " + resourceTester._strError)
+		testRunner.testCase.testSuite.project.testSuites["OpenEspiIntegrationTests"].testCases["Library"].setPropertyValue("testFailed", "TRUE")
+
+	} else {
+		
+		testRunner.testCase.testSuite.project.testSuites["OpenEspiIntegrationTests"].testCases["Library"].setPropertyValue("testFailed", "FALSE")
 	}
 	
 	return;
 
 
-	]]></script></con:config></con:testStep><con:properties><con:property><con:name>resourceTestFileName</con:name><con:value>entry_IntervalBlock_4.xml</con:value></con:property><con:property><con:name>testType</con:name><con:value>testType2</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="50000" name="ResourceTests" searchProperties="true" id="a536dcbe-f106-47e2-9c97-93c2d78cffa9" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.panels.testcase.JTestRunLog$OptionsForm@max_rows">20000</con:setting><con:setting id="com.eviware.soapui.impl.wsdl.panels.testcase.JTestRunLog$OptionsForm@errors_only">false</con:setting></con:settings><con:testStep type="groovy" name="InitializeDataSets"><con:settings/><con:config><script><![CDATA[import org.xml.sax.SAXException;
+	]]></script></con:config></con:testStep><con:testStep type="groovy" name="curlUpload"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+def BaseURL = project.getPropertyValue("BaseURL")
+def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
+
+def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
+
+def cmdPost = projectPath + "/etc/doCurlUpload.sh ${TestFile} ${ServiceEndpointDataCustodian}/espi/1_1/resource/RetailCustomer/1/UploadMyData";
+
+log.info("exec: " + cmdPost);
+
+def doPost = cmdPost.execute()
+
+doPost.waitFor()
+
+if(doPost.exitValue()!=0) {
+	log.error "return code: ${ doPost.exitValue()}"
+	log.error "stderr: ${doPost.err.text}"
+	log.error "stdout: ${doPost.in.text}"
+} else {
+	log.info "result: ${doPost.err.text}"
+}</script></con:config></con:testStep><con:properties><con:property><con:name>resourceTestFileName</con:name><con:value>entry_IntervalBlock_4.xml</con:value></con:property><con:property><con:name>testType</con:name><con:value>GetXPATH</con:value></con:property><con:property><con:name>testShouldPass</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>testFailed</con:name><con:value>FALSE</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="50000" name="ResourceTests" searchProperties="true" id="a536dcbe-f106-47e2-9c97-93c2d78cffa9" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.panels.testcase.JTestRunLog$OptionsForm@max_rows">20000</con:setting><con:setting id="com.eviware.soapui.impl.wsdl.panels.testcase.JTestRunLog$OptionsForm@errors_only">false</con:setting></con:settings><con:testStep type="groovy" name="InitializeDataSets"><con:settings/><con:config><script><![CDATA[import org.xml.sax.SAXException;
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
 import javax.xml.transform.stream.*;
@@ -16500,7 +16510,7 @@ Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/B
 
 CleanDB
 excercise UI to link UUID to retail. Customer
-excercise to Upload test_usage_data.xml
+excercise UI to Upload test_usage_data.xml
 
 Then for each resource:
 
@@ -16620,7 +16630,7 @@ POST XPATH
 GET XPATH
 GET ROOT
 
-excercise to Upload test_usage_data.xml
+excercise UI to link UUID to retail. Customer
 
 Then for each other resource type:
 
@@ -16688,6 +16698,479 @@ driver.quit();
 	TestType2("entry_ElectricPowerUsageSummary_18.xml");
 	TestType2("entry_ElectricPowerQualitySummary_19.xml");
 	TestType2("entry_IntervalBlock_4.xml");
+
+	return;
+</script></con:config></con:testStep><con:testStep type="groovy" name="ResourceTests_testTypeA"><con:settings/><con:config><script>
+
+public void TestType1(String strFileName)
+{
+	tc = testRunner.testCase.testSuite.project.testSuites["OpenEspiIntegrationTests"].testCases["Library"]
+	tc.setPropertyValue("resourceTestFileName", strFileName)
+	tc.setPropertyValue("testType", "testType1")
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resourceTest']);	
+}
+
+public void TestType2(String strFileName)
+{
+	tc = testRunner.testCase.testSuite.project.testSuites["OpenEspiIntegrationTests"].testCases["Library"]
+	tc.setPropertyValue("resourceTestFileName", strFileName)
+	tc.setPropertyValue("testType", "testType2")
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resourceTest']);	
+}
+
+public boolean ServiceTest(String strTestType,boolean bShouldPass,String strFileName)
+{
+	tc = testRunner.testCase.testSuite.project.testSuites["OpenEspiIntegrationTests"].testCases["Library"]
+	tc.setPropertyValue("resourceTestFileName", strFileName)
+	tc.setPropertyValue("testType", strTestType)
+	
+	if(bShouldPass) {
+		tc.setPropertyValue("testShouldPass", "TRUE")
+	}
+	else {
+		tc.setPropertyValue("testShouldPass", "FALSE")
+	}
+	
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resourceTest']);
+
+	String strResult = tc.getPropertyValue("testFailed");	
+
+	boolean bResult = false;
+	
+	if(strResult.equals("TRUE")) {
+		bResult = true;
+	}
+
+	return bResult;
+}
+
+///////////////////////////////
+// 
+//	Main Body
+//
+///////////////////////////////
+
+	//*********************************************************
+	log.info("Init DB");
+	//*********************************************************
+	// reset DB : run library groovy script
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resetDB']);
+
+	boolean bTestFailed =false;
+	
+		
+	bTestFailed = ServiceTest("PostXPATH",true,"entry_ReadingType_3.xml");
+	bTestFailed = ServiceTest("PostROOT",true,"entry_ReadingType_3.xml");
+	bTestFailed = ServiceTest("PostROOT",true,"entry_LocalTimeParameters_1.xml");	
+	bTestFailed = ServiceTest("PostXPATH",true,"entry_LocalTimeParameters_1.xml");	
+	bTestFailed = ServiceTest("PostXPATH",true,"entry_UsagePoint_0.xml");
+	bTestFailed = ServiceTest("PostROOT",true,"entry_UsagePoint_0.xml");	
+	bTestFailed = ServiceTest("PostXPATH",true,"entry_MeterReading_2.xml");
+	bTestFailed = ServiceTest("PostROOT",true,"entry_MeterReading_2.xml");	
+	bTestFailed = ServiceTest("PostXPATH",true,"entry_ElectricPowerUsageSummary_18.xml");
+	bTestFailed = ServiceTest("PostROOT",true,"entry_ElectricPowerUsageSummary_18.xml");	
+	bTestFailed = ServiceTest("PostXPATH",true,"entry_ElectricPowerQualitySummary_19.xml");
+	bTestFailed = ServiceTest("PostROOT",true,"entry_ElectricPowerQualitySummary_19.xml");	
+	bTestFailed = ServiceTest("PostXPATH",true,"entry_IntervalBlock_4.xml");
+	bTestFailed = ServiceTest("PostROOT",true,"entry_IntervalBlock_4.xml");
+
+
+	bTestFailed = ServiceTest("GetROOT",true,"entry_UsagePoint_0.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_UsagePoint_0.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_LocalTimeParameters_1.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_LocalTimeParameters_1.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_MeterReading_2.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_MeterReading_2.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_ReadingType_3.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_ReadingType_3.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_ElectricPowerUsageSummary_18.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_ElectricPowerUsageSummary_18.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_ElectricPowerQualitySummary_19.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_ElectricPowerQualitySummary_19.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_IntervalBlock_4.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_IntervalBlock_4.xml");	
+
+	return;
+</script></con:config></con:testStep><con:testStep type="groovy" name="ResourceTests_testTypeB"><con:settings/><con:config><script>import org.openqa.selenium.*;
+
+
+
+public void TestType1(String strFileName)
+{
+	tc = testRunner.testCase.testSuite.project.testSuites["OpenEspiIntegrationTests"].testCases["Library"]
+	tc.setPropertyValue("resourceTestFileName", strFileName)
+	tc.setPropertyValue("testType", "testType1")
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resourceTest']);	
+}
+
+public void TestType2(String strFileName)
+{
+	tc = testRunner.testCase.testSuite.project.testSuites["OpenEspiIntegrationTests"].testCases["Library"]
+	tc.setPropertyValue("resourceTestFileName", strFileName)
+	tc.setPropertyValue("testType", "testType2")
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resourceTest']);	
+}
+
+public boolean ServiceTest(String strTestType,boolean bShouldPass,String strFileName)
+{
+	tc = testRunner.testCase.testSuite.project.testSuites["OpenEspiIntegrationTests"].testCases["Library"]
+	tc.setPropertyValue("resourceTestFileName", strFileName)
+	tc.setPropertyValue("testType", strTestType)
+	
+	if(bShouldPass) {
+		tc.setPropertyValue("testShouldPass", "TRUE")
+	}
+	else {
+		tc.setPropertyValue("testShouldPass", "FALSE")
+	}
+	
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resourceTest']);
+
+	String strResult = tc.getPropertyValue("testFailed");	
+
+	boolean bResult = false;
+	
+	if(strResult.equals("TRUE")) {
+		bResult = true;
+	}
+
+	return bResult;
+}
+
+
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+def BaseURL = project.getPropertyValue("BaseURL")
+def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
+def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
+def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
+def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
+def TestManager=project.getPropertyValue("TestManager")
+def TestManagerPW=project.getPropertyValue("TestManagerPW")
+def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
+def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
+
+Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+
+///////////////////////////////
+// 
+//	Main Body
+//
+///////////////////////////////
+
+	try{
+		//*********************************************************
+		log.info("Init DB");
+		//*********************************************************
+		// reset DB : run library groovy script
+		testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resetDB']);
+		// Browser Init
+		driver.Before();
+		
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		driver.logStep("Link Usage Point to Retail Customer");
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
+		driver.assertUrlEndsWith("/" + DataCustodianContext + "/custodian/home");
+return		
+		// add usage point linkage
+		driver.findElement(By.linkText("Customer List")).click();
+		driver.findElement(By.linkText(TestRetailCustomer)).click();	
+		driver.findElement(By.partialLinkText("Add Usage")).click();	
+		driver.findElement(By.id("UUID")).clear();
+		driver.findElement(By.id("UUID")).sendKeys(usagePointUUID1);
+		driver.findElement(By.id("description")).clear();
+		driver.findElement(By.id("description")).sendKeys(usagePointDescription1);
+		driver.findElement(By.name("create")).click();
+	
+		// upload usage point file
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		driver.logStep("upload usage point file");
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+		driver.findElement(By.linkText("Upload")).click();	
+		driver.findElement(By.name("file")).sendKeys(TestFile);
+			
+		driver.findElement(By.name("upload")).click();	
+		driver.assertDoesNotContain("Unable to process file");
+		
+		driver.logout(ServiceEndpointDataCustodian);
+	
+	} catch(Exception e) {
+		testRunner.fail(driver.getErrorString())
+	}
+	
+	//Close the browser
+	driver.quit();
+
+
+// Initial GETS
+	bTestFailed = ServiceTest("GetROOT",true,"entry_UsagePoint_0.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_UsagePoint_0.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_LocalTimeParameters_1.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_LocalTimeParameters_1.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_MeterReading_2.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_MeterReading_2.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_ReadingType_3.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_ReadingType_3.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_ElectricPowerUsageSummary_18.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_ElectricPowerUsageSummary_18.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_ElectricPowerQualitySummary_19.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_ElectricPowerQualitySummary_19.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_IntervalBlock_4.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_IntervalBlock_4.xml");
+
+// PUTS
+	bTestFailed = ServiceTest("PutROOT",true,"entry_UsagePoint_0.xml");
+	bTestFailed = ServiceTest("PutROOT",true,"entry_LocalTimeParameters_1.xml");
+	bTestFailed = ServiceTest("PutROOT",true,"entry_MeterReading_2.xml");
+	bTestFailed = ServiceTest("PutROOT",true,"entry_ReadingType_3.xml");
+	bTestFailed = ServiceTest("PutROOT",true,"entry_ElectricPowerUsageSummary_18.xml");
+	bTestFailed = ServiceTest("PutROOT",true,"entry_ElectricPowerQualitySummary_19.xml");
+	bTestFailed = ServiceTest("PutROOT",true,"entry_IntervalBlock_4.xml");
+
+/////////
+	bTestFailed = ServiceTest("GetROOT",true,"entry_UsagePoint_0.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_UsagePoint_0.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_LocalTimeParameters_1.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_LocalTimeParameters_1.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_MeterReading_2.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_MeterReading_2.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_ReadingType_3.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_ReadingType_3.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_ElectricPowerUsageSummary_18.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_ElectricPowerUsageSummary_18.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_ElectricPowerQualitySummary_19.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_ElectricPowerQualitySummary_19.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_IntervalBlock_4.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_IntervalBlock_4.xml");	
+
+// PUTS
+	bTestFailed = ServiceTest("PutXPATH",true,"entry_UsagePoint_0.xml");
+	bTestFailed = ServiceTest("PutXPATH",true,"entry_LocalTimeParameters_1.xml");
+	bTestFailed = ServiceTest("PutXPATH",true,"entry_MeterReading_2.xml");
+	bTestFailed = ServiceTest("PutXPATH",true,"entry_ReadingType_3.xml");
+	bTestFailed = ServiceTest("PutXPATH",true,"entry_ElectricPowerUsageSummary_18.xml");
+	bTestFailed = ServiceTest("PutXPATH",true,"entry_ElectricPowerQualitySummary_19.xml");
+	bTestFailed = ServiceTest("PutXPATH",true,"entry_IntervalBlock_4.xml");
+
+/////////
+	bTestFailed = ServiceTest("GetROOT",true,"entry_UsagePoint_0.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_UsagePoint_0.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_LocalTimeParameters_1.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_LocalTimeParameters_1.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_MeterReading_2.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_MeterReading_2.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_ReadingType_3.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_ReadingType_3.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_ElectricPowerUsageSummary_18.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_ElectricPowerUsageSummary_18.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_ElectricPowerQualitySummary_19.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_ElectricPowerQualitySummary_19.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_IntervalBlock_4.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_IntervalBlock_4.xml");	
+
+	return;
+</script></con:config></con:testStep><con:testStep type="groovy" name="ResourceTests_testTypeC"><con:settings/><con:config><script>import org.openqa.selenium.*;
+
+
+
+public void TestType1(String strFileName)
+{
+	tc = testRunner.testCase.testSuite.project.testSuites["OpenEspiIntegrationTests"].testCases["Library"]
+	tc.setPropertyValue("resourceTestFileName", strFileName)
+	tc.setPropertyValue("testType", "testType1")
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resourceTest']);	
+}
+
+public void TestType2(String strFileName)
+{
+	tc = testRunner.testCase.testSuite.project.testSuites["OpenEspiIntegrationTests"].testCases["Library"]
+	tc.setPropertyValue("resourceTestFileName", strFileName)
+	tc.setPropertyValue("testType", "testType2")
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resourceTest']);	
+}
+
+public boolean ServiceTest(String strTestType,boolean bShouldPass,String strFileName)
+{
+	tc = testRunner.testCase.testSuite.project.testSuites["OpenEspiIntegrationTests"].testCases["Library"]
+	tc.setPropertyValue("resourceTestFileName", strFileName)
+	tc.setPropertyValue("testType", strTestType)
+	
+	if(bShouldPass) {
+		tc.setPropertyValue("testShouldPass", "TRUE")
+	}
+	else {
+		tc.setPropertyValue("testShouldPass", "FALSE")
+	}
+	
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resourceTest']);
+
+	String strResult = tc.getPropertyValue("testFailed");	
+
+	boolean bResult = false;
+	
+	if(strResult.equals("TRUE")) {
+		bResult = true;
+	}
+
+	return bResult;
+}
+
+
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+def BaseURL = project.getPropertyValue("BaseURL")
+def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
+def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
+def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
+def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
+def TestManager=project.getPropertyValue("TestManager")
+def TestManagerPW=project.getPropertyValue("TestManagerPW")
+def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
+def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
+
+//Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+
+///////////////////////////////
+// 
+//	Main Body
+//
+///////////////////////////////
+/*
+	try{
+		//*********************************************************
+		log.info("Init DB");
+		//*********************************************************
+		// reset DB : run library groovy script
+		testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resetDB']);
+		// Browser Init
+		driver.Before();
+		
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		driver.logStep("Link Usage Point to Retail Customer");
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
+		driver.assertUrlEndsWith("/" + DataCustodianContext + "/custodian/home");
+return		
+		// add usage point linkage
+		driver.findElement(By.linkText("Customer List")).click();
+		driver.findElement(By.linkText(TestRetailCustomer)).click();	
+		driver.findElement(By.partialLinkText("Add Usage")).click();	
+		driver.findElement(By.id("UUID")).clear();
+		driver.findElement(By.id("UUID")).sendKeys(usagePointUUID1);
+		driver.findElement(By.id("description")).clear();
+		driver.findElement(By.id("description")).sendKeys(usagePointDescription1);
+		driver.findElement(By.name("create")).click();
+	
+		// upload usage point file
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		driver.logStep("upload usage point file");
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+		driver.findElement(By.linkText("Upload")).click();	
+		driver.findElement(By.name("file")).sendKeys(TestFile);
+			
+		driver.findElement(By.name("upload")).click();	
+		driver.assertDoesNotContain("Unable to process file");
+		
+		driver.logout(ServiceEndpointDataCustodian);
+	
+	} catch(Exception e) {
+		testRunner.fail(driver.getErrorString())
+	}
+	
+	//Close the browser
+	driver.quit();
+*/
+
+	//*********************************************************
+	log.info("Init DB");
+	//*********************************************************
+	// reset DB : run library groovy script
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resetDB']);
+
+	//*********************************************************
+	log.info("upload usage data using curl");
+	//*********************************************************
+	// reset DB : run library groovy script
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['curlUpload']);
+
+// Initial GETS
+	bTestFailed = ServiceTest("GetROOT",true,"entry_UsagePoint_0.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_UsagePoint_0.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_LocalTimeParameters_1.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_LocalTimeParameters_1.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_MeterReading_2.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_MeterReading_2.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_ReadingType_3.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_ReadingType_3.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_ElectricPowerUsageSummary_18.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_ElectricPowerUsageSummary_18.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_ElectricPowerQualitySummary_19.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_ElectricPowerQualitySummary_19.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_IntervalBlock_4.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_IntervalBlock_4.xml");
+
+// PUTS
+	bTestFailed = ServiceTest("PutROOT",true,"entry_UsagePoint_0.xml");
+	bTestFailed = ServiceTest("PutROOT",true,"entry_LocalTimeParameters_1.xml");
+	bTestFailed = ServiceTest("PutROOT",true,"entry_MeterReading_2.xml");
+	bTestFailed = ServiceTest("PutROOT",true,"entry_ReadingType_3.xml");
+	bTestFailed = ServiceTest("PutROOT",true,"entry_ElectricPowerUsageSummary_18.xml");
+	bTestFailed = ServiceTest("PutROOT",true,"entry_ElectricPowerQualitySummary_19.xml");
+	bTestFailed = ServiceTest("PutROOT",true,"entry_IntervalBlock_4.xml");
+
+/////////
+	bTestFailed = ServiceTest("GetROOT",true,"entry_UsagePoint_0.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_UsagePoint_0.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_LocalTimeParameters_1.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_LocalTimeParameters_1.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_MeterReading_2.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_MeterReading_2.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_ReadingType_3.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_ReadingType_3.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_ElectricPowerUsageSummary_18.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_ElectricPowerUsageSummary_18.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_ElectricPowerQualitySummary_19.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_ElectricPowerQualitySummary_19.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_IntervalBlock_4.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_IntervalBlock_4.xml");	
+
+// PUTS
+	bTestFailed = ServiceTest("PutXPATH",true,"entry_UsagePoint_0.xml");
+	bTestFailed = ServiceTest("PutXPATH",true,"entry_LocalTimeParameters_1.xml");
+	bTestFailed = ServiceTest("PutXPATH",true,"entry_MeterReading_2.xml");
+	bTestFailed = ServiceTest("PutXPATH",true,"entry_ReadingType_3.xml");
+	bTestFailed = ServiceTest("PutXPATH",true,"entry_ElectricPowerUsageSummary_18.xml");
+	bTestFailed = ServiceTest("PutXPATH",true,"entry_ElectricPowerQualitySummary_19.xml");
+	bTestFailed = ServiceTest("PutXPATH",true,"entry_IntervalBlock_4.xml");
+
+/////////
+	bTestFailed = ServiceTest("GetROOT",true,"entry_UsagePoint_0.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_UsagePoint_0.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_LocalTimeParameters_1.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_LocalTimeParameters_1.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_MeterReading_2.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_MeterReading_2.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_ReadingType_3.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_ReadingType_3.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_ElectricPowerUsageSummary_18.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_ElectricPowerUsageSummary_18.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_ElectricPowerQualitySummary_19.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_ElectricPowerQualitySummary_19.xml");
+	bTestFailed = ServiceTest("GetROOT",true,"entry_IntervalBlock_4.xml");
+	bTestFailed = ServiceTest("GetXPATH",true,"entry_IntervalBlock_4.xml");	
 
 	return;
 </script></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Feature: Retail Customers" searchProperties="true" id="fa3949ff-a0a7-4274-ace9-674a8169ebd4" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings/><con:testStep type="groovy" name="Feature: Retail Customers"><con:settings/><con:config><script>//******************************************************************************************************************
@@ -16862,6 +17345,7 @@ def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
 
 //driver._bLogActions = true;
+
 
 try{
 	//*********************************************************
