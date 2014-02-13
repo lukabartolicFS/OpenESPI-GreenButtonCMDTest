@@ -15952,7 +15952,7 @@ public class ResourceTester {
 							
 		return bFailure;
 	}
-	
+
 	public boolean TestGetROOT(boolean bShouldPass,boolean bReportError,String strBaseEndpoint,String strLinkPrefixForReplace,String strInputFile) {
 		
 		boolean bFailure = false;
@@ -15981,6 +15981,33 @@ public class ResourceTester {
 				
 		return bFailure;
 	}
+
+	public boolean TestGetSaveResponse(boolean bShouldPass,boolean bReportError,String strBaseEndpoint,String strResource,String strOutputFile) {
+		
+		boolean bFailure = false;
+		
+		// read back xpath style resource and validate response against source
+		log.info("Get " + strBaseEndpoint + strResource + " save to file:" + strOutputFile);		
+		bFailure = doGET(bShouldPass,strBaseEndpoint,null,null,strResource);	
+
+		if(bReportError) {
+			if(bShouldPass && bFailure) {
+				log.error("FAILED: Get " + strBaseEndpoint + strResource + " with error:" + _strError);	
+			}
+		}	
+
+		if(!bFailure) {
+			PrintStream out = null;
+			try {
+			    out = new PrintStream(new FileOutputStream(strOutputFile));
+			    out.print(_strResponseBody);
+			} finally {
+			    if (out != null) out.close();
+			}			
+		}
+							
+		return bFailure;
+	}	
 
 	public boolean TestGetROOTAndLinks(boolean bShouldPass,boolean bReportError,String strBaseEndpoint,String strLinkPrefixForReplace,String strInputFile) {
 			
@@ -16212,9 +16239,12 @@ public class ResourceTester {
 	
 	String strBaseEndpoint = ServiceEndpointDataCustodian + "/";
 	String resourceTestFileName = testRunner.testCase.testSuite.project.testSuites["OpenEspiIntegrationTests"].testCases["Library"].getPropertyValue("resourceTestFileName");
+	String resourceOutputFileName = testRunner.testCase.testSuite.project.testSuites["OpenEspiIntegrationTests"].testCases["Library"].getPropertyValue("resourceOutputFileName");
+	String strResource = testRunner.testCase.testSuite.project.testSuites["OpenEspiIntegrationTests"].testCases["Library"].getPropertyValue("resource");
 	String testShouldPass = testRunner.testCase.testSuite.project.testSuites["OpenEspiIntegrationTests"].testCases["Library"].getPropertyValue("testShouldPass");
 	String testType = testRunner.testCase.testSuite.project.testSuites["OpenEspiIntegrationTests"].testCases["Library"].getPropertyValue("testType");
 	String strSourceDataFile = projectPath + "/../data/testSets/" + resourceTestFileName;
+	String strOutputDataFile = projectPath + "/../data/" + resourceOutputFileName;
 
 	boolean bShouldPass = true;
 
@@ -16261,6 +16291,10 @@ public class ResourceTester {
 		} else if(testType.equals("GetROOT")) {
 			
 			bFailure = resourceTester.TestGetROOT(bShouldPass,false,strBaseEndpoint,linkPrefixForReplace,strSourceDataFile);
+				
+		} else if(testType.equals("GetSaveResponse")) {
+			
+			bFailure = resourceTester.TestGetSaveResponse(bShouldPass,false,strBaseEndpoint,strResource,strOutputDataFile);
 				
 		} else if(testType.equals("DeleteXPATH")) {
 			
@@ -16322,7 +16356,7 @@ if(doPost.exitValue()!=0) {
 	log.error "stdout: ${doPost.in.text}"
 } else {
 	log.info "result: ${doPost.err.text}"
-}</script></con:config></con:testStep><con:properties><con:property><con:name>resourceTestFileName</con:name><con:value>entry_IntervalBlock_4.xml</con:value></con:property><con:property><con:name>testType</con:name><con:value>GetROOTAndLinks</con:value></con:property><con:property><con:name>testShouldPass</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>testFailed</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>uploadFile</con:name><con:value>Meter_Data_12-30-2013_01-05-2014.xml</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="50000" name="ResourceTests" searchProperties="true" id="a536dcbe-f106-47e2-9c97-93c2d78cffa9" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.panels.testcase.JTestRunLog$OptionsForm@max_rows">20000</con:setting><con:setting id="com.eviware.soapui.impl.wsdl.panels.testcase.JTestRunLog$OptionsForm@errors_only">false</con:setting></con:settings><con:testStep type="groovy" name="InitializeDataSets"><con:settings/><con:config><script><![CDATA[import org.xml.sax.SAXException;
+}</script></con:config></con:testStep><con:properties><con:property><con:name>resourceTestFileName</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>testType</con:name><con:value>GetSaveResponse</con:value></con:property><con:property><con:name>testShouldPass</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>testFailed</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>uploadFile</con:name><con:value>Meter_Data_01-06-2014_01-12-2014.xml</con:value></con:property><con:property><con:name>resourceOutputFileName</con:name><con:value>test_get_block2.xml</con:value></con:property><con:property><con:name>resource</con:name><con:value>espi/1_1/resource/IntervalBlock</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="50000" name="ResourceTests" searchProperties="true" id="a536dcbe-f106-47e2-9c97-93c2d78cffa9" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.panels.testcase.JTestRunLog$OptionsForm@max_rows">20000</con:setting><con:setting id="com.eviware.soapui.impl.wsdl.panels.testcase.JTestRunLog$OptionsForm@errors_only">false</con:setting></con:settings><con:testStep type="groovy" name="InitializeDataSets"><con:settings/><con:config><script><![CDATA[import org.xml.sax.SAXException;
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
 import javax.xml.transform.stream.*;
@@ -16889,15 +16923,59 @@ Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/B
 	bTestFailed = ServiceTest("GetROOTAndLinks",true,"entry_IntervalBlock_4.xml");
 
 	return;
-</script></con:config></con:testStep><con:testStep type="groovy" name="ResourceTests_testType3"><con:settings/><con:config><script>import org.openqa.selenium.*;
+</script></con:config></con:testStep><con:testStep type="groovy" name="ResourceTests_testType3"><con:settings/><con:config><script>import org.xml.sax.SAXException;
+import org.w3c.dom.*;
+import javax.xml.parsers.*;
+import javax.xml.xpath.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import javax.xml.namespace.NamespaceContext;
+/*
+import groovyx.net.http.HTTPBuilder
+import groovyx.net.http.HttpResponseException;
+import static groovyx.net.http.Method.GET
+import static groovyx.net.http.ContentType.TEXT
+import groovyx.net.http.Method;
+
+import org.xml.sax.InputSource;
+
+import java.io.File;
+import java.io.FilenameFilter;
+
+import org.apache.commons.io.FileUtils;
+*/
 
 
+public class SimpleNamespaceContext implements NamespaceContext {
 
-public boolean ServiceTest(String strTestType,boolean bShouldPass,String strFileName)
+    private final Map&lt;String, String> PREF_MAP = new HashMap&lt;String, String>();
+
+    public SimpleNamespaceContext(final Map&lt;String, String> prefMap) {
+        PREF_MAP.putAll(prefMap);       
+    }
+
+    public String getNamespaceURI(String prefix) {
+        return PREF_MAP.get(prefix);
+    }
+
+    public String getPrefix(String uri) {
+        throw new UnsupportedOperationException();
+    }
+
+    public Iterator getPrefixes(String uri) {
+        throw new UnsupportedOperationException();
+    }
+
+}
+
+public boolean ServiceTest(String strTestType,boolean bShouldPass,String strFileName,String strResource,String strOutputFile)
 {
 	tc = testRunner.testCase.testSuite.project.testSuites["OpenEspiIntegrationTests"].testCases["Library"]
 	tc.setPropertyValue("resourceTestFileName", strFileName)
 	tc.setPropertyValue("testType", strTestType)
+	tc.setPropertyValue("resourceOutputFileName", strOutputFile)
+	tc.setPropertyValue("resource", strResource)
 	
 	if(bShouldPass) {
 		tc.setPropertyValue("testShouldPass", "TRUE")
@@ -16931,6 +17009,22 @@ def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
 
+	DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
+	domFactory.setNamespaceAware(true); 
+	DocumentBuilder builder = domFactory.newDocumentBuilder();
+
+	XPath xpath = XPathFactory.newInstance().newXPath();
+	
+	// add namespaces
+	HashMap&lt;String, String> prefMap = new HashMap&lt;String, String>() {{
+	    put("espi", "http://naesb.org/espi");
+	    put("ns3", "http://www.w3.org/2005/Atom");
+	}};
+	
+	SimpleNamespaceContext namespaces = new SimpleNamespaceContext(prefMap);
+	
+	xpath.setNamespaceContext(namespaces);	
+
 	//*********************************************************
 	log.info("Init DB");
 	//*********************************************************
@@ -16938,29 +17032,104 @@ def projectPath = groovyUtils.projectPath
 	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resetDB']);
 
 	log.info("*********************************************************");
-	log.info("upload usage data using curl");
+	log.info("upload usage data 1 using curl");
 	log.info("*********************************************************");
-	// reset DB : run library groovy script
-
-	tc = testRunner.testCase.testSuite.project.testSuites["OpenEspiIntegrationTests"].testCases["Library"]
-	tc.setPropertyValue("uploadFile", "Meter_Data_12-30-2013_01-05-2014.xml")
-		
-
+	tc = testRunner.testCase.testSuite.project.testSuites["OpenEspiIntegrationTests"].testCases["Library"];
+	tc.setPropertyValue("uploadFile", "Meter_Data_12-30-2013_01-05-2014.xml");
 	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['curlUpload']);
 
+	boolean bTestFailed = ServiceTest("GetSaveResponse",true,null,"espi/1_1/resource/IntervalBlock","test_get_block.xml");	
+	String strOutputDataFile = projectPath + "/../data/" + "test_get_block.xml";
+	String strExpr = "";
+	
+	if(!bTestFailed){
+
+		Document docResponse = builder.parse(strOutputDataFile);
+
+		strExpr = "/ns3:feed/ns3:entry";
+		XPathExpression expr = xpath.compile(strExpr);
+		NodeList nlNodes = (NodeList) expr.evaluate(docResponse,XPathConstants.NODESET);
+
+		log.info("Retreived " + nlNodes.getLength() + " Entries");
+		if(nlNodes.getLength()!=2)
+		{
+			log.error("Response did not contain the correct number of Entries.");
+		}
+
+		strExpr = "/ns3:feed/ns3:entry/ns3:content/espi:IntervalBlock";
+		expr = xpath.compile(strExpr);
+		nlNodes = (NodeList) expr.evaluate(docResponse,XPathConstants.NODESET);
+
+		log.info("Retreived " + nlNodes.getLength() + " IntervalBlocks");	
+		if(nlNodes.getLength()!=2)
+		{
+			log.error("Response did not contain the correct number of IntervalBlocks.");
+		}		
+
+		strExpr = "/ns3:feed/ns3:entry/ns3:content/espi:IntervalBlock/espi:IntervalReading";
+		expr = xpath.compile(strExpr);
+		nlNodes = (NodeList) expr.evaluate(docResponse,XPathConstants.NODESET);
+
+		log.info("Retreived " + nlNodes.getLength() + " IntervalReadings");
+		if(nlNodes.getLength()!=20160)
+		{
+			log.error("Response did not contain the correct number of IntervalReadings.");
+		}			
+	}
+	else
+	{
+		return;
+	}
 
 	log.info("*********************************************************");
-	log.info("GETS and get links");
+	log.info("upload usage data 2 using curl");
 	log.info("*********************************************************");
-/*	bTestFailed = ServiceTest("GetROOTAndLinks",true,"entry_UsagePoint_0.xml");
-	bTestFailed = ServiceTest("GetROOTAndLinks",true,"entry_LocalTimeParameters_1.xml");
-	bTestFailed = ServiceTest("GetROOTAndLinks",true,"entry_MeterReading_2.xml");
-	bTestFailed = ServiceTest("GetROOTAndLinks",true,"entry_ReadingType_3.xml");
-	bTestFailed = ServiceTest("GetROOTAndLinks",true,"entry_ElectricPowerUsageSummary_18.xml");
-	bTestFailed = ServiceTest("GetROOTAndLinks",true,"entry_ElectricPowerQualitySummary_19.xml");
-	bTestFailed = ServiceTest("GetROOTAndLinks",true,"entry_IntervalBlock_4.xml");
-*/
+	tc = testRunner.testCase.testSuite.project.testSuites["OpenEspiIntegrationTests"].testCases["Library"];
+	tc.setPropertyValue("uploadFile", "Meter_Data_01-06-2014_01-12-2014.xml");
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['curlUpload']);
 
+	bTestFailed = ServiceTest("GetSaveResponse",true,null,"espi/1_1/resource/IntervalBlock","test_get_block2.xml");	
+	strOutputDataFile = projectPath + "/../data/" + "test_get_block2.xml";
+	strExpr = "";
+	
+	if(!bTestFailed){
+
+		Document docResponse = builder.parse(strOutputDataFile);
+
+		strExpr = "/ns3:feed/ns3:entry";
+		XPathExpression expr = xpath.compile(strExpr);
+		NodeList nlNodes = (NodeList) expr.evaluate(docResponse,XPathConstants.NODESET);
+
+		log.info("Retreived " + nlNodes.getLength() + " Entries");
+		if(nlNodes.getLength()!=4)
+		{
+			log.error("Response did not contain the correct number of Entries.");
+		}
+		
+		strExpr = "/ns3:feed/ns3:entry/ns3:content/espi:IntervalBlock";
+		expr = xpath.compile(strExpr);
+		nlNodes = (NodeList) expr.evaluate(docResponse,XPathConstants.NODESET);
+
+		log.info("Retreived " + nlNodes.getLength() + " IntervalBlocks");
+		if(nlNodes.getLength()!=4)
+		{
+			log.error("Response did not contain the correct number of IntervalBlocks.");
+		}				
+
+		strExpr = "/ns3:feed/ns3:entry/ns3:content/espi:IntervalBlock/espi:IntervalReading";
+		expr = xpath.compile(strExpr);
+		nlNodes = (NodeList) expr.evaluate(docResponse,XPathConstants.NODESET);
+
+		log.info("Retreived " + nlNodes.getLength() + " IntervalReadings");
+		if(nlNodes.getLength()!=40320)
+		{
+			log.error("Response did not contain the correct number of IntervalReadings.");
+		}		
+	}
+	else
+	{
+		return;
+	}
 
 	return;
 </script></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Feature: Retail Customers" searchProperties="true" id="fa3949ff-a0a7-4274-ace9-674a8169ebd4" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings/><con:testStep type="groovy" name="Feature: Retail Customers"><con:settings/><con:config><script>//******************************************************************************************************************
@@ -20533,4 +20702,4 @@ count(//ns3:entry)</path><content>14</content><allowWildcards>false</allowWildca
       </ServiceCategory>
     </UsagePoint>
   </content>
-</entry>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>BaseURL</con:name><con:value>http://localhost:8080</con:value></con:property><con:property><con:name>ServiceEndpoint</con:name><con:value>${#Project#BaseURL}/DataCustodian</con:value></con:property><con:property><con:name>DataCustodianContext</con:name><con:value>DataCustodian</con:value></con:property><con:property><con:name>ThirdPartyContext</con:name><con:value>ThirdParty</con:value></con:property><con:property><con:name>linkPrefixForReplace</con:name><con:value>http://localhost:8080/DataCustodian/</con:value></con:property><con:property><con:name>mysqlCmd</con:name><con:value>/usr/local/mysql/bin/mysql</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property><con:property><con:name>usagePointId</con:name><con:value>1</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>meterReadingId</con:name><con:value>1</con:value></con:property><con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>intervalBlockId</con:name><con:value>1</con:value></con:property><con:property><con:name>electricPowerQualitySummaryId</con:name><con:value>1</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>/Users/rpasquarelli/git/OpenESPI-GreenButtonCMDTest/SOAPUI/../data//Users/rpasquarelli/git/OpenESPI-GreenButtonCMDTest/SOAPUI/../data/test_usage_data.xml</con:value></con:property><con:property><con:name>usagePointUUID1</con:name><con:value>48C2A019-5598-4E16-B0F9-49E4FF27F5FB</con:value></con:property><con:property><con:name>usagePointDescription1</con:name><con:value>test_usage_data</con:value></con:property><con:property><con:name>TestFile2</con:name><con:value>Gas.xml</con:value></con:property><con:property><con:name>usagePointUUID2</con:name><con:value>642EABA-8E42-4D1A-A375-AF54993C007B</con:value></con:property><con:property><con:name>usagePointDescription2</con:name><con:value>Gas</con:value></con:property><con:property><con:name>DBprepopulateScriptName</con:name><con:value>prepopulatesql_localhost8080.sql</con:value></con:property><con:property><con:name>electricPowerUsageSummaryId</con:name><con:value>1</con:value></con:property><con:property><con:name>subscriptionId</con:name><con:value>1</con:value></con:property><con:property><con:name>applicationInformationId</con:name><con:value>1</con:value></con:property><con:property><con:name>authorizationId</con:name><con:value>1</con:value></con:property><con:property><con:name>bulkId</con:name><con:value>1</con:value></con:property><con:property><con:name>localTimeParametersId</con:name><con:value>1</con:value></con:property></con:properties><con:wssContainer/><con:sensitiveInformation/></con:soapui-project>
+</entry>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>BaseURL</con:name><con:value>http://localhost:8080</con:value></con:property><con:property><con:name>ServiceEndpoint</con:name><con:value>${#Project#BaseURL}/DataCustodian</con:value></con:property><con:property><con:name>DataCustodianContext</con:name><con:value>DataCustodian</con:value></con:property><con:property><con:name>ThirdPartyContext</con:name><con:value>ThirdParty</con:value></con:property><con:property><con:name>linkPrefixForReplace</con:name><con:value>http://localhost:8080/DataCustodian/</con:value></con:property><con:property><con:name>mysqlCmd</con:name><con:value>/usr/local/mysql/bin/mysql</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property><con:property><con:name>usagePointId</con:name><con:value>1</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>meterReadingId</con:name><con:value>1</con:value></con:property><con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>intervalBlockId</con:name><con:value>1</con:value></con:property><con:property><con:name>electricPowerQualitySummaryId</con:name><con:value>1</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>usagePointUUID1</con:name><con:value>48C2A019-5598-4E16-B0F9-49E4FF27F5FB</con:value></con:property><con:property><con:name>usagePointDescription1</con:name><con:value>test_usage_data</con:value></con:property><con:property><con:name>TestFile2</con:name><con:value>Gas.xml</con:value></con:property><con:property><con:name>usagePointUUID2</con:name><con:value>642EABA-8E42-4D1A-A375-AF54993C007B</con:value></con:property><con:property><con:name>usagePointDescription2</con:name><con:value>Gas</con:value></con:property><con:property><con:name>DBprepopulateScriptName</con:name><con:value>prepopulatesql_localhost8080.sql</con:value></con:property><con:property><con:name>electricPowerUsageSummaryId</con:name><con:value>1</con:value></con:property><con:property><con:name>subscriptionId</con:name><con:value>1</con:value></con:property><con:property><con:name>applicationInformationId</con:name><con:value>1</con:value></con:property><con:property><con:name>authorizationId</con:name><con:value>1</con:value></con:property><con:property><con:name>bulkId</con:name><con:value>1</con:value></con:property><con:property><con:name>localTimeParametersId</con:name><con:value>1</con:value></con:property></con:properties><con:wssContainer/><con:sensitiveInformation/></con:soapui-project>
