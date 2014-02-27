@@ -1,0 +1,1 @@
+This folder is used for expansion of data files by the SoapUI scripts.
