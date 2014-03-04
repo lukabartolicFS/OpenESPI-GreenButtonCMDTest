@@ -2252,7 +2252,7 @@ if(doPost.exitValue()!=0) {
 	log.error "stdout: ${doPost.in.text}"
 } else {
 	log.info "result: ${doPost.err.text}"
-}</script></con:config></con:testStep><con:properties><con:property><con:name>resourceTestFileName</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>testType</con:name><con:value>GetSaveResponse</con:value></con:property><con:property><con:name>testShouldPass</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>testFailed</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>uploadFile</con:name><con:value>Meter_Data_01-06-2014_01-12-2014.xml</con:value></con:property><con:property><con:name>resourceOutputFileName</con:name><con:value>test_subscription.xml</con:value></con:property><con:property><con:name>resource</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/1</con:value></con:property><con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="50000" name="ResourceTests" searchProperties="true" id="a536dcbe-f106-47e2-9c97-93c2d78cffa9" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.panels.testcase.JTestRunLog$OptionsForm@max_rows">20000</con:setting><con:setting id="com.eviware.soapui.impl.wsdl.panels.testcase.JTestRunLog$OptionsForm@errors_only">false</con:setting></con:settings><con:testStep type="groovy" name="InitializeDataSets"><con:settings/><con:config><script><![CDATA[import org.xml.sax.SAXException;
+}</script></con:config></con:testStep><con:properties><con:property><con:name>resourceTestFileName</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">entry_ReadingType_3.xml</con:value></con:property><con:property><con:name>testType</con:name><con:value>TestType1ROOT</con:value></con:property><con:property><con:name>testShouldPass</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>testFailed</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>uploadFile</con:name><con:value>Meter_Data_01-06-2014_01-12-2014.xml</con:value></con:property><con:property><con:name>resourceOutputFileName</con:name><con:value>test_subscription.xml</con:value></con:property><con:property><con:name>resource</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/1</con:value></con:property><con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="50000" name="ResourceTests" searchProperties="true" id="a536dcbe-f106-47e2-9c97-93c2d78cffa9" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.panels.testcase.JTestRunLog$OptionsForm@max_rows">20000</con:setting><con:setting id="com.eviware.soapui.impl.wsdl.panels.testcase.JTestRunLog$OptionsForm@errors_only">false</con:setting></con:settings><con:testStep type="groovy" name="InitializeDataSets"><con:settings/><con:config><script><![CDATA[import org.xml.sax.SAXException;
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
 import javax.xml.transform.stream.*;
@@ -2696,7 +2696,28 @@ public boolean ServiceTest(String strTestType,boolean bShouldPass,String strFile
 
 
 	return;
-</script></con:config></con:testStep><con:testStep type="groovy" name="testType1_RestVerbs after ROOT Posts"><con:settings/><con:config><script>import org.openqa.selenium.*;
+</script></con:config></con:testStep><con:testStep type="groovy" name="testType1_RestVerbs after ROOT Posts (link UP after POST)"><con:settings/><con:config><script>import org.openqa.selenium.*;
+
+import org.openqa.selenium.*;
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+def BaseURL = project.getPropertyValue("BaseURL")
+def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
+def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
+def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
+def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
+def TestManager=project.getPropertyValue("TestManager")
+def TestManagerPW=project.getPropertyValue("TestManagerPW")
+def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
+def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
+
+
 
 
 public boolean ServiceTest(String strTestType,boolean bShouldPass,String strFileName)
@@ -2730,7 +2751,9 @@ public boolean ServiceTest(String strTestType,boolean bShouldPass,String strFile
 //	Main Body
 //
 ///////////////////////////////
+/*
 
+*/
 	//*********************************************************
 	log.info("Init DB");
 	//*********************************************************
@@ -2739,8 +2762,37 @@ public boolean ServiceTest(String strTestType,boolean bShouldPass,String strFile
 
 	bTestFailed = ServiceTest("PostROOT",true,"entry_LocalTimeParameters_1.xml");
 	bTestFailed = ServiceTest("PostROOT",true,"entry_ReadingType_3.xml");
-	
+
 	bTestFailed = ServiceTest("PostROOT",true,"entry_UsagePoint_0.xml");
+
+	Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+	
+	try{
+		// Browser Init
+		driver.Before();
+		
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		driver.logStep("Given a Retail Customer with Usage Points");
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
+		driver.assertUrlEndsWith("/" + DataCustodianContext + "/custodian/home");
+	
+		// add usage point linkage
+		driver.findElement(By.linkText("Customer List")).click();
+		driver.findElement(By.linkText(TestRetailCustomer)).click();	
+		driver.findElement(By.partialLinkText("Add Usage")).click();	
+		driver.findElement(By.id("UUID")).clear();
+		driver.findElement(By.id("UUID")).sendKeys(usagePointUUID1);
+		driver.findElement(By.name("create")).click();
+	
+	} catch(Exception e) {
+		testRunner.fail(driver.getErrorString())
+	}
+
+	//Close the browser
+	driver.quit();	
+
+	
 	bTestFailed = ServiceTest("PostROOT",true,"entry_MeterReading_2.xml");	
 	bTestFailed = ServiceTest("PostROOT",true,"entry_IntervalBlock_4.xml");
 	bTestFailed = ServiceTest("PostROOT",true,"entry_ElectricPowerUsageSummary_18.xml");
@@ -2754,9 +2806,184 @@ public boolean ServiceTest(String strTestType,boolean bShouldPass,String strFile
 
 	bTestFailed = ServiceTest("TestType1ROOT",true,"entry_LocalTimeParameters_1.xml");
 	bTestFailed = ServiceTest("TestType1ROOT",true,"entry_ReadingType_3.xml");	
+	
+	return;</script></con:config></con:testStep><con:testStep type="groovy" name="testType1_RestVerbs after ROOT Posts (link UP before POST)"><con:settings/><con:config><script>import org.openqa.selenium.*;
 
-	return;
-</script></con:config></con:testStep><con:testStep type="groovy" name="testType2_embeddedLinkTests"><con:settings/><con:config><script>import org.openqa.selenium.*;
+import org.openqa.selenium.*;
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+def BaseURL = project.getPropertyValue("BaseURL")
+def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
+def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
+def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
+def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
+def TestManager=project.getPropertyValue("TestManager")
+def TestManagerPW=project.getPropertyValue("TestManagerPW")
+def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
+def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
+
+
+
+
+public boolean ServiceTest(String strTestType,boolean bShouldPass,String strFileName)
+{
+	tc = testRunner.testCase.testSuite.project.testSuites["OpenEspiIntegrationTests"].testCases["Library"]
+	tc.setPropertyValue("resourceTestFileName", strFileName)
+	tc.setPropertyValue("testType", strTestType)
+	
+	if(bShouldPass) {
+		tc.setPropertyValue("testShouldPass", "TRUE")
+	}
+	else {
+		tc.setPropertyValue("testShouldPass", "FALSE")
+	}
+	
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resourceTests']);
+
+	String strResult = tc.getPropertyValue("testFailed");	
+
+	boolean bResult = false;
+	
+	if(strResult.equals("TRUE")) {
+		bResult = true;
+	}
+
+	return bResult;
+}
+
+///////////////////////////////
+// 
+//	Main Body
+//
+///////////////////////////////
+/*
+
+*/
+	//*********************************************************
+	log.info("Init DB");
+	//*********************************************************
+	// reset DB : run library groovy script
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resetDB']);
+
+	bTestFailed = ServiceTest("PostROOT",true,"entry_LocalTimeParameters_1.xml");
+	bTestFailed = ServiceTest("PostROOT",true,"entry_ReadingType_3.xml");
+
+
+	Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+	
+	try{
+		// Browser Init
+		driver.Before();
+		
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		driver.logStep("Given a Retail Customer with Usage Points");
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
+		driver.assertUrlEndsWith("/" + DataCustodianContext + "/custodian/home");
+	
+		// add usage point linkage
+		driver.findElement(By.linkText("Customer List")).click();
+		driver.findElement(By.linkText(TestRetailCustomer)).click();	
+		driver.findElement(By.partialLinkText("Add Usage")).click();	
+		driver.findElement(By.id("UUID")).clear();
+		driver.findElement(By.id("UUID")).sendKeys(usagePointUUID1);
+		driver.findElement(By.name("create")).click();
+	
+	} catch(Exception e) {
+		testRunner.fail(driver.getErrorString())
+	}
+
+	//Close the browser
+	driver.quit();	
+
+
+	bTestFailed = ServiceTest("PostROOT",true,"entry_UsagePoint_0.xml");
+	
+	bTestFailed = ServiceTest("PostROOT",true,"entry_MeterReading_2.xml");	
+	bTestFailed = ServiceTest("PostROOT",true,"entry_IntervalBlock_4.xml");
+	bTestFailed = ServiceTest("PostROOT",true,"entry_ElectricPowerUsageSummary_18.xml");
+	bTestFailed = ServiceTest("PostROOT",true,"entry_ElectricPowerQualitySummary_19.xml");
+
+	bTestFailed = ServiceTest("TestType1ROOT",true,"entry_ElectricPowerQualitySummary_19.xml");
+	bTestFailed = ServiceTest("TestType1ROOT",true,"entry_ElectricPowerUsageSummary_18.xml");
+	bTestFailed = ServiceTest("TestType1ROOT",true,"entry_IntervalBlock_4.xml");
+	bTestFailed = ServiceTest("TestType1ROOT",true,"entry_MeterReading_2.xml");
+	bTestFailed = ServiceTest("TestType1ROOT",true,"entry_UsagePoint_0.xml");
+
+	bTestFailed = ServiceTest("TestType1ROOT",true,"entry_LocalTimeParameters_1.xml");
+	bTestFailed = ServiceTest("TestType1ROOT",true,"entry_ReadingType_3.xml");	
+	
+	return;</script></con:config></con:testStep><con:testStep type="groovy" name="testType1_RestVerbs after ROOT Posts (POST UP via XPATH)"><con:settings/><con:config><script>import org.openqa.selenium.*;
+
+
+
+
+public boolean ServiceTest(String strTestType,boolean bShouldPass,String strFileName)
+{
+	tc = testRunner.testCase.testSuite.project.testSuites["OpenEspiIntegrationTests"].testCases["Library"]
+	tc.setPropertyValue("resourceTestFileName", strFileName)
+	tc.setPropertyValue("testType", strTestType)
+	
+	if(bShouldPass) {
+		tc.setPropertyValue("testShouldPass", "TRUE")
+	}
+	else {
+		tc.setPropertyValue("testShouldPass", "FALSE")
+	}
+	
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resourceTests']);
+
+	String strResult = tc.getPropertyValue("testFailed");	
+
+	boolean bResult = false;
+	
+	if(strResult.equals("TRUE")) {
+		bResult = true;
+	}
+
+	return bResult;
+}
+
+///////////////////////////////
+// 
+//	Main Body
+//
+///////////////////////////////
+/*
+
+*/
+	//*********************************************************
+	log.info("Init DB");
+	//*********************************************************
+	// reset DB : run library groovy script
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['OpenEspiIntegrationTests'].testCases['Library'].testSteps['resetDB']);
+
+	bTestFailed = ServiceTest("PostROOT",true,"entry_LocalTimeParameters_1.xml");
+	bTestFailed = ServiceTest("PostROOT",true,"entry_ReadingType_3.xml");
+
+	bTestFailed = ServiceTest("PostXPATH",true,"entry_UsagePoint_0.xml");
+	
+	bTestFailed = ServiceTest("PostROOT",true,"entry_MeterReading_2.xml");	
+	bTestFailed = ServiceTest("PostROOT",true,"entry_IntervalBlock_4.xml");
+	bTestFailed = ServiceTest("PostROOT",true,"entry_ElectricPowerUsageSummary_18.xml");
+	bTestFailed = ServiceTest("PostROOT",true,"entry_ElectricPowerQualitySummary_19.xml");
+
+	bTestFailed = ServiceTest("TestType1ROOT",true,"entry_ElectricPowerQualitySummary_19.xml");
+	bTestFailed = ServiceTest("TestType1ROOT",true,"entry_ElectricPowerUsageSummary_18.xml");
+	bTestFailed = ServiceTest("TestType1ROOT",true,"entry_IntervalBlock_4.xml");
+	bTestFailed = ServiceTest("TestType1ROOT",true,"entry_MeterReading_2.xml");
+	bTestFailed = ServiceTest("TestType1ROOT",true,"entry_UsagePoint_0.xml");
+
+	bTestFailed = ServiceTest("TestType1ROOT",true,"entry_LocalTimeParameters_1.xml");
+	bTestFailed = ServiceTest("TestType1ROOT",true,"entry_ReadingType_3.xml");	
+	
+	return;</script></con:config></con:testStep><con:testStep type="groovy" name="testType2_embeddedLinkTests"><con:settings/><con:config><script>import org.openqa.selenium.*;
 
 
 
@@ -3132,6 +3359,7 @@ Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/B
 
 driver._bLogActions = true;
 
+
 try{
 	//*********************************************************
 	log.info("Scenario: Retail Customer authorizes Usage Points access");
@@ -3223,8 +3451,10 @@ try{
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	driver.logStep("When I authorize Third Party");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.findElement(By.name("authorize")).click();	
-	
+//	driver.findElement(By.name("authorize")).click();	
+	driver.findElement(By.name("scope.FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13")).click();
+	driver.findElement(By.name("authorize")).click();
+
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	driver.logStep("Then I should see all my authorizations");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -3367,7 +3597,10 @@ try{
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	driver.logStep("When I authorize Third Party");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.findElement(By.name("authorize")).click();	
+//	driver.findElement(By.name("authorize")).click();	
+	driver.findElement(By.name("scope.FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13")).click();
+	driver.findElement(By.name("authorize")).click();
+
 	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	driver.logStep("Then I should see all my authorizations");
@@ -3509,7 +3742,10 @@ try{
 	///////////////////////////////////////////////////////////
 	driver.logStep("When I authorize Third Party");
 	///////////////////////////////////////////////////////////
+//	driver.findElement(By.name("authorize")).click();	
+	driver.findElement(By.name("scope.FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13")).click();
 	driver.findElement(By.name("authorize")).click();
+
 	
 	///////////////////////////////////////////////////////////
 	driver.logStep("Then I should see all my authorizations");
@@ -3640,7 +3876,10 @@ try{
 	///////////////////////////////////////////////////////////
 	driver.logStep("When I authorize Third Party");
 	///////////////////////////////////////////////////////////
-	driver.findElement(By.name("authorize")).click();	
+//	driver.findElement(By.name("authorize")).click();	
+	driver.findElement(By.name("scope.FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13")).click();
+	driver.findElement(By.name("authorize")).click();
+
 	
 	///////////////////////////////////////////////////////////
 	driver.logStep("Then I should see all my authorizations");
@@ -3735,8 +3974,11 @@ try{
 	///////////////////////////////////////////////////////////
 	driver.logStep("When I deny Third Party");
 	///////////////////////////////////////////////////////////
-	driver.findElement(By.name("deny")).click();
+//	driver.findElement(By.name("deny")).click();
+	driver.findElement(By.xpath("html/body/div[2]/form/ul/li/input[2]")).click();	
+	driver.findElement(By.name("authorize")).click();
 	
+	/// 
 	///////////////////////////////////////////////////////////
 	driver.logStep("Then I should be redirected to the home page");
 	///////////////////////////////////////////////////////////
@@ -3830,7 +4072,9 @@ try{
 	///////////////////////////////////////////////////////////
 	driver.logStep("When I authorize Third Party");
 	///////////////////////////////////////////////////////////
-	driver.findElement(By.name("authorize")).click();	
+//	driver.findElement(By.name("authorize")).click();	
+	driver.findElement(By.name("scope.FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13")).click();
+	driver.findElement(By.name("authorize")).click();
 	
 	///////////////////////////////////////////////////////////
 	driver.logStep("Then I should see all my authorizations");
@@ -3925,7 +4169,10 @@ try{
 	///////////////////////////////////////////////////////////
 	driver.logStep("When I deny Third Party");
 	///////////////////////////////////////////////////////////
-	driver.findElement(By.name("deny")).click();		
+//	driver.findElement(By.name("deny")).click();		
+	driver.findElement(By.xpath("html/body/div[2]/form/ul/li/input[2]")).click();	
+	driver.findElement(By.name("authorize")).click();
+
 	
 	///////////////////////////////////////////////////////////
 	driver.logStep("Then I should be redirected to the home page");
@@ -3975,6 +4222,8 @@ def usagePointUUID2 = project.getPropertyValue("usagePointUUID2");
 def usagePointDescription2 = project.getPropertyValue("usagePointDescription2");
 
 //driver._bLogActions = true;
+// how long to wait between each execution step
+//driver._iSleepBetweenStepsMs = 3000;
 
 try{
 	//*********************************************************
@@ -4030,13 +4279,15 @@ try{
 	driver.findElement(By.linkText("Data Custodians")).click();	
 	driver.findElement(By.name("Data_custodian")).click();	
 	driver.findElement(By.name("next")).click();
-	
+
 	driver.submitLoginForm(TestRetailCustomer,TestRetailCustomerPW);
 	
 	driver.findElement(By.name("scope")).click();	
 	driver.findElement(By.name("next")).click();	
-	driver.findElement(By.name("authorize")).click();	
-
+	//driver.findElement(By.name("authorize")).click();	
+	driver.findElement(By.name("scope.FB=4_5_15;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13")).click();
+	driver.findElement(By.name("authorize")).click();
+	
 	driver.logout(ServiceEndpointDataCustodian);
 
 	driver.logout(ServiceEndpointThirdParty);
@@ -4057,7 +4308,6 @@ try{
 	driver.findElement(By.id("UUID")).clear();
 	driver.findElement(By.id("UUID")).sendKeys(usagePointUUID2);
 	driver.findElement(By.name("create")).click();	
-	
 	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	driver.logStep("When I notify the Third Party");
@@ -4243,7 +4493,7 @@ try{
 	driver.logout(ServiceEndpointDataCustodian);
 	
 	driver.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
-	
+
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	driver.logStep("Given an authorized Third Party");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -4256,7 +4506,9 @@ try{
 	
 	driver.findElement(By.name("scope")).click();	
 	driver.findElement(By.name("next")).click();	
-	driver.findElement(By.name("authorize")).click();	
+
+	driver.findElement(By.name("scope.FB=4_5_15;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13")).click();
+	driver.findElement(By.name("authorize")).click();
 
 	// logout of Third Party	
 	driver.logout(ServiceEndpointThirdParty);
@@ -4396,6 +4648,8 @@ try{
 	
 	driver.findElement(By.name("scope")).click();	
 	driver.findElement(By.name("next")).click();	
+
+	driver.findElement(By.name("scope.FB=4_5_15;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13")).click();	
 	driver.findElement(By.name("authorize")).click();	
 
 	// logout of Third Party	
@@ -4789,8 +5043,10 @@ try{
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	driver.logStep("When I authorize Third Party");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//driver.findElement(By.name("authorize")).click();
+	driver.findElement(By.name("scope.FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13")).click();
 	driver.findElement(By.name("authorize")).click();
-		
+			
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	driver.logStep("Then I should see all my authorizations");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
