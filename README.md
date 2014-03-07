@@ -5,7 +5,7 @@ This project will hold test scripts and tools for Green Button Connect My Data
 ## Requirements
 
 - [Install SOAPUI](http://www.soapui.org/Getting-Started/installing-soapui.html)
-- [Install Selenium Library] (http://code.google.com/p/selenium/downloads/list)
+- [Install Selenium Library] (http://selenium-release.storage.googleapis.com/2.40/selenium-server-standalone-2.40.0.jar)
 - [Install Groovy HTTP Library] (http://snapshots.repository.codehaus.org/org/codehaus/groovy/modules/http-builder/http-builder/0.5.2-SNAPSHOT/http-builder-0.5.2-20110320.041601-11-all.zip)
 
 ## Setup

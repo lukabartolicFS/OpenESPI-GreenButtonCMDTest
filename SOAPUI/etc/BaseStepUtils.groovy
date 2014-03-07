@@ -93,6 +93,13 @@ public class DriverHelper {
 			throw e;  
 		}
 
+		if(_driver.getPageSource().contains("HTTP Status 404"))
+		{
+			log.error("Page source contains 'HTTP Status 404'");
+ 			Exception e;
+			throw e;  
+		}	
+
 	}
 
 	public void Before()
@@ -101,7 +108,7 @@ public class DriverHelper {
         _driver.get(_strBaseUrl + "/" + _strThirdPartyContext + "/j_spring_security_logout");
         _driver.get(_strBaseUrl + "/" + _strDataCustodianContext + "/logout.do");
         login(_strBaseUrl + "/" + _strDataCustodianContext, CUSTODIAN_USERNAME, CUSTODIAN_PASSWORD);    
-        _driver.get(_strBaseUrl + "/" + _strDataCustodianContext + "/custodian/removealltokens");
+    //    _driver.get(_strBaseUrl + "/" + _strDataCustodianContext + "/custodian/removealltokens");
         _driver.get(_strBaseUrl + "/" + _strDataCustodianContext + "/logout.do");	     	
 	}
 
