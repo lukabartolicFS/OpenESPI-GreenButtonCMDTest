@@ -5530,4 +5530,672 @@ try{
 
 //Close the browser
 driver.quit();
-	</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite name="RonsSandbox"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:properties><con:property><con:name>BaseURL</con:name><con:value>http://localhost:8080</con:value></con:property><con:property><con:name>ServiceEndpoint</con:name><con:value>${#Project#BaseURL}/DataCustodian</con:value></con:property><con:property><con:name>DataCustodianContext</con:name><con:value>DataCustodian</con:value></con:property><con:property><con:name>ThirdPartyContext</con:name><con:value>ThirdParty</con:value></con:property><con:property><con:name>linkPrefixForReplace</con:name><con:value>http://localhost:8080/DataCustodian/</con:value></con:property><con:property><con:name>mysqlCmd</con:name><con:value>/usr/local/mysql/bin/mysql</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property><con:property><con:name>usagePointId</con:name><con:value>1</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>meterReadingId</con:name><con:value>1</con:value></con:property><con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>intervalBlockId</con:name><con:value>1</con:value></con:property><con:property><con:name>electricPowerQualitySummaryId</con:name><con:value>1</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>usagePointUUID1</con:name><con:value>48C2A019-5598-4E16-B0F9-49E4FF27F5FB</con:value></con:property><con:property><con:name>usagePointDescription1</con:name><con:value>Front Electric Meter</con:value></con:property><con:property><con:name>TestFile2</con:name><con:value>Gas.xml</con:value></con:property><con:property><con:name>usagePointUUID2</con:name><con:value>642EABA-8E42-4D1A-A375-AF54993C007B</con:value></con:property><con:property><con:name>usagePointDescription2</con:name><con:value>Gas</con:value></con:property><con:property><con:name>DBprepopulateScriptName</con:name><con:value>prepopulatesql_localhost8080.sql</con:value></con:property><con:property><con:name>electricPowerUsageSummaryId</con:name><con:value>1</con:value></con:property><con:property><con:name>subscriptionId</con:name><con:value>1</con:value></con:property><con:property><con:name>applicationInformationId</con:name><con:value>1</con:value></con:property><con:property><con:name>authorizationId</con:name><con:value>1</con:value></con:property><con:property><con:name>bulkId</con:name><con:value>1</con:value></con:property><con:property><con:name>localTimeParametersId</con:name><con:value>1</con:value></con:property></con:properties><con:wssContainer/><con:sensitiveInformation/></con:soapui-project>
+	</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite name="RonsSandbox"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:testSuite name="SecurityTests"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true" id="bd329d29-351a-48a8-89b1-3c3bd206293c"><con:settings/><con:testStep type="groovy" name="LoadConfig"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL())
+
+
+
+project.setPropertyValue("BaseURL",config.BaseURL);
+project.setPropertyValue("ServiceEndpoint",config.ServiceEndpoint);
+project.setPropertyValue("DataCustodianContext",config.DataCustodianContext);
+project.setPropertyValue("ThirdPartyContext",config.ThirdPartyContext);
+project.setPropertyValue("linkPrefixForReplace",config.linkPrefixForReplace);
+project.setPropertyValue("mysqlCmd",config.mysqlCmd);
+project.setPropertyValue("TestManager",config.TestManager);
+project.setPropertyValue("TestManagerPW",config.TestManagerPW);
+project.setPropertyValue("TestRetailCustomer",config.TestRetailCustomer);
+project.setPropertyValue("TestRetailCustomerPW",config.TestRetailCustomerPW);
+project.setPropertyValue("retailCustomerId",config.retailCustomerId);
+project.setPropertyValue("usagePointId",config.usagePointId);
+project.setPropertyValue("resourceId",config.resourceId);
+project.setPropertyValue("meterReadingId",config.meterReadingId);
+project.setPropertyValue("readingTypeId",config.readingTypeId);
+project.setPropertyValue("intervalBlockId",config.intervalBlockId);
+project.setPropertyValue("electricPowerQualitySummaryId",config.electricPowerQualitySummaryId);
+project.setPropertyValue("TestFile",config.TestFile);
+project.setPropertyValue("usagePointUUID1",config.usagePointUUID1);
+project.setPropertyValue("usagePointDescription1",config.usagePointDescription1);
+project.setPropertyValue("TestFile2",config.TestFile2);
+project.setPropertyValue("usagePointUUID2",config.usagePointUUID2);
+project.setPropertyValue("usagePointDescription2",config.usagePointDescription2);
+project.setPropertyValue("DBprepopulateScriptName",config.DBprepopulateScriptName);
+project.setPropertyValue("electricPowerUsageSummaryId",config.electricPowerUsageSummaryId);
+project.setPropertyValue("subscriptionId",config.subscriptionId);
+project.setPropertyValue("applicationInformationId",config.applicationInformationId);
+project.setPropertyValue("authorizationId",config.authorizationId);
+project.setPropertyValue("bulkId",config.bulkId);
+project.setPropertyValue("localTimeParametersId",config.localTimeParametersId);
+project.setPropertyValue("HomePageURLEndpoint",config.HomePageURLEndpoint);
+
+</script></con:config></con:testStep><con:testStep type="httprequest" name="[TR_TC001] Test software shall issue a service request over an SSL session and shall verify that the response HTTP header contains the following fields and information."><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="[TR_TC001] Test software shall issue a service request over an SSL session and shall verify that the response HTTP header contains the following fields and information." xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#HomePageURLEndpoint}/DataCustodian</con:endpoint><con:request/><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>
+String strCookie = messageExchange.responseHeaders["Set-Cookie"]
+//log.info(strCookie);
+
+assert(strCookie.contains("Secure;"));
+assert(strCookie.contains("JSESSIONID="));
+
+assert true;</scriptText></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="groovy" name="[TR_TC003] Verify that the Data Custodian implements TLS 1.2"><con:settings/><con:config><script>
+	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
+	def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL());
+	
+
+	def cmdSubString = "s_client -tls1_2 -connect ${config.DataCustodianHostName}:${config.DataCustodianSSLPort}";
+	def command;
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+	
+	log.info ("Executing: ${command}");
+	def proc = command.execute();
+	proc.waitFor();
+	
+
+	String strResult = proc.text;
+		
+	//proc.in.eachLine {
+	//	line -> log.info(line);
+	//};
+
+	log.info(strResult);
+
+	if(strResult.contains("Protocol  : TLSv1.2")){
+		log.info("TLS 1.2 implemented");
+	} else {
+		testRunner.fail( "TLS 1.2 not implemented" );
+	}
+
+	return;
+	
+	</script></con:config></con:testStep><con:testStep type="groovy" name="[TR_TC004] Verify that when communicating with a Retail Customer or Third Party the Data Custodian negotiates the highest level of TLS mutually supported."><con:settings/><con:config><script>
+	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
+	def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL());
+
+
+	// first see if tls 1.2 is negotiated
+	def cmdSubString = "s_client -tls1 -tls1_1 -tls1_2 -connect ${config.DataCustodianHostName}:${config.DataCustodianSSLPort}";
+	def command;
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+
+	
+	log.info ("Executing: ${command}");
+	def proc = command.execute();
+	proc.waitFor();
+	
+
+	String strResult = proc.text;
+		
+	if(strResult.contains("Protocol  : TLSv1.2")){
+		log.info("TLS 1.2 negotiated");
+	} else {
+		testRunner.fail( "TLS 1.2 not negotiated" );
+	}
+
+	// next see if tls 1.1 is negotiated
+	cmdSubString = "s_client -tls1 -tls1_1 -connect ${config.DataCustodianHostName}:${config.DataCustodianSSLPort}";
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+	log.info ("Executing: ${command}");
+	proc = command.execute();
+	proc.waitFor();
+	
+
+	strResult = proc.text;
+		
+	if(strResult.contains("Protocol  : TLSv1.1")){
+		log.info("TLS 1.1 negotiated");
+	} else {
+		testRunner.fail( "TLS 1.1 not negotiated" );
+	}
+
+	// next see if tls 1.0 is negotiated
+	cmdSubString = "s_client -tls1 -connect ${config.DataCustodianHostName}:${config.DataCustodianSSLPort}";
+
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+	
+	log.info ("Executing: ${command}");
+	proc = command.execute();
+	proc.waitFor();
+	
+
+	strResult = proc.text;
+
+	if(strResult.contains("Protocol  : TLSv1\n")){
+		log.info("TLS 1 negotiated");
+	} else {
+		testRunner.fail( "TLS 1 not negotiated" );
+	}
+
+
+	return;
+	
+	</script></con:config></con:testStep><con:testStep type="groovy" name="[TR_TC005] Verify that when communicating with a Retail Customer the Data Custodian rejects TLS_RSA_WITH_NULL_SHA cipher suites."><con:settings/><con:config><script>
+	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
+	def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL());
+
+	def cmdSubString = "s_client -connect ${config.DataCustodianHostName}:${config.DataCustodianSSLPort} -cipher NULL-SHA"
+	def command;
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/${config.cmdTimeout} ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";
+	}
+	
+	
+	log.info ("Executing: ${command}");
+	def proc = command.execute();
+	proc.waitFor();
+	
+
+	String strResult = proc.text;
+	
+	if(strResult.contains("Cipher is NULL-SHA") ||
+		strResult.contains("SSL-Session:") ||
+		strResult.contains("Protocol  :") ||
+		!strResult.contains("Cipher is (NONE)")) {
+
+		testRunner.fail( "NULL-SHA accepted" );
+		
+	} else {
+		log.info("NULL-SHA rejected");
+	}
+
+	return;
+	
+	</script></con:config></con:testStep><con:testStep type="groovy" name="[TR_TC006] Verify that when communicating with a Retail Customer at a minimum the Data Custodian accepts the TLS_RSA_WITH_AES_128_CBC_SHA cipher suite."><con:settings/><con:config><script>
+	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
+	def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL());
+
+	def cmdSubString = "s_client -connect ${config.DataCustodianHostName}:${config.DataCustodianSSLPort} -cipher AES128-SHA";
+	def command;
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+	
+	
+	log.info ("Executing: ${command}");
+	def proc = command.execute();
+	proc.waitFor();
+	
+
+	String strResult = proc.text;
+
+	if(strResult.contains("Cipher    : AES128-SHA")){
+		log.info("AES128-SHA accepted");
+	} else {
+		testRunner.fail( "AES128-SHA not accepted" );
+	}
+
+	return;
+	
+	</script></con:config></con:testStep><con:testStep type="groovy" name="[TR_TC008] Verify that the Data Custodian maintains an unexpired unrevoked RSA certificate with a public key length of at least 2048 bits."><con:settings/><con:config><script>import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.io.File;
+
+	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
+	def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL());
+
+	def cmdSubString = "s_client -connect ${config.DataCustodianHostName}:${config.DataCustodianSSLPort}";
+	def command;
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+
+	
+	log.info ("Executing: ${command}");
+	def proc = command.execute();
+	proc.waitFor();
+	
+
+	String strResult = proc.text;
+		
+	if(strResult.contains("Server public key is 2048 bit")){
+		log.info("Server public key is 2048 bit");
+	} else {
+		testRunner.fail( "Server public key is not 2048 bit" );
+		return;
+	}
+
+	// check if certificate is expired
+	// get certificate
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			//log.info("windows");
+			command = "${groovyUtils.projectPath}\\etc\\getcert.bat ${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl s_client -connect ${config.DataCustodianHostName}:${config.DataCustodianSSLPort} | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > ${groovyUtils.projectPath}/etc/getcert.pem";
+
+		}
+	} else {
+		// linux or OS X
+		//command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+		command = "${groovyUtils.projectPath}/etc/getcert.sh ${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${config.DataCustodianHostName}:${config.DataCustodianSSLPort} ${groovyUtils.projectPath}/etc/getcert.pem";
+	}
+
+	log.info ("Executing: ${command}");
+	proc = command.execute();
+	proc.waitFor();
+	
+
+	strResult = proc.text;
+
+
+	cmdSubString = "x509 -noout -in ${groovyUtils.projectPath}/etc/getcert.pem -dates";
+	command;
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			//log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+
+	log.info ("Executing: ${command}");
+	proc = command.execute();
+	proc.waitFor();
+	
+
+	strResult = proc.text;
+		
+	
+	strNotBefore = strResult.substring(strResult.indexOf("notBefore=") + "notBefore=".length(),strResult.indexOf(" GMT",strResult.indexOf("notBefore=")));
+	strNotAfter = strResult.substring(strResult.indexOf("notAfter=") + "notAfter=".length(),strResult.indexOf(" GMT",strResult.indexOf("notAfter=")));
+
+	Calendar cal = Calendar.getInstance();
+	
+	DateFormat df = new SimpleDateFormat ("MMM dd HH:mm:ss yyyy z");
+	Date dNB = df.parse(strNotBefore + " GMT");
+	Date dNA = df.parse(strNotAfter + " GMT");
+	
+	Date now = new Date();
+	String datetimeStr = now.toString();
+	
+	if(now.after(dNB) &amp;&amp; now.before(dNA)) {
+		log.info("Certificate has not expired");
+	} else {
+		testRunner.fail("Certificate has expired");
+
+		try{
+		 
+			File file = new File("${groovyUtils.projectPath}/etc/getcert.pem");
+			file.delete();
+		
+		} catch(Exception e) {
+		
+			log.error("Error deleing temp file:" + e.getMessage());
+		}	
+			
+		return;
+	}
+
+	// check if RSA
+	cmdSubString = "x509 -text -in ${groovyUtils.projectPath}/etc/getcert.pem -dates";
+	command;
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			//log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+
+	log.info ("Executing: ${command}");
+	proc = command.execute();
+	proc.waitFor();
+	
+
+	strResult = proc.text;
+
+	if(strResult.contains("Public Key Algorithm: rsaEncryption")){
+		log.info("Public Key Algorithm: rsaEncryption");
+	} else {
+		testRunner.fail("Certificate does not use rsaEncryption");
+	}
+	
+
+	try{
+	 
+		File file = new File("${groovyUtils.projectPath}/etc/getcert.pem");
+		file.delete();
+	
+	} catch(Exception e) {
+	
+		log.error("Error deleing temp file:" + e.getMessage());
+	}	
+
+	
+
+	return;
+
+	
+	</script></con:config></con:testStep><con:testStep type="groovy" name="[TR_TC013] Verify that the Third Party implements TLS 1.1 or higher."><con:settings/><con:config><script>
+	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
+	def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL());
+
+	def cmdSubString = "s_client -tls1_1 -connect ${config.ThirdPartyHostName}:${config.ThirdPartySSLPort}";
+	def command;
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+	
+	log.info ("Executing: ${command}");
+	def proc = command.execute();
+	proc.waitFor();
+	
+
+	String strResult = proc.text;
+		
+	if(strResult.contains("Protocol  : TLSv1.1")){
+		log.info("TLS 1.1 implemented");
+		return;
+	}
+
+	cmdSubString = "s_client -tls1_2 -connect ${config.ThirdPartyHostName}:${config.ThirdPartySSLPort}";
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+	
+	log.info ("Executing: ${command}");
+	proc = command.execute();
+	proc.waitFor();
+	
+
+	strResult = proc.text;
+		
+	if(strResult.contains("Protocol  : TLSv1.2")){
+		log.info("TLS 1.2 implemented");
+	} else {
+		testRunner.fail( "TLS 1.1 or TLS 1.2 not implemented" );
+	}
+
+	return;
+	
+	</script></con:config></con:testStep><con:testStep type="groovy" name="[TR_TC014] Verify that when communicating with a Data Custodian or Retail Customer the Third Party negotiates the highest level of TLS mutually supported"><con:settings/><con:config><script>
+	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
+	def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL());
+
+
+	// next see if tls 1.1 is negotiated
+	def cmdSubString = "s_client -tls1 -tls1_1 -connect ${config.ThirdPartyHostName}:${config.ThirdPartySSLPort}";
+	def command;
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+
+	
+	log.info ("Executing: ${command}");
+	def proc = command.execute();
+	proc.waitFor();
+	
+
+	String strResult = proc.text;
+		
+	if(strResult.contains("Protocol  : TLSv1.1")){
+		log.info("TLS 1.1 negotiated");
+	} else {
+		testRunner.fail( "TLS 1.1 not negotiated" );
+	}
+
+	// next see if tls 1.0 is negotiated
+	cmdSubString = "s_client -tls1 -connect ${config.ThirdPartyHostName}:${config.ThirdPartySSLPort}";
+	
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+	
+	log.info ("Executing: ${command}");
+	proc = command.execute();
+	proc.waitFor();
+	
+
+	strResult = proc.text;
+
+	if(strResult.contains("Protocol  : TLSv1\n")){
+		log.info("TLS 1 negotiated");
+	} else {
+		testRunner.fail( "TLS 1 not negotiated" );
+	}
+
+
+	return;
+	
+	</script></con:config></con:testStep><con:testStep type="groovy" name="[TR_TC016] Verify that the Third Party maintains an unexpired unrevoked RSA certificate with a public key length of at least 2048 bits"><con:settings/><con:config><script>import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.io.File;
+
+	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
+	def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL());
+
+	def cmdSubString = "s_client -connect ${config.ThirdPartyHostName}:${config.ThirdPartySSLPort}";
+	def command;
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+
+	
+	log.info ("Executing: ${command}");
+	def proc = command.execute();
+	proc.waitFor();
+	
+
+	String strResult = proc.text;
+		
+	if(strResult.contains("Server public key is 2048 bit")){
+		log.info("Server public key is 2048 bit");
+	} else {
+		testRunner.fail( "Server public key is not 2048 bit" );
+		return;
+	}
+
+	// check if certificate is expired
+	// get certificate
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			//log.info("windows");
+			command = "${groovyUtils.projectPath}\\etc\\getcert.bat ${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl s_client -connect ${config.ThirdPartyHostName}:${config.ThirdPartySSLPort} | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > ${groovyUtils.projectPath}/etc/getcert.pem";
+
+		}
+	} else {
+		// linux or OS X
+		//command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+		command = "${groovyUtils.projectPath}/etc/getcert.sh ${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${config.ThirdPartyHostName}:${config.ThirdPartySSLPort} ${groovyUtils.projectPath}/etc/getcert.pem";
+	}
+
+	log.info ("Executing: ${command}");
+	proc = command.execute();
+	proc.waitFor();
+	
+
+	strResult = proc.text;
+
+
+	cmdSubString = "x509 -noout -in ${groovyUtils.projectPath}/etc/getcert.pem -dates";
+	command;
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			//log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+
+	log.info ("Executing: ${command}");
+	proc = command.execute();
+	proc.waitFor();
+	
+
+	strResult = proc.text;
+		
+	
+	strNotBefore = strResult.substring(strResult.indexOf("notBefore=") + "notBefore=".length(),strResult.indexOf(" GMT",strResult.indexOf("notBefore=")));
+	strNotAfter = strResult.substring(strResult.indexOf("notAfter=") + "notAfter=".length(),strResult.indexOf(" GMT",strResult.indexOf("notAfter=")));
+
+	Calendar cal = Calendar.getInstance();
+	
+	DateFormat df = new SimpleDateFormat ("MMM dd HH:mm:ss yyyy z");
+	Date dNB = df.parse(strNotBefore + " GMT");
+	Date dNA = df.parse(strNotAfter + " GMT");
+	
+	Date now = new Date();
+	String datetimeStr = now.toString();
+	
+	if(now.after(dNB) &amp;&amp; now.before(dNA)) {
+		log.info("Certificate has not expired");
+	} else {
+		testRunner.fail("Certificate has expired");
+
+		try{
+		 
+			File file = new File("${groovyUtils.projectPath}/etc/getcert.pem");
+			file.delete();
+		
+		} catch(Exception e) {
+		
+			log.error("Error deleing temp file:" + e.getMessage());
+		}	
+			
+		return;
+	}
+
+	// check if RSA
+	cmdSubString = "x509 -text -in ${groovyUtils.projectPath}/etc/getcert.pem -dates";
+	command;
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			//log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+
+	log.info ("Executing: ${command}");
+	proc = command.execute();
+	proc.waitFor();
+	
+
+	strResult = proc.text;
+
+	if(strResult.contains("Public Key Algorithm: rsaEncryption")){
+		log.info("Public Key Algorithm: rsaEncryption");
+	} else {
+		testRunner.fail("Certificate does not use rsaEncryption");
+	}
+	
+
+	try{
+	 
+		File file = new File("${groovyUtils.projectPath}/etc/getcert.pem");
+		file.delete();
+	
+	} catch(Exception e) {
+	
+		log.error("Error deleing temp file:" + e.getMessage());
+	}	
+
+	
+
+	return;
+
+	
+	</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>BaseURL</con:name><con:value>http://localhost:8080</con:value></con:property><con:property><con:name>ServiceEndpoint</con:name><con:value>http://localhost:8080/DataCustodian</con:value></con:property><con:property><con:name>DataCustodianContext</con:name><con:value>DataCustodian</con:value></con:property><con:property><con:name>ThirdPartyContext</con:name><con:value>ThirdParty</con:value></con:property><con:property><con:name>linkPrefixForReplace</con:name><con:value>http://localhost:8080/DataCustodian/</con:value></con:property><con:property><con:name>HomePageURLEndpoint</con:name><con:value>https://services.greenbuttondata.org</con:value></con:property><con:property><con:name>mysqlCmd</con:name><con:value>/usr/local/mysql/bin/mysql</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property><con:property><con:name>usagePointId</con:name><con:value>1</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>meterReadingId</con:name><con:value>1</con:value></con:property><con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>intervalBlockId</con:name><con:value>1</con:value></con:property><con:property><con:name>electricPowerQualitySummaryId</con:name><con:value>1</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>usagePointUUID1</con:name><con:value>48C2A019-5598-4E16-B0F9-49E4FF27F5FB</con:value></con:property><con:property><con:name>usagePointDescription1</con:name><con:value>Front Electric Meter</con:value></con:property><con:property><con:name>TestFile2</con:name><con:value>Gas.xml</con:value></con:property><con:property><con:name>usagePointUUID2</con:name><con:value>642EABA-8E42-4D1A-A375-AF54993C007B</con:value></con:property><con:property><con:name>usagePointDescription2</con:name><con:value>Gas</con:value></con:property><con:property><con:name>DBprepopulateScriptName</con:name><con:value>prepopulatesql_localhost8080.sql</con:value></con:property><con:property><con:name>electricPowerUsageSummaryId</con:name><con:value>1</con:value></con:property><con:property><con:name>subscriptionId</con:name><con:value>1</con:value></con:property><con:property><con:name>applicationInformationId</con:name><con:value>1</con:value></con:property><con:property><con:name>authorizationId</con:name><con:value>1</con:value></con:property><con:property><con:name>bulkId</con:name><con:value>1</con:value></con:property><con:property><con:name>localTimeParametersId</con:name><con:value>1</con:value></con:property></con:properties><con:wssContainer/><con:sensitiveInformation/></con:soapui-project>

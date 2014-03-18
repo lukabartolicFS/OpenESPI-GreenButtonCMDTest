@@ -16,7 +16,7 @@
 
 scriptName="${0##*/}"
 
-declare -i DEFAULT_TIMEOUT=9
+declare -i DEFAULT_TIMEOUT=2
 declare -i DEFAULT_INTERVAL=1
 declare -i DEFAULT_DELAY=1
 
