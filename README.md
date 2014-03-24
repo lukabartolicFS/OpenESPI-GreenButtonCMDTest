@@ -92,10 +92,60 @@ Bulk_400Customer_1UsagePoints_15MinuteInterval_1Year.xml
 https://s3.amazonaws.com/openespi/TestGreenButtonFiles/Bulk_400Customer_1UsagePoints_15MinuteInterval_1Year.xml	
 
 ##	Configuring SOAPUI Project
-Select the GBCMD project in the SOAPUI projects tree. On the bottom left, select Custom Properties and change according to your configuration. Most common fields to change are:
 
-BaseURL -- the URL of the target system you are running tests against
 
-mysqlCmd -- the shell command to access mysql on your platform (required by some of the scripts)
+### the gbcmd.conf file
+Depending on the location and nature of your test target, you will need a site-specific configuration for the tests. In the Library folder of the SOAPUI project there is a script that will load parameters from a file ./etc/gbcmd.conf. This file is not in source control and may be constructed from the following code snippit:
 
-TestFile -- a path to the test file used in the regression tests
+    FileName="gbcmd.conf"
+    
+    BaseURL="http://localhost:8080"
+    ServiceEndpoint="http://localhost:8080/DataCustodian"
+    DataCustodianContext="DataCustodian"
+    ThirdPartyContext="ThirdParty"
+    linkPrefixForReplace="http://localhost:8080/DataCustodian/"
+    mysqlCmd="/usr/local/mysql/bin/mysql"
+    TestManager="grace"
+    TestManagerPW="koala"
+    TestRetailCustomer="alan"
+    TestRetailCustomerPW="koala"
+    retailCustomerId="1"
+    usagePointId="1"
+    resourceId="01"
+    meterReadingId="1"
+    readingTypeId="1"
+    intervalBlockId="1"
+    electricPowerQualitySummaryId="1"
+    TestFile="test_usage_data.xml"
+    usagePointUUID1="48C2A019-5598-4E16-B0F9-49E4FF27F5FB"
+    usagePointDescription1="Front Electric Meter"
+    TestFile2="Gas.xml"
+    usagePointUUID2="642EABA-8E42-4D1A-A375-AF54993C007B"
+    usagePointDescription2="Gas"
+    DBprepopulateScriptName="prepopulatesql_localhost8080.sql"
+    electricPowerUsageSummaryId="1"
+    subscriptionId="1"
+    applicationInformationId="1"
+    authorizationId="1"
+    bulkId="1"
+    localTimeParametersId="1"
+    
+    
+    securityTimeout="2"
+    HomePageURLEndpoint="https://services.greenbuttondata.org"
+    DataCustodianHostName="127.0.0.1"
+    DataCustodianSSLPort="8081"
+    ThirdPartyHostName="127.0.0.1"
+    ThirdPartySSLPort="8081"
+    openSSLCommand="/usr/local/ssl/bin/openssl"
+    cmdTimeout="timeout.sh -t"
+    cygwinHome=""
+
+### How to change and load the settings
+The most common fields to change are:
+
+- BaseURL -the URL of the target system you are running tests against
+- mysqlCmd -the shell command to access mysql on your platform (required by some of the scripts)
+- TestFile -a path to the test file used in the regression tests
+
+To load these settings into the SOAUI project use the Library script "LoadConfig".
