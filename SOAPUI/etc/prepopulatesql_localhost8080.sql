@@ -1,16 +1,5 @@
 USE `datacustodian`;
 
-/* Add service kind */ 
-INSERT INTO service_categories (kind) VALUES (0);
-INSERT INTO service_categories (kind) VALUES (1);
-INSERT INTO service_categories (kind) VALUES (2);
-INSERT INTO service_categories (kind) VALUES (3);
-INSERT INTO service_categories (kind) VALUES (4);
-INSERT INTO service_categories (kind) VALUES (5);
-INSERT INTO service_categories (kind) VALUES (6);
-INSERT INTO service_categories (kind) VALUES (7);
-INSERT INTO service_categories (kind) VALUES (8);
-INSERT INTO service_categories (kind) VALUES (9);
 
 /* Add retail customers */ 
 INSERT INTO retail_customers (`id`,`description`,`published`,`self_link_href`,`self_link_rel`,`up_link_href`,`up_link_rel`,`updated`,`uuid`, enabled, username, first_name, last_name, password, role) VALUES (1, '', '2014-01-02 05:00:00', '/RetailCustomer/1','self','/RetailCustomer','up','2014-01-02 05:00:00','106E8B03-0299-467E-972A-A883ECDCC575', TRUE, 'alan', 'Alan', 'Turing', 'koala', 'ROLE_USER');
@@ -38,17 +27,7 @@ INSERT INTO application_information_scopes (application_information_id, scope) V
 
 USE `thirdparty`;
 
-/* Add service kind */ 
-INSERT INTO service_categories (kind) VALUES (0);
-INSERT INTO service_categories (kind) VALUES (1);
-INSERT INTO service_categories (kind) VALUES (2);
-INSERT INTO service_categories (kind) VALUES (3);
-INSERT INTO service_categories (kind) VALUES (4);
-INSERT INTO service_categories (kind) VALUES (5);
-INSERT INTO service_categories (kind) VALUES (6);
-INSERT INTO service_categories (kind) VALUES (7);
-INSERT INTO service_categories (kind) VALUES (8);
-INSERT INTO service_categories (kind) VALUES (9);
+
 
 /* Add retail customers */ 
 INSERT INTO retail_customers (`id`,`description`,`published`,`self_link_href`,`self_link_rel`,`up_link_href`,`up_link_rel`,`updated`,`uuid`, enabled, username, first_name, last_name, password, role) VALUES (1, '', '2014-01-02 05:00:00', '/RetailCustomer/1','self','/RetailCustomer','up','2014-01-02 05:00:00','106E8B03-0299-467E-972A-A883ECDCC575', TRUE, 'alan', 'Alan', 'Turing', 'koala', 'ROLE_USER');
@@ -81,7 +60,7 @@ INSERT INTO application_information_scopes (application_information_id, scope) V
 USE `tokenstore`;
 
 /* Add oauth_client_details */
-INSERT INTO oauth_client_details (client_id, resource_ids, client_secret, scope, authorized_grant_types, web_server_redirect_uri, authorities, access_token_validity, refresh_token_validity, additional_information, autoapprove) VALUES ('third_party', NULL, 'secret', 'FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13,FB=4_5_15;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13,FB=4_5_12_15_16;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13', 'authorization_code,refresh_token', 'http://localhost:8080/ThirdParty/espi/1_1/OAuthCallBack', 'ROLE_USER', '360', '3600', NULL, 'FALSE');
-INSERT INTO oauth_client_details (client_id, resource_ids, client_secret, scope, authorized_grant_types, web_server_redirect_uri, authorities, access_token_validity, refresh_token_validity, additional_information, autoapprove) VALUES ('third_party_admin', NULL, 'secret', 'FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13,FB=4_5_15;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13,FB=4_5_12_15_16;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13', 'client_credentials', NULL, 'ROLE_ADMIN', '360', NULL, NULL, 'FALSE');
+INSERT INTO oauth_client_details (client_id, resource_ids, client_secret, scope, authorized_grant_types, web_server_redirect_uri, authorities, access_token_validity, refresh_token_validity, additional_information, autoapprove) VALUES ('third_party', NULL, 'secret', 'FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13,FB=4_5_15;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13,FB=4_5_12_15_16;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13', 'authorization_code,refresh_token', 'http://localhost:8080/ThirdParty/espi/1_1/OAuthCallBack', 'ROLE_USER', '31536000', '157680000', NULL, 'FALSE');
+INSERT INTO oauth_client_details (client_id, resource_ids, client_secret, scope, authorized_grant_types, web_server_redirect_uri, authorities, access_token_validity, refresh_token_validity, additional_information, autoapprove) VALUES ('third_party_admin', NULL, 'secret', 'FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13,FB=4_5_15;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13,FB=4_5_12_15_16;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13', 'client_credentials', NULL, 'ROLE_ADMIN', '31536000', NULL, NULL, 'FALSE');
 
 
