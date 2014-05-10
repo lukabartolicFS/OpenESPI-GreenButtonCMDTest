@@ -56,11 +56,11 @@ permissions and limitations under the License.
 	<link rel="self" href="/espi/1_1/resource/Subscription/83e269c1"/>
 	<entry>
 		<id>urn:uuid:48C2A019-5598-4E16-B0F9-49E4FF27F5FB</id>
-		<link rel="self" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F"/>
-		<link rel="up" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint"/>
-		<link rel="related" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading"/>
-		<link rel="related" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/ElectricPowerUsageSummary"/>
-		<link rel="related" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/ElectricPowerQualitySummary"/>
+		<link rel="self" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F"/>
+		<link rel="up" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint"/>
+		<link rel="related" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading"/>
+		<link rel="related" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/ElectricPowerUsageSummary"/>
+		<link rel="related" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/ElectricPowerQualitySummary"/>
 		<link rel="related" href="/espi/1_1/resource/LocalTimeParameters/01"/>
 		<title>Front Electric Meter</title>
 		<content>
@@ -91,9 +91,9 @@ permissions and limitations under the License.
 	</entry>
 	<entry>
 		<id>urn:uuid:F77FBF34-A09E-4EBC-9606-FF1A59A17CAE</id>
-		<link rel="self" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01"/>
-		<link rel="up" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading"/>
-		<link rel="related" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
+		<link rel="self" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01"/>
+		<link rel="up" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading"/>
+		<link rel="related" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
 		<link rel="related" href="/espi/1_1/resource/ReadingType/07"/>
 		<title>Fifteen Minute Electricity Consumption</title>
 		<content>
@@ -135,8 +135,8 @@ permissions and limitations under the License.
 	</entry>
 	<entry>
 		<id>urn:uuid:FE9A61BB-6913-42D4-88BE-9634A218EF53</id>
-		<link rel="self" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/173"/>
-		<link rel="up" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
+		<link rel="self" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/173"/>
+		<link rel="up" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
 		<title/>
 		<content>
 			<IntervalBlock xmlns="http://naesb.org/espi">
@@ -1022,8 +1022,8 @@ permissions and limitations under the License.
 	</entry>
 	<entry>
 		<id>urn:uuid:0E49B341-CABD-445B-8F88-7ACF791B1863</id>
-		<link rel="self" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/174"/>
-		<link rel="up" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
+		<link rel="self" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/174"/>
+		<link rel="up" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
 		<title/>
 		<content>
 			<IntervalBlock xmlns="http://naesb.org/espi">
@@ -1903,8 +1903,8 @@ permissions and limitations under the License.
 	</entry>
 	<entry>
 		<id>urn:uuid:1A1A106F-7108-4532-A5A6-FD48F7DA3B8D</id>
-		<link rel="self" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/175"/>
-		<link rel="up" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
+		<link rel="self" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/175"/>
+		<link rel="up" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
 		<title/>
 		<content>
 			<IntervalBlock xmlns="http://naesb.org/espi">
@@ -2784,8 +2784,8 @@ permissions and limitations under the License.
 	</entry>
 	<entry>
 		<id>urn:uuid:45745604-814D-49A1-8D4B-856D5D44B7AF</id>
-		<link rel="self" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/176"/>
-		<link rel="up" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
+		<link rel="self" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/176"/>
+		<link rel="up" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
 		<title/>
 		<content>
 			<IntervalBlock xmlns="http://naesb.org/espi">
@@ -3665,8 +3665,8 @@ permissions and limitations under the License.
 	</entry>
 	<entry>
 		<id>urn:uuid:298F995F-849A-4DEE-B339-988B2CD4BA5F</id>
-		<link rel="self" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/177"/>
-		<link rel="up" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
+		<link rel="self" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/177"/>
+		<link rel="up" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
 		<title/>
 		<content>
 			<IntervalBlock xmlns="http://naesb.org/espi">
@@ -4546,8 +4546,8 @@ permissions and limitations under the License.
 	</entry>
 	<entry>
 		<id>urn:uuid:9648B7CE-8A3F-4545-A8D9-3997062E1419</id>
-		<link rel="self" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/178"/>
-		<link rel="up" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
+		<link rel="self" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/178"/>
+		<link rel="up" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
 		<title/>
 		<content>
 			<IntervalBlock xmlns="http://naesb.org/espi">
@@ -5427,8 +5427,8 @@ permissions and limitations under the License.
 	</entry>
 	<entry>
 		<id>urn:uuid:E92DB70E-9D88-4B25-9D87-0C0B466DFC80</id>
-		<link rel="self" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/179"/>
-		<link rel="up" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
+		<link rel="self" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/179"/>
+		<link rel="up" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
 		<title/>
 		<content>
 			<IntervalBlock xmlns="http://naesb.org/espi">
@@ -6308,8 +6308,8 @@ permissions and limitations under the License.
 	</entry>
 	<entry>
 		<id>urn:uuid:4EF81BB0-052B-4A32-B428-2318FBF77847</id>
-		<link rel="self" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/17A"/>
-		<link rel="up" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
+		<link rel="self" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/17A"/>
+		<link rel="up" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
 		<title/>
 		<content>
 			<IntervalBlock xmlns="http://naesb.org/espi">
@@ -7189,8 +7189,8 @@ permissions and limitations under the License.
 	</entry>
 	<entry>
 		<id>urn:uuid:E12148F9-6C29-4972-B157-2EDB7616C84F</id>
-		<link rel="self" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/17B"/>
-		<link rel="up" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
+		<link rel="self" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/17B"/>
+		<link rel="up" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
 		<title/>
 		<content>
 			<IntervalBlock xmlns="http://naesb.org/espi">
@@ -8070,8 +8070,8 @@ permissions and limitations under the License.
 	</entry>
 	<entry>
 		<id>urn:uuid:312B86F5-60A6-435A-AA83-25CE1B2C4A86</id>
-		<link rel="self" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/17C"/>
-		<link rel="up" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
+		<link rel="self" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/17C"/>
+		<link rel="up" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
 		<title/>
 		<content>
 			<IntervalBlock xmlns="http://naesb.org/espi">
@@ -8951,8 +8951,8 @@ permissions and limitations under the License.
 	</entry>
 	<entry>
 		<id>urn:uuid:339EFCC4-BA4D-49D5-8E1B-734961E74E5E</id>
-		<link rel="self" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/17D"/>
-		<link rel="up" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
+		<link rel="self" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/17D"/>
+		<link rel="up" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
 		<title/>
 		<content>
 			<IntervalBlock xmlns="http://naesb.org/espi">
@@ -9796,8 +9796,8 @@ permissions and limitations under the License.
 	</entry>
 	<entry>
 		<id>urn:uuid:D517CDBA-0245-4E70-AE09-D57A4D129639</id>
-		<link rel="self" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/17E"/>
-		<link rel="up" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
+		<link rel="self" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/17E"/>
+		<link rel="up" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
 		<title/>
 		<content>
 			<IntervalBlock xmlns="http://naesb.org/espi">
@@ -10677,8 +10677,8 @@ permissions and limitations under the License.
 	</entry>
 	<entry>
 		<id>urn:uuid:AF977275-B88A-4889-A3F6-7F026EE6B1D9</id>
-		<link rel="self" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/17F"/>
-		<link rel="up" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
+		<link rel="self" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/17F"/>
+		<link rel="up" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
 		<title/>
 		<content>
 			<IntervalBlock xmlns="http://naesb.org/espi">
@@ -11558,8 +11558,8 @@ permissions and limitations under the License.
 	</entry>
 	<entry>
 		<id>urn:uuid:8E8A6957-5C81-4BD9-BA4C-33615E0BA0AD</id>
-		<link rel="self" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/180"/>
-		<link rel="up" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
+		<link rel="self" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/180"/>
+		<link rel="up" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
 		<title/>
 		<content>
 			<IntervalBlock xmlns="http://naesb.org/espi">
@@ -12439,8 +12439,8 @@ permissions and limitations under the License.
 	</entry>
 	<entry>
 		<id>urn:uuid:621D4BDF-FE3D-418B-8C98-276D941D3D45</id>
-		<link rel="self" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/ElectricPowerUsageSummary/01"/>
-		<link rel="up" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/ElectricPowerUsageSummary"/>
+		<link rel="self" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/ElectricPowerUsageSummary/01"/>
+		<link rel="up" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/ElectricPowerUsageSummary"/>
 		<title>Usage Summary</title>
 		<content>
 			<ElectricPowerUsageSummary xmlns="http://naesb.org/espi">
@@ -12472,8 +12472,8 @@ permissions and limitations under the License.
 	</entry>
 	<entry>
 		<id>urn:uuid:DEB0A337-C1B5-4658-99BA-4688E253A99B</id>
-		<link rel="self" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/ElectricPowerQualitySummary/01"/>
-		<link rel="up" href="/espi/1_1/resource/RetailCustomer/9B6C7066/UsagePoint/5446AF3F/ElectricPowerQualitySummary"/>
+		<link rel="self" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/ElectricPowerQualitySummary/01"/>
+		<link rel="up" href="/espi/1_1/resource/Subscription/9B6C7066/UsagePoint/5446AF3F/ElectricPowerQualitySummary"/>
 		<title>Quality Summary</title>
 		<content>
 			<ElectricPowerQualitySummary xmlns="http://naesb.org/espi">
