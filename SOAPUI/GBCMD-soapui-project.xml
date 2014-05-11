@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project activeEnvironment="Default" name="GBCMD" resourceRoot="${projectDir}" soapui-version="5.0.0" abortOnError="false" runType="SEQUENTIAL" defaultScriptLanguage="Groovy" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="ESPI Resources" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:resource name="resource" path="/espi/1_1/resource"><con:settings/><con:parameters/><con:resource name="RetailCustomer/{retailCustomerId}" path="RetailCustomer/${#Project#retailCustomerId}"><con:settings/><con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint" path="UsagePoint"><con:settings/><con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint/{usagePointId}" path="${#Project#usagePointId}"><con:settings/><con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint/{usagePointId}/MeterReading" path="MeterReading"><con:settings/><con:parameters/><con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint/{usagePointId}/MeterReading/{meterReadingId}" path="${#Project#meterReadingId}"><con:settings/><con:resource name="ReadingType" path="ReadingType"><con:settings/><con:parameters/><con:resource name="${#Project#readingTypeId}" path="${#Project#readingTypeId}"><con:settings/><con:method name="Get ReadingType" method="GET"><con:settings/><con:parameters/><con:request name="Get ReadingType" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry><con:entry>#Project#meterReadingId</con:entry><con:entry>#Project#readingTypeId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>#Project#readingTypeId</con:name><con:value>#Project#readingTypeId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#readingTypeId</con:default></con:parameter></con:parameters><con:method name="Delete" method="DELETE"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method><con:method name="Put" method="PUT"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request><![CDATA[<ns3:entry xmlns:espi="http://naesb.org/espi" xmlns:ns3="http://www.w3.org/2005/Atom">
+<con:soapui-project activeEnvironment="Default" name="GBCMD" resourceRoot="${projectDir}" soapui-version="4.6.4" abortOnError="false" runType="SEQUENTIAL" defaultScriptLanguage="Groovy" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="ESPI Resources" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:resource name="resource" path="/espi/1_1/resource"><con:settings/><con:parameters/><con:resource name="RetailCustomer/{retailCustomerId}" path="RetailCustomer/${#Project#retailCustomerId}"><con:settings/><con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint" path="UsagePoint"><con:settings/><con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint/{usagePointId}" path="${#Project#usagePointId}"><con:settings/><con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint/{usagePointId}/MeterReading" path="MeterReading"><con:settings/><con:parameters/><con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint/{usagePointId}/MeterReading/{meterReadingId}" path="${#Project#meterReadingId}"><con:settings/><con:resource name="ReadingType" path="ReadingType"><con:settings/><con:parameters/><con:resource name="${#Project#readingTypeId}" path="${#Project#readingTypeId}"><con:settings/><con:method name="Get ReadingType" method="GET"><con:settings/><con:parameters/><con:request name="Get ReadingType" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>#Project#retailCustomerId</con:entry><con:entry>#Project#usagePointId</con:entry><con:entry>#Project#meterReadingId</con:entry><con:entry>#Project#readingTypeId</con:entry></con:parameterOrder><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials></con:request><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation></con:method><con:parameters><con:parameter><con:name>#Project#readingTypeId</con:name><con:value>#Project#readingTypeId</con:value><con:style>TEMPLATE</con:style><con:default>#Project#readingTypeId</con:default></con:parameter></con:parameters><con:method name="Delete" method="DELETE"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method><con:method name="Put" method="PUT"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request><![CDATA[<ns3:entry xmlns:espi="http://naesb.org/espi" xmlns:ns3="http://www.w3.org/2005/Atom">
    <ns3:id>urn:uuid:3430B025-65D5-493A-BEC2-053603C91CD7</ns3:id>
    <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/ReadingType/1" rel="self"/>
    <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/ReadingType" rel="up"/>
@@ -517,38 +517,37 @@ def projectPath = groovyUtils.projectPath
 def mysqlCmd=project.getPropertyValue("mysqlCmd")
 def DBprepopulateScriptName = project.getPropertyValue("DBprepopulateScriptName")
 
-
-def cmdClean = projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/cleantables.sql"
-
-log.info("exec: " + cmdClean);
-
-def doClean = cmdClean.execute()
-
-doClean.waitFor()
-
-if(doClean.exitValue()!=0)
+public boolean RunCommand(String path,String cmd)
 {
-	log.error "return code: ${ doClean.exitValue()}"
-	log.error "stderr: ${doClean.err.text}"
-	log.error "stdout: ${doClean.in.text}"
+	
+	log.info("exec: " + cmd);
+	
+	def doClean = cmd.execute()
+	
+	doClean.waitFor()
+	
+	if(doClean.exitValue()!=0)
+	{
+		log.error "return code: ${ doClean.exitValue()}"
+		log.error "stderr: ${doClean.err.text}"
+		log.error "stdout: ${doClean.in.text}"
+	}
+	
+	
 }
 
 
-def cmdPopulate = projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/" + DBprepopulateScriptName
 
-log.info("exec: " + cmdPopulate);
+RunCommand(projectPath,"sh -c cd "+projectPath + "/etc");
 
-def doPopulate = cmdPopulate.execute()
+RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/cleantables_dc.sql");
+RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/cleantables_tp.sql");
 
-doPopulate.waitFor()
+RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/prepopulatesql_dc.sql");
+RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/prepopulatesql_tp.sql");
 
-if(doPopulate.exitValue()!=0)
-{
-	log.error "return code: ${ doPopulate.exitValue()}"
-	log.error "stderr: ${doPopulate.err.text}"
-	log.error "stdout: ${doPopulate.in.text}"
-}
-</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Reuse Groovy Selenium Steps" searchProperties="true" id="a24652db-d303-4275-818c-f0c7c5378493"><con:description>Copy these steps to construct a sequence using selenium session across test steps
+
+assert true;</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Reuse Groovy Selenium Steps" searchProperties="true" id="a24652db-d303-4275-818c-f0c7c5378493"><con:description>Copy these steps to construct a sequence using selenium session across test steps
 
 Always use sequence:
 StartDriver
@@ -953,38 +952,37 @@ def projectPath = groovyUtils.projectPath
 def mysqlCmd=project.getPropertyValue("mysqlCmd")
 def DBprepopulateScriptName = project.getPropertyValue("DBprepopulateScriptName")
 
-
-def cmdClean = projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/cleantables.sql"
-
-log.info("exec: " + cmdClean);
-
-def doClean = cmdClean.execute()
-
-doClean.waitFor()
-
-if(doClean.exitValue()!=0)
+public boolean RunCommand(String path,String cmd)
 {
-	log.error "return code: ${ doClean.exitValue()}"
-	log.error "stderr: ${doClean.err.text}"
-	log.error "stdout: ${doClean.in.text}"
+	
+	log.info("exec: " + cmd);
+	
+	def doClean = cmd.execute()
+	
+	doClean.waitFor()
+	
+	if(doClean.exitValue()!=0)
+	{
+		log.error "return code: ${ doClean.exitValue()}"
+		log.error "stderr: ${doClean.err.text}"
+		log.error "stdout: ${doClean.in.text}"
+	}
+	
+	
 }
 
 
-def cmdPopulate = projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/" + DBprepopulateScriptName
 
-log.info("exec: " + cmdPopulate);
+RunCommand(projectPath,"sh -c cd "+projectPath + "/etc");
 
-def doPopulate = cmdPopulate.execute()
+RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/cleantables_dc.sql");
+RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/cleantables_tp.sql");
 
-doPopulate.waitFor()
+RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/prepopulatesql_dc.sql");
+RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/prepopulatesql_tp.sql");
 
-if(doPopulate.exitValue()!=0)
-{
-	log.error "return code: ${ doPopulate.exitValue()}"
-	log.error "stderr: ${doPopulate.err.text}"
-	log.error "stdout: ${doPopulate.in.text}"
-}
-</script></con:config></con:testStep><con:testStep type="groovy" name="StartDriver"><con:settings/><con:config><script>/////////////////////////////////////////////////////////
+
+assert true;</script></con:config></con:testStep><con:testStep type="groovy" name="StartDriver"><con:settings/><con:config><script>/////////////////////////////////////////////////////////
 // Note: Generated by capture using Selenium in FF. 
 // Export to Java / JUnit 4 / WebDriver
 // Copy and paste into Groovy Script with minor tweaks
@@ -1280,6 +1278,7 @@ driver.findElement(By.name("authorize")).click(); sleep(1000)
 driver.findElement(By.linkText("Usage Points")).click();
 driver.findElement(By.linkText("Front Electric Meter")).click();
 sleep(5000)	
+driver.findElement(By.id("logout")).click();
 
 } catch(Exception e) {
 	testRunner.fail(driver.getErrorString())
@@ -7005,4 +7004,4 @@ driver.quit();
 </script></con:config></con:testStep><con:testStep type="groovy" name="A Set subsription ID = 1"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
 project.setPropertyValue("subscriptionID","1");</script></con:config></con:testStep><con:testStep type="restrequest" name="GET Subscription 1"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/${#Project#subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET Subscription 1" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/1</con:originalUri><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>assert messageExchange.responseStatusCode == 200</scriptText></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="Bearer a814ad2a-8463-459e-ad2f-0fc537677885" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Set subsription ID = 2"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
 project.setPropertyValue("subscriptionID","2");</script></con:config></con:testStep><con:testStep type="restrequest" name="GET Subscription 2"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/${#Project#subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET Subscription 2" mediaType="application/json"><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/2</con:originalUri><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>assert messageExchange.responseStatusCode != 200</scriptText></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="Bearer a814ad2a-8463-459e-ad2f-0fc537677885" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Set subsription ID = 1"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
-project.setPropertyValue("subscriptionID","1");</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>BaseURL</con:name><con:value>http://localhost:8080</con:value></con:property><con:property><con:name>ServiceEndpoint</con:name><con:value>http://localhost:8080/DataCustodian</con:value></con:property><con:property><con:name>DataCustodianContext</con:name><con:value>DataCustodian</con:value></con:property><con:property><con:name>ThirdPartyContext</con:name><con:value>ThirdParty</con:value></con:property><con:property><con:name>linkPrefixForReplace</con:name><con:value>http://localhost:8080/DataCustodian/</con:value></con:property><con:property><con:name>HomePageURLEndpoint</con:name><con:value>https://services.greenbuttondata.org</con:value></con:property><con:property><con:name>mysqlCmd</con:name><con:value>mysql</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property><con:property><con:name>usagePointId</con:name><con:value>1</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>meterReadingId</con:name><con:value>1</con:value></con:property><con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>intervalBlockId</con:name><con:value>1</con:value></con:property><con:property><con:name>electricPowerQualitySummaryId</con:name><con:value>1</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>usagePointUUID1</con:name><con:value>48C2A019-5598-4E16-B0F9-49E4FF27F5FB</con:value></con:property><con:property><con:name>usagePointDescription1</con:name><con:value>Front Electric Meter</con:value></con:property><con:property><con:name>TestFile2</con:name><con:value>Gas.xml</con:value></con:property><con:property><con:name>usagePointUUID2</con:name><con:value>642EABA-8E42-4D1A-A375-AF54993C007B</con:value></con:property><con:property><con:name>usagePointDescription2</con:name><con:value>Gas</con:value></con:property><con:property><con:name>DBprepopulateScriptName</con:name><con:value>prepopulatesql_localhost8080.sql</con:value></con:property><con:property><con:name>electricPowerUsageSummaryId</con:name><con:value>1</con:value></con:property><con:property><con:name>subscriptionId</con:name><con:value>1</con:value></con:property><con:property><con:name>applicationInformationId</con:name><con:value>1</con:value></con:property><con:property><con:name>authorizationId</con:name><con:value>1</con:value></con:property><con:property><con:name>bulkId</con:name><con:value>1</con:value></con:property><con:property><con:name>localTimeParametersId</con:name><con:value>1</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
+project.setPropertyValue("subscriptionID","1");</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>BaseURL</con:name><con:value>http://localhost:8080</con:value></con:property><con:property><con:name>ServiceEndpoint</con:name><con:value>http://localhost:8080/DataCustodian</con:value></con:property><con:property><con:name>DataCustodianContext</con:name><con:value>DataCustodian</con:value></con:property><con:property><con:name>ThirdPartyContext</con:name><con:value>ThirdParty</con:value></con:property><con:property><con:name>linkPrefixForReplace</con:name><con:value>http://localhost:8080/DataCustodian/</con:value></con:property><con:property><con:name>HomePageURLEndpoint</con:name><con:value>https://services.greenbuttondata.org</con:value></con:property><con:property><con:name>mysqlCmd</con:name><con:value>mysql</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property><con:property><con:name>usagePointId</con:name><con:value>1</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>meterReadingId</con:name><con:value>1</con:value></con:property><con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>intervalBlockId</con:name><con:value>1</con:value></con:property><con:property><con:name>electricPowerQualitySummaryId</con:name><con:value>1</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>usagePointUUID1</con:name><con:value>48C2A019-5598-4E16-B0F9-49E4FF27F5FB</con:value></con:property><con:property><con:name>usagePointDescription1</con:name><con:value>Front Electric Meter</con:value></con:property><con:property><con:name>TestFile2</con:name><con:value>Gas.xml</con:value></con:property><con:property><con:name>usagePointUUID2</con:name><con:value>642EABA-8E42-4D1A-A375-AF54993C007B</con:value></con:property><con:property><con:name>usagePointDescription2</con:name><con:value>Gas</con:value></con:property><con:property><con:name>DBprepopulateScriptName</con:name><con:value>prepopulatesql_dc.sql</con:value></con:property><con:property><con:name>electricPowerUsageSummaryId</con:name><con:value>1</con:value></con:property><con:property><con:name>subscriptionId</con:name><con:value>1</con:value></con:property><con:property><con:name>applicationInformationId</con:name><con:value>1</con:value></con:property><con:property><con:name>authorizationId</con:name><con:value>1</con:value></con:property><con:property><con:name>bulkId</con:name><con:value>1</con:value></con:property><con:property><con:name>localTimeParametersId</con:name><con:value>1</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
