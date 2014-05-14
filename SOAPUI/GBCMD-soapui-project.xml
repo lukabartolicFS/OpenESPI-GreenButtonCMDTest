@@ -902,7 +902,7 @@
 								<con:params/>
 								<con:element>html</con:element>
 							</con:representation>
-						<con:representation type="RESPONSE"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>200</con:status><con:params/><con:element>html</con:element></con:representation></con:method>
+						<con:representation type="RESPONSE"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>200</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element xmlns:ns="http://localhost/DataCustodian/espi/1_1/resource/RetailCustomer/1/UsagePoint/1">ns:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation></con:method>
 						<con:parameters>
 							<con:parameter>
 								<con:name>usagePointId</con:name>
@@ -1505,7 +1505,7 @@
 						<con:params/>
 						<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element>
 					</con:representation>
-				<con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation></con:method>
+				<con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation></con:method>
 				<con:method name="Post" method="POST">
 					<con:settings/>
 					<con:parameters/>
@@ -2036,7 +2036,7 @@
 								<con:status>400</con:status>
 								<con:params/>
 							</con:representation>
-						<con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation></con:method>
+						<con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403 401</con:status><con:params/><con:element xmlns:ns="http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/1">ns:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation></con:method>
 						<con:parameters>
 							<con:parameter>
 								<con:name>subscriptionID</con:name>
@@ -2383,7 +2383,7 @@
 							<con:params/>
 							<con:element>html</con:element>
 						</con:representation>
-						<con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element xmlns:ns="http://localhost/DataCustodian/espi/1_1/resource/Subscription/1">ns:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/json">
+						<con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element xmlns:ns="http://localhost/DataCustodian/espi/1_1/resource/Subscription/1">ns:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/json">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -4135,8 +4135,7 @@ driver.findElement(By.id("logout")).click();
 			</con:testStep>
 			<con:testStep type="groovy" name="AuthorizeStartDataCustodian">
 				<con:settings/>
-				<con:config>
-					<script>/////////////////////////////////////////////////////////
+				<con:config><script>/////////////////////////////////////////////////////////
 //	WebDriverTestStepTemplate
 //
 // This template allows for interactions with a web browser
@@ -4237,8 +4236,7 @@ driver.findElement(By.id("logout")).click();
 } catch(Exception e) {
 	testRunner.fail(driver.getErrorString())
 	driver.quit();
-}</script>
-				</con:config>
+}</script></con:config>
 			</con:testStep>
 			<con:testStep type="groovy" name="StopDriver">
 				<con:settings/>
@@ -4921,7 +4919,33 @@ driver.quit()
   <con:entry key="Content-Type" value="application/atom+xml"/>
 </con:parameters>
 							<con:parameterOrder><con:entry>localTimeParametersId</con:entry><con:entry>Content-Type</con:entry><con:entry>Authorization</con:entry></con:parameterOrder>
-						</con:restRequest></con:config></con:testStep><con:properties/>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="GET SUbscription DC Admin"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/${#Project#subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET SUbscription DC Admin" mediaType="application/json">
+								<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+								<con:request/>
+								<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+								<con:jmsPropertyConfig/>
+								<con:parameters/>
+								<con:settings>
+									<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+								</con:settings>
+								<con:credentials>
+									<con:authType>Global HTTP Settings</con:authType>
+								</con:credentials>
+								<con:parameterOrder><con:entry>subscriptionID</con:entry><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
+							</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="GET SUbscription TP Admin"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/${#Project#subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET SUbscription TP Admin" mediaType="application/json">
+								<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+								<con:request/>
+								<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+								<con:jmsPropertyConfig/>
+								<con:parameters><entry key="Authorization" value="Bearer ${#Project#third_party_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+								<con:settings>
+									<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+								</con:settings>
+								<con:credentials>
+									<con:authType>Global HTTP Settings</con:authType>
+								</con:credentials>
+								<con:parameterOrder><con:entry>subscriptionID</con:entry><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
+							</con:restRequest></con:config></con:testStep><con:properties/>
 		</con:testCase>
 		<con:properties>
 			<con:property>
@@ -4937,8 +4961,7 @@ driver.quit()
 			<con:settings/>
 			<con:testStep type="groovy" name="resourceTests">
 				<con:settings/>
-				<con:config>
-					<script><![CDATA[import org.xml.sax.SAXException;
+				<con:config><script><![CDATA[import org.xml.sax.SAXException;
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
 import javax.xml.xpath.*;
@@ -5241,7 +5264,7 @@ public class ResourceTester {
 	}
 	
 
-	public boolean doDELETE(boolean bShouldPass,String strBaseEndpoint,String href) {
+	public boolean doDELETE(boolean bShouldPass,String strBaseEndpoint,String href, String token) {
 	
 		boolean bFailure = false;
 		String strResult = "";
@@ -5251,7 +5274,8 @@ public class ResourceTester {
 			def http = new HTTPBuilder(strBaseEndpoint);
 	
 			def res = http.request(Method.DELETE) { req ->
-			    uri.path = href			 
+			    uri.path = href	
+			    headers.Authorization = 'Bearer ' + token
 			    response.success = { resp, object ->			        
 			        strResult = "DELETE succeeded: " + resp.status;
 			    }		 
@@ -5290,7 +5314,7 @@ public class ResourceTester {
 		return true;
 	}
 	
-	public boolean doGET(boolean bShouldPass,String strBaseEndpoint,String strInputFile,Document docSrc,String href) {
+	public boolean doGET(boolean bShouldPass,String strBaseEndpoint,String strInputFile,Document docSrc,String href, String token) {
 		
 		boolean bFailure = false;
 		String strResult = "";
@@ -5302,7 +5326,7 @@ public class ResourceTester {
 	
 			http.request( strBaseEndpoint, GET, TEXT ) { req ->
 				uri.path = href
-				//headers.Accept = 'application/xml'
+			     headers.Authorization = 'Bearer ' + token
 				headers.Accept = 'application/atom+xml'
 				
 				response.success = { resp, reader ->
@@ -5379,7 +5403,7 @@ public class ResourceTester {
 	
 	
 	
-	public boolean doPOST(boolean bShouldPass,String strBaseEndpoint,String strInputFile,String href) {
+	public boolean doPOST(boolean bShouldPass,String strBaseEndpoint,String strInputFile,String href, String token) {
 		
 		// used for creating new record
 	
@@ -5396,6 +5420,7 @@ public class ResourceTester {
 		
 				def res = http.request(Method.POST) { req ->
 				    uri.path = href
+				    headers.Authorization = 'Bearer ' + token
 				   // send("application/xml", strContent)
 				    send("application/atom+xml", strContent)
 				 
@@ -5445,7 +5470,7 @@ public class ResourceTester {
 	}
 	
 	
-	public boolean doPUT(boolean bShouldPass,String strBaseEndpoint,String strInputFile,String href) {
+	public boolean doPUT(boolean bShouldPass,String strBaseEndpoint,String strInputFile,String href, String token) {
 		
 		boolean bFailure = false;
 		String strResult = "";
@@ -5461,6 +5486,7 @@ public class ResourceTester {
 		
 				def res = http.request(Method.PUT) { req ->
 				    uri.path = href
+				    headers.Authorization = 'Bearer ' + token
 				    //send("application/xml", strContent)	
 				    send("application/atom+xml", strContent)
 				 
@@ -6114,8 +6140,7 @@ public boolean TestType1ROOT(Object testRunner,Object context,String strInputFil
 	return;
 
 
-	]]></script>
-				</con:config>
+	]]></script></con:config>
 			</con:testStep>
 			<con:testStep type="groovy" name="curlUpload">
 				<con:settings/>
@@ -9957,7 +9982,7 @@ import java.io.File;
 	<con:testSuite name="Dons Sandbox">
 		<con:settings/>
 		<con:runType>SEQUENTIAL</con:runType>
-		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestOAuthAccessToken" searchProperties="true" id="842a41c8-96fb-4b15-bab5-c26d1f3f0dba">
+		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="EstablishTwoSubscriptions" searchProperties="true" id="842a41c8-96fb-4b15-bab5-c26d1f3f0dba">
 			<con:settings/>
 			<con:testStep type="groovy" name="resetDB">
 				<con:settings/>
@@ -9969,40 +9994,40 @@ def projectPath = groovyUtils.projectPath
 def mysqlCmd=project.getPropertyValue("mysqlCmd")
 def DBprepopulateScriptName = project.getPropertyValue("DBprepopulateScriptName")
 
-
-def cmdClean = projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/cleantables.sql"
-
-log.info("exec: " + cmdClean);
-
-def doClean = cmdClean.execute()
-
-doClean.waitFor()
-
-if(doClean.exitValue()!=0)
+public boolean RunCommand(String path,String cmd)
 {
-	log.error "return code: ${ doClean.exitValue()}"
-	log.error "stderr: ${doClean.err.text}"
-	log.error "stdout: ${doClean.in.text}"
+	
+	log.info("exec: " + cmd);
+	
+	def doClean = cmd.execute()
+	
+	doClean.waitFor()
+	
+	if(doClean.exitValue()!=0)
+	{
+		log.error "return code: ${ doClean.exitValue()}"
+		log.error "stderr: ${doClean.err.text}"
+		log.error "stdout: ${doClean.in.text}"
+	}
+	
+	
 }
 
 
-def cmdPopulate = projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/" + DBprepopulateScriptName
 
-log.info("exec: " + cmdPopulate);
+RunCommand(projectPath,"sh -c cd "+projectPath + "/etc");
 
-def doPopulate = cmdPopulate.execute()
+RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/cleantables_dc.sql");
+RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/cleantables_tp.sql");
 
-doPopulate.waitFor()
+RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/prepopulatesql_dc.sql");
+RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/prepopulatesql_tp.sql");
 
-if(doPopulate.exitValue()!=0)
-{
-	log.error "return code: ${ doPopulate.exitValue()}"
-	log.error "stderr: ${doPopulate.err.text}"
-	log.error "stdout: ${doPopulate.in.text}"
-}
-</script>
+
+assert true;</script>
 				</con:config>
 			</con:testStep>
+			
 			<con:testStep type="groovy" name="StartDriver">
 				<con:settings/>
 				<con:config>
@@ -10214,8 +10239,7 @@ try {
 			</con:testStep>
 			<con:testStep type="groovy" name="AuthorizeTwoCustomer">
 				<con:settings/>
-				<con:config>
-					<script>/////////////////////////////////////////////////////////
+				<con:config><script>/////////////////////////////////////////////////////////
 //	WebDriverTestStepTemplate
 //
 // This template allows for interactions with a web browser
@@ -10295,26 +10319,21 @@ try {
 	driver.findElement(By.name("scope.FB=4_5_15;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13")).click();
 	driver.findElement(By.name("authorize")).click(); 
 	sleep(1000);
-	
 	List&lt;WebElement> rows = driver.FindElementsByXpath("//td[@class='access_token']");
-		
 	String accessToken1 = rows.get(rows.size() - 1).getText();
 	log.info("accessToken1:" +  accessToken1);
-	
+
 	def headers = new StringToStringMap();
 	headers.put("Authorization","Bearer " + accessToken1);
-	testRunner.testCase.getTestStepByName("GET Subscription 1").testRequest.setRequestHeaders(headers);
-	testRunner.testCase.getTestStepByName("GET Subscription 2").testRequest.setRequestHeaders(headers);
+	
+//	testRunner.testCase.getTestStepByName("GET Subscription 1").testRequest.setRequestHeaders(headers);
+//	testRunner.testCase.getTestStepByName("GET Subscription 2").testRequest.setRequestHeaders(headers);
 	
 	project.setPropertyValue("subscriptionID","1");
-	
-	
 	driver.findElement(By.id("logout")).click();
-	
 	ServiceEndpoint=BaseURL+"/DataCustodian/home"
 	driver.get(ServiceEndpoint)
 	driver.findElement(By.id("logout")).click();
-	
 	driver.findElement(By.id("login")).click();
 	driver.findElement(By.name("j_username")).clear();
 	driver.findElement(By.name("j_username")).sendKeys("charles");
@@ -10334,7 +10353,6 @@ try {
 	driver.findElement(By.name("next")).click();
 	driver.findElement(By.name("scope.FB=4_5_15;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13")).click();
 	driver.findElement(By.name("authorize")).click(); sleep(1000)
-	
 	driver.findElement(By.id("logout")).click();
 	
 	
@@ -10344,8 +10362,7 @@ try {
 } catch(Exception e) {
 	testRunner.fail(driver.getErrorString())
 	driver.quit();
-}</script>
-				</con:config>
+}</script></con:config>
 			</con:testStep>
 			<con:testStep type="groovy" name="LogoutManager">
 				<con:settings/>
@@ -10435,14 +10452,19 @@ driver.quit();
 </script>
 				</con:config>
 			</con:testStep>
-			<con:testStep type="groovy" name="A Set subsription ID = 1">
+			
+			
+			
+			
+			<con:properties/>
+		</con:testCase>
+		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestTwoTokens" searchProperties="true"><con:settings/><con:testStep type="groovy" name="A Set subsription ID = 1">
 				<con:settings/>
 				<con:config>
 					<script>def project = testRunner.testCase.testSuite.project
 project.setPropertyValue("subscriptionID","1");</script>
 				</con:config>
-			</con:testStep>
-			<con:testStep type="restrequest" name="GET Subscription 1">
+			</con:testStep><con:testStep type="restrequest" name="GET Subscription 1">
 				<con:settings/>
 				<con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/${#Project#subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 					<con:restRequest name="GET Subscription 1" mediaType="application/json">
@@ -10458,7 +10480,7 @@ project.setPropertyValue("subscriptionID","1");</script>
 						<con:jmsPropertyConfig/>
 						<con:parameters/>
 						<con:settings>
-							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="Bearer a814ad2a-8463-459e-ad2f-0fc537677885" xmlns="http://eviware.com/soapui/config"/></con:setting>
+							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="Bearer 79ee2ada-e518-4d8e-aa5b-8fb6b8d5adee" xmlns="http://eviware.com/soapui/config"/></con:setting>
 						</con:settings>
 						<con:credentials>
 							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
@@ -10468,15 +10490,13 @@ project.setPropertyValue("subscriptionID","1");</script>
 						<con:parameterOrder><con:entry>subscriptionID</con:entry><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
 					</con:restRequest>
 				</con:config>
-			</con:testStep>
-			<con:testStep type="groovy" name="Set subsription ID = 2">
+			</con:testStep><con:testStep type="groovy" name="Set subsription ID = 2">
 				<con:settings/>
 				<con:config>
 					<script>def project = testRunner.testCase.testSuite.project
 project.setPropertyValue("subscriptionID","2");</script>
 				</con:config>
-			</con:testStep>
-			<con:testStep type="restrequest" name="GET Subscription 2">
+			</con:testStep><con:testStep type="restrequest" name="GET Subscription 2">
 				<con:settings/>
 				<con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/${#Project#subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 					<con:restRequest name="GET Subscription 2" mediaType="application/json">
@@ -10492,7 +10512,7 @@ project.setPropertyValue("subscriptionID","2");</script>
 						<con:jmsPropertyConfig/>
 						<con:parameters/>
 						<con:settings>
-							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="Bearer a814ad2a-8463-459e-ad2f-0fc537677885" xmlns="http://eviware.com/soapui/config"/></con:setting>
+							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="Bearer 79ee2ada-e518-4d8e-aa5b-8fb6b8d5adee" xmlns="http://eviware.com/soapui/config"/></con:setting>
 						</con:settings>
 						<con:credentials>
 							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
@@ -10502,17 +10522,13 @@ project.setPropertyValue("subscriptionID","2");</script>
 						<con:parameterOrder><con:entry>subscriptionID</con:entry><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
 					</con:restRequest>
 				</con:config>
-			</con:testStep>
-			<con:testStep type="groovy" name="Set subsription ID = 1">
+			</con:testStep><con:testStep type="groovy" name="Set subsription ID = 1">
 				<con:settings/>
 				<con:config>
 					<script>def project = testRunner.testCase.testSuite.project
 project.setPropertyValue("subscriptionID","1");</script>
 				</con:config>
-			</con:testStep>
-			<con:properties/>
-		</con:testCase>
-		<con:properties/>
+			</con:testStep><con:properties/></con:testCase><con:properties/>
 	</con:testSuite>
 	<con:properties>
 		<con:property>
@@ -10641,7 +10657,7 @@ project.setPropertyValue("subscriptionID","1");</script>
 		</con:property>
 		<con:property>
 			<con:name>data_custodian_access_token</con:name>
-			<con:value>7a61fbb7-8c13-4d70-83ee-2609b5569c35</con:value>
+			<con:value>688b026c-665f-4994-9139-6b21b13fbeee</con:value>
 		</con:property>
 		<con:property>
 			<con:name>third_party_access_token</con:name>
