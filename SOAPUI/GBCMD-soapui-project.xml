@@ -2027,7 +2027,7 @@
 							</con:representation>
 							<con:representation type="FAULT">
 								<con:mediaType>text/html;charset=ISO-8859-1</con:mediaType>
-								<con:status>404</con:status>
+								<con:status>404 500</con:status>
 								<con:params/>
 								<con:element>html</con:element>
 							</con:representation>
@@ -2036,7 +2036,7 @@
 								<con:status>400</con:status>
 								<con:params/>
 							</con:representation>
-						<con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403 401</con:status><con:params/><con:element xmlns:ns="http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/1">ns:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation></con:method>
+						<con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403 401</con:status><con:params/><con:element xmlns:ns="http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/1">ns:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>400</con:status><con:params/><con:element>html</con:element></con:representation></con:method>
 						<con:parameters>
 							<con:parameter>
 								<con:name>subscriptionID</con:name>
@@ -3318,7 +3318,19 @@
 			<con:endpoint>192.168.1.3:8080</con:endpoint>
 			<con:endpoint>http://localhost:8080</con:endpoint>
 		</con:endpoints>
-	</con:interface>
+	<con:resource name="token" path="/oauth/token"><con:settings/><con:parameters><con:parameter><con:name>Authorization</con:name><con:value/><con:style>HEADER</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>grant_type</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>scope</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="Client Credentials" method="POST"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400 401</con:status><con:params/><con:element xmlns:tok="http://localhost/DataCustodian/oauth/token">tok:Fault</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:tok="http://localhost/DataCustodian/oauth/token">tok:Response</con:element></con:representation><con:request name="POST DataCustodian Request" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="scope" value="DataCustodian_Admin_Access"/>
+  <con:entry key="Authorization" value="Basic ZGF0YV9jdXN0b2RpYW5fYWRtaW46c2VjcmV0"/>
+  <con:entry key="grant_type" value="client_credentials"/>
+</con:parameters><con:parameterOrder><con:entry>Authorization</con:entry><con:entry>grant_type</con:entry><con:entry>scope</con:entry></con:parameterOrder></con:request><con:request name="POST ThirdParty Request" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="Authorization" value="Basic dGhpcmRfcGFydHlfYWRtaW46c2VjcmV0"/>
+  <con:entry key="scope" value="ThirdParty_Admin_Access"/>
+  <con:entry key="grant_type" value="client_credentials"/>
+</con:parameters><con:parameterOrder><con:entry>Authorization</con:entry><con:entry>grant_type</con:entry><con:entry>scope</con:entry></con:parameterOrder></con:request><con:request name="POST Upload Request" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="scope" value="Upload_Admin_Access"/>
+  <con:entry key="Authorization" value="Basic dXBsb2FkX2FkbWluOnNlY3JldA=="/>
+  <con:entry key="grant_type" value="client_credentials"/>
+</con:parameters><con:parameterOrder><con:entry>Authorization</con:entry><con:entry>grant_type</con:entry><con:entry>scope</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface>
 	<con:testSuite name="Library">
 		<con:settings/>
 		<con:runType>SEQUENTIAL</con:runType>
@@ -4283,7 +4295,460 @@ driver.quit()
 			</con:testStep>
 			<con:properties/>
 		</con:testCase>
-		<con:properties/>
+		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="EstablishTwoSubscriptions" searchProperties="true" id="842a41c8-96fb-4b15-bab5-c26d1f3f0dba">
+			<con:settings/>
+			<con:testStep type="groovy" name="resetDB">
+				<con:settings/>
+				<con:config>
+					<script>def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+def mysqlCmd=project.getPropertyValue("mysqlCmd")
+def DBprepopulateScriptName = project.getPropertyValue("DBprepopulateScriptName")
+
+public boolean RunCommand(String path,String cmd)
+{
+	
+	log.info("exec: " + cmd);
+	
+	def doClean = cmd.execute()
+	
+	doClean.waitFor()
+	
+	if(doClean.exitValue()!=0)
+	{
+		log.error "return code: ${ doClean.exitValue()}"
+		log.error "stderr: ${doClean.err.text}"
+		log.error "stdout: ${doClean.in.text}"
+	}
+	
+	
+}
+
+
+
+RunCommand(projectPath,"sh -c cd "+projectPath + "/etc");
+
+RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/cleantables_dc.sql");
+RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/cleantables_tp.sql");
+
+RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/prepopulatesql_dc.sql");
+RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/prepopulatesql_tp.sql");
+
+
+assert true;</script>
+				</con:config>
+			</con:testStep>
+			
+			
+			<con:testStep type="groovy" name="StartDriver">
+				<con:settings/>
+				<con:config>
+					<script>/////////////////////////////////////////////////////////
+// Note: Generated by capture using Selenium in FF. 
+// Export to Java / JUnit 4 / WebDriver
+// Copy and paste into Groovy Script with minor tweaks
+/////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////
+// Need these imports to run tests
+/////////////////////////////////////////////////////////
+import org.openqa.selenium.By
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.firefox.FirefoxDriver
+
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+
+/////////////////////////////////////////////////////////
+// get variables from the project Custom Properties
+/////////////////////////////////////////////////////////
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+def BaseURL = project.getPropertyValue("BaseURL")
+def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
+def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
+
+
+/////////////////////////////////////////////////////////
+// Create a new instance of the Firefox driver
+/////////////////////////////////////////////////////////
+Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+driver._bLogActions = true;
+
+if( context["driver"] == null )
+context["driver"] = driver
+
+return
+//Then in later steps you can retrieve it as context["driverInstance"] 
+</script>
+				</con:config>
+			</con:testStep>
+			<con:testStep type="groovy" name="LoginManager">
+				<con:settings/>
+				<con:config>
+					<script>/////////////////////////////////////////////////////////
+// Need these imports to run tests
+/////////////////////////////////////////////////////////
+import org.openqa.selenium.By
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.firefox.FirefoxDriver
+
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+
+/////////////////////////////////////////////////////////
+// define some variables
+/////////////////////////////////////////////////////////
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+def BaseURL = project.getPropertyValue("BaseURL")
+def ServiceEndpoint=BaseURL+"/DataCustodian"
+def TestManager=project.getPropertyValue("TestManager")
+def TestManagerPW=project.getPropertyValue("TestManagerPW")
+
+log.info( TestManager + "  " + TestManagerPW)
+/////////////////////////////////////////////////////////
+// fetch driver from context
+/////////////////////////////////////////////////////////
+Object driver = context["driver"]
+
+try{
+	/////////////////////////////////////////////////////////
+	// Open the DataCustodian Page
+	/////////////////////////////////////////////////////////
+	driver.get(ServiceEndpoint)
+	
+	
+	/////////////////////////////////////////////////////////
+	// Log in as Manager
+	/////////////////////////////////////////////////////////
+	driver.findElement(By.id("login")).click();
+	driver.findElement(By.name("j_username")).clear()
+	driver.findElement(By.name("j_username")).sendKeys(TestManager)
+	driver.findElement(By.name("j_password")).clear()
+	driver.findElement(By.name("j_password")).sendKeys(TestManagerPW)
+	driver.findElement(By.name("submit")).click()
+
+} catch(Exception e) {
+	testRunner.fail(driver.getErrorString())
+	driver.quit();
+}</script>
+				</con:config>
+			</con:testStep>
+			<con:testStep type="groovy" name="UploadTwoFilesViaGui">
+				<con:settings/>
+				<con:config>
+					<script>/////////////////////////////////////////////////////////
+// Need these imports to run tests
+/////////////////////////////////////////////////////////
+import org.openqa.selenium.By
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.firefox.FirefoxDriver
+
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+
+/////////////////////////////////////////////////////////
+// define some variables
+/////////////////////////////////////////////////////////
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+
+
+/////////////////////////////////////////////////////////
+// fetch driver from context
+/////////////////////////////////////////////////////////
+Object driver = context["driver"]
+try {
+	/////////////////////////////////////////////////////////
+	// Open the DataCustodian Page
+	/////////////////////////////////////////////////////////
+	
+	
+	/////////////////////////////////////////////////////////
+	// Now to the upload
+	/////////////////////////////////////////////////////////
+	// Alan id=1
+	driver.findElement(By.linkText("Upload")).click();
+	driver.findElement(By.name("file")).sendKeys(TestFile);
+	driver.findElement(By.name("upload")).click();
+	driver.findElement(By.linkText("Customer List")).click();
+	driver.findElement(By.linkText(TestRetailCustomer)).click();
+	driver.findElement(By.partialLinkText("Add Usage")).click();
+	driver.findElement(By.id("UUID")).clear();
+	driver.findElement(By.id("UUID")).sendKeys("48C2A019-5598-4E16-B0F9-49E4FF27F5FB");
+	driver.findElement(By.name("create")).click();
+	
+	// Charles id=5
+	TestFile=projectPath + "/../data/" + "Gas.xml"
+	driver.findElement(By.linkText("Upload")).click();
+	driver.findElement(By.name("file")).sendKeys(TestFile);
+	driver.findElement(By.name("upload")).click();
+	driver.findElement(By.linkText("Customer List")).click();
+	driver.findElement(By.linkText("charles")).click();
+	driver.findElement(By.partialLinkText("Add Usage")).click();
+	driver.findElement(By.id("UUID")).clear();
+	driver.findElement(By.id("UUID")).sendKeys("0642EABA-8E42-4D1A-A375-AF54993C007B");
+	driver.findElement(By.name("create")).click();
+	
+	driver.findElement(By.id("logout")).click();
+
+} catch(Exception e) {
+	testRunner.fail(driver.getErrorString())
+	driver.quit();
+}</script>
+				</con:config>
+			</con:testStep>
+			<con:testStep type="groovy" name="AuthorizeTwoCustomer">
+				<con:settings/>
+				<con:config><script>/////////////////////////////////////////////////////////
+//	WebDriverTestStepTemplate
+//
+// This template allows for interactions with a web browser
+// based on the previous initialization of a webdriver 
+// stored in the context of the test.
+//
+// Previous to this step, include a copy of the StartDriver
+// script. You can then use the driver in this test step or
+// others like it.
+
+// Also note that steps created this way can only be run as 
+// part of the complete test and not as inidividual steps
+// run in isolation
+/////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////
+// Need these imports to run tests
+/////////////////////////////////////////////////////////
+import org.openqa.selenium.By
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.firefox.FirefoxDriver
+
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+import com.eviware.soapui.support.types.StringToStringMap;
+
+/////////////////////////////////////////////////////////
+// define some variables
+/////////////////////////////////////////////////////////
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+def BaseURL = project.getPropertyValue("BaseURL")
+def ServiceEndpoint=BaseURL+"/DataCustodian/home"
+
+/////////////////////////////////////////////////////////
+// fetch driver from context
+/////////////////////////////////////////////////////////
+Object driver = context["driver"]
+
+try {
+	/////////////////////////////////////////////////////////
+	// run test step details
+	/////////////////////////////////////////////////////////
+	// open Data Custodian
+	driver.get(ServiceEndpoint)
+	
+	
+	///////////////////////////////////////////////////////// 
+	// Log in as Alan and do the OAuth thing
+	/////////////////////////////////////////////////////////
+	
+	driver.findElement(By.id("login")).click();
+	driver.findElement(By.name("j_username")).clear();
+	driver.findElement(By.name("j_username")).sendKeys("alan");
+	driver.findElement(By.name("j_password")).clear();
+	driver.findElement(By.name("j_password")).sendKeys("koala");
+	driver.findElement(By.name("submit")).click();
+	driver.findElement(By.linkText("Third Parties")).click();
+	driver.findElement(By.name("Third_party")).click();
+	driver.findElement(By.cssSelector("label")).click();
+	driver.findElement(By.name("next")).click();
+	driver.findElement(By.name("j_username")).clear();
+	driver.findElement(By.name("j_username")).sendKeys("alan");
+	driver.findElement(By.name("j_password")).clear();
+	driver.findElement(By.name("j_password")).sendKeys("koala");
+	driver.findElement(By.name("submit")).click();
+	driver.findElement(By.name("scope")).click();
+	driver.findElement(By.name("next")).click();
+	driver.findElement(By.name("scope.FB=4_5_15;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13")).click();
+	driver.findElement(By.name("authorize")).click(); 
+	sleep(1000);
+	List&lt;WebElement> rows = driver.FindElementsByXpath("//td[@class='access_token']");
+	String accessToken1 = rows.get(rows.size() - 1).getText();
+	log.info("accessToken1:" +  accessToken1);
+
+	def headers = new StringToStringMap();
+	headers.put("Authorization","Bearer " + accessToken1);
+	
+//	testRunner.testCase.getTestStepByName("GET Subscription 1").testRequest.setRequestHeaders(headers);
+//	testRunner.testCase.getTestStepByName("GET Subscription 2").testRequest.setRequestHeaders(headers);
+	
+	project.setPropertyValue("subscriptionID","1");
+	driver.findElement(By.id("logout")).click();
+	ServiceEndpoint=BaseURL+"/DataCustodian/home"
+	driver.get(ServiceEndpoint)
+	driver.findElement(By.id("logout")).click();
+	driver.findElement(By.id("login")).click();
+	driver.findElement(By.name("j_username")).clear();
+	driver.findElement(By.name("j_username")).sendKeys("charles");
+	driver.findElement(By.name("j_password")).clear();
+	driver.findElement(By.name("j_password")).sendKeys("koala");
+	driver.findElement(By.name("submit")).click();
+	driver.findElement(By.linkText("Third Parties")).click();
+	driver.findElement(By.name("Third_party")).click();
+	driver.findElement(By.cssSelector("label")).click();
+	driver.findElement(By.name("next")).click();
+	driver.findElement(By.name("j_username")).clear();
+	driver.findElement(By.name("j_username")).sendKeys("charles");
+	driver.findElement(By.name("j_password")).clear();
+	driver.findElement(By.name("j_password")).sendKeys("koala");
+	driver.findElement(By.name("submit")).click();
+	driver.findElement(By.name("scope")).click();
+	driver.findElement(By.name("next")).click();
+	driver.findElement(By.name("scope.FB=4_5_15;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13")).click();
+	driver.findElement(By.name("authorize")).click(); sleep(1000)
+	driver.findElement(By.id("logout")).click();
+	
+	
+	//ServiceEndpoint=BaseURL+"/DataCustodian/home"
+	//driver.get(ServiceEndpoint)
+	//driver.findElement(By.id("logout")).click();
+} catch(Exception e) {
+	testRunner.fail(driver.getErrorString())
+	driver.quit();
+}</script></con:config>
+			</con:testStep>
+			<con:testStep type="groovy" name="LogoutManager">
+				<con:settings/>
+				<con:config>
+					<script>/////////////////////////////////////////////////////////
+// Need these imports to run tests
+/////////////////////////////////////////////////////////
+import org.openqa.selenium.By
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.firefox.FirefoxDriver
+
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+
+/////////////////////////////////////////////////////////
+// define some variables
+/////////////////////////////////////////////////////////
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+def BaseURL = project.getPropertyValue("BaseURL")
+def ServiceEndpoint=BaseURL+"/DataCustodian"
+def TestManager=project.getPropertyValue("TestManager")
+def TestManagerPW=project.getPropertyValue("TestManagerPW")
+
+/////////////////////////////////////////////////////////
+// fetch driver from context
+/////////////////////////////////////////////////////////
+Object driver = context["driver"]
+try {
+	/////////////////////////////////////////////////////////
+	// Logout Manager
+	/////////////////////////////////////////////////////////
+	driver.get(ServiceEndpoint)
+	driver.findElement(By.id("logout")).click();
+
+} catch(Exception e) {
+	testRunner.fail(driver.getErrorString())
+	driver.quit();
+}</script>
+				</con:config>
+			</con:testStep>
+			
+			
+			
+			
+			<con:testStep type="groovy" name="StopDriver">
+				<con:settings/>
+				<con:config>
+					<script>/////////////////////////////////////////////////////////
+// Note: Generated by capture using Selenium in FF. 
+// Export to Java / JUnit 4 / WebDriver
+// Copy and paste into Groovy Script with minor tweaks
+/////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////
+// Need these imports to run tests
+/////////////////////////////////////////////////////////
+import org.openqa.selenium.By
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.firefox.FirefoxDriver
+
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+
+
+
+/////////////////////////////////////////////////////////
+// Create a new instance of the Firefox driver
+/////////////////////////////////////////////////////////
+Object driver = context["driver"]
+
+//Close the browser
+driver.quit();
+
+//Then in later steps you can retrieve it as context["driverInstance"] 
+</script>
+				</con:config>
+			</con:testStep><con:properties/>
+		</con:testCase><con:properties/>
 	</con:testSuite>
 	<con:testSuite name="MartySandbox">
 		<con:settings/>
@@ -9982,460 +10447,7 @@ import java.io.File;
 	<con:testSuite name="Dons Sandbox">
 		<con:settings/>
 		<con:runType>SEQUENTIAL</con:runType>
-		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="EstablishTwoSubscriptions" searchProperties="true" id="842a41c8-96fb-4b15-bab5-c26d1f3f0dba">
-			<con:settings/>
-			<con:testStep type="groovy" name="resetDB">
-				<con:settings/>
-				<con:config>
-					<script>def project = testRunner.testCase.testSuite.project
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-def projectPath = groovyUtils.projectPath
-
-def mysqlCmd=project.getPropertyValue("mysqlCmd")
-def DBprepopulateScriptName = project.getPropertyValue("DBprepopulateScriptName")
-
-public boolean RunCommand(String path,String cmd)
-{
-	
-	log.info("exec: " + cmd);
-	
-	def doClean = cmd.execute()
-	
-	doClean.waitFor()
-	
-	if(doClean.exitValue()!=0)
-	{
-		log.error "return code: ${ doClean.exitValue()}"
-		log.error "stderr: ${doClean.err.text}"
-		log.error "stdout: ${doClean.in.text}"
-	}
-	
-	
-}
-
-
-
-RunCommand(projectPath,"sh -c cd "+projectPath + "/etc");
-
-RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/cleantables_dc.sql");
-RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/cleantables_tp.sql");
-
-RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/prepopulatesql_dc.sql");
-RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/prepopulatesql_tp.sql");
-
-
-assert true;</script>
-				</con:config>
-			</con:testStep>
-			
-			
-			<con:testStep type="groovy" name="StartDriver">
-				<con:settings/>
-				<con:config>
-					<script>/////////////////////////////////////////////////////////
-// Note: Generated by capture using Selenium in FF. 
-// Export to Java / JUnit 4 / WebDriver
-// Copy and paste into Groovy Script with minor tweaks
-/////////////////////////////////////////////////////////
-
-/////////////////////////////////////////////////////////
-// Need these imports to run tests
-/////////////////////////////////////////////////////////
-import org.openqa.selenium.By
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver
-import org.openqa.selenium.WebElement
-import org.openqa.selenium.firefox.FirefoxDriver
-
-import java.util.concurrent.TimeUnit;
-import java.util.regex.Pattern;
-import java.util.concurrent.TimeUnit;
-import org.junit.*;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-
-/////////////////////////////////////////////////////////
-// get variables from the project Custom Properties
-/////////////////////////////////////////////////////////
-def project = testRunner.testCase.testSuite.project
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-def projectPath = groovyUtils.projectPath
-def BaseURL = project.getPropertyValue("BaseURL")
-def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
-def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
-
-
-/////////////////////////////////////////////////////////
-// Create a new instance of the Firefox driver
-/////////////////////////////////////////////////////////
-Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
-driver._bLogActions = true;
-
-if( context["driver"] == null )
-context["driver"] = driver
-
-return
-//Then in later steps you can retrieve it as context["driverInstance"] 
-</script>
-				</con:config>
-			</con:testStep>
-			<con:testStep type="groovy" name="LoginManager">
-				<con:settings/>
-				<con:config>
-					<script>/////////////////////////////////////////////////////////
-// Need these imports to run tests
-/////////////////////////////////////////////////////////
-import org.openqa.selenium.By
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver
-import org.openqa.selenium.WebElement
-import org.openqa.selenium.firefox.FirefoxDriver
-
-import java.util.concurrent.TimeUnit;
-import java.util.regex.Pattern;
-import java.util.concurrent.TimeUnit;
-import org.junit.*;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-
-/////////////////////////////////////////////////////////
-// define some variables
-/////////////////////////////////////////////////////////
-
-def project = testRunner.testCase.testSuite.project
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-def projectPath = groovyUtils.projectPath
-
-def BaseURL = project.getPropertyValue("BaseURL")
-def ServiceEndpoint=BaseURL+"/DataCustodian"
-def TestManager=project.getPropertyValue("TestManager")
-def TestManagerPW=project.getPropertyValue("TestManagerPW")
-
-log.info( TestManager + "  " + TestManagerPW)
-/////////////////////////////////////////////////////////
-// fetch driver from context
-/////////////////////////////////////////////////////////
-Object driver = context["driver"]
-
-try{
-	/////////////////////////////////////////////////////////
-	// Open the DataCustodian Page
-	/////////////////////////////////////////////////////////
-	driver.get(ServiceEndpoint)
-	
-	
-	/////////////////////////////////////////////////////////
-	// Log in as Manager
-	/////////////////////////////////////////////////////////
-	driver.findElement(By.id("login")).click();
-	driver.findElement(By.name("j_username")).clear()
-	driver.findElement(By.name("j_username")).sendKeys(TestManager)
-	driver.findElement(By.name("j_password")).clear()
-	driver.findElement(By.name("j_password")).sendKeys(TestManagerPW)
-	driver.findElement(By.name("submit")).click()
-
-} catch(Exception e) {
-	testRunner.fail(driver.getErrorString())
-	driver.quit();
-}</script>
-				</con:config>
-			</con:testStep>
-			<con:testStep type="groovy" name="UploadTwoFilesViaGui">
-				<con:settings/>
-				<con:config>
-					<script>/////////////////////////////////////////////////////////
-// Need these imports to run tests
-/////////////////////////////////////////////////////////
-import org.openqa.selenium.By
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver
-import org.openqa.selenium.WebElement
-import org.openqa.selenium.firefox.FirefoxDriver
-
-import java.util.concurrent.TimeUnit;
-import java.util.regex.Pattern;
-import java.util.concurrent.TimeUnit;
-import org.junit.*;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-
-/////////////////////////////////////////////////////////
-// define some variables
-/////////////////////////////////////////////////////////
-
-def project = testRunner.testCase.testSuite.project
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-def projectPath = groovyUtils.projectPath
-
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
-def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
-def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-
-
-/////////////////////////////////////////////////////////
-// fetch driver from context
-/////////////////////////////////////////////////////////
-Object driver = context["driver"]
-try {
-	/////////////////////////////////////////////////////////
-	// Open the DataCustodian Page
-	/////////////////////////////////////////////////////////
-	
-	
-	/////////////////////////////////////////////////////////
-	// Now to the upload
-	/////////////////////////////////////////////////////////
-	// Alan id=1
-	driver.findElement(By.linkText("Upload")).click();
-	driver.findElement(By.name("file")).sendKeys(TestFile);
-	driver.findElement(By.name("upload")).click();
-	driver.findElement(By.linkText("Customer List")).click();
-	driver.findElement(By.linkText(TestRetailCustomer)).click();
-	driver.findElement(By.partialLinkText("Add Usage")).click();
-	driver.findElement(By.id("UUID")).clear();
-	driver.findElement(By.id("UUID")).sendKeys("48C2A019-5598-4E16-B0F9-49E4FF27F5FB");
-	driver.findElement(By.name("create")).click();
-	
-	// Charles id=5
-	TestFile=projectPath + "/../data/" + "Gas.xml"
-	driver.findElement(By.linkText("Upload")).click();
-	driver.findElement(By.name("file")).sendKeys(TestFile);
-	driver.findElement(By.name("upload")).click();
-	driver.findElement(By.linkText("Customer List")).click();
-	driver.findElement(By.linkText("charles")).click();
-	driver.findElement(By.partialLinkText("Add Usage")).click();
-	driver.findElement(By.id("UUID")).clear();
-	driver.findElement(By.id("UUID")).sendKeys("0642EABA-8E42-4D1A-A375-AF54993C007B");
-	driver.findElement(By.name("create")).click();
-	
-	driver.findElement(By.id("logout")).click();
-
-} catch(Exception e) {
-	testRunner.fail(driver.getErrorString())
-	driver.quit();
-}</script>
-				</con:config>
-			</con:testStep>
-			<con:testStep type="groovy" name="AuthorizeTwoCustomer">
-				<con:settings/>
-				<con:config><script>/////////////////////////////////////////////////////////
-//	WebDriverTestStepTemplate
-//
-// This template allows for interactions with a web browser
-// based on the previous initialization of a webdriver 
-// stored in the context of the test.
-//
-// Previous to this step, include a copy of the StartDriver
-// script. You can then use the driver in this test step or
-// others like it.
-
-// Also note that steps created this way can only be run as 
-// part of the complete test and not as inidividual steps
-// run in isolation
-/////////////////////////////////////////////////////////
-
-/////////////////////////////////////////////////////////
-// Need these imports to run tests
-/////////////////////////////////////////////////////////
-import org.openqa.selenium.By
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver
-import org.openqa.selenium.WebElement
-import org.openqa.selenium.firefox.FirefoxDriver
-
-import java.util.concurrent.TimeUnit;
-import java.util.regex.Pattern;
-import java.util.concurrent.TimeUnit;
-import org.junit.*;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-import com.eviware.soapui.support.types.StringToStringMap;
-
-/////////////////////////////////////////////////////////
-// define some variables
-/////////////////////////////////////////////////////////
-def project = testRunner.testCase.testSuite.project
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-def projectPath = groovyUtils.projectPath
-
-def BaseURL = project.getPropertyValue("BaseURL")
-def ServiceEndpoint=BaseURL+"/DataCustodian/home"
-
-/////////////////////////////////////////////////////////
-// fetch driver from context
-/////////////////////////////////////////////////////////
-Object driver = context["driver"]
-
-try {
-	/////////////////////////////////////////////////////////
-	// run test step details
-	/////////////////////////////////////////////////////////
-	// open Data Custodian
-	driver.get(ServiceEndpoint)
-	
-	
-	///////////////////////////////////////////////////////// 
-	// Log in as Alan and do the OAuth thing
-	/////////////////////////////////////////////////////////
-	
-	driver.findElement(By.id("login")).click();
-	driver.findElement(By.name("j_username")).clear();
-	driver.findElement(By.name("j_username")).sendKeys("alan");
-	driver.findElement(By.name("j_password")).clear();
-	driver.findElement(By.name("j_password")).sendKeys("koala");
-	driver.findElement(By.name("submit")).click();
-	driver.findElement(By.linkText("Third Parties")).click();
-	driver.findElement(By.name("Third_party")).click();
-	driver.findElement(By.cssSelector("label")).click();
-	driver.findElement(By.name("next")).click();
-	driver.findElement(By.name("j_username")).clear();
-	driver.findElement(By.name("j_username")).sendKeys("alan");
-	driver.findElement(By.name("j_password")).clear();
-	driver.findElement(By.name("j_password")).sendKeys("koala");
-	driver.findElement(By.name("submit")).click();
-	driver.findElement(By.name("scope")).click();
-	driver.findElement(By.name("next")).click();
-	driver.findElement(By.name("scope.FB=4_5_15;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13")).click();
-	driver.findElement(By.name("authorize")).click(); 
-	sleep(1000);
-	List&lt;WebElement> rows = driver.FindElementsByXpath("//td[@class='access_token']");
-	String accessToken1 = rows.get(rows.size() - 1).getText();
-	log.info("accessToken1:" +  accessToken1);
-
-	def headers = new StringToStringMap();
-	headers.put("Authorization","Bearer " + accessToken1);
-	
-//	testRunner.testCase.getTestStepByName("GET Subscription 1").testRequest.setRequestHeaders(headers);
-//	testRunner.testCase.getTestStepByName("GET Subscription 2").testRequest.setRequestHeaders(headers);
-	
-	project.setPropertyValue("subscriptionID","1");
-	driver.findElement(By.id("logout")).click();
-	ServiceEndpoint=BaseURL+"/DataCustodian/home"
-	driver.get(ServiceEndpoint)
-	driver.findElement(By.id("logout")).click();
-	driver.findElement(By.id("login")).click();
-	driver.findElement(By.name("j_username")).clear();
-	driver.findElement(By.name("j_username")).sendKeys("charles");
-	driver.findElement(By.name("j_password")).clear();
-	driver.findElement(By.name("j_password")).sendKeys("koala");
-	driver.findElement(By.name("submit")).click();
-	driver.findElement(By.linkText("Third Parties")).click();
-	driver.findElement(By.name("Third_party")).click();
-	driver.findElement(By.cssSelector("label")).click();
-	driver.findElement(By.name("next")).click();
-	driver.findElement(By.name("j_username")).clear();
-	driver.findElement(By.name("j_username")).sendKeys("charles");
-	driver.findElement(By.name("j_password")).clear();
-	driver.findElement(By.name("j_password")).sendKeys("koala");
-	driver.findElement(By.name("submit")).click();
-	driver.findElement(By.name("scope")).click();
-	driver.findElement(By.name("next")).click();
-	driver.findElement(By.name("scope.FB=4_5_15;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13")).click();
-	driver.findElement(By.name("authorize")).click(); sleep(1000)
-	driver.findElement(By.id("logout")).click();
-	
-	
-	//ServiceEndpoint=BaseURL+"/DataCustodian/home"
-	//driver.get(ServiceEndpoint)
-	//driver.findElement(By.id("logout")).click();
-} catch(Exception e) {
-	testRunner.fail(driver.getErrorString())
-	driver.quit();
-}</script></con:config>
-			</con:testStep>
-			<con:testStep type="groovy" name="LogoutManager">
-				<con:settings/>
-				<con:config>
-					<script>/////////////////////////////////////////////////////////
-// Need these imports to run tests
-/////////////////////////////////////////////////////////
-import org.openqa.selenium.By
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver
-import org.openqa.selenium.WebElement
-import org.openqa.selenium.firefox.FirefoxDriver
-
-import java.util.concurrent.TimeUnit;
-import java.util.regex.Pattern;
-import java.util.concurrent.TimeUnit;
-import org.junit.*;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-
-/////////////////////////////////////////////////////////
-// define some variables
-/////////////////////////////////////////////////////////
-
-def project = testRunner.testCase.testSuite.project
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-def projectPath = groovyUtils.projectPath
-
-def BaseURL = project.getPropertyValue("BaseURL")
-def ServiceEndpoint=BaseURL+"/DataCustodian"
-def TestManager=project.getPropertyValue("TestManager")
-def TestManagerPW=project.getPropertyValue("TestManagerPW")
-
-/////////////////////////////////////////////////////////
-// fetch driver from context
-/////////////////////////////////////////////////////////
-Object driver = context["driver"]
-try {
-	/////////////////////////////////////////////////////////
-	// Logout Manager
-	/////////////////////////////////////////////////////////
-	driver.get(ServiceEndpoint)
-	driver.findElement(By.id("logout")).click();
-
-} catch(Exception e) {
-	testRunner.fail(driver.getErrorString())
-	driver.quit();
-}</script>
-				</con:config>
-			</con:testStep>
-			
-			
-			
-			
-			<con:testStep type="groovy" name="StopDriver">
-				<con:settings/>
-				<con:config>
-					<script>/////////////////////////////////////////////////////////
-// Note: Generated by capture using Selenium in FF. 
-// Export to Java / JUnit 4 / WebDriver
-// Copy and paste into Groovy Script with minor tweaks
-/////////////////////////////////////////////////////////
-
-/////////////////////////////////////////////////////////
-// Need these imports to run tests
-/////////////////////////////////////////////////////////
-import org.openqa.selenium.By
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver
-import org.openqa.selenium.WebElement
-import org.openqa.selenium.firefox.FirefoxDriver
-
-import java.util.concurrent.TimeUnit;
-import java.util.regex.Pattern;
-import java.util.concurrent.TimeUnit;
-import org.junit.*;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-
-
-
-/////////////////////////////////////////////////////////
-// Create a new instance of the Firefox driver
-/////////////////////////////////////////////////////////
-Object driver = context["driver"]
-
-//Close the browser
-driver.quit();
-
-//Then in later steps you can retrieve it as context["driverInstance"] 
-</script>
-				</con:config>
-			</con:testStep><con:properties/>
-		</con:testCase>
+		
 		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestTwoTokens" searchProperties="true" id="52471459-d197-4027-aabe-61f91f6c298b"><con:settings/><con:testStep type="groovy" name="StartDriver">
 				<con:settings/>
 				<con:config>
@@ -10613,7 +10625,7 @@ driver.quit();
 								<con:jmsPropertyConfig/>
 								<con:parameters>
   <con:entry key="subscriptionID" value="1"/>
-  <con:entry key="Authorization" value="Bearer 65f79e57-a565-47cf-8178-f69a84ce7d71"/>
+  <con:entry key="Authorization" value="Bearer bdd9b97b-b1cf-4b35-9c15-a14356930415"/>
   <con:entry key="subscriptionId" value="1"/>
 </con:parameters>
 								<con:settings>
@@ -10629,7 +10641,7 @@ driver.quit();
 								<con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>assert messageExchange.responseStatusCode == 200	</scriptText></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
 								<con:jmsPropertyConfig/>
 								<con:parameters>
-  <con:entry key="Authorization" value="Bearer b883a4d4-b4ef-450c-adc2-aed8c9128865"/>
+  <con:entry key="Authorization" value="Bearer 14e9da63-b611-43a3-8010-b4830d789de4"/>
   <con:entry key="subscriptionID" value="2"/>
   <con:entry key="subscriptionId" value="2"/>
 </con:parameters>
@@ -10640,70 +10652,24 @@ driver.quit();
 									<con:authType>Global HTTP Settings</con:authType>
 								</con:credentials>
 								<con:parameterOrder><con:entry>subscriptionID</con:entry><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
-							</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="GET Subscription 1-save" disabled="true">
-				<con:settings/>
-				<con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/{subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-					<con:restRequest name="GET Subscription 1-save" mediaType="application/json">
-						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-						<con:request/>
-						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/1</con:originalUri>
-						<con:assertion type="GroovyScriptAssertion" name="Script Assertion">
-							<con:configuration><scriptText>assert messageExchange.responseStatusCode == 200</scriptText></con:configuration>
-						</con:assertion>
-						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-						<con:jmsPropertyConfig/>
-						<con:parameters>
-  <con:entry key="Authorization" value="Bearer ${#Project#userAccessToken1}"/>
+							</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="GET Subscription 1 Wrong Access Token"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/{subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET Subscription 1 Wrong Access Token" mediaType="application/json">
+								<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+								<con:request/>
+								<con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>assert messageExchange.responseStatusCode != 200</scriptText></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+								<con:jmsPropertyConfig/>
+								<con:parameters>
+  <con:entry key="Authorization" value="Bearer ${#Project#useraccesstoken2}"/>
   <con:entry key="subscriptionID" value="1"/>
+  <con:entry key="subscriptionId" value="1"/>
 </con:parameters>
-						<con:settings>
-							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="Bearer 65f79e57-a565-47cf-8178-f69a84ce7d71" xmlns="http://eviware.com/soapui/config"/></con:setting>
-						</con:settings>
-						<con:credentials>
-							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
-							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
-							<con:authType>Global HTTP Settings</con:authType>
-						</con:credentials>
-						<con:parameterOrder><con:entry>subscriptionID</con:entry><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
-					</con:restRequest>
-				</con:config>
-			</con:testStep><con:testStep type="restrequest" name="GET Subscription 2-save" disabled="true">
-				<con:settings/>
-				<con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/{subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-					<con:restRequest name="GET Subscription 2-save" mediaType="application/json">
-						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-						<con:request/>
-						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/2</con:originalUri>
-						<con:assertion type="GroovyScriptAssertion" name="Script Assertion">
-							<con:configuration>
-								<scriptText>assert messageExchange.responseStatusCode != 200</scriptText>
-							</con:configuration>
-						</con:assertion>
-						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-						<con:jmsPropertyConfig/>
-						<con:parameters/>
-						<con:settings>
-							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="Bearer 65f79e57-a565-47cf-8178-f69a84ce7d71" xmlns="http://eviware.com/soapui/config"/></con:setting>
-						</con:settings>
-						<con:credentials>
-							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
-							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
-							<con:authType>Global HTTP Settings</con:authType>
-						</con:credentials>
-						<con:parameterOrder><con:entry>subscriptionID</con:entry><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
-					</con:restRequest>
-				</con:config>
-			</con:testStep><con:testStep type="groovy" name="Set subsription ID = 1" disabled="true">
-				<con:settings/>
-				<con:config><script>def project = testRunner.testCase.testSuite.project
-project.setPropertyValue("subscriptionID","1");
-
-def teststep = testRunner.testCase.getTestStepByName("GET Subscription 1")
-
-teststep.setPropertyValue("Authorization","Bearer "+ "12345");
-//testRunner.testCase.getTestStepByName("GET Subscription 1")["Properties"].setPropertyValue("subscriptionId","1");
-</script></con:config>
-			</con:testStep><con:properties/></con:testCase><con:properties/>
+								<con:settings>
+									<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+								</con:settings>
+								<con:credentials>
+									<con:authType>Global HTTP Settings</con:authType>
+								</con:credentials>
+								<con:parameterOrder><con:entry>subscriptionID</con:entry><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
+							</con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/>
 	</con:testSuite>
 	<con:properties>
 		<con:property>
@@ -10842,7 +10808,7 @@ teststep.setPropertyValue("Authorization","Bearer "+ "12345");
 			<con:name>upload_access_token</con:name>
 			<con:value>688b026c-665f-4994-9139-6b21b13fbeee</con:value>
 		</con:property>
-	<con:property><con:name>userAccessToken1</con:name><con:value>65f79e57-a565-47cf-8178-f69a84ce7d71</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>b883a4d4-b4ef-450c-adc2-aed8c9128865</con:value></con:property></con:properties>
+	<con:property><con:name>userAccessToken1</con:name><con:value>bdd9b97b-b1cf-4b35-9c15-a14356930415</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>14e9da63-b611-43a3-8010-b4830d789de4</con:value></con:property></con:properties>
 	<con:wssContainer/>
 	<con:oAuth2ProfileContainer/>
 	<con:sensitiveInformation/>
