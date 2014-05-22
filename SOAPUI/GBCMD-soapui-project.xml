@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <con:soapui-project activeEnvironment="Default" name="GBCMD" resourceRoot="${projectDir}" soapui-version="4.6.4" abortOnError="false" runType="SEQUENTIAL" defaultScriptLanguage="Groovy" xmlns:con="http://eviware.com/soapui/config">
 	<con:settings/>
-	<con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="ESPI Resources" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="ESPI Resources" type="rest" id="67592114-eb87-42a5-87f1-4c996a14c5da" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 		<con:settings/>
 		
-		<con:definitionCache type="TEXT" rootPart=""/><con:resource name="resource" path="/espi/1_1/resource">
+		<con:definitionCache type="TEXT" rootPart=""/><con:resource name="resource" path="/espi/1_1/resource" id="58456799-b780-49f8-bfec-ecb0dcda8a7d">
 			<con:settings/>
 			<con:parameters><con:parameter><con:name>Authorization</con:name><con:value>Bearer ${#Project#data_custodian_access_token}</con:value><con:style>HEADER</con:style><con:default>Bearer ${#Project#data_custodian_access_token}</con:default></con:parameter><con:parameter><con:name>Content-Type</con:name><con:value>Application/atom+xml</con:value><con:style>HEADER</con:style><con:default>Application/atom+xml</con:default></con:parameter></con:parameters>
-			<con:resource name="RetailCustomer/{retailCustomerId}" path="RetailCustomer/{retailCustomerId}">
+			<con:resource name="RetailCustomer/{retailCustomerId}" path="RetailCustomer/{retailCustomerId}" id="39ee7cea-2cc9-4af0-a7d7-7be074dcd599">
 				<con:settings/>
-				<con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint" path="UsagePoint">
+				<con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint" path="UsagePoint" id="5ce235fb-c4fc-42f1-a51e-6c3999d35ed5">
 					<con:settings/>
-					<con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint/{usagePointId}" path="{usagePointId}">
+					<con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint/{usagePointId}" path="{usagePointId}" id="f5125a90-d6fc-4895-896c-1de873b79c81">
 						<con:settings/>
-						<con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint/{usagePointId}/MeterReading" path="MeterReading">
+						<con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint/{usagePointId}/MeterReading" path="MeterReading" id="dd479094-4925-4618-b34b-2d72724a9290">
 							<con:settings/>
 							<con:parameters/>
-							<con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint/{usagePointId}/MeterReading/{meterReadingId}" path="{meterReadingId}">
+							<con:resource name="RetailCustomer/{retailCustomerId}/UsagePoint/{usagePointId}/MeterReading/{meterReadingId}" path="{meterReadingId}" id="667f0230-d621-4935-a8db-95e6448bb9ac">
 								<con:settings/>
 								
-								<con:resource name="IntervalBlock" path="IntervalBlock">
+								<con:resource name="IntervalBlock" path="IntervalBlock" id="04f9757e-0df3-43c0-bb15-0992559ab09c">
 									<con:settings/>
 									<con:parameters/>
-									<con:resource name="${#Project#intervalBlockId}" path="{intervalBlockId}">
+									<con:resource name="${#Project#intervalBlockId}" path="{intervalBlockId}" id="e3ba935d-83a8-4cf1-9fc6-b766eca1e645">
 										<con:settings/>
-										<con:method name="Get IntervalBlock" method="GET">
+										<con:method name="Get IntervalBlock" method="GET" id="01633614-fa52-4019-850d-93e78a4c8d76">
 											<con:settings/>
 											<con:parameters/>
-											<con:request name="Get IntervalBlock" mediaType="application/json">
+											<con:request name="Get IntervalBlock" mediaType="application/json" id="5f133057-22c9-4c89-8ece-b9d16a0cb067">
 												<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 												<con:request/>
 												<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
@@ -56,7 +56,7 @@
 												<con:default>${#Project#intervalBlockId}</con:default>
 											</con:parameter>
 										</con:parameters>
-										<con:method name="Delete" method="DELETE">
+										<con:method name="Delete" method="DELETE" id="f8035e1b-4c72-4559-b490-28ff05e02158">
 											<con:settings/>
 											<con:parameters/>
 											<con:representation type="RESPONSE">
@@ -65,7 +65,7 @@
 												<con:params/>
 												<con:element>data</con:element>
 											</con:representation>
-											<con:request name="Request 1" mediaType="application/json">
+											<con:request name="Request 1" mediaType="application/json" id="00926dec-a872-4084-8c07-671e5a0f344e">
 												<con:settings>
 													<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 												</con:settings>
@@ -80,7 +80,7 @@
 												<con:parameterOrder><con:entry>retailCustomerId</con:entry><con:entry>usagePointId</con:entry><con:entry>meterReadingId</con:entry><con:entry>intervalBlockId</con:entry><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
 											</con:request>
 										</con:method>
-										<con:method name="Put" method="PUT">
+										<con:method name="Put" method="PUT" id="2e3c9f8d-583b-4662-8ee7-dbcdfb9e718b">
 											<con:settings/>
 											<con:parameters/>
 											<con:representation type="REQUEST">
@@ -94,7 +94,7 @@
 												<con:params/>
 												<con:element>data</con:element>
 											</con:representation>
-											<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false">
+											<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false" id="a9b26c6b-56eb-42b0-a0c0-7b1b6f855f93">
 												<con:settings>
 													<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 												</con:settings>
@@ -117,10 +117,10 @@
 											</con:request>
 										</con:method>
 									</con:resource>
-									<con:method name="Get IntervalBlock feed" method="GET">
+									<con:method name="Get IntervalBlock feed" method="GET" id="21ef2dbc-dcf5-4b86-b590-b6ba06a24f54">
 										<con:settings/>
 										<con:parameters/>
-										<con:request name="Get IntervalBlock feed" mediaType="application/json">
+										<con:request name="Get IntervalBlock feed" mediaType="application/json" id="5ffbd4cc-06cb-4388-82ce-65ff10fa0dd2">
 											<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 											<con:request/>
 											<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
@@ -147,7 +147,7 @@
 											<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element>
 										</con:representation>
 									</con:method>
-									<con:method name="Post" method="POST">
+									<con:method name="Post" method="POST" id="61615bb4-f74c-46ea-b8b9-122426df57b0">
 										<con:settings/>
 										<con:parameters/>
 										<con:representation type="REQUEST">
@@ -176,7 +176,7 @@
 											<con:params/>
 											<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element>
 										</con:representation>
-										<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false">
+										<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false" id="81aa48eb-cc28-4e5d-8062-09cd9af7c58e">
 											<con:settings>
 												<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 											</con:settings>
@@ -205,10 +205,10 @@
 										</con:request>
 									</con:method>
 								</con:resource>
-								<con:method name="Get MeterReading" method="GET">
+								<con:method name="Get MeterReading" method="GET" id="551916c3-761d-4c40-8264-517ed1f542ba">
 									<con:settings/>
 									<con:parameters/>
-									<con:request name="Get MeterReading" mediaType="application/json">
+									<con:request name="Get MeterReading" mediaType="application/json" id="4d40be93-49f0-49d3-9afa-01c5476eb30c">
 										<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 										<con:request/>
 										<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
@@ -270,7 +270,7 @@
 										<con:default>${#Project#meterReadingId}</con:default>
 									</con:parameter>
 								</con:parameters>
-								<con:method name="Delete" method="DELETE">
+								<con:method name="Delete" method="DELETE" id="d4e4a145-b685-4050-a2c5-0cf6326bb925">
 									<con:settings/>
 									<con:parameters/>
 									<con:representation type="FAULT">
@@ -279,7 +279,7 @@
 										<con:params/>
 										<con:element>data</con:element>
 									</con:representation>
-									<con:request name="Request 1" mediaType="application/json">
+									<con:request name="Request 1" mediaType="application/json" id="bb485615-b1c4-4737-99cb-c3ef5cb410ba">
 										<con:settings>
 											<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 										</con:settings>
@@ -300,7 +300,7 @@
 										</con:parameterOrder>
 									</con:request>
 								</con:method>
-								<con:method name="Put" method="PUT">
+								<con:method name="Put" method="PUT" id="17d402c0-7375-4b54-a1e4-8a0e0b959e0b">
 									<con:settings/>
 									<con:parameters/>
 									<con:representation type="REQUEST">
@@ -314,7 +314,7 @@
 										<con:params/>
 										<con:element>data</con:element>
 									</con:representation>
-									<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false">
+									<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false" id="64508de7-912e-4576-a539-99260c7eccaf">
 										<con:settings>
 											<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 										</con:settings>
@@ -348,10 +348,10 @@
 									</con:request>
 								</con:method>
 							</con:resource>
-							<con:method name="Get MeterReading feed" method="GET">
+							<con:method name="Get MeterReading feed" method="GET" id="fac659b4-8b5a-4c56-8657-036702599d8a">
 								<con:settings/>
 								<con:parameters/>
-								<con:request name="Get MeterReading feed" mediaType="application/json">
+								<con:request name="Get MeterReading feed" mediaType="application/json" id="c539122a-0a10-4691-8a46-d7562e1c64f8">
 									<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 									<con:request/>
 									<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
@@ -378,7 +378,7 @@
 									<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element>
 								</con:representation>
 							<con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation></con:method>
-							<con:method name="Post" method="POST">
+							<con:method name="Post" method="POST" id="cee5be56-6cae-4c4e-9ceb-b442e2f60ea2">
 								<con:settings/>
 								<con:parameters/>
 								<con:representation type="FAULT">
@@ -408,7 +408,7 @@
 									<con:params/>
 									<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element>
 								</con:representation>
-								<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false">
+								<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false" id="5df47eec-47d5-4042-9d5e-98ef4f50a1ef">
 									<con:settings>
 										<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 									</con:settings>
@@ -436,10 +436,10 @@
 								</con:request>
 							</con:method>
 						</con:resource>
-						<con:resource name="ElectricPowerQualitySummary" path="ElectricPowerQualitySummary">
+						<con:resource name="ElectricPowerQualitySummary" path="ElectricPowerQualitySummary" id="54f55f7e-6f0a-44b3-bfae-9f63eab5c530">
 							<con:settings/>
 							<con:parameters/>
-							<con:resource name="${#Project#electricPowerQualitySummaryId}" path="{electricPowerQualitySummaryId}">
+							<con:resource name="${#Project#electricPowerQualitySummaryId}" path="{electricPowerQualitySummaryId}" id="3ef88d26-24ee-46f9-b6bc-9bbb390e911f">
 								<con:settings/>
 								<con:parameters>
 									<con:parameter>
@@ -449,7 +449,7 @@
 										<con:default>${#Project#electricPowerQualitySummaryId}</con:default>
 									</con:parameter>
 								</con:parameters>
-								<con:method name="Get" method="GET">
+								<con:method name="Get" method="GET" id="fe7fae0e-c1fb-44a3-ad16-8276e94621d2">
 									<con:settings/>
 									<con:parameters/>
 									<con:representation type="RESPONSE">
@@ -458,7 +458,7 @@
 										<con:params/>
 										<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element>
 									</con:representation>
-									<con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="Request 1" mediaType="application/json">
+									<con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="5684fd3a-2087-45a9-8a27-0939ae3c963a">
 										<con:settings>
 											<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 										</con:settings>
@@ -473,7 +473,7 @@
 										<con:parameterOrder><con:entry>retailCustomerId</con:entry><con:entry>usagePointId</con:entry><con:entry>electricPowerQualitySummaryId</con:entry><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
 									</con:request>
 								</con:method>
-								<con:method name="Delete" method="DELETE">
+								<con:method name="Delete" method="DELETE" id="7aefc6cf-ad56-44fb-9f8e-c8e75442b3e3">
 									<con:settings/>
 									<con:parameters/>
 									<con:representation type="RESPONSE">
@@ -482,7 +482,7 @@
 										<con:params/>
 										<con:element>data</con:element>
 									</con:representation>
-									<con:request name="Request 1" mediaType="application/json">
+									<con:request name="Request 1" mediaType="application/json" id="aa6e9c78-d11b-4e75-a7da-b87395f06413">
 										<con:settings>
 											<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 										</con:settings>
@@ -497,7 +497,7 @@
 										<con:parameterOrder><con:entry>retailCustomerId</con:entry><con:entry>usagePointId</con:entry><con:entry>electricPowerQualitySummaryId</con:entry><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
 									</con:request>
 								</con:method>
-								<con:method name="Put" method="PUT">
+								<con:method name="Put" method="PUT" id="fc054a80-cf37-484f-9fc0-ff426d117427">
 									<con:settings/>
 									<con:parameters/>
 									<con:representation type="REQUEST">
@@ -517,7 +517,7 @@
 										<con:params/>
 										<con:element>data</con:element>
 									</con:representation>
-									<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false">
+									<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false" id="98cf20ae-c948-43a0-9ec9-bcf39104abf6">
 										<con:settings>
 											<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 										</con:settings>
@@ -561,7 +561,7 @@
 									</con:request>
 								</con:method>
 							</con:resource>
-							<con:method name="Get" method="GET">
+							<con:method name="Get" method="GET" id="0dcc12a8-b981-4144-9a87-1ffe6762887b">
 								<con:settings/>
 								<con:parameters/>
 								<con:representation type="RESPONSE">
@@ -570,7 +570,7 @@
 									<con:params/>
 									<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element>
 								</con:representation>
-								<con:request name="Request 1" mediaType="application/json">
+								<con:request name="Request 1" mediaType="application/json" id="813a40cf-d341-4a31-b9b6-ff3db93a2048">
 									<con:settings>
 										<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 									</con:settings>
@@ -585,7 +585,7 @@
 									<con:parameterOrder><con:entry>retailCustomerId</con:entry><con:entry>usagePointId</con:entry><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
 								</con:request>
 							</con:method>
-							<con:method name="Post" method="POST">
+							<con:method name="Post" method="POST" id="925871fc-f5a9-4d14-9fd4-4dbc6dad7c3a">
 								<con:settings/>
 								<con:parameters/>
 								<con:representation type="REQUEST">
@@ -598,7 +598,7 @@
 									<con:status>400</con:status>
 									<con:params/>
 								</con:representation>
-								<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false">
+								<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false" id="992c6b41-761f-484e-879d-ba10a8b102be">
 									<con:settings>
 										<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 									</con:settings>
@@ -642,10 +642,10 @@
 								</con:request>
 							</con:method>
 						</con:resource>
-						<con:resource name="ElectricPowerUsageSummary" path="ElectricPowerUsageSummary">
+						<con:resource name="ElectricPowerUsageSummary" path="ElectricPowerUsageSummary" id="31c46858-4193-425a-a9b1-abc0a1cf2c14">
 							<con:settings/>
 							<con:parameters/>
-							<con:resource name="ElectricPowerUsageSummary/{electricPowerUsageSummaryId}" path="{electricPowerUsageSummaryId}">
+							<con:resource name="ElectricPowerUsageSummary/{electricPowerUsageSummaryId}" path="{electricPowerUsageSummaryId}" id="dbd4d08e-cfd1-4c89-9667-cca40e6e3980">
 								<con:settings/>
 								<con:parameters>
 									<con:parameter>
@@ -655,7 +655,7 @@
 										<con:default>${#Project#electricPowerUsageSummaryId}</con:default>
 									</con:parameter>
 								</con:parameters>
-								<con:method name="Get" method="GET">
+								<con:method name="Get" method="GET" id="1cf9d790-23a9-41d9-b0c3-57624afc3c26">
 									<con:settings/>
 									<con:parameters/>
 									<con:representation type="RESPONSE">
@@ -664,7 +664,7 @@
 										<con:params/>
 										<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element>
 									</con:representation>
-									<con:representation type="RESPONSE"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>200</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="Request 1" mediaType="application/json">
+									<con:representation type="RESPONSE"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>200</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="6559ec6c-c5dc-4f86-9184-dba53c2f1989">
 										<con:settings>
 											<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 										</con:settings>
@@ -679,7 +679,7 @@
 										<con:parameterOrder><con:entry>retailCustomerId</con:entry><con:entry>usagePointId</con:entry><con:entry>#Project#electricPowerUsageSummaryId</con:entry><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
 									</con:request>
 								</con:method>
-								<con:method name="Delete" method="DELETE">
+								<con:method name="Delete" method="DELETE" id="a0218f7a-e6a6-4b01-ade2-092a3f9d0fc6">
 									<con:settings/>
 									<con:parameters/>
 									<con:representation type="RESPONSE">
@@ -688,7 +688,7 @@
 										<con:params/>
 										<con:element>data</con:element>
 									</con:representation>
-									<con:request name="Request 1" mediaType="application/json">
+									<con:request name="Request 1" mediaType="application/json" id="7f57580a-72ac-4a4b-9dd7-74fddb6fe3b0">
 										<con:settings>
 											<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 										</con:settings>
@@ -703,7 +703,7 @@
 										<con:parameterOrder><con:entry>retailCustomerId</con:entry><con:entry>usagePointId</con:entry><con:entry>electricPowerUsageSummaryId</con:entry><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
 									</con:request>
 								</con:method>
-								<con:method name="Put" method="PUT">
+								<con:method name="Put" method="PUT" id="7b1ec31a-fedc-43a0-af8b-d1e817ecc009">
 									<con:settings/>
 									<con:parameters/>
 									<con:representation type="RESPONSE">
@@ -717,7 +717,7 @@
 										<con:params/>
 										<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element>
 									</con:representation>
-									<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false">
+									<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false" id="281cef02-8a10-4b7f-acab-6fff9b20aa9d">
 										<con:settings>
 											<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 										</con:settings>
@@ -765,7 +765,7 @@
 									</con:request>
 								</con:method>
 							</con:resource>
-							<con:method name="Get" method="GET">
+							<con:method name="Get" method="GET" id="b4ce6afd-b43e-4cb2-980e-2100b28f157e">
 								<con:settings/>
 								<con:parameters/>
 								<con:representation type="RESPONSE">
@@ -774,7 +774,7 @@
 									<con:params/>
 									<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element>
 								</con:representation>
-								<con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="Request 1" mediaType="application/json">
+								<con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="45ef3721-e01c-48c5-8835-5e059acc8ca9">
 									<con:settings>
 										<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 									</con:settings>
@@ -789,7 +789,7 @@
 									<con:parameterOrder><con:entry>retailCustomerId</con:entry><con:entry>usagePointId</con:entry><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
 								</con:request>
 							</con:method>
-							<con:method name="Post" method="POST">
+							<con:method name="Post" method="POST" id="a34907fe-97a2-416e-a445-f5a841d86d1f">
 								<con:settings/>
 								<con:parameters/>
 								<con:representation type="FAULT">
@@ -802,7 +802,7 @@
 									<con:params/>
 									<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element>
 								</con:representation>
-								<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false">
+								<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false" id="0227abe2-4fb7-41b0-8653-1b11f870dedb">
 									<con:settings>
 										<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 									</con:settings>
@@ -851,10 +851,10 @@
 							</con:method>
 						</con:resource>
 						
-						<con:method name="Get UsagePoint" method="GET">
+						<con:method name="Get UsagePoint" method="GET" id="d6d1558a-f9be-4217-b66f-5278251b585c">
 							<con:settings/>
 							<con:parameters/>
-							<con:request name="Get UsagePoint" mediaType="application/json">
+							<con:request name="Get UsagePoint" mediaType="application/json" id="804a8819-b0eb-478e-81ae-1331475ad1c5">
 								<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 								<con:request/>
 								<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
@@ -912,7 +912,7 @@
 							</con:parameter>
 							
 						</con:parameters>
-						<con:method name="Delete" method="DELETE">
+						<con:method name="Delete" method="DELETE" id="d2b21444-cd59-4b0c-8d95-8caf7b232898">
 							<con:settings/>
 							<con:parameters/>
 							<con:representation type="RESPONSE">
@@ -921,7 +921,7 @@
 								<con:params/>
 								<con:element>data</con:element>
 							</con:representation>
-							<con:request name="Request 1" mediaType="application/json">
+							<con:request name="Request 1" mediaType="application/json" id="311f3b07-b7d3-4bf3-82e2-ef653e12d883">
 								<con:settings>
 									<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 								</con:settings>
@@ -936,7 +936,7 @@
 								<con:parameterOrder><con:entry>retailCustomerId</con:entry><con:entry>usagePointId</con:entry><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
 							</con:request>
 						</con:method>
-						<con:method name="Put" method="PUT">
+						<con:method name="Put" method="PUT" id="9a059a81-22da-4f47-ac51-26ec3f681d3b">
 							<con:settings/>
 							<con:parameters/>
 							<con:representation type="RESPONSE">
@@ -950,7 +950,7 @@
 								<con:params/>
 								<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element>
 							</con:representation>
-							<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false">
+							<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false" id="20d4ca7b-6445-4ab7-8464-71e7618f8974">
 								<con:settings>
 									<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 								</con:settings>
@@ -984,7 +984,7 @@
 							</con:request>
 						</con:method>
 					</con:resource>
-					<con:method name="Get UsagePoint feed" method="GET">
+					<con:method name="Get UsagePoint feed" method="GET" id="0a894934-0758-4b1b-82e5-e6eca9c728bb">
 						<con:settings/>
 						<con:parameters/>
 						<con:representation type="RESPONSE">
@@ -999,7 +999,7 @@
 							<con:params/>
 							<con:element>data</con:element>
 						</con:representation>
-						<con:request name="Get UsagePoint feed" mediaType="application/json">
+						<con:request name="Get UsagePoint feed" mediaType="application/json" id="a37630d8-3590-4a4c-9c4e-3781ba5dee1a">
 							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 							<con:request/>
 							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
@@ -1107,7 +1107,7 @@
 							<con:params/>
 						</con:representation>
 					<con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation></con:method>
-					<con:method name="Post UsagePoint" method="POST">
+					<con:method name="Post UsagePoint" method="POST" id="db82a47b-76c2-43a9-ba99-dcbeda69e0ea">
 						<con:settings/>
 						<con:parameters/>
 						<con:representation type="FAULT">
@@ -1148,7 +1148,7 @@
 							<con:params/>
 							<con:element>html</con:element>
 						</con:representation>
-						<con:request name="Post UsagePoint" mediaType="application/atom+xml" postQueryString="false">
+						<con:request name="Post UsagePoint" mediaType="application/atom+xml" postQueryString="false" id="3fe9b295-1d89-4fdf-9b82-9f5b04a293c5">
 							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 							<con:request><![CDATA[<ns3:entry xmlns:espi="http://naesb.org/espi" xmlns:ns3="http://www.w3.org/2005/Atom">
    <ns3:id>urn:uuid:48C2A019-5598-4E16-B0F9-49E4FF27F5FB</ns3:id>
@@ -1208,7 +1208,7 @@
 					
 					
 				</con:parameters>
-				<con:method name="Delete" method="DELETE">
+				<con:method name="Delete" method="DELETE" id="cca52595-c097-4b8a-bb79-420a4963ab26">
 					<con:settings/>
 					<con:parameters/>
 					<con:representation type="FAULT">
@@ -1247,7 +1247,7 @@
 						<con:params/>
 						<con:element>html</con:element>
 					</con:representation>
-					<con:request name="Request 1" mediaType="application/json">
+					<con:request name="Request 1" mediaType="application/json" id="f1760f2e-bfa3-483e-abf6-e20763eed778">
 						<con:settings>
 							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 						</con:settings>
@@ -1271,15 +1271,15 @@
 					</con:request>
 				</con:method>
 			</con:resource>
-			<con:resource name="IntervalBlock" path="IntervalBlock">
+			<con:resource name="IntervalBlock" path="IntervalBlock" id="be0213b2-9ac2-43e2-b28c-aafea338b051">
 				<con:settings/>
 				<con:parameters/>
-				<con:resource name="{intervalBlockId}" path="{intervalBlockId}">
+				<con:resource name="{intervalBlockId}" path="{intervalBlockId}" id="acefa865-1a9e-4c58-bca5-bef8addc24e7">
 					<con:settings/>
-					<con:method name="Get root IntervalBlock" method="GET">
+					<con:method name="Get root IntervalBlock" method="GET" id="20588ce2-a0fc-4a5e-a7c5-0d5fdf090e96">
 						<con:settings/>
 						<con:parameters/>
-						<con:request name="Get root IntervalBlock" mediaType="application/json">
+						<con:request name="Get root IntervalBlock" mediaType="application/json" id="df109c2a-8686-44f2-a9a1-024b74d4febe">
 							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 							<con:request/>
 							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
@@ -1309,10 +1309,10 @@
 						</con:parameter>
 					</con:parameters>
 				</con:resource>
-				<con:method name="Get root IntervalBlock feed" method="GET">
+				<con:method name="Get root IntervalBlock feed" method="GET" id="beccd8b0-5458-45ed-b749-05deeb0aff07">
 					<con:settings/>
 					<con:parameters/>
-					<con:request name="Get root IntervalBlock feed" mediaType="application/json">
+					<con:request name="Get root IntervalBlock feed" mediaType="application/json" id="a18df4c5-7ab8-48df-a1cd-c93a24d883a6">
 						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 						<con:request/>
 						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
@@ -1339,15 +1339,15 @@
 					</con:representation>
 				<con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation></con:method>
 			</con:resource>
-			<con:resource name="UsagePoint" path="UsagePoint">
+			<con:resource name="UsagePoint" path="UsagePoint" id="6aed094e-2f99-4838-8d1f-1ea2d81b1587">
 				<con:settings/>
 				<con:parameters/>
-				<con:resource name="{usagePointId}" path="{usagePointId}">
+				<con:resource name="{usagePointId}" path="{usagePointId}" id="e7a05c43-0a9e-4c54-9e7b-7a6e4a343604">
 					<con:settings/>
-					<con:method name="Get UsagePoint by Id" method="GET">
+					<con:method name="Get UsagePoint by Id" method="GET" id="6baab186-e083-4fe1-821d-6df676e2fdd4">
 						<con:settings/>
 						<con:parameters/>
-						<con:request name="Get root UsagePoint" mediaType="application/json">
+						<con:request name="Get root UsagePoint" mediaType="application/json" id="93c02402-db4a-45c8-aff5-5d593b30e2f2">
 							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 							<con:request/>
 							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
@@ -1381,7 +1381,7 @@
 							<con:default>${#Project#usagePointId}</con:default>
 						</con:parameter>
 					</con:parameters>
-					<con:method name="Delete" method="DELETE">
+					<con:method name="Delete" method="DELETE" id="b1251595-7747-4bcd-849b-d9997849d5fb">
 						<con:settings/>
 						<con:parameters/>
 						<con:representation type="RESPONSE">
@@ -1408,7 +1408,7 @@
 							<con:params/>
 							<con:element>data</con:element>
 						</con:representation>
-						<con:request name="Request 1" mediaType="application/json">
+						<con:request name="Request 1" mediaType="application/json" id="5b353840-3ab4-4be9-a707-3e3354ed6e83">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -1423,7 +1423,7 @@
 							<con:parameterOrder><con:entry>usagePointId</con:entry><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
 						</con:request>
 					</con:method>
-					<con:method name="Put" method="PUT">
+					<con:method name="Put" method="PUT" id="196e11c2-1a4e-44c2-a484-eca82c673b3f">
 						<con:settings/>
 						<con:parameters/>
 						<con:representation type="RESPONSE">
@@ -1437,7 +1437,7 @@
 							<con:params/>
 							<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element>
 						</con:representation>
-						<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false">
+						<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false" id="72c2311a-edbf-424f-bc1d-26bd202f5e1e">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -1471,10 +1471,10 @@
 						</con:request>
 					</con:method>
 				</con:resource>
-				<con:method name="Get root UsagePoint feed" method="GET">
+				<con:method name="Get root UsagePoint feed" method="GET" id="13cfddb7-fbee-4ce4-8fcb-128edc822c9c">
 					<con:settings/>
 					<con:parameters/>
-					<con:request name="Get root UsagePoint feed" mediaType="application/json">
+					<con:request name="Get root UsagePoint feed" mediaType="application/json" id="088d8604-6450-4180-a903-a25c66d6997b">
 						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 						<con:request/>
 						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
@@ -1505,8 +1505,8 @@
 						<con:params/>
 						<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element>
 					</con:representation>
-				<con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation></con:method>
-				<con:method name="Post" method="POST">
+				<con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>400</con:status><con:params/><con:element>html</con:element></con:representation></con:method>
+				<con:method name="Post" method="POST" id="60a953d3-6053-46db-8bad-167f7c1b347f">
 					<con:settings/>
 					<con:parameters/>
 					<con:representation type="REQUEST">
@@ -1571,7 +1571,7 @@
 						<con:params/>
 						<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element>
 					</con:representation>
-					<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false">
+					<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false" id="569780c9-018b-4b87-87ef-72cd4ca64360">
 						<con:settings>
 							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 						</con:settings>
@@ -1605,15 +1605,15 @@
 					</con:request>
 				</con:method>
 			</con:resource>
-			<con:resource name="MeterReading" path="MeterReading">
+			<con:resource name="MeterReading" path="MeterReading" id="2f8b8dea-c961-492c-b98b-f242e2305d30">
 				<con:settings/>
 				<con:parameters/>
-				<con:resource name="{meterReadingId}" path="{meterReadingId}">
+				<con:resource name="{meterReadingId}" path="{meterReadingId}" id="e7fcf200-7bfd-4b08-a5cc-c269e14cd241">
 					<con:settings/>
-					<con:method name="Get MeterReading by Id" method="GET">
+					<con:method name="Get MeterReading by Id" method="GET" id="1fd04195-59f0-4a18-8de3-c064091bef1b">
 						<con:settings/>
 						<con:parameters/>
-						<con:request name="Get root MeterReading" mediaType="application/json">
+						<con:request name="Get root MeterReading" mediaType="application/json" id="235b1bd9-4a58-461d-b8ab-ebd7f40e2023">
 							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 							<con:request/>
 							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
@@ -1642,7 +1642,7 @@
 							<con:default>${#Project#meterReadingId}</con:default>
 						</con:parameter>
 					</con:parameters>
-					<con:method name="Delete" method="DELETE">
+					<con:method name="Delete" method="DELETE" id="69ae7f76-298c-44d5-b8df-c75a8f84a32d">
 						<con:settings/>
 						<con:parameters/>
 						<con:representation type="RESPONSE">
@@ -1651,7 +1651,7 @@
 							<con:params/>
 							<con:element>data</con:element>
 						</con:representation>
-						<con:request name="Request 1" mediaType="application/json">
+						<con:request name="Request 1" mediaType="application/json" id="f75247ab-e031-47ec-ae2f-a4437565180e">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -1666,7 +1666,7 @@
 							<con:parameterOrder><con:entry>meterReadingId</con:entry><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
 						</con:request>
 					</con:method>
-					<con:method name="Put" method="PUT">
+					<con:method name="Put" method="PUT" id="62b76eb8-0014-49c2-b9db-c3eff28bf2aa">
 						<con:settings/>
 						<con:parameters/>
 						<con:representation type="RESPONSE">
@@ -1680,7 +1680,7 @@
 							<con:params/>
 							<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element>
 						</con:representation>
-						<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false">
+						<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false" id="55e82d1c-05af-4085-8d6c-69f7fc61bf67">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -1708,10 +1708,10 @@
 						</con:request>
 					</con:method>
 				</con:resource>
-				<con:method name="Get root MeterReading feed" method="GET">
+				<con:method name="Get root MeterReading feed" method="GET" id="61872680-b0d4-4b37-9817-76470967a869">
 					<con:settings/>
 					<con:parameters/>
-					<con:request name="Get root MeterReading feed" mediaType="application/json">
+					<con:request name="Get root MeterReading feed" mediaType="application/json" id="ae1bf169-87ef-4ce7-961d-8c8da11dc074">
 						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 						<con:request/>
 						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
@@ -1732,7 +1732,7 @@
 						<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element>
 					</con:representation>
 				</con:method>
-				<con:method name="Post" method="POST">
+				<con:method name="Post" method="POST" id="1e0294a1-297d-4e84-81d4-15a177af4692">
 					<con:settings/>
 					<con:parameters/>
 					<con:representation type="FAULT">
@@ -1745,7 +1745,7 @@
 						<con:params/>
 						<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element>
 					</con:representation>
-					<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false">
+					<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false" id="b84cdeca-c422-41a3-b378-7d4ddbe41b32">
 						<con:settings>
 							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 						</con:settings>
@@ -1773,15 +1773,15 @@
 					</con:request>
 				</con:method>
 			</con:resource>
-			<con:resource name="ReadingType" path="ReadingType">
+			<con:resource name="ReadingType" path="ReadingType" id="c20eb6ba-74ff-4a8b-9028-1db6dc6b19b6">
 				<con:settings/>
 				<con:parameters/>
-				<con:resource name="{readingTypeId}" path="{readingTypeId}">
+				<con:resource name="{readingTypeId}" path="{readingTypeId}" id="57593c76-6a0a-4cec-89e6-4948389dc91b">
 					<con:settings/>
-					<con:method name="Get ReadingType by Id" method="GET">
+					<con:method name="Get ReadingType by Id" method="GET" id="0f119777-c966-4137-afa6-848b3c2baadb">
 						<con:settings/>
 						<con:parameters/>
-						<con:request name="Get root ReadingType" mediaType="application/json">
+						<con:request name="Get root ReadingType" mediaType="application/json" id="8a301fd3-0ea4-46bb-b3bd-6d934d52b57c">
 							<con:encoding/><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 							<con:request/>
 							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
@@ -1815,7 +1815,7 @@
 							<con:default>${#Project#readingTypeId}</con:default>
 						</con:parameter>
 					</con:parameters>
-					<con:method name="Delete" method="DELETE">
+					<con:method name="Delete" method="DELETE" id="f808e9c9-5421-4464-8809-932515e84fa2">
 						<con:settings/>
 						<con:parameters/>
 						<con:representation type="RESPONSE">
@@ -1824,7 +1824,7 @@
 							<con:params/>
 							<con:element>data</con:element>
 						</con:representation>
-						<con:request name="Request 1" mediaType="application/json">
+						<con:request name="Request 1" mediaType="application/json" id="cb17ddcb-e0e4-4dc7-a381-e77eb9baa504">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -1839,7 +1839,7 @@
 							<con:parameterOrder><con:entry>readingTypeId</con:entry><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
 						</con:request>
 					</con:method>
-					<con:method name="Put" method="PUT">
+					<con:method name="Put" method="PUT" id="fb925c4e-30f9-4d61-938d-0957bd92b8d1">
 						<con:settings/>
 						<con:parameters/>
 						<con:representation type="REQUEST">
@@ -1853,7 +1853,7 @@
 							<con:params/>
 							<con:element>data</con:element>
 						</con:representation>
-						<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false">
+						<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false" id="77ee6813-3498-4b87-841b-894784c2311c">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -1899,10 +1899,10 @@
 						</con:request>
 					</con:method>
 				</con:resource>
-				<con:method name="Get root ReadingType feed" method="GET">
+				<con:method name="Get root ReadingType feed" method="GET" id="d8cbd073-7374-4e64-a980-f25201aff2b1">
 					<con:settings/>
 					<con:parameters/>
-					<con:request name="Get root ReadingType feed" mediaType="application/json">
+					<con:request name="Get root ReadingType feed" mediaType="application/json" id="b16590e5-f966-4442-be59-1354fbfc5c43">
 						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 						<con:request/>
 						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
@@ -1929,7 +1929,7 @@
 						<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element>
 					</con:representation>
 				</con:method>
-				<con:method name="Post" method="POST">
+				<con:method name="Post" method="POST" id="fc093f99-064c-41c6-a379-759eba362575">
 					<con:settings/>
 					<con:parameters/>
 					<con:representation type="FAULT">
@@ -1948,7 +1948,7 @@
 						<con:params/>
 						<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element>
 					</con:representation>
-					<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false">
+					<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false" id="457daa70-5be1-461a-b9d6-0ad64e3e0c5c">
 						<con:settings>
 							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 						</con:settings>
@@ -1994,23 +1994,23 @@
 					</con:request>
 				</con:method>
 			</con:resource>
-			<con:resource name="Batch" path="Batch">
+			<con:resource name="Batch" path="Batch" id="162ebb8e-556a-4b56-9060-704ec7b36fe1">
 				<con:settings/>
 				<con:parameters/>
-				<con:resource name="Subscription" path="Subscription">
+				<con:resource name="Subscription" path="Subscription" id="659b7777-8fcd-4643-8033-d4c7f0c32a5e">
 					<con:settings/>
 					<con:parameters/>
-					<con:resource name="{subscriptionID}" path="{subscriptionID}">
+					<con:resource name="{subscriptionID}" path="{subscriptionID}" id="03092ec7-0ac7-4e84-aa3b-6a47b7f344cd">
 						<con:settings/>
-						<con:method name="Method 1" method="GET">
+						<con:method name="Method 1" method="GET" id="3ba52762-575b-4840-967b-4970130b71b9">
 							<con:settings/>
 							<con:parameters/>
-							<con:request name="Request 1" mediaType="application/json">
+							<con:request name="Request 1" mediaType="application/json" id="76860f30-073d-4f94-be07-2f0a3435b146">
 								<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 								<con:request/>
 								<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
 								<con:jmsPropertyConfig/>
-								<con:parameters/>
+								<con:parameters><entry key="subscriptionID" value="${#Project#subscriptionID}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
 								<con:settings>
 									<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 								</con:settings>
@@ -2036,7 +2036,7 @@
 								<con:status>400</con:status>
 								<con:params/>
 							</con:representation>
-						<con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403 401</con:status><con:params/><con:element xmlns:ns="http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/1">ns:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>400</con:status><con:params/><con:element>html</con:element></con:representation></con:method>
+						<con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403 401</con:status><con:params/><con:element xmlns:ns="http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/1">ns:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>400</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation></con:method>
 						<con:parameters>
 							<con:parameter>
 								<con:name>subscriptionID</con:name>
@@ -2046,7 +2046,7 @@
 							</con:parameter>
 						</con:parameters>
 					</con:resource>
-					<con:method name="Method 1" method="GET">
+					<con:method name="Method 1" method="GET" id="136df65f-882e-402e-8b3d-8d3b8adeca4f">
 						<con:settings/>
 						<con:parameters/>
 						<con:representation type="FAULT">
@@ -2061,7 +2061,7 @@
 							<con:params/>
 							<con:element xmlns:sub="http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription">sub:Fault</con:element>
 						</con:representation>
-						<con:request name="Request 1" mediaType="application/json">
+						<con:request name="Request 1" mediaType="application/json" id="2f8b1454-7736-4921-a422-9e86c7011622">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="Bearer ${#Project#data_custodian_access_token}" xmlns="http://eviware.com/soapui/config"/></con:setting>
 							</con:settings>
@@ -2077,15 +2077,15 @@
 						</con:request>
 					</con:method>
 				</con:resource>
-				<con:resource name="RetailCustomer" path="RetailCustomer">
+				<con:resource name="RetailCustomer" path="RetailCustomer" id="5a5ac7c0-a2eb-4371-9d78-9915a6c939c9">
 					<con:settings/>
 					<con:parameters/>
-					<con:resource name="{retailCustomerId}" path="${#Project#retailCustomerId}">
+					<con:resource name="{retailCustomerId}" path="${#Project#retailCustomerId}" id="1168de76-a66e-4990-b267-83e812dde0b5">
 						<con:settings/>
-						<con:resource name="UsagePoint" path="UsagePoint">
+						<con:resource name="UsagePoint" path="UsagePoint" id="d4b77832-dcfb-466b-9353-696e7df8089c">
 							<con:settings/>
 							<con:parameters/>
-							<con:resource name="${#Project#usagePointId}" path="${#Project#usagePointId}">
+							<con:resource name="${#Project#usagePointId}" path="${#Project#usagePointId}" id="2cecb2c5-1e7f-4567-8dbd-009e653372ec">
 								<con:settings/>
 								<con:parameters>
 									<con:parameter>
@@ -2095,7 +2095,7 @@
 										<con:default>#Project#usagePointId</con:default>
 									</con:parameter>
 								</con:parameters>
-								<con:method name="Method 1" method="GET">
+								<con:method name="Method 1" method="GET" id="4018c599-7bf6-4f7c-be2e-65a3729b8661">
 									<con:settings/>
 									<con:parameters/>
 									<con:representation type="RESPONSE">
@@ -2104,7 +2104,7 @@
 										<con:params/>
 										<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element>
 									</con:representation>
-									<con:request name="Request 1" mediaType="application/json">
+									<con:request name="Request 1" mediaType="application/json" id="5a9ca99c-b901-4eda-b95d-1a1802ba90e3">
 										<con:settings>
 											<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 										</con:settings>
@@ -2120,7 +2120,7 @@
 									</con:request>
 								</con:method>
 							</con:resource>
-							<con:method name="Method 1" method="GET">
+							<con:method name="Method 1" method="GET" id="3e50511a-2c69-402e-81ef-a4ca1a589ae3">
 								<con:settings/>
 								<con:parameters/>
 								<con:representation type="FAULT">
@@ -2135,7 +2135,7 @@
 									<con:params/>
 									<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element>
 								</con:representation>
-								<con:request name="Request 1" mediaType="application/json">
+								<con:request name="Request 1" mediaType="application/json" id="5735dc0d-94e2-4ee8-acac-4853edea5d80">
 									<con:settings>
 										<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 									</con:settings>
@@ -2150,7 +2150,7 @@
 									<con:parameterOrder><con:entry>retailCustomerId</con:entry><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
 								</con:request>
 							</con:method>
-							<con:method name="Post" method="POST">
+							<con:method name="Post" method="POST" id="f6b3aefd-4ea1-4ef9-a090-57ce94b7e793">
 								<con:settings/>
 								<con:parameters/>
 								<con:representation type="REQUEST">
@@ -2186,7 +2186,7 @@
 									<con:params/>
 									<con:element>data</con:element>
 								</con:representation>
-								<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false">
+								<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false" id="0c9b6e50-3d7a-4940-b50d-7f20290474b1">
 									<con:settings>
 										<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 									</con:settings>
@@ -2209,10 +2209,10 @@
 								</con:request>
 							</con:method>
 						</con:resource>
-						<con:method name="Method 1" method="GET">
+						<con:method name="Method 1" method="GET" id="c8f85188-48fc-4799-a79e-1efaf9aeb1b1">
 							<con:settings/>
 							<con:parameters/>
-							<con:request name="Request 1" mediaType="application/json">
+							<con:request name="Request 1" mediaType="application/json" id="b627cfa3-bf2c-42c7-8bdc-db241427aff7">
 								<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 								<con:request/>
 								<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
@@ -2248,7 +2248,7 @@
 							</con:parameter>
 						</con:parameters>
 					</con:resource>
-					<con:method name="Method 1" method="GET">
+					<con:method name="Method 1" method="GET" id="167d5196-d13b-4c46-b04d-04dc7e4b1749">
 						<con:settings/>
 						<con:parameters/>
 						<con:representation type="FAULT">
@@ -2257,7 +2257,7 @@
 							<con:params/>
 							<con:element>html</con:element>
 						</con:representation>
-						<con:request name="Request 1" mediaType="application/json">
+						<con:request name="Request 1" mediaType="application/json" id="4a9566c8-8d45-4747-8de7-458b7d31261d">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -2273,10 +2273,10 @@
 						</con:request>
 					</con:method>
 				</con:resource>
-				<con:resource name="Bulk" path="Bulk">
+				<con:resource name="Bulk" path="Bulk" id="a8b21b8e-acf3-4472-a829-ae4b3be6c41a">
 					<con:settings/>
 					<con:parameters/>
-					<con:resource name="${Project#bulkId}" path="${Project#bulkId}">
+					<con:resource name="${Project#bulkId}" path="${Project#bulkId}" id="4501c6c5-44f4-4704-a44e-8877d0ff3411">
 						<con:settings/>
 						<con:parameters>
 							<con:parameter>
@@ -2286,7 +2286,7 @@
 								<con:default>Project#bulkId</con:default>
 							</con:parameter>
 						</con:parameters>
-						<con:method name="Method 1" method="GET">
+						<con:method name="Method 1" method="GET" id="efe60fe6-f6c7-479d-b979-161e4ae7e770">
 							<con:settings/>
 							<con:parameters/>
 							<con:representation type="FAULT">
@@ -2295,7 +2295,7 @@
 								<con:params/>
 								<con:element>html</con:element>
 							</con:representation>
-							<con:request name="Request 1" mediaType="application/json">
+							<con:request name="Request 1" mediaType="application/json" id="28e01adf-7b37-4356-a821-bb3d4874919b">
 								<con:settings>
 									<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 								</con:settings>
@@ -2311,7 +2311,7 @@
 							</con:request>
 						</con:method>
 					</con:resource>
-					<con:method name="Method 1" method="GET">
+					<con:method name="Method 1" method="GET" id="c001b3fd-29a8-45b2-8bed-29491e3cb3f1">
 						<con:settings/>
 						<con:parameters/>
 						<con:representation type="FAULT">
@@ -2320,7 +2320,7 @@
 							<con:params/>
 							<con:element>html</con:element>
 						</con:representation>
-						<con:request name="Request 1" mediaType="application/json">
+						<con:request name="Request 1" mediaType="application/json" id="941f874c-7138-441a-8a47-c3ce4ba1f2f7">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -2336,7 +2336,7 @@
 						</con:request>
 					</con:method>
 				</con:resource>
-				<con:method name="Get Batch Collection" method="GET">
+				<con:method name="Get Batch Collection" method="GET" id="fb1be13e-264f-49b7-bea4-b08613ef1157">
 					<con:settings/>
 					<con:parameters/>
 					<con:representation type="FAULT">
@@ -2345,7 +2345,7 @@
 						<con:params/>
 						<con:element>html</con:element>
 					</con:representation>
-					<con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:request name="Get Batch Collection (NOP)" mediaType="application/json">
+					<con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:request name="Get Batch Collection (NOP)" mediaType="application/json" id="5cd62069-394f-4b2e-8458-29bb07cbfd54">
 						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 						<con:request/>
 						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
@@ -2361,10 +2361,10 @@
 					</con:request>
 				</con:method>
 			</con:resource>
-			<con:resource name="Subscription" path="Subscription">
+			<con:resource name="Subscription" path="Subscription" id="42474886-37a4-43ca-a5d3-8db235c318cd">
 				<con:settings/>
 				<con:parameters/>
-				<con:resource name="{subscriptionId}" path="{subscriptionId}">
+				<con:resource name="{subscriptionId}" path="{subscriptionId}" id="dc584e5a-b904-47c8-a689-bef518d0da06">
 					<con:settings/>
 					<con:parameters>
 						<con:parameter>
@@ -2374,7 +2374,7 @@
 							<con:default>${#Project#subscriptionId}</con:default>
 						</con:parameter>
 					</con:parameters>
-					<con:resource name="UsagePoint" path="UsagePoint"><con:settings/><con:parameters/><con:resource name="{usagePointId}" path="{usagePointId}"><con:settings/><con:parameters><con:parameter><con:name>usagePointId</con:name><con:value>${#Project#usagePointId}</con:value><con:style>TEMPLATE</con:style><con:default>${#Project#usagePointId}</con:default></con:parameter></con:parameters><con:resource name="MeterReading" path="MeterReading"><con:settings/><con:parameters/><con:resource name="{meterReadingId}" path="{meterReadingId}"><con:settings/><con:parameters><con:parameter><con:name>meterReadingId</con:name><con:value>${#Project#meterReadingId}</con:value><con:style>TEMPLATE</con:style><con:default>${#Project#meterReadingId}</con:default><con:description xsi:nil="true"/></con:parameter></con:parameters><con:resource name="IntervalBlock" path="IntervalBlock"><con:settings/><con:parameters/><con:resource name="{intervalBlockId}" path="{intervalBlockId}"><con:settings/><con:parameters><con:parameter><con:name>intervalBlockId</con:name><con:value>${#Project#intervalBlockId}</con:value><con:style>TEMPLATE</con:style><con:default>${#Project#intervalBlockId}</con:default></con:parameter></con:parameters><con:method name="GET IntervalBlock by Id" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element xmlns:ns="http://localhost/DataCustodian/espi/1_1/resource/Subscription/1/UsagePoint/1/MeterReading/1/IntervalBlock/1">ns:Fault</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:method name="GET IntervalBlock feed" method="GET"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:method name="GET MeterReading by Id" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>200</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element xmlns:ns="http://localhost/DataCustodian/espi/1_1/resource/Subscription/1/UsagePoint/1/MeterReading/1">ns:Fault</con:element></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry><con:entry>subscriptionId</con:entry><con:entry>usagePointId</con:entry><con:entry>meterReadingId</con:entry></con:parameterOrder></con:request></con:method></con:resource><con:method name="GET MeterReading Feed" method="GET"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element xmlns:met="http://localhost/DataCustodian/espi/1_1/resource/Subscription/1/UsagePoint/1/MeterReading">met:Fault</con:element></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="ElectricPowerUsageSummary" path="ElectricPowerUsageSummary"><con:settings/><con:parameters/><con:resource name="{electricPowerUsageSummaryId}" path="{electricPowerUsageSummaryId}"><con:settings/><con:parameters><con:parameter><con:name>electricPowerUsageSummaryId</con:name><con:value>${#Project#electricPowerUsageSummaryId}</con:value><con:style>TEMPLATE</con:style><con:default>${#Project#electricPowerUsageSummaryId}</con:default></con:parameter></con:parameters><con:method name="GET ElectricPowerUsageSummary by Id" method="GET"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element xmlns:ns="http://localhost/DataCustodian/espi/1_1/resource/Subscription/1/UsagePoint/1/ElectricPowerUsageSummary/1">ns:Fault</con:element></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:method name="GET ElectricPowerUsageSummary Feed" method="GET"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="ElectricPowerQualitySummary" path="ElectricPowerQualitySummary"><con:settings/><con:parameters/><con:resource name="{electricPowerQualitySummaryId}" path="{electricPowerQualitySummaryId}"><con:settings/><con:parameters><con:parameter><con:name>electricPowerQualitySummaryId</con:name><con:value>${#Project#electricPowerQualitySummaryId}</con:value><con:style>TEMPLATE</con:style><con:default>${#Project#electricPowerQualitySummaryId}</con:default></con:parameter></con:parameters><con:method name="GET ElectricPowerQualitySummary by Id" method="GET"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element xmlns:ns="http://localhost/DataCustodian/espi/1_1/resource/Subscription/1/UsagePoint/1/ElectricPowerQualitySummary/1">ns:Fault</con:element></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:method name="GET ElectricPowerQualitySummary Feed" method="GET"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:method name="GET UsagePoint by Id" method="GET"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>200</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element xmlns:usag="http://localhost/DataCustodian/espi/1_1/resource/Subscription/1/UsagePoint/usagePointId">usag:Fault</con:element></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry><con:entry>subscriptionId</con:entry><con:entry>usagePointId</con:entry></con:parameterOrder></con:request></con:method></con:resource><con:method name="GET UsagePoint Feed" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element xmlns:usag="http://localhost/DataCustodian/espi/1_1/resource/Subscription/1/UsagePoint">usag:Fault</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:method name="Get" method="GET">
+					<con:resource name="UsagePoint" path="UsagePoint" id="fd205047-d5f4-4c30-9f84-4e1216374b8b"><con:settings/><con:parameters/><con:resource name="{usagePointId}" path="{usagePointId}" id="37aa9d50-35ca-4fbe-a6c4-b84d1942e6e0"><con:settings/><con:parameters><con:parameter><con:name>usagePointId</con:name><con:value>${#Project#usagePointId}</con:value><con:style>TEMPLATE</con:style><con:default>${#Project#usagePointId}</con:default></con:parameter></con:parameters><con:resource name="MeterReading" path="MeterReading" id="af934b27-1654-47df-9855-d3d51436b8ec"><con:settings/><con:parameters/><con:resource name="{meterReadingId}" path="{meterReadingId}" id="c1800681-eedb-4d2a-82ec-65a67768d499"><con:settings/><con:parameters><con:parameter><con:name>meterReadingId</con:name><con:value>${#Project#meterReadingId}</con:value><con:style>TEMPLATE</con:style><con:default>${#Project#meterReadingId}</con:default><con:description xsi:nil="true"/></con:parameter></con:parameters><con:resource name="IntervalBlock" path="IntervalBlock" id="e23f80cd-05f5-4f06-adce-7d62aea058e3"><con:settings/><con:parameters/><con:resource name="{intervalBlockId}" path="{intervalBlockId}" id="7d5b42ea-3490-40b0-8a12-9281e2fc19d8"><con:settings/><con:parameters><con:parameter><con:name>intervalBlockId</con:name><con:value>${#Project#intervalBlockId}</con:value><con:style>TEMPLATE</con:style><con:default>${#Project#intervalBlockId}</con:default></con:parameter></con:parameters><con:method name="GET IntervalBlock by Id" method="GET" id="8037a212-a1a4-4b16-a8ed-f0ec85277bf9"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element xmlns:ns="http://localhost/DataCustodian/espi/1_1/resource/Subscription/1/UsagePoint/1/MeterReading/1/IntervalBlock/1">ns:Fault</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:request name="Request 1" mediaType="application/json" id="51ea6c55-6593-4533-9050-f183143318a9"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:method name="GET IntervalBlock feed" method="GET" id="812b2424-6098-4d4e-b259-134efea53899"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/json" id="48fdca51-17f6-4ef2-b5ca-a9fbe4da5834"><con:settings/><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:method name="GET MeterReading by Id" method="GET" id="72a21efb-0665-4994-a4b2-7e0fd6281f70"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>200</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element xmlns:ns="http://localhost/DataCustodian/espi/1_1/resource/Subscription/1/UsagePoint/1/MeterReading/1">ns:Fault</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="1e1d6af0-7ac2-4a41-956e-43b46f430b08"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry><con:entry>subscriptionId</con:entry><con:entry>usagePointId</con:entry><con:entry>meterReadingId</con:entry></con:parameterOrder></con:request></con:method></con:resource><con:method name="GET MeterReading Feed" method="GET" id="09c3213a-f116-40d6-8b99-87e1ad73c1f5"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element xmlns:met="http://localhost/DataCustodian/espi/1_1/resource/Subscription/1/UsagePoint/1/MeterReading">met:Fault</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="f5aa923b-979f-4e19-8939-779f508ba6b3"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="ElectricPowerUsageSummary" path="ElectricPowerUsageSummary" id="2600485b-c2a9-4077-a282-fd75ea534482"><con:settings/><con:parameters/><con:resource name="{electricPowerUsageSummaryId}" path="{electricPowerUsageSummaryId}" id="421cd098-6c05-44b3-a98e-f3866baed728"><con:settings/><con:parameters><con:parameter><con:name>electricPowerUsageSummaryId</con:name><con:value>${#Project#electricPowerUsageSummaryId}</con:value><con:style>TEMPLATE</con:style><con:default>${#Project#electricPowerUsageSummaryId}</con:default></con:parameter></con:parameters><con:method name="GET ElectricPowerUsageSummary by Id" method="GET" id="123990b2-aef3-4567-a2a5-8622bf3aa64a"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element xmlns:ns="http://localhost/DataCustodian/espi/1_1/resource/Subscription/1/UsagePoint/1/ElectricPowerUsageSummary/1">ns:Fault</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="ff0f412e-7292-4186-b75d-a392bd583973"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:method name="GET ElectricPowerUsageSummary Feed" method="GET" id="746058b5-3484-4a81-9469-7a5f97ffaeb1"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/json" id="cb83a25f-f2e1-416a-93a1-53a02d79be1f"><con:settings/><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="ElectricPowerQualitySummary" path="ElectricPowerQualitySummary" id="eb7e70a7-3a97-455c-a61c-bc1f61d8f222"><con:settings/><con:parameters/><con:resource name="{electricPowerQualitySummaryId}" path="{electricPowerQualitySummaryId}" id="2c6ad5c1-0f65-42c8-9f2e-e408cd1dc187"><con:settings/><con:parameters><con:parameter><con:name>electricPowerQualitySummaryId</con:name><con:value>${#Project#electricPowerQualitySummaryId}</con:value><con:style>TEMPLATE</con:style><con:default>${#Project#electricPowerQualitySummaryId}</con:default></con:parameter></con:parameters><con:method name="GET ElectricPowerQualitySummary by Id" method="GET" id="637d4d01-17dd-4dcb-8e63-7c466760124b"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element xmlns:ns="http://localhost/DataCustodian/espi/1_1/resource/Subscription/1/UsagePoint/1/ElectricPowerQualitySummary/1">ns:Fault</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="f16fba15-47fd-414c-8488-f8b1ab2c30be"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:method name="GET ElectricPowerQualitySummary Feed" method="GET" id="6842b418-6851-4ccc-9184-90bae5edcb49"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/json" id="1b22da35-acb2-4030-b95d-bc648b2ec666"><con:settings/><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:method name="GET UsagePoint by Id" method="GET" id="e8e3fcc5-1cc9-41ec-b5e9-e82db7e53066"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>200</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element xmlns:usag="http://localhost/DataCustodian/espi/1_1/resource/Subscription/1/UsagePoint/usagePointId">usag:Fault</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="60f67287-8953-45c9-872d-a7fc6eeb63af"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry><con:entry>subscriptionId</con:entry><con:entry>usagePointId</con:entry></con:parameterOrder></con:request></con:method></con:resource><con:method name="GET UsagePoint Feed" method="GET" id="c2f59b43-ed41-4b25-b16f-1aa588104d9b"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element xmlns:usag="http://localhost/DataCustodian/espi/1_1/resource/Subscription/1/UsagePoint">usag:Fault</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="19aaf2a0-c8b0-45c3-b56b-3f17a2439839"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:method name="Get" method="GET" id="15dbf30c-3387-4f52-8fcd-b3908b791fd9">
 						<con:settings/>
 						<con:parameters/>
 						<con:representation type="FAULT">
@@ -2383,7 +2383,7 @@
 							<con:params/>
 							<con:element>html</con:element>
 						</con:representation>
-						<con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element xmlns:ns="http://localhost/DataCustodian/espi/1_1/resource/Subscription/1">ns:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/json">
+						<con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element xmlns:ns="http://localhost/DataCustodian/espi/1_1/resource/Subscription/1">ns:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="871e2981-c765-4a0d-9d3b-8084e7e5825c">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -2400,7 +2400,7 @@
 							<con:parameterOrder><con:entry>subscriptionId</con:entry><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
 						</con:request>
 					</con:method>
-					<con:method name="Delete" method="DELETE">
+					<con:method name="Delete" method="DELETE" id="965fe936-fe36-4ff8-8583-94770f043ef5">
 						<con:settings/>
 						<con:parameters/>
 						<con:representation type="FAULT">
@@ -2409,7 +2409,7 @@
 							<con:params/>
 							<con:element>html</con:element>
 						</con:representation>
-						<con:request name="Request 1" mediaType="application/json">
+						<con:request name="Request 1" mediaType="application/json" id="7e6b840c-c2e5-421e-8a57-920847ff73e6">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -2425,7 +2425,7 @@
 						</con:request>
 					</con:method>
 				</con:resource>
-				<con:method name="Get" method="GET">
+				<con:method name="Get" method="GET" id="a1758db0-a234-4ff7-ae63-0e7ff5741876">
 					<con:settings/>
 					<con:parameters/>
 					<con:representation type="RESPONSE">
@@ -2440,7 +2440,7 @@
 						<con:params/>
 						<con:element xmlns:sub="http://localhost/DataCustodian/espi/1_1/resource/Subscription">sub:Fault</con:element>
 					</con:representation>
-					<con:request name="Request 1" mediaType="application/json">
+					<con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:request name="Request 1" mediaType="application/json" id="27d6c598-8abd-47b4-afe3-cd96766323c9">
 						<con:settings>
 							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 						</con:settings>
@@ -2456,10 +2456,10 @@
 					</con:request>
 				</con:method>
 			</con:resource>
-			<con:resource name="ApplicationInformation" path="ApplicationInformation">
+			<con:resource name="ApplicationInformation" path="ApplicationInformation" id="2683f586-bfe2-47c7-a235-5206072b31fc">
 				<con:settings/>
 				<con:parameters/>
-				<con:resource name="{applicationInformationId}" path="{applicationInformationId}">
+				<con:resource name="{applicationInformationId}" path="{applicationInformationId}" id="c820a2d4-7187-49cd-b008-8911cb32caed">
 					<con:settings/>
 					<con:parameters>
 						<con:parameter>
@@ -2469,7 +2469,7 @@
 							<con:default>${#Project#applicationInformationId}</con:default>
 						</con:parameter>
 					</con:parameters>
-					<con:method name="GET ApplicationInformation by Id" method="GET">
+					<con:method name="GET ApplicationInformation by Id" method="GET" id="cf176767-b657-4345-b8a6-c41203f67982">
 						<con:settings/>
 						<con:parameters/>
 						<con:representation type="RESPONSE">
@@ -2484,7 +2484,7 @@
 							<con:params/>
 							<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element>
 						</con:representation>
-						<con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:request name="Request 1" mediaType="application/json">
+						<con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>400</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -2499,7 +2499,7 @@
 							<con:parameterOrder><con:entry>applicationInformationId</con:entry><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
 						</con:request>
 					</con:method>
-					<con:method name="Delete" method="DELETE">
+					<con:method name="Delete" method="DELETE" id="240c6f45-9544-4822-89b9-491016bd335e">
 						<con:settings/>
 						<con:parameters/>
 						<con:representation type="RESPONSE">
@@ -2514,7 +2514,7 @@
 							<con:params/>
 							<con:element>data</con:element>
 						</con:representation>
-						<con:request name="Request 1" mediaType="application/json">
+						<con:request name="Request 1" mediaType="application/json" id="9ef70ba4-9a57-4ff5-a02e-b693213d9dc0">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -2529,7 +2529,7 @@
 							<con:parameterOrder><con:entry>applicationInformationId</con:entry><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
 						</con:request>
 					</con:method>
-					<con:method name="Put" method="PUT">
+					<con:method name="Put" method="PUT" id="f3a28c9f-a3e0-4f39-b82e-137bdcc415a4">
 						<con:settings/>
 						<con:parameters/>
 						<con:representation type="REQUEST">
@@ -2596,7 +2596,7 @@
 							<con:params/>
 							<con:element>data</con:element>
 						</con:representation>
-						<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false">
+						<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false" id="4b7a8070-65c9-49fd-9a55-3b4671527e91">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -2642,7 +2642,7 @@
 						</con:request>
 					</con:method>
 				</con:resource>
-				<con:method name="GET ApplicationInformation Feed" method="GET">
+				<con:method name="GET ApplicationInformation Feed" method="GET" id="39650856-2761-4c8d-93d1-e3f7a78ed83b">
 					<con:settings/>
 					<con:parameters/>
 					<con:representation type="RESPONSE">
@@ -2663,7 +2663,7 @@
 						<con:params/>
 						<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element>
 					</con:representation>
-					<con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/json">
+					<con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>400</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="02f6b5c6-3af1-4614-8b5a-ee45d6da5666">
 						<con:settings>
 							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 						</con:settings>
@@ -2678,7 +2678,7 @@
 						<con:parameterOrder><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
 					</con:request>
 				</con:method>
-				<con:method name="Post" method="POST">
+				<con:method name="Post" method="POST" id="103f5695-c0f1-4a9e-898c-9f77be3bc3ab">
 					<con:settings/>
 					<con:parameters/>
 					<con:representation type="FAULT">
@@ -2725,7 +2725,7 @@
 						<con:params/>
 						<con:element>data</con:element>
 					</con:representation>
-					<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false">
+					<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false" id="7681492e-ee1c-4175-bd71-ad8c87891263">
 						<con:settings>
 							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 						</con:settings>
@@ -2764,10 +2764,10 @@
 					</con:request>
 				</con:method>
 			</con:resource>
-			<con:resource name="Authorization" path="Authorization">
+			<con:resource name="Authorization" path="Authorization" id="e18c37bc-c81a-47a1-ba06-8bbfe20f9fca">
 				<con:settings/>
 				<con:parameters/>
-				<con:resource name="{authorizationId}" path="{authorizationId}">
+				<con:resource name="{authorizationId}" path="{authorizationId}" id="afd7ea03-b51e-4a68-83f4-b597e59f045a">
 					<con:settings/>
 					<con:parameters>
 						<con:parameter>
@@ -2777,7 +2777,7 @@
 							<con:default>${#Project#authorizationId}</con:default>
 						</con:parameter>
 					</con:parameters>
-					<con:method name="GET Authorization by Id" method="GET">
+					<con:method name="GET Authorization by Id" method="GET" id="89b81ae0-2a13-4aab-8a92-0714d7686bae">
 						<con:settings/>
 						<con:parameters/>
 						<con:representation type="FAULT">
@@ -2785,7 +2785,7 @@
 							<con:status>400</con:status>
 							<con:params/>
 						</con:representation>
-						<con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:request name="Request 1" mediaType="application/json">
+						<con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>401</con:status><con:params/><con:element xmlns:ns="http://localhost/DataCustodian/espi/1_1/resource/Authorization/1">ns:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -2800,7 +2800,7 @@
 							<con:parameterOrder><con:entry>authorizationId</con:entry><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
 						</con:request>
 					</con:method>
-					<con:method name="Delete" method="DELETE">
+					<con:method name="Delete" method="DELETE" id="8c62f14e-7d02-4445-9def-71c7ea915971">
 						<con:settings/>
 						<con:parameters/>
 						<con:representation type="FAULT">
@@ -2809,7 +2809,7 @@
 							<con:params/>
 							<con:element>data</con:element>
 						</con:representation>
-						<con:request name="Request 1" mediaType="application/json">
+						<con:request name="Request 1" mediaType="application/json" id="91a52e47-6bd1-4f6d-86f6-444e1583b6ce">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -2825,7 +2825,7 @@
 						</con:request>
 					</con:method>
 				</con:resource>
-				<con:method name="GET Authorization Feed" method="GET">
+				<con:method name="GET Authorization Feed" method="GET" id="4044e8f5-4f26-4b1f-87ee-2f9e6737cd3f">
 					<con:settings/>
 					<con:parameters/>
 					<con:representation type="RESPONSE">
@@ -2834,7 +2834,7 @@
 						<con:params/>
 						<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element>
 					</con:representation>
-					<con:request name="Request 1" mediaType="application/json">
+					<con:request name="Request 1" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
 						<con:settings>
 							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 						</con:settings>
@@ -2850,10 +2850,10 @@
 					</con:request>
 				</con:method>
 			</con:resource>
-			<con:resource name="ReadServiceStatus" path="ReadServiceStatus">
+			<con:resource name="ReadServiceStatus" path="ReadServiceStatus" id="aef66a1b-7eb4-48e5-8e0c-a53530843ccb">
 				<con:settings/>
 				<con:parameters/>
-				<con:method name="GET ServiceStatus" method="GET">
+				<con:method name="GET ServiceStatus" method="GET" id="ddb8df63-2747-439f-9d50-9faa935fc258">
 					<con:settings/>
 					<con:parameters/>
 					<con:representation type="FAULT">
@@ -2862,7 +2862,7 @@
 						<con:params/>
 						<con:element>html</con:element>
 					</con:representation>
-					<con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:request name="Request 1" mediaType="application/json">
+					<con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
 						<con:settings>
 							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 						</con:settings>
@@ -2878,12 +2878,12 @@
 					</con:request>
 				</con:method>
 			</con:resource>
-			<con:resource name="LocalTimeParameters" path="LocalTimeParameters">
+			<con:resource name="LocalTimeParameters" path="LocalTimeParameters" id="88c8d501-0bbb-4412-a24a-d0bda6788c83">
 				<con:settings/>
 				<con:parameters>
 					
 				</con:parameters>
-				<con:resource name="{localTimeParametersId}" path="{localTimeParametersId}">
+				<con:resource name="{localTimeParametersId}" path="{localTimeParametersId}" id="9b4bd4cc-1b04-4070-83f4-edd8a87aab84">
 					<con:settings/>
 					<con:parameters>
 						<con:parameter required="false">
@@ -2893,7 +2893,7 @@
 							<con:default>${#Project#localTimeParametersId}</con:default>
 						</con:parameter>
 					</con:parameters>
-					<con:method name="GET LocalTimeParameters by Id" method="GET">
+					<con:method name="GET LocalTimeParameters by Id" method="GET" id="289c1e03-bd80-4fc0-ae06-72fa51b32693">
 						<con:settings/>
 						<con:parameters/>
 						<con:representation type="RESPONSE">
@@ -2941,7 +2941,7 @@
 							<con:status>400</con:status>
 							<con:params/>
 						</con:representation>
-						<con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="Request 1" mediaType="application/json">
+						<con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="992b9d02-a55d-4839-bbe9-fad896b41aeb">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -2956,7 +2956,7 @@
 							<con:parameterOrder><con:entry>localTimeParametersId</con:entry><con:entry>Content-Type</con:entry><con:entry>Authorization</con:entry></con:parameterOrder>
 						</con:request>
 					</con:method>
-					<con:method name="Put" method="PUT">
+					<con:method name="Put" method="PUT" id="bc773f1b-a40b-447a-999b-5ad916dadf23">
 						<con:settings/>
 						<con:parameters/>
 						<con:representation type="FAULT">
@@ -2993,7 +2993,7 @@
 							<con:params/>
 							<con:element>data</con:element>
 						</con:representation>
-						<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false">
+						<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false" id="a6c5e92e-37f7-4baf-935e-4eef88d6d894">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -3023,7 +3023,7 @@
 							<con:parameterOrder><con:entry>Content-Type</con:entry><con:entry>localTimeParametersId</con:entry><con:entry>Authorization</con:entry></con:parameterOrder>
 						</con:request>
 					</con:method>
-					<con:method name="Delete" method="DELETE">
+					<con:method name="Delete" method="DELETE" id="3a185e53-ab89-4aec-88d2-2bb753f10e2e">
 						<con:settings/>
 						<con:parameters/>
 						<con:representation type="RESPONSE">
@@ -3032,7 +3032,7 @@
 							<con:params/>
 							<con:element>data</con:element>
 						</con:representation>
-						<con:request name="Request 1" mediaType="application/json">
+						<con:request name="Request 1" mediaType="application/json" id="ce3467de-f1e5-412f-a074-91081ffcfa7f">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -3048,7 +3048,7 @@
 						</con:request>
 					</con:method>
 				</con:resource>
-				<con:method name="GET LocalTimeParameters Feed" method="GET">
+				<con:method name="GET LocalTimeParameters Feed" method="GET" id="12c4715b-00dd-4a98-a2fe-6b5d586c4f3c">
 					<con:settings/>
 					<con:parameters/>
 					<con:representation type="RESPONSE">
@@ -3189,7 +3189,7 @@
 						<con:params/>
 						<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element>
 					</con:representation>
-					<con:request name="Request 1" mediaType="application/json">
+					<con:request name="Request 1" mediaType="application/json" id="03bcb211-9b20-4f13-a3d5-ba0897166d66">
 						<con:settings>
 							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 						</con:settings>
@@ -3204,7 +3204,7 @@
 						<con:parameterOrder><con:entry>Content-Type</con:entry><con:entry>Authorization</con:entry></con:parameterOrder>
 					</con:request>
 				</con:method>
-				<con:method name="Post" method="POST">
+				<con:method name="Post" method="POST" id="b4edfcb5-5f83-406f-86a9-f5c101e5f0fc">
 					<con:settings/>
 					<con:parameters/>
 					<con:representation type="REQUEST">
@@ -3281,7 +3281,7 @@
 						<con:params/>
 						<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element>
 					</con:representation>
-					<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false">
+					<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false" id="a135f049-b3ed-4eb4-9285-005f63e361d7">
 						<con:settings>
 							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 						</con:settings>
@@ -3318,25 +3318,29 @@
 			<con:endpoint>192.168.1.3:8080</con:endpoint>
 			<con:endpoint>http://localhost:8080</con:endpoint>
 		</con:endpoints>
-	<con:resource name="token" path="/oauth/token"><con:settings/><con:parameters><con:parameter><con:name>Authorization</con:name><con:value/><con:style>HEADER</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>grant_type</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>scope</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="Client Credentials" method="POST"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400 401</con:status><con:params/><con:element xmlns:tok="http://localhost/DataCustodian/oauth/token">tok:Fault</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:tok="http://localhost/DataCustodian/oauth/token">tok:Response</con:element></con:representation><con:request name="POST DataCustodian Request" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+	<con:resource name="token" path="/oauth/token" id="173e6cc8-6837-482b-b5af-a21dabf615ea"><con:settings/><con:parameters><con:parameter><con:name>Authorization</con:name><con:value/><con:style>HEADER</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>grant_type</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>scope</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="Client Credentials" method="POST" id="e3df8f56-fde3-4955-b286-fde4034ec188"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400 401</con:status><con:params/><con:element xmlns:tok="http://localhost/DataCustodian/oauth/token">tok:Fault</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:tok="http://localhost/DataCustodian/oauth/token">tok:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="POST DataCustodian Request" mediaType="application/json" postQueryString="false" id="448b4c28-e1dc-4451-b625-001cbe1530e6"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
   <con:entry key="scope" value="DataCustodian_Admin_Access"/>
   <con:entry key="Authorization" value="Basic ZGF0YV9jdXN0b2RpYW5fYWRtaW46c2VjcmV0"/>
   <con:entry key="grant_type" value="client_credentials"/>
-</con:parameters><con:parameterOrder><con:entry>Authorization</con:entry><con:entry>grant_type</con:entry><con:entry>scope</con:entry></con:parameterOrder></con:request><con:request name="POST ThirdParty Request" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+</con:parameters><con:parameterOrder><con:entry>Authorization</con:entry><con:entry>grant_type</con:entry><con:entry>scope</con:entry></con:parameterOrder></con:request><con:request name="POST ThirdParty Request" mediaType="application/json" postQueryString="false" id="9ba40594-5ba1-490b-b4b8-0547108733e3"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
   <con:entry key="Authorization" value="Basic dGhpcmRfcGFydHlfYWRtaW46c2VjcmV0"/>
   <con:entry key="scope" value="ThirdParty_Admin_Access"/>
   <con:entry key="grant_type" value="client_credentials"/>
-</con:parameters><con:parameterOrder><con:entry>Authorization</con:entry><con:entry>grant_type</con:entry><con:entry>scope</con:entry></con:parameterOrder></con:request><con:request name="POST Upload Request" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
-  <con:entry key="scope" value="Upload_Admin_Access"/>
+</con:parameters><con:parameterOrder><con:entry>Authorization</con:entry><con:entry>grant_type</con:entry><con:entry>scope</con:entry></con:parameterOrder></con:request><con:request name="POST Upload Request" mediaType="application/json" postQueryString="false" id="e2fc290d-3c07-461e-84a1-d9a6265f0ae0"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
   <con:entry key="Authorization" value="Basic dXBsb2FkX2FkbWluOnNlY3JldA=="/>
+  <con:entry key="scope" value="Upload_Admin_Access"/>
+  <con:entry key="grant_type" value="client_credentials"/>
+</con:parameters><con:parameterOrder><con:entry>Authorization</con:entry><con:entry>grant_type</con:entry><con:entry>scope</con:entry></con:parameterOrder></con:request><con:request name="POST ThirdPartyRegistration Request" mediaType="application/json" postQueryString="false" id="c2d8f4db-dd26-4546-a99e-770d3221f363"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="Authorization" value="Basic UkVHSVNUUkFUSU9OX3RoaXJkX3BhcnR5OnNlY3JldA=="/>
+  <con:entry key="scope" value="ThirdParty_Registration_Access"/>
   <con:entry key="grant_type" value="client_credentials"/>
 </con:parameters><con:parameterOrder><con:entry>Authorization</con:entry><con:entry>grant_type</con:entry><con:entry>scope</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface>
-	<con:testSuite name="Library">
+	<con:testSuite name="Library" id="0275335f-7515-4da0-a729-cce9f7858991">
 		<con:settings/>
 		<con:runType>SEQUENTIAL</con:runType>
 		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GeneralScripts" searchProperties="true" id="c4c4fa40-6628-4c8a-bbbb-2b34185b90b2">
 			<con:settings/>
-			<con:testStep type="groovy" name="LoadConfig">
+			<con:testStep type="groovy" name="LoadConfig" id="bd695d4c-f5b4-416c-84b1-346616c98830">
 				<con:settings/>
 				<con:config>
 					<script>def project = testRunner.testCase.testSuite.project
@@ -3385,7 +3389,7 @@ project.setPropertyValue("upload_access_token",config.upload_access_token);
 </script>
 				</con:config>
 			</con:testStep>
-			<con:testStep type="groovy" name="resetDB">
+			<con:testStep type="groovy" name="resetDB" id="64e17259-bac9-493e-8827-b5e5dc5993e8">
 				<con:settings/>
 				<con:config>
 					<script>def project = testRunner.testCase.testSuite.project
@@ -3440,7 +3444,7 @@ StopDriver
 
 This can only be run as a test case and not as individual steps</con:description>
 			<con:settings/>
-			<con:testStep type="groovy" name="StartDriver">
+			<con:testStep type="groovy" name="StartDriver" id="bef235ef-555c-424e-8763-1b16699c8cf0">
 				<con:settings/>
 				<con:config>
 					<script>/////////////////////////////////////////////////////////
@@ -3490,7 +3494,7 @@ return
 </script>
 				</con:config>
 			</con:testStep>
-			<con:testStep type="groovy" name="LoginManager">
+			<con:testStep type="groovy" name="LoginManager" id="835106b3-eb81-4064-bf8b-ffda3919247f">
 				<con:settings/>
 				<con:config>
 					<script>/////////////////////////////////////////////////////////
@@ -3552,7 +3556,7 @@ driver.findElement(By.name("submit")).click()
 </script>
 				</con:config>
 			</con:testStep>
-			<con:testStep type="groovy" name="UploadFileViaGui">
+			<con:testStep type="groovy" name="UploadFileViaGui" id="71e77312-72cd-4a23-9bac-7b65701e138c">
 				<con:settings/>
 				<con:config>
 					<script>/////////////////////////////////////////////////////////
@@ -3615,7 +3619,7 @@ driver.findElement(By.name("create")).click();
 }</script>
 				</con:config>
 			</con:testStep>
-			<con:testStep type="groovy" name="LogoutManager">
+			<con:testStep type="groovy" name="LogoutManager" id="cc86656c-aa44-4aa7-8ff1-72d7e4672e81">
 				<con:settings/>
 				<con:config>
 					<script>/////////////////////////////////////////////////////////
@@ -3664,7 +3668,7 @@ driver.findElement(By.id("logout")).click();
 }</script>
 				</con:config>
 			</con:testStep>
-			<con:testStep type="groovy" name="StopDriver">
+			<con:testStep type="groovy" name="StopDriver" id="2509d69d-c4e9-4dc0-a49a-960d836993e2">
 				<con:settings/>
 				<con:config>
 					<script>/////////////////////////////////////////////////////////
@@ -3707,7 +3711,7 @@ driver.quit()
 </script>
 				</con:config>
 			</con:testStep>
-			<con:testStep type="groovy" name="AuthorizeStartDataCustodian">
+			<con:testStep type="groovy" name="AuthorizeStartDataCustodian" id="5aa4d5a1-cf31-4dff-97b4-101a954192dd">
 				<con:settings/>
 				<con:config>
 					<script>/////////////////////////////////////////////////////////
@@ -3813,7 +3817,7 @@ sleep(5000)
 }</script>
 				</con:config>
 			</con:testStep>
-			<con:testStep type="groovy" name="WebDriverTestStepTemplate">
+			<con:testStep type="groovy" name="WebDriverTestStepTemplate" id="d5c71853-2d73-4fad-aca4-e246570d9fbc">
 				<con:settings/>
 				<con:config>
 					<script>/////////////////////////////////////////////////////////
@@ -3875,10 +3879,10 @@ try{
 			</con:testStep>
 			<con:properties/>
 		</con:testCase>
-		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UploadTestFileAndAuthorize" searchProperties="true" id="ee58b28d-b2b2-4c95-89aa-91bbae71bdac">
+		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UploadTestFile" searchProperties="true" id="8fb96c20-d08c-40ea-8ab1-3e14f41d3f50">
 			<con:description>Uploads test usage file and authorizes it</con:description>
 			<con:settings/>
-			<con:testStep type="groovy" name="resetDB">
+			<con:testStep type="groovy" name="resetDB" id="ff2ec30b-3e7b-4420-8bfe-e960b765b774">
 				<con:settings/>
 				<con:config>
 					<script>def project = testRunner.testCase.testSuite.project
@@ -3921,7 +3925,7 @@ RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + proje
 assert true;</script>
 				</con:config>
 			</con:testStep>
-			<con:testStep type="groovy" name="StartDriver">
+			<con:testStep type="groovy" name="StartDriver" id="56eef8b8-6131-45af-ae06-8bc2b68d8cec">
 				<con:settings/>
 				<con:config>
 					<script>/////////////////////////////////////////////////////////
@@ -3971,7 +3975,7 @@ return
 </script>
 				</con:config>
 			</con:testStep>
-			<con:testStep type="groovy" name="LoginManager">
+			<con:testStep type="groovy" name="LoginManager" id="e7da1200-5c19-4da2-8d6b-2bed7b871c6e">
 				<con:settings/>
 				<con:config>
 					<script>/////////////////////////////////////////////////////////
@@ -4033,7 +4037,7 @@ driver.findElement(By.name("submit")).click()
 </script>
 				</con:config>
 			</con:testStep>
-			<con:testStep type="groovy" name="UploadFileViaGui">
+			<con:testStep type="groovy" name="UploadFileViaGui" id="6bdde26b-d0bd-4335-9eb7-d792c3e338b4">
 				<con:settings/>
 				<con:config>
 					<script>/////////////////////////////////////////////////////////
@@ -4096,7 +4100,7 @@ driver.findElement(By.name("create")).click();
 }</script>
 				</con:config>
 			</con:testStep>
-			<con:testStep type="groovy" name="LogoutManager">
+			<con:testStep type="groovy" name="LogoutManager" id="ab68be2b-b63d-4b94-86df-4dc02ce67ee8">
 				<con:settings/>
 				<con:config>
 					<script>/////////////////////////////////////////////////////////
@@ -4145,7 +4149,323 @@ driver.findElement(By.id("logout")).click();
 }</script>
 				</con:config>
 			</con:testStep>
-			<con:testStep type="groovy" name="AuthorizeStartDataCustodian">
+			
+			<con:testStep type="groovy" name="StopDriver" id="9b73f45e-1b45-4e8f-ac1c-5fa8afcf1389">
+				<con:settings/>
+				<con:config>
+					<script>/////////////////////////////////////////////////////////
+// Note: Generated by capture using Selenium in FF. 
+// Export to Java / JUnit 4 / WebDriver
+// Copy and paste into Groovy Script with minor tweaks
+/////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////
+// Need these imports to run tests
+/////////////////////////////////////////////////////////
+import org.openqa.selenium.By
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.firefox.FirefoxDriver
+
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+
+
+
+/////////////////////////////////////////////////////////
+// Create a new instance of the Firefox driver
+/////////////////////////////////////////////////////////
+Object driver = context["driver"]
+
+try {
+//Close the browser
+driver.quit()
+
+} catch(Exception e) {
+	testRunner.fail(driver.getErrorString())
+	driver.quit();
+}
+</script>
+				</con:config>
+			</con:testStep>
+			<con:properties/>
+		</con:testCase>
+		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UploadTestFileAndAuthorize" searchProperties="true" id="ee58b28d-b2b2-4c95-89aa-91bbae71bdac">
+			<con:description>Uploads test usage file and authorizes it</con:description>
+			<con:settings/>
+			<con:testStep type="groovy" name="resetDB" id="15e89e0c-0609-4104-98de-e8e3e371c412">
+				<con:settings/>
+				<con:config>
+					<script>def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+def mysqlCmd=project.getPropertyValue("mysqlCmd")
+def DBprepopulateScriptName = project.getPropertyValue("DBprepopulateScriptName")
+
+public boolean RunCommand(String path,String cmd)
+{
+	
+	log.info("exec: " + cmd);
+	
+	def doClean = cmd.execute()
+	
+	doClean.waitFor()
+	
+	if(doClean.exitValue()!=0)
+	{
+		log.error "return code: ${ doClean.exitValue()}"
+		log.error "stderr: ${doClean.err.text}"
+		log.error "stdout: ${doClean.in.text}"
+	}
+	
+	
+}
+
+
+
+RunCommand(projectPath,"sh -c cd "+projectPath + "/etc");
+
+RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/cleantables_dc.sql");
+RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/cleantables_tp.sql");
+
+RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/prepopulatesql_dc.sql");
+RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/prepopulatesql_tp.sql");
+
+
+assert true;</script>
+				</con:config>
+			</con:testStep>
+			<con:testStep type="groovy" name="StartDriver" id="81cf2761-f96b-4684-bad1-25fb42d74eb2">
+				<con:settings/>
+				<con:config>
+					<script>/////////////////////////////////////////////////////////
+// Note: Generated by capture using Selenium in FF. 
+// Export to Java / JUnit 4 / WebDriver
+// Copy and paste into Groovy Script with minor tweaks
+/////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////
+// Need these imports to run tests
+/////////////////////////////////////////////////////////
+import org.openqa.selenium.By
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.firefox.FirefoxDriver
+
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+
+/////////////////////////////////////////////////////////
+// get variables from the project Custom Properties
+/////////////////////////////////////////////////////////
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+def BaseURL = project.getPropertyValue("BaseURL")
+def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
+def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
+
+
+/////////////////////////////////////////////////////////
+// Create a new instance of the Firefox driver
+/////////////////////////////////////////////////////////
+Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+driver._bLogActions = true;
+
+if( context["driver"] == null )
+context["driver"] = driver
+
+return
+//Then in later steps you can retrieve it as context["driverInstance"] 
+</script>
+				</con:config>
+			</con:testStep>
+			<con:testStep type="groovy" name="LoginManager" id="59981e5f-1521-4338-b8e5-43b2a0e31cdc">
+				<con:settings/>
+				<con:config>
+					<script>/////////////////////////////////////////////////////////
+// Need these imports to run tests
+/////////////////////////////////////////////////////////
+import org.openqa.selenium.By
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.firefox.FirefoxDriver
+
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+
+/////////////////////////////////////////////////////////
+// define some variables
+/////////////////////////////////////////////////////////
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+def BaseURL = project.getPropertyValue("BaseURL")
+def ServiceEndpoint=BaseURL+"/DataCustodian"
+def TestManager=project.getPropertyValue("TestManager")
+def TestManagerPW=project.getPropertyValue("TestManagerPW")
+
+log.info( TestManager + "  " + TestManagerPW)
+/////////////////////////////////////////////////////////
+// fetch driver from context
+/////////////////////////////////////////////////////////
+Object driver = context["driver"]
+
+try {
+/////////////////////////////////////////////////////////
+// Open the DataCustodian Page
+/////////////////////////////////////////////////////////
+driver.get(ServiceEndpoint)
+
+
+/////////////////////////////////////////////////////////
+// Log in as Manager
+/////////////////////////////////////////////////////////
+driver.findElement(By.id("login")).click();
+driver.findElement(By.name("j_username")).clear()
+driver.findElement(By.name("j_username")).sendKeys(TestManager)
+driver.findElement(By.name("j_password")).clear()
+driver.findElement(By.name("j_password")).sendKeys(TestManagerPW)
+driver.findElement(By.name("submit")).click()
+
+} catch(Exception e) {
+	testRunner.fail(driver.getErrorString())
+	driver.quit();
+}
+</script>
+				</con:config>
+			</con:testStep>
+			<con:testStep type="groovy" name="UploadFileViaGui" id="f1134872-7973-466c-a169-ecf761f0515b">
+				<con:settings/>
+				<con:config>
+					<script>/////////////////////////////////////////////////////////
+// Need these imports to run tests
+/////////////////////////////////////////////////////////
+import org.openqa.selenium.By
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.firefox.FirefoxDriver
+
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+
+/////////////////////////////////////////////////////////
+// define some variables
+/////////////////////////////////////////////////////////
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+
+
+/////////////////////////////////////////////////////////
+// fetch driver from context
+/////////////////////////////////////////////////////////
+Object driver = context["driver"]
+
+try{
+
+/////////////////////////////////////////////////////////
+// Open the DataCustodian Page
+/////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////
+// Now to the upload
+/////////////////////////////////////////////////////////
+driver.findElement(By.linkText("Upload")).click();
+driver.findElement(By.name("file")).sendKeys(TestFile);
+driver.findElement(By.name("upload")).click();
+driver.findElement(By.linkText("Customer List")).click();
+driver.findElement(By.linkText(TestRetailCustomer)).click();
+driver.findElement(By.partialLinkText("Add Usage")).click();
+driver.findElement(By.id("UUID")).clear();
+driver.findElement(By.id("UUID")).sendKeys("48C2A019-5598-4E16-B0F9-49E4FF27F5FB");
+driver.findElement(By.name("create")).click();
+
+} catch(Exception e) {
+	testRunner.fail(driver.getErrorString())
+	driver.quit();
+}</script>
+				</con:config>
+			</con:testStep>
+			<con:testStep type="groovy" name="LogoutManager" id="e4d62b39-aeb3-4486-b61b-289b545e3b6d">
+				<con:settings/>
+				<con:config>
+					<script>/////////////////////////////////////////////////////////
+// Need these imports to run tests
+/////////////////////////////////////////////////////////
+import org.openqa.selenium.By
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.firefox.FirefoxDriver
+
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+
+/////////////////////////////////////////////////////////
+// define some variables
+/////////////////////////////////////////////////////////
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+def BaseURL = project.getPropertyValue("BaseURL")
+def ServiceEndpoint=BaseURL+"/DataCustodian"
+def TestManager=project.getPropertyValue("TestManager")
+def TestManagerPW=project.getPropertyValue("TestManagerPW")
+
+/////////////////////////////////////////////////////////
+// fetch driver from context
+/////////////////////////////////////////////////////////
+Object driver = context["driver"]
+
+try{
+/////////////////////////////////////////////////////////
+// Logout Manager
+/////////////////////////////////////////////////////////
+driver.get(ServiceEndpoint)
+driver.findElement(By.id("logout")).click();
+} catch(Exception e) {
+	testRunner.fail(driver.getErrorString())
+	driver.quit();
+}</script>
+				</con:config>
+			</con:testStep>
+			<con:testStep type="groovy" name="AuthorizeStartDataCustodian" id="7e4a27b1-f835-4fb0-8bf9-bba781741dd8">
 				<con:settings/>
 				<con:config><script>/////////////////////////////////////////////////////////
 //	WebDriverTestStepTemplate
@@ -4250,7 +4570,7 @@ driver.findElement(By.id("logout")).click();
 	driver.quit();
 }</script></con:config>
 			</con:testStep>
-			<con:testStep type="groovy" name="StopDriver">
+			<con:testStep type="groovy" name="StopDriver" id="2a30cbce-dd35-4846-996f-761daf430e84">
 				<con:settings/>
 				<con:config>
 					<script>/////////////////////////////////////////////////////////
@@ -4294,8 +4614,7 @@ driver.quit()
 				</con:config>
 			</con:testStep>
 			<con:properties/>
-		</con:testCase>
-		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="EstablishTwoSubscriptions" searchProperties="true" id="842a41c8-96fb-4b15-bab5-c26d1f3f0dba">
+		</con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="EstablishTwoSubscriptions" searchProperties="true" id="842a41c8-96fb-4b15-bab5-c26d1f3f0dba">
 			<con:settings/>
 			<con:testStep type="groovy" name="resetDB">
 				<con:settings/>
@@ -9729,7 +10048,63 @@ driver.quit();
 			</con:testStep>
 			<con:properties/>
 		</con:testCase>
-		<con:properties/>
+		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="API" searchProperties="true" id="545b3d0d-00cc-4724-98ae-351af13fccb5"><con:description>Tests of API access based on access token and role</con:description><con:settings/><con:testStep type="calltestcase" name="Run TestCase UploadTestFileAndAuthorize" disabled="true"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>ee58b28d-b2b2-4c95-89aa-91bbae71bdac</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Run TestCase EstablishTwoSubscriptions"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>842a41c8-96fb-4b15-bab5-c26d1f3f0dba</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="restrequest" name="GET Authorization - data_custodian_access"><con:settings/><con:config service="ESPI Resources" methodName="GET Authorization by Id" resourcePath="/espi/1_1/resource/Authorization/{authorizationId}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET Authorization - data_custodian_access" mediaType="Application/atom+xml"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="authorizationId" value="1"/>
+  <con:entry key="Content-Type" value="Application/atom+xml"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="GET Authorization - third_party_access"><con:settings/><con:config service="ESPI Resources" methodName="GET Authorization by Id" resourcePath="/espi/1_1/resource/Authorization/{authorizationId}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET Authorization - third_party_access" mediaType="Application/atom+xml"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="Authorization" value="Bearer ${#Project#third_party_access_token}"/>
+  <con:entry key="authorizationId" value="5"/>
+  <con:entry key="Content-Type" value="Application/atom+xml"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="GET Authorization - third_party_access of User Authorization"><con:settings/><con:config service="ESPI Resources" methodName="GET Authorization by Id" resourcePath="/espi/1_1/resource/Authorization/{authorizationId}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET Authorization - third_party_access of User Authorization" mediaType="Application/atom+xml"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="Authorization" value="Bearer ${#Project#third_party_access_token}"/>
+  <con:entry key="authorizationId" value="6"/>
+  <con:entry key="Content-Type" value="Application/atom+xml"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="GET Authorization - third_party_access of User Authorization for DC"><con:settings/><con:config service="ESPI Resources" methodName="GET Authorization by Id" resourcePath="/espi/1_1/resource/Authorization/{authorizationId}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET Authorization - third_party_access of User Authorization for DC" mediaType="Application/atom+xml"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="Authorization" value="Bearer ${#Project#third_party_access_token}"/>
+  <con:entry key="authorizationId" value="6"/>
+  <con:entry key="Content-Type" value="Application/atom+xml"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="GET - Subscription/{subscriptionId}"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Subscription/{subscriptionId}" methodName="Get" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET - Subscription/{subscriptionId}" mediaType="application/json">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+								<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+								<con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="subscriptionId" value="6" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder><con:entry>subscriptionId</con:entry><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="GET Batch/Subscription/{subscriptionId}"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/{subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET Batch/Subscription/{subscriptionId}" mediaType="application/json">
+								<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+								<con:request/>
+								<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+								<con:jmsPropertyConfig/>
+								<con:parameters><entry key="subscriptionID" value="5" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+								<con:settings>
+									<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+								</con:settings>
+								<con:credentials>
+									<con:authType>Global HTTP Settings</con:authType>
+								</con:credentials>
+								<con:parameterOrder><con:entry>subscriptionID</con:entry><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
+							</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="GET ServiceStatus"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ReadServiceStatus" methodName="GET ServiceStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ServiceStatus" mediaType="application/json">
+						<con:settings>
+							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+						</con:settings>
+						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+						<con:request/>
+						<con:credentials>
+							<con:authType>Global HTTP Settings</con:authType>
+						</con:credentials>
+						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+						<con:jmsPropertyConfig/>
+						<con:parameters><entry key="Authorization" value="Bearer ${#Project#third_party_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+						<con:parameterOrder><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
+					</con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/>
 	</con:testSuite>
 	<con:testSuite name="RonsSandbox">
 		<con:settings/>
@@ -10806,7 +11181,7 @@ driver.quit();
 		</con:property>
 		<con:property>
 			<con:name>upload_access_token</con:name>
-			<con:value>688b026c-665f-4994-9139-6b21b13fbeee</con:value>
+			<con:value>809caf03-612e-4e89-94b1-6f86d83b1ef8</con:value>
 		</con:property>
 	<con:property><con:name>userAccessToken1</con:name><con:value>bdd9b97b-b1cf-4b35-9c15-a14356930415</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>14e9da63-b611-43a3-8010-b4830d789de4</con:value></con:property></con:properties>
 	<con:wssContainer/>
