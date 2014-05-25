@@ -58,9 +58,9 @@ permissions and limitations under the License.
  <link rel="self" href="https://localhost:8080/DataCustodian/espi/1_1/resource/Subscription/Batch Index"/>
     <entry>
     <id>urn:uuid:2C3746CE-A898-4096-B410-7819CD39E741</id>
-        <link rel="self" href="https://localhost:8080/DataCustodian/espi/1_1/resource/RetailCustomer/9B6C7088/UsagePoint/5446AF3F"/>
-        <link rel="up" href="https://localhost:8080/DataCustodian/espi/1_1/resource/RetailCustomer/9B6C7088/UsagePoint"/>
-        <link rel="related" href="https://localhost:8080/DataCustodian/espi/1_1/resource/RetailCustomer/9B6C7088/UsagePoint/5446AF3F/MeterReading"/>
+        <link rel="self" href="https://localhost:8080/DataCustodian/espi/1_1/resource/Subscription/9B6C7088/UsagePoint/5446AF3F"/>
+        <link rel="up" href="https://localhost:8080/DataCustodian/espi/1_1/resource/Subscription/9B6C7088/UsagePoint"/>
+        <link rel="related" href="https://localhost:8080/DataCustodian/espi/1_1/resource/Subscription/9B6C7088/UsagePoint/5446AF3F/MeterReading"/>
         <link rel="related" href="https://localhost:8080/DataCustodian/espi/1_1/resource/LocalTimeParameters/01"/>
         <title>NIST Net0 Home</title>
         <content>
@@ -91,9 +91,9 @@ permissions and limitations under the License.
     </entry>
     <entry>
         <id>urn:uuid:8A7DBFA3-49B2-4B31-8067-78A5F81EF339</id>
-        <link rel="self" href="https://localhost:8080/DataCustodian/espi/1_1/resource/RetailCustomer/9B6C7088/UsagePoint/5446AF3F/MeterReading/01"/>
-        <link rel="up" href="https://localhost:8080/DataCustodian/espi/1_1/resource/RetailCustomer/9B6C7088/UsagePoint/5446AF3F/MeterReading"/>
-        <link rel="related" href="https://localhost:8080/DataCustodian/espi/1_1/resource/RetailCustomer/9B6C7088/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
+        <link rel="self" href="https://localhost:8080/DataCustodian/espi/1_1/resource/Subscription/9B6C7088/UsagePoint/5446AF3F/MeterReading/01"/>
+        <link rel="up" href="https://localhost:8080/DataCustodian/espi/1_1/resource/Subscription/9B6C7088/UsagePoint/5446AF3F/MeterReading"/>
+        <link rel="related" href="https://localhost:8080/DataCustodian/espi/1_1/resource/Subscription/9B6C7088/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
         <link rel="related" href="https://localhost:8080/DataCustodian/espi/1_1/resource/ReadingType/07"/>
         <title>Hourly Electricity Consumption</title>
         <content>
@@ -127,8 +127,8 @@ permissions and limitations under the License.
     </entry>
 <entry>
     <id>urn:uuid:F1BCCA31-5AD3-44AC-8B24-25FD2CCACD32</id>
-    <link rel="self" href="https://localhost:8080/DataCustodian/espi/1_1/resource/RetailCustomer/9B6C7088/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/173"/>
-    <link rel="up" href="https://localhost:8080/DataCustodian/espi/1_1/resource/RetailCustomer/9B6C7088/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
+    <link rel="self" href="https://localhost:8080/DataCustodian/espi/1_1/resource/Subscription/9B6C7088/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock/173"/>
+    <link rel="up" href="https://localhost:8080/DataCustodian/espi/1_1/resource/Subscription/9B6C7088/UsagePoint/5446AF3F/MeterReading/01/IntervalBlock"/>
     <title/>
     <content>
 <IntervalBlock xmlns="http://naesb.org/espi">
@@ -70704,9 +70704,9 @@ permissions and limitations under the License.
 </entry>
     <entry>
         <id>urn:uuid:D9C02610-F990-46FC-B429-9F82A703AE8B</id>
-        <link rel="self" href="https://localhost:8080/DataCustodian/espi/1_1/resource/RetailCustomer/9B6C7088/UsagePoint/5446AF3F/MeterReading/02"/>
-        <link rel="up" href="https://localhost:8080/DataCustodian/espi/1_1/resource/RetailCustomer/9B6C7088/UsagePoint/5446AF3F/MeterReading"/>
-        <link rel="related" href="https://localhost:8080/DataCustodian/espi/1_1/resource/RetailCustomer/9B6C7088/UsagePoint/5446AF3F/MeterReading/02/IntervalBlock"/>
+        <link rel="self" href="https://localhost:8080/DataCustodian/espi/1_1/resource/Subscription/9B6C7088/UsagePoint/5446AF3F/MeterReading/02"/>
+        <link rel="up" href="https://localhost:8080/DataCustodian/espi/1_1/resource/Subscription/9B6C7088/UsagePoint/5446AF3F/MeterReading"/>
+        <link rel="related" href="https://localhost:8080/DataCustodian/espi/1_1/resource/Subscription/9B6C7088/UsagePoint/5446AF3F/MeterReading/02/IntervalBlock"/>
         <link rel="related" href="https://localhost:8080/DataCustodian/espi/1_1/resource/ReadingType/08"/>
         <title>Hourly Electricity Consumption</title>
         <content>
@@ -70740,8 +70740,8 @@ permissions and limitations under the License.
     </entry>
 <entry>
     <id>urn:uuid:4A3C5995-77BF-4B94-9DE8-6B46B16F0CAF</id>
-    <link rel="self" href="https://localhost:8080/DataCustodian/espi/1_1/resource/RetailCustomer/9B6C7088/UsagePoint/5446AF3F/MeterReading/02/IntervalBlock/173"/>
-    <link rel="up" href="https://localhost:8080/DataCustodian/espi/1_1/resource/RetailCustomer/9B6C7088/UsagePoint/5446AF3F/MeterReading/02/IntervalBlock"/>
+    <link rel="self" href="https://localhost:8080/DataCustodian/espi/1_1/resource/Subscription/9B6C7088/UsagePoint/5446AF3F/MeterReading/02/IntervalBlock/173"/>
+    <link rel="up" href="https://localhost:8080/DataCustodian/espi/1_1/resource/Subscription/9B6C7088/UsagePoint/5446AF3F/MeterReading/02/IntervalBlock"/>
     <title/>
     <content>
 <IntervalBlock xmlns="http://naesb.org/espi">
