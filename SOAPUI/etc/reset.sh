@@ -4,8 +4,6 @@
 #
 # Copy the appropriate version of prepopulatesql_<dc or tp>_<host><port>.sql to prepopulatesql.sql for your installation
 
-
-
 # clean tables 
 mysql --user=root --password=password < cleantables_dc.sql
 mysql --user=root --password=password < cleantables_tp.sql
@@ -13,5 +11,3 @@ mysql --user=root --password=password < cleantables_tp.sql
 # prepopulate tables 
 mysql --user=root --password=password < prepopulatesql_dc.sql
 mysql --user=root --password=password < prepopulatesql_tp.sql
-
-
