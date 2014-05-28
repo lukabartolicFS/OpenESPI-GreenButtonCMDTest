@@ -4247,10 +4247,10 @@ driver.quit()
 		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UploadTestFileAndAuthorize" searchProperties="true" id="ee58b28d-b2b2-4c95-89aa-91bbae71bdac">
 			<con:description>Uploads test usage file and authorizes it</con:description>
 			<con:settings/>
-			<con:testStep type="groovy" name="resetDB" id="15e89e0c-0609-4104-98de-e8e3e371c412">
+			
+			<con:testStep type="groovy" name="resetDB">
 				<con:settings/>
-				<con:config>
-					<script>def project = testRunner.testCase.testSuite.project
+				<con:config><script>def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
@@ -4259,7 +4259,7 @@ def DBprepopulateScriptName = project.getPropertyValue("DBprepopulateScriptName"
 
 public boolean RunCommand(String path,String cmd)
 {
-	
+	cmd = cmd + " " + path + "/etc"
 	log.info("exec: " + cmd);
 	
 	def doClean = cmd.execute()
@@ -4272,8 +4272,6 @@ public boolean RunCommand(String path,String cmd)
 		log.error "stderr: ${doClean.err.text}"
 		log.error "stdout: ${doClean.in.text}"
 	}
-	
-	
 }
 
 
@@ -4287,8 +4285,7 @@ RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + proje
 RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/prepopulatesql_tp.sql");
 
 
-assert true;</script>
-				</con:config>
+assert true;</script></con:config>
 			</con:testStep>
 			<con:testStep type="groovy" name="StartDriver" id="81cf2761-f96b-4684-bad1-25fb42d74eb2">
 				<con:settings/>
@@ -4661,14 +4658,15 @@ driver.quit()
 }
 </script>
 				</con:config>
-			</con:testStep>
-			<con:properties/>
+			</con:testStep><con:properties/>
 		</con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="EstablishTwoSubscriptions" searchProperties="true" id="842a41c8-96fb-4b15-bab5-c26d1f3f0dba">
 			<con:settings/>
+			
+			
+			
 			<con:testStep type="groovy" name="resetDB">
 				<con:settings/>
-				<con:config>
-					<script>def project = testRunner.testCase.testSuite.project
+				<con:config><script>def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
@@ -4677,7 +4675,7 @@ def DBprepopulateScriptName = project.getPropertyValue("DBprepopulateScriptName"
 
 public boolean RunCommand(String path,String cmd)
 {
-	
+	cmd = cmd + " " + path + "/etc"
 	log.info("exec: " + cmd);
 	
 	def doClean = cmd.execute()
@@ -4690,8 +4688,6 @@ public boolean RunCommand(String path,String cmd)
 		log.error "stderr: ${doClean.err.text}"
 		log.error "stdout: ${doClean.in.text}"
 	}
-	
-	
 }
 
 
@@ -4705,11 +4701,8 @@ RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + proje
 RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/prepopulatesql_tp.sql");
 
 
-assert true;</script>
-				</con:config>
+assert true;</script></con:config>
 			</con:testStep>
-			
-			
 			<con:testStep type="groovy" name="StartDriver">
 				<con:settings/>
 				<con:config>
@@ -5024,6 +5017,10 @@ try {
 	driver.quit();
 }</script></con:config>
 			</con:testStep>
+			
+			
+			
+			
 			<con:testStep type="groovy" name="Set Access Tokens"><con:settings/><con:config><script>/////////////////////////////////////////////////////////
 // Need these imports to run tests
 /////////////////////////////////////////////////////////
@@ -5095,12 +5092,7 @@ try {
 	testRunner.fail(driver.getErrorString())
 	driver.quit();
 }
-</script></con:config></con:testStep>
-			
-			
-			
-			
-			<con:testStep type="groovy" name="LogoutManager">
+</script></con:config></con:testStep><con:testStep type="groovy" name="LogoutManager">
 				<con:settings/>
 				<con:config>
 					<script>/////////////////////////////////////////////////////////
@@ -5400,6 +5392,82 @@ driver.quit()
 		<con:runType>SEQUENTIAL</con:runType>
 		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Library" searchProperties="true" id="73736828-3934-44f5-af9f-866f8478c216">
 			<con:settings/>
+			<con:testStep type="groovy" name="resetDB">
+				<con:settings/>
+				<con:config><script>def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+def mysqlCmd=project.getPropertyValue("mysqlCmd")
+def DBprepopulateScriptName = project.getPropertyValue("DBprepopulateScriptName")
+
+public boolean RunCommand(String path,String cmd)
+{
+	cmd = cmd + " " + path + "/etc"
+	log.info("exec: " + cmd);
+	
+	def doClean = cmd.execute()
+	
+	doClean.waitFor()
+	
+	if(doClean.exitValue()!=0)
+	{
+		log.error "return code: ${ doClean.exitValue()}"
+		log.error "stderr: ${doClean.err.text}"
+		log.error "stdout: ${doClean.in.text}"
+	}
+}
+
+
+
+RunCommand(projectPath,"sh -c cd "+projectPath + "/etc");
+
+RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/cleantables_dc.sql");
+RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/cleantables_tp.sql");
+
+RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/prepopulatesql_dc.sql");
+RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/prepopulatesql_tp.sql");
+
+
+assert true;</script></con:config>
+			</con:testStep>
+			<con:testStep type="groovy" name="curlUpload">
+				<con:settings/>
+				<con:config>
+					<script>def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+def BaseURL = project.getPropertyValue("BaseURL")
+def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
+
+
+
+
+tc = testRunner.testCase.testSuite.project.testSuites["OpenEspiIntegrationTests"].testCases["Library"]
+def UploadFile=projectPath + "/../data/" + tc.getPropertyValue("uploadFile")
+def retailCustomerId = tc.getPropertyValue("retailCustomerId")
+
+def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
+
+def cmdPost = projectPath + "/etc/doCurlUpload.sh ${UploadFile} ${ServiceEndpointDataCustodian}/espi/1_1/resource/Batch/RetailCustomer/${retailCustomerId}/UsagePoint";
+
+log.info("exec: " + cmdPost);
+
+def doPost = cmdPost.execute()
+
+doPost.waitFor()
+
+if(doPost.exitValue()!=0) {
+	log.error "return code: ${ doPost.exitValue()}"
+	log.error "stderr: ${doPost.err.text}"
+	log.error "stdout: ${doPost.in.text}"
+} else {
+	log.info "result: ${doPost.err.text}"
+}</script>
+				</con:config>
+			</con:testStep>
+			
 			<con:testStep type="groovy" name="resourceTests">
 				<con:settings/>
 				<con:config><script><![CDATA[import org.xml.sax.SAXException;
@@ -6601,83 +6669,7 @@ public boolean TestType1ROOT(Object testRunner,Object context,String strInputFil
 
 
 	]]></script></con:config>
-			</con:testStep>
-			<con:testStep type="groovy" name="curlUpload">
-				<con:settings/>
-				<con:config>
-					<script>def project = testRunner.testCase.testSuite.project
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-def projectPath = groovyUtils.projectPath
-
-def BaseURL = project.getPropertyValue("BaseURL")
-def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
-
-
-
-
-tc = testRunner.testCase.testSuite.project.testSuites["OpenEspiIntegrationTests"].testCases["Library"]
-def UploadFile=projectPath + "/../data/" + tc.getPropertyValue("uploadFile")
-def retailCustomerId = tc.getPropertyValue("retailCustomerId")
-
-def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
-
-def cmdPost = projectPath + "/etc/doCurlUpload.sh ${UploadFile} ${ServiceEndpointDataCustodian}/espi/1_1/resource/Batch/RetailCustomer/${retailCustomerId}/UsagePoint";
-
-log.info("exec: " + cmdPost);
-
-def doPost = cmdPost.execute()
-
-doPost.waitFor()
-
-if(doPost.exitValue()!=0) {
-	log.error "return code: ${ doPost.exitValue()}"
-	log.error "stderr: ${doPost.err.text}"
-	log.error "stdout: ${doPost.in.text}"
-} else {
-	log.info "result: ${doPost.err.text}"
-}</script>
-				</con:config>
-			</con:testStep>
-			<con:testStep type="groovy" name="resetDB">
-				<con:settings/>
-				<con:config><script>def project = testRunner.testCase.testSuite.project
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-def projectPath = groovyUtils.projectPath
-
-def mysqlCmd=project.getPropertyValue("mysqlCmd")
-def DBprepopulateScriptName = project.getPropertyValue("DBprepopulateScriptName")
-
-public boolean RunCommand(String path,String cmd)
-{
-	cmd = cmd + " " + path + "/etc"
-	log.info("exec: " + cmd);
-	
-	def doClean = cmd.execute()
-	
-	doClean.waitFor()
-	
-	if(doClean.exitValue()!=0)
-	{
-		log.error "return code: ${ doClean.exitValue()}"
-		log.error "stderr: ${doClean.err.text}"
-		log.error "stdout: ${doClean.in.text}"
-	}
-}
-
-
-
-RunCommand(projectPath,"sh -c cd "+projectPath + "/etc");
-
-RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/cleantables_dc.sql");
-RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/cleantables_tp.sql");
-
-RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/prepopulatesql_dc.sql");
-RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/prepopulatesql_tp.sql");
-
-
-assert true;</script></con:config>
-			</con:testStep>
-			<con:properties>
+			</con:testStep><con:properties>
 				<con:property>
 					<con:name>resourceTestFileName</con:name>
 					<con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">entry_ReadingType_3.xml</con:value>
@@ -6692,7 +6684,7 @@ assert true;</script></con:config>
 				</con:property>
 				<con:property>
 					<con:name>testFailed</con:name>
-					<con:value>TRUE</con:value>
+					<con:value>FALSE</con:value>
 				</con:property>
 				<con:property>
 					<con:name>uploadFile</con:name>
@@ -11816,7 +11808,7 @@ driver.quit();
 		</con:property>
 		<con:property>
 			<con:name>subscriptionId</con:name>
-			<con:value>5</con:value>
+			<con:value>1</con:value>
 		</con:property>
 		<con:property>
 			<con:name>applicationInformationId</con:name>
@@ -11846,7 +11838,7 @@ driver.quit();
 			<con:name>upload_access_token</con:name>
 			<con:value>809caf03-612e-4e89-94b1-6f86d83b1ef8</con:value>
 		</con:property>
-	<con:property><con:name>userAccessToken1</con:name><con:value>d636048f-e566-4f60-b3f4-97b004f9c28c</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>f67f7a87-8aca-47fb-917b-2a292abd1845</con:value></con:property></con:properties>
+	<con:property><con:name>userAccessToken1</con:name><con:value>18e8e3d1-5c31-472e-8d24-5a1c6fda6b6f</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>bb7d3168-a9f3-4fae-abb5-a979ee96a857</con:value></con:property></con:properties>
 	<con:wssContainer/>
 	<con:oAuth2ProfileContainer/>
 	<con:sensitiveInformation/>
