@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <entry xmlns="http://www.w3.org/2005/Atom" xmlns:espi="http://naesb.org/espi"  xsi:schemaLocation="http://naesb.org/espi espiDerived.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<id>urn:uuid:A84C74DE-B08D-4F86-8E58-F6FC6EF41CFF</id>
-	<link rel="self" href="/espi/1_1/resource/LocalTimeParameters/01"/>
-	<link rel="up" href="/espi/1_1/resource/LocalTimeParameters"/>
+	<link rel="self" href="https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource/Authorization/01"/>
+	<link rel="up" href="https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource/Authorization"/>
 	<title>Sample Authorization</title>
 	<content>
 		<Authorization xmlns="http://naesb.org/espi">
@@ -14,22 +14,18 @@
 				<duration>31536000</duration>
 				<start>1333252800</start>
 			</publishedPeriod>
-			<referenceID>/espi/1_1/resource/Subscription/83e269c1</referenceID>
 			<access_token>AA886A7A-078D-4307-A3D9-AA036796DBC3</access_token>
 			<status>1</status>
-			<expires_in>86400</expires_in>
+			<expires_at>86400</expires_at>
 			<grant_type>authorization_code</grant_type>
 			<refresh_token>AA886A7A-078D-4307-A3D9-AA036796DBC4</refresh_token>
 			<scope>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</scope>
-			<state>werfndue</state>
-			<response_type>code</response_type>
 			<token_type>bearer</token_type>
-			<code>efuhsduhnwe1343!?</code>
 			<error>server_error</error>
 			<error_description>No service</error_description>
 			<error_uri>na</error_uri>
-			<resourceURI>http://localhost:8080/DataCustodian/espi/1_1/resource/Subscription/1</resourceURI>
-			<authorizationURI>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/1</authorizationURI>
+			<resourceURI>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource/Subscription/1</resourceURI>
+			<authorizationURI>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource/Authorization/1</authorizationURI>
 		</Authorization>
 	</content>
 	<published>2013-10-24T04:00:00Z</published>
