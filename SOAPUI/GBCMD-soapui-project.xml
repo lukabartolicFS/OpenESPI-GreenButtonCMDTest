@@ -739,7 +739,7 @@
 					<con:parameters/>
 					<con:resource name="{subscriptionID}" path="{subscriptionID}" id="03092ec7-0ac7-4e84-aa3b-6a47b7f344cd">
 						<con:settings/>
-						<con:method name="Method 1" method="GET" id="3ba52762-575b-4840-967b-4970130b71b9">
+						<con:resource name="UsagePoint" path="UsagePoint" id="92ef6e6f-33d8-476d-b93e-378467827e60"><con:settings/><con:parameters/><con:resource name="{usagePointId}" path="{usagePointId}"><con:settings/><con:parameters><con:parameter><con:name>usagePointId</con:name><con:value>${#Project#usagePointId}</con:value><con:style>TEMPLATE</con:style><con:default>${#Project#usagePointId}</con:default></con:parameter></con:parameters><con:method name="Method 1" method="GET"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="GET {usagePointId}" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/5/UsagePoint/usagePointId</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="usagePointId" value="${#Project#usagePointId}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:request></con:method></con:resource></con:resource><con:method name="Method 1" method="GET" id="3ba52762-575b-4840-967b-4970130b71b9">
 							<con:settings/>
 							<con:parameters/>
 							<con:request name="GET {subscriptionId}" mediaType="application/json" id="76860f30-073d-4f94-be07-2f0a3435b146">
@@ -777,9 +777,9 @@
 						<con:parameters>
 							<con:parameter>
 								<con:name>subscriptionID</con:name>
-								<con:value>${#Project#subscriptionId}</con:value>
+								<con:value>${#Project#subscriptionID}</con:value>
 								<con:style>TEMPLATE</con:style>
-								<con:default>subscriptionID</con:default>
+								<con:default>${#Project#subscriptionID}</con:default>
 							</con:parameter>
 						</con:parameters>
 					</con:resource>
@@ -894,14 +894,14 @@
 									<con:params/>
 									<con:element>data</con:element>
 								</con:representation>
-								<con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/xml" postQueryString="false" id="0c9b6e50-3d7a-4940-b50d-7f20290474b1">
+								<con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/xml" postQueryString="false" id="0c9b6e50-3d7a-4940-b50d-7f20290474b1">
 									<con:settings>
 										<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 									</con:settings>
 									<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 									<con:request/>
-									<con:credentials>
-										<con:authType>Global HTTP Settings</con:authType>
+									<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Batch/RetailCustomer/1/UsagePoint</con:originalUri><con:credentials>
+										<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
 									</con:credentials>
 									<con:attachment>
 										<con:name>test_usage_data.xml</con:name>
@@ -10408,7 +10408,7 @@ driver.quit();
 		</con:property>
 		<con:property>
 			<con:name>subscriptionId</con:name>
-			<con:value>1</con:value>
+			<con:value>5</con:value>
 		</con:property>
 		<con:property>
 			<con:name>applicationInformationId</con:name>
