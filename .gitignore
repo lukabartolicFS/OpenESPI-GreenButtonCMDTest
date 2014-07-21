@@ -1,2 +1,3 @@
 ./SOAPUI/etc/gbcmd.conf
 ./data/testSets/*
+/SOAPUI/etc/gbcmd.conf
