@@ -10448,7 +10448,7 @@ driver.quit();
 			<con:name>upload_access_token</con:name>
 			<con:value>809caf03-612e-4e89-94b1-6f86d83b1ef8</con:value>
 		</con:property>
-	<con:property><con:name>userAccessToken1</con:name><con:value>3327f245-c1d8-4236-9a73-877b3a7a87aa</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>ad1bc871-42ed-46ed-b48b-e05696f1e77a</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c</con:value></con:property></con:properties>
+	<con:property><con:name>userAccessToken1</con:name><con:value>5ffd80ea-89cf-4294-b6e0-fcce29f8937c</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>a3e16088-3138-4bce-a318-a81ab940abd3</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c</con:value></con:property></con:properties>
 	<con:wssContainer/>
 	<con:oAuth2ProfileContainer/>
 	<con:sensitiveInformation/>
