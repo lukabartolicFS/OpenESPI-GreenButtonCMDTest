@@ -2142,7 +2142,7 @@ public boolean RunCommand(String path,String cmd)
 }
 
 // define the command
-cmdPost = 'curl --header "Authorization: Bearer ' + DataCustodianAccessToken+ '" --header "Content-Type:application/xml" -X POST -d @' + tf + " " + url;
+cmdPost = 'curl --header "Authorization: Bearer ' + DataCustodianAccessToken+ '" --header "Content-Type:application/xml" -X POST -d "@' + tf + '" "' + url+ '"';
 log.info("exec: " + cmdPost);
 
 // do the curl
@@ -2180,8 +2180,13 @@ public boolean RunCommand(String path,String cmd)
 		log.error "stderr: ${doCmd.err.text}"
 		log.error "stdout: ${doCmd.in.text}"
 	}
+	else
+	{
+		log.info "return code: ${ doCmd.exitValue()}"+"  cmd:  "+ cmd;
+	}
 }
 
+log.info "Reset DB "
 def etcpath = projectPath + "/etc";
 
 
@@ -9684,7 +9689,7 @@ driver.quit();
 			<con:name>upload_access_token</con:name>
 			<con:value>809caf03-612e-4e89-94b1-6f86d83b1ef8</con:value>
 		</con:property>
-	<con:property><con:name>userAccessToken1</con:name><con:value>b39a2619-8f06-491c-8067-97aecd82934a</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>c0c2fbf5-3ff9-409e-80f6-6c49ab0ad2a1</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c</con:value></con:property><con:property><con:name>opensslCmd</con:name><con:value>openssl</con:value></con:property><con:property><con:name>timeoutCmd</con:name><con:value>timeout</con:value></con:property></con:properties>
+	<con:property><con:name>userAccessToken1</con:name><con:value>5916c0f9-44fc-4f8e-b4cd-82ce78a919cb</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>7662a703-79ce-46ce-8234-ec5983af81fd</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c</con:value></con:property><con:property><con:name>opensslCmd</con:name><con:value>openssl</con:value></con:property><con:property><con:name>timeoutCmd</con:name><con:value>timeout</con:value></con:property></con:properties>
 	<con:wssContainer/>
 	<con:oAuth2ProfileContainer/>
 	<con:sensitiveInformation/>
