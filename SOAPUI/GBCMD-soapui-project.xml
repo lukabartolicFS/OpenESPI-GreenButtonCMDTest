@@ -2102,33 +2102,57 @@ def projectPath = groovyUtils.projectPath
 def BaseURL = project.getPropertyValue("BaseURL")
 def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
 def DataCustodianAccessToken = project.getPropertyValue("data_custodian_access_token")
-
-
-
 tc = testRunner.testCase.testSuite.project.testSuites["Library"].testCases["GeneralScripts"]
 def UploadFile=projectPath + "/../data/" + tc.getPropertyValue("uploadFile")
 def retailCustomerId = tc.getPropertyValue("retailCustomerId")
 
 def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
-
 def tf= new File(UploadFile);
 tf = tf.getAbsolutePath();
 
+def td = projectPath + "/../data/" ;
 def url= ServiceEndpointDataCustodian+"/espi/1_1/resource/Batch/RetailCustomer/"+retailCustomerId+"/UsagePoint";
 
+
+public boolean RunCommand(String path,String cmd)
+{
+	def doCmd;
+
+	log.info("path: " + path);
+	log.info("exec: " + cmd);
+	log.info("os  : " + System.properties['os.name']);
+
+	if (System.properties['os.name'].toLowerCase().contains('windows')) {
+		doCmd = ["cmd", "/c",cmd].execute(null, new File(path));
+	} else {
+		doCmd = ["bash", "-c",cmd].execute(null, new File(path));
+	}
+		
+	doCmd.waitFor()
+
+	if(doCmd.exitValue()!=0)
+	{
+		log.error "return code: ${ doCmd.exitValue()}"
+		log.error "stderr: ${doCmd.err.text}"
+		log.error "stdout: ${doCmd.in.text}"
+
+		return false;
+	}
+
+	return true;
+}
+
+// define the command
 cmdPost = 'curl --header "Authorization: Bearer ' + DataCustodianAccessToken+ '" --header "Content-Type:application/xml" -X POST -d @' + tf + " " + url;
 log.info("exec: " + cmdPost);
 
-def doPost = cmdPost.execute()
-
-doPost.waitFor()
-
-if(doPost.exitValue()!=0) {
-	log.error "return code: ${ doPost.exitValue()}"
-	log.error "stderr: ${doPost.err.text}"
-	log.error "stdout: ${doPost.in.text}"
-} else {
-	log.info "result: ${doPost.err.text}"
+// do the curl
+if(RunCommand(td,cmdPost) == true) {
+	assert true;
+}
+else
+{
+	testRunner.fail("could not curl up file");
 }</script></con:config>
 			</con:testStep><con:testStep type="groovy" name="resetDB" id="64e17259-bac9-493e-8827-b5e5dc5993e8">
 				<con:settings/>
@@ -2161,22 +2185,6 @@ public boolean RunCommand(String path,String cmd)
 		log.error "stderr: ${doCmd.err.text}"
 		log.error "stdout: ${doCmd.in.text}"
 	}
-
-
-/*
-	log.info("path: " + path);
-	log.info("exec: " + cmd);
-
-	def doClean = cmd.execute(null, new File(path));
-	
-	doClean.waitFor()
-
-	if(doClean.exitValue()!=0)
-	{
-		log.error "return code: ${ doClean.exitValue()}"
-		log.error "stderr: ${doClean.err.text}"
-		log.error "stdout: ${doClean.in.text}"
-	}*/	
 }
 
 def etcpath = projectPath + "/etc";
@@ -2729,7 +2737,7 @@ try {
 }
 </script></con:config></con:testStep><con:properties/>
 		</con:testCase>
-		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UploadTestFile" searchProperties="true" id="8fb96c20-d08c-40ea-8ab1-3e14f41d3f50">
+		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UploadTestFile GUI" searchProperties="true" id="8fb96c20-d08c-40ea-8ab1-3e14f41d3f50">
 			<con:description>Uploads test usage file</con:description>
 			<con:settings/>
 			
@@ -5279,7 +5287,7 @@ public boolean TestType1ROOT(Object testRunner,Object context,String strInputFil
 
 
 	]]></script></con:config>
-			</con:testStep><con:properties><con:property><con:name>resourceTestFileName</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">entry_IntervalBlock_4.xml</con:value></con:property><con:property><con:name>testType</con:name><con:value>GetROOTAndLinks</con:value></con:property><con:property><con:name>default_access_token</con:name><con:value>688b026c-665f-4994-9139-6b21b13fbeee</con:value></con:property><con:property><con:name>testShouldPass</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>resourceOutputFileName</con:name><con:value>test_get_block2.xml</con:value></con:property><con:property><con:name>resource</con:name><con:value>espi/1_1/resource/IntervalBlock</con:value></con:property><con:property><con:name>testFailed</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>uploadFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property></con:properties></con:testCase><con:properties/>
+			</con:testStep><con:properties><con:property><con:name>resourceTestFileName</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>testType</con:name><con:value>GetSaveResponse</con:value></con:property><con:property><con:name>default_access_token</con:name><con:value>688b026c-665f-4994-9139-6b21b13fbeee</con:value></con:property><con:property><con:name>testShouldPass</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>resourceOutputFileName</con:name><con:value>test_subscription.xml</con:value></con:property><con:property><con:name>resource</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>testFailed</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>uploadFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property></con:properties></con:testCase><con:properties/>
 	</con:testSuite>
 	<con:testSuite name="OpenEspiIntegrationTests">
 		<con:settings/>
@@ -10388,7 +10396,7 @@ driver.quit();
 		</con:property>
 		<con:property>
 			<con:name>subscriptionId</con:name>
-			<con:value>5</con:value>
+			<con:value>1</con:value>
 		</con:property>
 		<con:property>
 			<con:name>applicationInformationId</con:name>
@@ -10418,7 +10426,7 @@ driver.quit();
 			<con:name>upload_access_token</con:name>
 			<con:value>809caf03-612e-4e89-94b1-6f86d83b1ef8</con:value>
 		</con:property>
-	<con:property><con:name>userAccessToken1</con:name><con:value>2de1f004-1643-4c20-9b48-9d66ae4b4244</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>7319e1e8-c72e-4243-be10-87d868257cae</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c</con:value></con:property><con:property><con:name>opensslCmd</con:name><con:value>openssl</con:value></con:property><con:property><con:name>timeoutCmd</con:name><con:value>timeout</con:value></con:property></con:properties>
+	<con:property><con:name>userAccessToken1</con:name><con:value>fafc7ef4-63ba-401e-a6bd-59160aa9bb09</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>d40e823c-b471-455c-ab05-b77a8ed12d7f</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c</con:value></con:property><con:property><con:name>opensslCmd</con:name><con:value>openssl</con:value></con:property><con:property><con:name>timeoutCmd</con:name><con:value>timeout</con:value></con:property></con:properties>
 	<con:wssContainer/>
 	<con:oAuth2ProfileContainer/>
 	<con:sensitiveInformation/>
