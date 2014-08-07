@@ -2141,12 +2141,33 @@ def DBprepopulateScriptName = project.getPropertyValue("DBprepopulateScriptName"
 
 public boolean RunCommand(String path,String cmd)
 {
-	def cdpath = "cmd /c cd " + path;
-	def runcmd = "cmd /c "+cmd;
+	def doCmd;
+
+	log.info("path: " + path);
+	log.info("exec: " + cmd);
+	log.info("os  : " + System.properties['os.name']);
+
+	if (System.properties['os.name'].toLowerCase().contains('windows')) {
+		doCmd = ["cmd", "/c",cmd].execute(null, new File(path));
+	} else {
+		doCmd = ["bash", "-c",cmd].execute(null, new File(path));
+	}
+		
+	doCmd.waitFor()
+
+	if(doCmd.exitValue()!=0)
+	{
+		log.error "return code: ${ doCmd.exitValue()}"
+		log.error "stderr: ${doCmd.err.text}"
+		log.error "stdout: ${doCmd.in.text}"
+	}
+
+
+/*
 	log.info("path: " + path);
 	log.info("exec: " + cmd);
 
-	def doClean = runcmd.execute(null, new File(path));
+	def doClean = cmd.execute(null, new File(path));
 	
 	doClean.waitFor()
 
@@ -2155,10 +2176,11 @@ public boolean RunCommand(String path,String cmd)
 		log.error "return code: ${ doClean.exitValue()}"
 		log.error "stderr: ${doClean.err.text}"
 		log.error "stdout: ${doClean.in.text}"
-	}
+	}*/	
 }
 
 def etcpath = projectPath + "/etc";
+
 
 RunCommand(etcpath,mysqlCmd + " --user=root --password=password &lt; cleantables_dc.sql");
 RunCommand(etcpath,mysqlCmd + " --user=root --password=password &lt; cleantables_tp.sql");
