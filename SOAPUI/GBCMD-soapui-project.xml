@@ -2167,9 +2167,9 @@ public boolean RunCommand(String path,String cmd)
 {
 	def doCmd;
 
-	log.info("path: " + path);
-	log.info("exec: " + cmd);
-	log.info("os  : " + System.properties['os.name']);
+//	log.info("path: " + path);
+//	log.info("exec: " + cmd);
+//	log.info("os  : " + System.properties['os.name']);
 
 	if (System.properties['os.name'].toLowerCase().contains('windows')) {
 		doCmd = ["cmd", "/c",cmd].execute(null, new File(path));
@@ -6556,7 +6556,7 @@ try{
 	driver.findElement(By.linkText("Data Custodians")).click();	
 	driver.findElement(By.name("Data_custodian")).click();	
 	driver.findElement(By.name("next")).click();	
-	
+
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	driver.logStep("When I log into Data Custodian");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -6636,7 +6636,7 @@ def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
@@ -6663,7 +6663,6 @@ try{
 	// upload usage point file
 	driver.findElement(By.linkText("Upload")).click();	
 	driver.findElement(By.name("file")).sendKeys(TestFile);
-		
 	driver.findElement(By.name("upload")).click();	
 	driver.assertDoesNotContain("Unable to process file");
 
@@ -6786,7 +6785,7 @@ def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
@@ -6961,7 +6960,7 @@ def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
@@ -7063,7 +7062,7 @@ def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
@@ -7163,7 +7162,7 @@ def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
 
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
@@ -7265,7 +7264,7 @@ def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
@@ -7385,14 +7384,14 @@ def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
 Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
 
 
-def TestFile2=projectPath + "/../data/" + project.getPropertyValue("TestFile2")
+def TestFile2=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile2"))).getAbsolutePath();
 def usagePointUUID2 = project.getPropertyValue("usagePointUUID2");
 def usagePointDescription2 = project.getPropertyValue("usagePointDescription2");
 
@@ -7642,7 +7641,7 @@ def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
@@ -7809,7 +7808,7 @@ def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
@@ -7940,7 +7939,7 @@ def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
@@ -8018,7 +8017,7 @@ def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
@@ -8099,7 +8098,7 @@ def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
@@ -8196,7 +8195,7 @@ def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
@@ -10426,7 +10425,7 @@ driver.quit();
 			<con:name>upload_access_token</con:name>
 			<con:value>809caf03-612e-4e89-94b1-6f86d83b1ef8</con:value>
 		</con:property>
-	<con:property><con:name>userAccessToken1</con:name><con:value>fafc7ef4-63ba-401e-a6bd-59160aa9bb09</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>d40e823c-b471-455c-ab05-b77a8ed12d7f</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c</con:value></con:property><con:property><con:name>opensslCmd</con:name><con:value>openssl</con:value></con:property><con:property><con:name>timeoutCmd</con:name><con:value>timeout</con:value></con:property></con:properties>
+	<con:property><con:name>userAccessToken1</con:name><con:value>559a0dd0-a5a9-48f7-9acc-ff34e67fe211</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>21d73a57-a285-4216-a83e-c3d9dd48c00d</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c</con:value></con:property><con:property><con:name>opensslCmd</con:name><con:value>openssl</con:value></con:property><con:property><con:name>timeoutCmd</con:name><con:value>timeout</con:value></con:property></con:properties>
 	<con:wssContainer/>
 	<con:oAuth2ProfileContainer/>
 	<con:sensitiveInformation/>
