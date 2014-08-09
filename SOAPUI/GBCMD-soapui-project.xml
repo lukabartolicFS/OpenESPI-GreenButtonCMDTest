@@ -894,7 +894,7 @@
 									<con:params/>
 									<con:element>data</con:element>
 								</con:representation>
-								<con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/xml" postQueryString="false" id="0c9b6e50-3d7a-4940-b50d-7f20290474b1">
+								<con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/xml" postQueryString="false" id="0c9b6e50-3d7a-4940-b50d-7f20290474b1">
 									<con:settings>
 										<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 									</con:settings>
@@ -975,7 +975,7 @@
 							<con:jmsPropertyConfig/>
 							<con:parameters/>
 							<con:credentials>
-								<con:authType>Global HTTP Settings</con:authType>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
 							</con:credentials>
 							<con:parameterOrder><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
 						</con:request>
@@ -2015,7 +2015,7 @@
 			<con:endpoint>192.168.1.3:8080</con:endpoint>
 			<con:endpoint>http://localhost:8080</con:endpoint>
 		</con:endpoints>
-	<con:resource name="token" path="/oauth/token" id="173e6cc8-6837-482b-b5af-a21dabf615ea"><con:settings/><con:parameters><con:parameter><con:name>Authorization</con:name><con:value/><con:style>HEADER</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>grant_type</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>scope</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>refresh_token</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="Client Credentials" method="POST" id="e3df8f56-fde3-4955-b286-fde4034ec188"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400 401</con:status><con:params/><con:element xmlns:tok="http://localhost/DataCustodian/oauth/token">tok:Fault</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:tok="http://localhost/DataCustodian/oauth/token">tok:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="POST DataCustodian Request" mediaType="application/json" postQueryString="false" id="448b4c28-e1dc-4451-b625-001cbe1530e6"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/DataCustodian/oauth/token</con:originalUri><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+	<con:resource name="token" path="/oauth/token" id="173e6cc8-6837-482b-b5af-a21dabf615ea"><con:settings/><con:parameters><con:parameter><con:name>Authorization</con:name><con:value/><con:style>HEADER</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>grant_type</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>scope</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>refresh_token</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="Client Credentials" method="POST" id="e3df8f56-fde3-4955-b286-fde4034ec188"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400 401</con:status><con:params/><con:element xmlns:tok="http://localhost/DataCustodian/oauth/token">tok:Fault</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:tok="http://localhost/DataCustodian/oauth/token">tok:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="POST DataCustodian Request" mediaType="application/json" postQueryString="false" id="448b4c28-e1dc-4451-b625-001cbe1530e6"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/DataCustodian/oauth/token</con:originalUri><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
   <con:entry key="Authorization" value="Basic ZGF0YV9jdXN0b2RpYW5fYWRtaW46c2VjcmV0"/>
   <con:entry key="scope" value="DataCustodian_Admin_Access"/>
   <con:entry key="grant_type" value="client_credentials"/>
@@ -2055,7 +2055,6 @@ project.setPropertyValue("ServiceEndpoint",config.ServiceEndpoint);
 project.setPropertyValue("DataCustodianContext",config.DataCustodianContext);
 project.setPropertyValue("ThirdPartyContext",config.ThirdPartyContext);
 project.setPropertyValue("linkPrefixForReplace",config.linkPrefixForReplace);
-project.setPropertyValue("mysqlCmd",config.mysqlCmd);
 project.setPropertyValue("TestManager",config.TestManager);
 project.setPropertyValue("TestManagerPW",config.TestManagerPW);
 project.setPropertyValue("TestRetailCustomer",config.TestRetailCustomer);
@@ -2082,12 +2081,16 @@ project.setPropertyValue("bulkId",config.bulkId);
 project.setPropertyValue("localTimeParametersId",config.localTimeParametersId);
 project.setPropertyValue("HomePageURLEndpoint",config.HomePageURLEndpoint);
 
-
-
+// access tokens
 project.setPropertyValue("data_custodian_access_token",config.data_custodian_access_token);
 project.setPropertyValue("third_party_access_token",config.third_party_access_token);
 project.setPropertyValue("upload_access_token",config.upload_access_token);
 project.setPropertyValue("registration_third_party_access_token",config.registration_third_party_access_token);
+
+// external program system commands
+project.setPropertyValue("mysqlCmd",config.mysqlCmd);
+project.setPropertyValue("opensslCmd",config.opensslCmd);
+project.setPropertyValue("timeoutCmd",config.timeoutCmd);
 </script></con:config>
 			</con:testStep>
 			<con:testStep type="groovy" name="curlUpload" id="f40394d5-2eb7-42e2-b2a9-87b07a812c44">
@@ -2098,30 +2101,58 @@ def projectPath = groovyUtils.projectPath
 
 def BaseURL = project.getPropertyValue("BaseURL")
 def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
-
-
-
-
+def DataCustodianAccessToken = project.getPropertyValue("data_custodian_access_token")
 tc = testRunner.testCase.testSuite.project.testSuites["Library"].testCases["GeneralScripts"]
 def UploadFile=projectPath + "/../data/" + tc.getPropertyValue("uploadFile")
 def retailCustomerId = tc.getPropertyValue("retailCustomerId")
 
 def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
+def tf= new File(UploadFile);
+tf = tf.getAbsolutePath();
 
-def cmdPost = projectPath + "/etc/doCurlUpload.sh ${UploadFile} ${ServiceEndpointDataCustodian}/espi/1_1/resource/Batch/RetailCustomer/${retailCustomerId}/UsagePoint";
+def td = projectPath + "/../data/" ;
+def url= ServiceEndpointDataCustodian+"/espi/1_1/resource/Batch/RetailCustomer/"+retailCustomerId+"/UsagePoint";
 
+
+public boolean RunCommand(String path,String cmd)
+{
+	def doCmd;
+
+	log.info("path: " + path);
+	log.info("exec: " + cmd);
+	log.info("os  : " + System.properties['os.name']);
+
+	if (System.properties['os.name'].toLowerCase().contains('windows')) {
+		doCmd = ["cmd", "/c",cmd].execute(null, new File(path));
+	} else {
+		doCmd = ["bash", "-c",cmd].execute(null, new File(path));
+	}
+		
+	doCmd.waitFor()
+
+	if(doCmd.exitValue()!=0)
+	{
+		log.error "return code: ${ doCmd.exitValue()}"
+		log.error "stderr: ${doCmd.err.text}"
+		log.error "stdout: ${doCmd.in.text}"
+
+		return false;
+	}
+
+	return true;
+}
+
+// define the command
+cmdPost = 'curl --header "Authorization: Bearer ' + DataCustodianAccessToken+ '" --header "Content-Type:application/xml" -X POST -d @' + tf + " " + url;
 log.info("exec: " + cmdPost);
 
-def doPost = cmdPost.execute()
-
-doPost.waitFor()
-
-if(doPost.exitValue()!=0) {
-	log.error "return code: ${ doPost.exitValue()}"
-	log.error "stderr: ${doPost.err.text}"
-	log.error "stdout: ${doPost.in.text}"
-} else {
-	log.info "result: ${doPost.err.text}"
+// do the curl
+if(RunCommand(td,cmdPost) == true) {
+	assert true;
+}
+else
+{
+	testRunner.fail("could not curl up file");
 }</script></con:config>
 			</con:testStep><con:testStep type="groovy" name="resetDB" id="64e17259-bac9-493e-8827-b5e5dc5993e8">
 				<con:settings/>
@@ -2134,23 +2165,38 @@ def DBprepopulateScriptName = project.getPropertyValue("DBprepopulateScriptName"
 
 public boolean RunCommand(String path,String cmd)
 {
-	cmd = cmd + " " + path + "/etc"
-	log.info("exec: " + cmd);
-	
-	def doClean = cmd.execute()
-	
-	doClean.waitFor()
-	
-	if(doClean.exitValue()!=0)
+	def doCmd;
+
+//	log.info("path: " + path);
+//	log.info("exec: " + cmd);
+//	log.info("os  : " + System.properties['os.name']);
+
+	if (System.properties['os.name'].toLowerCase().contains('windows')) {
+		doCmd = ["cmd", "/c",cmd].execute(null, new File(path));
+	} else {
+		doCmd = ["bash", "-c",cmd].execute(null, new File(path));
+	}
+		
+	doCmd.waitFor()
+
+	if(doCmd.exitValue()!=0)
 	{
-		log.error "return code: ${ doClean.exitValue()}"
-		log.error "stderr: ${doClean.err.text}"
-		log.error "stdout: ${doClean.in.text}"
+		log.error "return code: ${ doCmd.exitValue()}"
+		log.error "stderr: ${doCmd.err.text}"
+		log.error "stdout: ${doCmd.in.text}"
 	}
 }
 
+def etcpath = projectPath + "/etc";
 
 
+RunCommand(etcpath,mysqlCmd + " --user=root --password=password &lt; cleantables_dc.sql");
+RunCommand(etcpath,mysqlCmd + " --user=root --password=password &lt; cleantables_tp.sql");
+RunCommand(etcpath,mysqlCmd + " --user=root --password=password &lt; prepopulatesql_dc.sql");
+RunCommand(etcpath,mysqlCmd + " --user=root --password=password &lt; prepopulatesql_tp.sql");
+
+
+/*
 RunCommand(projectPath,"sh -c cd "+projectPath + "/etc");
 
 RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/cleantables_dc.sql");
@@ -2158,7 +2204,7 @@ RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + proje
 
 RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/prepopulatesql_dc.sql");
 RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/prepopulatesql_tp.sql");
-
+*/
 
 assert true;</script></con:config>
 			</con:testStep>
@@ -2288,8 +2334,7 @@ driver.findElement(By.name("submit")).click()
 			</con:testStep>
 			<con:testStep type="groovy" name="UploadFileViaGui" id="71e77312-72cd-4a23-9bac-7b65701e138c">
 				<con:settings/>
-				<con:config>
-					<script>/////////////////////////////////////////////////////////
+				<con:config><script>/////////////////////////////////////////////////////////
 // Need these imports to run tests
 /////////////////////////////////////////////////////////
 import org.openqa.selenium.By
@@ -2313,7 +2358,8 @@ def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def tf= new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"));
+def TestFile = tf.getAbsolutePath();
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
 
@@ -2346,8 +2392,7 @@ driver.findElement(By.name("create")).click();
 } catch(Exception e) {
 	testRunner.fail(driver.getErrorString())
 	driver.quit();
-}</script>
-				</con:config>
+}</script></con:config>
 			</con:testStep>
 			<con:testStep type="groovy" name="LogoutManager" id="cc86656c-aa44-4aa7-8ff1-72d7e4672e81">
 				<con:settings/>
@@ -2692,7 +2737,7 @@ try {
 }
 </script></con:config></con:testStep><con:properties/>
 		</con:testCase>
-		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UploadTestFile" searchProperties="true" id="8fb96c20-d08c-40ea-8ab1-3e14f41d3f50">
+		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UploadTestFile GUI" searchProperties="true" id="8fb96c20-d08c-40ea-8ab1-3e14f41d3f50">
 			<con:description>Uploads test usage file</con:description>
 			<con:settings/>
 			
@@ -2810,8 +2855,7 @@ driver.findElement(By.name("submit")).click()
 			</con:testStep>
 			<con:testStep type="groovy" name="UploadFileViaGui" id="6bdde26b-d0bd-4335-9eb7-d792c3e338b4">
 				<con:settings/>
-				<con:config>
-					<script>/////////////////////////////////////////////////////////
+				<con:config><script>/////////////////////////////////////////////////////////
 // Need these imports to run tests
 /////////////////////////////////////////////////////////
 import org.openqa.selenium.By
@@ -2835,11 +2879,11 @@ def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def tf= new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"));
+def TestFile = tf.getAbsolutePath();
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-
-
+log.info "Test File: " + TestFile;
 /////////////////////////////////////////////////////////
 // fetch driver from context
 /////////////////////////////////////////////////////////
@@ -2868,8 +2912,7 @@ driver.findElement(By.name("create")).click();
 } catch(Exception e) {
 	testRunner.fail(driver.getErrorString())
 	driver.quit();
-}</script>
-				</con:config>
+}</script></con:config>
 			</con:testStep>
 			<con:testStep type="groovy" name="LogoutManager" id="ab68be2b-b63d-4b94-86df-4dc02ce67ee8">
 				<con:settings/>
@@ -2972,40 +3015,8 @@ driver.quit()
 			
 			<con:testStep type="groovy" name="resetDB" id="5eb74848-759c-4a82-a14e-6fb12f2ad02d">
 				<con:settings/>
-				<con:config><script>def project = testRunner.testCase.testSuite.project
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-def projectPath = groovyUtils.projectPath
-
-def mysqlCmd=project.getPropertyValue("mysqlCmd")
-def DBprepopulateScriptName = project.getPropertyValue("DBprepopulateScriptName")
-
-public boolean RunCommand(String path,String cmd)
-{
-	cmd = cmd + " " + path + "/etc"
-	log.info("exec: " + cmd);
-	
-	def doClean = cmd.execute()
-	
-	doClean.waitFor()
-	
-	if(doClean.exitValue()!=0)
-	{
-		log.error "return code: ${ doClean.exitValue()}"
-		log.error "stderr: ${doClean.err.text}"
-		log.error "stdout: ${doClean.in.text}"
-	}
-}
-
-
-
-RunCommand(projectPath,"sh -c cd "+projectPath + "/etc");
-
-RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/cleantables_dc.sql");
-RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/cleantables_tp.sql");
-
-RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/prepopulatesql_dc.sql");
-RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/prepopulatesql_tp.sql");
-
+				<con:config><script>	// reset DB : run library groovy script
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDB']);
 
 assert true;</script></con:config>
 			</con:testStep>
@@ -3123,8 +3134,7 @@ driver.findElement(By.name("submit")).click()
 			</con:testStep>
 			<con:testStep type="groovy" name="UploadFileViaGui" id="f1134872-7973-466c-a169-ecf761f0515b">
 				<con:settings/>
-				<con:config>
-					<script>/////////////////////////////////////////////////////////
+				<con:config><script>/////////////////////////////////////////////////////////
 // Need these imports to run tests
 /////////////////////////////////////////////////////////
 import org.openqa.selenium.By
@@ -3148,7 +3158,8 @@ def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def tf= new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"));
+def TestFile = tf.getAbsolutePath();
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
 
@@ -3181,8 +3192,7 @@ driver.findElement(By.name("create")).click();
 } catch(Exception e) {
 	testRunner.fail(driver.getErrorString())
 	driver.quit();
-}</script>
-				</con:config>
+}</script></con:config>
 			</con:testStep>
 			<con:testStep type="groovy" name="LogoutManager" id="e4d62b39-aeb3-4486-b61b-289b545e3b6d">
 				<con:settings/>
@@ -3388,40 +3398,8 @@ driver.quit()
 			
 			<con:testStep type="groovy" name="resetDB">
 				<con:settings/>
-				<con:config><script>def project = testRunner.testCase.testSuite.project
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-def projectPath = groovyUtils.projectPath
-
-def mysqlCmd=project.getPropertyValue("mysqlCmd")
-def DBprepopulateScriptName = project.getPropertyValue("DBprepopulateScriptName")
-
-public boolean RunCommand(String path,String cmd)
-{
-	cmd = cmd + " " + path + "/etc"
-	log.info("exec: " + cmd);
-	
-	def doClean = cmd.execute()
-	
-	doClean.waitFor()
-	
-	if(doClean.exitValue()!=0)
-	{
-		log.error "return code: ${ doClean.exitValue()}"
-		log.error "stderr: ${doClean.err.text}"
-		log.error "stdout: ${doClean.in.text}"
-	}
-}
-
-
-
-RunCommand(projectPath,"sh -c cd "+projectPath + "/etc");
-
-RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/cleantables_dc.sql");
-RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/cleantables_tp.sql");
-
-RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/prepopulatesql_dc.sql");
-RunCommand(projectPath,projectPath + "/etc/doMysql.sh " + mysqlCmd + " " + projectPath + "/etc/prepopulatesql_tp.sql");
-
+				<con:config><script>	// reset DB : run library groovy script
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDB']);
 
 assert true;</script></con:config>
 			</con:testStep>
@@ -3538,8 +3516,7 @@ try{
 			</con:testStep>
 			<con:testStep type="groovy" name="UploadTwoFilesViaGui">
 				<con:settings/>
-				<con:config>
-					<script>/////////////////////////////////////////////////////////
+				<con:config><script>/////////////////////////////////////////////////////////
 // Need these imports to run tests
 /////////////////////////////////////////////////////////
 import org.openqa.selenium.By
@@ -3563,7 +3540,8 @@ def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def tf= new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"));
+def TestFile = tf.getAbsolutePath();
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
 
@@ -3591,9 +3569,11 @@ try {
 	driver.findElement(By.id("UUID")).clear();
 	driver.findElement(By.id("UUID")).sendKeys("48C2A019-5598-4E16-B0F9-49E4FF27F5FB");
 	driver.findElement(By.name("create")).click();
-	
+
 	// Charles id=5
-	TestFile=projectPath + "/../data/" + "Gas.xml"
+	def tf1= new File(projectPath + "/../data/" + "Gas.xml");
+	TestFile = tf1.getAbsolutePath();
+
 	driver.findElement(By.linkText("Upload")).click();
 	driver.findElement(By.name("file")).sendKeys(TestFile);
 	driver.findElement(By.name("upload")).click();
@@ -3609,8 +3589,7 @@ try {
 } catch(Exception e) {
 	testRunner.fail(driver.getErrorString())
 	driver.quit();
-}</script>
-				</con:config>
+}</script></con:config>
 			</con:testStep>
 			<con:testStep type="groovy" name="AuthorizeTwoCustomer">
 				<con:settings/>
@@ -5308,7 +5287,7 @@ public boolean TestType1ROOT(Object testRunner,Object context,String strInputFil
 
 
 	]]></script></con:config>
-			</con:testStep><con:properties><con:property><con:name>resourceTestFileName</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">entry_ReadingType_3.xml</con:value></con:property><con:property><con:name>testType</con:name><con:value>TestType1XPATH</con:value></con:property><con:property><con:name>default_access_token</con:name><con:value>688b026c-665f-4994-9139-6b21b13fbeee</con:value></con:property><con:property><con:name>testShouldPass</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>resourceOutputFileName</con:name><con:value>test_subscription.xml</con:value></con:property><con:property><con:name>resource</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>testFailed</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>uploadFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property></con:properties></con:testCase><con:properties/>
+			</con:testStep><con:properties><con:property><con:name>resourceTestFileName</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>testType</con:name><con:value>GetSaveResponse</con:value></con:property><con:property><con:name>default_access_token</con:name><con:value>688b026c-665f-4994-9139-6b21b13fbeee</con:value></con:property><con:property><con:name>testShouldPass</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>resourceOutputFileName</con:name><con:value>test_subscription.xml</con:value></con:property><con:property><con:name>resource</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>testFailed</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>uploadFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property></con:properties></con:testCase><con:properties/>
 	</con:testSuite>
 	<con:testSuite name="OpenEspiIntegrationTests">
 		<con:settings/>
@@ -6509,7 +6488,7 @@ def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
@@ -6544,7 +6523,6 @@ try{
 	// upload usage point file
 	driver.findElement(By.linkText("Upload")).click();	
 	driver.findElement(By.name("file")).sendKeys(TestFile);
-		
 	driver.findElement(By.name("upload")).click();	
 	driver.assertDoesNotContain("Unable to process file");
 	
@@ -6578,7 +6556,7 @@ try{
 	driver.findElement(By.linkText("Data Custodians")).click();	
 	driver.findElement(By.name("Data_custodian")).click();	
 	driver.findElement(By.name("next")).click();	
-	
+
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	driver.logStep("When I log into Data Custodian");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -6658,7 +6636,7 @@ def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
@@ -6685,7 +6663,6 @@ try{
 	// upload usage point file
 	driver.findElement(By.linkText("Upload")).click();	
 	driver.findElement(By.name("file")).sendKeys(TestFile);
-		
 	driver.findElement(By.name("upload")).click();	
 	driver.assertDoesNotContain("Unable to process file");
 
@@ -6808,7 +6785,7 @@ def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
@@ -6983,7 +6960,7 @@ def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
@@ -7085,7 +7062,7 @@ def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
@@ -7185,7 +7162,7 @@ def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
 
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
@@ -7287,7 +7264,7 @@ def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
@@ -7407,14 +7384,14 @@ def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
 Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
 
 
-def TestFile2=projectPath + "/../data/" + project.getPropertyValue("TestFile2")
+def TestFile2=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile2"))).getAbsolutePath();
 def usagePointUUID2 = project.getPropertyValue("usagePointUUID2");
 def usagePointDescription2 = project.getPropertyValue("usagePointDescription2");
 
@@ -7664,7 +7641,7 @@ def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
@@ -7831,7 +7808,7 @@ def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
@@ -7962,7 +7939,7 @@ def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
@@ -8040,7 +8017,7 @@ def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
@@ -8121,7 +8098,7 @@ def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
@@ -8218,7 +8195,7 @@ def TestManager=project.getPropertyValue("TestManager")
 def TestManagerPW=project.getPropertyValue("TestManagerPW")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=projectPath + "/../data/" + project.getPropertyValue("TestFile")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
@@ -10448,7 +10425,7 @@ driver.quit();
 			<con:name>upload_access_token</con:name>
 			<con:value>809caf03-612e-4e89-94b1-6f86d83b1ef8</con:value>
 		</con:property>
-	<con:property><con:name>userAccessToken1</con:name><con:value>be43a772-4d12-4246-8bf1-01c911a04155</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>0154865f-9d82-4d6c-a221-4d368489aaa4</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c</con:value></con:property></con:properties>
+	<con:property><con:name>userAccessToken1</con:name><con:value>559a0dd0-a5a9-48f7-9acc-ff34e67fe211</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>21d73a57-a285-4216-a83e-c3d9dd48c00d</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c</con:value></con:property><con:property><con:name>opensslCmd</con:name><con:value>openssl</con:value></con:property><con:property><con:name>timeoutCmd</con:name><con:value>timeout</con:value></con:property></con:properties>
 	<con:wssContainer/>
 	<con:oAuth2ProfileContainer/>
 	<con:sensitiveInformation/>
