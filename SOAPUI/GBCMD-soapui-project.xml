@@ -7517,7 +7517,7 @@ try{
 
 	log.info("New number of subscriptions=" + numberOfSubscriptions);
 
-	if( (numberOfSubscriptions-OriginalnumberOfSubscriptions) != 5)
+	if( (numberOfSubscriptions-OriginalnumberOfSubscriptions) != 2)
 	{
 		log.error("unexpected number of subscriptions");
 		testRunner.fail("unexpected number of subscriptions");
