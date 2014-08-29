@@ -242,7 +242,7 @@
 						<con:params/>
 						<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element>
 					</con:representation>
-				<con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>400</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>401</con:status><con:params/><con:element xmlns:usag="http://localhost/DataCustodian/espi/1_1/resource/UsagePoint">usag:Fault</con:element></con:representation></con:method>
+				<con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>400 404</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>401</con:status><con:params/><con:element xmlns:usag="http://localhost/DataCustodian/espi/1_1/resource/UsagePoint">usag:Fault</con:element></con:representation></con:method>
 				<con:method name="Post" method="POST" id="60a953d3-6053-46db-8bad-167f7c1b347f">
 					<con:settings/>
 					<con:parameters/>
@@ -739,7 +739,7 @@
 					<con:parameters/>
 					<con:resource name="{subscriptionID}" path="{subscriptionID}" id="03092ec7-0ac7-4e84-aa3b-6a47b7f344cd">
 						<con:settings/>
-						<con:resource name="UsagePoint" path="UsagePoint" id="92ef6e6f-33d8-476d-b93e-378467827e60"><con:settings/><con:parameters/><con:resource name="{usagePointId}" path="{usagePointId}" id="0e3ad8de-92fd-4891-a85b-e691a627fe76"><con:settings/><con:parameters><con:parameter><con:name>usagePointId</con:name><con:value>${#Project#usagePointId}</con:value><con:style>TEMPLATE</con:style><con:default>${#Project#usagePointId}</con:default></con:parameter></con:parameters><con:method name="Method 1" method="GET" id="de454589-5b62-44ae-8652-0a346e985cff"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="GET {usagePointId}" mediaType="application/json" id="0d627641-1b53-4ded-9b93-2e8cd6aa01fd"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/5/UsagePoint/usagePointId</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="usagePointId" value="${#Project#usagePointId}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:request></con:method></con:resource></con:resource><con:method name="Method 1" method="GET" id="3ba52762-575b-4840-967b-4970130b71b9">
+						<con:resource name="UsagePoint" path="UsagePoint" id="92ef6e6f-33d8-476d-b93e-378467827e60"><con:settings/><con:parameters/><con:resource name="{usagePointId}" path="{usagePointId}" id="0e3ad8de-92fd-4891-a85b-e691a627fe76"><con:settings/><con:parameters><con:parameter><con:name>usagePointId</con:name><con:value>${#Project#usagePointId}</con:value><con:style>TEMPLATE</con:style><con:default>${#Project#usagePointId}</con:default></con:parameter></con:parameters><con:method name="Method 1" method="GET" id="de454589-5b62-44ae-8652-0a346e985cff"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/atom+xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element></con:representation><con:request name="GET {usagePointId}" mediaType="application/json" id="0d627641-1b53-4ded-9b93-2e8cd6aa01fd"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/5/UsagePoint/usagePointId</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="usagePointId" value="${#Project#usagePointId}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:request></con:method></con:resource></con:resource><con:method name="Method 1" method="GET" id="3ba52762-575b-4840-967b-4970130b71b9">
 							<con:settings/>
 							<con:parameters/>
 							<con:request name="GET {subscriptionId}" mediaType="application/json" id="76860f30-073d-4f94-be07-2f0a3435b146">
@@ -773,7 +773,7 @@
 								<con:status>400</con:status>
 								<con:params/>
 							</con:representation>
-						<con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403 401</con:status><con:params/><con:element xmlns:ns="http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/1">ns:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>400</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation></con:method>
+						<con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403 401</con:status><con:params/><con:element xmlns:ns="http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/1">ns:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>400 404</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation></con:method>
 						<con:parameters>
 							<con:parameter>
 								<con:name>subscriptionID</con:name>
@@ -1422,7 +1422,7 @@
 						<con:params/>
 						<con:element>data</con:element>
 					</con:representation>
-					<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false" id="7681492e-ee1c-4175-bd71-ad8c87891263">
+					<con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element xmlns:app="https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource/ApplicationInformation">app:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false" id="7681492e-ee1c-4175-bd71-ad8c87891263">
 						<con:settings>
 							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 						</con:settings>
@@ -1451,8 +1451,8 @@
       <ns3:published>2014-01-02T10:00:00Z</ns3:published>
       <ns3:updated>2014-01-02T10:00:00Z</ns3:updated>
    </ns3:entry>]]></con:request>
-						<con:credentials>
-							<con:authType>Global HTTP Settings</con:authType>
+						<con:originalUri>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource/ApplicationInformation</con:originalUri><con:credentials>
+							<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
 						</con:credentials>
 						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
 						<con:jmsPropertyConfig/>
@@ -1531,7 +1531,7 @@
 						<con:params/>
 						<con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:feed</con:element>
 					</con:representation>
-					<con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
+					<con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
 						<con:settings>
 							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 						</con:settings>
@@ -2015,7 +2015,7 @@
 			<con:endpoint>192.168.1.3:8080</con:endpoint>
 			<con:endpoint>http://localhost:8080</con:endpoint>
 		</con:endpoints>
-	<con:resource name="token" path="/oauth/token" id="173e6cc8-6837-482b-b5af-a21dabf615ea"><con:settings/><con:parameters><con:parameter><con:name>Authorization</con:name><con:value/><con:style>HEADER</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>grant_type</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>scope</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>refresh_token</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="Client Credentials" method="POST" id="e3df8f56-fde3-4955-b286-fde4034ec188"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400 401 403</con:status><con:params/><con:element xmlns:tok="http://localhost/DataCustodian/oauth/token">tok:Fault</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:tok="http://localhost/DataCustodian/oauth/token">tok:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="POST ThirdParty Request" mediaType="application/json" postQueryString="false" id="9ba40594-5ba1-490b-b4b8-0547108733e3"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/DataCustodian/oauth/token</con:originalUri><con:credentials><con:username>third_party_admin</con:username><con:password>secret</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+	<con:resource name="token" path="/oauth/token" id="173e6cc8-6837-482b-b5af-a21dabf615ea"><con:settings/><con:parameters><con:parameter><con:name>Authorization</con:name><con:value/><con:style>HEADER</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>grant_type</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>scope</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>refresh_token</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="Client Credentials" method="POST" id="e3df8f56-fde3-4955-b286-fde4034ec188"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400 401 403</con:status><con:params/><con:element xmlns:tok="http://localhost/DataCustodian/oauth/token">tok:Fault</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:tok="http://localhost/DataCustodian/oauth/token">tok:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="POST ThirdParty Request" mediaType="application/json" postQueryString="false" id="9ba40594-5ba1-490b-b4b8-0547108733e3"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/DataCustodian/oauth/token</con:originalUri><con:credentials><con:username>third_party_admin</con:username><con:password>secret</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
   <con:entry key="Authorization" value="Basic dGhpcmRfcGFydHlfYWRtaW46c2VjcmV0"/>
   <con:entry key="scope" value="FB=34_35"/>
   <con:entry key="grant_type" value="client_credentials"/>
@@ -2035,7 +2035,7 @@
 </con:parameters><con:parameterOrder><con:entry>Authorization</con:entry><con:entry>grant_type</con:entry><con:entry>refresh_token</con:entry><con:entry>scope</con:entry></con:parameterOrder></con:request><con:request name="POST DataCustodian Client Credentials Request" mediaType="application/json" postQueryString="false" id="448b4c28-e1dc-4451-b625-001cbe1530e6"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/DataCustodian/oauth/token</con:originalUri><con:credentials><con:username>data_custodian_admin</con:username><con:password>secret</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
   <con:entry key="scope" value="FB=3_19_32_33_34_35_36_37_38_41_44_45"/>
   <con:entry key="grant_type" value="client_credentials"/>
-</con:parameters><con:parameterOrder><con:entry>Authorization</con:entry><con:entry>grant_type</con:entry><con:entry>scope</con:entry><con:entry>refresh_token</con:entry></con:parameterOrder></con:request></con:method></con:resource><con:resource name="manage" path="/management" id="e118d447-5b7f-4c3c-b7af-f8b4237bcba6"><con:settings/><con:parameters><con:parameter><con:name>Authorization</con:name><con:value>Bearer ${#Project#data_custodian_access_token}</con:value><con:style>HEADER</con:style><con:default>Bearer ${#Project#data_custodian_access_token}</con:default></con:parameter><con:parameter><con:name>command</con:name><con:value/><con:style>QUERY</con:style><con:default/></con:parameter></con:parameters><con:method name="Database Resets" method="GET" id="a524f878-8932-40c2-af8e-78211d88b443"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>405</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/xml</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>200</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="resetDataCustodianDB" mediaType="application/xml" postQueryString="false" id="6511b5ba-23eb-4bfe-9f6a-58577bfdfd37"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/DataCustodian/manage</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="command" value="resetDataCustodianDB" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry/><con:entry>Authorization</con:entry></con:parameterOrder></con:request><con:request name="initializeDataCustodianDB" mediaType="application/xml" postQueryString="false" id="a8d9f598-e5ea-4e02-86ea-92a34d4c8332"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/DataCustodian/manage</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="command" value="initializeDataCustodianDB" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry/><con:entry>Authorization</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface>
+</con:parameters><con:parameterOrder><con:entry>Authorization</con:entry><con:entry>grant_type</con:entry><con:entry>scope</con:entry><con:entry>refresh_token</con:entry></con:parameterOrder></con:request></con:method></con:resource><con:resource name="manage" path="/management" id="e118d447-5b7f-4c3c-b7af-f8b4237bcba6"><con:settings/><con:parameters><con:parameter><con:name>Authorization</con:name><con:value>Bearer ${#Project#data_custodian_access_token}</con:value><con:style>HEADER</con:style><con:default>Bearer ${#Project#data_custodian_access_token}</con:default></con:parameter><con:parameter><con:name>command</con:name><con:value/><con:style>QUERY</con:style><con:default/></con:parameter></con:parameters><con:method name="Database Resets" method="GET" id="a524f878-8932-40c2-af8e-78211d88b443"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>405</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/xml</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>200</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>401</con:status><con:params/><con:element xmlns:man="http://localhost/DataCustodian/manage">man:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="resetDataCustodianDB" mediaType="application/xml" postQueryString="false" id="6511b5ba-23eb-4bfe-9f6a-58577bfdfd37"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/DataCustodian/manage</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="command" value="resetDataCustodianDB" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry/><con:entry>Authorization</con:entry></con:parameterOrder></con:request><con:request name="initializeDataCustodianDB" mediaType="application/xml" postQueryString="false" id="a8d9f598-e5ea-4e02-86ea-92a34d4c8332"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/DataCustodian/manage</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="command" value="initializeDataCustodianDB" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry/><con:entry>Authorization</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface>
 	<con:testSuite name="Library" id="0275335f-7515-4da0-a729-cce9f7858991">
 		<con:settings/>
 		<con:runType>SEQUENTIAL</con:runType>
@@ -9316,9 +9316,314 @@ RunCommand(etcpath,mysqlCmd + " --user=root --password=password &lt; prepopulate
 
 
 
-assert true;</script></con:config></con:testStep><con:properties/>
+assert true;</script></con:config></con:testStep><con:testStep type="restrequest" name="Copy of GET Batch/Subscription/{subscriptionId}"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/{subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of GET Batch/Subscription/{subscriptionId}" mediaType="application/json">
+								<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+								<con:request/>
+								<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+								<con:jmsPropertyConfig/>
+								<con:parameters><entry key="subscriptionID" value="5" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+								<con:settings>
+									<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+								</con:settings>
+								<con:credentials>
+									<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+								</con:credentials>
+								<con:parameterOrder><con:entry>subscriptionID</con:entry><con:entry>Authorization</con:entry><con:entry>Content-Type</con:entry></con:parameterOrder>
+							</con:restRequest></con:config></con:testStep><con:properties/>
 		</con:testCase>
-		<con:properties>
+		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Copy of EstablishTwoSubscriptions" searchProperties="true" id="93be2b1d-7410-4e3f-a897-82600574b393">
+			<con:settings/>
+			
+			
+			
+			<con:testStep type="groovy" name="resetDB">
+				<con:settings/>
+				<con:config><script>	// reset DB : run library groovy script
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDB']);
+
+assert true;</script></con:config>
+			</con:testStep>
+			<con:testStep type="groovy" name="StartDriver">
+				<con:settings/>
+				<con:config>
+					<script>/////////////////////////////////////////////////////////
+// Note: Generated by capture using Selenium in FF. 
+// Export to Java / JUnit 4 / WebDriver
+// Copy and paste into Groovy Script with minor tweaks
+/////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////
+// Need these imports to run tests
+/////////////////////////////////////////////////////////
+import org.openqa.selenium.By
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.firefox.FirefoxDriver
+
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+
+/////////////////////////////////////////////////////////
+// get variables from the project Custom Properties
+/////////////////////////////////////////////////////////
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+def BaseURL = project.getPropertyValue("BaseURL")
+def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
+def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
+
+
+/////////////////////////////////////////////////////////
+// Create a new instance of the Firefox driver
+/////////////////////////////////////////////////////////
+Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+driver._bLogActions = true;
+
+if( context["driver"] == null )
+context["driver"] = driver
+
+return
+//Then in later steps you can retrieve it as context["driverInstance"] 
+</script>
+				</con:config>
+			</con:testStep>
+			<con:testStep type="groovy" name="LoginManager">
+				<con:settings/>
+				<con:config>
+					<script>/////////////////////////////////////////////////////////
+// Need these imports to run tests
+/////////////////////////////////////////////////////////
+import org.openqa.selenium.By
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.firefox.FirefoxDriver
+
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+
+/////////////////////////////////////////////////////////
+// define some variables
+/////////////////////////////////////////////////////////
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+def BaseURL = project.getPropertyValue("BaseURL")
+def ServiceEndpoint=BaseURL+"/DataCustodian"
+def TestManager=project.getPropertyValue("TestManager")
+def TestManagerPW=project.getPropertyValue("TestManagerPW")
+
+log.info( TestManager + "  " + TestManagerPW)
+/////////////////////////////////////////////////////////
+// fetch driver from context
+/////////////////////////////////////////////////////////
+Object driver = context["driver"]
+
+try{
+	/////////////////////////////////////////////////////////
+	// Open the DataCustodian Page
+	/////////////////////////////////////////////////////////
+	driver.get(ServiceEndpoint)
+	
+	
+	/////////////////////////////////////////////////////////
+	// Log in as Manager
+	/////////////////////////////////////////////////////////
+	driver.findElement(By.id("login")).click();
+	driver.findElement(By.name("j_username")).clear()
+	driver.findElement(By.name("j_username")).sendKeys(TestManager)
+	driver.findElement(By.name("j_password")).clear()
+	driver.findElement(By.name("j_password")).sendKeys(TestManagerPW)
+	driver.findElement(By.name("submit")).click()
+
+} catch(Exception e) {
+	testRunner.fail(driver.getErrorString())
+	driver.quit();
+}</script>
+				</con:config>
+			</con:testStep>
+			<con:testStep type="groovy" name="UploadTwoFilesViaGui">
+				<con:settings/>
+				<con:config><script>/////////////////////////////////////////////////////////
+// Need these imports to run tests
+/////////////////////////////////////////////////////////
+import org.openqa.selenium.By
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.firefox.FirefoxDriver
+
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+
+/////////////////////////////////////////////////////////
+// define some variables
+/////////////////////////////////////////////////////////
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+def tf= new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"));
+def TestFile = tf.getAbsolutePath();
+def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+
+
+/////////////////////////////////////////////////////////
+// fetch driver from context
+/////////////////////////////////////////////////////////
+Object driver = context["driver"]
+try {
+	/////////////////////////////////////////////////////////
+	// Open the DataCustodian Page
+	/////////////////////////////////////////////////////////
+	
+	
+	/////////////////////////////////////////////////////////
+	// Now to the upload
+	/////////////////////////////////////////////////////////
+	// Alan id=1
+	driver.findElement(By.linkText("Upload")).click();
+	driver.findElement(By.name("file")).sendKeys(TestFile);
+	driver.findElement(By.name("upload")).click();
+	driver.findElement(By.linkText("Customer List")).click();
+	driver.findElement(By.linkText(TestRetailCustomer)).click();
+	driver.findElement(By.partialLinkText("Add Usage")).click();
+	driver.findElement(By.id("UUID")).clear();
+	driver.findElement(By.id("UUID")).sendKeys("48C2A019-5598-4E16-B0F9-49E4FF27F5FB");
+	driver.findElement(By.name("create")).click();
+
+	// Charles id=5
+	def tf1= new File(projectPath + "/../data/" + "Gas.xml");
+	TestFile = tf1.getAbsolutePath();
+
+	driver.findElement(By.linkText("Upload")).click();
+	driver.findElement(By.name("file")).sendKeys(TestFile);
+	driver.findElement(By.name("upload")).click();
+	driver.findElement(By.linkText("Customer List")).click();
+	driver.findElement(By.linkText("charles")).click();
+	driver.findElement(By.partialLinkText("Add Usage")).click();
+	driver.findElement(By.id("UUID")).clear();
+	driver.findElement(By.id("UUID")).sendKeys("0642EABA-8E42-4D1A-A375-AF54993C007B");
+	driver.findElement(By.name("create")).click();
+	
+	driver.findElement(By.id("logout")).click();
+
+} catch(Exception e) {
+	testRunner.fail(driver.getErrorString())
+	driver.quit();
+}</script></con:config>
+			</con:testStep>
+			
+			
+			
+			
+			
+			<con:testStep type="groovy" name="LogoutManager">
+				<con:settings/>
+				<con:config>
+					<script>/////////////////////////////////////////////////////////
+// Need these imports to run tests
+/////////////////////////////////////////////////////////
+import org.openqa.selenium.By
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.firefox.FirefoxDriver
+
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+
+/////////////////////////////////////////////////////////
+// define some variables
+/////////////////////////////////////////////////////////
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+def BaseURL = project.getPropertyValue("BaseURL")
+def ServiceEndpoint=BaseURL+"/DataCustodian"
+def TestManager=project.getPropertyValue("TestManager")
+def TestManagerPW=project.getPropertyValue("TestManagerPW")
+
+/////////////////////////////////////////////////////////
+// fetch driver from context
+/////////////////////////////////////////////////////////
+Object driver = context["driver"]
+try {
+	/////////////////////////////////////////////////////////
+	// Logout Manager
+	/////////////////////////////////////////////////////////
+	driver.get(ServiceEndpoint)
+	driver.findElement(By.id("logout")).click();
+
+} catch(Exception e) {
+	testRunner.fail(driver.getErrorString())
+	driver.quit();
+}</script>
+				</con:config>
+			</con:testStep><con:testStep type="groovy" name="StopDriver">
+				<con:settings/>
+				<con:config>
+					<script>/////////////////////////////////////////////////////////
+// Note: Generated by capture using Selenium in FF. 
+// Export to Java / JUnit 4 / WebDriver
+// Copy and paste into Groovy Script with minor tweaks
+/////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////
+// Need these imports to run tests
+/////////////////////////////////////////////////////////
+import org.openqa.selenium.By
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.firefox.FirefoxDriver
+
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+
+
+
+/////////////////////////////////////////////////////////
+// Create a new instance of the Firefox driver
+/////////////////////////////////////////////////////////
+Object driver = context["driver"]
+
+//Close the browser
+driver.quit();
+
+//Then in later steps you can retrieve it as context["driverInstance"] 
+</script>
+				</con:config>
+			</con:testStep><con:properties/>
+		</con:testCase><con:properties>
 			<con:property>
 				<con:name>sessionid</con:name>
 				<con:value>null</con:value>
@@ -9659,7 +9964,7 @@ driver.quit();
 		</con:property>
 		<con:property>
 			<con:name>subscriptionId</con:name>
-			<con:value>1</con:value>
+			<con:value>5</con:value>
 		</con:property>
 		<con:property>
 			<con:name>applicationInformationId</con:name>
@@ -9689,7 +9994,7 @@ driver.quit();
 			<con:name>upload_access_token</con:name>
 			<con:value>809caf03-612e-4e89-94b1-6f86d83b1ef8</con:value>
 		</con:property>
-	<con:property><con:name>userAccessToken1</con:name><con:value>5916c0f9-44fc-4f8e-b4cd-82ce78a919cb</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>7662a703-79ce-46ce-8234-ec5983af81fd</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c</con:value></con:property><con:property><con:name>opensslCmd</con:name><con:value>openssl</con:value></con:property><con:property><con:name>timeoutCmd</con:name><con:value>timeout</con:value></con:property></con:properties>
+	<con:property><con:name>userAccessToken1</con:name><con:value>0ccad6d8-c1ac-418b-9cae-b1e8487cb3f0</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>8e20cdbe-8cd8-4a11-bde9-8516ac6f2451</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c</con:value></con:property><con:property><con:name>opensslCmd</con:name><con:value>openssl</con:value></con:property><con:property><con:name>timeoutCmd</con:name><con:value>timeout</con:value></con:property></con:properties>
 	<con:wssContainer/>
 	<con:oAuth2ProfileContainer/>
 	<con:sensitiveInformation/>
