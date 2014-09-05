@@ -129,14 +129,14 @@
 						<con:request name="Get root UsagePoint" mediaType="application/json" id="93c02402-db4a-45c8-aff5-5d593b30e2f2">
 							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 							<con:request/>
-							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/UsagePoint/1</con:originalUri><con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
 							<con:jmsPropertyConfig/>
 							<con:parameters/>
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
 							<con:credentials>
-								<con:authType>Global HTTP Settings</con:authType>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
 							</con:credentials>
 							<con:parameterOrder>
 								<con:entry>usagePointId</con:entry>
@@ -5320,7 +5320,7 @@ driver._bLogActions = true;
 
 if( context["driver"] == null )
 context["driver"] = driver
-//driver._iSleepBetweenStepsMs = 500;
+driver._iSleepBetweenStepsMs = 500;
 
 return
 //Then in later steps you can retrieve it as context["driverInstance"] 
@@ -11475,7 +11475,7 @@ It is currently a limited starting point with a lot of detail to be added.</con:
 log.info("Feature: DC Admin Access");
 //******************************************************************************************************************
 //******************************************************************************************************************
-</script></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+</script></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][D] GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -11495,7 +11495,7 @@ log.info("Feature: DC Admin Access");
 								<con:entry>Authorization</con:entry>
 								<con:entry>Content-Type</con:entry>
 							</con:parameterOrder>
-						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET Authorization Feed"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization" methodName="GET Authorization Feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET Authorization Feed - Request 1" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET Authorization Feed"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization" methodName="GET Authorization Feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][D] GET Authorization Feed" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
 						<con:settings>
 							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 						</con:settings>
@@ -11514,7 +11514,7 @@ log.info("Feature: DC Admin Access");
 							<con:entry>Authorization</con:entry>
 							<con:entry>Content-Type</con:entry>
 						</con:parameterOrder>
-					</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET Authorization by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization/{authorizationId}" methodName="GET Authorization by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET Authorization by Id - Request 1" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
+					</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET Authorization by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization/{authorizationId}" methodName="GET Authorization by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][D] GET Authorization by Id" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -11531,7 +11531,7 @@ log.info("Feature: DC Admin Access");
 								<con:entry>Authorization</con:entry>
 								<con:entry>Content-Type</con:entry>
 							</con:parameterOrder>
-						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET Batch/Subscription/{subscriptionId}"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/{subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Method 1 - GET {subscriptionId}" mediaType="application/json" id="76860f30-073d-4f94-be07-2f0a3435b146">
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET Batch/Subscription/{subscriptionId}"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/{subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][D] GET Batch/Subscription/{subscriptionId}" mediaType="application/json" id="76860f30-073d-4f94-be07-2f0a3435b146">
 								<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 								<con:request/>
 								<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:originalUri>
@@ -11553,7 +11553,7 @@ log.info("Feature: DC Admin Access");
 									<con:entry>Authorization</con:entry>
 									<con:entry>Content-Type</con:entry>
 								</con:parameterOrder>
-							</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET ServiceStatus"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ReadServiceStatus" methodName="GET ServiceStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ServiceStatus - Request 1" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
+							</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET ServiceStatus"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ReadServiceStatus" methodName="GET ServiceStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][D] GET ServiceStatus" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
 						<con:settings>
 							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 						</con:settings>
@@ -11577,7 +11577,7 @@ log.info("Feature: DC Admin Access");
 log.info("Feature: TP Registration Token Access");
 //******************************************************************************************************************
 //******************************************************************************************************************
-</script></con:config></con:testStep><con:testStep type="restrequest" name="[POS][R] GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+</script></con:config></con:testStep><con:testStep type="restrequest" name="[POS][R] GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][R] GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -11597,7 +11597,7 @@ log.info("Feature: TP Registration Token Access");
 								<con:entry>Authorization</con:entry>
 								<con:entry>Content-Type</con:entry>
 							</con:parameterOrder>
-						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][R] GET Authorization Feed"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization" methodName="GET Authorization Feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of GET Authorization Feed" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][R] GET Authorization Feed"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization" methodName="GET Authorization Feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][R] GET Authorization Feed" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
 						<con:settings>
 							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 						</con:settings>
@@ -11616,7 +11616,7 @@ log.info("Feature: TP Registration Token Access");
 							<con:entry>Authorization</con:entry>
 							<con:entry>Content-Type</con:entry>
 						</con:parameterOrder>
-					</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][R] GET Authorization by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization/{authorizationId}" methodName="GET Authorization by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of GET Authorization by Id" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
+					</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][R] GET Authorization by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization/{authorizationId}" methodName="GET Authorization by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][R] GET Authorization by Id" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -11633,7 +11633,7 @@ log.info("Feature: TP Registration Token Access");
 								<con:entry>Authorization</con:entry>
 								<con:entry>Content-Type</con:entry>
 							</con:parameterOrder>
-						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][R] GET Batch/Subscription/{subscriptionId}"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/{subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of GET Batch/Subscription/{subscriptionId}" mediaType="application/json" id="76860f30-073d-4f94-be07-2f0a3435b146">
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][R] GET Batch/Subscription/{subscriptionId}"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/{subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][R] GET Batch/Subscription/{subscriptionId}" mediaType="application/json" id="76860f30-073d-4f94-be07-2f0a3435b146">
 								<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 								<con:request/>
 								<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:originalUri>
@@ -11656,7 +11656,7 @@ log.info("Feature: TP Registration Token Access");
 									<con:entry>Authorization</con:entry>
 									<con:entry>Content-Type</con:entry>
 								</con:parameterOrder>
-							</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][R] GET ServiceStatus"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ReadServiceStatus" methodName="GET ServiceStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of GET ServiceStatus" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
+							</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][R] GET ServiceStatus"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ReadServiceStatus" methodName="GET ServiceStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][R] GET ServiceStatus" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
 						<con:settings>
 							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 						</con:settings>
@@ -11680,7 +11680,7 @@ log.info("Feature: TP Registration Token Access");
 log.info("Feature: TP Admin Token Access");
 //******************************************************************************************************************
 //******************************************************************************************************************
-</script></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][C] GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of [POS][R] GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+</script></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][C] GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][C] GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -11700,7 +11700,7 @@ log.info("Feature: TP Admin Token Access");
 								<con:entry>Authorization</con:entry>
 								<con:entry>Content-Type</con:entry>
 							</con:parameterOrder>
-						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][C] GET Authorization Feed"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization" methodName="GET Authorization Feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of [NEG][R] GET Authorization Feed" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][C] GET Authorization Feed"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization" methodName="GET Authorization Feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][C] GET Authorization Feed" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
 						<con:settings>
 							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 						</con:settings>
@@ -11719,7 +11719,7 @@ log.info("Feature: TP Admin Token Access");
 							<con:entry>Authorization</con:entry>
 							<con:entry>Content-Type</con:entry>
 						</con:parameterOrder>
-					</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][C] GET Authorization by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization/{authorizationId}" methodName="GET Authorization by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of [NEG][R] GET Authorization by Id" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
+					</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][C] GET Authorization by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization/{authorizationId}" methodName="GET Authorization by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][C] GET Authorization by Id" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -11736,7 +11736,7 @@ log.info("Feature: TP Admin Token Access");
 								<con:entry>Authorization</con:entry>
 								<con:entry>Content-Type</con:entry>
 							</con:parameterOrder>
-						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][C] GET Batch/Subscription/{subscriptionId}"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/{subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of [NEG][R] GET Batch/Subscription/{subscriptionId}" mediaType="application/json" id="76860f30-073d-4f94-be07-2f0a3435b146">
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][C] GET Batch/Subscription/{subscriptionId}"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/{subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][C] GET Batch/Subscription/{subscriptionId}" mediaType="application/json" id="76860f30-073d-4f94-be07-2f0a3435b146">
 								<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 								<con:request/>
 								<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:originalUri>
@@ -11759,7 +11759,7 @@ log.info("Feature: TP Admin Token Access");
 									<con:entry>Authorization</con:entry>
 									<con:entry>Content-Type</con:entry>
 								</con:parameterOrder>
-							</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][C] GET ServiceStatus"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ReadServiceStatus" methodName="GET ServiceStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of [NEG][R] GET ServiceStatus" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
+							</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][C] GET ServiceStatus"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ReadServiceStatus" methodName="GET ServiceStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][C] GET ServiceStatus" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
 						<con:settings>
 							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 						</con:settings>
@@ -11783,7 +11783,7 @@ log.info("Feature: TP Admin Token Access");
 log.info("Feature: TP User Token Access");
 //******************************************************************************************************************
 //******************************************************************************************************************
-</script></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][A] GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+</script></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][A] GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][A] GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -11803,7 +11803,7 @@ log.info("Feature: TP User Token Access");
 								<con:entry>Authorization</con:entry>
 								<con:entry>Content-Type</con:entry>
 							</con:parameterOrder>
-						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][A] GET Authorization Feed"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization" methodName="GET Authorization Feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of GET Authorization Feed" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][A] GET Authorization Feed"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization" methodName="GET Authorization Feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][A] GET Authorization Feed" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
 						<con:settings>
 							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 						</con:settings>
@@ -11822,7 +11822,7 @@ log.info("Feature: TP User Token Access");
 							<con:entry>Authorization</con:entry>
 							<con:entry>Content-Type</con:entry>
 						</con:parameterOrder>
-					</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][A] GET Authorization by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization/{authorizationId}" methodName="GET Authorization by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of GET Authorization by Id" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
+					</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][A] GET Authorization by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization/{authorizationId}" methodName="GET Authorization by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][A] GET Authorization by Id" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -11839,7 +11839,7 @@ log.info("Feature: TP User Token Access");
 								<con:entry>Authorization</con:entry>
 								<con:entry>Content-Type</con:entry>
 							</con:parameterOrder>
-						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][A] GET Batch/Subscription/{subscriptionId}"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/{subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of GET Batch/Subscription/{subscriptionId}" mediaType="application/json" id="76860f30-073d-4f94-be07-2f0a3435b146">
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][A] GET Batch/Subscription/{subscriptionId}"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/{subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][A] GET Batch/Subscription/{subscriptionId}" mediaType="application/json" id="76860f30-073d-4f94-be07-2f0a3435b146">
 								<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 								<con:request/>
 								<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:originalUri>
@@ -11862,7 +11862,7 @@ log.info("Feature: TP User Token Access");
 									<con:entry>Authorization</con:entry>
 									<con:entry>Content-Type</con:entry>
 								</con:parameterOrder>
-							</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][A] GET ServiceStatus"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ReadServiceStatus" methodName="GET ServiceStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of GET ServiceStatus" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
+							</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][A] GET ServiceStatus"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ReadServiceStatus" methodName="GET ServiceStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][A] GET ServiceStatus" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
 						<con:settings>
 							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 						</con:settings>
@@ -13428,11 +13428,11 @@ driver.quit();
 		</con:property>
 		<con:property>
 			<con:name>userAccessToken1</con:name>
-			<con:value>cae33dbb-4ec0-47fd-8f12-888141586546</con:value>
+			<con:value>7a058a50-7007-45ca-9a10-8e74205b72b5</con:value>
 		</con:property>
 		<con:property>
 			<con:name>userAccessToken2</con:name>
-			<con:value>72cb2cd8-86ae-4662-bf83-e25027facd81</con:value>
+			<con:value>af74ed42-3302-46de-979c-55391a9f5dbd</con:value>
 		</con:property>
 		<con:property>
 			<con:name>registration_third_party_access_token</con:name>
