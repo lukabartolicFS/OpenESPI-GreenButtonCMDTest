@@ -3,8 +3,8 @@
 	<con:settings/>
 	<con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="ESPI Resources" type="rest" id="67592114-eb87-42a5-87f1-4c996a14c5da" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 		<con:settings/>
-		<con:definitionCache type="TEXT" rootPart=""/>
-		<con:resource name="resource" path="/espi/1_1/resource" id="58456799-b780-49f8-bfec-ecb0dcda8a7d">
+		
+		<con:definitionCache type="TEXT" rootPart=""/><con:resource name="resource" path="/espi/1_1/resource" id="58456799-b780-49f8-bfec-ecb0dcda8a7d">
 			<con:settings/>
 			<con:parameters>
 				<con:parameter>
@@ -2471,7 +2471,7 @@
 							<con:params/>
 							<con:element>data</con:element>
 						</con:representation>
-						<con:request name="Request 1" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+						<con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element xmlns:ns="http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1">ns:Fault</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -3055,7 +3055,7 @@
 						<con:params/>
 						<con:element>data</con:element>
 					</con:representation>
-					<con:request name="Request 1" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
+					<con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element xmlns:aut="http://localhost/DataCustodian/espi/1_1/resource/Authorization">aut:Fault</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
 						<con:settings>
 							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 						</con:settings>
@@ -11459,12 +11459,429 @@ log.info("Feature: Registration Third Party API");
 		</con:testCase>
 		<con:properties/>
 	</con:testSuite>
-	<con:testSuite name="SecurityTests">
-		<con:settings/>
-		<con:runType>SEQUENTIAL</con:runType>
-		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true" id="bd329d29-351a-48a8-89b1-3c3bd206293c">
-			<con:settings/>
-			<con:testStep type="httprequest" name="[TR_TC001] Test software shall issue a service request over an SSL session and shall verify that the response HTTP header contains the following fields and information.">
+	
+	<con:testSuite name="Green Button Connect My Data"><con:description>This test suite collects GBCMD tests by function block.
+
+It is currently a limited starting point with a lot of detail to be added.</con:description><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_3] Core Green Button Connect My Data" searchProperties="true" id="72095d31-0ede-4d94-8b88-dfe552917235"><con:settings/><con:testStep type="calltestcase" name="Run TestCase EstablishTwoSubscriptions">
+				<con:settings/>
+				<con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+					<con:targetTestCase>842a41c8-96fb-4b15-bab5-c26d1f3f0dba</con:targetTestCase>
+					<con:properties/>
+					<con:returnProperties/>
+					<con:runMode>PARALLELL</con:runMode>
+				</con:config>
+			</con:testStep><con:testStep type="groovy" name="Feature: DC Admin Access"><con:settings/><con:config><script>//******************************************************************************************************************
+//******************************************************************************************************************
+log.info("Feature: DC Admin Access");
+//******************************************************************************************************************
+//******************************************************************************************************************
+</script></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri>
+							<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+								<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+								<con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters/>
+							<con:parameterOrder>
+								<con:entry>applicationInformationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET Authorization Feed"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization" methodName="GET Authorization Feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET Authorization Feed - Request 1" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
+						<con:settings>
+							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+						</con:settings>
+						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+						<con:request/>
+						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization</con:originalUri>
+						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
+							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+							<con:authType>Global HTTP Settings</con:authType>
+						</con:credentials>
+						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+						<con:jmsPropertyConfig/>
+						<con:parameters/>
+						<con:parameterOrder>
+							<con:entry>Authorization</con:entry>
+							<con:entry>Content-Type</con:entry>
+						</con:parameterOrder>
+					</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET Authorization by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization/{authorizationId}" methodName="GET Authorization by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET Authorization by Id - Request 1" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters/>
+							<con:parameterOrder>
+								<con:entry>authorizationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET Batch/Subscription/{subscriptionId}"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/{subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Method 1 - GET {subscriptionId}" mediaType="application/json" id="76860f30-073d-4f94-be07-2f0a3435b146">
+								<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+								<con:request/>
+								<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:originalUri>
+								<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+								<con:jmsPropertyConfig/>
+								<con:parameters>
+									<entry key="subscriptionID" value="${#Project#subscriptionID}" xmlns="http://eviware.com/soapui/config"/>
+								</con:parameters>
+								<con:settings>
+									<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+								</con:settings>
+								<con:credentials>
+									<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+									<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+									<con:authType>Global HTTP Settings</con:authType>
+								</con:credentials>
+								<con:parameterOrder>
+									<con:entry>subscriptionID</con:entry>
+									<con:entry>Authorization</con:entry>
+									<con:entry>Content-Type</con:entry>
+								</con:parameterOrder>
+							</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET ServiceStatus"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ReadServiceStatus" methodName="GET ServiceStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ServiceStatus - Request 1" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
+						<con:settings>
+							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+						</con:settings>
+						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+						<con:request/>
+						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ReadServiceStatus</con:originalUri>
+						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
+							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+							<con:authType>Global HTTP Settings</con:authType>
+						</con:credentials>
+						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+						<con:jmsPropertyConfig/>
+						<con:parameters/>
+						<con:parameterOrder>
+							<con:entry>Authorization</con:entry>
+							<con:entry>Content-Type</con:entry>
+						</con:parameterOrder>
+					</con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Feature: TP Registration Token Access"><con:settings/><con:config><script>//******************************************************************************************************************
+//******************************************************************************************************************
+log.info("Feature: TP Registration Token Access");
+//******************************************************************************************************************
+//******************************************************************************************************************
+</script></con:config></con:testStep><con:testStep type="restrequest" name="[POS][R] GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri>
+							<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+								<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+								<con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="Authorization" value="Bearer ${#Project#registration_third_party_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>applicationInformationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][R] GET Authorization Feed"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization" methodName="GET Authorization Feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of GET Authorization Feed" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
+						<con:settings>
+							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+						</con:settings>
+						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+						<con:request/>
+						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization</con:originalUri>
+						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+							<con:authType>Global HTTP Settings</con:authType>
+						</con:credentials>
+						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+						<con:jmsPropertyConfig/>
+						<con:parameters><entry key="Authorization" value="Bearer ${#Project#registration_third_party_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+						<con:parameterOrder>
+							<con:entry>Authorization</con:entry>
+							<con:entry>Content-Type</con:entry>
+						</con:parameterOrder>
+					</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][R] GET Authorization by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization/{authorizationId}" methodName="GET Authorization by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of GET Authorization by Id" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="Authorization" value="Bearer ${#Project#registration_third_party_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>authorizationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][R] GET Batch/Subscription/{subscriptionId}"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/{subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of GET Batch/Subscription/{subscriptionId}" mediaType="application/json" id="76860f30-073d-4f94-be07-2f0a3435b146">
+								<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+								<con:request/>
+								<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:originalUri>
+								<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+								<con:jmsPropertyConfig/>
+								<con:parameters>
+  <con:entry key="Authorization" value="Bearer ${#Project#registration_third_party_access_token}"/>
+  <con:entry key="subscriptionID" value="${#Project#subscriptionID}"/>
+</con:parameters>
+								<con:settings>
+									<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+								</con:settings>
+								<con:credentials>
+									<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+									<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+									<con:authType>Global HTTP Settings</con:authType>
+								</con:credentials>
+								<con:parameterOrder>
+									<con:entry>subscriptionID</con:entry>
+									<con:entry>Authorization</con:entry>
+									<con:entry>Content-Type</con:entry>
+								</con:parameterOrder>
+							</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][R] GET ServiceStatus"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ReadServiceStatus" methodName="GET ServiceStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of GET ServiceStatus" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
+						<con:settings>
+							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+						</con:settings>
+						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+						<con:request/>
+						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ReadServiceStatus</con:originalUri>
+						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+							<con:authType>Global HTTP Settings</con:authType>
+						</con:credentials>
+						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+						<con:jmsPropertyConfig/>
+						<con:parameters><entry key="Authorization" value="Bearer ${#Project#registration_third_party_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+						<con:parameterOrder>
+							<con:entry>Authorization</con:entry>
+							<con:entry>Content-Type</con:entry>
+						</con:parameterOrder>
+					</con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Feature: TP Admin Token Access"><con:settings/><con:config><script>//******************************************************************************************************************
+//******************************************************************************************************************
+log.info("Feature: TP Admin Token Access");
+//******************************************************************************************************************
+//******************************************************************************************************************
+</script></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][C] GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of [POS][R] GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri>
+							<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+								<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+								<con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="Authorization" value="Bearer ${#Project#third_party_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>applicationInformationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][C] GET Authorization Feed"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization" methodName="GET Authorization Feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of [NEG][R] GET Authorization Feed" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
+						<con:settings>
+							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+						</con:settings>
+						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+						<con:request/>
+						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization</con:originalUri>
+						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+							<con:authType>Global HTTP Settings</con:authType>
+						</con:credentials>
+						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+						<con:jmsPropertyConfig/>
+						<con:parameters><entry key="Authorization" value="Bearer ${#Project#third_party_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+						<con:parameterOrder>
+							<con:entry>Authorization</con:entry>
+							<con:entry>Content-Type</con:entry>
+						</con:parameterOrder>
+					</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][C] GET Authorization by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization/{authorizationId}" methodName="GET Authorization by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of [NEG][R] GET Authorization by Id" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="Authorization" value="Bearer ${#Project#third_party_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>authorizationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][C] GET Batch/Subscription/{subscriptionId}"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/{subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of [NEG][R] GET Batch/Subscription/{subscriptionId}" mediaType="application/json" id="76860f30-073d-4f94-be07-2f0a3435b146">
+								<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+								<con:request/>
+								<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:originalUri>
+								<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+								<con:jmsPropertyConfig/>
+								<con:parameters>
+  <con:entry key="subscriptionID" value="${#Project#subscriptionID}"/>
+  <con:entry key="Authorization" value="Bearer ${#Project#third_party_access_token}"/>
+</con:parameters>
+								<con:settings>
+									<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+								</con:settings>
+								<con:credentials>
+									<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+									<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+									<con:authType>Global HTTP Settings</con:authType>
+								</con:credentials>
+								<con:parameterOrder>
+									<con:entry>subscriptionID</con:entry>
+									<con:entry>Authorization</con:entry>
+									<con:entry>Content-Type</con:entry>
+								</con:parameterOrder>
+							</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][C] GET ServiceStatus"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ReadServiceStatus" methodName="GET ServiceStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of [NEG][R] GET ServiceStatus" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
+						<con:settings>
+							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+						</con:settings>
+						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+						<con:request/>
+						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ReadServiceStatus</con:originalUri>
+						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+							<con:authType>Global HTTP Settings</con:authType>
+						</con:credentials>
+						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+						<con:jmsPropertyConfig/>
+						<con:parameters><entry key="Authorization" value="Bearer ${#Project#third_party_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+						<con:parameterOrder>
+							<con:entry>Authorization</con:entry>
+							<con:entry>Content-Type</con:entry>
+						</con:parameterOrder>
+					</con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Feature: TP User Token Access"><con:settings/><con:config><script>//******************************************************************************************************************
+//******************************************************************************************************************
+log.info("Feature: TP User Token Access");
+//******************************************************************************************************************
+//******************************************************************************************************************
+</script></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][A] GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri>
+							<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+								<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+								<con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="Authorization" value="Bearer ${#Project#userAccessToken1}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>applicationInformationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][A] GET Authorization Feed"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization" methodName="GET Authorization Feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of GET Authorization Feed" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
+						<con:settings>
+							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+						</con:settings>
+						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+						<con:request/>
+						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization</con:originalUri>
+						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+							<con:authType>Global HTTP Settings</con:authType>
+						</con:credentials>
+						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+						<con:jmsPropertyConfig/>
+						<con:parameters><entry key="Authorization" value="Bearer ${#Project#userAccessToken1}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+						<con:parameterOrder>
+							<con:entry>Authorization</con:entry>
+							<con:entry>Content-Type</con:entry>
+						</con:parameterOrder>
+					</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][A] GET Authorization by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization/{authorizationId}" methodName="GET Authorization by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of GET Authorization by Id" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="Authorization" value="Bearer ${#Project#userAccessToken1}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>authorizationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][A] GET Batch/Subscription/{subscriptionId}"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/{subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of GET Batch/Subscription/{subscriptionId}" mediaType="application/json" id="76860f30-073d-4f94-be07-2f0a3435b146">
+								<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+								<con:request/>
+								<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:originalUri>
+								<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+								<con:jmsPropertyConfig/>
+								<con:parameters>
+  <con:entry key="Authorization" value="Bearer ${#Project#userAccessToken1}"/>
+  <con:entry key="subscriptionID" value="${#Project#subscriptionID}"/>
+</con:parameters>
+								<con:settings>
+									<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+								</con:settings>
+								<con:credentials>
+									<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+									<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+									<con:authType>Global HTTP Settings</con:authType>
+								</con:credentials>
+								<con:parameterOrder>
+									<con:entry>subscriptionID</con:entry>
+									<con:entry>Authorization</con:entry>
+									<con:entry>Content-Type</con:entry>
+								</con:parameterOrder>
+							</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][A] GET ServiceStatus"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ReadServiceStatus" methodName="GET ServiceStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of GET ServiceStatus" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
+						<con:settings>
+							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+						</con:settings>
+						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+						<con:request/>
+						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ReadServiceStatus</con:originalUri>
+						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+							<con:authType>Global HTTP Settings</con:authType>
+						</con:credentials>
+						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+						<con:jmsPropertyConfig/>
+						<con:parameters><entry key="Authorization" value="Bearer ${#Project#userAccessToken1}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+						<con:parameterOrder>
+							<con:entry>Authorization</con:entry>
+							<con:entry>Content-Type</con:entry>
+						</con:parameterOrder>
+					</con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_13] Security and Privacy" searchProperties="true"><con:settings/><con:testStep type="httprequest" name="[TR_TC001] Test software shall issue a service request over an SSL session and shall verify that the response HTTP header contains the following fields and information.">
 				<con:settings/>
 				<con:config method="GET" xsi:type="con:HttpRequest" name="[TR_TC001] Test software shall issue a service request over an SSL session and shall verify that the response HTTP header contains the following fields and information." xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 					<con:settings>
@@ -11491,8 +11908,7 @@ assert true;</scriptText>
 					<con:jmsPropertyConfig/>
 					<con:parameters/>
 				</con:config>
-			</con:testStep>
-			<con:testStep type="groovy" name="[TR_TC003] Verify that the Data Custodian implements TLS 1.2">
+			</con:testStep><con:testStep type="groovy" name="[TR_TC003] Verify that the Data Custodian implements TLS 1.2">
 				<con:settings/>
 				<con:config>
 					<script>
@@ -11536,8 +11952,7 @@ assert true;</scriptText>
 	
 	</script>
 				</con:config>
-			</con:testStep>
-			<con:testStep type="groovy" name="[TR_TC004] Verify that when communicating with a Retail Customer or Third Party the Data Custodian negotiates the highest level of TLS mutually supported.">
+			</con:testStep><con:testStep type="groovy" name="[TR_TC004] Verify that when communicating with a Retail Customer or Third Party the Data Custodian negotiates the highest level of TLS mutually supported.">
 				<con:settings/>
 				<con:config>
 					<script>
@@ -11630,8 +12045,7 @@ assert true;</scriptText>
 	
 	</script>
 				</con:config>
-			</con:testStep>
-			<con:testStep type="groovy" name="[TR_TC005] Verify that when communicating with a Retail Customer the Data Custodian rejects TLS_RSA_WITH_NULL_SHA cipher suites.">
+			</con:testStep><con:testStep type="groovy" name="[TR_TC005] Verify that when communicating with a Retail Customer the Data Custodian rejects TLS_RSA_WITH_NULL_SHA cipher suites.">
 				<con:settings/>
 				<con:config>
 					<script>
@@ -11674,8 +12088,7 @@ assert true;</scriptText>
 	
 	</script>
 				</con:config>
-			</con:testStep>
-			<con:testStep type="groovy" name="[TR_TC006] Verify that when communicating with a Retail Customer at a minimum the Data Custodian accepts the TLS_RSA_WITH_AES_128_CBC_SHA cipher suite.">
+			</con:testStep><con:testStep type="groovy" name="[TR_TC006] Verify that when communicating with a Retail Customer at a minimum the Data Custodian accepts the TLS_RSA_WITH_AES_128_CBC_SHA cipher suite.">
 				<con:settings/>
 				<con:config>
 					<script>
@@ -11713,8 +12126,7 @@ assert true;</scriptText>
 	
 	</script>
 				</con:config>
-			</con:testStep>
-			<con:testStep type="groovy" name="[TR_TC008] Verify that the Data Custodian maintains an unexpired unrevoked RSA certificate with a public key length of at least 2048 bits.">
+			</con:testStep><con:testStep type="groovy" name="[TR_TC008] Verify that the Data Custodian maintains an unexpired unrevoked RSA certificate with a public key length of at least 2048 bits.">
 				<con:settings/>
 				<con:config>
 					<script>import java.text.DateFormat;
@@ -11872,8 +12284,7 @@ import java.io.File;
 	
 	</script>
 				</con:config>
-			</con:testStep>
-			<con:testStep type="groovy" name="[TR_TC013] Verify that the Third Party implements TLS 1.1 or higher.">
+			</con:testStep><con:testStep type="groovy" name="[TR_TC013] Verify that the Third Party implements TLS 1.1 or higher.">
 				<con:settings/>
 				<con:config>
 					<script>
@@ -11934,8 +12345,7 @@ import java.io.File;
 	
 	</script>
 				</con:config>
-			</con:testStep>
-			<con:testStep type="groovy" name="[TR_TC014] Verify that when communicating with a Data Custodian or Retail Customer the Third Party negotiates the highest level of TLS mutually supported">
+			</con:testStep><con:testStep type="groovy" name="[TR_TC014] Verify that when communicating with a Data Custodian or Retail Customer the Third Party negotiates the highest level of TLS mutually supported">
 				<con:settings/>
 				<con:config>
 					<script>
@@ -12003,8 +12413,7 @@ import java.io.File;
 	
 	</script>
 				</con:config>
-			</con:testStep>
-			<con:testStep type="groovy" name="[TR_TC016] Verify that the Third Party maintains an unexpired unrevoked RSA certificate with a public key length of at least 2048 bits">
+			</con:testStep><con:testStep type="groovy" name="[TR_TC016] Verify that the Third Party maintains an unexpired unrevoked RSA certificate with a public key length of at least 2048 bits">
 				<con:settings/>
 				<con:config>
 					<script>import java.text.DateFormat;
@@ -12162,11 +12571,391 @@ import java.io.File;
 	
 	</script>
 				</con:config>
-			</con:testStep>
-			<con:properties/>
-		</con:testCase>
-		<con:properties/>
-	</con:testSuite>
+			</con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_14] Authorization and Authentication" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Scenario: Retail Customer views Data Custodian list">
+				<con:settings/>
+				<con:config>
+					<script>import org.openqa.selenium.*;
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+def BaseURL = project.getPropertyValue("BaseURL")
+def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
+def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
+def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
+def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
+def TestManager=project.getPropertyValue("TestManager")
+def TestManagerPW=project.getPropertyValue("TestManagerPW")
+def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
+def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
+def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
+
+Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+
+//driver._bLogActions = true;
+
+try{
+	
+	//*********************************************************
+	log.info("Scenario: Retail Customer views Data Custodian list");
+	//*********************************************************
+	// reset DB : run library groovy script
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDB']);
+	// Browser Init
+	driver.Before();
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("Given a Retail Customer with Usage Points");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
+	driver.assertUrlEndsWith("/" + DataCustodianContext + "/custodian/home");
+
+	// upload usage point file
+	driver.findElement(By.linkText("Upload")).click();	
+	driver.findElement(By.name("file")).sendKeys(TestFile);
+		
+	driver.findElement(By.name("upload")).click();	
+	driver.assertDoesNotContain("Unable to process file");
+	
+	// add usage point linkage
+	driver.findElement(By.linkText("Customer List")).click();
+	driver.findElement(By.linkText(TestRetailCustomer)).click();	
+	driver.findElement(By.partialLinkText("Add Usage")).click();	
+	driver.findElement(By.id("UUID")).clear();
+	driver.findElement(By.id("UUID")).sendKeys(usagePointUUID1);
+	driver.findElement(By.name("create")).click();
+
+
+	driver.logout(ServiceEndpointDataCustodian);
+	
+	driver.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("When I navigate to Data Custodian list");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.findElement(By.linkText("Data Custodians")).click();
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("Then I should see a list of Data Custodians");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.assertContains("data_custodian");
+
+} catch(Exception e) {
+	testRunner.fail(driver.getErrorString())
+}
+
+//Close the browser
+driver.quit();
+</script>
+				</con:config>
+			</con:testStep><con:testStep type="groovy" name="Scenario: Retail Customer selects Data Custodian for the list">
+				<con:settings/>
+				<con:config>
+					<script>import org.openqa.selenium.*;
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+def BaseURL = project.getPropertyValue("BaseURL")
+def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
+def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
+def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
+def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
+def TestManager=project.getPropertyValue("TestManager")
+def TestManagerPW=project.getPropertyValue("TestManagerPW")
+def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
+def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
+def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
+
+Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+
+
+//driver._bLogActions = true;
+
+try{
+
+	//*********************************************************
+	log.info("Scenario: Retail Customer selects Data Custodian for the list");
+	//*********************************************************
+	// reset DB : run library groovy script
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDB']);
+	// Browser Init
+	driver.Before();
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("Given a Retail Customer with Usage Points");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
+	driver.assertUrlEndsWith("/" + DataCustodianContext + "/custodian/home");
+
+	// upload usage point file
+	driver.findElement(By.linkText("Upload")).click();	
+	driver.findElement(By.name("file")).sendKeys(TestFile);
+		
+	driver.findElement(By.name("upload")).click();	
+	driver.assertDoesNotContain("Unable to process file");
+	
+	// add usage point linkage
+	driver.findElement(By.linkText("Customer List")).click();
+	driver.findElement(By.linkText(TestRetailCustomer)).click();	
+	driver.findElement(By.partialLinkText("Add Usage")).click();	
+	driver.findElement(By.id("UUID")).clear();
+	driver.findElement(By.id("UUID")).sendKeys(usagePointUUID1);
+	driver.findElement(By.name("create")).click();
+
+	driver.logout(ServiceEndpointDataCustodian);
+	
+	driver.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("When I select a Data Custodian from the list");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.findElement(By.linkText("Data Custodians")).click();	
+	driver.findElement(By.name("Data_custodian")).click();	
+	driver.findElement(By.name("next")).click();
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("Then I should see the Data Custodian login screen");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.assertUrlContains("/DataCustodian");
+	driver.assertContains("Login");
+        
+} catch(Exception e) {
+	testRunner.fail(driver.getErrorString())
+}
+
+//Close the browser
+driver.quit();
+</script>
+				</con:config>
+			</con:testStep><con:testStep type="groovy" name="Scenario: Retail Customer selects Scope">
+				<con:settings/>
+				<con:config>
+					<script>import org.openqa.selenium.*;
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+def BaseURL = project.getPropertyValue("BaseURL")
+def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
+def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
+def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
+def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
+def TestManager=project.getPropertyValue("TestManager")
+def TestManagerPW=project.getPropertyValue("TestManagerPW")
+def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
+def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
+def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
+
+Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+
+
+//driver._bLogActions = true;
+
+try{
+	
+	//*********************************************************
+	log.info("Scenario: Retail Customer selects Scope");
+	//*********************************************************
+	// reset DB : run library groovy script
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDB']);
+	// Browser Init
+	driver.Before();
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("Given a Retail Customer with Usage Points");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
+	driver.assertUrlEndsWith("/" + DataCustodianContext + "/custodian/home");
+
+
+	// upload usage point file
+	driver.findElement(By.linkText("Upload")).click();	
+	driver.findElement(By.name("file")).sendKeys(TestFile);
+		
+	driver.findElement(By.name("upload")).click();	
+	driver.assertDoesNotContain("Unable to process file");
+		
+	// add usage point linkage
+	driver.findElement(By.linkText("Customer List")).click();
+	driver.findElement(By.linkText(TestRetailCustomer)).click();	
+	driver.findElement(By.partialLinkText("Add Usage")).click();	
+	driver.findElement(By.id("UUID")).clear();
+	driver.findElement(By.id("UUID")).sendKeys(usagePointUUID1);
+	driver.findElement(By.name("create")).click();
+
+	driver.logout(ServiceEndpointDataCustodian);
+	
+	driver.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("When I select a Data Custodian from the list");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.findElement(By.linkText("Data Custodians")).click();	
+	driver.findElement(By.name("Data_custodian")).click();	
+	driver.findElement(By.name("next")).click();
+			
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("Then I should see the Data Custodian login screen");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.assertUrlContains("/DataCustodian");
+	driver.assertContains("Login");
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("When I log into Data Custodian");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.findElement(By.name("j_username")).clear();
+	driver.findElement(By.name("j_username")).sendKeys(TestRetailCustomer);	
+	driver.findElement(By.name("j_password")).clear();
+	driver.findElement(By.name("j_password")).sendKeys(TestRetailCustomerPW);	
+	driver.findElement(By.name("submit")).click();
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("Then I should see Scope selection screen");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.assertContains("Select Scope");
+	driver.assertContains("FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13");
+	
+} catch(Exception e) {
+	testRunner.fail(driver.getErrorString())
+}
+
+//Close the browser
+driver.quit();
+</script>
+				</con:config>
+			</con:testStep><con:testStep type="groovy" name="Scenario: Retail Customer authorizes Third Party">
+				<con:settings/>
+				<con:config>
+					<script>import org.openqa.selenium.*;
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+def BaseURL = project.getPropertyValue("BaseURL")
+def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
+def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
+def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
+def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
+def TestManager=project.getPropertyValue("TestManager")
+def TestManagerPW=project.getPropertyValue("TestManagerPW")
+def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
+def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
+def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
+
+
+Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+
+
+//driver._bLogActions = true;
+
+try{
+	
+	//*********************************************************
+	log.info("Scenario: Retail Customer authorizes Third Party");
+	//*********************************************************
+	// reset DB : run library groovy script
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDB']);
+	// Browser Init
+	driver.Before();
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("Given a Retail Customer with Usage Points");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
+	driver.assertUrlEndsWith("/" + DataCustodianContext + "/custodian/home");
+
+	// upload usage point file
+	driver.findElement(By.linkText("Upload")).click();	
+	driver.findElement(By.name("file")).sendKeys(TestFile);
+		
+	driver.findElement(By.name("upload")).click();	
+	driver.assertDoesNotContain("Unable to process file");
+	
+	// add usage point linkage
+	driver.findElement(By.linkText("Customer List")).click();
+	driver.findElement(By.linkText(TestRetailCustomer)).click();	
+	driver.findElement(By.partialLinkText("Add Usage")).click();	
+	driver.findElement(By.id("UUID")).clear();
+	driver.findElement(By.id("UUID")).sendKeys(usagePointUUID1);
+	driver.findElement(By.name("create")).click();
+
+
+	driver.logout(ServiceEndpointDataCustodian);
+	
+	driver.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);	
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("When I select a Data Custodian from the list");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.findElement(By.linkText("Data Custodians")).click();
+	driver.findElement(By.name("Data_custodian")).click();
+	driver.findElement(By.name("next")).click();
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("Then I should see the Data Custodian login screen");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.assertUrlContains("/DataCustodian");
+	driver.assertContains("Login");
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("When I log into Data Custodian");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.findElement(By.name("j_username")).clear();
+	driver.findElement(By.name("j_username")).sendKeys(TestRetailCustomer);	
+	driver.findElement(By.name("j_password")).clear();
+	driver.findElement(By.name("j_password")).sendKeys(TestRetailCustomerPW);	
+	driver.findElement(By.name("submit")).click();
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("Then I should see Scope selection screen");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.assertContains("Select Scope");
+	driver.assertContains("FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13");
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("When I select Scopes");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.findElement(By.className("scope")).click();	
+	driver.findElement(By.xpath("(//input[@name='scope'])[2]")).click();	
+	driver.findElement(By.name("next")).click();	
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("Then I should see authorization screen");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.assertContains("Please Confirm");
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("When I authorize Third Party");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//driver.findElement(By.name("authorize")).click();
+	driver.findElement(By.name("scope.FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13")).click();
+	driver.findElement(By.name("authorize")).click();
+			
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("Then I should see all my authorizations");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.assertContains("Authorizations");
+	driver.assertContains("data_custodian");
+	driver.assertContains("DataCustodian/espi/1_1/resource/Batch/Subscription/");
+	
+} catch(Exception e) {
+	testRunner.fail(driver.getErrorString())
+}
+
+//Close the browser
+driver.quit();
+</script>
+				</con:config>
+			</con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_19] Partial Update Data" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_37] Query Parameters" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_39] PUSH Model" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:properties/></con:testSuite>
 	<con:testSuite name="RonsSandbox">
 		<con:settings/>
 		<con:runType>SEQUENTIAL</con:runType>
@@ -12521,8 +13310,7 @@ driver.quit();
 			<con:properties/>
 		</con:testCase>
 		<con:properties/>
-	</con:testSuite>
-	<con:properties>
+	</con:testSuite><con:properties>
 		<con:property>
 			<con:name>BaseURL</con:name>
 			<con:value>http://localhost:8080</con:value>
@@ -12640,11 +13428,11 @@ driver.quit();
 		</con:property>
 		<con:property>
 			<con:name>userAccessToken1</con:name>
-			<con:value>f4706a88-3311-417c-9e6c-3120394943da</con:value>
+			<con:value>cae33dbb-4ec0-47fd-8f12-888141586546</con:value>
 		</con:property>
 		<con:property>
 			<con:name>userAccessToken2</con:name>
-			<con:value>0734d454-a0cb-4fd4-a3cb-d2696c185c88</con:value>
+			<con:value>72cb2cd8-86ae-4662-bf83-e25027facd81</con:value>
 		</con:property>
 		<con:property>
 			<con:name>registration_third_party_access_token</con:name>
