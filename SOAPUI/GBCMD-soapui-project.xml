@@ -2471,7 +2471,7 @@
 							<con:params/>
 							<con:element>data</con:element>
 						</con:representation>
-						<con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element xmlns:ns="http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1">ns:Fault</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+						<con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element xmlns:ns="http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1">ns:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -3055,7 +3055,7 @@
 						<con:params/>
 						<con:element>data</con:element>
 					</con:representation>
-					<con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element xmlns:aut="http://localhost/DataCustodian/espi/1_1/resource/Authorization">aut:Fault</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
+					<con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element xmlns:aut="http://localhost/DataCustodian/espi/1_1/resource/Authorization">aut:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
 						<con:settings>
 							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 						</con:settings>
@@ -11489,7 +11489,7 @@ log.info("Feature: DC Admin Access");
 							</con:credentials>
 							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
 							<con:jmsPropertyConfig/>
-							<con:parameters/>
+							<con:parameters><entry key="applicationInformationId" value="2" xmlns="http://eviware.com/soapui/config"/></con:parameters>
 							<con:parameterOrder>
 								<con:entry>applicationInformationId</con:entry>
 								<con:entry>Authorization</con:entry>
@@ -11591,7 +11591,10 @@ log.info("Feature: TP Registration Token Access");
 							</con:credentials>
 							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
 							<con:jmsPropertyConfig/>
-							<con:parameters><entry key="Authorization" value="Bearer ${#Project#registration_third_party_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameters>
+  <con:entry key="Authorization" value="Bearer ${#Project#registration_third_party_access_token}"/>
+  <con:entry key="applicationInformationId" value="2"/>
+</con:parameters>
 							<con:parameterOrder>
 								<con:entry>applicationInformationId</con:entry>
 								<con:entry>Authorization</con:entry>
@@ -11694,7 +11697,10 @@ log.info("Feature: TP Admin Token Access");
 							</con:credentials>
 							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
 							<con:jmsPropertyConfig/>
-							<con:parameters><entry key="Authorization" value="Bearer ${#Project#third_party_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameters>
+  <con:entry key="Authorization" value="Bearer ${#Project#third_party_access_token}"/>
+  <con:entry key="applicationInformationId" value="2"/>
+</con:parameters>
 							<con:parameterOrder>
 								<con:entry>applicationInformationId</con:entry>
 								<con:entry>Authorization</con:entry>
@@ -11707,7 +11713,9 @@ log.info("Feature: TP Admin Token Access");
 						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 						<con:request/>
 						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization</con:originalUri>
-						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match 1"><con:configuration><path>declare namespace espi="http://naesb.org/espi"
+declare namespace ns3="http://www.w3.org/2005/Atom"
+count(/ns3:feed/ns3:entry/ns3:content/espi:Authorization)</path><content>2</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials>
 							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
 							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
 							<con:authType>Global HTTP Settings</con:authType>
@@ -11766,7 +11774,7 @@ log.info("Feature: TP Admin Token Access");
 						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 						<con:request/>
 						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ReadServiceStatus</con:originalUri>
-						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
 							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
 							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
 							<con:authType>Global HTTP Settings</con:authType>
@@ -11797,7 +11805,10 @@ log.info("Feature: TP User Token Access");
 							</con:credentials>
 							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
 							<con:jmsPropertyConfig/>
-							<con:parameters><entry key="Authorization" value="Bearer ${#Project#userAccessToken1}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameters>
+  <con:entry key="Authorization" value="Bearer ${#Project#userAccessToken1}"/>
+  <con:entry key="applicationInformationId" value="2"/>
+</con:parameters>
 							<con:parameterOrder>
 								<con:entry>applicationInformationId</con:entry>
 								<con:entry>Authorization</con:entry>
@@ -11902,7 +11913,7 @@ assert true;</scriptText>
 						</con:configuration>
 					</con:assertion>
 					<con:credentials>
-						<con:authType>Global HTTP Settings</con:authType>
+						<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
 					</con:credentials>
 					<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
 					<con:jmsPropertyConfig/>
@@ -13380,7 +13391,7 @@ driver.quit();
 			<con:name>electricPowerQualitySummaryId</con:name>
 			<con:value>1</con:value>
 		</con:property>
-		<con:property><con:name>electricPowerUsageSummaryId</con:name><con:value>1</con:value></con:property><con:property><con:name>subscriptionId</con:name><con:value>1</con:value></con:property><con:property><con:name>applicationInformationId</con:name><con:value>1</con:value></con:property><con:property><con:name>authorizationId</con:name><con:value>1</con:value></con:property><con:property><con:name>bulkId</con:name><con:value>1</con:value></con:property><con:property><con:name>localTimeParametersId</con:name><con:value>1</con:value></con:property><con:property>
+		<con:property><con:name>electricPowerUsageSummaryId</con:name><con:value>1</con:value></con:property><con:property><con:name>subscriptionId</con:name><con:value>5</con:value></con:property><con:property><con:name>applicationInformationId</con:name><con:value>1</con:value></con:property><con:property><con:name>authorizationId</con:name><con:value>1</con:value></con:property><con:property><con:name>bulkId</con:name><con:value>1</con:value></con:property><con:property><con:name>localTimeParametersId</con:name><con:value>1</con:value></con:property><con:property>
 			<con:name>TestFile</con:name>
 			<con:value>test_usage_data.xml</con:value>
 		</con:property>
@@ -13428,11 +13439,11 @@ driver.quit();
 		</con:property>
 		<con:property>
 			<con:name>userAccessToken1</con:name>
-			<con:value>7a058a50-7007-45ca-9a10-8e74205b72b5</con:value>
+			<con:value>72ba4989-e359-425a-9c4e-712e1788770f</con:value>
 		</con:property>
 		<con:property>
 			<con:name>userAccessToken2</con:name>
-			<con:value>af74ed42-3302-46de-979c-55391a9f5dbd</con:value>
+			<con:value>8d3b803b-1084-4da4-8ad7-05c66ac6f2e1</con:value>
 		</con:property>
 		<con:property>
 			<con:name>registration_third_party_access_token</con:name>
