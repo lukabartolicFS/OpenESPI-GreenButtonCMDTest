@@ -7564,11 +7564,11 @@ public boolean TestType1ROOT(Object testRunner,Object context,String strInputFil
 			<con:properties>
 				<con:property>
 					<con:name>resourceTestFileName</con:name>
-					<con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+					<con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">entry_ReadingType_3.xml</con:value>
 				</con:property>
 				<con:property>
 					<con:name>testType</con:name>
-					<con:value>GetSaveResponse</con:value>
+					<con:value>TestType1ROOT</con:value>
 				</con:property>
 				<con:property>
 					<con:name>default_access_token</con:name>
@@ -8090,8 +8090,7 @@ public boolean ServiceTest(String strTestType,boolean bShouldPass,String strFile
 			</con:testStep>
 			<con:testStep type="groovy" name="testType1_RestVerbs after ROOT Posts (link UP after POST)">
 				<con:settings/>
-				<con:config>
-					<script>import org.openqa.selenium.*;
+				<con:config><script>import org.openqa.selenium.*;
 
 import org.openqa.selenium.*;
 
@@ -8182,7 +8181,7 @@ public boolean ServiceTest(String strTestType,boolean bShouldPass,String strFile
 		driver.logStep("Given a Retail Customer with Usage Points");
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
-		driver.assertUrlEndsWith("/" + DataCustodianContext + "/custodian/home");
+		driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
 	
 		// add usage point linkage
 		driver.findElement(By.linkText("Customer List")).click();
@@ -8221,8 +8220,7 @@ public boolean ServiceTest(String strTestType,boolean bShouldPass,String strFile
 	bTestFailed = ServiceTest("TestType1ROOT",true,"entry_LocalTimeParameters_1.xml");
 	bTestFailed = ServiceTest("TestType1ROOT",true,"entry_ReadingType_3.xml");	
 	
-	return;</script>
-				</con:config>
+	return;</script></con:config>
 			</con:testStep>
 			<con:testStep type="groovy" name="testType1_RestVerbs after ROOT Posts (link UP before POST)">
 				<con:settings/>
@@ -8305,7 +8303,7 @@ public boolean ServiceTest(String strTestType,boolean bShouldPass,String strFile
 		driver.logStep("Given a Retail Customer with Usage Points");
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
-		driver.assertUrlEndsWith("/" + DataCustodianContext + "/custodian/home");
+		driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
 	
 		// add usage point linkage
 		driver.findElement(By.linkText("Customer List")).click();
@@ -8732,7 +8730,7 @@ Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/B
 		driver.logStep("Link Usage Point to Retail Customer");
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
-		driver.assertUrlEndsWith("/" + DataCustodianContext + "/custodian/home");
+		driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
 		
 		// add usage point linkage
 		driver.findElement(By.linkText("Customer List")).click();
@@ -8837,7 +8835,7 @@ try{
 	driver.logStep("Given a Retail Customer with Usage Points");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
-	driver.assertUrlEndsWith("/" + DataCustodianContext + "/custodian/home");
+	driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
 
 	// add usage point linkage
 	driver.findElement(By.linkText("Customer List")).click();
@@ -8986,7 +8984,7 @@ try{
 	driver.logStep("Given a Retail Customer with Usage Points");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
-	driver.assertUrlEndsWith("/" + DataCustodianContext + "/custodian/home");
+	driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
 
 
 	// upload usage point file
@@ -9138,7 +9136,7 @@ try{
 	driver.logStep("Given a Retail Customer with Usage Points");
 	///////////////////////////////////////////////////////////
 	driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
-	driver.assertUrlEndsWith("/" + DataCustodianContext + "/custodian/home");
+	driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
 
 	// upload usage point file
 	driver.findElement(By.linkText("Upload")).click();	
@@ -9753,7 +9751,7 @@ try{
 	driver.logStep("Given a Retail Customer with Usage Points");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
-	driver.assertUrlEndsWith("/" + DataCustodianContext + "/custodian/home");
+	driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
 
 	// upload usage point file
 	driver.findElement(By.linkText("Upload")).click();	
@@ -10024,7 +10022,7 @@ try{
 	driver.logStep("Given a Retail Customer with Usage Points");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
-	driver.assertUrlEndsWith("/" + DataCustodianContext + "/custodian/home");
+	driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
 
 
 	// upload usage point file
@@ -10175,7 +10173,7 @@ try{
 	driver.logStep("Given a Retail Customer with Usage Points");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
-	driver.assertUrlEndsWith("/" + DataCustodianContext + "/custodian/home");
+	driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
 
 	// upload usage point file
 	driver.findElement(By.linkText("Upload")).click();	
@@ -10308,7 +10306,7 @@ try{
 	driver.logStep("Given a Retail Customer with Usage Points");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
-	driver.assertUrlEndsWith("/" + DataCustodianContext + "/custodian/home");
+	driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
 
 	// upload usage point file
 	driver.findElement(By.linkText("Upload")).click();	
@@ -10389,7 +10387,7 @@ try{
 	driver.logStep("Given a Retail Customer with Usage Points");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
-	driver.assertUrlEndsWith("/" + DataCustodianContext + "/custodian/home");
+	driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
 
 	// upload usage point file
 	driver.findElement(By.linkText("Upload")).click();	
@@ -10472,7 +10470,7 @@ try{
 	driver.logStep("Given a Retail Customer with Usage Points");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
-	driver.assertUrlEndsWith("/" + DataCustodianContext + "/custodian/home");
+	driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
 
 
 	// upload usage point file
@@ -10572,7 +10570,7 @@ try{
 	driver.logStep("Given a Retail Customer with Usage Points");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
-	driver.assertUrlEndsWith("/" + DataCustodianContext + "/custodian/home");
+	driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
 
 	// upload usage point file
 	driver.findElement(By.linkText("Upload")).click();	
@@ -12621,7 +12619,7 @@ try{
 	driver.logStep("Given a Retail Customer with Usage Points");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
-	driver.assertUrlEndsWith("/" + DataCustodianContext + "/custodian/home");
+	driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
 
 	// upload usage point file
 	driver.findElement(By.linkText("Upload")).click();	
@@ -12701,7 +12699,7 @@ try{
 	driver.logStep("Given a Retail Customer with Usage Points");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
-	driver.assertUrlEndsWith("/" + DataCustodianContext + "/custodian/home");
+	driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
 
 	// upload usage point file
 	driver.findElement(By.linkText("Upload")).click();	
@@ -12783,7 +12781,7 @@ try{
 	driver.logStep("Given a Retail Customer with Usage Points");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
-	driver.assertUrlEndsWith("/" + DataCustodianContext + "/custodian/home");
+	driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
 
 
 	// upload usage point file
@@ -12882,7 +12880,7 @@ try{
 	driver.logStep("Given a Retail Customer with Usage Points");
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
-	driver.assertUrlEndsWith("/" + DataCustodianContext + "/custodian/home");
+	driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
 
 	// upload usage point file
 	driver.findElement(By.linkText("Upload")).click();	
@@ -13439,11 +13437,11 @@ driver.quit();
 		</con:property>
 		<con:property>
 			<con:name>userAccessToken1</con:name>
-			<con:value>72ba4989-e359-425a-9c4e-712e1788770f</con:value>
+			<con:value>cc16e1db-6a4e-47a2-8c9a-081c45d47517</con:value>
 		</con:property>
 		<con:property>
 			<con:name>userAccessToken2</con:name>
-			<con:value>8d3b803b-1084-4da4-8ad7-05c66ac6f2e1</con:value>
+			<con:value>139c5a86-c27e-4504-a12c-a51276a91e47</con:value>
 		</con:property>
 		<con:property>
 			<con:name>registration_third_party_access_token</con:name>
