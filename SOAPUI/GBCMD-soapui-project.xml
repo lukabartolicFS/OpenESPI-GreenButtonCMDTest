@@ -13386,7 +13386,299 @@ log.info("Dons Sandbox Feature: Upload Admin API");
   <con:entry key="Authorization" value="Bearer ${#Project#upload_access_token}"/>
   <con:entry key="Content-Type" value="Application/atom+xml"/>
   <con:entry key="applicationInformationId" value="99"/>
-</con:parameters></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_xx] OAuth 2.0 [RFC6749] Compliance" searchProperties="true" id="7b5dd0a1-dcb7-40b5-8336-7b5071fbbdbb"><con:settings/><con:testStep type="groovy" name="[NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter)"><con:settings/><con:config><script>/////////////////////////////////////////////////////////
+// Need these imports to run tests
+/////////////////////////////////////////////////////////
+import groovyx.net.http.Method
+import groovyx.net.http.ContentType
+import groovyx.net.http.HTTPBuilder
+import groovyx.net.http.HttpResponseDecorator
+import groovyx.net.http.HttpResponseException
+
+/////////////////////////////////////////////////////////
+// define some variables
+/////////////////////////////////////////////////////////
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+
+def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+
+def clientId = project.getPropertyValue("client_id")
+def redirectUri = project.getPropertyValue("redirect_uri")
+def scope = project.getPropertyValue("scope")
+def state = project.getPropertyValue("state")
+
+public class RestConnector {
+	private String baseUrl
+	private HTTPBuilder httpBuilder
+	private List&lt;String> cookies
+
+	RestConnector(String url) {
+		this.baseUrl = url
+		this.httpBuilder = initializeHttpBuilder()
+		this.cookies = []
+	}
+
+	public def request(Method method, ContentType contentType, String url, Map&lt;String, Serializable> params) {
+		debug("Send $method request to ${this.baseUrl}$url: $params")
+		httpBuilder.request(method, contentType) { request ->
+			uri.path = url
+			uri.query = params
+			headers['Cookie'] = cookies.join(';')
+		}
+	}
+
+	private HTTPBuilder initializeHttpBuilder() {
+		def httpBuilder = new HTTPBuilder(baseUrl)
+
+		httpBuilder.handler.success = { HttpResponseDecorator resp, reader ->
+			resp.getHeaders('Set-Cookie').each {
+				String cookie = it.value.split(';')[0]
+				debug("Adding cookie to collection: $cookie")
+				cookies.add(cookie)
+			}
+			debug("Response: ${reader}")
+			return reader
+		}
+		return httpBuilder
+	}
+
+	private debug(String message) {
+		System.out.println(message) //for Gradle
+	}
+}
+
+///////////////////////////////
+// 
+//	Main Body
+//
+///////////////////////////////
+
+
+log.info("*****************************************************************************************************");
+log.info("   RESET Data Custodian Database ");
+log.info("*****************************************************************************************************");	
+	
+testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
+
+
+log.info("*****************************************************************************************************");
+log.info("   Login Retail Customer -- Alan ");
+log.info("*****************************************************************************************************");	
+
+restConnector = new RestConnector(ServiceEndpoint)
+
+Map params = [j_username: TestRetailCustomer, j_password: TestRetailCustomerPW]
+
+restConnector.request(Method.POST, ContentType.URLENC, '/DataCustodian/j_spring_security_check', params)
+assert !(restConnector.cookies.empty)
+
+
+log.info("*****************************************************************************************************");
+log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
+log.info("*****************************************************************************************************");	
+
+params = [client_id: clientId, redirect_uri: redirectUri, scope: scope, state: state]
+
+restConnector.request(Method.GET, ContentType.HTML, '/DataCustodian/oauth/authorize', params)
+		
+return;
+
+</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="LoginRetailCustomerAlan" searchProperties="true"><con:settings/><con:testStep type="groovy" name="LoginRetailCustomerAlan"><con:settings/><con:config><script>/////////////////////////////////////////////////////////
+// Need these imports to run tests
+/////////////////////////////////////////////////////////
+import groovyx.net.http.Method
+import groovyx.net.http.ContentType
+import groovyx.net.http.HTTPBuilder
+import groovyx.net.http.HttpResponseDecorator
+import groovyx.net.http.HttpResponseException
+
+/////////////////////////////////////////////////////////
+// define some variables
+/////////////////////////////////////////////////////////
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+
+def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+
+
+public class RestConnector {
+	private String baseUrl
+	private HTTPBuilder httpBuilder
+	private List&lt;String> cookies
+
+	RestConnector(String url) {
+		this.baseUrl = url
+		this.httpBuilder = initializeHttpBuilder()
+		this.cookies = []
+	}
+
+	public def request(Method method, ContentType contentType, String url, Map&lt;String, Serializable> params) {
+		debug("Send $method request to ${this.baseUrl}$url: $params")
+		httpBuilder.request(method, contentType) { request ->
+			uri.path = url
+			uri.query = params
+			headers['Cookie'] = cookies.join(';')
+		}
+	}
+
+	private HTTPBuilder initializeHttpBuilder() {
+		def httpBuilder = new HTTPBuilder(baseUrl)
+
+		httpBuilder.handler.success = { HttpResponseDecorator resp, reader ->
+			resp.getHeaders('Set-Cookie').each {
+				String cookie = it.value.split(';')[0]
+				debug("Adding cookie to collection: $cookie")
+				cookies.add(cookie)
+			}
+			debug("Response: ${reader}")
+			return reader
+		}
+		return httpBuilder
+	}
+
+	private debug(String message) {
+		System.out.println(message) //for Gradle
+	}
+}
+
+///////////////////////////////
+// 
+//	Main Body
+//
+///////////////////////////////
+
+restConnector = new RestConnector(ServiceEndpoint)
+
+Map params = [j_username: TestRetailCustomer, j_password: TestRetailCustomerPW]
+
+restConnector.request(Method.POST, ContentType.URLENC, '/DataCustodian/j_spring_security_check', params)
+assert !(restConnector.cookies.empty)
+		
+return;
+
+</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Groovy Test Script [NEG] OAuth Authorize Endpoint -- malformed" searchProperties="true" id="5fef2c1f-372a-41c6-9ad6-bdb8138b15be"><con:settings/><con:testStep type="groovy" name="[NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter)"><con:settings/><con:config><script>/////////////////////////////////////////////////////////
+// Need these imports to run tests
+/////////////////////////////////////////////////////////
+
+import groovyx.net.http.Method
+import groovyx.net.http.ContentType
+import groovyx.net.http.HTTPBuilder
+import groovyx.net.http.HttpResponseDecorator
+import groovyx.net.http.HttpResponseException
+
+/////////////////////////////////////////////////////////
+// define some variables
+/////////////////////////////////////////////////////////
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+
+def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+
+def clientId = project.getPropertyValue("client_id")
+def redirectUri = project.getPropertyValue("redirect_uri")
+def scope = project.getPropertyValue("scope")
+def state = project.getPropertyValue("state")
+
+public class RestConnector {
+	private String baseUrl
+	private HTTPBuilder httpBuilder
+	private List&lt;String> cookies
+
+	RestConnector(String url) {
+		this.baseUrl = url
+		this.httpBuilder = initializeHttpBuilder()
+		this.cookies = []
+	}
+
+	public def request(Method method, ContentType contentType, String url, Map&lt;String, Serializable> params) {
+		debug("Send $method request to ${this.baseUrl}$url: $params")
+		httpBuilder.request(method, contentType) { request ->
+			uri.path = baseUrl + url
+			uri.query = params
+			headers['Cookie'] = cookies.join(';')
+		}
+	}
+
+	private HTTPBuilder initializeHttpBuilder() {
+		def httpBuilder = new HTTPBuilder(baseUrl)
+
+		httpBuilder.handler.success = { HttpResponseDecorator resp, reader ->
+			resp.getHeaders('Set-Cookie').each {
+				String cookie = it.value.split(';')[0]
+				debug("Adding cookie to collection: $cookie")
+				cookies.add(cookie)
+			}
+			debug("Response: ${reader}")
+			return reader
+		}
+		return httpBuilder
+	}
+
+	private debug(String message) {
+  		System.out.println(message) //for Gradle
+	}
+}
+
+///////////////////////////////
+// 
+//	Main Body
+//
+///////////////////////////////
+
+
+log.info("*****************************************************************************************************");
+log.info("   RESET Data Custodian Database ");
+log.info("*****************************************************************************************************");	
+	
+testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
+
+
+log.info("*****************************************************************************************************");
+log.info("   Login Retail Customer -- Alan ");
+log.info("*****************************************************************************************************");	
+
+restConnector = new RestConnector(ServiceEndpoint)
+
+url = '/j_spring_security_check'
+Map params = [j_username: TestRetailCustomer, j_password: TestRetailCustomerPW]
+log.info("URL = " + "POST " + restConnector.baseUrl + url + params);
+
+restConnector.request(Method.POST, ContentType.URLENC, url, params)
+assert !(restConnector.cookies.empty)
+
+log.info("Cookies = " + restConnector.cookies);
+
+
+log.info("*****************************************************************************************************");
+log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
+log.info("*****************************************************************************************************");	
+
+url = '/oauth/authorize'
+params = [client_id: clientId, redirect_uri: redirectUri, scope: scope, state: state]
+log.info("URL = " + "GET " + restConnector.baseUrl + url + params);
+log.info("Cookies = " + restConnector.cookies);
+
+restConnector.request(Method.GET, ContentType.HTML, url, params)
+		
+return;
+
+</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/>
 	</con:testSuite><con:properties>
 		<con:property>
 			<con:name>BaseURL</con:name>
