@@ -4278,7 +4278,6 @@ project.setPropertyValue("TestFile2",config.TestFile2);
 project.setPropertyValue("usagePointUUID2",config.usagePointUUID2);
 project.setPropertyValue("usagePointDescription2",config.usagePointDescription2);
 
-
 // access tokens
 project.setPropertyValue("data_custodian_access_token",config.data_custodian_access_token);
 project.setPropertyValue("third_party_access_token",config.third_party_access_token);
@@ -4291,6 +4290,12 @@ project.setPropertyValue("mysqlCmdTP",config.mysqlCmdTP);
 project.setPropertyValue("opensslCmd",config.opensslCmd);
 project.setPropertyValue("timeoutCmd",config.timeoutCmd);
 project.setPropertyValue("DBprepopulateScriptName",config.DBprepopulateScriptName);
+
+// oauth authorize endpoint testing
+project.setPropertyValue("client_id",config.client_id);
+project.setPropertyValue("redirect_uri",config.redirect_uri);
+project.setPropertyValue("scope",config.scope);
+project.setPropertyValue("state",config.state);
 </script></con:config>
 			</con:testStep>
 			<con:testStep type="groovy" name="curlUpload" id="f40394d5-2eb7-42e2-b2a9-87b07a812c44">
@@ -13335,7 +13340,7 @@ log.info("Dons Sandbox Feature: Data Custodian Admin API");
   <con:entry key="Authorization" value="Bearer ${#Project#data_custodian_access_token}"/>
   <con:entry key="applicationInformationId" value="99"/>
   <con:entry key="Content-Type" value="Application/atom+xml"/>
-</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="POST /MeterReading"><con:settings/><con:config service="ESPI Resources" methodName="Post" resourcePath="/espi/1_1/resource/MeterReading" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST /MeterReading w/o Data" mediaType="application/atom+xml" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting><con:setting id="RecordRequestRepresentations">true</con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:originalUri>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource/MeterReading</con:originalUri><con:assertion type="Invalid HTTP Status Codes" name="Invalid HTTP Status Codes"><con:configuration><codes>400,401,403,415</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:attachment><con:name>entry_MeterReading_2.xml</con:name><con:contentType>application/atom+xml</con:contentType><con:size>944</con:size><con:contentId>entry_MeterReading_2.xml</con:contentId><con:url>../data/testSets/entry_MeterReading_2.xml</con:url><con:data>UEsDBBQACAgIAGdlK0UAAAAAAAAAAAAAAAAYAAAAZW50cnlfTWV0ZXJSZWFkaW5nXzIueG1sxVNNi9swEL3nVwjdHUn52CQm8eKkMfSwUNrspZei2JNErCIZabRp/n3lj7p0WXoqLAjBDO/Ne2+Q1o8/r5q8gvPKmg0VY04JmNJWypw39PlQJEv6mI3Wxk9TMOjuJOKNT8HXakMviHXKmJHgj2Przqxp0x4SKQPidruNb9MWMuF8znK0V5qNCCHtZFVlwZk0BFWlxWJRbIvpLMn5ap/M9ttdsnrgD0lRiHy+ysVil+/XrGcNE7QyL+Ti4DRIaltKfbEe0yVfcvZJotwFjzGZNK1PJn4I5sDb4Epg38LRl07VGPfA5uzZyzN8scogE+wJENxXkM1SmKDEgd5QD/pE2Qc46PVD/SHqsfxsYvkq9TZKvPRu4iURqv9qqVc83GsYtv6ODirUkBXqhACGPCkTEMheQ4lOlQrvZGeND9c2WfdwOsYwoLQxkMG20fQaJ+lfmTssewtu2XU4auUvUGUTLiaJ4MlkduA8bc/3jvQHM9BCXTVB/kH6jRh1Zfv7sl9QSwcI5hDMyn8BAACwAwAAUEsBAhQAFAAICAgAZ2UrReYQzMp/AQAAsAMAABgAAAAAAAAAAAAAAAAAAAAAAGVudHJ5X01ldGVyUmVhZGluZ18yLnhtbFBLBQYAAAAAAQABAEYAAADFAQAAAAA=</con:data><con:id>9bd633ee-3d88-4ddf-8ec3-51dd36736ba2</con:id></con:attachment><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="Bearer ${#Project#data_custodian_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="PUT /MeterReading/{meterReadingId} w/o Data"><con:settings/><con:config service="ESPI Resources" methodName="Put" resourcePath="/espi/1_1/resource/MeterReading/{meterReadingId}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="PUT /MeterReading/{meterReadingId} w/o Data" mediaType="application/atom+xml" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting><con:setting id="RecordRequestRepresentations">true</con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:originalUri>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource/MeterReading</con:originalUri><con:assertion type="Invalid HTTP Status Codes" name="Invalid HTTP Status Codes"><con:configuration><codes>200,401,403,415</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="Bearer ${#Project#data_custodian_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Third Party Registration Admin API" searchProperties="true" id="b7ace92d-5fed-4b5d-be75-28f4104ab172"><con:settings/><con:testStep type="groovy" name="Feature: Third Party Registration Admin"><con:settings/><con:config><script>//******************************************************************************************************************
+</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="POST /MeterReading"><con:settings/><con:config service="ESPI Resources" methodName="Post" resourcePath="/espi/1_1/resource/MeterReading" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST /MeterReading" mediaType="application/atom+xml" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting><con:setting id="RecordRequestRepresentations">true</con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:originalUri>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource/MeterReading</con:originalUri><con:assertion type="Invalid HTTP Status Codes" name="Invalid HTTP Status Codes"><con:configuration><codes>400,401,403,415</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:attachment><con:name>entry_MeterReading_2.xml</con:name><con:contentType>application/atom+xml</con:contentType><con:size>944</con:size><con:contentId>entry_MeterReading_2.xml</con:contentId><con:data>UEsDBBQACAgIAGdlK0UAAAAAAAAAAAAAAAAYAAAAZW50cnlfTWV0ZXJSZWFkaW5nXzIueG1sxVNNi9swEL3nVwjdHUn52CQm8eKkMfSwUNrspZei2JNErCIZabRp/n3lj7p0WXoqLAjBDO/Ne2+Q1o8/r5q8gvPKmg0VY04JmNJWypw39PlQJEv6mI3Wxk9TMOjuJOKNT8HXakMviHXKmJHgj2Przqxp0x4SKQPidruNb9MWMuF8znK0V5qNCCHtZFVlwZk0BFWlxWJRbIvpLMn5ap/M9ttdsnrgD0lRiHy+ysVil+/XrGcNE7QyL+Ti4DRIaltKfbEe0yVfcvZJotwFjzGZNK1PJn4I5sDb4Epg38LRl07VGPfA5uzZyzN8scogE+wJENxXkM1SmKDEgd5QD/pE2Qc46PVD/SHqsfxsYvkq9TZKvPRu4iURqv9qqVc83GsYtv6ODirUkBXqhACGPCkTEMheQ4lOlQrvZGeND9c2WfdwOsYwoLQxkMG20fQaJ+lfmTssewtu2XU4auUvUGUTLiaJ4MlkduA8bc/3jvQHM9BCXTVB/kH6jRh1Zfv7sl9QSwcI5hDMyn8BAACwAwAAUEsBAhQAFAAICAgAZ2UrReYQzMp/AQAAsAMAABgAAAAAAAAAAAAAAAAAAAAAAGVudHJ5X01ldGVyUmVhZGluZ18yLnhtbFBLBQYAAAAAAQABAEYAAADFAQAAAAA=</con:data><con:id>9bd633ee-3d88-4ddf-8ec3-51dd36736ba2</con:id></con:attachment><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="Bearer ${#Project#data_custodian_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="PUT /MeterReading/{meterReadingId} w/o Data"><con:settings/><con:config service="ESPI Resources" methodName="Put" resourcePath="/espi/1_1/resource/MeterReading/{meterReadingId}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="PUT /MeterReading/{meterReadingId} w/o Data" mediaType="application/atom+xml" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting><con:setting id="RecordRequestRepresentations">true</con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:originalUri>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource/MeterReading</con:originalUri><con:assertion type="Invalid HTTP Status Codes" name="Invalid HTTP Status Codes"><con:configuration><codes>200,401,403,415</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="Bearer ${#Project#data_custodian_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Third Party Registration Admin API" searchProperties="true" id="b7ace92d-5fed-4b5d-be75-28f4104ab172"><con:settings/><con:testStep type="groovy" name="Feature: Third Party Registration Admin"><con:settings/><con:config><script>//******************************************************************************************************************
 //******************************************************************************************************************
 log.info("Dons Sandbox Feature: Third Party Registration Admin API");
 //******************************************************************************************************************
@@ -13567,7 +13572,7 @@ assert !(restConnector.cookies.empty)
 		
 return;
 
-</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Groovy Test Script [NEG] OAuth Authorize Endpoint -- malformed" searchProperties="true" id="5fef2c1f-372a-41c6-9ad6-bdb8138b15be"><con:settings/><con:testStep type="groovy" name="[NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter)"><con:settings/><con:config><script>/////////////////////////////////////////////////////////
+</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Groovy Test Script [NEG] OAuth Authorize Endpoint -- malformed" searchProperties="true" id="5fef2c1f-372a-41c6-9ad6-bdb8138b15be"><con:settings/><con:testStep type="groovy" name="[NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter)"><con:settings/><con:config><script><![CDATA[/////////////////////////////////////////////////////////
 // Need these imports to run tests
 /////////////////////////////////////////////////////////
 
@@ -13585,7 +13590,6 @@ def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
-
 def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
 def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
@@ -13595,10 +13599,12 @@ def redirectUri = project.getPropertyValue("redirect_uri")
 def scope = project.getPropertyValue("scope")
 def state = project.getPropertyValue("state")
 
+def List<String> sessionCookie = []
+
 public class RestConnector {
 	private String baseUrl
 	private HTTPBuilder httpBuilder
-	private List&lt;String> cookies
+	private List<String> cookies
 
 	RestConnector(String url) {
 		this.baseUrl = url
@@ -13606,7 +13612,7 @@ public class RestConnector {
 		this.cookies = []
 	}
 
-	public def request(Method method, ContentType contentType, String url, Map&lt;String, Serializable> params) {
+	public def request(Method method, ContentType contentType, String url, Map<String, Serializable> params) {
 		debug("Send $method request to ${this.baseUrl}$url: $params")
 		httpBuilder.request(method, contentType) { request ->
 			uri.path = baseUrl + url
@@ -13635,6 +13641,37 @@ public class RestConnector {
 	}
 }
 
+
+public class OauthConnector {
+	private String baseUrl
+	private HTTPBuilder httpBuilder
+	private List<String> cookies
+
+	OauthConnector(String url, List<String> cookies) {
+		this.baseUrl = url
+		this.httpBuilder = initializeOauthHttpBuilder()
+		this.cookies = cookies
+	}
+
+	public def request(Method method, ContentType contentType, String url, Map<String, Serializable> params) {
+		debug("Send $method request to ${this.baseUrl}$url: $params")
+		httpBuilder.request(method, contentType) { request ->
+			uri.path = baseUrl + url
+			uri.query = params
+			headers['Cookie'] = cookies.join(';')
+		}
+	}
+
+	private HTTPBuilder initializeOauthHttpBuilder() {
+		def httpBuilder = new HTTPBuilder(baseUrl)
+
+		return httpBuilder
+	}
+	
+	private debug(String message) {
+  		System.out.println(message) //for Gradle
+	}
+}
 ///////////////////////////////
 // 
 //	Main Body
@@ -13662,23 +13699,32 @@ log.info("URL = " + "POST " + restConnector.baseUrl + url + params);
 restConnector.request(Method.POST, ContentType.URLENC, url, params)
 assert !(restConnector.cookies.empty)
 
-log.info("Cookies = " + restConnector.cookies);
+sessionCookie = restConnector.cookies;
+
+log.info("Returned session cookie = " + restConnector.cookies);
 
 
 log.info("*****************************************************************************************************");
 log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
 log.info("*****************************************************************************************************");	
 
+oauthConnector = new OauthConnector(ServiceEndpoint, sessionCookie)
+
+log.info("oauthConnector = " + oauthConnector);
+log.info("oauthConnector baseUrl = " + oauthConnector.baseUrl);
+log.info("oauthConnector httpBuilder = " + oauthConnector.httpBuilder);
+log.info("oauthConnector cookies = " + oauthConnector.cookies);
+
 url = '/oauth/authorize'
 params = [client_id: clientId, redirect_uri: redirectUri, scope: scope, state: state]
-log.info("URL = " + "GET " + restConnector.baseUrl + url + params);
-log.info("Cookies = " + restConnector.cookies);
+log.info("URL = " + "GET " + oauthConnector.baseUrl + url + params);
+log.info("Cookies = " + oauthConnector.cookies);
 
-restConnector.request(Method.GET, ContentType.HTML, url, params)
+oauthConnector.request(Method.GET, ContentType.HTML, url, params)
 		
 return;
 
-</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/>
+]]></script></con:config></con:testStep><con:properties/></con:testCase><con:properties/>
 	</con:testSuite><con:properties>
 		<con:property>
 			<con:name>BaseURL</con:name>
@@ -13815,7 +13861,7 @@ return;
 			<con:name>timeoutCmd</con:name>
 			<con:value>timeout</con:value>
 		</con:property>
-	</con:properties>
+	<con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8080/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>state</con:name><con:value>abcdef12345</con:value></con:property></con:properties>
 	<con:wssContainer/>
 	<con:oAuth2ProfileContainer/>
 	<con:sensitiveInformation/>

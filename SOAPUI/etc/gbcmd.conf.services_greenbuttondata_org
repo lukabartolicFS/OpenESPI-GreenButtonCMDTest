@@ -1,11 +1,11 @@
 FileName="gbcmd.conf"
 
 // urls
-BaseURL="http://localhost:8080"
-ServiceEndpoint="http://localhost:8080/DataCustodian"
+BaseURL="https://services.greenbuttondata.org"
+ServiceEndpoint="https://services.greenbuttondata.org/DataCustodian"
 DataCustodianContext="DataCustodian"
 ThirdPartyContext="ThirdParty"
-linkPrefixForReplace="http://localhost:8080/DataCustodian/"
+linkPrefixForReplace="https://services.greenbuttondata.org/DataCustodian/"
 
 // test accounts
 TestManager="grace"
@@ -62,6 +62,6 @@ cygwinHome=""
 
 // oauth authorize endpoint variables
 client_id="third_party"
-redirect_uri="http://localhost:8080/ThirdParty/espi/1_1/OAuthCallBack"
+redirect_uri="https://services.greenbuttondata.org/ThirdParty/espi/1_1/OAuthCallBack"
 scope="FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13"
 state="abcdef12345"
