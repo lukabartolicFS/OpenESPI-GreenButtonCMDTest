@@ -7569,11 +7569,11 @@ public boolean TestType1ROOT(Object testRunner,Object context,String strInputFil
 			<con:properties>
 				<con:property>
 					<con:name>resourceTestFileName</con:name>
-					<con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+					<con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">entry_ReadingType_3.xml</con:value>
 				</con:property>
 				<con:property>
 					<con:name>testType</con:name>
-					<con:value>GetSaveResponse</con:value>
+					<con:value>TestType1XPATH</con:value>
 				</con:property>
 				<con:property>
 					<con:name>default_access_token</con:name>
@@ -13581,6 +13581,7 @@ import groovyx.net.http.ContentType
 import groovyx.net.http.HTTPBuilder
 import groovyx.net.http.HttpResponseDecorator
 import groovyx.net.http.HttpResponseException
+import groovy.util.logging.Slf4j
 
 /////////////////////////////////////////////////////////
 // define some variables
@@ -13642,6 +13643,12 @@ public class RestConnector {
 }
 
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// 
+//	httpBuilder class used to test Oauth Authorize Endpoint so that 302 failures can be captured
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 public class OauthConnector {
 	private String baseUrl
 	private HTTPBuilder httpBuilder
@@ -13660,6 +13667,7 @@ public class OauthConnector {
 			uri.query = params
 			headers['Cookie'] = cookies.join(';')
 		}
+
 	}
 
 	private HTTPBuilder initializeOauthHttpBuilder() {
@@ -13721,7 +13729,7 @@ log.info("URL = " + "GET " + oauthConnector.baseUrl + url + params);
 log.info("Cookies = " + oauthConnector.cookies);
 
 oauthConnector.request(Method.GET, ContentType.HTML, url, params)
-		
+	
 return;
 
 ]]></script></con:config></con:testStep><con:properties/></con:testCase><con:properties/>
