@@ -13580,8 +13580,9 @@ import groovyx.net.http.Method
 import groovyx.net.http.ContentType
 import groovyx.net.http.HTTPBuilder
 import groovyx.net.http.HttpResponseDecorator
-import groovyx.net.http.HttpResponseException
-import groovy.util.logging.Slf4j
+import groovy.util.logging.Log
+
+import org.apache.http.client.RedirectStrategy
 
 /////////////////////////////////////////////////////////
 // define some variables
@@ -13603,17 +13604,20 @@ def state = project.getPropertyValue("state")
 def List<String> sessionCookie = []
 
 public class RestConnector {
+	private log
 	private String baseUrl
 	private HTTPBuilder httpBuilder
 	private List<String> cookies
 
-	RestConnector(String url) {
+	RestConnector(String url, log) {
 		this.baseUrl = url
 		this.httpBuilder = initializeHttpBuilder()
 		this.cookies = []
+		this.log = log
 	}
 
 	public def request(Method method, ContentType contentType, String url, Map<String, Serializable> params) {
+		
 		debug("Send $method request to ${this.baseUrl}$url: $params")
 		httpBuilder.request(method, contentType) { request ->
 			uri.path = baseUrl + url
@@ -13638,7 +13642,7 @@ public class RestConnector {
 	}
 
 	private debug(String message) {
-  		System.out.println(message) //for Gradle
+  		log.info(message);  		
 	}
 }
 
@@ -13649,25 +13653,54 @@ public class RestConnector {
 //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-public class OauthConnector {
+public class OauthConnector { 
+	private log
 	private String baseUrl
 	private HTTPBuilder httpBuilder
 	private List<String> cookies
 
-	OauthConnector(String url, List<String> cookies) {
+	OauthConnector(String url, List<String> cookies, log) {
 		this.baseUrl = url
 		this.httpBuilder = initializeOauthHttpBuilder()
 		this.cookies = cookies
+		this.log = log
 	}
 
 	public def request(Method method, ContentType contentType, String url, Map<String, Serializable> params) {
+				
 		debug("Send $method request to ${this.baseUrl}$url: $params")
-		httpBuilder.request(method, contentType) { request ->
+
+		String strResult = "";
+
+		// Make sure the HttpClient doesn't perform a redirect
+		def dontHandleRedirectStrategy = [
+			getRedirect : { request, response, context -> null},
+			isRedirected : { request, response, context -> false}
+		]
+
+		httpBuilder.client.setRedirectStrategy(dontHandleRedirectStrategy as RedirectStrategy)
+		
+		// Execute a GET request and expect a redirect
+		httpBuilder.request(method, contentType) { req ->
 			uri.path = baseUrl + url
 			uri.query = params
 			headers['Cookie'] = cookies.join(';')
-		}
 
+			response.success = { response, reader ->
+
+				strResult = "OauthConnector Succeeded: " + response.statusLine.statusCode + " \n" + response.headers['Location'].value;
+				debug(strResult);
+			
+				assertThat response.statusLine.statusCode, is (302)
+				assertThat response.headers['Location'].value, startsWith("${baseUrl}")
+			}
+
+			response.failure = { response, reader ->
+				fail("Expected redirect but received ${response.statusLine} \n ${reader}")
+				strResult = "OauthConnector Failed: " + response.statusLine;
+				debug(strResult)	
+			}	
+		}
 	}
 
 	private HTTPBuilder initializeOauthHttpBuilder() {
@@ -13677,7 +13710,7 @@ public class OauthConnector {
 	}
 	
 	private debug(String message) {
-  		System.out.println(message) //for Gradle
+  		log.info(message);
 	}
 }
 ///////////////////////////////
@@ -13698,7 +13731,7 @@ log.info("**********************************************************************
 log.info("   Login Retail Customer -- Alan ");
 log.info("*****************************************************************************************************");	
 
-restConnector = new RestConnector(ServiceEndpoint)
+restConnector = new RestConnector(ServiceEndpoint, log)
 
 url = '/j_spring_security_check'
 Map params = [j_username: TestRetailCustomer, j_password: TestRetailCustomerPW]
@@ -13716,7 +13749,7 @@ log.info("**********************************************************************
 log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
 log.info("*****************************************************************************************************");	
 
-oauthConnector = new OauthConnector(ServiceEndpoint, sessionCookie)
+oauthConnector = new OauthConnector(ServiceEndpoint, sessionCookie, log)
 
 log.info("oauthConnector = " + oauthConnector);
 log.info("oauthConnector baseUrl = " + oauthConnector.baseUrl);
