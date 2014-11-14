@@ -11473,109 +11473,7 @@ It is currently a limited starting point with a lot of detail to be added.</con:
 					<con:returnProperties/>
 					<con:runMode>PARALLELL</con:runMode>
 				</con:config>
-			</con:testStep><con:testStep type="groovy" name="Feature: DC Admin Access"><con:settings/><con:config><script>//******************************************************************************************************************
-//******************************************************************************************************************
-log.info("Feature: DC Admin Access");
-//******************************************************************************************************************
-//******************************************************************************************************************
-</script></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][D] GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
-							<con:settings>
-								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-							</con:settings>
-							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-							<con:request/>
-							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri>
-							<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
-								<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
-								<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
-								<con:authType>Global HTTP Settings</con:authType>
-							</con:credentials>
-							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-							<con:jmsPropertyConfig/>
-							<con:parameters><entry key="applicationInformationId" value="2" xmlns="http://eviware.com/soapui/config"/></con:parameters>
-							<con:parameterOrder>
-								<con:entry>applicationInformationId</con:entry>
-								<con:entry>Authorization</con:entry>
-								<con:entry>Content-Type</con:entry>
-							</con:parameterOrder>
-						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET Authorization Feed"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization" methodName="GET Authorization Feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][D] GET Authorization Feed" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
-						<con:settings>
-							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-						</con:settings>
-						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-						<con:request/>
-						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization</con:originalUri>
-						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
-							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
-							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
-							<con:authType>Global HTTP Settings</con:authType>
-						</con:credentials>
-						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-						<con:jmsPropertyConfig/>
-						<con:parameters/>
-						<con:parameterOrder>
-							<con:entry>Authorization</con:entry>
-							<con:entry>Content-Type</con:entry>
-						</con:parameterOrder>
-					</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET Authorization by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization/{authorizationId}" methodName="GET Authorization by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][D] GET Authorization by Id" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
-							<con:settings>
-								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-							</con:settings>
-							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-							<con:request/>
-							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
-								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
-							</con:credentials>
-							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-							<con:jmsPropertyConfig/>
-							<con:parameters/>
-							<con:parameterOrder>
-								<con:entry>authorizationId</con:entry>
-								<con:entry>Authorization</con:entry>
-								<con:entry>Content-Type</con:entry>
-							</con:parameterOrder>
-						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET Batch/Subscription/{subscriptionId}"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/{subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][D] GET Batch/Subscription/{subscriptionId}" mediaType="application/json" id="76860f30-073d-4f94-be07-2f0a3435b146">
-								<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-								<con:request/>
-								<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:originalUri>
-								<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-								<con:jmsPropertyConfig/>
-								<con:parameters>
-									<entry key="subscriptionID" value="${#Project#subscriptionID}" xmlns="http://eviware.com/soapui/config"/>
-								</con:parameters>
-								<con:settings>
-									<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-								</con:settings>
-								<con:credentials>
-									<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
-									<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
-									<con:authType>Global HTTP Settings</con:authType>
-								</con:credentials>
-								<con:parameterOrder>
-									<con:entry>subscriptionID</con:entry>
-									<con:entry>Authorization</con:entry>
-									<con:entry>Content-Type</con:entry>
-								</con:parameterOrder>
-							</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET ServiceStatus"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ReadServiceStatus" methodName="GET ServiceStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][D] GET ServiceStatus" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
-						<con:settings>
-							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-						</con:settings>
-						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-						<con:request/>
-						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ReadServiceStatus</con:originalUri>
-						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
-							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
-							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
-							<con:authType>Global HTTP Settings</con:authType>
-						</con:credentials>
-						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-						<con:jmsPropertyConfig/>
-						<con:parameters/>
-						<con:parameterOrder>
-							<con:entry>Authorization</con:entry>
-							<con:entry>Content-Type</con:entry>
-						</con:parameterOrder>
-					</con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Feature: TP Registration Token Access"><con:settings/><con:config><script>//******************************************************************************************************************
+			</con:testStep><con:testStep type="groovy" name="Feature: TP Registration Token Access"><con:settings/><con:config><script>//******************************************************************************************************************
 //******************************************************************************************************************
 log.info("Feature: TP Registration Token Access");
 //******************************************************************************************************************
@@ -12969,7 +12867,109 @@ try{
 driver.quit();
 </script>
 				</con:config>
-			</con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_19] Partial Update Data" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_37] Query Parameters" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_39] PUSH Model" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:properties/></con:testSuite>
+			</con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_19] Partial Update Data" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_37] Query Parameters" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_39] PUSH Model" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_32] DataCustodian Management Interface" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Feature: DC Admin Access"><con:settings/><con:config><script>//******************************************************************************************************************
+//******************************************************************************************************************
+log.info("Feature: DC Admin Access");
+//******************************************************************************************************************
+//******************************************************************************************************************
+</script></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][D] GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri>
+							<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+								<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+								<con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="applicationInformationId" value="2" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>applicationInformationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET Authorization Feed"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization" methodName="GET Authorization Feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][D] GET Authorization Feed" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
+						<con:settings>
+							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+						</con:settings>
+						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+						<con:request/>
+						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization</con:originalUri>
+						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
+							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+							<con:authType>Global HTTP Settings</con:authType>
+						</con:credentials>
+						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+						<con:jmsPropertyConfig/>
+						<con:parameters/>
+						<con:parameterOrder>
+							<con:entry>Authorization</con:entry>
+							<con:entry>Content-Type</con:entry>
+						</con:parameterOrder>
+					</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET Authorization by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization/{authorizationId}" methodName="GET Authorization by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][D] GET Authorization by Id" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters/>
+							<con:parameterOrder>
+								<con:entry>authorizationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET Batch/Subscription/{subscriptionId}"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/{subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][D] GET Batch/Subscription/{subscriptionId}" mediaType="application/json" id="76860f30-073d-4f94-be07-2f0a3435b146">
+								<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+								<con:request/>
+								<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:originalUri>
+								<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+								<con:jmsPropertyConfig/>
+								<con:parameters>
+									<entry key="subscriptionID" value="${#Project#subscriptionID}" xmlns="http://eviware.com/soapui/config"/>
+								</con:parameters>
+								<con:settings>
+									<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+								</con:settings>
+								<con:credentials>
+									<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+									<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+									<con:authType>Global HTTP Settings</con:authType>
+								</con:credentials>
+								<con:parameterOrder>
+									<con:entry>subscriptionID</con:entry>
+									<con:entry>Authorization</con:entry>
+									<con:entry>Content-Type</con:entry>
+								</con:parameterOrder>
+							</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET ServiceStatus"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ReadServiceStatus" methodName="GET ServiceStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][D] GET ServiceStatus" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
+						<con:settings>
+							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+						</con:settings>
+						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+						<con:request/>
+						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ReadServiceStatus</con:originalUri>
+						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
+							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+							<con:authType>Global HTTP Settings</con:authType>
+						</con:credentials>
+						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+						<con:jmsPropertyConfig/>
+						<con:parameters/>
+						<con:parameterOrder>
+							<con:entry>Authorization</con:entry>
+							<con:entry>Content-Type</con:entry>
+						</con:parameterOrder>
+					</con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite>
 	<con:testSuite name="RonsSandbox">
 		<con:settings/>
 		<con:runType>SEQUENTIAL</con:runType>
@@ -13769,11 +13769,11 @@ return;
 	</con:testSuite><con:properties>
 		<con:property>
 			<con:name>BaseURL</con:name>
-			<con:value>http://localhost:8080</con:value>
+			<con:value>https://services.greenbuttondata.org</con:value>
 		</con:property>
 		<con:property>
 			<con:name>ServiceEndpoint</con:name>
-			<con:value>http://localhost:8080/DataCustodian</con:value>
+			<con:value>https://services.greenbuttondata.org/DataCustodian</con:value>
 		</con:property>
 		<con:property>
 			<con:name>DataCustodianContext</con:name>
@@ -13785,7 +13785,7 @@ return;
 		</con:property>
 		<con:property>
 			<con:name>linkPrefixForReplace</con:name>
-			<con:value>http://localhost:8080/DataCustodian/</con:value>
+			<con:value>https://services.greenbuttondata.org/DataCustodian/</con:value>
 		</con:property>
 		<con:property>
 			<con:name>HomePageURLEndpoint</con:name>
