@@ -4199,9 +4199,7 @@
 					</con:credentials>
 					<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
 					<con:jmsPropertyConfig/>
-					<con:parameters>
-						<entry key="command" value="resetDataCustodianDB" xmlns="http://eviware.com/soapui/config"/>
-					</con:parameters>
+					<con:parameters><entry key="command" value="resetDataCustodianDB" xmlns="http://eviware.com/soapui/config"/></con:parameters>
 					<con:parameterOrder>
 						<con:entry/>
 						<con:entry>Authorization</con:entry>
@@ -8802,8 +8800,9 @@ log.info("  So that I can see my UsagePoints");
 			</con:testStep>
 			<con:testStep type="groovy" name="Scenario: Retail Customer authorizes Usage Points access (reg UP before upload)">
 				<con:settings/>
-				<con:config>
-					<script>import org.openqa.selenium.*;
+				<con:config><script>import org.openqa.selenium.*;
+
+import org.greenbutton.cmd.utils.DriverHelper;
 
 def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
@@ -8822,7 +8821,9 @@ def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("Tes
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
-Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+//Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+
+DriverHelper driver = new DriverHelper(BaseURL,DataCustodianContext,ThirdPartyContext,log);
 
 driver._bLogActions = true;
 
@@ -8947,8 +8948,7 @@ try{
 driver.quit();
 
 
-</script>
-				</con:config>
+</script></con:config>
 			</con:testStep>
 			<con:testStep type="groovy" name="Scenario: Retail Customer authorizes Usage Points access">
 				<con:settings/>
@@ -12973,7 +12973,11 @@ driver.quit();
 	<con:testSuite name="RonsSandbox">
 		<con:settings/>
 		<con:runType>SEQUENTIAL</con:runType>
-		<con:properties/>
+		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Groovy Script"><con:settings/><con:config><script>import org.greenbutton.cmd.utils.App;
+
+def obj = new App();
+
+obj.Test("hi");</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/>
 	</con:testSuite>
 	<con:testSuite name="MartySandbox">
 		<con:settings/>
@@ -13769,11 +13773,11 @@ return;
 	</con:testSuite><con:properties>
 		<con:property>
 			<con:name>BaseURL</con:name>
-			<con:value>http://localhost:8080</con:value>
+			<con:value>http://172.16.57.207:8080</con:value>
 		</con:property>
 		<con:property>
 			<con:name>ServiceEndpoint</con:name>
-			<con:value>http://localhost:8080/DataCustodian</con:value>
+			<con:value>http://172.16.57.207:8080/DataCustodian</con:value>
 		</con:property>
 		<con:property>
 			<con:name>DataCustodianContext</con:name>
@@ -13785,7 +13789,7 @@ return;
 		</con:property>
 		<con:property>
 			<con:name>linkPrefixForReplace</con:name>
-			<con:value>http://localhost:8080/DataCustodian/</con:value>
+			<con:value>http://172.16.57.207:8080/DataCustodian/</con:value>
 		</con:property>
 		<con:property>
 			<con:name>HomePageURLEndpoint</con:name>
@@ -13902,7 +13906,7 @@ return;
 			<con:name>timeoutCmd</con:name>
 			<con:value>timeout</con:value>
 		</con:property>
-	<con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8080/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>state</con:name><con:value>abcdef12345</con:value></con:property></con:properties>
+	<con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://172.16.57.207:8080/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>state</con:name><con:value>abcdef12345</con:value></con:property></con:properties>
 	<con:wssContainer/>
 	<con:oAuth2ProfileContainer/>
 	<con:sensitiveInformation/>
