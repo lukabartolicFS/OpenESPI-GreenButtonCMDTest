@@ -1,3 +1,22 @@
 ./SOAPUI/etc/gbcmd.conf
-./data/testSets/*
+./data/testSets/
 /SOAPUI/etc/gbcmd.conf
+./SOAPUI/CMDUtils/target/
+
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# IDEs
+*.iml
+.idea/
+target/
+
+# Eclipse
+.classpath
+.project
+.settings/
+*.log

@@ -1,17 +1,23 @@
-import org.openqa.selenium.By
-import org.openqa.selenium.WebDriver
-import org.openqa.selenium.WebElement
-import org.openqa.selenium.firefox.FirefoxDriver
-import org.openqa.selenium.support.ui.ExpectedCondition
-import org.openqa.selenium.support.ui.WebDriverWait
+package org.greenbutton.cmd.utils;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import java.util.List;
 import java.util.concurrent.TimeUnit;
-import static org.junit.Assert.assertTrue;
-import static org.custommonkey.xmlunit.XMLAssert.assertXpathExists;
+
+//import static org.junit.Assert.assertTrue;
+//import static org.custommonkey.xmlunit.XMLAssert.assertXpathExists;
 
 public class DriverHelper {
 
 	public WebDriver _driver;
-	public Object log;
+	//public Object log;
+	
+	public Logger log;
 	
 	public String _strBaseUrl = "";
 	public String _strDataCustodianContext = "";
@@ -26,10 +32,13 @@ public class DriverHelper {
 	private int _iActionLineNum = 0;
 	private String _strActionMethodName = "";
 
-	public DriverHelper(WebDriver driver,String strBaseURL,String strDataCustodianContext,String strThirdPartyContext,Object theLog)
+	public DriverHelper(String strBaseURL,String strDataCustodianContext,String strThirdPartyContext,Logger theLog)
 	{
+		WebDriver driver = new FirefoxDriver();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
 		_driver = driver;
-		log = theLog;
+		log =  theLog;
 		_strBaseUrl = strBaseURL;
 		_strDataCustodianContext = strDataCustodianContext;
 		_strThirdPartyContext = strThirdPartyContext;
@@ -40,7 +49,7 @@ public class DriverHelper {
 		_driver.quit();
 	}
 
-	private void CaptureAction()
+	private void CaptureAction() throws Exception
 	{
  		//log.info("Stack:" + Thread.currentThread().getStackTrace());
 		_iActionLineNum = 0;
@@ -69,40 +78,36 @@ public class DriverHelper {
 
    		if(_iSleepBetweenStepsMs>0)
    		{
-   			sleep(_iSleepBetweenStepsMs);
+//   			sleep(_iSleepBetweenStepsMs);
    		}
 
    		if(_driver.getPageSource().contains("Application Error"))
 		{
 			log.error("Page source contains 'Application Error'");
- 			Exception e;
-			throw e;  
+ 			throw new Exception(); 
 		}	
 
   		if(_driver.getPageSource().contains("JPA transaction"))
 		{
 			log.error("Page source contains 'JPA transaction'");
- 			Exception e;
-			throw e;  
+ 			throw new Exception(); 
 		}
 
    		if(_driver.getPageSource().contains("unexpected error"))
 		{
 			log.error("Page source contains 'unexpected error'");
- 			Exception e;
-			throw e;  
+ 			throw new Exception(); 
 		}
 
 		if(_driver.getPageSource().contains("HTTP Status 404"))
 		{
 			log.error("Page source contains 'HTTP Status 404'");
- 			Exception e;
-			throw e;  
+ 			throw new Exception(); 
 		}	
 
 	}
 
-	public void Before()
+	public void Before() throws Exception
 	{	
 		CaptureAction();
         _driver.get(_strBaseUrl + "/" + _strThirdPartyContext + "/j_spring_security_logout");
@@ -112,7 +117,7 @@ public class DriverHelper {
         _driver.get(_strBaseUrl + "/" + _strDataCustodianContext + "/logout.do");	     	
 	}
 
-	public void login(String strEndpoint,String strUserName,String strPassword)
+	public void login(String strEndpoint,String strUserName,String strPassword) throws Exception
 	{
         //navigateTo(context, "/");
         //if (_driver.findElements(By.id("logout")).size() > 0) {
@@ -129,7 +134,7 @@ public class DriverHelper {
 		_driver.findElement(By.name("submit")).click();
 	}
 
-	public void submitLoginForm(String strUserName,String strPassword)
+	public void submitLoginForm(String strUserName,String strPassword) throws Exception
 	{
 	    CaptureAction();	
 		_driver.findElement(By.name("j_username")).clear();
@@ -139,14 +144,14 @@ public class DriverHelper {
 		_driver.findElement(By.name("submit")).click();
 	}
 
-	public int GetNumElsByTagName(String strTagName)
+	public int GetNumElsByTagName(String strTagName) throws Exception
 	{
 		CaptureAction();
 
 		return _driver.findElements(By.tagName(strTagName)).size();
 	}
 
-	public void logout(String strContext)
+	public void logout(String strContext) throws Exception
 	{
 		CaptureAction();
 	    _driver.get(strContext);
@@ -157,67 +162,64 @@ public class DriverHelper {
 		//_driver.findElement(By.id("logout")).click();
 	}
 
-	public WebElement findElement(By by)
+	public WebElement findElement(By by) throws Exception
 	{
 		CaptureAction();
 		return _driver.findElement(by);
 	}
 
-    public void navigateTo(String strPath) 
+    public void navigateTo(String strPath) throws Exception 
     {
     	CaptureAction();
     	log.info("navto:" + strPath);
         _driver.get(strPath);
     }
 
-	public List<WebElement> FindElementsByXpath(String strXpath)
+	public List<WebElement> FindElementsByXpath(String strXpath) throws Exception
 	{
 		CaptureAction();
 		return _driver.findElements(By.xpath(strXpath));
 	}
 
-    public void get(String path) 
+    public void get(String path) throws Exception 
     {
     	CaptureAction();
         _driver.get(path);
     }	
 
 
-    public void AssertStringNotEmpty(String strValue)
+    public void AssertStringNotEmpty(String strValue) throws Exception
     {
     	CaptureAction();
 
     	if(strValue.length()==0){
     		log.error("String not empty:'" + strValue + "'");
- 			Exception e;
-			throw e;   		
+ 			throw new Exception();   		
     	}
     }
 
 
-	public assertUrlContains(String strValue)
+	public void assertUrlContains(String strValue) throws Exception
 	{
 		CaptureAction();
 		if(!_driver.getCurrentUrl().contains(strValue))
 		{
 			log.error("Current URL does not contain: '" + strValue + "'");
- 			Exception e;
-			throw e;  		
+ 			throw new Exception(); 	
 		}
 	}
 
-	public assertUrlEndsWith(String strValue)
+	public void assertUrlEndsWith(String strValue) throws Exception
 	{
 		CaptureAction();
 		if(!_driver.getCurrentUrl().endsWith(strValue))
 		{
 			log.error("Current URL does not contain: '" + strValue + "'");
- 			Exception e;
-			throw e;  		
+ 			throw new Exception(); 		
 		}
 	}
 
-	public assertContains(String strValue)
+	public void assertContains(String strValue) throws Exception
 	{
 		CaptureAction();
 		//assertTrue("Page source did not contain '" + strValue + "'", _driver.getPageSource().contains(strValue));
@@ -225,12 +227,11 @@ public class DriverHelper {
 		if(!_driver.getPageSource().contains(strValue))
 		{
 			log.error("Page source did not contain '" + strValue + "'");
- 			Exception e;
-			throw e;  
+ 			throw new Exception(); 
 		}
 	}
 
-	public assertDoesNotContain(String strValue)
+	public void assertDoesNotContain(String strValue) throws Exception
 	{
 		CaptureAction();
 		//assertTrue("Page source did not contain '" + strValue + "'", _driver.getPageSource().contains(strValue));
@@ -238,26 +239,25 @@ public class DriverHelper {
 		if(_driver.getPageSource().contains(strValue))
 		{
 			log.error("Page source contains '" + strValue + "'");
- 			Exception e;
-			throw e;  
+ 			throw new Exception(); 
 		}
 	}
 
-	public assertXpathExists(String strSearch)
+	public void assertXpathExists(String strSearch) throws Exception
 	{
 		CaptureAction();
 
 		try{
-			assertXpathExists(strSearch, _driver.getPageSource());
+			 org.custommonkey.xmlunit.XMLAssert.assertXpathExists(strSearch, _driver.getPageSource());
 		}
 		catch(Exception e)
 		{
 			log.error("XPath did not exist:'" + strSearch + "'");
-			throw e;			
+			throw new Exception(); 		
 		}
 	}
 
-	public logStep(String strStep)
+	public void logStep(String strStep)
 	{
 		log.info("//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////");
 		log.info(strStep);
@@ -280,14 +280,15 @@ public class DriverHelper {
 		_strActionMethodName = "";
 		return strResult;
 	}
-}
 
-public static DriverHelper GetObj(String strBaseURL,String strDataCustodianContext,String strThirdPartyContext,Object theLog)
-{
-	WebDriver driver = new FirefoxDriver()
-	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//public static DriverHelper GetObj(String strBaseURL,String strDataCustodianContext,String strThirdPartyContext,Object theLog)
+//{
+//	WebDriver driver = new FirefoxDriver();
+//	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//
+//	DriverHelper temp = new DriverHelper(driver,strBaseURL,strDataCustodianContext,strThirdPartyContext,theLog);
+//
+//	return temp;
+//}
 
-	DriverHelper temp = new DriverHelper(driver,strBaseURL,strDataCustodianContext,strThirdPartyContext,theLog);
-
-	return temp;
 }

@@ -4199,9 +4199,7 @@
 					</con:credentials>
 					<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
 					<con:jmsPropertyConfig/>
-					<con:parameters>
-						<entry key="command" value="resetDataCustodianDB" xmlns="http://eviware.com/soapui/config"/>
-					</con:parameters>
+					<con:parameters><entry key="command" value="resetDataCustodianDB" xmlns="http://eviware.com/soapui/config"/></con:parameters>
 					<con:parameterOrder>
 						<con:entry/>
 						<con:entry>Authorization</con:entry>
@@ -8802,8 +8800,9 @@ log.info("  So that I can see my UsagePoints");
 			</con:testStep>
 			<con:testStep type="groovy" name="Scenario: Retail Customer authorizes Usage Points access (reg UP before upload)">
 				<con:settings/>
-				<con:config>
-					<script>import org.openqa.selenium.*;
+				<con:config><script>import org.openqa.selenium.*;
+
+import org.greenbutton.cmd.utils.DriverHelper;
 
 def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
@@ -8822,7 +8821,9 @@ def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("Tes
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
-Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+//Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+
+DriverHelper driver = new DriverHelper(BaseURL,DataCustodianContext,ThirdPartyContext,log);
 
 driver._bLogActions = true;
 
@@ -8947,8 +8948,7 @@ try{
 driver.quit();
 
 
-</script>
-				</con:config>
+</script></con:config>
 			</con:testStep>
 			<con:testStep type="groovy" name="Scenario: Retail Customer authorizes Usage Points access">
 				<con:settings/>
@@ -11465,11 +11465,1519 @@ log.info("Feature: Registration Third Party API");
 	
 	<con:testSuite name="Green Button Connect My Data"><con:description>This test suite collects GBCMD tests by function block.
 
-It is currently a limited starting point with a lot of detail to be added.</con:description><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite>
+It is currently a limited starting point with a lot of detail to be added.</con:description><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_3] Core Green Button Connect My Data" searchProperties="true" id="72095d31-0ede-4d94-8b88-dfe552917235"><con:settings/><con:testStep type="calltestcase" name="Run TestCase EstablishTwoSubscriptions">
+				<con:settings/>
+				<con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+					<con:targetTestCase>842a41c8-96fb-4b15-bab5-c26d1f3f0dba</con:targetTestCase>
+					<con:properties/>
+					<con:returnProperties/>
+					<con:runMode>PARALLELL</con:runMode>
+				</con:config>
+			</con:testStep><con:testStep type="groovy" name="Feature: DC Admin Access"><con:settings/><con:config><script>//******************************************************************************************************************
+//******************************************************************************************************************
+log.info("Feature: DC Admin Access");
+//******************************************************************************************************************
+//******************************************************************************************************************
+</script></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][D] GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri>
+							<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+								<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+								<con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="applicationInformationId" value="2" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>applicationInformationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET Authorization Feed"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization" methodName="GET Authorization Feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][D] GET Authorization Feed" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
+						<con:settings>
+							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+						</con:settings>
+						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+						<con:request/>
+						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization</con:originalUri>
+						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
+							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+							<con:authType>Global HTTP Settings</con:authType>
+						</con:credentials>
+						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+						<con:jmsPropertyConfig/>
+						<con:parameters/>
+						<con:parameterOrder>
+							<con:entry>Authorization</con:entry>
+							<con:entry>Content-Type</con:entry>
+						</con:parameterOrder>
+					</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET Authorization by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization/{authorizationId}" methodName="GET Authorization by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][D] GET Authorization by Id" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters/>
+							<con:parameterOrder>
+								<con:entry>authorizationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET Batch/Subscription/{subscriptionId}"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/{subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][D] GET Batch/Subscription/{subscriptionId}" mediaType="application/json" id="76860f30-073d-4f94-be07-2f0a3435b146">
+								<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+								<con:request/>
+								<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:originalUri>
+								<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+								<con:jmsPropertyConfig/>
+								<con:parameters>
+									<entry key="subscriptionID" value="${#Project#subscriptionID}" xmlns="http://eviware.com/soapui/config"/>
+								</con:parameters>
+								<con:settings>
+									<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+								</con:settings>
+								<con:credentials>
+									<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+									<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+									<con:authType>Global HTTP Settings</con:authType>
+								</con:credentials>
+								<con:parameterOrder>
+									<con:entry>subscriptionID</con:entry>
+									<con:entry>Authorization</con:entry>
+									<con:entry>Content-Type</con:entry>
+								</con:parameterOrder>
+							</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET ServiceStatus"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ReadServiceStatus" methodName="GET ServiceStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][D] GET ServiceStatus" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
+						<con:settings>
+							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+						</con:settings>
+						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+						<con:request/>
+						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ReadServiceStatus</con:originalUri>
+						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
+							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+							<con:authType>Global HTTP Settings</con:authType>
+						</con:credentials>
+						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+						<con:jmsPropertyConfig/>
+						<con:parameters/>
+						<con:parameterOrder>
+							<con:entry>Authorization</con:entry>
+							<con:entry>Content-Type</con:entry>
+						</con:parameterOrder>
+					</con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Feature: TP Registration Token Access"><con:settings/><con:config><script>//******************************************************************************************************************
+//******************************************************************************************************************
+log.info("Feature: TP Registration Token Access");
+//******************************************************************************************************************
+//******************************************************************************************************************
+</script></con:config></con:testStep><con:testStep type="restrequest" name="[POS][R] GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][R] GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri>
+							<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+								<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+								<con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters>
+  <con:entry key="Authorization" value="Bearer ${#Project#registration_third_party_access_token}"/>
+  <con:entry key="applicationInformationId" value="2"/>
+</con:parameters>
+							<con:parameterOrder>
+								<con:entry>applicationInformationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][R] GET Authorization Feed"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization" methodName="GET Authorization Feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][R] GET Authorization Feed" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
+						<con:settings>
+							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+						</con:settings>
+						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+						<con:request/>
+						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization</con:originalUri>
+						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+							<con:authType>Global HTTP Settings</con:authType>
+						</con:credentials>
+						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+						<con:jmsPropertyConfig/>
+						<con:parameters><entry key="Authorization" value="Bearer ${#Project#registration_third_party_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+						<con:parameterOrder>
+							<con:entry>Authorization</con:entry>
+							<con:entry>Content-Type</con:entry>
+						</con:parameterOrder>
+					</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][R] GET Authorization by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization/{authorizationId}" methodName="GET Authorization by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][R] GET Authorization by Id" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="Authorization" value="Bearer ${#Project#registration_third_party_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>authorizationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][R] GET Batch/Subscription/{subscriptionId}"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/{subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][R] GET Batch/Subscription/{subscriptionId}" mediaType="application/json" id="76860f30-073d-4f94-be07-2f0a3435b146">
+								<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+								<con:request/>
+								<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:originalUri>
+								<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+								<con:jmsPropertyConfig/>
+								<con:parameters>
+  <con:entry key="Authorization" value="Bearer ${#Project#registration_third_party_access_token}"/>
+  <con:entry key="subscriptionID" value="${#Project#subscriptionID}"/>
+</con:parameters>
+								<con:settings>
+									<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+								</con:settings>
+								<con:credentials>
+									<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+									<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+									<con:authType>Global HTTP Settings</con:authType>
+								</con:credentials>
+								<con:parameterOrder>
+									<con:entry>subscriptionID</con:entry>
+									<con:entry>Authorization</con:entry>
+									<con:entry>Content-Type</con:entry>
+								</con:parameterOrder>
+							</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][R] GET ServiceStatus"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ReadServiceStatus" methodName="GET ServiceStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][R] GET ServiceStatus" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
+						<con:settings>
+							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+						</con:settings>
+						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+						<con:request/>
+						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ReadServiceStatus</con:originalUri>
+						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+							<con:authType>Global HTTP Settings</con:authType>
+						</con:credentials>
+						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+						<con:jmsPropertyConfig/>
+						<con:parameters><entry key="Authorization" value="Bearer ${#Project#registration_third_party_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+						<con:parameterOrder>
+							<con:entry>Authorization</con:entry>
+							<con:entry>Content-Type</con:entry>
+						</con:parameterOrder>
+					</con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Feature: TP Admin Token Access"><con:settings/><con:config><script>//******************************************************************************************************************
+//******************************************************************************************************************
+log.info("Feature: TP Admin Token Access");
+//******************************************************************************************************************
+//******************************************************************************************************************
+</script></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][C] GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][C] GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri>
+							<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+								<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+								<con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters>
+  <con:entry key="Authorization" value="Bearer ${#Project#third_party_access_token}"/>
+  <con:entry key="applicationInformationId" value="2"/>
+</con:parameters>
+							<con:parameterOrder>
+								<con:entry>applicationInformationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][C] GET Authorization Feed"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization" methodName="GET Authorization Feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][C] GET Authorization Feed" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
+						<con:settings>
+							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+						</con:settings>
+						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+						<con:request/>
+						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization</con:originalUri>
+						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match 1"><con:configuration><path>declare namespace espi="http://naesb.org/espi"
+declare namespace ns3="http://www.w3.org/2005/Atom"
+count(/ns3:feed/ns3:entry/ns3:content/espi:Authorization)</path><content>2</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials>
+							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+							<con:authType>Global HTTP Settings</con:authType>
+						</con:credentials>
+						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+						<con:jmsPropertyConfig/>
+						<con:parameters><entry key="Authorization" value="Bearer ${#Project#third_party_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+						<con:parameterOrder>
+							<con:entry>Authorization</con:entry>
+							<con:entry>Content-Type</con:entry>
+						</con:parameterOrder>
+					</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][C] GET Authorization by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization/{authorizationId}" methodName="GET Authorization by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][C] GET Authorization by Id" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="Authorization" value="Bearer ${#Project#third_party_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>authorizationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][C] GET Batch/Subscription/{subscriptionId}"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/{subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][C] GET Batch/Subscription/{subscriptionId}" mediaType="application/json" id="76860f30-073d-4f94-be07-2f0a3435b146">
+								<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+								<con:request/>
+								<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:originalUri>
+								<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+								<con:jmsPropertyConfig/>
+								<con:parameters>
+  <con:entry key="subscriptionID" value="${#Project#subscriptionID}"/>
+  <con:entry key="Authorization" value="Bearer ${#Project#third_party_access_token}"/>
+</con:parameters>
+								<con:settings>
+									<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+								</con:settings>
+								<con:credentials>
+									<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+									<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+									<con:authType>Global HTTP Settings</con:authType>
+								</con:credentials>
+								<con:parameterOrder>
+									<con:entry>subscriptionID</con:entry>
+									<con:entry>Authorization</con:entry>
+									<con:entry>Content-Type</con:entry>
+								</con:parameterOrder>
+							</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][C] GET ServiceStatus"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ReadServiceStatus" methodName="GET ServiceStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][C] GET ServiceStatus" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
+						<con:settings>
+							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+						</con:settings>
+						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+						<con:request/>
+						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ReadServiceStatus</con:originalUri>
+						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
+							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+							<con:authType>Global HTTP Settings</con:authType>
+						</con:credentials>
+						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+						<con:jmsPropertyConfig/>
+						<con:parameters><entry key="Authorization" value="Bearer ${#Project#third_party_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+						<con:parameterOrder>
+							<con:entry>Authorization</con:entry>
+							<con:entry>Content-Type</con:entry>
+						</con:parameterOrder>
+					</con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Feature: TP User Token Access"><con:settings/><con:config><script>//******************************************************************************************************************
+//******************************************************************************************************************
+log.info("Feature: TP User Token Access");
+//******************************************************************************************************************
+//******************************************************************************************************************
+</script></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][A] GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][A] GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri>
+							<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+								<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+								<con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters>
+  <con:entry key="Authorization" value="Bearer ${#Project#userAccessToken1}"/>
+  <con:entry key="applicationInformationId" value="2"/>
+</con:parameters>
+							<con:parameterOrder>
+								<con:entry>applicationInformationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][A] GET Authorization Feed"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization" methodName="GET Authorization Feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][A] GET Authorization Feed" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
+						<con:settings>
+							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+						</con:settings>
+						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+						<con:request/>
+						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization</con:originalUri>
+						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+							<con:authType>Global HTTP Settings</con:authType>
+						</con:credentials>
+						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+						<con:jmsPropertyConfig/>
+						<con:parameters><entry key="Authorization" value="Bearer ${#Project#userAccessToken1}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+						<con:parameterOrder>
+							<con:entry>Authorization</con:entry>
+							<con:entry>Content-Type</con:entry>
+						</con:parameterOrder>
+					</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][A] GET Authorization by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization/{authorizationId}" methodName="GET Authorization by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][A] GET Authorization by Id" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="Authorization" value="Bearer ${#Project#userAccessToken1}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>authorizationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][A] GET Batch/Subscription/{subscriptionId}"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/{subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][A] GET Batch/Subscription/{subscriptionId}" mediaType="application/json" id="76860f30-073d-4f94-be07-2f0a3435b146">
+								<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+								<con:request/>
+								<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:originalUri>
+								<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+								<con:jmsPropertyConfig/>
+								<con:parameters>
+  <con:entry key="Authorization" value="Bearer ${#Project#userAccessToken1}"/>
+  <con:entry key="subscriptionID" value="${#Project#subscriptionID}"/>
+</con:parameters>
+								<con:settings>
+									<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+								</con:settings>
+								<con:credentials>
+									<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+									<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+									<con:authType>Global HTTP Settings</con:authType>
+								</con:credentials>
+								<con:parameterOrder>
+									<con:entry>subscriptionID</con:entry>
+									<con:entry>Authorization</con:entry>
+									<con:entry>Content-Type</con:entry>
+								</con:parameterOrder>
+							</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][A] GET ServiceStatus"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ReadServiceStatus" methodName="GET ServiceStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][A] GET ServiceStatus" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
+						<con:settings>
+							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+						</con:settings>
+						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+						<con:request/>
+						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ReadServiceStatus</con:originalUri>
+						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+							<con:authType>Global HTTP Settings</con:authType>
+						</con:credentials>
+						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+						<con:jmsPropertyConfig/>
+						<con:parameters><entry key="Authorization" value="Bearer ${#Project#userAccessToken1}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+						<con:parameterOrder>
+							<con:entry>Authorization</con:entry>
+							<con:entry>Content-Type</con:entry>
+						</con:parameterOrder>
+					</con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_13] Security and Privacy" searchProperties="true"><con:settings/><con:testStep type="httprequest" name="[TR_TC001] Test software shall issue a service request over an SSL session and shall verify that the response HTTP header contains the following fields and information.">
+				<con:settings/>
+				<con:config method="GET" xsi:type="con:HttpRequest" name="[TR_TC001] Test software shall issue a service request over an SSL session and shall verify that the response HTTP header contains the following fields and information." xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+					<con:settings>
+						<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+					</con:settings>
+					<con:endpoint>${#Project#HomePageURLEndpoint}/DataCustodian</con:endpoint>
+					<con:request/>
+					<con:assertion type="GroovyScriptAssertion" name="Script Assertion">
+						<con:configuration>
+							<scriptText>
+String strCookie = messageExchange.responseHeaders["Set-Cookie"]
+//log.info(strCookie);
+
+assert(strCookie.contains("Secure;"));
+assert(strCookie.contains("JSESSIONID="));
+
+assert true;</scriptText>
+						</con:configuration>
+					</con:assertion>
+					<con:credentials>
+						<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+					</con:credentials>
+					<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+					<con:jmsPropertyConfig/>
+					<con:parameters/>
+				</con:config>
+			</con:testStep><con:testStep type="groovy" name="[TR_TC003] Verify that the Data Custodian implements TLS 1.2">
+				<con:settings/>
+				<con:config>
+					<script>
+	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
+	def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL());
+	
+
+	def cmdSubString = "s_client -tls1_2 -connect ${config.DataCustodianHostName}:${config.DataCustodianSSLPort}";
+	def command;
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+	
+	log.info ("Executing: ${command}");
+	def proc = command.execute();
+	proc.waitFor();
+	
+
+	String strResult = proc.text;
+		
+	//proc.in.eachLine {
+	//	line -> log.info(line);
+	//};
+
+	log.info(strResult);
+
+	if(strResult.contains("Protocol  : TLSv1.2")){
+		log.info("TLS 1.2 implemented");
+	} else {
+		testRunner.fail( "TLS 1.2 not implemented" );
+	}
+
+	return;
+	
+	</script>
+				</con:config>
+			</con:testStep><con:testStep type="groovy" name="[TR_TC004] Verify that when communicating with a Retail Customer or Third Party the Data Custodian negotiates the highest level of TLS mutually supported.">
+				<con:settings/>
+				<con:config>
+					<script>
+	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
+	def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL());
+
+
+	// first see if tls 1.2 is negotiated
+	def cmdSubString = "s_client -tls1 -tls1_1 -tls1_2 -connect ${config.DataCustodianHostName}:${config.DataCustodianSSLPort}";
+	def command;
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+
+	
+	log.info ("Executing: ${command}");
+	def proc = command.execute();
+	proc.waitFor();
+	
+
+	String strResult = proc.text;
+		
+	if(strResult.contains("Protocol  : TLSv1.2")){
+		log.info("TLS 1.2 negotiated");
+	} else {
+		testRunner.fail( "TLS 1.2 not negotiated" );
+	}
+
+	// next see if tls 1.1 is negotiated
+	cmdSubString = "s_client -tls1 -tls1_1 -connect ${config.DataCustodianHostName}:${config.DataCustodianSSLPort}";
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+	log.info ("Executing: ${command}");
+	proc = command.execute();
+	proc.waitFor();
+	
+
+	strResult = proc.text;
+		
+	if(strResult.contains("Protocol  : TLSv1.1")){
+		log.info("TLS 1.1 negotiated");
+	} else {
+		testRunner.fail( "TLS 1.1 not negotiated" );
+	}
+
+	// next see if tls 1.0 is negotiated
+	cmdSubString = "s_client -tls1 -connect ${config.DataCustodianHostName}:${config.DataCustodianSSLPort}";
+
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+	
+	log.info ("Executing: ${command}");
+	proc = command.execute();
+	proc.waitFor();
+	
+
+	strResult = proc.text;
+
+	if(strResult.contains("Protocol  : TLSv1\n")){
+		log.info("TLS 1 negotiated");
+	} else {
+		testRunner.fail( "TLS 1 not negotiated" );
+	}
+
+
+	return;
+	
+	</script>
+				</con:config>
+			</con:testStep><con:testStep type="groovy" name="[TR_TC005] Verify that when communicating with a Retail Customer the Data Custodian rejects TLS_RSA_WITH_NULL_SHA cipher suites.">
+				<con:settings/>
+				<con:config>
+					<script>
+	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
+	def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL());
+
+	def cmdSubString = "s_client -connect ${config.DataCustodianHostName}:${config.DataCustodianSSLPort} -cipher NULL-SHA"
+	def command;
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/${config.cmdTimeout} ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";
+	}
+	
+	
+	log.info ("Executing: ${command}");
+	def proc = command.execute();
+	proc.waitFor();
+	
+
+	String strResult = proc.text;
+	
+	if(strResult.contains("Cipher is NULL-SHA") ||
+		strResult.contains("SSL-Session:") ||
+		strResult.contains("Protocol  :") ||
+		!strResult.contains("Cipher is (NONE)")) {
+
+		testRunner.fail( "NULL-SHA accepted" );
+		
+	} else {
+		log.info("NULL-SHA rejected");
+	}
+
+	return;
+	
+	</script>
+				</con:config>
+			</con:testStep><con:testStep type="groovy" name="[TR_TC006] Verify that when communicating with a Retail Customer at a minimum the Data Custodian accepts the TLS_RSA_WITH_AES_128_CBC_SHA cipher suite.">
+				<con:settings/>
+				<con:config>
+					<script>
+	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
+	def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL());
+
+	def cmdSubString = "s_client -connect ${config.DataCustodianHostName}:${config.DataCustodianSSLPort} -cipher AES128-SHA";
+	def command;
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+	
+	
+	log.info ("Executing: ${command}");
+	def proc = command.execute();
+	proc.waitFor();
+	
+
+	String strResult = proc.text;
+
+	if(strResult.contains("Cipher    : AES128-SHA")){
+		log.info("AES128-SHA accepted");
+	} else {
+		testRunner.fail( "AES128-SHA not accepted" );
+	}
+
+	return;
+	
+	</script>
+				</con:config>
+			</con:testStep><con:testStep type="groovy" name="[TR_TC008] Verify that the Data Custodian maintains an unexpired unrevoked RSA certificate with a public key length of at least 2048 bits.">
+				<con:settings/>
+				<con:config>
+					<script>import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.io.File;
+
+	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
+	def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL());
+
+	def cmdSubString = "s_client -connect ${config.DataCustodianHostName}:${config.DataCustodianSSLPort}";
+	def command;
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+
+	
+	log.info ("Executing: ${command}");
+	def proc = command.execute();
+	proc.waitFor();
+	
+
+	String strResult = proc.text;
+		
+	if(strResult.contains("Server public key is 2048 bit")){
+		log.info("Server public key is 2048 bit");
+	} else {
+		testRunner.fail( "Server public key is not 2048 bit" );
+		return;
+	}
+
+	// check if certificate is expired
+	// get certificate
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			//log.info("windows");
+			command = "${groovyUtils.projectPath}\\etc\\getcert.bat ${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl s_client -connect ${config.DataCustodianHostName}:${config.DataCustodianSSLPort} | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > ${groovyUtils.projectPath}/etc/getcert.pem";
+
+		}
+	} else {
+		// linux or OS X
+		//command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+		command = "${groovyUtils.projectPath}/etc/getcert.sh ${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${config.DataCustodianHostName}:${config.DataCustodianSSLPort} ${groovyUtils.projectPath}/etc/getcert.pem";
+	}
+
+	log.info ("Executing: ${command}");
+	proc = command.execute();
+	proc.waitFor();
+	
+
+	strResult = proc.text;
+
+
+	cmdSubString = "x509 -noout -in ${groovyUtils.projectPath}/etc/getcert.pem -dates";
+	command;
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			//log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+
+	log.info ("Executing: ${command}");
+	proc = command.execute();
+	proc.waitFor();
+	
+
+	strResult = proc.text;
+		
+	
+	strNotBefore = strResult.substring(strResult.indexOf("notBefore=") + "notBefore=".length(),strResult.indexOf(" GMT",strResult.indexOf("notBefore=")));
+	strNotAfter = strResult.substring(strResult.indexOf("notAfter=") + "notAfter=".length(),strResult.indexOf(" GMT",strResult.indexOf("notAfter=")));
+
+	Calendar cal = Calendar.getInstance();
+	
+	DateFormat df = new SimpleDateFormat ("MMM dd HH:mm:ss yyyy z");
+	Date dNB = df.parse(strNotBefore + " GMT");
+	Date dNA = df.parse(strNotAfter + " GMT");
+	
+	Date now = new Date();
+	String datetimeStr = now.toString();
+	
+	if(now.after(dNB) &amp;&amp; now.before(dNA)) {
+		log.info("Certificate has not expired");
+	} else {
+		testRunner.fail("Certificate has expired");
+
+		try{
+		 
+			File file = new File("${groovyUtils.projectPath}/etc/getcert.pem");
+			file.delete();
+		
+		} catch(Exception e) {
+		
+			log.error("Error deleing temp file:" + e.getMessage());
+		}	
+			
+		return;
+	}
+
+	// check if RSA
+	cmdSubString = "x509 -text -in ${groovyUtils.projectPath}/etc/getcert.pem -dates";
+	command;
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			//log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+
+	log.info ("Executing: ${command}");
+	proc = command.execute();
+	proc.waitFor();
+	
+
+	strResult = proc.text;
+
+	if(strResult.contains("Public Key Algorithm: rsaEncryption")){
+		log.info("Public Key Algorithm: rsaEncryption");
+	} else {
+		testRunner.fail("Certificate does not use rsaEncryption");
+	}
+	
+
+	try{
+	 
+		File file = new File("${groovyUtils.projectPath}/etc/getcert.pem");
+		file.delete();
+	
+	} catch(Exception e) {
+	
+		log.error("Error deleing temp file:" + e.getMessage());
+	}	
+
+	
+
+	return;
+
+	
+	</script>
+				</con:config>
+			</con:testStep><con:testStep type="groovy" name="[TR_TC013] Verify that the Third Party implements TLS 1.1 or higher.">
+				<con:settings/>
+				<con:config>
+					<script>
+	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
+	def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL());
+
+	def cmdSubString = "s_client -tls1_1 -connect ${config.ThirdPartyHostName}:${config.ThirdPartySSLPort}";
+	def command;
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+	
+	log.info ("Executing: ${command}");
+	def proc = command.execute();
+	proc.waitFor();
+	
+
+	String strResult = proc.text;
+		
+	if(strResult.contains("Protocol  : TLSv1.1")){
+		log.info("TLS 1.1 implemented");
+		return;
+	}
+
+	cmdSubString = "s_client -tls1_2 -connect ${config.ThirdPartyHostName}:${config.ThirdPartySSLPort}";
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+	
+	log.info ("Executing: ${command}");
+	proc = command.execute();
+	proc.waitFor();
+	
+
+	strResult = proc.text;
+		
+	if(strResult.contains("Protocol  : TLSv1.2")){
+		log.info("TLS 1.2 implemented");
+	} else {
+		testRunner.fail( "TLS 1.1 or TLS 1.2 not implemented" );
+	}
+
+	return;
+	
+	</script>
+				</con:config>
+			</con:testStep><con:testStep type="groovy" name="[TR_TC014] Verify that when communicating with a Data Custodian or Retail Customer the Third Party negotiates the highest level of TLS mutually supported">
+				<con:settings/>
+				<con:config>
+					<script>
+	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
+	def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL());
+
+
+	// next see if tls 1.1 is negotiated
+	def cmdSubString = "s_client -tls1 -tls1_1 -connect ${config.ThirdPartyHostName}:${config.ThirdPartySSLPort}";
+	def command;
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+
+	
+	log.info ("Executing: ${command}");
+	def proc = command.execute();
+	proc.waitFor();
+	
+
+	String strResult = proc.text;
+		
+	if(strResult.contains("Protocol  : TLSv1.1")){
+		log.info("TLS 1.1 negotiated");
+	} else {
+		testRunner.fail( "TLS 1.1 not negotiated" );
+	}
+
+	// next see if tls 1.0 is negotiated
+	cmdSubString = "s_client -tls1 -connect ${config.ThirdPartyHostName}:${config.ThirdPartySSLPort}";
+	
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+	
+	log.info ("Executing: ${command}");
+	proc = command.execute();
+	proc.waitFor();
+	
+
+	strResult = proc.text;
+
+	if(strResult.contains("Protocol  : TLSv1\n")){
+		log.info("TLS 1 negotiated");
+	} else {
+		testRunner.fail( "TLS 1 not negotiated" );
+	}
+
+
+	return;
+	
+	</script>
+				</con:config>
+			</con:testStep><con:testStep type="groovy" name="[TR_TC016] Verify that the Third Party maintains an unexpired unrevoked RSA certificate with a public key length of at least 2048 bits">
+				<con:settings/>
+				<con:config>
+					<script>import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.io.File;
+
+	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
+	def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL());
+
+	def cmdSubString = "s_client -connect ${config.ThirdPartyHostName}:${config.ThirdPartySSLPort}";
+	def command;
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+
+	
+	log.info ("Executing: ${command}");
+	def proc = command.execute();
+	proc.waitFor();
+	
+
+	String strResult = proc.text;
+		
+	if(strResult.contains("Server public key is 2048 bit")){
+		log.info("Server public key is 2048 bit");
+	} else {
+		testRunner.fail( "Server public key is not 2048 bit" );
+		return;
+	}
+
+	// check if certificate is expired
+	// get certificate
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			//log.info("windows");
+			command = "${groovyUtils.projectPath}\\etc\\getcert.bat ${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl s_client -connect ${config.ThirdPartyHostName}:${config.ThirdPartySSLPort} | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > ${groovyUtils.projectPath}/etc/getcert.pem";
+
+		}
+	} else {
+		// linux or OS X
+		//command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+		command = "${groovyUtils.projectPath}/etc/getcert.sh ${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${config.ThirdPartyHostName}:${config.ThirdPartySSLPort} ${groovyUtils.projectPath}/etc/getcert.pem";
+	}
+
+	log.info ("Executing: ${command}");
+	proc = command.execute();
+	proc.waitFor();
+	
+
+	strResult = proc.text;
+
+
+	cmdSubString = "x509 -noout -in ${groovyUtils.projectPath}/etc/getcert.pem -dates";
+	command;
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			//log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+
+	log.info ("Executing: ${command}");
+	proc = command.execute();
+	proc.waitFor();
+	
+
+	strResult = proc.text;
+		
+	
+	strNotBefore = strResult.substring(strResult.indexOf("notBefore=") + "notBefore=".length(),strResult.indexOf(" GMT",strResult.indexOf("notBefore=")));
+	strNotAfter = strResult.substring(strResult.indexOf("notAfter=") + "notAfter=".length(),strResult.indexOf(" GMT",strResult.indexOf("notAfter=")));
+
+	Calendar cal = Calendar.getInstance();
+	
+	DateFormat df = new SimpleDateFormat ("MMM dd HH:mm:ss yyyy z");
+	Date dNB = df.parse(strNotBefore + " GMT");
+	Date dNA = df.parse(strNotAfter + " GMT");
+	
+	Date now = new Date();
+	String datetimeStr = now.toString();
+	
+	if(now.after(dNB) &amp;&amp; now.before(dNA)) {
+		log.info("Certificate has not expired");
+	} else {
+		testRunner.fail("Certificate has expired");
+
+		try{
+		 
+			File file = new File("${groovyUtils.projectPath}/etc/getcert.pem");
+			file.delete();
+		
+		} catch(Exception e) {
+		
+			log.error("Error deleing temp file:" + e.getMessage());
+		}	
+			
+		return;
+	}
+
+	// check if RSA
+	cmdSubString = "x509 -text -in ${groovyUtils.projectPath}/etc/getcert.pem -dates";
+	command;
+	if((config.cygwinHome)) {
+		if(config.cygwinHome.length()>0) {
+			// on windows with cygwin
+			//log.info("windows");
+			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
+		}
+	} else {
+		// linux or OS X
+		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
+	}
+
+	log.info ("Executing: ${command}");
+	proc = command.execute();
+	proc.waitFor();
+	
+
+	strResult = proc.text;
+
+	if(strResult.contains("Public Key Algorithm: rsaEncryption")){
+		log.info("Public Key Algorithm: rsaEncryption");
+	} else {
+		testRunner.fail("Certificate does not use rsaEncryption");
+	}
+	
+
+	try{
+	 
+		File file = new File("${groovyUtils.projectPath}/etc/getcert.pem");
+		file.delete();
+	
+	} catch(Exception e) {
+	
+		log.error("Error deleing temp file:" + e.getMessage());
+	}	
+
+	
+
+	return;
+
+	
+	</script>
+				</con:config>
+			</con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_14] Authorization and Authentication" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Scenario: Retail Customer views Data Custodian list">
+				<con:settings/>
+				<con:config>
+					<script>import org.openqa.selenium.*;
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+def BaseURL = project.getPropertyValue("BaseURL")
+def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
+def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
+def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
+def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
+def TestManager=project.getPropertyValue("TestManager")
+def TestManagerPW=project.getPropertyValue("TestManagerPW")
+def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
+def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
+def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
+
+Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+
+//driver._bLogActions = true;
+
+try{
+	
+	//*********************************************************
+	log.info("Scenario: Retail Customer views Data Custodian list");
+	//*********************************************************
+	// reset DB : run library groovy script
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDB']);
+	// Browser Init
+	driver.Before();
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("Given a Retail Customer with Usage Points");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
+	driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
+
+	// upload usage point file
+	driver.findElement(By.linkText("Upload")).click();	
+	driver.findElement(By.name("file")).sendKeys(TestFile);
+		
+	driver.findElement(By.name("upload")).click();	
+	driver.assertDoesNotContain("Unable to process file");
+	
+	// add usage point linkage
+	driver.findElement(By.linkText("Customer List")).click();
+	driver.findElement(By.linkText(TestRetailCustomer)).click();	
+	driver.findElement(By.partialLinkText("Add Usage")).click();	
+	driver.findElement(By.id("UUID")).clear();
+	driver.findElement(By.id("UUID")).sendKeys(usagePointUUID1);
+	driver.findElement(By.name("create")).click();
+
+
+	driver.logout(ServiceEndpointDataCustodian);
+	
+	driver.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("When I navigate to Data Custodian list");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.findElement(By.linkText("Data Custodians")).click();
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("Then I should see a list of Data Custodians");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.assertContains("data_custodian");
+
+} catch(Exception e) {
+	testRunner.fail(driver.getErrorString())
+}
+
+//Close the browser
+driver.quit();
+</script>
+				</con:config>
+			</con:testStep><con:testStep type="groovy" name="Scenario: Retail Customer selects Data Custodian for the list">
+				<con:settings/>
+				<con:config>
+					<script>import org.openqa.selenium.*;
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+def BaseURL = project.getPropertyValue("BaseURL")
+def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
+def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
+def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
+def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
+def TestManager=project.getPropertyValue("TestManager")
+def TestManagerPW=project.getPropertyValue("TestManagerPW")
+def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
+def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
+def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
+
+Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+
+
+//driver._bLogActions = true;
+
+try{
+
+	//*********************************************************
+	log.info("Scenario: Retail Customer selects Data Custodian for the list");
+	//*********************************************************
+	// reset DB : run library groovy script
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDB']);
+	// Browser Init
+	driver.Before();
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("Given a Retail Customer with Usage Points");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
+	driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
+
+	// upload usage point file
+	driver.findElement(By.linkText("Upload")).click();	
+	driver.findElement(By.name("file")).sendKeys(TestFile);
+		
+	driver.findElement(By.name("upload")).click();	
+	driver.assertDoesNotContain("Unable to process file");
+	
+	// add usage point linkage
+	driver.findElement(By.linkText("Customer List")).click();
+	driver.findElement(By.linkText(TestRetailCustomer)).click();	
+	driver.findElement(By.partialLinkText("Add Usage")).click();	
+	driver.findElement(By.id("UUID")).clear();
+	driver.findElement(By.id("UUID")).sendKeys(usagePointUUID1);
+	driver.findElement(By.name("create")).click();
+
+	driver.logout(ServiceEndpointDataCustodian);
+	
+	driver.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("When I select a Data Custodian from the list");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.findElement(By.linkText("Data Custodians")).click();	
+	driver.findElement(By.name("Data_custodian")).click();	
+	driver.findElement(By.name("next")).click();
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("Then I should see the Data Custodian login screen");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.assertUrlContains("/DataCustodian");
+	driver.assertContains("Login");
+        
+} catch(Exception e) {
+	testRunner.fail(driver.getErrorString())
+}
+
+//Close the browser
+driver.quit();
+</script>
+				</con:config>
+			</con:testStep><con:testStep type="groovy" name="Scenario: Retail Customer selects Scope">
+				<con:settings/>
+				<con:config>
+					<script>import org.openqa.selenium.*;
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+def BaseURL = project.getPropertyValue("BaseURL")
+def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
+def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
+def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
+def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
+def TestManager=project.getPropertyValue("TestManager")
+def TestManagerPW=project.getPropertyValue("TestManagerPW")
+def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
+def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
+def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
+
+Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+
+
+//driver._bLogActions = true;
+
+try{
+	
+	//*********************************************************
+	log.info("Scenario: Retail Customer selects Scope");
+	//*********************************************************
+	// reset DB : run library groovy script
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDB']);
+	// Browser Init
+	driver.Before();
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("Given a Retail Customer with Usage Points");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
+	driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
+
+
+	// upload usage point file
+	driver.findElement(By.linkText("Upload")).click();	
+	driver.findElement(By.name("file")).sendKeys(TestFile);
+		
+	driver.findElement(By.name("upload")).click();	
+	driver.assertDoesNotContain("Unable to process file");
+		
+	// add usage point linkage
+	driver.findElement(By.linkText("Customer List")).click();
+	driver.findElement(By.linkText(TestRetailCustomer)).click();	
+	driver.findElement(By.partialLinkText("Add Usage")).click();	
+	driver.findElement(By.id("UUID")).clear();
+	driver.findElement(By.id("UUID")).sendKeys(usagePointUUID1);
+	driver.findElement(By.name("create")).click();
+
+	driver.logout(ServiceEndpointDataCustodian);
+	
+	driver.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("When I select a Data Custodian from the list");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.findElement(By.linkText("Data Custodians")).click();	
+	driver.findElement(By.name("Data_custodian")).click();	
+	driver.findElement(By.name("next")).click();
+			
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("Then I should see the Data Custodian login screen");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.assertUrlContains("/DataCustodian");
+	driver.assertContains("Login");
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("When I log into Data Custodian");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.findElement(By.name("j_username")).clear();
+	driver.findElement(By.name("j_username")).sendKeys(TestRetailCustomer);	
+	driver.findElement(By.name("j_password")).clear();
+	driver.findElement(By.name("j_password")).sendKeys(TestRetailCustomerPW);	
+	driver.findElement(By.name("submit")).click();
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("Then I should see Scope selection screen");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.assertContains("Select Scope");
+	driver.assertContains("FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13");
+	
+} catch(Exception e) {
+	testRunner.fail(driver.getErrorString())
+}
+
+//Close the browser
+driver.quit();
+</script>
+				</con:config>
+			</con:testStep><con:testStep type="groovy" name="Scenario: Retail Customer authorizes Third Party">
+				<con:settings/>
+				<con:config>
+					<script>import org.openqa.selenium.*;
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+def BaseURL = project.getPropertyValue("BaseURL")
+def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
+def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
+def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
+def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
+def TestManager=project.getPropertyValue("TestManager")
+def TestManagerPW=project.getPropertyValue("TestManagerPW")
+def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
+def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
+def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
+
+
+Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+
+
+//driver._bLogActions = true;
+
+try{
+	
+	//*********************************************************
+	log.info("Scenario: Retail Customer authorizes Third Party");
+	//*********************************************************
+	// reset DB : run library groovy script
+	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDB']);
+	// Browser Init
+	driver.Before();
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("Given a Retail Customer with Usage Points");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
+	driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
+
+	// upload usage point file
+	driver.findElement(By.linkText("Upload")).click();	
+	driver.findElement(By.name("file")).sendKeys(TestFile);
+		
+	driver.findElement(By.name("upload")).click();	
+	driver.assertDoesNotContain("Unable to process file");
+	
+	// add usage point linkage
+	driver.findElement(By.linkText("Customer List")).click();
+	driver.findElement(By.linkText(TestRetailCustomer)).click();	
+	driver.findElement(By.partialLinkText("Add Usage")).click();	
+	driver.findElement(By.id("UUID")).clear();
+	driver.findElement(By.id("UUID")).sendKeys(usagePointUUID1);
+	driver.findElement(By.name("create")).click();
+
+
+	driver.logout(ServiceEndpointDataCustodian);
+	
+	driver.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);	
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("When I select a Data Custodian from the list");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.findElement(By.linkText("Data Custodians")).click();
+	driver.findElement(By.name("Data_custodian")).click();
+	driver.findElement(By.name("next")).click();
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("Then I should see the Data Custodian login screen");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.assertUrlContains("/DataCustodian");
+	driver.assertContains("Login");
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("When I log into Data Custodian");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.findElement(By.name("j_username")).clear();
+	driver.findElement(By.name("j_username")).sendKeys(TestRetailCustomer);	
+	driver.findElement(By.name("j_password")).clear();
+	driver.findElement(By.name("j_password")).sendKeys(TestRetailCustomerPW);	
+	driver.findElement(By.name("submit")).click();
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("Then I should see Scope selection screen");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.assertContains("Select Scope");
+	driver.assertContains("FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13");
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("When I select Scopes");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.findElement(By.className("scope")).click();	
+	driver.findElement(By.xpath("(//input[@name='scope'])[2]")).click();	
+	driver.findElement(By.name("next")).click();	
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("Then I should see authorization screen");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.assertContains("Please Confirm");
+		
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("When I authorize Third Party");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//driver.findElement(By.name("authorize")).click();
+	driver.findElement(By.name("scope.FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13")).click();
+	driver.findElement(By.name("authorize")).click();
+			
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.logStep("Then I should see all my authorizations");
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	driver.assertContains("Authorizations");
+	driver.assertContains("data_custodian");
+	driver.assertContains("DataCustodian/espi/1_1/resource/Batch/Subscription/");
+	
+} catch(Exception e) {
+	testRunner.fail(driver.getErrorString())
+}
+
+//Close the browser
+driver.quit();
+</script>
+				</con:config>
+			</con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_19] Partial Update Data" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_37] Query Parameters" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_39] PUSH Model" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:properties/></con:testSuite>
 	<con:testSuite name="RonsSandbox">
 		<con:settings/>
 		<con:runType>SEQUENTIAL</con:runType>
-		<con:properties/>
+		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Groovy Script"><con:settings/><con:config><script>import org.greenbutton.cmd.utils.App;
+
+def obj = new App();
+
+obj.Test("hi");</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/>
 	</con:testSuite>
 	<con:testSuite name="MartySandbox">
 		<con:settings/>
@@ -12262,1518 +13770,14 @@ oauthConnector.request(Method.GET, ContentType.HTML, url, params)
 return;
 
 ]]></script></con:config></con:testStep><con:properties/></con:testCase><con:properties/>
-	</con:testSuite><con:testSuite name="[FB_3] Core Green Button Connect My Data"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_3] Core Green Button Connect My Data" searchProperties="true" id="72095d31-0ede-4d94-8b88-dfe552917235"><con:settings/><con:testStep type="calltestcase" name="Run TestCase EstablishTwoSubscriptions">
-				<con:settings/>
-				<con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-					<con:targetTestCase>842a41c8-96fb-4b15-bab5-c26d1f3f0dba</con:targetTestCase>
-					<con:properties/>
-					<con:returnProperties/>
-					<con:runMode>PARALLELL</con:runMode>
-				</con:config>
-			</con:testStep><con:testStep type="groovy" name="Feature: TP Registration Token Access"><con:settings/><con:config><script>//******************************************************************************************************************
-//******************************************************************************************************************
-log.info("Feature: TP Registration Token Access");
-//******************************************************************************************************************
-//******************************************************************************************************************
-</script></con:config></con:testStep><con:testStep type="restrequest" name="[POS][R] GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][R] GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
-							<con:settings>
-								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-							</con:settings>
-							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-							<con:request/>
-							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri>
-							<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
-								<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
-								<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
-								<con:authType>Global HTTP Settings</con:authType>
-							</con:credentials>
-							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-							<con:jmsPropertyConfig/>
-							<con:parameters>
-  <con:entry key="Authorization" value="Bearer ${#Project#registration_third_party_access_token}"/>
-  <con:entry key="applicationInformationId" value="2"/>
-</con:parameters>
-							<con:parameterOrder>
-								<con:entry>applicationInformationId</con:entry>
-								<con:entry>Authorization</con:entry>
-								<con:entry>Content-Type</con:entry>
-							</con:parameterOrder>
-						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][R] GET Authorization Feed"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization" methodName="GET Authorization Feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][R] GET Authorization Feed" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
-						<con:settings>
-							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-						</con:settings>
-						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-						<con:request/>
-						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization</con:originalUri>
-						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
-							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
-							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
-							<con:authType>Global HTTP Settings</con:authType>
-						</con:credentials>
-						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-						<con:jmsPropertyConfig/>
-						<con:parameters><entry key="Authorization" value="Bearer ${#Project#registration_third_party_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
-						<con:parameterOrder>
-							<con:entry>Authorization</con:entry>
-							<con:entry>Content-Type</con:entry>
-						</con:parameterOrder>
-					</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][R] GET Authorization by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization/{authorizationId}" methodName="GET Authorization by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][R] GET Authorization by Id" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
-							<con:settings>
-								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-							</con:settings>
-							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-							<con:request/>
-							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
-								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
-							</con:credentials>
-							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-							<con:jmsPropertyConfig/>
-							<con:parameters><entry key="Authorization" value="Bearer ${#Project#registration_third_party_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
-							<con:parameterOrder>
-								<con:entry>authorizationId</con:entry>
-								<con:entry>Authorization</con:entry>
-								<con:entry>Content-Type</con:entry>
-							</con:parameterOrder>
-						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][R] GET Batch/Subscription/{subscriptionId}"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/{subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][R] GET Batch/Subscription/{subscriptionId}" mediaType="application/json" id="76860f30-073d-4f94-be07-2f0a3435b146">
-								<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-								<con:request/>
-								<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:originalUri>
-								<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-								<con:jmsPropertyConfig/>
-								<con:parameters>
-  <con:entry key="Authorization" value="Bearer ${#Project#registration_third_party_access_token}"/>
-  <con:entry key="subscriptionID" value="${#Project#subscriptionID}"/>
-</con:parameters>
-								<con:settings>
-									<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-								</con:settings>
-								<con:credentials>
-									<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
-									<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
-									<con:authType>Global HTTP Settings</con:authType>
-								</con:credentials>
-								<con:parameterOrder>
-									<con:entry>subscriptionID</con:entry>
-									<con:entry>Authorization</con:entry>
-									<con:entry>Content-Type</con:entry>
-								</con:parameterOrder>
-							</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][R] GET ServiceStatus"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ReadServiceStatus" methodName="GET ServiceStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][R] GET ServiceStatus" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
-						<con:settings>
-							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-						</con:settings>
-						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-						<con:request/>
-						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ReadServiceStatus</con:originalUri>
-						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
-							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
-							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
-							<con:authType>Global HTTP Settings</con:authType>
-						</con:credentials>
-						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-						<con:jmsPropertyConfig/>
-						<con:parameters><entry key="Authorization" value="Bearer ${#Project#registration_third_party_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
-						<con:parameterOrder>
-							<con:entry>Authorization</con:entry>
-							<con:entry>Content-Type</con:entry>
-						</con:parameterOrder>
-					</con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Feature: TP Admin Token Access"><con:settings/><con:config><script>//******************************************************************************************************************
-//******************************************************************************************************************
-log.info("Feature: TP Admin Token Access");
-//******************************************************************************************************************
-//******************************************************************************************************************
-</script></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][C] GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][C] GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
-							<con:settings>
-								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-							</con:settings>
-							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-							<con:request/>
-							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri>
-							<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
-								<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
-								<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
-								<con:authType>Global HTTP Settings</con:authType>
-							</con:credentials>
-							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-							<con:jmsPropertyConfig/>
-							<con:parameters>
-  <con:entry key="Authorization" value="Bearer ${#Project#third_party_access_token}"/>
-  <con:entry key="applicationInformationId" value="2"/>
-</con:parameters>
-							<con:parameterOrder>
-								<con:entry>applicationInformationId</con:entry>
-								<con:entry>Authorization</con:entry>
-								<con:entry>Content-Type</con:entry>
-							</con:parameterOrder>
-						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][C] GET Authorization Feed"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization" methodName="GET Authorization Feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][C] GET Authorization Feed" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
-						<con:settings>
-							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-						</con:settings>
-						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-						<con:request/>
-						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization</con:originalUri>
-						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match 1"><con:configuration><path>declare namespace espi="http://naesb.org/espi"
-declare namespace ns3="http://www.w3.org/2005/Atom"
-count(/ns3:feed/ns3:entry/ns3:content/espi:Authorization)</path><content>2</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials>
-							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
-							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
-							<con:authType>Global HTTP Settings</con:authType>
-						</con:credentials>
-						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-						<con:jmsPropertyConfig/>
-						<con:parameters><entry key="Authorization" value="Bearer ${#Project#third_party_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
-						<con:parameterOrder>
-							<con:entry>Authorization</con:entry>
-							<con:entry>Content-Type</con:entry>
-						</con:parameterOrder>
-					</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][C] GET Authorization by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization/{authorizationId}" methodName="GET Authorization by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][C] GET Authorization by Id" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
-							<con:settings>
-								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-							</con:settings>
-							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-							<con:request/>
-							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
-								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
-							</con:credentials>
-							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-							<con:jmsPropertyConfig/>
-							<con:parameters><entry key="Authorization" value="Bearer ${#Project#third_party_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
-							<con:parameterOrder>
-								<con:entry>authorizationId</con:entry>
-								<con:entry>Authorization</con:entry>
-								<con:entry>Content-Type</con:entry>
-							</con:parameterOrder>
-						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][C] GET Batch/Subscription/{subscriptionId}"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/{subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][C] GET Batch/Subscription/{subscriptionId}" mediaType="application/json" id="76860f30-073d-4f94-be07-2f0a3435b146">
-								<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-								<con:request/>
-								<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:originalUri>
-								<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-								<con:jmsPropertyConfig/>
-								<con:parameters>
-  <con:entry key="subscriptionID" value="${#Project#subscriptionID}"/>
-  <con:entry key="Authorization" value="Bearer ${#Project#third_party_access_token}"/>
-</con:parameters>
-								<con:settings>
-									<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-								</con:settings>
-								<con:credentials>
-									<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
-									<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
-									<con:authType>Global HTTP Settings</con:authType>
-								</con:credentials>
-								<con:parameterOrder>
-									<con:entry>subscriptionID</con:entry>
-									<con:entry>Authorization</con:entry>
-									<con:entry>Content-Type</con:entry>
-								</con:parameterOrder>
-							</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][C] GET ServiceStatus"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ReadServiceStatus" methodName="GET ServiceStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][C] GET ServiceStatus" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
-						<con:settings>
-							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-						</con:settings>
-						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-						<con:request/>
-						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ReadServiceStatus</con:originalUri>
-						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
-							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
-							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
-							<con:authType>Global HTTP Settings</con:authType>
-						</con:credentials>
-						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-						<con:jmsPropertyConfig/>
-						<con:parameters><entry key="Authorization" value="Bearer ${#Project#third_party_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
-						<con:parameterOrder>
-							<con:entry>Authorization</con:entry>
-							<con:entry>Content-Type</con:entry>
-						</con:parameterOrder>
-					</con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Feature: TP User Token Access"><con:settings/><con:config><script>//******************************************************************************************************************
-//******************************************************************************************************************
-log.info("Feature: TP User Token Access");
-//******************************************************************************************************************
-//******************************************************************************************************************
-</script></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][A] GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][A] GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
-							<con:settings>
-								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-							</con:settings>
-							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-							<con:request/>
-							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri>
-							<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
-								<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
-								<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
-								<con:authType>Global HTTP Settings</con:authType>
-							</con:credentials>
-							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-							<con:jmsPropertyConfig/>
-							<con:parameters>
-  <con:entry key="Authorization" value="Bearer ${#Project#userAccessToken1}"/>
-  <con:entry key="applicationInformationId" value="2"/>
-</con:parameters>
-							<con:parameterOrder>
-								<con:entry>applicationInformationId</con:entry>
-								<con:entry>Authorization</con:entry>
-								<con:entry>Content-Type</con:entry>
-							</con:parameterOrder>
-						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][A] GET Authorization Feed"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization" methodName="GET Authorization Feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][A] GET Authorization Feed" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
-						<con:settings>
-							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-						</con:settings>
-						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-						<con:request/>
-						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization</con:originalUri>
-						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
-							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
-							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
-							<con:authType>Global HTTP Settings</con:authType>
-						</con:credentials>
-						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-						<con:jmsPropertyConfig/>
-						<con:parameters><entry key="Authorization" value="Bearer ${#Project#userAccessToken1}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
-						<con:parameterOrder>
-							<con:entry>Authorization</con:entry>
-							<con:entry>Content-Type</con:entry>
-						</con:parameterOrder>
-					</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][A] GET Authorization by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization/{authorizationId}" methodName="GET Authorization by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][A] GET Authorization by Id" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
-							<con:settings>
-								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-							</con:settings>
-							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-							<con:request/>
-							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
-								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
-							</con:credentials>
-							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-							<con:jmsPropertyConfig/>
-							<con:parameters><entry key="Authorization" value="Bearer ${#Project#userAccessToken1}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
-							<con:parameterOrder>
-								<con:entry>authorizationId</con:entry>
-								<con:entry>Authorization</con:entry>
-								<con:entry>Content-Type</con:entry>
-							</con:parameterOrder>
-						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][A] GET Batch/Subscription/{subscriptionId}"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/{subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][A] GET Batch/Subscription/{subscriptionId}" mediaType="application/json" id="76860f30-073d-4f94-be07-2f0a3435b146">
-								<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-								<con:request/>
-								<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:originalUri>
-								<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-								<con:jmsPropertyConfig/>
-								<con:parameters>
-  <con:entry key="Authorization" value="Bearer ${#Project#userAccessToken1}"/>
-  <con:entry key="subscriptionID" value="${#Project#subscriptionID}"/>
-</con:parameters>
-								<con:settings>
-									<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-								</con:settings>
-								<con:credentials>
-									<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
-									<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
-									<con:authType>Global HTTP Settings</con:authType>
-								</con:credentials>
-								<con:parameterOrder>
-									<con:entry>subscriptionID</con:entry>
-									<con:entry>Authorization</con:entry>
-									<con:entry>Content-Type</con:entry>
-								</con:parameterOrder>
-							</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[NEG][A] GET ServiceStatus"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ReadServiceStatus" methodName="GET ServiceStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[NEG][A] GET ServiceStatus" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
-						<con:settings>
-							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-						</con:settings>
-						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-						<con:request/>
-						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ReadServiceStatus</con:originalUri>
-						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
-							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
-							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
-							<con:authType>Global HTTP Settings</con:authType>
-						</con:credentials>
-						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-						<con:jmsPropertyConfig/>
-						<con:parameters><entry key="Authorization" value="Bearer ${#Project#userAccessToken1}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
-						<con:parameterOrder>
-							<con:entry>Authorization</con:entry>
-							<con:entry>Content-Type</con:entry>
-						</con:parameterOrder>
-					</con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite name="[FB_13] Security and Privacy"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_13] Security and Privacy" searchProperties="true"><con:settings/><con:testStep type="httprequest" name="[TR_TC001] Test software shall issue a service request over an SSL session and shall verify that the response HTTP header contains the following fields and information.">
-				<con:settings/>
-				<con:config method="GET" xsi:type="con:HttpRequest" name="[TR_TC001] Test software shall issue a service request over an SSL session and shall verify that the response HTTP header contains the following fields and information." xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-					<con:settings>
-						<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-					</con:settings>
-					<con:endpoint>${#Project#HomePageURLEndpoint}/DataCustodian</con:endpoint>
-					<con:request/>
-					<con:assertion type="GroovyScriptAssertion" name="Script Assertion">
-						<con:configuration>
-							<scriptText>
-String strCookie = messageExchange.responseHeaders["Set-Cookie"]
-//log.info(strCookie);
-
-assert(strCookie.contains("Secure;"));
-assert(strCookie.contains("JSESSIONID="));
-
-assert true;</scriptText>
-						</con:configuration>
-					</con:assertion>
-					<con:credentials>
-						<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
-					</con:credentials>
-					<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-					<con:jmsPropertyConfig/>
-					<con:parameters/>
-				</con:config>
-			</con:testStep><con:testStep type="groovy" name="[TR_TC003] Verify that the Data Custodian implements TLS 1.2">
-				<con:settings/>
-				<con:config>
-					<script>
-	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
-	def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL());
-	
-
-	def cmdSubString = "s_client -tls1_2 -connect ${config.DataCustodianHostName}:${config.DataCustodianSSLPort}";
-	def command;
-	if((config.cygwinHome)) {
-		if(config.cygwinHome.length()>0) {
-			// on windows with cygwin
-			log.info("windows");
-			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
-		}
-	} else {
-		// linux or OS X
-		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
-	}
-	
-	log.info ("Executing: ${command}");
-	def proc = command.execute();
-	proc.waitFor();
-	
-
-	String strResult = proc.text;
-		
-	//proc.in.eachLine {
-	//	line -> log.info(line);
-	//};
-
-	log.info(strResult);
-
-	if(strResult.contains("Protocol  : TLSv1.2")){
-		log.info("TLS 1.2 implemented");
-	} else {
-		testRunner.fail( "TLS 1.2 not implemented" );
-	}
-
-	return;
-	
-	</script>
-				</con:config>
-			</con:testStep><con:testStep type="groovy" name="[TR_TC004] Verify that when communicating with a Retail Customer or Third Party the Data Custodian negotiates the highest level of TLS mutually supported.">
-				<con:settings/>
-				<con:config>
-					<script>
-	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
-	def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL());
-
-
-	// first see if tls 1.2 is negotiated
-	def cmdSubString = "s_client -tls1 -tls1_1 -tls1_2 -connect ${config.DataCustodianHostName}:${config.DataCustodianSSLPort}";
-	def command;
-	if((config.cygwinHome)) {
-		if(config.cygwinHome.length()>0) {
-			// on windows with cygwin
-			log.info("windows");
-			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
-		}
-	} else {
-		// linux or OS X
-		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
-	}
-
-	
-	log.info ("Executing: ${command}");
-	def proc = command.execute();
-	proc.waitFor();
-	
-
-	String strResult = proc.text;
-		
-	if(strResult.contains("Protocol  : TLSv1.2")){
-		log.info("TLS 1.2 negotiated");
-	} else {
-		testRunner.fail( "TLS 1.2 not negotiated" );
-	}
-
-	// next see if tls 1.1 is negotiated
-	cmdSubString = "s_client -tls1 -tls1_1 -connect ${config.DataCustodianHostName}:${config.DataCustodianSSLPort}";
-	if((config.cygwinHome)) {
-		if(config.cygwinHome.length()>0) {
-			// on windows with cygwin
-			log.info("windows");
-			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
-		}
-	} else {
-		// linux or OS X
-		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
-	}
-	log.info ("Executing: ${command}");
-	proc = command.execute();
-	proc.waitFor();
-	
-
-	strResult = proc.text;
-		
-	if(strResult.contains("Protocol  : TLSv1.1")){
-		log.info("TLS 1.1 negotiated");
-	} else {
-		testRunner.fail( "TLS 1.1 not negotiated" );
-	}
-
-	// next see if tls 1.0 is negotiated
-	cmdSubString = "s_client -tls1 -connect ${config.DataCustodianHostName}:${config.DataCustodianSSLPort}";
-
-	if((config.cygwinHome)) {
-		if(config.cygwinHome.length()>0) {
-			// on windows with cygwin
-			log.info("windows");
-			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
-		}
-	} else {
-		// linux or OS X
-		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
-	}
-	
-	log.info ("Executing: ${command}");
-	proc = command.execute();
-	proc.waitFor();
-	
-
-	strResult = proc.text;
-
-	if(strResult.contains("Protocol  : TLSv1\n")){
-		log.info("TLS 1 negotiated");
-	} else {
-		testRunner.fail( "TLS 1 not negotiated" );
-	}
-
-
-	return;
-	
-	</script>
-				</con:config>
-			</con:testStep><con:testStep type="groovy" name="[TR_TC005] Verify that when communicating with a Retail Customer the Data Custodian rejects TLS_RSA_WITH_NULL_SHA cipher suites.">
-				<con:settings/>
-				<con:config>
-					<script>
-	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
-	def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL());
-
-	def cmdSubString = "s_client -connect ${config.DataCustodianHostName}:${config.DataCustodianSSLPort} -cipher NULL-SHA"
-	def command;
-	if((config.cygwinHome)) {
-		if(config.cygwinHome.length()>0) {
-			// on windows with cygwin
-			log.info("windows");
-			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
-		}
-	} else {
-		// linux or OS X
-		command = """${groovyUtils.projectPath}/etc/${config.cmdTimeout} ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";
-	}
-	
-	
-	log.info ("Executing: ${command}");
-	def proc = command.execute();
-	proc.waitFor();
-	
-
-	String strResult = proc.text;
-	
-	if(strResult.contains("Cipher is NULL-SHA") ||
-		strResult.contains("SSL-Session:") ||
-		strResult.contains("Protocol  :") ||
-		!strResult.contains("Cipher is (NONE)")) {
-
-		testRunner.fail( "NULL-SHA accepted" );
-		
-	} else {
-		log.info("NULL-SHA rejected");
-	}
-
-	return;
-	
-	</script>
-				</con:config>
-			</con:testStep><con:testStep type="groovy" name="[TR_TC006] Verify that when communicating with a Retail Customer at a minimum the Data Custodian accepts the TLS_RSA_WITH_AES_128_CBC_SHA cipher suite.">
-				<con:settings/>
-				<con:config>
-					<script>
-	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
-	def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL());
-
-	def cmdSubString = "s_client -connect ${config.DataCustodianHostName}:${config.DataCustodianSSLPort} -cipher AES128-SHA";
-	def command;
-	if((config.cygwinHome)) {
-		if(config.cygwinHome.length()>0) {
-			// on windows with cygwin
-			log.info("windows");
-			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
-		}
-	} else {
-		// linux or OS X
-		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
-	}
-	
-	
-	log.info ("Executing: ${command}");
-	def proc = command.execute();
-	proc.waitFor();
-	
-
-	String strResult = proc.text;
-
-	if(strResult.contains("Cipher    : AES128-SHA")){
-		log.info("AES128-SHA accepted");
-	} else {
-		testRunner.fail( "AES128-SHA not accepted" );
-	}
-
-	return;
-	
-	</script>
-				</con:config>
-			</con:testStep><con:testStep type="groovy" name="[TR_TC008] Verify that the Data Custodian maintains an unexpired unrevoked RSA certificate with a public key length of at least 2048 bits.">
-				<con:settings/>
-				<con:config>
-					<script>import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.io.File;
-
-	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
-	def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL());
-
-	def cmdSubString = "s_client -connect ${config.DataCustodianHostName}:${config.DataCustodianSSLPort}";
-	def command;
-	if((config.cygwinHome)) {
-		if(config.cygwinHome.length()>0) {
-			// on windows with cygwin
-			log.info("windows");
-			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
-		}
-	} else {
-		// linux or OS X
-		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
-	}
-
-	
-	log.info ("Executing: ${command}");
-	def proc = command.execute();
-	proc.waitFor();
-	
-
-	String strResult = proc.text;
-		
-	if(strResult.contains("Server public key is 2048 bit")){
-		log.info("Server public key is 2048 bit");
-	} else {
-		testRunner.fail( "Server public key is not 2048 bit" );
-		return;
-	}
-
-	// check if certificate is expired
-	// get certificate
-	if((config.cygwinHome)) {
-		if(config.cygwinHome.length()>0) {
-			// on windows with cygwin
-			//log.info("windows");
-			command = "${groovyUtils.projectPath}\\etc\\getcert.bat ${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl s_client -connect ${config.DataCustodianHostName}:${config.DataCustodianSSLPort} | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > ${groovyUtils.projectPath}/etc/getcert.pem";
-
-		}
-	} else {
-		// linux or OS X
-		//command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
-		command = "${groovyUtils.projectPath}/etc/getcert.sh ${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${config.DataCustodianHostName}:${config.DataCustodianSSLPort} ${groovyUtils.projectPath}/etc/getcert.pem";
-	}
-
-	log.info ("Executing: ${command}");
-	proc = command.execute();
-	proc.waitFor();
-	
-
-	strResult = proc.text;
-
-
-	cmdSubString = "x509 -noout -in ${groovyUtils.projectPath}/etc/getcert.pem -dates";
-	command;
-	if((config.cygwinHome)) {
-		if(config.cygwinHome.length()>0) {
-			// on windows with cygwin
-			//log.info("windows");
-			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
-		}
-	} else {
-		// linux or OS X
-		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
-	}
-
-	log.info ("Executing: ${command}");
-	proc = command.execute();
-	proc.waitFor();
-	
-
-	strResult = proc.text;
-		
-	
-	strNotBefore = strResult.substring(strResult.indexOf("notBefore=") + "notBefore=".length(),strResult.indexOf(" GMT",strResult.indexOf("notBefore=")));
-	strNotAfter = strResult.substring(strResult.indexOf("notAfter=") + "notAfter=".length(),strResult.indexOf(" GMT",strResult.indexOf("notAfter=")));
-
-	Calendar cal = Calendar.getInstance();
-	
-	DateFormat df = new SimpleDateFormat ("MMM dd HH:mm:ss yyyy z");
-	Date dNB = df.parse(strNotBefore + " GMT");
-	Date dNA = df.parse(strNotAfter + " GMT");
-	
-	Date now = new Date();
-	String datetimeStr = now.toString();
-	
-	if(now.after(dNB) &amp;&amp; now.before(dNA)) {
-		log.info("Certificate has not expired");
-	} else {
-		testRunner.fail("Certificate has expired");
-
-		try{
-		 
-			File file = new File("${groovyUtils.projectPath}/etc/getcert.pem");
-			file.delete();
-		
-		} catch(Exception e) {
-		
-			log.error("Error deleing temp file:" + e.getMessage());
-		}	
-			
-		return;
-	}
-
-	// check if RSA
-	cmdSubString = "x509 -text -in ${groovyUtils.projectPath}/etc/getcert.pem -dates";
-	command;
-	if((config.cygwinHome)) {
-		if(config.cygwinHome.length()>0) {
-			// on windows with cygwin
-			//log.info("windows");
-			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
-		}
-	} else {
-		// linux or OS X
-		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
-	}
-
-	log.info ("Executing: ${command}");
-	proc = command.execute();
-	proc.waitFor();
-	
-
-	strResult = proc.text;
-
-	if(strResult.contains("Public Key Algorithm: rsaEncryption")){
-		log.info("Public Key Algorithm: rsaEncryption");
-	} else {
-		testRunner.fail("Certificate does not use rsaEncryption");
-	}
-	
-
-	try{
-	 
-		File file = new File("${groovyUtils.projectPath}/etc/getcert.pem");
-		file.delete();
-	
-	} catch(Exception e) {
-	
-		log.error("Error deleing temp file:" + e.getMessage());
-	}	
-
-	
-
-	return;
-
-	
-	</script>
-				</con:config>
-			</con:testStep><con:testStep type="groovy" name="[TR_TC013] Verify that the Third Party implements TLS 1.1 or higher.">
-				<con:settings/>
-				<con:config>
-					<script>
-	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
-	def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL());
-
-	def cmdSubString = "s_client -tls1_1 -connect ${config.ThirdPartyHostName}:${config.ThirdPartySSLPort}";
-	def command;
-	if((config.cygwinHome)) {
-		if(config.cygwinHome.length()>0) {
-			// on windows with cygwin
-			log.info("windows");
-			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
-		}
-	} else {
-		// linux or OS X
-		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
-	}
-	
-	log.info ("Executing: ${command}");
-	def proc = command.execute();
-	proc.waitFor();
-	
-
-	String strResult = proc.text;
-		
-	if(strResult.contains("Protocol  : TLSv1.1")){
-		log.info("TLS 1.1 implemented");
-		return;
-	}
-
-	cmdSubString = "s_client -tls1_2 -connect ${config.ThirdPartyHostName}:${config.ThirdPartySSLPort}";
-	if((config.cygwinHome)) {
-		if(config.cygwinHome.length()>0) {
-			// on windows with cygwin
-			log.info("windows");
-			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
-		}
-	} else {
-		// linux or OS X
-		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
-	}
-	
-	log.info ("Executing: ${command}");
-	proc = command.execute();
-	proc.waitFor();
-	
-
-	strResult = proc.text;
-		
-	if(strResult.contains("Protocol  : TLSv1.2")){
-		log.info("TLS 1.2 implemented");
-	} else {
-		testRunner.fail( "TLS 1.1 or TLS 1.2 not implemented" );
-	}
-
-	return;
-	
-	</script>
-				</con:config>
-			</con:testStep><con:testStep type="groovy" name="[TR_TC014] Verify that when communicating with a Data Custodian or Retail Customer the Third Party negotiates the highest level of TLS mutually supported">
-				<con:settings/>
-				<con:config>
-					<script>
-	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
-	def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL());
-
-
-	// next see if tls 1.1 is negotiated
-	def cmdSubString = "s_client -tls1 -tls1_1 -connect ${config.ThirdPartyHostName}:${config.ThirdPartySSLPort}";
-	def command;
-	if((config.cygwinHome)) {
-		if(config.cygwinHome.length()>0) {
-			// on windows with cygwin
-			log.info("windows");
-			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
-		}
-	} else {
-		// linux or OS X
-		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
-	}
-
-	
-	log.info ("Executing: ${command}");
-	def proc = command.execute();
-	proc.waitFor();
-	
-
-	String strResult = proc.text;
-		
-	if(strResult.contains("Protocol  : TLSv1.1")){
-		log.info("TLS 1.1 negotiated");
-	} else {
-		testRunner.fail( "TLS 1.1 not negotiated" );
-	}
-
-	// next see if tls 1.0 is negotiated
-	cmdSubString = "s_client -tls1 -connect ${config.ThirdPartyHostName}:${config.ThirdPartySSLPort}";
-	
-	if((config.cygwinHome)) {
-		if(config.cygwinHome.length()>0) {
-			// on windows with cygwin
-			log.info("windows");
-			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
-		}
-	} else {
-		// linux or OS X
-		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
-	}
-	
-	log.info ("Executing: ${command}");
-	proc = command.execute();
-	proc.waitFor();
-	
-
-	strResult = proc.text;
-
-	if(strResult.contains("Protocol  : TLSv1\n")){
-		log.info("TLS 1 negotiated");
-	} else {
-		testRunner.fail( "TLS 1 not negotiated" );
-	}
-
-
-	return;
-	
-	</script>
-				</con:config>
-			</con:testStep><con:testStep type="groovy" name="[TR_TC016] Verify that the Third Party maintains an unexpired unrevoked RSA certificate with a public key length of at least 2048 bits">
-				<con:settings/>
-				<con:config>
-					<script>import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.io.File;
-
-	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
-	def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL());
-
-	def cmdSubString = "s_client -connect ${config.ThirdPartyHostName}:${config.ThirdPartySSLPort}";
-	def command;
-	if((config.cygwinHome)) {
-		if(config.cygwinHome.length()>0) {
-			// on windows with cygwin
-			log.info("windows");
-			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
-		}
-	} else {
-		// linux or OS X
-		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
-	}
-
-	
-	log.info ("Executing: ${command}");
-	def proc = command.execute();
-	proc.waitFor();
-	
-
-	String strResult = proc.text;
-		
-	if(strResult.contains("Server public key is 2048 bit")){
-		log.info("Server public key is 2048 bit");
-	} else {
-		testRunner.fail( "Server public key is not 2048 bit" );
-		return;
-	}
-
-	// check if certificate is expired
-	// get certificate
-	if((config.cygwinHome)) {
-		if(config.cygwinHome.length()>0) {
-			// on windows with cygwin
-			//log.info("windows");
-			command = "${groovyUtils.projectPath}\\etc\\getcert.bat ${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl s_client -connect ${config.ThirdPartyHostName}:${config.ThirdPartySSLPort} | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > ${groovyUtils.projectPath}/etc/getcert.pem";
-
-		}
-	} else {
-		// linux or OS X
-		//command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
-		command = "${groovyUtils.projectPath}/etc/getcert.sh ${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${config.ThirdPartyHostName}:${config.ThirdPartySSLPort} ${groovyUtils.projectPath}/etc/getcert.pem";
-	}
-
-	log.info ("Executing: ${command}");
-	proc = command.execute();
-	proc.waitFor();
-	
-
-	strResult = proc.text;
-
-
-	cmdSubString = "x509 -noout -in ${groovyUtils.projectPath}/etc/getcert.pem -dates";
-	command;
-	if((config.cygwinHome)) {
-		if(config.cygwinHome.length()>0) {
-			// on windows with cygwin
-			//log.info("windows");
-			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
-		}
-	} else {
-		// linux or OS X
-		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
-	}
-
-	log.info ("Executing: ${command}");
-	proc = command.execute();
-	proc.waitFor();
-	
-
-	strResult = proc.text;
-		
-	
-	strNotBefore = strResult.substring(strResult.indexOf("notBefore=") + "notBefore=".length(),strResult.indexOf(" GMT",strResult.indexOf("notBefore=")));
-	strNotAfter = strResult.substring(strResult.indexOf("notAfter=") + "notAfter=".length(),strResult.indexOf(" GMT",strResult.indexOf("notAfter=")));
-
-	Calendar cal = Calendar.getInstance();
-	
-	DateFormat df = new SimpleDateFormat ("MMM dd HH:mm:ss yyyy z");
-	Date dNB = df.parse(strNotBefore + " GMT");
-	Date dNA = df.parse(strNotAfter + " GMT");
-	
-	Date now = new Date();
-	String datetimeStr = now.toString();
-	
-	if(now.after(dNB) &amp;&amp; now.before(dNA)) {
-		log.info("Certificate has not expired");
-	} else {
-		testRunner.fail("Certificate has expired");
-
-		try{
-		 
-			File file = new File("${groovyUtils.projectPath}/etc/getcert.pem");
-			file.delete();
-		
-		} catch(Exception e) {
-		
-			log.error("Error deleing temp file:" + e.getMessage());
-		}	
-			
-		return;
-	}
-
-	// check if RSA
-	cmdSubString = "x509 -text -in ${groovyUtils.projectPath}/etc/getcert.pem -dates";
-	command;
-	if((config.cygwinHome)) {
-		if(config.cygwinHome.length()>0) {
-			// on windows with cygwin
-			//log.info("windows");
-			command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
-		}
-	} else {
-		// linux or OS X
-		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
-	}
-
-	log.info ("Executing: ${command}");
-	proc = command.execute();
-	proc.waitFor();
-	
-
-	strResult = proc.text;
-
-	if(strResult.contains("Public Key Algorithm: rsaEncryption")){
-		log.info("Public Key Algorithm: rsaEncryption");
-	} else {
-		testRunner.fail("Certificate does not use rsaEncryption");
-	}
-	
-
-	try{
-	 
-		File file = new File("${groovyUtils.projectPath}/etc/getcert.pem");
-		file.delete();
-	
-	} catch(Exception e) {
-	
-		log.error("Error deleing temp file:" + e.getMessage());
-	}	
-
-	
-
-	return;
-
-	
-	</script>
-				</con:config>
-			</con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite name="[FB_14] Authorization and Authentication"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_14] Authorization and Authentication" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Scenario: Retail Customer views Data Custodian list">
-				<con:settings/>
-				<con:config>
-					<script>import org.openqa.selenium.*;
-
-def project = testRunner.testCase.testSuite.project
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-def projectPath = groovyUtils.projectPath
-def BaseURL = project.getPropertyValue("BaseURL")
-def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
-def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
-def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
-def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
-def TestManager=project.getPropertyValue("TestManager")
-def TestManagerPW=project.getPropertyValue("TestManagerPW")
-def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
-def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
-def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
-def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
-
-Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
-
-//driver._bLogActions = true;
-
-try{
-	
-	//*********************************************************
-	log.info("Scenario: Retail Customer views Data Custodian list");
-	//*********************************************************
-	// reset DB : run library groovy script
-	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDB']);
-	// Browser Init
-	driver.Before();
-		
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.logStep("Given a Retail Customer with Usage Points");
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
-	driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
-
-	// upload usage point file
-	driver.findElement(By.linkText("Upload")).click();	
-	driver.findElement(By.name("file")).sendKeys(TestFile);
-		
-	driver.findElement(By.name("upload")).click();	
-	driver.assertDoesNotContain("Unable to process file");
-	
-	// add usage point linkage
-	driver.findElement(By.linkText("Customer List")).click();
-	driver.findElement(By.linkText(TestRetailCustomer)).click();	
-	driver.findElement(By.partialLinkText("Add Usage")).click();	
-	driver.findElement(By.id("UUID")).clear();
-	driver.findElement(By.id("UUID")).sendKeys(usagePointUUID1);
-	driver.findElement(By.name("create")).click();
-
-
-	driver.logout(ServiceEndpointDataCustodian);
-	
-	driver.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
-		
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.logStep("When I navigate to Data Custodian list");
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.findElement(By.linkText("Data Custodians")).click();
-	
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.logStep("Then I should see a list of Data Custodians");
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.assertContains("data_custodian");
-
-} catch(Exception e) {
-	testRunner.fail(driver.getErrorString())
-}
-
-//Close the browser
-driver.quit();
-</script>
-				</con:config>
-			</con:testStep><con:testStep type="groovy" name="Scenario: Retail Customer selects Data Custodian for the list">
-				<con:settings/>
-				<con:config>
-					<script>import org.openqa.selenium.*;
-
-def project = testRunner.testCase.testSuite.project
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-def projectPath = groovyUtils.projectPath
-def BaseURL = project.getPropertyValue("BaseURL")
-def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
-def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
-def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
-def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
-def TestManager=project.getPropertyValue("TestManager")
-def TestManagerPW=project.getPropertyValue("TestManagerPW")
-def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
-def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
-def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
-def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
-
-Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
-
-
-//driver._bLogActions = true;
-
-try{
-
-	//*********************************************************
-	log.info("Scenario: Retail Customer selects Data Custodian for the list");
-	//*********************************************************
-	// reset DB : run library groovy script
-	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDB']);
-	// Browser Init
-	driver.Before();
-		
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.logStep("Given a Retail Customer with Usage Points");
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
-	driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
-
-	// upload usage point file
-	driver.findElement(By.linkText("Upload")).click();	
-	driver.findElement(By.name("file")).sendKeys(TestFile);
-		
-	driver.findElement(By.name("upload")).click();	
-	driver.assertDoesNotContain("Unable to process file");
-	
-	// add usage point linkage
-	driver.findElement(By.linkText("Customer List")).click();
-	driver.findElement(By.linkText(TestRetailCustomer)).click();	
-	driver.findElement(By.partialLinkText("Add Usage")).click();	
-	driver.findElement(By.id("UUID")).clear();
-	driver.findElement(By.id("UUID")).sendKeys(usagePointUUID1);
-	driver.findElement(By.name("create")).click();
-
-	driver.logout(ServiceEndpointDataCustodian);
-	
-	driver.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
-		
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.logStep("When I select a Data Custodian from the list");
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.findElement(By.linkText("Data Custodians")).click();	
-	driver.findElement(By.name("Data_custodian")).click();	
-	driver.findElement(By.name("next")).click();
-		
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.logStep("Then I should see the Data Custodian login screen");
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.assertUrlContains("/DataCustodian");
-	driver.assertContains("Login");
-        
-} catch(Exception e) {
-	testRunner.fail(driver.getErrorString())
-}
-
-//Close the browser
-driver.quit();
-</script>
-				</con:config>
-			</con:testStep><con:testStep type="groovy" name="Scenario: Retail Customer selects Scope">
-				<con:settings/>
-				<con:config>
-					<script>import org.openqa.selenium.*;
-
-def project = testRunner.testCase.testSuite.project
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-def projectPath = groovyUtils.projectPath
-def BaseURL = project.getPropertyValue("BaseURL")
-def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
-def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
-def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
-def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
-def TestManager=project.getPropertyValue("TestManager")
-def TestManagerPW=project.getPropertyValue("TestManagerPW")
-def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
-def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
-def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
-def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
-
-Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
-
-
-//driver._bLogActions = true;
-
-try{
-	
-	//*********************************************************
-	log.info("Scenario: Retail Customer selects Scope");
-	//*********************************************************
-	// reset DB : run library groovy script
-	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDB']);
-	// Browser Init
-	driver.Before();
-		
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.logStep("Given a Retail Customer with Usage Points");
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
-	driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
-
-
-	// upload usage point file
-	driver.findElement(By.linkText("Upload")).click();	
-	driver.findElement(By.name("file")).sendKeys(TestFile);
-		
-	driver.findElement(By.name("upload")).click();	
-	driver.assertDoesNotContain("Unable to process file");
-		
-	// add usage point linkage
-	driver.findElement(By.linkText("Customer List")).click();
-	driver.findElement(By.linkText(TestRetailCustomer)).click();	
-	driver.findElement(By.partialLinkText("Add Usage")).click();	
-	driver.findElement(By.id("UUID")).clear();
-	driver.findElement(By.id("UUID")).sendKeys(usagePointUUID1);
-	driver.findElement(By.name("create")).click();
-
-	driver.logout(ServiceEndpointDataCustodian);
-	
-	driver.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
-		
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.logStep("When I select a Data Custodian from the list");
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.findElement(By.linkText("Data Custodians")).click();	
-	driver.findElement(By.name("Data_custodian")).click();	
-	driver.findElement(By.name("next")).click();
-			
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.logStep("Then I should see the Data Custodian login screen");
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.assertUrlContains("/DataCustodian");
-	driver.assertContains("Login");
-		
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.logStep("When I log into Data Custodian");
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.findElement(By.name("j_username")).clear();
-	driver.findElement(By.name("j_username")).sendKeys(TestRetailCustomer);	
-	driver.findElement(By.name("j_password")).clear();
-	driver.findElement(By.name("j_password")).sendKeys(TestRetailCustomerPW);	
-	driver.findElement(By.name("submit")).click();
-		
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.logStep("Then I should see Scope selection screen");
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.assertContains("Select Scope");
-	driver.assertContains("FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13");
-	
-} catch(Exception e) {
-	testRunner.fail(driver.getErrorString())
-}
-
-//Close the browser
-driver.quit();
-</script>
-				</con:config>
-			</con:testStep><con:testStep type="groovy" name="Scenario: Retail Customer authorizes Third Party">
-				<con:settings/>
-				<con:config>
-					<script>import org.openqa.selenium.*;
-
-def project = testRunner.testCase.testSuite.project
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-def projectPath = groovyUtils.projectPath
-def BaseURL = project.getPropertyValue("BaseURL")
-def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
-def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
-def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
-def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
-def TestManager=project.getPropertyValue("TestManager")
-def TestManagerPW=project.getPropertyValue("TestManagerPW")
-def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
-def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
-def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
-def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
-
-
-Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
-
-
-//driver._bLogActions = true;
-
-try{
-	
-	//*********************************************************
-	log.info("Scenario: Retail Customer authorizes Third Party");
-	//*********************************************************
-	// reset DB : run library groovy script
-	testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDB']);
-	// Browser Init
-	driver.Before();
-		
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.logStep("Given a Retail Customer with Usage Points");
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
-	driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
-
-	// upload usage point file
-	driver.findElement(By.linkText("Upload")).click();	
-	driver.findElement(By.name("file")).sendKeys(TestFile);
-		
-	driver.findElement(By.name("upload")).click();	
-	driver.assertDoesNotContain("Unable to process file");
-	
-	// add usage point linkage
-	driver.findElement(By.linkText("Customer List")).click();
-	driver.findElement(By.linkText(TestRetailCustomer)).click();	
-	driver.findElement(By.partialLinkText("Add Usage")).click();	
-	driver.findElement(By.id("UUID")).clear();
-	driver.findElement(By.id("UUID")).sendKeys(usagePointUUID1);
-	driver.findElement(By.name("create")).click();
-
-
-	driver.logout(ServiceEndpointDataCustodian);
-	
-	driver.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);	
-		
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.logStep("When I select a Data Custodian from the list");
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.findElement(By.linkText("Data Custodians")).click();
-	driver.findElement(By.name("Data_custodian")).click();
-	driver.findElement(By.name("next")).click();
-	
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.logStep("Then I should see the Data Custodian login screen");
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.assertUrlContains("/DataCustodian");
-	driver.assertContains("Login");
-		
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.logStep("When I log into Data Custodian");
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.findElement(By.name("j_username")).clear();
-	driver.findElement(By.name("j_username")).sendKeys(TestRetailCustomer);	
-	driver.findElement(By.name("j_password")).clear();
-	driver.findElement(By.name("j_password")).sendKeys(TestRetailCustomerPW);	
-	driver.findElement(By.name("submit")).click();
-		
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.logStep("Then I should see Scope selection screen");
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.assertContains("Select Scope");
-	driver.assertContains("FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13");
-		
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.logStep("When I select Scopes");
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.findElement(By.className("scope")).click();	
-	driver.findElement(By.xpath("(//input[@name='scope'])[2]")).click();	
-	driver.findElement(By.name("next")).click();	
-		
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.logStep("Then I should see authorization screen");
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.assertContains("Please Confirm");
-		
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.logStep("When I authorize Third Party");
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//driver.findElement(By.name("authorize")).click();
-	driver.findElement(By.name("scope.FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13")).click();
-	driver.findElement(By.name("authorize")).click();
-			
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.logStep("Then I should see all my authorizations");
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	driver.assertContains("Authorizations");
-	driver.assertContains("data_custodian");
-	driver.assertContains("DataCustodian/espi/1_1/resource/Batch/Subscription/");
-	
-} catch(Exception e) {
-	testRunner.fail(driver.getErrorString())
-}
-
-//Close the browser
-driver.quit();
-</script>
-				</con:config>
-			</con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite name="[FB_19] Partial Update Data"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_19] Partial Update Data" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite name="[FB_19] Partial update data"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:testSuite name="[FB_32] Resource Level REST"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:testSuite name="[FB_33] DataCustodian Management Interface"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_33] DataCustodian Management Interface" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Feature: DC Admin Access"><con:settings/><con:config><script>//******************************************************************************************************************
-//******************************************************************************************************************
-log.info("Feature: DC Admin Access");
-//******************************************************************************************************************
-//******************************************************************************************************************
-</script></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][D] GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
-							<con:settings>
-								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-							</con:settings>
-							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-							<con:request/>
-							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri>
-							<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
-								<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
-								<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
-								<con:authType>Global HTTP Settings</con:authType>
-							</con:credentials>
-							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-							<con:jmsPropertyConfig/>
-							<con:parameters><entry key="applicationInformationId" value="2" xmlns="http://eviware.com/soapui/config"/></con:parameters>
-							<con:parameterOrder>
-								<con:entry>applicationInformationId</con:entry>
-								<con:entry>Authorization</con:entry>
-								<con:entry>Content-Type</con:entry>
-							</con:parameterOrder>
-						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET Authorization Feed"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization" methodName="GET Authorization Feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][D] GET Authorization Feed" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
-						<con:settings>
-							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-						</con:settings>
-						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-						<con:request/>
-						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization</con:originalUri>
-						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
-							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
-							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
-							<con:authType>Global HTTP Settings</con:authType>
-						</con:credentials>
-						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-						<con:jmsPropertyConfig/>
-						<con:parameters/>
-						<con:parameterOrder>
-							<con:entry>Authorization</con:entry>
-							<con:entry>Content-Type</con:entry>
-						</con:parameterOrder>
-					</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET Authorization by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Authorization/{authorizationId}" methodName="GET Authorization by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][D] GET Authorization by Id" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
-							<con:settings>
-								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-							</con:settings>
-							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-							<con:request/>
-							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
-								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
-							</con:credentials>
-							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-							<con:jmsPropertyConfig/>
-							<con:parameters/>
-							<con:parameterOrder>
-								<con:entry>authorizationId</con:entry>
-								<con:entry>Authorization</con:entry>
-								<con:entry>Content-Type</con:entry>
-							</con:parameterOrder>
-						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET Batch/Subscription/{subscriptionId}"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/Batch/Subscription/{subscriptionID}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][D] GET Batch/Subscription/{subscriptionId}" mediaType="application/json" id="76860f30-073d-4f94-be07-2f0a3435b146">
-								<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-								<con:request/>
-								<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:originalUri>
-								<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-								<con:jmsPropertyConfig/>
-								<con:parameters>
-									<entry key="subscriptionID" value="${#Project#subscriptionID}" xmlns="http://eviware.com/soapui/config"/>
-								</con:parameters>
-								<con:settings>
-									<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-								</con:settings>
-								<con:credentials>
-									<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
-									<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
-									<con:authType>Global HTTP Settings</con:authType>
-								</con:credentials>
-								<con:parameterOrder>
-									<con:entry>subscriptionID</con:entry>
-									<con:entry>Authorization</con:entry>
-									<con:entry>Content-Type</con:entry>
-								</con:parameterOrder>
-							</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="[POS][D] GET ServiceStatus"><con:settings/><con:config service="ESPI Resources" resourcePath="/espi/1_1/resource/ReadServiceStatus" methodName="GET ServiceStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="[POS][D] GET ServiceStatus" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
-						<con:settings>
-							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-						</con:settings>
-						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-						<con:request/>
-						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ReadServiceStatus</con:originalUri>
-						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
-							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
-							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
-							<con:authType>Global HTTP Settings</con:authType>
-						</con:credentials>
-						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-						<con:jmsPropertyConfig/>
-						<con:parameters/>
-						<con:parameterOrder>
-							<con:entry>Authorization</con:entry>
-							<con:entry>Content-Type</con:entry>
-						</con:parameterOrder>
-					</con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite name="FB_34] SFTP for Bulk"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:testSuite name="[FB_35] REST for Bulk"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:testSuite name="[FB_37] Query Parameters"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_37] Query Parameters" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite name="[FB_39] PUSH Model"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_39] PUSH Model" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite name="[FB_40] Offline Authorization"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:testSuite name="[FB_44] Manage ApplicationInformation Resource"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:testSuite name="[FB_41] Manage  Authorization Resource"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:properties>
+	</con:testSuite><con:properties>
 		<con:property>
 			<con:name>BaseURL</con:name>
-			<con:value>https://services.greenbuttondata.org</con:value>
+			<con:value>http://172.16.57.207:8080</con:value>
 		</con:property>
 		<con:property>
 			<con:name>ServiceEndpoint</con:name>
-			<con:value>https://services.greenbuttondata.org/DataCustodian</con:value>
+			<con:value>http://172.16.57.207:8080/DataCustodian</con:value>
 		</con:property>
 		<con:property>
 			<con:name>DataCustodianContext</con:name>
@@ -13785,7 +13789,7 @@ log.info("Feature: DC Admin Access");
 		</con:property>
 		<con:property>
 			<con:name>linkPrefixForReplace</con:name>
-			<con:value>https://services.greenbuttondata.org/DataCustodian/</con:value>
+			<con:value>http://172.16.57.207:8080/DataCustodian/</con:value>
 		</con:property>
 		<con:property>
 			<con:name>HomePageURLEndpoint</con:name>
@@ -13902,7 +13906,7 @@ log.info("Feature: DC Admin Access");
 			<con:name>timeoutCmd</con:name>
 			<con:value>timeout</con:value>
 		</con:property>
-	<con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8080/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>state</con:name><con:value>abcdef12345</con:value></con:property></con:properties>
+	<con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://172.16.57.207:8080/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>state</con:name><con:value>abcdef12345</con:value></con:property></con:properties>
 	<con:wssContainer/>
 	<con:oAuth2ProfileContainer/>
 	<con:sensitiveInformation/>
