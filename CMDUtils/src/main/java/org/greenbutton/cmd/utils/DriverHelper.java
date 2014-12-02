@@ -9,13 +9,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-//import static org.junit.Assert.assertTrue;
-//import static org.custommonkey.xmlunit.XMLAssert.assertXpathExists;
+
 
 public class DriverHelper {
 
 	public WebDriver _driver;
-	//public Object log;
 	
 	public Logger log;
 	
@@ -78,7 +76,7 @@ public class DriverHelper {
 
    		if(_iSleepBetweenStepsMs>0)
    		{
-//   			sleep(_iSleepBetweenStepsMs);
+   			Thread.sleep(_iSleepBetweenStepsMs);
    		}
 
    		if(_driver.getPageSource().contains("Application Error"))
@@ -262,7 +260,7 @@ public class DriverHelper {
 		log.info("//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////");
 		log.info(strStep);
 		log.info("//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////");
-		//sleep(5000);
+		//Thread.sleep(5000);
 	}
 
 	public String getErrorString()
@@ -281,14 +279,5 @@ public class DriverHelper {
 		return strResult;
 	}
 
-//public static DriverHelper GetObj(String strBaseURL,String strDataCustodianContext,String strThirdPartyContext,Object theLog)
-//{
-//	WebDriver driver = new FirefoxDriver();
-//	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-//
-//	DriverHelper temp = new DriverHelper(driver,strBaseURL,strDataCustodianContext,strThirdPartyContext,theLog);
-//
-//	return temp;
-//}
 
 }

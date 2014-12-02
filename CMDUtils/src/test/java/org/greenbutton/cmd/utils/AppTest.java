@@ -33,6 +33,17 @@ public class AppTest
      */
     public void testApp()
     {
-        assertTrue( true );
+    	
+//    	RestConnector restConnector = new RestConnector("http://www.apache.org/",null);
+//    	boolean bResult = restConnector.request("dummy", "dummy", "", null);
+//    	
+//        assertTrue( bResult );
+//        
+//    	OauthConnector oauthConnector = new OauthConnector("http://www.apache.org/",null);
+//    	bResult = oauthConnector.request("dummy", "dummy", "", null);
+//    	
+//    	assertTrue( bResult );
+    	
+    	assertTrue(true);
     }
 }
