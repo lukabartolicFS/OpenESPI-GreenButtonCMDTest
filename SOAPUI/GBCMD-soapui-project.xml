@@ -4553,6 +4553,8 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 
+import org.greenbutton.cmd.utils.DriverHelper;
+
 /////////////////////////////////////////////////////////
 // get variables from the project Custom Properties
 /////////////////////////////////////////////////////////
@@ -4567,7 +4569,7 @@ def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
 /////////////////////////////////////////////////////////
 // Create a new instance of the Firefox driver
 /////////////////////////////////////////////////////////
-Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+DriverHelper driver = new DriverHelper(BaseURL,DataCustodianContext,ThirdPartyContext,log);
 driver._bLogActions = true;
 
 if( context["driver"] == null )
@@ -5081,6 +5083,8 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 
+import org.greenbutton.cmd.utils.DriverHelper;
+
 /////////////////////////////////////////////////////////
 // get variables from the project Custom Properties
 /////////////////////////////////////////////////////////
@@ -5095,7 +5099,7 @@ def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
 /////////////////////////////////////////////////////////
 // Create a new instance of the Firefox driver
 /////////////////////////////////////////////////////////
-Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+DriverHelper driver = new DriverHelper(BaseURL,DataCustodianContext,ThirdPartyContext,log);
 driver._bLogActions = true;
 
 if( context["driver"] == null )
@@ -5361,6 +5365,8 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 
+import org.greenbutton.cmd.utils.DriverHelper;
+
 /////////////////////////////////////////////////////////
 // get variables from the project Custom Properties
 /////////////////////////////////////////////////////////
@@ -5375,7 +5381,7 @@ def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
 /////////////////////////////////////////////////////////
 // Create a new instance of the Firefox driver
 /////////////////////////////////////////////////////////
-Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+DriverHelper driver = new DriverHelper(BaseURL,DataCustodianContext,ThirdPartyContext,log);
 driver._bLogActions = true;
 
 if( context["driver"] == null )
@@ -6252,7 +6258,6 @@ def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
 /////////////////////////////////////////////////////////
 // Create a new instance of the Firefox driver
 /////////////////////////////////////////////////////////
-//Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
 DriverHelper driver = new DriverHelper(BaseURL,DataCustodianContext,ThirdPartyContext,log);
 
 driver._bLogActions = true;
@@ -12629,6 +12634,7 @@ import java.io.File;
 				<con:settings/>
 				<con:config>
 					<script>import org.openqa.selenium.*;
+import org.greenbutton.cmd.utils.DriverHelper;
 
 def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
@@ -12646,7 +12652,7 @@ def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("Tes
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
-Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+DriverHelper driver = new DriverHelper(BaseURL,DataCustodianContext,ThirdPartyContext,log);
 
 //driver._bLogActions = true;
 
@@ -12708,6 +12714,7 @@ driver.quit();
 				<con:settings/>
 				<con:config>
 					<script>import org.openqa.selenium.*;
+import org.greenbutton.cmd.utils.DriverHelper;
 
 def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
@@ -12725,8 +12732,7 @@ def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("Tes
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
-Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
-
+DriverHelper driver = new DriverHelper(BaseURL,DataCustodianContext,ThirdPartyContext,log);
 
 //driver._bLogActions = true;
 
@@ -12790,6 +12796,7 @@ driver.quit();
 				<con:settings/>
 				<con:config>
 					<script>import org.openqa.selenium.*;
+import org.greenbutton.cmd.utils.DriverHelper;
 
 def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
@@ -12807,8 +12814,7 @@ def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("Tes
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
-Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
-
+DriverHelper driver = new DriverHelper(BaseURL,DataCustodianContext,ThirdPartyContext,log);
 
 //driver._bLogActions = true;
 
@@ -12888,6 +12894,7 @@ driver.quit();
 				<con:settings/>
 				<con:config>
 					<script>import org.openqa.selenium.*;
+import org.greenbutton.cmd.utils.DriverHelper;
 
 def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
@@ -12906,8 +12913,7 @@ def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
 
-Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
-
+DriverHelper driver = new DriverHelper(BaseURL,DataCustodianContext,ThirdPartyContext,log);
 
 //driver._bLogActions = true;
 
@@ -13116,6 +13122,8 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 
+import org.greenbutton.cmd.utils.DriverHelper;
+
 /////////////////////////////////////////////////////////
 // get variables from the project Custom Properties
 /////////////////////////////////////////////////////////
@@ -13130,7 +13138,7 @@ def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
 /////////////////////////////////////////////////////////
 // Create a new instance of the Firefox driver
 /////////////////////////////////////////////////////////
-Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+DriverHelper driver = new DriverHelper(BaseURL,DataCustodianContext,ThirdPartyContext,log);
 driver._bLogActions = true;
 
 if( context["driver"] == null )
@@ -13809,7 +13817,71 @@ oauthConnector.request(Method.GET, ContentType.HTML, url, params)
 	
 return;
 
-]]></script></con:config></con:testStep><con:properties/></con:testCase><con:properties/>
+]]></script></con:config></con:testStep><con:testStep type="groovy" name="DEMO [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter)"><con:settings/><con:config><script>/////////////////////////////////////////////////////////
+// Need these imports to run tests
+/////////////////////////////////////////////////////////
+
+import org.greenbutton.cmd.utils.RestConnector;
+
+
+
+/////////////////////////////////////////////////////////
+// define some variables
+/////////////////////////////////////////////////////////
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+
+def clientId = project.getPropertyValue("client_id")
+def redirectUri = project.getPropertyValue("redirect_uri")
+def scope = project.getPropertyValue("scope")
+def state = project.getPropertyValue("state")
+
+def List&amp;lt;String> sessionCookie = []
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// 
+//	httpBuilder class used to test Oauth Authorize Endpoint so that 302 failures can be captured
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////
+// 
+//	Main Body
+//
+///////////////////////////////
+
+
+log.info("*****************************************************************************************************");
+log.info("   RESET Data Custodian Database ");
+log.info("*****************************************************************************************************");	
+	
+testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
+
+
+log.info("*****************************************************************************************************");
+log.info("   Login Retail Customer -- Alan ");
+log.info("*****************************************************************************************************");	
+
+RestConnector restConnector = new RestConnector("http://www.apache.org/", log);
+boolean bResult = restConnector.request("dummy", "dummy", "", null);
+
+assert (bResult)
+
+
+
+
+	
+return;</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/>
 	</con:testSuite>
 
 <con:testSuite name="[FB_3] Core Green Button Connect My Data"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_3] Core Green Button Connect My Data" searchProperties="true" id="72095d31-0ede-4d94-8b88-dfe552917235"><con:settings/><con:testStep type="calltestcase" name="Run TestCase EstablishTwoSubscriptions">
@@ -14531,6 +14603,7 @@ import java.io.File;
 				<con:settings/>
 				<con:config>
 					<script>import org.openqa.selenium.*;
+import org.greenbutton.cmd.utils.DriverHelper;
 
 def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
@@ -14548,8 +14621,7 @@ def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("Tes
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
-Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
-
+DriverHelper driver = new DriverHelper(BaseURL,DataCustodianContext,ThirdPartyContext,log);
 //driver._bLogActions = true;
 
 try{
@@ -14610,6 +14682,7 @@ driver.quit();
 				<con:settings/>
 				<con:config>
 					<script>import org.openqa.selenium.*;
+import org.greenbutton.cmd.utils.DriverHelper;
 
 def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
@@ -14627,8 +14700,7 @@ def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("Tes
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
-Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
-
+DriverHelper driver = new DriverHelper(BaseURL,DataCustodianContext,ThirdPartyContext,log);
 
 //driver._bLogActions = true;
 
@@ -14692,6 +14764,7 @@ driver.quit();
 				<con:settings/>
 				<con:config>
 					<script>import org.openqa.selenium.*;
+import org.greenbutton.cmd.utils.DriverHelper;
 
 def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
@@ -14709,8 +14782,7 @@ def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("Tes
 def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
-Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
-
+DriverHelper driver = new DriverHelper(BaseURL,DataCustodianContext,ThirdPartyContext,log);
 
 //driver._bLogActions = true;
 
@@ -14790,6 +14862,7 @@ driver.quit();
 				<con:settings/>
 				<con:config>
 					<script>import org.openqa.selenium.*;
+import org.greenbutton.cmd.utils.DriverHelper;
 
 def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
@@ -14808,8 +14881,7 @@ def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
 def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
 
 
-Object driver = this.class.classLoader.parseClass(new File(projectPath + "/etc/BaseStepUtils.groovy")).GetObj(BaseURL,DataCustodianContext,ThirdPartyContext,log);
-
+DriverHelper driver = new DriverHelper(BaseURL,DataCustodianContext,ThirdPartyContext,log);
 
 //driver._bLogActions = true;
 
