@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 
-
 public class DriverHelper {
 
 	public WebDriver _driver;

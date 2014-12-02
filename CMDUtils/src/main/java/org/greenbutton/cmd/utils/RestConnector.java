@@ -6,12 +6,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+
 import org.apache.log4j.Logger;
-import org.apache.commons.httpclient.*;
-import org.apache.commons.httpclient.methods.*;
-import org.apache.commons.httpclient.params.HttpMethodParams;
+//import org.apache.commons.httpclient.*;
+//import org.apache.commons.httpclient.methods.*;
+//import org.apache.commons.httpclient.params.HttpMethodParams;
 
-
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.methods.HttpGet;
+//import org.apache.http.impl.client.CloseableHttpClient;
+//import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
 
 public class RestConnector {
 	private Logger log = null;
@@ -25,8 +33,8 @@ public class RestConnector {
 	}
 	
 	// this function should return true on success or false on failure
-	public boolean request(String Method, String contentType, String url, Map<String, Serializable> params) {
-		
+	public boolean request(String Method, String contentType, String url, Map<String, Serializable> params) throws ClientProtocolException, IOException {
+	
 		// Create an instance of HttpClient.
 		HttpClient client = new HttpClient();
 		
@@ -65,6 +73,35 @@ public class RestConnector {
 		  // Release the connection.
 		  method.releaseConnection();
 		}  
+		
+		
+//		 CloseableHttpClient httpclient = HttpClients.createDefault();
+//	        try {
+//	            HttpGet httpget = new HttpGet(baseUrl + url);
+//
+//	            debug("Executing request " + httpget.getRequestLine());
+//
+//	            // Create a custom response handler
+//	            ResponseHandler<String> responseHandler = new ResponseHandler<String>() {
+//
+//	                public String handleResponse(
+//	                        final HttpResponse response) throws ClientProtocolException, IOException {
+//	                    int status = response.getStatusLine().getStatusCode();
+//	                    if (status >= 200 && status < 300) {
+//	                        HttpEntity entity = response.getEntity();
+//	                        return entity != null ? EntityUtils.toString(entity) : null;
+//	                    } else {
+//	                        throw new ClientProtocolException("Unexpected response status: " + status);
+//	                    }
+//	                }
+//
+//	            };
+//	            String responseBody = httpclient.execute(httpget, responseHandler);
+//	            debug("----------------------------------------");
+//	            debug(responseBody);
+//	        } finally {
+//	            httpclient.close();
+//	        }		
 		
 		return true;
 	}

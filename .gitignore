@@ -1,5 +1,5 @@
 ./SOAPUI/etc/gbcmd.conf
-./data/testSets/
+/data/testSets/
 /SOAPUI/etc/gbcmd.conf
 ./SOAPUI/CMDUtils/target/
 

@@ -1,5 +1,9 @@
 package org.greenbutton.cmd.utils;
 
+import java.io.IOException;
+
+import org.apache.http.client.ClientProtocolException;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -30,20 +34,22 @@ public class AppTest
 
     /**
      * Rigourous Test :-)
+     * @throws IOException 
+     * @throws ClientProtocolException 
      */
-    public void testApp()
+    public void testApp() throws ClientProtocolException, IOException
     {
     	
-//    	RestConnector restConnector = new RestConnector("http://www.apache.org/",null);
-//    	boolean bResult = restConnector.request("dummy", "dummy", "", null);
-//    	
-//        assertTrue( bResult );
-//        
-//    	OauthConnector oauthConnector = new OauthConnector("http://www.apache.org/",null);
-//    	bResult = oauthConnector.request("dummy", "dummy", "", null);
-//    	
-//    	assertTrue( bResult );
+    	RestConnector restConnector = new RestConnector("http://www.apache.org/",null);
+    	boolean bResult = restConnector.request("dummy", "dummy", "", null);
     	
-    	assertTrue(true);
+        assertTrue( bResult );
+        
+    	OauthConnector oauthConnector = new OauthConnector("http://www.apache.org/",null);
+    	bResult = oauthConnector.request("dummy", "dummy", "", null);
+    	
+    	assertTrue( bResult );
+    	
+//    	assertTrue(true);
     }
 }

@@ -13842,7 +13842,7 @@ def redirectUri = project.getPropertyValue("redirect_uri")
 def scope = project.getPropertyValue("scope")
 def state = project.getPropertyValue("state")
 
-def List&amp;lt;String> sessionCookie = []
+//def List&amp;lt;String> sessionCookie = []
 
 
 
@@ -15133,7 +15133,7 @@ log.info("Feature: DC Admin Access");
 			<con:name>timeoutCmd</con:name>
 			<con:value>timeout</con:value>
 		</con:property>
-	<con:property><con:name>client_id</con:name><con:value>test_third_party</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8080/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>state</con:name><con:value>abcdef12345</con:value></con:property><con:property><con:name>dataCustodianResourceUri</con:name><con:value>https://localhost/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceUri</con:name><con:value>espi/1_1/resource/</con:value></con:property><con:property><con:name>dataCustodianResourceEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/</con:value></con:property><con:property><con:name>dataCustodianId</con:name><con:value>data_custodian</con:value></con:property><con:property><con:name>federalEIN</con:name><con:value>123456</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value>1</con:value></con:property><con:property><con:name>client_access_token</con:name><con:value>1</con:value></con:property></con:properties>
+	<con:property><con:name>client_id</con:name><con:value>test_third_party</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8080/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>state</con:name><con:value>abcdef12345</con:value></con:property><con:property><con:name>dataCustodianResourceUri</con:name><con:value>https://localhost/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceUri</con:name><con:value>espi/1_1/resource</con:value></con:property><con:property><con:name>dataCustodianResourceEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/</con:value></con:property><con:property><con:name>dataCustodianId</con:name><con:value>data_custodian</con:value></con:property><con:property><con:name>federalEIN</con:name><con:value>123456</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value>1</con:value></con:property><con:property><con:name>client_access_token</con:name><con:value>1</con:value></con:property></con:properties>
 	<con:wssContainer/>
 	<con:oAuth2ProfileContainer/>
 	<con:sensitiveInformation/>
