@@ -1,4 +1,4 @@
-package org.greenbutton.cmd.utils;
+package com.rhythmicsoftware.cmd.utils;
 
 /**
  * Hello world!

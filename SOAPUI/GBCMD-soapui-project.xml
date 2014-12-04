@@ -14897,14 +14897,13 @@ return;
 ]]></script>
 				</con:config>
 			</con:testStep>
-			<con:testStep type="groovy" name="DEMO [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter)">
-				<con:settings/>
-				<con:config>
-					<script>/////////////////////////////////////////////////////////
+	<con:testStep type="groovy" name="DEMO [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter)">
+		<con:settings/>
+		<con:config><script>/////////////////////////////////////////////////////////
 // Need these imports to run tests
 /////////////////////////////////////////////////////////
 
-import org.greenbutton.cmd.utils.RestConnector;
+import com.rhythmicsoftware.cmd.utils.RestConnector;
 
 
 
@@ -14947,7 +14946,7 @@ def state = project.getPropertyValue("state")
 log.info("*****************************************************************************************************");
 log.info("   RESET Data Custodian Database ");
 log.info("*****************************************************************************************************");	
-	
+
 testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
 
 
@@ -14956,6 +14955,12 @@ log.info("   Login Retail Customer -- Alan ");
 log.info("*****************************************************************************************************");	
 
 RestConnector restConnector = new RestConnector("http://www.apache.org/", log);
+log.info("restConnector: " + restConnector);
+
+if( context["restConnector"] == null )
+context["restConnector"] = restConnector
+log.info("context: " + context["restConnector"]);
+
 boolean bResult = restConnector.request("dummy", "dummy", "", null);
 
 assert (bResult)
@@ -14963,15 +14968,13 @@ assert (bResult)
 
 
 
-	
-return;</script>
-				</con:config>
-			</con:testStep>
-			<con:properties/>
+
+return;</script></con:config>
+</con:testStep>			<con:properties/>
 		</con:testCase>
 		<con:properties/>
 	</con:testSuite>
-	<con:testSuite name="[FB_3] Core Green Button Connect My Data">
+	<con:testSuite name="[FB_03] Core Green Button Connect My Data">
 		<con:settings/>
 		<con:runType>SEQUENTIAL</con:runType>
 		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FND006 [POS][C] GET ServiceStatus" searchProperties="true">
@@ -16150,7 +16153,7 @@ log.info("Feature: DC Admin Access");
 		</con:testCase>
 		<con:properties/>
 	</con:testSuite>
-	<con:testSuite name="FB_34] SFTP for Bulk">
+	<con:testSuite name="[FB_34] SFTP for Bulk">
 		<con:settings/>
 		<con:runType>SEQUENTIAL</con:runType>
 		<con:properties/>
@@ -16196,11 +16199,11 @@ log.info("Feature: DC Admin Access");
 	<con:properties>
 		<con:property>
 			<con:name>BaseURL</con:name>
-			<con:value>http://localhost:8080</con:value>
+			<con:value>https://services.greenbuttondata.org</con:value>
 		</con:property>
 		<con:property>
 			<con:name>ServiceEndpoint</con:name>
-			<con:value>http://localhost:8080/DataCustodian</con:value>
+			<con:value>https://services.greenbuttondata.org/DataCustodian</con:value>
 		</con:property>
 		<con:property>
 			<con:name>DataCustodianContext</con:name>
@@ -16212,7 +16215,7 @@ log.info("Feature: DC Admin Access");
 		</con:property>
 		<con:property>
 			<con:name>linkPrefixForReplace</con:name>
-			<con:value>http://localhost:8080/DataCustodian/</con:value>
+			<con:value>https://services.greenbuttondata.org/DataCustodian/</con:value>
 		</con:property>
 		<con:property>
 			<con:name>HomePageURLEndpoint</con:name>
@@ -16356,11 +16359,11 @@ log.info("Feature: DC Admin Access");
 		</con:property>
 		<con:property>
 			<con:name>client_id</con:name>
-			<con:value>test_third_party</con:value>
+			<con:value>third_party</con:value>
 		</con:property>
 		<con:property>
 			<con:name>redirect_uri</con:name>
-			<con:value>http://localhost:8080/ThirdParty/espi/1_1/OAuthCallBack</con:value>
+			<con:value>https://services.greenbuttondata.org/ThirdParty/espi/1_1/OAuthCallBack</con:value>
 		</con:property>
 		<con:property>
 			<con:name>scope</con:name>

@@ -1,7 +1,7 @@
-package org.greenbutton.cmd.utils;
+package com.rhythmicsoftware.cmd.utils;
 
 import java.io.IOException;
-import java.io.Serializable;
+//import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -21,20 +21,20 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
-public class OauthConnector {
+public class RestConnector {
 	private Logger log = null;
 	private String baseUrl;
 	private List<String> cookies;
 
-	OauthConnector(String url, Logger log) {
+	RestConnector(String url, Logger log) {
 		this.baseUrl = url;
 		this.cookies = new ArrayList<String>();
 		this.log = log;
 	}
 	
 	// this function should return true on success or false on failure
-	public boolean request(String Method, String contentType, String url, Map<String, Serializable> params) throws ClientProtocolException, IOException {
-	/*	
+	public boolean request(String Method, String contentType, String url, ArrayList<String> params) throws ClientProtocolException, IOException {
+	/*
 		// Create an instance of HttpClient.
 		HttpClient client = new HttpClient();
 		
@@ -74,6 +74,9 @@ public class OauthConnector {
 		  method.releaseConnection();
 		}  
 		*/
+		
+        debug("----------------------------------------");
+        debug("RestConnector.request Starting");
 		
 		 CloseableHttpClient httpclient = HttpClients.createDefault();
 	        try {
