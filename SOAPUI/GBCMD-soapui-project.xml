@@ -14976,9 +14976,9 @@ return;</script>
 	<con:testSuite name="[FB_3] Core Green Button Connect My Data">
 		<con:settings/>
 		<con:runType>SEQUENTIAL</con:runType>
-		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Copy of [FB_3] Core Green Button Connect My Data" searchProperties="true">
+		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FND006 [POS][C] GET ServiceStatus" searchProperties="true">
 			<con:settings/>
-			<con:testStep type="restrequest" name="FND007 [POS][C] GET ServiceStatus">
+			<con:testStep type="restrequest" name="GET ServiceStatus">
 				<con:settings/>
 				<con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ReadServiceStatus" methodName="GET ServiceStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 					<con:restRequest name="FND007 [POS][C] GET ServiceStatus" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
@@ -14994,7 +14994,8 @@ return;</script>
 							</con:configuration>
 						</con:assertion>
 						<con:assertion type="XPath Match" name="XPath Match">
-							<con:configuration><path>/ServiceStatus/currentStatus</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration>
+							<con:configuration><path>declare namespace espi='http://naesb.org/espi';
+/espi:ServiceStatus/espi:currentStatus</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration>
 						</con:assertion>
 						<con:credentials>
 							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
@@ -15003,9 +15004,7 @@ return;</script>
 						</con:credentials>
 						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
 						<con:jmsPropertyConfig/>
-						<con:parameters>
-							<entry key="Authorization" value="Bearer ${#Project#third_party_access_token}" xmlns="http://eviware.com/soapui/config"/>
-						</con:parameters>
+						<con:parameters><entry key="Authorization" value="Bearer ${#Project#client_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
 						<con:parameterOrder>
 							<con:entry>Authorization</con:entry>
 							<con:entry>Content-Type</con:entry>
@@ -16383,7 +16382,7 @@ log.info("Feature: DC Admin Access");
 		</con:property>
 		<con:property>
 			<con:name>dataCustodianResourceEndpoint</con:name>
-			<con:value>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource/</con:value>
+			<con:value>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource</con:value>
 		</con:property>
 		<con:property>
 			<con:name>dataCustodianId</con:name>
@@ -16399,7 +16398,7 @@ log.info("Feature: DC Admin Access");
 		</con:property>
 		<con:property>
 			<con:name>client_access_token</con:name>
-			<con:value>75dd9c46-becf-48b5-9cb5-9c3233d718d0</con:value>
+			<con:value>688b026c-665f-4994-9139-6b21b13fbeee</con:value>
 		</con:property>
 	</con:properties>
 	<con:wssContainer/>
