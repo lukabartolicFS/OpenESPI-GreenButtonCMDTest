@@ -1,8 +1,11 @@
-package org.greenbutton.cmd.utils;
+package com.rhythmicsoftware.cmd.utils;
 
 import java.io.IOException;
 
 import org.apache.http.client.ClientProtocolException;
+
+import com.rhythmicsoftware.cmd.utils.OauthConnector;
+import com.rhythmicsoftware.cmd.utils.RestConnector;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

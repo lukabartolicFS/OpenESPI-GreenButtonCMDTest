@@ -1,6 +1,7 @@
-package org.greenbutton.cmd.utils;
+package com.rhythmicsoftware.cmd.utils;
 
 import org.apache.log4j.Logger;
+import org.custommonkey.xmlunit.XMLAssert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -240,12 +241,13 @@ public class DriverHelper {
 		}
 	}
 
-	public void assertXpathExists(String strSearch) throws Exception
+	public void assertXpathExists(String strSearch, String string) throws Exception
 	{
 		CaptureAction();
 
 		try{
-			 org.custommonkey.xmlunit.XMLAssert.assertXpathExists(strSearch, _driver.getPageSource());
+//			 XMLAssert.assertXpathExists(strSearch, _driver.getPageSource());
+			 assertXpathExists(strSearch, _driver.getPageSource());
 		}
 		catch(Exception e)
 		{
