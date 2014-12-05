@@ -4596,8 +4596,7 @@ assert true;</script>
 			</con:testStep>
 			<con:testStep type="groovy" name="LoadConfigCert" id="c3e267f6-62ec-47f2-9cfa-de89458e05bf">
 				<con:settings/>
-				<con:config>
-					<script>def project = testRunner.testCase.testSuite.project
+				<con:config><script>def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmdcert.conf").toURL())
 def uri;
@@ -4623,14 +4622,14 @@ project.setPropertyValue("client_id",config.client_id);
 // lets check the uri
 log.info "URI: " + uri;
 uritemp = uri;
-i = uritemp.indexOf("espi/1_1/resource/");
+i = uritemp.indexOf("espi/1_1/resource");
 if(i>0) {
     // lets shorten it by stripping off up to resource
     uritemp = uritemp.substring(0,i-1);
     log.info "ServiceEndpoint " + uritemp;
     project.setPropertyValue("ServiceEndpoint",uritemp);
     uritemp = uri;
-    uritemp = uritemp.substring(uritemp.indexOf("espi/1_1/resource/"), uritemp.length());
+    uritemp = uritemp.substring(uritemp.indexOf("espi/1_1/resource"), uritemp.length());
     log.info "resourceUri: " + uritemp;
     project.setPropertyValue("resourceUri",uritemp);
 
@@ -4651,8 +4650,7 @@ project.setPropertyValue("client_id",config.client_id);
 project.setPropertyValue("redirect_uri",config.redirect_uri);
 project.setPropertyValue("scope",config.scope);
 project.setPropertyValue("state",config.state);
-</script>
-				</con:config>
+</script></con:config>
 			</con:testStep>
 			<con:properties>
 				<con:property>
@@ -7803,7 +7801,7 @@ public boolean TestType1ROOT(Object testRunner,Object context,String strInputFil
 				</con:property>
 				<con:property>
 					<con:name>resource</con:name>
-					<con:value>http://172.16.57.214:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value>
+					<con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value>
 				</con:property>
 				<con:property>
 					<con:name>testFailed</con:name>
@@ -14981,7 +14979,7 @@ return;</script>
 			<con:testStep type="restrequest" name="GET ServiceStatus">
 				<con:settings/>
 				<con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ReadServiceStatus" methodName="GET ServiceStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-					<con:restRequest name="FND007 [POS][C] GET ServiceStatus" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
+					<con:restRequest name="GET ServiceStatus" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
 						<con:settings>
 							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 						</con:settings>
@@ -16198,11 +16196,11 @@ log.info("Feature: DC Admin Access");
 	<con:properties>
 		<con:property>
 			<con:name>BaseURL</con:name>
-			<con:value>https://services.greenbuttondata.org</con:value>
+			<con:value>http://localhost:8080</con:value>
 		</con:property>
 		<con:property>
 			<con:name>ServiceEndpoint</con:name>
-			<con:value>https://services.greenbuttondata.org/DataCustodian</con:value>
+			<con:value>http://localhost:8080/DataCustodian</con:value>
 		</con:property>
 		<con:property>
 			<con:name>DataCustodianContext</con:name>
@@ -16214,7 +16212,7 @@ log.info("Feature: DC Admin Access");
 		</con:property>
 		<con:property>
 			<con:name>linkPrefixForReplace</con:name>
-			<con:value>https://services.greenbuttondata.org/DataCustodian/</con:value>
+			<con:value>http://localhost:8080/DataCustodian/</con:value>
 		</con:property>
 		<con:property>
 			<con:name>HomePageURLEndpoint</con:name>
@@ -16330,11 +16328,11 @@ log.info("Feature: DC Admin Access");
 		</con:property>
 		<con:property>
 			<con:name>userAccessToken1</con:name>
-			<con:value>54ac2de2-7454-4316-8d83-6f1fb852ffc4</con:value>
+			<con:value>60f41fbf-f2ad-4349-81a2-5a7b0e208042</con:value>
 		</con:property>
 		<con:property>
 			<con:name>userAccessToken2</con:name>
-			<con:value>89f67a18-99cc-42e6-9e3c-90993dcea147</con:value>
+			<con:value>d0144d87-9609-4d78-a347-855d48180fee</con:value>
 		</con:property>
 		<con:property>
 			<con:name>registration_third_party_access_token</con:name>
@@ -16362,7 +16360,7 @@ log.info("Feature: DC Admin Access");
 		</con:property>
 		<con:property>
 			<con:name>redirect_uri</con:name>
-			<con:value>https://services.greenbuttondata.org/ThirdParty/espi/1_1/OAuthCallBack</con:value>
+			<con:value>http://localhost:8080/ThirdParty/espi/1_1/OAuthCallBack</con:value>
 		</con:property>
 		<con:property>
 			<con:name>scope</con:name>
@@ -16378,11 +16376,11 @@ log.info("Feature: DC Admin Access");
 		</con:property>
 		<con:property>
 			<con:name>resourceUri</con:name>
-			<con:value>espi/1_1/resource/</con:value>
+			<con:value>espi/1_1/resource</con:value>
 		</con:property>
 		<con:property>
 			<con:name>dataCustodianResourceEndpoint</con:name>
-			<con:value>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource</con:value>
+			<con:value>http://localhost:8080/DataCustodian/espi/1_1/resource</con:value>
 		</con:property>
 		<con:property>
 			<con:name>dataCustodianId</con:name>
@@ -16398,7 +16396,7 @@ log.info("Feature: DC Admin Access");
 		</con:property>
 		<con:property>
 			<con:name>client_access_token</con:name>
-			<con:value>688b026c-665f-4994-9139-6b21b13fbeee</con:value>
+			<con:value>75dd9c46-becf-48b5-9cb5-9c3233d718d0</con:value>
 		</con:property>
 	</con:properties>
 	<con:wssContainer/>
