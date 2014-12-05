@@ -3,8 +3,8 @@
 	<con:settings/>
 	<con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="ESPI Resources" type="rest" id="67592114-eb87-42a5-87f1-4c996a14c5da" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 		<con:settings/>
-		<con:definitionCache type="TEXT" rootPart=""/>
-		<con:resource name="resource" path="${#Project#resourceUri}" id="58456799-b780-49f8-bfec-ecb0dcda8a7d">
+		
+		<con:definitionCache type="TEXT" rootPart=""/><con:resource name="resource" path="${#Project#resourceUri}" id="58456799-b780-49f8-bfec-ecb0dcda8a7d">
 			<con:settings/>
 			<con:parameters>
 				<con:parameter>
@@ -2555,7 +2555,7 @@
 							<con:params/>
 							<con:element>html</con:element>
 						</con:representation>
-						<con:request name="Request 1" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+						<con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -2592,7 +2592,7 @@
 							<con:params/>
 							<con:element>data</con:element>
 						</con:representation>
-						<con:request name="Request 1" mediaType="application/json" id="9ef70ba4-9a57-4ff5-a02e-b693213d9dc0">
+						<con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element xmlns:ns="http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1">ns:Fault</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>Application/atom+xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="9ef70ba4-9a57-4ff5-a02e-b693213d9dc0">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -2678,7 +2678,7 @@
 							<con:params/>
 							<con:element>data</con:element>
 						</con:representation>
-						<con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false" id="4b7a8070-65c9-49fd-9a55-3b4671527e91">
+						<con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>403 401</con:status><con:params/><con:element xmlns:ns="http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1">ns:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/atom+xml" postQueryString="false" id="4b7a8070-65c9-49fd-9a55-3b4671527e91">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -3068,8 +3068,8 @@
 							</con:settings>
 							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 							<con:request/>
-							<con:credentials>
-								<con:authType>Global HTTP Settings</con:authType>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
 							</con:credentials>
 							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
 							<con:jmsPropertyConfig/>
@@ -3100,7 +3100,7 @@
 							<con:params/>
 							<con:element>data</con:element>
 						</con:representation>
-						<con:request name="Request 1" mediaType="application/json" id="91a52e47-6bd1-4f6d-86f6-444e1583b6ce">
+						<con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>401</con:status><con:params/><con:element xmlns:ns="http://localhost/DataCustodian/espi/1_1/resource/Authorization/1">ns:Fault</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="91a52e47-6bd1-4f6d-86f6-444e1583b6ce">
 							<con:settings>
 								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 							</con:settings>
@@ -3119,7 +3119,33 @@
 							</con:parameterOrder>
 						</con:request>
 					</con:method>
-				</con:resource>
+				<con:method name="PUT" method="PUT"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>415</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="Request 1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request><![CDATA[<ns3:entry xmlns:espi="http://naesb.org/espi" xmlns:ns3="http://www.w3.org/2005/Atom">
+   <ns3:id>urn:uuid:558ebd17-fd1d-435d-8f8d-1d9a129ee1a6</ns3:id>
+   <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization" rel="up"/>
+   <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/1" rel="self"/>
+   <ns3:content>
+      <espi:Authorization>
+         <espi:authorizedPeriod>
+            <espi:duration>0</espi:duration>
+            <espi:start>0</espi:start>
+         </espi:authorizedPeriod>
+         <espi:publishedPeriod>
+            <espi:duration>0</espi:duration>
+            <espi:start>0</espi:start>
+         </espi:publishedPeriod>
+         <espi:accessToken>688b026c-665f-4994-9139-6b21b13fbeee</espi:accessToken>
+         <espi:status>1</espi:status>
+         <espi:expires_in>31536000</espi:expires_in>
+         <espi:scope>DataCustodian_Admin_Access</espi:scope>
+         <espi:token_type>bearer</espi:token_type>
+         <espi:resourceURI>http://localhost:8080/DataCustodian/espi/1_1/resource/</espi:resourceURI>
+         <espi:authorizationURI>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/1</espi:authorizationURI>
+         <espi:thirdParty>data_custodian_admin</espi:thirdParty>
+      </espi:Authorization>
+   </ns3:content>
+   <ns3:published>2014-05-12T13:02:03Z</ns3:published>
+   <ns3:updated>2014-05-12T13:02:03Z</ns3:updated>
+</ns3:entry>]]></con:request><con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource>
 				<con:method name="GET Authorization Feed" method="GET" id="4044e8f5-4f26-4b1f-87ee-2f9e6737cd3f">
 					<con:settings/>
 					<con:parameters/>
@@ -14971,12 +14997,88 @@ return;</script>
 		</con:testCase>
 		<con:properties/>
 	</con:testSuite>
-	<con:testSuite name="[FB_3] Core Green Button Connect My Data">
+	<con:testSuite name="*[FB_3] Core Green Button Connect My Data">
 		<con:settings/>
 		<con:runType>SEQUENTIAL</con:runType>
-		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FND006 [POS][C] GET ServiceStatus" searchProperties="true">
+		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*FND002 [POS][R] Authorized GET access to ApplicationInformation entry" searchProperties="true" id="720bfc98-a2d2-4679-a25c-1ab6b2ec6cb6"><con:settings/><con:testStep type="restrequest" name="GET and verify ApplicationInformation"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ApplicationInformation by Id - Request 1" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri>
+							<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
+declare namespace espi='http://naesb.org/espi';
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianApplicationStatus and /ns3:entry/ns3:content/espi:ApplicationInformation/espi:thirdPartyNotifyUri</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+								<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+								<con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="Authorization" value="Bearer ${#Project#registration_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>applicationInformationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:properties/></con:testCase>
+		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FND003 [POS][C] Authorized GET access to Authorization feed" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="GET and verify Authorization Feed"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/Authorization" methodName="GET Authorization Feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET and verify Authorization Feed" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
+						<con:settings>
+							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+						</con:settings>
+						<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+						<con:request/>
+						<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization</con:originalUri>
+						<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
+declare namespace espi='http://naesb.org/espi';
+declare namespace ns1='http://www.w3.org/2005/Atom';
+count(/ns3:feed/ns3:entry/ns3:content/espi:Authorization[espi:accessToken='${#Project#registration_access_token}']) +  count(/ns3:feed/ns3:entry/ns3:content/espi:Authorization[espi:accessToken='${#Project#client_access_token}'])</path><content>2</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials>
+							<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+							<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+							<con:authType>Global HTTP Settings</con:authType>
+						</con:credentials>
+						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+						<con:jmsPropertyConfig/>
+						<con:parameters><entry key="Authorization" value="Bearer ${#Project#client_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+						<con:parameterOrder>
+							<con:entry>Authorization</con:entry>
+							<con:entry>Content-Type</con:entry>
+						</con:parameterOrder>
+					</con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*FND004 [POS][C] Authorized GET access to Authorization entry" searchProperties="true" id="5f6945b3-0e08-4d6a-ab73-114465502a91"><con:settings/><con:testStep type="restrequest" name="GET Authorization by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/Authorization/{authorizationId}" methodName="GET Authorization by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET Authorization by Id" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
+declare namespace espi='http://naesb.org/espi';
+
+/ns3:entry/ns3:content/espi:Authorization/espi:authorizedPeriod and 
+/ns3:entry/ns3:content/espi:Authorization/espi:publishedPeriod and
+/ns3:entry/ns3:content/espi:Authorization/espi:access_token and
+/ns3:entry/ns3:content/espi:Authorization/espi:expiresAt and 
+/ns3:entry/ns3:content/espi:Authorization/espi:grant_type and 
+/ns3:entry/ns3:content/espi:Authorization/espi:refresh_token and 
+/ns3:entry/ns3:content/espi:Authorization/espi:scope and
+/ns3:entry/ns3:content/espi:Authorization/espi:token_type and 
+/ns3:entry/ns3:content/espi:Authorization/espi:resourceURI and
+/ns3:entry/ns3:content/espi:Authorization/espi:authorizationURI and 
+/ns3:entry/ns3:content/espi:Authorization/espi:grant_type='authorization_code' and
+( not(/ns3:entry/ns3:content/espi:Authorization/espi:status) or (ns3:entry/ns3:content/espi:Authorization/espi:status='0') or (ns3:entry/ns3:content/espi:Authorization/espi:status='1') or (ns3:entry/ns3:content/espi:Authorization/espi:status='2'))</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters/>
+							<con:parameterOrder>
+								<con:entry>authorizationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*FND005 [POS][A] Authorized GET access to Batch/Subscription entry" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FND006 [POS][C] Authorized GET access to ReadServiceStatus" searchProperties="true" id="a5744784-2b85-461b-b265-c3ee56742237">
 			<con:settings/>
-			<con:testStep type="restrequest" name="GET ServiceStatus">
+			<con:testStep type="restrequest" name="GET and verify ServiceStatus">
 				<con:settings/>
 				<con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ReadServiceStatus" methodName="GET ServiceStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 					<con:restRequest name="GET ServiceStatus" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
@@ -15011,8 +15113,7 @@ return;</script>
 				</con:config>
 			</con:testStep>
 			<con:properties/>
-		</con:testCase>
-		<con:properties/>
+		</con:testCase><con:properties/>
 	</con:testSuite>
 	<con:testSuite name="[FB_13] Security and Privacy">
 		<con:settings/>
@@ -16183,15 +16284,703 @@ log.info("Feature: DC Admin Access");
 		<con:runType>SEQUENTIAL</con:runType>
 		<con:properties/>
 	</con:testSuite>
-	<con:testSuite name="[FB_44] Manage ApplicationInformation Resource">
+	<con:testSuite name="*[FB_41] Manage  Authorization Resource">
 		<con:settings/>
 		<con:runType>SEQUENTIAL</con:runType>
-		<con:properties/>
+		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="MGA002 [POS][C] Authorized PUT access to Authorization entry" searchProperties="true" id="b6ad0acd-1bc9-478d-8d2e-8ba8f6e55fe6"><con:settings/><con:testStep type="restrequest" name="GET Authorization by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/Authorization/{authorizationId}" methodName="GET Authorization by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET Authorization by Id" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
+declare namespace espi='http://naesb.org/espi';
+
+count(/ns3:entry/ns3:content/espi:Authorization/espi:authorizedPeriod)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="Authorization" value="Bearer ${#Project#client_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>authorizationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>Copy GET response body to PUT request body</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GET Authorization by Id</con:sourceStep><con:targetType>Request</con:targetType><con:targetStep>PUT - Authorization entry</con:targetStep></con:transfers></con:config></con:testStep><con:testStep type="restrequest" name="PUT - Authorization entry"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/Authorization/{authorizationId}" methodName="PUT" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="PUT - Authorization entry" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request><![CDATA[<ns3:entry xmlns:espi="http://naesb.org/espi" xmlns:ns3="http://www.w3.org/2005/Atom">
+   <ns3:id>urn:uuid:2bbcc436-e545-459f-90e9-99113c11ffd4</ns3:id>
+   <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization" rel="up"/>
+   <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/4" rel="self"/>
+   <ns3:content>
+      <espi:Authorization>
+         <espi:authorizedPeriod>
+            <espi:duration>0</espi:duration>
+            <espi:start>0</espi:start>
+         </espi:authorizedPeriod>
+         <espi:publishedPeriod>
+            <espi:duration>0</espi:duration>
+            <espi:start>0</espi:start>
+         </espi:publishedPeriod>
+         <espi:accessToken>d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c</espi:accessToken>
+         <espi:status>1</espi:status>
+         <espi:expires_in>31536000</espi:expires_in>
+         <espi:scope>ThirdParty_Registration_Access</espi:scope>
+         <espi:token_type>bearer</espi:token_type>
+         <espi:resourceURI>http://localhost:8080/DataCustodian/espi/1_1/resource/ApplicationInformation/2</espi:resourceURI>
+         <espi:authorizationURI>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/4</espi:authorizationURI>
+         <espi:thirdParty>REGISTRATION_third_party</espi:thirdParty>
+      </espi:Authorization>
+   </ns3:content>
+   <ns3:published>2014-05-12T13:02:03Z</ns3:published>
+   <ns3:updated>2014-05-12T13:02:03Z</ns3:updated>
+</ns3:entry>]]></con:request><con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="Bearer ${#Project#client_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="MGA003 [POS][C] Authorized DELETE access to Authorization entry" searchProperties="true" id="ff15fe7e-30a0-458a-b636-9f0aa9d878d9"><con:settings/><con:testStep type="restrequest" name="GET Authorization by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/Authorization/{authorizationId}" methodName="GET Authorization by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET Authorization by Id" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
+declare namespace espi='http://naesb.org/espi';
+
+count(/ns3:entry/ns3:content/espi:Authorization/espi:authorizedPeriod)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="Authorization" value="Bearer ${#Project#client_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>authorizationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>Copy GET response body to PUT request body</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GET Authorization by Id</con:sourceStep><con:targetType>Request</con:targetType><con:targetStep>PUT - Authorization entry</con:targetStep></con:transfers></con:config></con:testStep><con:testStep type="restrequest" name="DELETE"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/Authorization/{authorizationId}" methodName="Delete" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="DELETE" mediaType="application/json" id="91a52e47-6bd1-4f6d-86f6-444e1583b6ce">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="Authorization" value="Bearer ${#Project#client_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>authorizationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="PUT - Authorization entry"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/Authorization/{authorizationId}" methodName="PUT" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="PUT - Authorization entry" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request><![CDATA[<ns3:entry xmlns:espi="http://naesb.org/espi" xmlns:ns3="http://www.w3.org/2005/Atom">
+   <ns3:id>urn:uuid:2bbcc436-e545-459f-90e9-99113c11ffd4</ns3:id>
+   <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization" rel="up"/>
+   <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/4" rel="self"/>
+   <ns3:content>
+      <espi:Authorization>
+         <espi:authorizedPeriod>
+            <espi:duration>0</espi:duration>
+            <espi:start>0</espi:start>
+         </espi:authorizedPeriod>
+         <espi:publishedPeriod>
+            <espi:duration>0</espi:duration>
+            <espi:start>0</espi:start>
+         </espi:publishedPeriod>
+         <espi:accessToken>d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c</espi:accessToken>
+         <espi:status>1</espi:status>
+         <espi:expires_in>31536000</espi:expires_in>
+         <espi:scope>ThirdParty_Registration_Access</espi:scope>
+         <espi:token_type>bearer</espi:token_type>
+         <espi:resourceURI>http://localhost:8080/DataCustodian/espi/1_1/resource/ApplicationInformation/2</espi:resourceURI>
+         <espi:authorizationURI>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/4</espi:authorizationURI>
+         <espi:thirdParty>REGISTRATION_third_party</espi:thirdParty>
+      </espi:Authorization>
+   </ns3:content>
+   <ns3:published>2014-05-12T13:02:03Z</ns3:published>
+   <ns3:updated>2014-05-12T13:02:03Z</ns3:updated>
+</ns3:entry>]]></con:request><con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="Bearer ${#Project#client_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*MGA004 [NEG][R,A,none] Forbidden  PUT, DELETE access to Authorization entry" searchProperties="true" id="ccd9f8ea-70dd-429d-bbdf-0f08c69665e7"><con:settings/><con:testStep type="restrequest" name="GET Authorization by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/Authorization/{authorizationId}" methodName="GET Authorization by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET Authorization by Id" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
+declare namespace espi='http://naesb.org/espi';
+
+count(/ns3:entry/ns3:content/espi:Authorization/espi:authorizedPeriod)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="Authorization" value="Bearer ${#Project#client_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>authorizationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>Copy GET response body to PUT request body</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GET Authorization by Id</con:sourceStep><con:targetType>Request</con:targetType><con:targetStep>positive PUT - Authorization entry to restore original value</con:targetStep></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true"><con:name>Copy GET response to PUT R token</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GET Authorization by Id</con:sourceStep><con:targetType>Request</con:targetType><con:targetStep>PUT - Authorization entry using R token</con:targetStep></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true"><con:name>Copy GET response to PUT A token</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GET Authorization by Id</con:sourceStep><con:targetType>Request</con:targetType><con:targetStep>PUT - Authorization entry using A token</con:targetStep></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" entitize="false"><con:name>Copy GET response to PUT empty token</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GET Authorization by Id</con:sourceStep><con:targetType>Request</con:targetType><con:targetStep>PUT - Authorization entry using empty token</con:targetStep></con:transfers></con:config></con:testStep><con:testStep type="restrequest" name="DELETE using R token"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/Authorization/{authorizationId}" methodName="Delete" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="DELETE using R token" mediaType="application/json" id="91a52e47-6bd1-4f6d-86f6-444e1583b6ce">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="Authorization" value="Bearer ${#Project#registration_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>authorizationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="DELETE using A token"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/Authorization/{authorizationId}" methodName="Delete" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="DELETE using A token" mediaType="application/json" id="91a52e47-6bd1-4f6d-86f6-444e1583b6ce">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="Authorization" value="Bearer ${#Project#access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>authorizationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="DELETE using empty token"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/Authorization/{authorizationId}" methodName="Delete" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="DELETE using empty token" mediaType="application/json" id="91a52e47-6bd1-4f6d-86f6-444e1583b6ce">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="Authorization" value="" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>authorizationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="PUT - Authorization entry using R token"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/Authorization/{authorizationId}" methodName="PUT" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="PUT - Authorization entry using R token" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request><![CDATA[<ns3:entry xmlns:espi="http://naesb.org/espi" xmlns:ns3="http://www.w3.org/2005/Atom">
+   <ns3:id>urn:uuid:558ebd17-fd1d-435d-8f8d-1d9a129ee1a6</ns3:id>
+   <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization" rel="up"/>
+   <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/1" rel="self"/>
+   <ns3:content>
+      <espi:Authorization>
+         <espi:authorizedPeriod>
+            <espi:duration>0</espi:duration>
+            <espi:start>0</espi:start>
+         </espi:authorizedPeriod>
+         <espi:publishedPeriod>
+            <espi:duration>0</espi:duration>
+            <espi:start>0</espi:start>
+         </espi:publishedPeriod>
+         <espi:accessToken>688b026c-665f-4994-9139-6b21b13fbeee</espi:accessToken>
+         <espi:status>1</espi:status>
+         <espi:expires_in>31536000</espi:expires_in>
+         <espi:scope>DataCustodian_Admin_Access</espi:scope>
+         <espi:token_type>bearer</espi:token_type>
+         <espi:resourceURI>http://localhost:8080/DataCustodian/espi/1_1/resource/</espi:resourceURI>
+         <espi:authorizationURI>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/1</espi:authorizationURI>
+         <espi:thirdParty>data_custodian_admin</espi:thirdParty>
+      </espi:Authorization>
+   </ns3:content>
+   <ns3:published>2014-05-12T13:02:03Z</ns3:published>
+   <ns3:updated>2014-05-12T13:02:03Z</ns3:updated>
+</ns3:entry>]]></con:request><con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="Bearer ${#Project#registration_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="PUT - Authorization entry using A token"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/Authorization/{authorizationId}" methodName="PUT" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="PUT - Authorization entry using A token" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request><![CDATA[<ns3:entry xmlns:espi="http://naesb.org/espi" xmlns:ns3="http://www.w3.org/2005/Atom">
+   <ns3:id>urn:uuid:558ebd17-fd1d-435d-8f8d-1d9a129ee1a6</ns3:id>
+   <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization" rel="up"/>
+   <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/1" rel="self"/>
+   <ns3:content>
+      <espi:Authorization>
+         <espi:authorizedPeriod>
+            <espi:duration>0</espi:duration>
+            <espi:start>0</espi:start>
+         </espi:authorizedPeriod>
+         <espi:publishedPeriod>
+            <espi:duration>0</espi:duration>
+            <espi:start>0</espi:start>
+         </espi:publishedPeriod>
+         <espi:accessToken>688b026c-665f-4994-9139-6b21b13fbeee</espi:accessToken>
+         <espi:status>1</espi:status>
+         <espi:expires_in>31536000</espi:expires_in>
+         <espi:scope>DataCustodian_Admin_Access</espi:scope>
+         <espi:token_type>bearer</espi:token_type>
+         <espi:resourceURI>http://localhost:8080/DataCustodian/espi/1_1/resource/</espi:resourceURI>
+         <espi:authorizationURI>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/1</espi:authorizationURI>
+         <espi:thirdParty>data_custodian_admin</espi:thirdParty>
+      </espi:Authorization>
+   </ns3:content>
+   <ns3:published>2014-05-12T13:02:03Z</ns3:published>
+   <ns3:updated>2014-05-12T13:02:03Z</ns3:updated>
+</ns3:entry>]]></con:request><con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="Bearer ${#Project#access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="PUT - Authorization entry using empty token"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/Authorization/{authorizationId}" methodName="PUT" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="PUT - Authorization entry using empty token" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request><![CDATA[<ns3:entry xmlns:espi="http://naesb.org/espi" xmlns:ns3="http://www.w3.org/2005/Atom">
+   <ns3:id>urn:uuid:558ebd17-fd1d-435d-8f8d-1d9a129ee1a6</ns3:id>
+   <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization" rel="up"/>
+   <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/1" rel="self"/>
+   <ns3:content>
+      <espi:Authorization>
+         <espi:authorizedPeriod>
+            <espi:duration>0</espi:duration>
+            <espi:start>0</espi:start>
+         </espi:authorizedPeriod>
+         <espi:publishedPeriod>
+            <espi:duration>0</espi:duration>
+            <espi:start>0</espi:start>
+         </espi:publishedPeriod>
+         <espi:accessToken>688b026c-665f-4994-9139-6b21b13fbeee</espi:accessToken>
+         <espi:status>1</espi:status>
+         <espi:expires_in>31536000</espi:expires_in>
+         <espi:scope>DataCustodian_Admin_Access</espi:scope>
+         <espi:token_type>bearer</espi:token_type>
+         <espi:resourceURI>http://localhost:8080/DataCustodian/espi/1_1/resource/</espi:resourceURI>
+         <espi:authorizationURI>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/1</espi:authorizationURI>
+         <espi:thirdParty>data_custodian_admin</espi:thirdParty>
+      </espi:Authorization>
+   </ns3:content>
+   <ns3:published>2014-05-12T13:02:03Z</ns3:published>
+   <ns3:updated>2014-05-12T13:02:03Z</ns3:updated>
+</ns3:entry>]]></con:request><con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="positive PUT - Authorization entry to restore original value"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/Authorization/{authorizationId}" methodName="PUT" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="positive PUT - Authorization entry to restore original value" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request><![CDATA[<ns3:entry xmlns:espi="http://naesb.org/espi" xmlns:ns3="http://www.w3.org/2005/Atom">
+   <ns3:id>urn:uuid:558ebd17-fd1d-435d-8f8d-1d9a129ee1a6</ns3:id>
+   <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization" rel="up"/>
+   <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/1" rel="self"/>
+   <ns3:content>
+      <espi:Authorization>
+         <espi:authorizedPeriod>
+            <espi:duration>0</espi:duration>
+            <espi:start>0</espi:start>
+         </espi:authorizedPeriod>
+         <espi:publishedPeriod>
+            <espi:duration>0</espi:duration>
+            <espi:start>0</espi:start>
+         </espi:publishedPeriod>
+         <espi:accessToken>688b026c-665f-4994-9139-6b21b13fbeee</espi:accessToken>
+         <espi:status>1</espi:status>
+         <espi:expires_in>31536000</espi:expires_in>
+         <espi:scope>DataCustodian_Admin_Access</espi:scope>
+         <espi:token_type>bearer</espi:token_type>
+         <espi:resourceURI>http://localhost:8080/DataCustodian/espi/1_1/resource/</espi:resourceURI>
+         <espi:authorizationURI>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/1</espi:authorizationURI>
+         <espi:thirdParty>data_custodian_admin</espi:thirdParty>
+      </espi:Authorization>
+   </ns3:content>
+   <ns3:published>2014-05-12T13:02:03Z</ns3:published>
+   <ns3:updated>2014-05-12T13:02:03Z</ns3:updated>
+</ns3:entry>]]></con:request><con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/>
 	</con:testSuite>
-	<con:testSuite name="[FB_41] Manage  Authorization Resource">
+	<con:testSuite name="*[FB_44] Manage ApplicationInformation Resource">
 		<con:settings/>
 		<con:runType>SEQUENTIAL</con:runType>
-		<con:properties/>
+		<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*MGT_002[POS][R] Authorized DELETE access to ApplicationInformation entry" searchProperties="true" id="f5cee5fb-118e-4dcc-a3cc-bbff7f2d5748"><con:settings/><con:testStep type="restrequest" name="GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri>
+							<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
+declare namespace espi='http://naesb.org/espi';
+count(/ns3:entry/ns3:content/espi:ApplicationInformation)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+								<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+								<con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="Authorization" value="Bearer ${#Project#registration_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>applicationInformationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>copy body of GET to PUT</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GET ApplicationInformation by Id</con:sourceStep><con:targetType>Request</con:targetType><con:targetStep>PUT ApplicationInformation by Id</con:targetStep></con:transfers></con:config></con:testStep><con:testStep type="restrequest" name="DELETE ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="Delete" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="DELETE ApplicationInformation by Id" mediaType="application/json" id="9ef70ba4-9a57-4ff5-a02e-b693213d9dc0">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="Authorization" value="Bearer ${#Project#registration_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>applicationInformationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="PUT ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="Put" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="PUT ApplicationInformation by Id" mediaType="application/atom+xml" postQueryString="false" id="4b7a8070-65c9-49fd-9a55-3b4671527e91">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request><![CDATA[<ns3:entry xmlns:espi="http://naesb.org/espi" xmlns:ns3="http://www.w3.org/2005/Atom">
+   <ns3:id>urn:uuid:af6e8b03-0299-467e-972a-a883ecdcc575</ns3:id>
+   <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/ApplicationInformation" rel="up"/>
+   <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/ApplicationInformation/2" rel="self"/>
+   <ns3:title>GreenButtonData.org  ThirdParty Application</ns3:title>
+   <ns3:content>
+      <espi:ApplicationInformation>
+         <espi:dataCustodianApplicationStatus>1</espi:dataCustodianApplicationStatus>
+         <espi:thirdPartyNotifyUri>http://localhost:8080/ThirdParty/espi/1_1/Notification</espi:thirdPartyNotifyUri>
+         <espi:dataCustodianBulkRequestURI/>
+         <espi:dataCustodianResourceEndpoint>http://localhost:8080/DataCustodian/espi/1_1/resource</espi:dataCustodianResourceEndpoint>
+         <espi:thirdPartyScopeSelectionScreenURI>http://localhost:8080/ThirdParty/RetailCustomer/ScopeSelection</espi:thirdPartyScopeSelectionScreenURI>
+         <espi:client_secret>secret</espi:client_secret>
+         <espi:redirect_uri>http://localhost:8080/ThirdParty/espi/1_1/OAuthCallBack</espi:redirect_uri>
+         <espi:client_id>third_party</espi:client_id>
+         <espi:contacts>john.teeter@nist.gov,martin.burns@nist.gov,donald.coffin@reminetworks.com</espi:contacts>
+         <espi:token_endpoint_auth_method>client_secret_basic</espi:token_endpoint_auth_method>
+         <espi:scope>FB=4_5_15;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</espi:scope>
+         <espi:scope>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</espi:scope>
+         <espi:scope>FB=4_5_12_15_16;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</espi:scope>
+         <espi:grant_types>authorization_code,refresh_token</espi:grant_types>
+         <espi:dataCustodianId>data_custodian</espi:dataCustodianId>
+         <espi:thirdPartyApplicationName>Third Party (localhost)</espi:thirdPartyApplicationName>
+         <espi:dataCustodianScopeSelectionScreenURI>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList</espi:dataCustodianScopeSelectionScreenURI>
+      </espi:ApplicationInformation>
+   </ns3:content>
+   <ns3:published>2014-01-02T10:00:00Z</ns3:published>
+   <ns3:updated>2014-01-02T10:00:00Z</ns3:updated>
+</ns3:entry>]]></con:request>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="Authorization" value="Bearer ${#Project#registration_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>applicationInformationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*MGT_001[POS][R] Authorized PUT access to ApplicationInformation entry" searchProperties="true" id="fe8f8abd-621b-47d7-a09a-07d30075dbb0"><con:settings/><con:testStep type="restrequest" name="GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri>
+							<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
+declare namespace espi='http://naesb.org/espi';
+count(/ns3:entry/ns3:content/espi:ApplicationInformation)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+								<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+								<con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters/>
+							<con:parameterOrder>
+								<con:entry>applicationInformationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>copy body of GET to PUT</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GET ApplicationInformation by Id</con:sourceStep><con:targetType>Request</con:targetType><con:targetStep>PUT ApplicationInformation by Id</con:targetStep></con:transfers></con:config></con:testStep><con:testStep type="restrequest" name="PUT ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="Put" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="PUT ApplicationInformation by Id" mediaType="application/atom+xml" postQueryString="false" id="4b7a8070-65c9-49fd-9a55-3b4671527e91">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request><![CDATA[<ns3:entry xmlns:espi="http://naesb.org/espi" xmlns:ns3="http://www.w3.org/2005/Atom">
+   <ns3:id>urn:uuid:af6e8b03-0299-467e-972a-a883ecdcc575</ns3:id>
+   <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/ApplicationInformation" rel="up"/>
+   <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/ApplicationInformation/2" rel="self"/>
+   <ns3:title>GreenButtonData.org  ThirdParty Application</ns3:title>
+   <ns3:content>
+      <espi:ApplicationInformation>
+         <espi:dataCustodianApplicationStatus>1</espi:dataCustodianApplicationStatus>
+         <espi:thirdPartyNotifyUri>http://localhost:8080/ThirdParty/espi/1_1/Notification</espi:thirdPartyNotifyUri>
+         <espi:dataCustodianBulkRequestURI/>
+         <espi:dataCustodianResourceEndpoint>http://localhost:8080/DataCustodian/espi/1_1/resource</espi:dataCustodianResourceEndpoint>
+         <espi:thirdPartyScopeSelectionScreenURI>http://localhost:8080/ThirdParty/RetailCustomer/ScopeSelection</espi:thirdPartyScopeSelectionScreenURI>
+         <espi:client_secret>secret</espi:client_secret>
+         <espi:redirect_uri>http://localhost:8080/ThirdParty/espi/1_1/OAuthCallBack</espi:redirect_uri>
+         <espi:client_id>third_party</espi:client_id>
+         <espi:contacts>john.teeter@nist.gov,martin.burns@nist.gov,donald.coffin@reminetworks.com</espi:contacts>
+         <espi:token_endpoint_auth_method>client_secret_basic</espi:token_endpoint_auth_method>
+         <espi:scope>FB=4_5_15;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</espi:scope>
+         <espi:scope>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</espi:scope>
+         <espi:scope>FB=4_5_12_15_16;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</espi:scope>
+         <espi:grant_types>authorization_code,refresh_token</espi:grant_types>
+         <espi:dataCustodianId>data_custodian</espi:dataCustodianId>
+         <espi:thirdPartyApplicationName>Third Party (localhost)</espi:thirdPartyApplicationName>
+         <espi:dataCustodianScopeSelectionScreenURI>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList</espi:dataCustodianScopeSelectionScreenURI>
+      </espi:ApplicationInformation>
+   </ns3:content>
+   <ns3:published>2014-01-02T10:00:00Z</ns3:published>
+   <ns3:updated>2014-01-02T10:00:00Z</ns3:updated>
+</ns3:entry>]]></con:request>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters/>
+							<con:parameterOrder>
+								<con:entry>applicationInformationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*MGA001[NEG][C,A,NONE] Forbidden PUT, DELETE access to ApplicationInformation entry" searchProperties="true" id="9f227f0e-0901-4fc9-a310-a6b58be2daea"><con:settings/><con:testStep type="restrequest" name="GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri>
+							<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
+declare namespace espi='http://naesb.org/espi';
+count(/ns3:entry/ns3:content/espi:ApplicationInformation)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+								<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+								<con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="Authorization" value="Bearer ${#Project#registration_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>applicationInformationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>copy body of GET to PUT</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GET ApplicationInformation by Id</con:sourceStep><con:targetType>Request</con:targetType><con:targetStep>PUT ApplicationInformation by Id</con:targetStep></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true"><con:name>Copy body of GET to PUT by C</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GET ApplicationInformation by Id</con:sourceStep><con:targetType>Request</con:targetType><con:targetStep>PUT ApplicationInformation by Id using client_access_token</con:targetStep></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true"><con:name>copy body of GET to PUT by A</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GET ApplicationInformation by Id</con:sourceStep><con:targetType>Request</con:targetType><con:targetStep>PUT ApplicationInformation by Id using access_token</con:targetStep></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" transferChildNodes="false"><con:name>Copy GET response body to PUT with no access token</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GET ApplicationInformation by Id</con:sourceStep><con:targetType>Request</con:targetType><con:targetStep>PUT ApplicationInformation by Id with no access token</con:targetStep></con:transfers></con:config></con:testStep><con:testStep type="restrequest" name="PUT ApplicationInformation by Id using client_access_token"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="Put" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="PUT ApplicationInformation by Id using client_access_token" mediaType="application/atom+xml" postQueryString="false" id="4b7a8070-65c9-49fd-9a55-3b4671527e91">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request><![CDATA[<ns3:entry xmlns:espi="http://naesb.org/espi" xmlns:ns3="http://www.w3.org/2005/Atom">
+   <ns3:id>urn:uuid:af6e8b03-0299-467e-972a-a883ecdcc575</ns3:id>
+   <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/ApplicationInformation" rel="up"/>
+   <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/ApplicationInformation/2" rel="self"/>
+   <ns3:title>GreenButtonData.org  ThirdParty Application</ns3:title>
+   <ns3:content>
+      <espi:ApplicationInformation>
+         <espi:dataCustodianApplicationStatus>1</espi:dataCustodianApplicationStatus>
+         <espi:thirdPartyNotifyUri>http://localhost:8080/ThirdParty/espi/1_1/Notification</espi:thirdPartyNotifyUri>
+         <espi:dataCustodianBulkRequestURI/>
+         <espi:dataCustodianResourceEndpoint>http://localhost:8080/DataCustodian/espi/1_1/resource</espi:dataCustodianResourceEndpoint>
+         <espi:thirdPartyScopeSelectionScreenURI>http://localhost:8080/ThirdParty/RetailCustomer/ScopeSelection</espi:thirdPartyScopeSelectionScreenURI>
+         <espi:client_secret>secret</espi:client_secret>
+         <espi:redirect_uri>http://localhost:8080/ThirdParty/espi/1_1/OAuthCallBack</espi:redirect_uri>
+         <espi:client_id>third_party</espi:client_id>
+         <espi:contacts>john.teeter@nist.gov,martin.burns@nist.gov,donald.coffin@reminetworks.com</espi:contacts>
+         <espi:token_endpoint_auth_method>client_secret_basic</espi:token_endpoint_auth_method>
+         <espi:scope>FB=4_5_15;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</espi:scope>
+         <espi:scope>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</espi:scope>
+         <espi:scope>FB=4_5_12_15_16;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</espi:scope>
+         <espi:grant_types>authorization_code,refresh_token</espi:grant_types>
+         <espi:dataCustodianId>data_custodian</espi:dataCustodianId>
+         <espi:thirdPartyApplicationName>Third Party (localhost)</espi:thirdPartyApplicationName>
+         <espi:dataCustodianScopeSelectionScreenURI>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList</espi:dataCustodianScopeSelectionScreenURI>
+      </espi:ApplicationInformation>
+   </ns3:content>
+   <ns3:published>2014-01-02T10:00:00Z</ns3:published>
+   <ns3:updated>2014-01-02T10:00:00Z</ns3:updated>
+</ns3:entry>]]></con:request>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="Authorization" value="Bearer ${#Project#client_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>applicationInformationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="PUT ApplicationInformation by Id using access_token"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="Put" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="PUT ApplicationInformation by Id using access_token" mediaType="application/atom+xml" postQueryString="false" id="4b7a8070-65c9-49fd-9a55-3b4671527e91">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request><![CDATA[<ns3:entry xmlns:espi="http://naesb.org/espi" xmlns:ns3="http://www.w3.org/2005/Atom">
+   <ns3:id>urn:uuid:af6e8b03-0299-467e-972a-a883ecdcc575</ns3:id>
+   <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/ApplicationInformation" rel="up"/>
+   <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/ApplicationInformation/2" rel="self"/>
+   <ns3:title>GreenButtonData.org  ThirdParty Application</ns3:title>
+   <ns3:content>
+      <espi:ApplicationInformation>
+         <espi:dataCustodianApplicationStatus>1</espi:dataCustodianApplicationStatus>
+         <espi:thirdPartyNotifyUri>http://localhost:8080/ThirdParty/espi/1_1/Notification</espi:thirdPartyNotifyUri>
+         <espi:dataCustodianBulkRequestURI/>
+         <espi:dataCustodianResourceEndpoint>http://localhost:8080/DataCustodian/espi/1_1/resource</espi:dataCustodianResourceEndpoint>
+         <espi:thirdPartyScopeSelectionScreenURI>http://localhost:8080/ThirdParty/RetailCustomer/ScopeSelection</espi:thirdPartyScopeSelectionScreenURI>
+         <espi:client_secret>secret</espi:client_secret>
+         <espi:redirect_uri>http://localhost:8080/ThirdParty/espi/1_1/OAuthCallBack</espi:redirect_uri>
+         <espi:client_id>third_party</espi:client_id>
+         <espi:contacts>john.teeter@nist.gov,martin.burns@nist.gov,donald.coffin@reminetworks.com</espi:contacts>
+         <espi:token_endpoint_auth_method>client_secret_basic</espi:token_endpoint_auth_method>
+         <espi:scope>FB=4_5_15;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</espi:scope>
+         <espi:scope>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</espi:scope>
+         <espi:scope>FB=4_5_12_15_16;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</espi:scope>
+         <espi:grant_types>authorization_code,refresh_token</espi:grant_types>
+         <espi:dataCustodianId>data_custodian</espi:dataCustodianId>
+         <espi:thirdPartyApplicationName>Third Party (localhost)</espi:thirdPartyApplicationName>
+         <espi:dataCustodianScopeSelectionScreenURI>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList</espi:dataCustodianScopeSelectionScreenURI>
+      </espi:ApplicationInformation>
+   </ns3:content>
+   <ns3:published>2014-01-02T10:00:00Z</ns3:published>
+   <ns3:updated>2014-01-02T10:00:00Z</ns3:updated>
+</ns3:entry>]]></con:request>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="Authorization" value="Bearer ${#Project#access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>applicationInformationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="PUT ApplicationInformation by Id with no access token"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="Put" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="PUT ApplicationInformation by Id with no access token" mediaType="application/atom+xml" postQueryString="false" id="4b7a8070-65c9-49fd-9a55-3b4671527e91">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request><![CDATA[<ns3:entry xmlns:espi="http://naesb.org/espi" xmlns:ns3="http://www.w3.org/2005/Atom">
+   <ns3:id>urn:uuid:af6e8b03-0299-467e-972a-a883ecdcc575</ns3:id>
+   <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/ApplicationInformation" rel="up"/>
+   <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/ApplicationInformation/2" rel="self"/>
+   <ns3:title>GreenButtonData.org  ThirdParty Application</ns3:title>
+   <ns3:content>
+      <espi:ApplicationInformation>
+         <espi:dataCustodianApplicationStatus>1</espi:dataCustodianApplicationStatus>
+         <espi:thirdPartyNotifyUri>http://localhost:8080/ThirdParty/espi/1_1/Notification</espi:thirdPartyNotifyUri>
+         <espi:dataCustodianBulkRequestURI/>
+         <espi:dataCustodianResourceEndpoint>http://localhost:8080/DataCustodian/espi/1_1/resource</espi:dataCustodianResourceEndpoint>
+         <espi:thirdPartyScopeSelectionScreenURI>http://localhost:8080/ThirdParty/RetailCustomer/ScopeSelection</espi:thirdPartyScopeSelectionScreenURI>
+         <espi:client_secret>secret</espi:client_secret>
+         <espi:redirect_uri>http://localhost:8080/ThirdParty/espi/1_1/OAuthCallBack</espi:redirect_uri>
+         <espi:client_id>third_party</espi:client_id>
+         <espi:contacts>john.teeter@nist.gov,martin.burns@nist.gov,donald.coffin@reminetworks.com</espi:contacts>
+         <espi:token_endpoint_auth_method>client_secret_basic</espi:token_endpoint_auth_method>
+         <espi:scope>FB=4_5_15;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</espi:scope>
+         <espi:scope>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</espi:scope>
+         <espi:scope>FB=4_5_12_15_16;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</espi:scope>
+         <espi:grant_types>authorization_code,refresh_token</espi:grant_types>
+         <espi:dataCustodianId>data_custodian</espi:dataCustodianId>
+         <espi:thirdPartyApplicationName>Third Party (localhost)</espi:thirdPartyApplicationName>
+         <espi:dataCustodianScopeSelectionScreenURI>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList</espi:dataCustodianScopeSelectionScreenURI>
+      </espi:ApplicationInformation>
+   </ns3:content>
+   <ns3:published>2014-01-02T10:00:00Z</ns3:published>
+   <ns3:updated>2014-01-02T10:00:00Z</ns3:updated>
+</ns3:entry>]]></con:request>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="Authorization" value="" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>applicationInformationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="DELETE ApplicationInformation by Id using client_access_token"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="Delete" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="DELETE ApplicationInformation by Id using client_access_token" mediaType="application/json" id="9ef70ba4-9a57-4ff5-a02e-b693213d9dc0">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="Authorization" value="Bearer ${#Project#client_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>applicationInformationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="DELETE ApplicationInformation by Id using access_token" disabled="true"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="Delete" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="DELETE ApplicationInformation by Id using access_token" mediaType="application/json" id="9ef70ba4-9a57-4ff5-a02e-b693213d9dc0">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="Authorization" value="Bearer ${#Project#access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>applicationInformationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="DELETE ApplicationInformation by Id using empty access token"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="Delete" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="DELETE ApplicationInformation by Id using empty access token" mediaType="application/json" id="9ef70ba4-9a57-4ff5-a02e-b693213d9dc0">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request/>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters><entry key="Authorization" value="" xmlns="http://eviware.com/soapui/config"/></con:parameters>
+							<con:parameterOrder>
+								<con:entry>applicationInformationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="PUT ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="Put" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="PUT ApplicationInformation by Id" mediaType="application/atom+xml" postQueryString="false" id="4b7a8070-65c9-49fd-9a55-3b4671527e91">
+							<con:settings>
+								<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+							</con:settings>
+							<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+							<con:request><![CDATA[<ns3:entry xmlns:espi="http://naesb.org/espi" xmlns:ns3="http://www.w3.org/2005/Atom">
+   <ns3:id>urn:uuid:af6e8b03-0299-467e-972a-a883ecdcc575</ns3:id>
+   <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/ApplicationInformation" rel="up"/>
+   <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/ApplicationInformation/2" rel="self"/>
+   <ns3:title>GreenButtonData.org  ThirdParty Application</ns3:title>
+   <ns3:content>
+      <espi:ApplicationInformation>
+         <espi:dataCustodianApplicationStatus>1</espi:dataCustodianApplicationStatus>
+         <espi:thirdPartyNotifyUri>http://localhost:8080/ThirdParty/espi/1_1/Notification</espi:thirdPartyNotifyUri>
+         <espi:dataCustodianBulkRequestURI/>
+         <espi:dataCustodianResourceEndpoint>http://localhost:8080/DataCustodian/espi/1_1/resource</espi:dataCustodianResourceEndpoint>
+         <espi:thirdPartyScopeSelectionScreenURI>http://localhost:8080/ThirdParty/RetailCustomer/ScopeSelection</espi:thirdPartyScopeSelectionScreenURI>
+         <espi:client_secret>secret</espi:client_secret>
+         <espi:redirect_uri>http://localhost:8080/ThirdParty/espi/1_1/OAuthCallBack</espi:redirect_uri>
+         <espi:client_id>third_party</espi:client_id>
+         <espi:contacts>john.teeter@nist.gov,martin.burns@nist.gov,donald.coffin@reminetworks.com</espi:contacts>
+         <espi:token_endpoint_auth_method>client_secret_basic</espi:token_endpoint_auth_method>
+         <espi:scope>FB=4_5_15;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</espi:scope>
+         <espi:scope>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</espi:scope>
+         <espi:scope>FB=4_5_12_15_16;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</espi:scope>
+         <espi:grant_types>authorization_code,refresh_token</espi:grant_types>
+         <espi:dataCustodianId>data_custodian</espi:dataCustodianId>
+         <espi:thirdPartyApplicationName>Third Party (localhost)</espi:thirdPartyApplicationName>
+         <espi:dataCustodianScopeSelectionScreenURI>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList</espi:dataCustodianScopeSelectionScreenURI>
+      </espi:ApplicationInformation>
+   </ns3:content>
+   <ns3:published>2014-01-02T10:00:00Z</ns3:published>
+   <ns3:updated>2014-01-02T10:00:00Z</ns3:updated>
+</ns3:entry>]]></con:request>
+							<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials>
+								<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+							</con:credentials>
+							<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+							<con:jmsPropertyConfig/>
+							<con:parameters/>
+							<con:parameterOrder>
+								<con:entry>applicationInformationId</con:entry>
+								<con:entry>Authorization</con:entry>
+								<con:entry>Content-Type</con:entry>
+							</con:parameterOrder>
+						</con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/>
 	</con:testSuite>
 	<con:properties>
 		<con:property>
@@ -16272,11 +17061,11 @@ log.info("Feature: DC Admin Access");
 		</con:property>
 		<con:property>
 			<con:name>applicationInformationId</con:name>
-			<con:value>1</con:value>
+			<con:value>2</con:value>
 		</con:property>
 		<con:property>
 			<con:name>authorizationId</con:name>
-			<con:value>1</con:value>
+			<con:value>4</con:value>
 		</con:property>
 		<con:property>
 			<con:name>bulkId</con:name>
