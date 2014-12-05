@@ -1,6 +1,7 @@
 ./SOAPUI/etc/gbcmd.conf
 /data/testSets/
 /SOAPUI/etc/gbcmd.conf
+/SOAPUI/etc/gbcmdcert.conf
 ./SOAPUI/CMDUtils/target/
 
 *.class
