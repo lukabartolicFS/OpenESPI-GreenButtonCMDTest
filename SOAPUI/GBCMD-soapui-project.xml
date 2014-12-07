@@ -16220,7 +16220,7 @@ return;
 		</con:testStep>
 		<con:properties/>
 	</con:testCase>
-	<con:properties/>
+	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD005 [NEG] Malformed Authorization Code Request (No &quot;response_code&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD006 [NEG] Malformed Authorization Code Request (No &quot;client_id&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD007 [NEG] Malformed Authorization Code Request (No &quot;redirect_uri&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:properties/>
 </con:testSuite>
 <con:testSuite name="[FB_19] Partial Update Data">
 	<con:settings/>
