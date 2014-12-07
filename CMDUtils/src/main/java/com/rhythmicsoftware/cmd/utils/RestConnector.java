@@ -4,9 +4,6 @@ import java.io.IOException;
 //import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-
-
 import org.apache.log4j.Logger;
 //import org.apache.commons.httpclient.*;
 //import org.apache.commons.httpclient.methods.*;
@@ -78,7 +75,11 @@ public class RestConnector {
         debug("----------------------------------------");
         debug("RestConnector.request Starting");
 		
-		 CloseableHttpClient httpclient = HttpClients.createDefault();
+		 CloseableHttpClient httpClient = HttpClients.createDefault();
+		 
+		 	debug("----------------------------------------");
+		 	debug("RestConnector.request -- httpClient: " + httpClient);
+		 
 	        try {
 	            HttpGet httpget = new HttpGet(baseUrl + url);
 
@@ -99,11 +100,11 @@ public class RestConnector {
 	                }
 
 	            };
-	            String responseBody = httpclient.execute(httpget, responseHandler);
+	            String responseBody = httpClient.execute(httpget, responseHandler);
 	            debug("----------------------------------------");
 	            debug(responseBody);
 	        } finally {
-	            httpclient.close();
+	            httpClient.close();
 	        }		
 		
 		return true;
