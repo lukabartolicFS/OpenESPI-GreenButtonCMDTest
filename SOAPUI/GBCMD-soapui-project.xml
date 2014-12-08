@@ -3119,7 +3119,7 @@
 </con:parameterOrder>
 </con:request>
 </con:method>
-<con:method name="PUT" method="PUT"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>415</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="Request 1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request><![CDATA[<ns3:entry xmlns:espi="http://naesb.org/espi" xmlns:ns3="http://www.w3.org/2005/Atom">
+<con:method name="PUT" method="PUT" id="4b529598-41fb-44bf-9321-a3769cd43a56"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>415</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="Request 1" mediaType="application/json" postQueryString="false" id="6bda1dcd-48b2-4098-a9f5-d5d7cb0600a4"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request><![CDATA[<ns3:entry xmlns:espi="http://naesb.org/espi" xmlns:ns3="http://www.w3.org/2005/Atom">
    <ns3:id>urn:uuid:558ebd17-fd1d-435d-8f8d-1d9a129ee1a6</ns3:id>
    <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization" rel="up"/>
    <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/1" rel="self"/>
@@ -14929,7 +14929,7 @@ return;
 				// Need these imports to run tests
 				/////////////////////////////////////////////////////////
 
-				import com.rhythmicsoftware.cmd.utils.RestConnector;
+				import com.rhythmicsoftware.cmd.utils.HTTPConnector;
 
 
 
@@ -14951,8 +14951,6 @@ return;
 				def state = project.getPropertyValue("state")
 
 				//def List&amp;lt;String> sessionCookie = []
-
-
 
 
 			//////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -14980,20 +14978,19 @@ return;
 			log.info("   Login Retail Customer -- Alan ");
 			log.info("*****************************************************************************************************");	
 
-			RestConnector restConnector = new RestConnector("http://www.apache.org/", log);
-			log.info("restConnector: " + restConnector);
+			HTTPConnector httpConnector = new HTTPConnector(ServiceEndpoint, log);
+//			log.info("httpConnector: " + httpConnector);
 
-			if( context["restConnector"] == null )
-			context["restConnector"] = restConnector
-			log.info("context: " + context["restConnector"]);
+			if( context["httpConnector"] == null )
+			context["httpConnector"] = httpConnector
+//			log.info("context: " + context["httpConnector"]);
 
-			boolean bResult = restConnector.request("dummy", "dummy", "", null);
+			url = '/j_spring_security_check'
+			params = "?j_username=" + TestRetailCustomer + "&amp;j_password=" + TestRetailCustomerPW
+
+			boolean bResult = httpConnector.doPost("application/x-www-form-urlencoded", url, params);
 
 			assert (bResult)
-
-
-
-
 
 			return;</script></con:config>
 </con:testStep>			<con:properties/>
@@ -15003,7 +15000,7 @@ return;
 <con:testSuite name="[FB_03] Core Green Button Connect My Data">
 	<con:settings/>
 	<con:runType>SEQUENTIAL</con:runType>
-	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*FND002 [POS][R] Authorized GET access to ApplicationInformation entry" searchProperties="true" id="720bfc98-a2d2-4679-a25c-1ab6b2ec6cb6"><con:settings/><con:testStep type="restrequest" name="GET and verify ApplicationInformation"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ApplicationInformation by Id - Request 1" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*FND002 [POS][R] Authorized GET access to ApplicationInformation entry" searchProperties="true" id="720bfc98-a2d2-4679-a25c-1ab6b2ec6cb6"><con:settings/><con:testStep type="restrequest" name="GET and verify ApplicationInformation"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET and verify ApplicationInformation" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
 					<con:settings>
 						<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 			</con:settings>
@@ -15084,7 +15081,7 @@ return;
 	<con:testStep type="restrequest" name="GET and verify ServiceStatus">
 		<con:settings/>
 		<con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ReadServiceStatus" methodName="GET ServiceStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-			<con:restRequest name="GET ServiceStatus" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
+			<con:restRequest name="GET and verify ServiceStatus" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
 				<con:settings>
 					<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 		</con:settings>
@@ -17064,11 +17061,11 @@ return;
 	</con:property>
 	<con:property>
 		<con:name>applicationInformationId</con:name>
-		<con:value>2</con:value>
+		<con:value>1</con:value>
 	</con:property>
 	<con:property>
 		<con:name>authorizationId</con:name>
-		<con:value>4</con:value>
+		<con:value>1</con:value>
 	</con:property>
 	<con:property>
 		<con:name>bulkId</con:name>
