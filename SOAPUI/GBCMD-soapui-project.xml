@@ -2522,7 +2522,7 @@
 			</con:representation>
 			<con:representation type="FAULT">
 				<con:mediaType>application/json;charset=UTF-8</con:mediaType>
-				<con:status>403</con:status>
+				<con:status>403 401</con:status>
 				<con:params/>
 				<con:element xmlns:ns="http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1">ns:Fault</con:element>
 			</con:representation>
@@ -14997,19 +14997,56 @@ return;
 </con:testCase>
 <con:properties/>
 </con:testSuite>
-<con:testSuite name="[FB_03] Core Green Button Connect My Data">
+<con:testSuite name="*[FB_03] Core Green Button Connect My Data">
 	<con:settings/>
 	<con:runType>SEQUENTIAL</con:runType>
-	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*FND002 [POS][R] Authorized GET access to ApplicationInformation entry" searchProperties="true" id="720bfc98-a2d2-4679-a25c-1ab6b2ec6cb6"><con:settings/><con:testStep type="restrequest" name="GET and verify ApplicationInformation"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET and verify ApplicationInformation" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FND002 [POS][R] Authorized GET access to ApplicationInformation entry" searchProperties="true" id="720bfc98-a2d2-4679-a25c-1ab6b2ec6cb6"><con:settings/><con:testStep type="restrequest" name="GET and verify ApplicationInformation"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET and verify ApplicationInformation" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
 					<con:settings>
 						<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 			</con:settings>
 			<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 			<con:request/>
 			<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri>
-			<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
-						declare namespace espi='http://naesb.org/espi';
-						/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianApplicationStatus and /ns3:entry/ns3:content/espi:ApplicationInformation/espi:thirdPartyNotifyUri</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials>
+			<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XPath Match" name="ApplicationInformation must contains fields"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
+declare namespace espi='http://naesb.org/espi';
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianId and
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianApplicationStatus and
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:thirdPartyNotifyUri and
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:authorizationServerAuthorizationEndpoint and
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:authorizationServerTokenEndpoint and
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianBulkRequestURI and
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianResourceEndpoint and
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:thirdPartyScopeSelectionScreenURI and
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:thirdPartyUserPortalScreenURI and
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:client_secret and
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:client_name and
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:client_uri and
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:client_id and
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:software_id and
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:software_version and
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:client_id_issued_at and
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:client_secret_expires_at and
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:token_endpoint_auth_method and
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:scope,grant_types and
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:response_types and
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:registration_client_uri and
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:registration_access_token and
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianScopeSelectionScreen</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="dataCustodianApplicationStatus must contain a value of 1,2,3 or 4"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
+declare namespace espi='http://naesb.org/espi';
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianApplicationStatus=1 or
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianApplicationStatus=2 or
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianApplicationStatus=3 or
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianApplicationStatus=4</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="token_endpoint_auth_method must contain the value client_secret_basic"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
+declare namespace espi='http://naesb.org/espi';
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:token_endpoint_auth_method='client_secret_basic'</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="grant_types must contain a value of authorization_code, refresh_token or client_credentials"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
+declare namespace espi='http://naesb.org/espi';
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:grant_types='authorization_code' or
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:grant_types='refresh_token' or 
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:grant_types='client_credentials'</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="if grant_types=client_credentials then redirect_uri should not be present or should contain a null value. Otherwise redirect_uri must be present. "><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
+declare namespace espi='http://naesb.org/espi';
+(/ns3:entry/ns3:content/espi:ApplicationInformation/espi:grant_types='client_credentials' and not(/ns3:entry/ns3:content/espi:ApplicationInformation/espi:redirect_uri)) or
+(/ns3:entry/ns3:content/espi:ApplicationInformation/espi:grant_types='client_credentials' and /ns3:entry/ns3:content/espi:ApplicationInformation/espi:redirect_uri='') or 
+(not(/ns3:entry/ns3:content/espi:ApplicationInformation/espi:grant_types='client_credentials') and not(/ns3:entry/ns3:content/espi:ApplicationInformation/espi:redirect_uri))</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials>
 				<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
 				<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
 				<con:authType>Global HTTP Settings</con:authType>
@@ -15023,7 +15060,7 @@ return;
 				<con:entry>Content-Type</con:entry>
 			</con:parameterOrder>
 		</con:restRequest></con:config></con:testStep><con:properties/></con:testCase>
-<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FND003 [POS][C] Authorized GET access to Authorization feed" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="GET and verify Authorization Feed"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/Authorization" methodName="GET Authorization Feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET and verify Authorization Feed" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FND003 [POS][C] Authorized GET access to Authorization feed" searchProperties="true" id="0d8885cd-82a7-48ad-8144-1a20113fd8a9"><con:settings/><con:testStep type="restrequest" name="GET and verify Authorization Feed"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/Authorization" methodName="GET Authorization Feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET and verify Authorization Feed" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
 				<con:settings>
 					<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 		</con:settings>
@@ -15045,7 +15082,7 @@ return;
 			<con:entry>Authorization</con:entry>
 			<con:entry>Content-Type</con:entry>
 		</con:parameterOrder>
-	</con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*FND004 [POS][C] Authorized GET access to Authorization entry" searchProperties="true" id="5f6945b3-0e08-4d6a-ab73-114465502a91"><con:settings/><con:testStep type="restrequest" name="GET Authorization by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/Authorization/{authorizationId}" methodName="GET Authorization by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET Authorization by Id" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
+	</con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FND004 [POS][C] Authorized GET access to Authorization entry" searchProperties="true" id="5f6945b3-0e08-4d6a-ab73-114465502a91"><con:settings/><con:testStep type="restrequest" name="GET Authorization by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/Authorization/{authorizationId}" methodName="GET Authorization by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET Authorization by Id" mediaType="application/json" id="993a9960-3a59-47d1-a7bb-5fc3850ffcf9">
 				<con:settings>
 					<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 		</con:settings>
@@ -15070,13 +15107,50 @@ return;
 		</con:credentials>
 		<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
 		<con:jmsPropertyConfig/>
-		<con:parameters/>
+		<con:parameters><entry key="Authorization" value="Bearer ${#Project#registration_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
 		<con:parameterOrder>
 			<con:entry>authorizationId</con:entry>
 			<con:entry>Authorization</con:entry>
 			<con:entry>Content-Type</con:entry>
 		</con:parameterOrder>
-	</con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*FND005 [POS][A] Authorized GET access to Batch/Subscription entry" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FND006 [POS][C] Authorized GET access to ReadServiceStatus" searchProperties="true" id="a5744784-2b85-461b-b265-c3ee56742237">
+	</con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*FND005 [POS][A] Authorized GET access to Batch/Subscription feed" searchProperties="true" id="d62e2649-ece3-49b5-ac10-ee1ec70600b7"><con:description>1. Client sends GET request for {dataCustodianResourceEndpoint}/ApplicationInformation/{ApplicationInformationId}
+2. Verify positive response 200 - OK and presence or DC scope selection URI
+3. Extract from App info the DC scope selection URI
+4. Script will bring up browser to DC URI
+5. Direct Utility to log on on behalf of a test retail customer
+6. Go through authorization steps - authorize at least one usage point
+7. Test harness will receive authorization URI and resource URI (Batch/Subscription/{SubscriptionId)
+8. Retrieve authorization and extract access token and scope
+9. Client sends GET request for authorization.uri and access token provided in step 8
+10. Verify receipt of positive response 200 - OK
+11. Validate response according to schema
+12. Verify response contains a feed with at least 1 UsagePoint
+13. Run all FB XSLT tests based on authorization.scope (from step 6)
+14. Produce test results passes and failures - pop-up dialog(TBD)</con:description><con:settings/><con:testStep type="restrequest" name="GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+				<con:settings>
+					<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+		</con:settings>
+		<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+		<con:request/>
+		<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri>
+		<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
+declare namespace espi='http://naesb.org/espi';
+count(/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianScopeSelectionScreen)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials>
+			<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+			<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+			<con:authType>Global HTTP Settings</con:authType>
+		</con:credentials>
+		<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+		<con:jmsPropertyConfig/>
+		<con:parameters/>
+		<con:parameterOrder>
+			<con:entry>applicationInformationId</con:entry>
+			<con:entry>Authorization</con:entry>
+			<con:entry>Content-Type</con:entry>
+		</con:parameterOrder>
+	</con:restRequest></con:config></con:testStep><con:testStep type="transfer" name="*Extract DC scope selection URI"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>extract DC scope selection URI</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GET ApplicationInformation by Id</con:sourceStep><con:sourcePath>declare namespace ns3='http://www.w3.org/2005/Atom';
+declare namespace espi='http://naesb.org/espi';
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:thirdPartyNotifyUri</con:sourcePath><con:targetType>extracted_scope_sel_uri</con:targetType><con:targetStep>#TestCase#</con:targetStep></con:transfers></con:config></con:testStep><con:properties><con:property><con:name>extracted_scope_sel_uri</con:name><con:value>http://localhost:8080/ThirdParty/espi/1_1/Notification</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FND006 [POS][C] Authorized GET access to ReadServiceStatus" searchProperties="true" id="a5744784-2b85-461b-b265-c3ee56742237">
 	<con:settings/>
 	<con:testStep type="restrequest" name="GET and verify ServiceStatus">
 		<con:settings/>
@@ -16985,11 +17059,11 @@ return;
 <con:properties>
 	<con:property>
 		<con:name>BaseURL</con:name>
-		<con:value>https://services.greenbuttondata.org</con:value>
+		<con:value>http://localhost:8080</con:value>
 	</con:property>
 	<con:property>
 		<con:name>ServiceEndpoint</con:name>
-		<con:value>https://services.greenbuttondata.org/DataCustodian</con:value>
+		<con:value>http://localhost:8080/DataCustodian</con:value>
 	</con:property>
 	<con:property>
 		<con:name>DataCustodianContext</con:name>
@@ -17001,7 +17075,7 @@ return;
 	</con:property>
 	<con:property>
 		<con:name>linkPrefixForReplace</con:name>
-		<con:value>https://services.greenbuttondata.org/DataCustodian/</con:value>
+		<con:value>http://localhost:8080/DataCustodian/</con:value>
 	</con:property>
 	<con:property>
 		<con:name>HomePageURLEndpoint</con:name>
@@ -17117,11 +17191,11 @@ return;
 	</con:property>
 	<con:property>
 		<con:name>userAccessToken1</con:name>
-		<con:value>60f41fbf-f2ad-4349-81a2-5a7b0e208042</con:value>
+		<con:value>f811c388-e3d9-46df-8398-de2814efa94a</con:value>
 	</con:property>
 	<con:property>
 		<con:name>userAccessToken2</con:name>
-		<con:value>d0144d87-9609-4d78-a347-855d48180fee</con:value>
+		<con:value>f4c6b3d0-882a-469d-9e45-487bcbbe20dc</con:value>
 	</con:property>
 	<con:property>
 		<con:name>registration_third_party_access_token</con:name>
@@ -17149,7 +17223,7 @@ return;
 	</con:property>
 	<con:property>
 		<con:name>redirect_uri</con:name>
-		<con:value>https://services.greenbuttondata.org/ThirdParty/espi/1_1/OAuthCallBack</con:value>
+		<con:value>http://localhost:8080/ThirdParty/espi/1_1/OAuthCallBack</con:value>
 	</con:property>
 	<con:property>
 		<con:name>scope</con:name>
