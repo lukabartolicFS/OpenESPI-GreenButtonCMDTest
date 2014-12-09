@@ -15040,9 +15040,9 @@ declare namespace espi='http://naesb.org/espi';
 declare namespace espi='http://naesb.org/espi';
 /ns3:entry/ns3:content/espi:ApplicationInformation/espi:token_endpoint_auth_method='client_secret_basic'</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="grant_types must contain a value of authorization_code, refresh_token or client_credentials"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
 declare namespace espi='http://naesb.org/espi';
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:grant_types='authorization_code' or
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:grant_types='refresh_token' or 
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:grant_types='client_credentials'</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="if grant_types=client_credentials then redirect_uri should not be present or should contain a null value. Otherwise redirect_uri must be present. "><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
+contains(/ns3:entry/ns3:content/espi:ApplicationInformation/espi:grant_types,'authorization_code') or
+contains(/ns3:entry/ns3:content/espi:ApplicationInformation/espi:grant_types,'refresh_token') or 
+contains(/ns3:entry/ns3:content/espi:ApplicationInformation/espi:grant_types,'client_credentials')</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="if grant_types=client_credentials then redirect_uri should not be present or should contain a null value. Otherwise redirect_uri must be present. "><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
 declare namespace espi='http://naesb.org/espi';
 (/ns3:entry/ns3:content/espi:ApplicationInformation/espi:grant_types='client_credentials' and not(/ns3:entry/ns3:content/espi:ApplicationInformation/espi:redirect_uri)) or
 (/ns3:entry/ns3:content/espi:ApplicationInformation/espi:grant_types='client_credentials' and /ns3:entry/ns3:content/espi:ApplicationInformation/espi:redirect_uri='') or 
@@ -15089,20 +15089,20 @@ declare namespace espi='http://naesb.org/espi';
 		<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 		<con:request/>
 		<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
-					declare namespace espi='http://naesb.org/espi';
+declare namespace espi='http://naesb.org/espi';
 
-					/ns3:entry/ns3:content/espi:Authorization/espi:authorizedPeriod and 
-					/ns3:entry/ns3:content/espi:Authorization/espi:publishedPeriod and
-					/ns3:entry/ns3:content/espi:Authorization/espi:access_token and
-					/ns3:entry/ns3:content/espi:Authorization/espi:expiresAt and 
-					/ns3:entry/ns3:content/espi:Authorization/espi:grant_type and 
-					/ns3:entry/ns3:content/espi:Authorization/espi:refresh_token and 
-					/ns3:entry/ns3:content/espi:Authorization/espi:scope and
-					/ns3:entry/ns3:content/espi:Authorization/espi:token_type and 
-					/ns3:entry/ns3:content/espi:Authorization/espi:resourceURI and
-					/ns3:entry/ns3:content/espi:Authorization/espi:authorizationURI and 
-					/ns3:entry/ns3:content/espi:Authorization/espi:grant_type='authorization_code' and
-					( not(/ns3:entry/ns3:content/espi:Authorization/espi:status) or (ns3:entry/ns3:content/espi:Authorization/espi:status='0') or (ns3:entry/ns3:content/espi:Authorization/espi:status='1') or (ns3:entry/ns3:content/espi:Authorization/espi:status='2'))</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials>
+/ns3:entry/ns3:content/espi:Authorization/espi:authorizedPeriod and 
+/ns3:entry/ns3:content/espi:Authorization/espi:publishedPeriod and
+/ns3:entry/ns3:content/espi:Authorization/espi:access_token and
+/ns3:entry/ns3:content/espi:Authorization/espi:expiresAt and 
+/ns3:entry/ns3:content/espi:Authorization/espi:grant_type and 
+/ns3:entry/ns3:content/espi:Authorization/espi:refresh_token and 
+/ns3:entry/ns3:content/espi:Authorization/espi:scope and
+/ns3:entry/ns3:content/espi:Authorization/espi:token_type and 
+/ns3:entry/ns3:content/espi:Authorization/espi:resourceURI and
+/ns3:entry/ns3:content/espi:Authorization/espi:authorizationURI and 
+/ns3:entry/ns3:content/espi:Authorization/espi:grant_type='authorization_code' and
+( not(/ns3:entry/ns3:content/espi:Authorization/espi:status) or (ns3:entry/ns3:content/espi:Authorization/espi:status='0') or (ns3:entry/ns3:content/espi:Authorization/espi:status='1') or (ns3:entry/ns3:content/espi:Authorization/espi:status='2'))</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials>
 			<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
 		</con:credentials>
 		<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
@@ -15142,7 +15142,7 @@ count(/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianScope
 		</con:credentials>
 		<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
 		<con:jmsPropertyConfig/>
-		<con:parameters/>
+		<con:parameters><entry key="Authorization" value="Bearer ${#Project#registration_access_token}" xmlns="http://eviware.com/soapui/config"/></con:parameters>
 		<con:parameterOrder>
 			<con:entry>applicationInformationId</con:entry>
 			<con:entry>Authorization</con:entry>
@@ -17135,11 +17135,11 @@ return;
 	</con:property>
 	<con:property>
 		<con:name>applicationInformationId</con:name>
-		<con:value>1</con:value>
+		<con:value>2</con:value>
 	</con:property>
 	<con:property>
 		<con:name>authorizationId</con:name>
-		<con:value>1</con:value>
+		<con:value>4</con:value>
 	</con:property>
 	<con:property>
 		<con:name>bulkId</con:name>
@@ -17219,7 +17219,7 @@ return;
 	</con:property>
 	<con:property>
 		<con:name>client_id</con:name>
-		<con:value>third_party</con:value>
+		<con:value>test_third_party</con:value>
 	</con:property>
 	<con:property>
 		<con:name>redirect_uri</con:name>
