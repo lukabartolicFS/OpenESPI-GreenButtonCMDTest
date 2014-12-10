@@ -15089,7 +15089,7 @@ declare namespace espi='http://naesb.org/espi';
 				<con:entry>Content-Type</con:entry>
 			</con:parameterOrder>
 		</con:restRequest></con:config></con:testStep><con:properties/></con:testCase>
-<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FND003 [POS][C] Authorized GET access to Authorization feed" searchProperties="true" id="0d8885cd-82a7-48ad-8144-1a20113fd8a9"><con:settings/><con:testStep type="restrequest" name="GET and verify Authorization Feed"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/Authorization" methodName="GET Authorization Feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET and verify Authorization Feed" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*FND003 [POS][C] Authorized GET access to Authorization feed" searchProperties="true" id="0d8885cd-82a7-48ad-8144-1a20113fd8a9"><con:settings/><con:testStep type="restrequest" name="GET and verify Authorization Feed"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/Authorization" methodName="GET Authorization Feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET and verify Authorization Feed" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
 				<con:settings>
 					<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 		<con:setting id="AutoInferSchemas">false</con:setting></con:settings>
@@ -15099,7 +15099,33 @@ declare namespace espi='http://naesb.org/espi';
 		<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
 					declare namespace espi='http://naesb.org/espi';
 					declare namespace ns1='http://www.w3.org/2005/Atom';
-					count(/ns3:feed/ns3:entry/ns3:content/espi:Authorization[espi:accessToken='${#Project#registration_access_token}']) +  count(/ns3:feed/ns3:entry/ns3:content/espi:Authorization[espi:accessToken='${#Project#client_access_token}'])</path><content>2</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials>
+					count(/ns3:feed/ns3:entry/ns3:content/espi:Authorization[espi:accessToken='${#Project#registration_access_token}']) +  count(/ns3:feed/ns3:entry/ns3:content/espi:Authorization[espi:accessToken='${#Project#client_access_token}'])</path><content>2</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Script validate against schema"><con:configuration><scriptText>import javax.xml.XMLConstants;
+import javax.xml.transform.Source;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.SchemaFactory;
+import javax.xml.validation.Schema;
+import javax.xml.validation.Validator;
+
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+
+String strSchemaFile1 = groovyUtils.projectPath + "/etc/atom.xsd";
+String strSchemaFile2 = groovyUtils.projectPath + "/etc/espiDerived.xsd";
+
+String response = messageExchange.response.contentAsString;
+log.info("validating: " + response);
+
+//new File(strSchemaFile).withReader{xsd -> SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI).newSchema(new StreamSource(xsd)).newValidator().validate(new StreamSource(new StringReader(response)))}
+
+
+StreamSource[] schemaDocuments = new StreamSource[2];
+schemaDocuments[0] = new StreamSource(strSchemaFile1);
+schemaDocuments[1] = new StreamSource(strSchemaFile2);
+Source instanceDocument = new StreamSource(new StringReader(response));
+
+SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+Schema s = sf.newSchema(schemaDocuments);
+Validator v = s.newValidator();
+v.validate(instanceDocument);</scriptText></con:configuration></con:assertion><con:credentials>
 			<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
 			<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
 			<con:authType>Global HTTP Settings</con:authType>
