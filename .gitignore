@@ -4,6 +4,7 @@ data/test_subscription.xml
 /SOAPUI/etc/gbcmd.conf
 /SOAPUI/etc/gbcmdcert.conf
 ./SOAPUI/CMDUtils/target/
+transferred/*
 
 *.class
 

@@ -15,7 +15,8 @@ see http://siking.wordpress.com/2011/08/22/groovy-selenium-webdriver-and-soapui-
 1.	Install SoapUI.
 2.	Download Selenium (you need the selenium-server-standalone-2.*.jar) and drop it into your SoapUI installation (into %SOAPUI_HOME%\bin\ext).	
 3.	Add the Groovy libaries to (That zip file has a main jar file and folder dependencies. Copy all these jar files to the <SOAPUI installfolder>/bin/ext)
-
+4.	Ensure lftp is installed. To install use the follloing command: sudo apt-get install lftp
+5.	For the given unit under test use lftp to ensure sftp credentials work and are applied. For example: lftp sftp://user:password@host  -e "dir /; bye"
 
 ##	Documentation on the WebDriver API 
 This link provides documentation of the WebDriver API for running selenium steps from within a programming language.
