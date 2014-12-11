@@ -15025,7 +15025,398 @@ return;
 			return;</script></con:config>
 </con:testStep>			<con:properties/>
 </con:testCase>
-<con:properties/>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_14] Authorization and Authentication" searchProperties="true">
+		<con:settings/>
+		<con:testStep type="groovy" name="Scenario: Retail Customer views Data Custodian list">
+			<con:settings/>
+			<con:config>
+				<script>import org.openqa.selenium.*;
+					import org.greenbutton.cmd.utils.DriverHelper;
+
+					def project = testRunner.testCase.testSuite.project
+					def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+					def projectPath = groovyUtils.projectPath
+					def BaseURL = project.getPropertyValue("BaseURL")
+					def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
+					def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
+					def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
+					def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
+					def TestManager=project.getPropertyValue("TestManager")
+					def TestManagerPW=project.getPropertyValue("TestManagerPW")
+					def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+					def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+					def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
+					def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
+					def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
+
+					DriverHelper driver = new DriverHelper(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+					//driver._bLogActions = true;
+
+					try{
+
+					//*********************************************************
+					log.info("Scenario: Retail Customer views Data Custodian list");
+					//*********************************************************
+					// reset DB : run library groovy script
+					testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDB']);
+					// Browser Init
+					driver.Before();
+
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.logStep("Given a Retail Customer with Usage Points");
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
+					driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
+
+					// upload usage point file
+					driver.findElement(By.linkText("Upload")).click();	
+					driver.findElement(By.name("file")).sendKeys(TestFile);
+
+					driver.findElement(By.name("upload")).click();	
+					driver.assertDoesNotContain("Unable to process file");
+
+					// add usage point linkage
+					driver.findElement(By.linkText("Customer List")).click();
+					driver.findElement(By.linkText(TestRetailCustomer)).click();	
+					driver.findElement(By.partialLinkText("Add Usage")).click();	
+					driver.findElement(By.id("UUID")).clear();
+					driver.findElement(By.id("UUID")).sendKeys(usagePointUUID1);
+					driver.findElement(By.name("create")).click();
+
+
+					driver.logout(ServiceEndpointDataCustodian);
+
+					driver.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
+
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.logStep("When I navigate to Data Custodian list");
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.findElement(By.linkText("Data Custodians")).click();
+
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.logStep("Then I should see a list of Data Custodians");
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.assertContains("data_custodian");
+
+					} catch(Exception e) {
+					testRunner.fail(driver.getErrorString())
+					}
+
+					//Close the browser
+					driver.quit();
+				</script>
+			</con:config>
+		</con:testStep>
+		<con:testStep type="groovy" name="Scenario: Retail Customer selects Data Custodian for the list">
+			<con:settings/>
+			<con:config>
+				<script>import org.openqa.selenium.*;
+					import org.greenbutton.cmd.utils.DriverHelper;
+
+					def project = testRunner.testCase.testSuite.project
+					def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+					def projectPath = groovyUtils.projectPath
+					def BaseURL = project.getPropertyValue("BaseURL")
+					def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
+					def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
+					def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
+					def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
+					def TestManager=project.getPropertyValue("TestManager")
+					def TestManagerPW=project.getPropertyValue("TestManagerPW")
+					def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+					def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+					def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
+					def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
+					def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
+
+					DriverHelper driver = new DriverHelper(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+
+					//driver._bLogActions = true;
+
+					try{
+
+					//*********************************************************
+					log.info("Scenario: Retail Customer selects Data Custodian for the list");
+					//*********************************************************
+					// reset DB : run library groovy script
+					testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDB']);
+					// Browser Init
+					driver.Before();
+
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.logStep("Given a Retail Customer with Usage Points");
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
+					driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
+
+					// upload usage point file
+					driver.findElement(By.linkText("Upload")).click();	
+					driver.findElement(By.name("file")).sendKeys(TestFile);
+
+					driver.findElement(By.name("upload")).click();	
+					driver.assertDoesNotContain("Unable to process file");
+
+					// add usage point linkage
+					driver.findElement(By.linkText("Customer List")).click();
+					driver.findElement(By.linkText(TestRetailCustomer)).click();	
+					driver.findElement(By.partialLinkText("Add Usage")).click();	
+					driver.findElement(By.id("UUID")).clear();
+					driver.findElement(By.id("UUID")).sendKeys(usagePointUUID1);
+					driver.findElement(By.name("create")).click();
+
+					driver.logout(ServiceEndpointDataCustodian);
+
+					driver.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
+
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.logStep("When I select a Data Custodian from the list");
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.findElement(By.linkText("Data Custodians")).click();	
+					driver.findElement(By.name("Data_custodian")).click();	
+					driver.findElement(By.name("next")).click();
+
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.logStep("Then I should see the Data Custodian login screen");
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.assertUrlContains("/DataCustodian");
+					driver.assertContains("Login");
+
+					} catch(Exception e) {
+					testRunner.fail(driver.getErrorString())
+					}
+
+					//Close the browser
+					driver.quit();
+				</script>
+			</con:config>
+		</con:testStep>
+		<con:testStep type="groovy" name="Scenario: Retail Customer selects Scope">
+			<con:settings/>
+			<con:config>
+				<script>import org.openqa.selenium.*;
+					import org.greenbutton.cmd.utils.DriverHelper;
+
+					def project = testRunner.testCase.testSuite.project
+					def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+					def projectPath = groovyUtils.projectPath
+					def BaseURL = project.getPropertyValue("BaseURL")
+					def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
+					def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
+					def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
+					def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
+					def TestManager=project.getPropertyValue("TestManager")
+					def TestManagerPW=project.getPropertyValue("TestManagerPW")
+					def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+					def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+					def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
+					def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
+					def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
+
+					DriverHelper driver = new DriverHelper(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+
+					//driver._bLogActions = true;
+
+					try{
+
+					//*********************************************************
+					log.info("Scenario: Retail Customer selects Scope");
+					//*********************************************************
+					// reset DB : run library groovy script
+					testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDB']);
+					// Browser Init
+					driver.Before();
+
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.logStep("Given a Retail Customer with Usage Points");
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
+					driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
+
+
+					// upload usage point file
+					driver.findElement(By.linkText("Upload")).click();	
+					driver.findElement(By.name("file")).sendKeys(TestFile);
+
+					driver.findElement(By.name("upload")).click();	
+					driver.assertDoesNotContain("Unable to process file");
+
+					// add usage point linkage
+					driver.findElement(By.linkText("Customer List")).click();
+					driver.findElement(By.linkText(TestRetailCustomer)).click();	
+					driver.findElement(By.partialLinkText("Add Usage")).click();	
+					driver.findElement(By.id("UUID")).clear();
+					driver.findElement(By.id("UUID")).sendKeys(usagePointUUID1);
+					driver.findElement(By.name("create")).click();
+
+					driver.logout(ServiceEndpointDataCustodian);
+
+					driver.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
+
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.logStep("When I select a Data Custodian from the list");
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.findElement(By.linkText("Data Custodians")).click();	
+					driver.findElement(By.name("Data_custodian")).click();	
+					driver.findElement(By.name("next")).click();
+
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.logStep("Then I should see the Data Custodian login screen");
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.assertUrlContains("/DataCustodian");
+					driver.assertContains("Login");
+
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.logStep("When I log into Data Custodian");
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.findElement(By.name("j_username")).clear();
+					driver.findElement(By.name("j_username")).sendKeys(TestRetailCustomer);	
+					driver.findElement(By.name("j_password")).clear();
+					driver.findElement(By.name("j_password")).sendKeys(TestRetailCustomerPW);	
+					driver.findElement(By.name("submit")).click();
+
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.logStep("Then I should see Scope selection screen");
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.assertContains("Select Scope");
+					driver.assertContains("FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13");
+
+					} catch(Exception e) {
+					testRunner.fail(driver.getErrorString())
+					}
+
+					//Close the browser
+					driver.quit();
+				</script>
+			</con:config>
+		</con:testStep>
+		<con:testStep type="groovy" name="Scenario: Retail Customer authorizes Third Party">
+			<con:settings/>
+			<con:config>
+				<script>import org.openqa.selenium.*;
+					import org.greenbutton.cmd.utils.DriverHelper;
+
+					def project = testRunner.testCase.testSuite.project
+					def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+					def projectPath = groovyUtils.projectPath
+					def BaseURL = project.getPropertyValue("BaseURL")
+					def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
+					def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
+					def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
+					def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
+					def TestManager=project.getPropertyValue("TestManager")
+					def TestManagerPW=project.getPropertyValue("TestManagerPW")
+					def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+					def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+					def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
+					def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
+					def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
+
+
+					DriverHelper driver = new DriverHelper(BaseURL,DataCustodianContext,ThirdPartyContext,log);
+
+					//driver._bLogActions = true;
+
+					try{
+
+					//*********************************************************
+					log.info("Scenario: Retail Customer authorizes Third Party");
+					//*********************************************************
+					// reset DB : run library groovy script
+					testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDB']);
+					// Browser Init
+					driver.Before();
+
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.logStep("Given a Retail Customer with Usage Points");
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
+					driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
+
+					// upload usage point file
+					driver.findElement(By.linkText("Upload")).click();	
+					driver.findElement(By.name("file")).sendKeys(TestFile);
+
+					driver.findElement(By.name("upload")).click();	
+					driver.assertDoesNotContain("Unable to process file");
+
+					// add usage point linkage
+					driver.findElement(By.linkText("Customer List")).click();
+					driver.findElement(By.linkText(TestRetailCustomer)).click();	
+					driver.findElement(By.partialLinkText("Add Usage")).click();	
+					driver.findElement(By.id("UUID")).clear();
+					driver.findElement(By.id("UUID")).sendKeys(usagePointUUID1);
+					driver.findElement(By.name("create")).click();
+
+
+					driver.logout(ServiceEndpointDataCustodian);
+
+					driver.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);	
+
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.logStep("When I select a Data Custodian from the list");
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.findElement(By.linkText("Data Custodians")).click();
+					driver.findElement(By.name("Data_custodian")).click();
+					driver.findElement(By.name("next")).click();
+
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.logStep("Then I should see the Data Custodian login screen");
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.assertUrlContains("/DataCustodian");
+					driver.assertContains("Login");
+
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.logStep("When I log into Data Custodian");
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.findElement(By.name("j_username")).clear();
+					driver.findElement(By.name("j_username")).sendKeys(TestRetailCustomer);	
+					driver.findElement(By.name("j_password")).clear();
+					driver.findElement(By.name("j_password")).sendKeys(TestRetailCustomerPW);	
+					driver.findElement(By.name("submit")).click();
+
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.logStep("Then I should see Scope selection screen");
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.assertContains("Select Scope");
+					driver.assertContains("FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13");
+
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.logStep("When I select Scopes");
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.findElement(By.className("scope")).click();	
+					driver.findElement(By.xpath("(//input[@name='scope'])[2]")).click();	
+					driver.findElement(By.name("next")).click();	
+
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.logStep("Then I should see authorization screen");
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.assertContains("Please Confirm");
+
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.logStep("When I authorize Third Party");
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					//driver.findElement(By.name("authorize")).click();
+					driver.findElement(By.name("scope.FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13")).click();
+					driver.findElement(By.name("authorize")).click();
+
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.logStep("Then I should see all my authorizations");
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					driver.assertContains("Authorizations");
+					driver.assertContains("data_custodian");
+					driver.assertContains("DataCustodian/espi/1_1/resource/Batch/Subscription/");
+
+					} catch(Exception e) {
+					testRunner.fail(driver.getErrorString())
+					}
+
+					//Close the browser
+					driver.quit();
+				</script>
+			</con:config>
+		</con:testStep>
+		<con:properties/>
+	</con:testCase><con:properties/>
 </con:testSuite>
 <con:testSuite name="*[FB_03] Core Green Button Connect My Data">
 	<con:settings/>
@@ -16050,398 +16441,7 @@ return;
 <con:testSuite name="[FB_14] Authorization and Authentication">
 	<con:settings/>
 	<con:runType>SEQUENTIAL</con:runType>
-	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_14] Authorization and Authentication" searchProperties="true">
-		<con:settings/>
-		<con:testStep type="groovy" name="Scenario: Retail Customer views Data Custodian list">
-			<con:settings/>
-			<con:config>
-				<script>import org.openqa.selenium.*;
-					import org.greenbutton.cmd.utils.DriverHelper;
-
-					def project = testRunner.testCase.testSuite.project
-					def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-					def projectPath = groovyUtils.projectPath
-					def BaseURL = project.getPropertyValue("BaseURL")
-					def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
-					def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
-					def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
-					def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
-					def TestManager=project.getPropertyValue("TestManager")
-					def TestManagerPW=project.getPropertyValue("TestManagerPW")
-					def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
-					def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-					def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
-					def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
-					def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
-
-					DriverHelper driver = new DriverHelper(BaseURL,DataCustodianContext,ThirdPartyContext,log);
-					//driver._bLogActions = true;
-
-					try{
-
-					//*********************************************************
-					log.info("Scenario: Retail Customer views Data Custodian list");
-					//*********************************************************
-					// reset DB : run library groovy script
-					testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDB']);
-					// Browser Init
-					driver.Before();
-
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.logStep("Given a Retail Customer with Usage Points");
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
-					driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
-
-					// upload usage point file
-					driver.findElement(By.linkText("Upload")).click();	
-					driver.findElement(By.name("file")).sendKeys(TestFile);
-
-					driver.findElement(By.name("upload")).click();	
-					driver.assertDoesNotContain("Unable to process file");
-
-					// add usage point linkage
-					driver.findElement(By.linkText("Customer List")).click();
-					driver.findElement(By.linkText(TestRetailCustomer)).click();	
-					driver.findElement(By.partialLinkText("Add Usage")).click();	
-					driver.findElement(By.id("UUID")).clear();
-					driver.findElement(By.id("UUID")).sendKeys(usagePointUUID1);
-					driver.findElement(By.name("create")).click();
-
-
-					driver.logout(ServiceEndpointDataCustodian);
-
-					driver.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
-
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.logStep("When I navigate to Data Custodian list");
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.findElement(By.linkText("Data Custodians")).click();
-
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.logStep("Then I should see a list of Data Custodians");
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.assertContains("data_custodian");
-
-					} catch(Exception e) {
-					testRunner.fail(driver.getErrorString())
-					}
-
-					//Close the browser
-					driver.quit();
-				</script>
-			</con:config>
-		</con:testStep>
-		<con:testStep type="groovy" name="Scenario: Retail Customer selects Data Custodian for the list">
-			<con:settings/>
-			<con:config>
-				<script>import org.openqa.selenium.*;
-					import org.greenbutton.cmd.utils.DriverHelper;
-
-					def project = testRunner.testCase.testSuite.project
-					def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-					def projectPath = groovyUtils.projectPath
-					def BaseURL = project.getPropertyValue("BaseURL")
-					def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
-					def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
-					def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
-					def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
-					def TestManager=project.getPropertyValue("TestManager")
-					def TestManagerPW=project.getPropertyValue("TestManagerPW")
-					def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
-					def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-					def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
-					def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
-					def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
-
-					DriverHelper driver = new DriverHelper(BaseURL,DataCustodianContext,ThirdPartyContext,log);
-
-					//driver._bLogActions = true;
-
-					try{
-
-					//*********************************************************
-					log.info("Scenario: Retail Customer selects Data Custodian for the list");
-					//*********************************************************
-					// reset DB : run library groovy script
-					testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDB']);
-					// Browser Init
-					driver.Before();
-
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.logStep("Given a Retail Customer with Usage Points");
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
-					driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
-
-					// upload usage point file
-					driver.findElement(By.linkText("Upload")).click();	
-					driver.findElement(By.name("file")).sendKeys(TestFile);
-
-					driver.findElement(By.name("upload")).click();	
-					driver.assertDoesNotContain("Unable to process file");
-
-					// add usage point linkage
-					driver.findElement(By.linkText("Customer List")).click();
-					driver.findElement(By.linkText(TestRetailCustomer)).click();	
-					driver.findElement(By.partialLinkText("Add Usage")).click();	
-					driver.findElement(By.id("UUID")).clear();
-					driver.findElement(By.id("UUID")).sendKeys(usagePointUUID1);
-					driver.findElement(By.name("create")).click();
-
-					driver.logout(ServiceEndpointDataCustodian);
-
-					driver.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
-
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.logStep("When I select a Data Custodian from the list");
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.findElement(By.linkText("Data Custodians")).click();	
-					driver.findElement(By.name("Data_custodian")).click();	
-					driver.findElement(By.name("next")).click();
-
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.logStep("Then I should see the Data Custodian login screen");
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.assertUrlContains("/DataCustodian");
-					driver.assertContains("Login");
-
-					} catch(Exception e) {
-					testRunner.fail(driver.getErrorString())
-					}
-
-					//Close the browser
-					driver.quit();
-				</script>
-			</con:config>
-		</con:testStep>
-		<con:testStep type="groovy" name="Scenario: Retail Customer selects Scope">
-			<con:settings/>
-			<con:config>
-				<script>import org.openqa.selenium.*;
-					import org.greenbutton.cmd.utils.DriverHelper;
-
-					def project = testRunner.testCase.testSuite.project
-					def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-					def projectPath = groovyUtils.projectPath
-					def BaseURL = project.getPropertyValue("BaseURL")
-					def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
-					def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
-					def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
-					def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
-					def TestManager=project.getPropertyValue("TestManager")
-					def TestManagerPW=project.getPropertyValue("TestManagerPW")
-					def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
-					def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-					def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
-					def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
-					def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
-
-					DriverHelper driver = new DriverHelper(BaseURL,DataCustodianContext,ThirdPartyContext,log);
-
-					//driver._bLogActions = true;
-
-					try{
-
-					//*********************************************************
-					log.info("Scenario: Retail Customer selects Scope");
-					//*********************************************************
-					// reset DB : run library groovy script
-					testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDB']);
-					// Browser Init
-					driver.Before();
-
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.logStep("Given a Retail Customer with Usage Points");
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
-					driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
-
-
-					// upload usage point file
-					driver.findElement(By.linkText("Upload")).click();	
-					driver.findElement(By.name("file")).sendKeys(TestFile);
-
-					driver.findElement(By.name("upload")).click();	
-					driver.assertDoesNotContain("Unable to process file");
-
-					// add usage point linkage
-					driver.findElement(By.linkText("Customer List")).click();
-					driver.findElement(By.linkText(TestRetailCustomer)).click();	
-					driver.findElement(By.partialLinkText("Add Usage")).click();	
-					driver.findElement(By.id("UUID")).clear();
-					driver.findElement(By.id("UUID")).sendKeys(usagePointUUID1);
-					driver.findElement(By.name("create")).click();
-
-					driver.logout(ServiceEndpointDataCustodian);
-
-					driver.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
-
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.logStep("When I select a Data Custodian from the list");
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.findElement(By.linkText("Data Custodians")).click();	
-					driver.findElement(By.name("Data_custodian")).click();	
-					driver.findElement(By.name("next")).click();
-
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.logStep("Then I should see the Data Custodian login screen");
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.assertUrlContains("/DataCustodian");
-					driver.assertContains("Login");
-
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.logStep("When I log into Data Custodian");
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.findElement(By.name("j_username")).clear();
-					driver.findElement(By.name("j_username")).sendKeys(TestRetailCustomer);	
-					driver.findElement(By.name("j_password")).clear();
-					driver.findElement(By.name("j_password")).sendKeys(TestRetailCustomerPW);	
-					driver.findElement(By.name("submit")).click();
-
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.logStep("Then I should see Scope selection screen");
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.assertContains("Select Scope");
-					driver.assertContains("FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13");
-
-					} catch(Exception e) {
-					testRunner.fail(driver.getErrorString())
-					}
-
-					//Close the browser
-					driver.quit();
-				</script>
-			</con:config>
-		</con:testStep>
-		<con:testStep type="groovy" name="Scenario: Retail Customer authorizes Third Party">
-			<con:settings/>
-			<con:config>
-				<script>import org.openqa.selenium.*;
-					import org.greenbutton.cmd.utils.DriverHelper;
-
-					def project = testRunner.testCase.testSuite.project
-					def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-					def projectPath = groovyUtils.projectPath
-					def BaseURL = project.getPropertyValue("BaseURL")
-					def DataCustodianContext = project.getPropertyValue("DataCustodianContext")
-					def ThirdPartyContext = project.getPropertyValue("ThirdPartyContext")
-					def ServiceEndpointDataCustodian = BaseURL + "/" + DataCustodianContext
-					def ServiceEndpointThirdParty = BaseURL + "/" + ThirdPartyContext;
-					def TestManager=project.getPropertyValue("TestManager")
-					def TestManagerPW=project.getPropertyValue("TestManagerPW")
-					def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
-					def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
-					def TestFile=(new File(projectPath + "/../data/" + project.getPropertyValue("TestFile"))).getAbsolutePath();
-					def usagePointUUID1 = project.getPropertyValue("usagePointUUID1");
-					def usagePointDescription1 = project.getPropertyValue("usagePointDescription1");
-
-
-					DriverHelper driver = new DriverHelper(BaseURL,DataCustodianContext,ThirdPartyContext,log);
-
-					//driver._bLogActions = true;
-
-					try{
-
-					//*********************************************************
-					log.info("Scenario: Retail Customer authorizes Third Party");
-					//*********************************************************
-					// reset DB : run library groovy script
-					testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDB']);
-					// Browser Init
-					driver.Before();
-
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.logStep("Given a Retail Customer with Usage Points");
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.login(ServiceEndpointDataCustodian,TestManager,TestManagerPW);
-					driver.assertUrlContains("/" + DataCustodianContext + "/custodian/home");
-
-					// upload usage point file
-					driver.findElement(By.linkText("Upload")).click();	
-					driver.findElement(By.name("file")).sendKeys(TestFile);
-
-					driver.findElement(By.name("upload")).click();	
-					driver.assertDoesNotContain("Unable to process file");
-
-					// add usage point linkage
-					driver.findElement(By.linkText("Customer List")).click();
-					driver.findElement(By.linkText(TestRetailCustomer)).click();	
-					driver.findElement(By.partialLinkText("Add Usage")).click();	
-					driver.findElement(By.id("UUID")).clear();
-					driver.findElement(By.id("UUID")).sendKeys(usagePointUUID1);
-					driver.findElement(By.name("create")).click();
-
-
-					driver.logout(ServiceEndpointDataCustodian);
-
-					driver.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);	
-
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.logStep("When I select a Data Custodian from the list");
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.findElement(By.linkText("Data Custodians")).click();
-					driver.findElement(By.name("Data_custodian")).click();
-					driver.findElement(By.name("next")).click();
-
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.logStep("Then I should see the Data Custodian login screen");
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.assertUrlContains("/DataCustodian");
-					driver.assertContains("Login");
-
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.logStep("When I log into Data Custodian");
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.findElement(By.name("j_username")).clear();
-					driver.findElement(By.name("j_username")).sendKeys(TestRetailCustomer);	
-					driver.findElement(By.name("j_password")).clear();
-					driver.findElement(By.name("j_password")).sendKeys(TestRetailCustomerPW);	
-					driver.findElement(By.name("submit")).click();
-
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.logStep("Then I should see Scope selection screen");
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.assertContains("Select Scope");
-					driver.assertContains("FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13");
-
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.logStep("When I select Scopes");
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.findElement(By.className("scope")).click();	
-					driver.findElement(By.xpath("(//input[@name='scope'])[2]")).click();	
-					driver.findElement(By.name("next")).click();	
-
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.logStep("Then I should see authorization screen");
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.assertContains("Please Confirm");
-
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.logStep("When I authorize Third Party");
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					//driver.findElement(By.name("authorize")).click();
-					driver.findElement(By.name("scope.FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13")).click();
-					driver.findElement(By.name("authorize")).click();
-
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.logStep("Then I should see all my authorizations");
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					driver.assertContains("Authorizations");
-					driver.assertContains("data_custodian");
-					driver.assertContains("DataCustodian/espi/1_1/resource/Batch/Subscription/");
-
-					} catch(Exception e) {
-					testRunner.fail(driver.getErrorString())
-					}
-
-					//Close the browser
-					driver.quit();
-				</script>
-			</con:config>
-		</con:testStep>
-		<con:properties/>
-	</con:testCase>
+	
 	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD005 [NEG] Malformed Authorization Code Request (No &quot;response_code&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD006 [NEG] Malformed Authorization Code Request (No &quot;client_id&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD007 [NEG] Malformed Authorization Code Request (No &quot;redirect_uri&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:properties/>
 </con:testSuite>
 <con:testSuite name="[FB_19] Partial Update Data">
