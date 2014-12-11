@@ -42,7 +42,6 @@ redirect_uri="http://localhost:8080/ThirdParty/espi/1_1/OAuthCallBack"
 scope="FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13"
 state="abcdef12345"
 thirdPartyNotificationEndpoint="http://localhost:8081/ThirdParty/espi/1_1" // Note: Full uri would be: http://localhost:8081/ThirdParty/espi/1_1/Notification
-sftpUsername="bitnami"
-sftpPassword="password"
+
 
 
