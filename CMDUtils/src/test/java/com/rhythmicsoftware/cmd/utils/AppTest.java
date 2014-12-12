@@ -43,12 +43,12 @@ public class AppTest
     public void testApp() throws ClientProtocolException, IOException
     {
     	
-    	RestConnector restConnector = new RestConnector("http://www.apache.org/",null);
+    	RestConnector restConnector = new RestConnector("http://localhost:8080/DataCustodian",null);
     	boolean bResult = restConnector.request("dummy", "dummy", "", null);
     	
         assertTrue( bResult );
         
-    	OauthConnector oauthConnector = new OauthConnector("http://www.apache.org/",null);
+    	OauthConnector oauthConnector = new OauthConnector("http://localhost:8080/DataCustodian",null);
     	bResult = oauthConnector.request("dummy", "dummy", "", null);
     	
     	assertTrue( bResult );
