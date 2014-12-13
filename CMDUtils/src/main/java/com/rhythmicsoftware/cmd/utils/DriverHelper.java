@@ -1,14 +1,15 @@
 package com.rhythmicsoftware.cmd.utils;
 
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
 import org.apache.log4j.Logger;
-import org.custommonkey.xmlunit.XMLAssert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 
 public class DriverHelper {
@@ -45,6 +46,11 @@ public class DriverHelper {
 	public void quit()
 	{
 		_driver.quit();
+	}
+	
+	public Set<Cookie> getSessionCookie()
+	{
+		return _driver.manage().getCookies();
 	}
 
 	private void CaptureAction() throws Exception

@@ -4663,7 +4663,7 @@ testRunner.fail("could not curl up file");
 
 	// lets check the TP uri
 	uri = project.getPropertyValue("thirdPartyNotificationEndpoint");
-	log.info "DC URI: " + uri;
+	log.info "TP URI: " + uri;
 	uritemp = uri;
 	i = uritemp.indexOf("espi/1_1");
 	if(i>0) {
@@ -14980,15 +14980,7 @@ return;
 				def scope = project.getPropertyValue("scope")
 				def state = project.getPropertyValue("state")
 
-				//def List&amp;lt;String> sessionCookie = []
-
-
-			//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-			// 
-			//	httpBuilder class used to test Oauth Authorize Endpoint so that 302 failures can be captured
-			//
-			//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+				def String sessionCookie = null
 
 			///////////////////////////////
 			// 
@@ -15008,7 +15000,7 @@ return;
 			log.info("   Login Retail Customer -- Alan ");
 			log.info("*****************************************************************************************************");	
 
-			HTTPConnector httpConnector = new HTTPConnector(ServiceEndpoint, log);
+			HTTPConnector httpConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log);
 //			log.info("httpConnector: " + httpConnector);
 
 			if( context["httpConnector"] == null )
@@ -15017,13 +15009,921 @@ return;
 
 			url = '/j_spring_security_check'
 			params = "?j_username=" + TestRetailCustomer + "&amp;j_password=" + TestRetailCustomerPW
+			status = 302
 
-			boolean bResult = httpConnector.doPost("application/x-www-form-urlencoded", url, params);
+			boolean bResult = httpConnector.doPOST("application/x-www-form-urlencoded", url, params, status);
+			log.info("bResult: " + bResult);
+			log.info("httpConnector cookies: " + httpConnector.cookies);
 
 			assert (bResult)
+			assert !(httpConnector.cookies.empty)
 
+			sessionCookie = httpConnector.cookies;
+
+			log.info("Returned session cookie = " + httpConnector.cookies);
+
+
+log.info("*****************************************************************************************************");
+log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
+log.info("*****************************************************************************************************");	
+
+			oauthConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log)
+
+			log.info("oauthConnector: " + oauthConnector);
+			log.info("oauthConnector baseUrl: " + oauthConnector.baseUrl);
+			log.info("oauthConnector cookies: " + oauthConnector.cookies);
+
+			url = '/oauth/authorize'
+			params = "?client_id=" + clientId + "&amp;redirect_uri=" + redirectUri + "&amp;scope=" + scope + "&amp;state=" + state
+			status = 302
+
+			log.info("url: " + url);
+			log.info("client_id: " + clientId);
+			log.info("redirect_uri: " + redirectUri);
+			log.info("scope: " + scope);
+			log.info("state: " + state);			
+			
+			log.info("URL = " + "GET " + oauthConnector.baseUrl + url + params);
+			log.info("Cookies = " + oauthConnector.cookies);
+
+			bResult = oauthConnector.doGET("HTML", url, params, status)
+			assert(bResult)
+			
 			return;</script></con:config>
-</con:testStep>			<con:properties/>
+</con:testStep>			<con:testStep type="groovy" name="DEMO [NEG] OAuth Authorize Endpoint -- Reject malformed request (no client_id parameter)">
+		<con:settings/>
+		<con:config><script>/////////////////////////////////////////////////////////
+				// Need these imports to run tests
+				/////////////////////////////////////////////////////////
+
+				import com.rhythmicsoftware.cmd.utils.HTTPConnector;
+
+
+
+				/////////////////////////////////////////////////////////
+				// define some variables
+				/////////////////////////////////////////////////////////
+
+				def project = testRunner.testCase.testSuite.project
+				def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+				def projectPath = groovyUtils.projectPath
+
+				def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+				def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+				def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+
+				def clientId = project.getPropertyValue("client_id")
+				def redirectUri = project.getPropertyValue("redirect_uri")
+				def scope = project.getPropertyValue("scope")
+				def state = project.getPropertyValue("state")
+
+				def String sessionCookie = null
+
+			///////////////////////////////
+			// 
+			//	Main Body
+			//
+			///////////////////////////////
+
+
+			log.info("*****************************************************************************************************");
+			log.info("   RESET Data Custodian Database ");
+			log.info("*****************************************************************************************************");	
+
+			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
+
+
+			log.info("*****************************************************************************************************");
+			log.info("   Login Retail Customer -- Alan ");
+			log.info("*****************************************************************************************************");	
+
+			HTTPConnector httpConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log);
+//			log.info("httpConnector: " + httpConnector);
+
+			if( context["httpConnector"] == null )
+			context["httpConnector"] = httpConnector
+//			log.info("context: " + context["httpConnector"]);
+
+			url = '/j_spring_security_check'
+			params = "?j_username=" + TestRetailCustomer + "&amp;j_password=" + TestRetailCustomerPW
+			status = 302
+
+			boolean bResult = httpConnector.doPOST("application/x-www-form-urlencoded", url, params, status);
+			log.info("bResult: " + bResult);
+			log.info("httpConnector cookies: " + httpConnector.cookies);
+
+			assert (bResult)
+			assert !(httpConnector.cookies.empty)
+
+			sessionCookie = httpConnector.cookies;
+
+			log.info("Returned session cookie = " + httpConnector.cookies);
+
+
+log.info("*****************************************************************************************************");
+log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
+log.info("*****************************************************************************************************");	
+
+			oauthConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log)
+
+			log.info("oauthConnector: " + oauthConnector);
+			log.info("oauthConnector baseUrl: " + oauthConnector.baseUrl);
+			log.info("oauthConnector cookies: " + oauthConnector.cookies);
+
+			url = '/oauth/authorize'
+			params = "?response_type=" + "code" + "&amp;redirect_uri=" + redirectUri + "&amp;scope=" + scope + "&amp;state=" + state
+			status = 302
+
+			log.info("url: " + url);
+			log.info("client_id: " + clientId);
+			log.info("redirect_uri: " + redirectUri);
+			log.info("scope: " + scope);
+			log.info("state: " + state);			
+			
+			log.info("URL = " + "GET " + oauthConnector.baseUrl + url + params);
+			log.info("Cookies = " + oauthConnector.cookies);
+
+			bResult = oauthConnector.doGET("HTML", url, params, status)
+			assert(bResult)
+			
+			return;</script></con:config>
+</con:testStep><con:testStep type="groovy" name="DEMO [NEG] OAuth Authorize Endpoint -- Reject malformed request (no redirect_uri parameter)">
+		<con:settings/>
+		<con:config><script>/////////////////////////////////////////////////////////
+				// Need these imports to run tests
+				/////////////////////////////////////////////////////////
+
+				import com.rhythmicsoftware.cmd.utils.HTTPConnector;
+
+
+
+				/////////////////////////////////////////////////////////
+				// define some variables
+				/////////////////////////////////////////////////////////
+
+				def project = testRunner.testCase.testSuite.project
+				def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+				def projectPath = groovyUtils.projectPath
+
+				def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+				def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+				def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+
+				def clientId = project.getPropertyValue("client_id")
+				def redirectUri = project.getPropertyValue("redirect_uri")
+				def scope = project.getPropertyValue("scope")
+				def state = project.getPropertyValue("state")
+
+				def String sessionCookie = null
+
+			///////////////////////////////
+			// 
+			//	Main Body
+			//
+			///////////////////////////////
+
+
+			log.info("*****************************************************************************************************");
+			log.info("   RESET Data Custodian Database ");
+			log.info("*****************************************************************************************************");	
+
+			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
+
+
+			log.info("*****************************************************************************************************");
+			log.info("   Login Retail Customer -- Alan ");
+			log.info("*****************************************************************************************************");	
+
+			HTTPConnector httpConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log);
+//			log.info("httpConnector: " + httpConnector);
+
+			if( context["httpConnector"] == null )
+			context["httpConnector"] = httpConnector
+//			log.info("context: " + context["httpConnector"]);
+
+			url = '/j_spring_security_check'
+			params = "?j_username=" + TestRetailCustomer + "&amp;j_password=" + TestRetailCustomerPW
+			status = 302
+
+			boolean bResult = httpConnector.doPOST("application/x-www-form-urlencoded", url, params, status);
+			log.info("bResult: " + bResult);
+			log.info("httpConnector cookies: " + httpConnector.cookies);
+
+			assert (bResult)
+			assert !(httpConnector.cookies.empty)
+
+			sessionCookie = httpConnector.cookies;
+
+			log.info("Returned session cookie = " + httpConnector.cookies);
+
+
+log.info("*****************************************************************************************************");
+log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
+log.info("*****************************************************************************************************");	
+
+			oauthConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log)
+
+			log.info("oauthConnector: " + oauthConnector);
+			log.info("oauthConnector baseUrl: " + oauthConnector.baseUrl);
+			log.info("oauthConnector cookies: " + oauthConnector.cookies);
+
+			url = '/oauth/authorize'
+			params = "?response_type=" + "code" + "&amp;client_id=" + clientId + "&amp;scope=" + scope + "&amp;state=" + state
+			status = 302
+
+			log.info("url: " + url);
+			log.info("client_id: " + clientId);
+			log.info("redirect_uri: " + redirectUri);
+			log.info("scope: " + scope);
+			log.info("state: " + state);			
+			
+			log.info("URL = " + "GET " + oauthConnector.baseUrl + url + params);
+			log.info("Cookies = " + oauthConnector.cookies);
+
+			bResult = oauthConnector.doGET("HTML", url, params, status)
+			assert(bResult)
+			
+			return;</script></con:config>
+</con:testStep><con:testStep type="groovy" name="DEMO [NEG] OAuth Authorize Endpoint -- Reject malformed request (no scope parameter)">
+		<con:settings/>
+		<con:config><script>/////////////////////////////////////////////////////////
+				// Need these imports to run tests
+				/////////////////////////////////////////////////////////
+
+				import com.rhythmicsoftware.cmd.utils.HTTPConnector;
+
+
+
+				/////////////////////////////////////////////////////////
+				// define some variables
+				/////////////////////////////////////////////////////////
+
+				def project = testRunner.testCase.testSuite.project
+				def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+				def projectPath = groovyUtils.projectPath
+
+				def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+				def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+				def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+
+				def clientId = project.getPropertyValue("client_id")
+				def redirectUri = project.getPropertyValue("redirect_uri")
+				def scope = project.getPropertyValue("scope")
+				def state = project.getPropertyValue("state")
+
+				def String sessionCookie = null
+
+			///////////////////////////////
+			// 
+			//	Main Body
+			//
+			///////////////////////////////
+
+
+			log.info("*****************************************************************************************************");
+			log.info("   RESET Data Custodian Database ");
+			log.info("*****************************************************************************************************");	
+
+			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
+
+
+			log.info("*****************************************************************************************************");
+			log.info("   Login Retail Customer -- Alan ");
+			log.info("*****************************************************************************************************");	
+
+			HTTPConnector httpConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log);
+//			log.info("httpConnector: " + httpConnector);
+
+			if( context["httpConnector"] == null )
+			context["httpConnector"] = httpConnector
+//			log.info("context: " + context["httpConnector"]);
+
+			url = '/j_spring_security_check'
+			params = "?j_username=" + TestRetailCustomer + "&amp;j_password=" + TestRetailCustomerPW
+			status = 302
+
+			boolean bResult = httpConnector.doPOST("application/x-www-form-urlencoded", url, params, status);
+			log.info("bResult: " + bResult);
+			log.info("httpConnector cookies: " + httpConnector.cookies);
+
+			assert (bResult)
+			assert !(httpConnector.cookies.empty)
+
+			sessionCookie = httpConnector.cookies;
+
+			log.info("Returned session cookie = " + httpConnector.cookies);
+
+
+log.info("*****************************************************************************************************");
+log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
+log.info("*****************************************************************************************************");	
+
+			oauthConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log)
+
+			log.info("oauthConnector: " + oauthConnector);
+			log.info("oauthConnector baseUrl: " + oauthConnector.baseUrl);
+			log.info("oauthConnector cookies: " + oauthConnector.cookies);
+
+			url = '/oauth/authorize'
+			params = "?response_type=" + "code" + "&amp;client_id=" + clientId + "&amp;redirect_uri=" + redirectUri + "&amp;state=" + state
+			status = 302
+
+			log.info("url: " + url);
+			log.info("client_id: " + clientId);
+			log.info("redirect_uri: " + redirectUri);
+			log.info("scope: " + scope);
+			log.info("state: " + state);			
+			
+			log.info("URL = " + "GET " + oauthConnector.baseUrl + url + params);
+			log.info("Cookies = " + oauthConnector.cookies);
+
+			bResult = oauthConnector.doGET("HTML", url, params, status)
+			assert(bResult)
+			
+			return;</script></con:config>
+</con:testStep><con:testStep type="groovy" name="DEMO [NEG] OAuth Authorize Endpoint -- Reject malformed request (no state parameter)">
+		<con:settings/>
+		<con:config><script>/////////////////////////////////////////////////////////
+				// Need these imports to run tests
+				/////////////////////////////////////////////////////////
+
+				import com.rhythmicsoftware.cmd.utils.HTTPConnector;
+
+
+
+				/////////////////////////////////////////////////////////
+				// define some variables
+				/////////////////////////////////////////////////////////
+
+				def project = testRunner.testCase.testSuite.project
+				def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+				def projectPath = groovyUtils.projectPath
+
+				def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+				def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+				def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+
+				def clientId = project.getPropertyValue("client_id")
+				def redirectUri = project.getPropertyValue("redirect_uri")
+				def scope = project.getPropertyValue("scope")
+				def state = project.getPropertyValue("state")
+
+				def String sessionCookie = null
+
+			///////////////////////////////
+			// 
+			//	Main Body
+			//
+			///////////////////////////////
+
+
+			log.info("*****************************************************************************************************");
+			log.info("   RESET Data Custodian Database ");
+			log.info("*****************************************************************************************************");	
+
+			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
+
+
+			log.info("*****************************************************************************************************");
+			log.info("   Login Retail Customer -- Alan ");
+			log.info("*****************************************************************************************************");	
+
+			HTTPConnector httpConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log);
+//			log.info("httpConnector: " + httpConnector);
+
+			if( context["httpConnector"] == null )
+			context["httpConnector"] = httpConnector
+//			log.info("context: " + context["httpConnector"]);
+
+			url = '/j_spring_security_check'
+			params = "?j_username=" + TestRetailCustomer + "&amp;j_password=" + TestRetailCustomerPW
+			status = 302
+
+			boolean bResult = httpConnector.doPOST("application/x-www-form-urlencoded", url, params, status);
+			log.info("bResult: " + bResult);
+			log.info("httpConnector cookies: " + httpConnector.cookies);
+
+			assert (bResult)
+			assert !(httpConnector.cookies.empty)
+
+			sessionCookie = httpConnector.cookies;
+
+			log.info("Returned session cookie = " + httpConnector.cookies);
+
+
+log.info("*****************************************************************************************************");
+log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
+log.info("*****************************************************************************************************");	
+
+			oauthConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log)
+
+			log.info("oauthConnector: " + oauthConnector);
+			log.info("oauthConnector baseUrl: " + oauthConnector.baseUrl);
+			log.info("oauthConnector cookies: " + oauthConnector.cookies);
+
+			url = '/oauth/authorize'
+			params = "?response_type=" + "code" + "&amp;client_id=" + clientId + "&amp;redirect_uri=" + redirectUri + "&amp;scope=" + scope
+			status = 302
+
+			log.info("url: " + url);
+			log.info("client_id: " + clientId);
+			log.info("redirect_uri: " + redirectUri);
+			log.info("scope: " + scope);
+			log.info("state: " + state);			
+			
+			log.info("URL = " + "GET " + oauthConnector.baseUrl + url + params);
+			log.info("Cookies = " + oauthConnector.cookies);
+
+			bResult = oauthConnector.doGET("HTML", url, params, status)
+			assert(bResult)
+			
+			return;</script></con:config>
+</con:testStep><con:testStep type="groovy" name="DEMO [NEG] OAuth Authorize Endpoint -- Reject malformed request (multiple response_type parameters)">
+		<con:settings/>
+		<con:config><script><![CDATA[/////////////////////////////////////////////////////////
+				// Need these imports to run tests
+				/////////////////////////////////////////////////////////
+
+				import com.rhythmicsoftware.cmd.utils.HTTPConnector;
+
+
+
+				/////////////////////////////////////////////////////////
+				// define some variables
+				/////////////////////////////////////////////////////////
+
+				def project = testRunner.testCase.testSuite.project
+				def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+				def projectPath = groovyUtils.projectPath
+
+				def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+				def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+				def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+
+				def clientId = project.getPropertyValue("client_id")
+				def redirectUri = project.getPropertyValue("redirect_uri")
+				def scope = project.getPropertyValue("scope")
+				def state = project.getPropertyValue("state")
+
+				def String sessionCookie = null
+
+			///////////////////////////////
+			// 
+			//	Main Body
+			//
+			///////////////////////////////
+
+
+			log.info("*****************************************************************************************************");
+			log.info("   RESET Data Custodian Database ");
+			log.info("*****************************************************************************************************");	
+
+			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
+
+
+			log.info("*****************************************************************************************************");
+			log.info("   Login Retail Customer -- Alan ");
+			log.info("*****************************************************************************************************");	
+
+			HTTPConnector httpConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log);
+//			log.info("httpConnector: " + httpConnector);
+
+			if( context["httpConnector"] == null )
+			context["httpConnector"] = httpConnector
+//			log.info("context: " + context["httpConnector"]);
+
+			url = '/j_spring_security_check'
+			params = "?j_username=" + TestRetailCustomer + "&j_password=" + TestRetailCustomerPW
+			status = 302
+
+			boolean bResult = httpConnector.doPOST("application/x-www-form-urlencoded", url, params, status);
+			log.info("bResult: " + bResult);
+			log.info("httpConnector cookies: " + httpConnector.cookies);
+
+			assert (bResult)
+			assert !(httpConnector.cookies.empty)
+
+			sessionCookie = httpConnector.cookies;
+
+			log.info("Returned session cookie = " + httpConnector.cookies);
+
+
+log.info("*****************************************************************************************************");
+log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
+log.info("*****************************************************************************************************");	
+
+			oauthConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log)
+
+			log.info("oauthConnector: " + oauthConnector);
+			log.info("oauthConnector baseUrl: " + oauthConnector.baseUrl);
+			log.info("oauthConnector cookies: " + oauthConnector.cookies);
+
+			url = '/oauth/authorize'
+			params = "?response_type=" + "code" + "&client_id=" + clientId + "&redirect_uri=" + redirectUri + "&scope=" + scope +"&state=" + state + "&response_type=" + "code"
+			status = 302
+
+			log.info("url: " + url);
+			log.info("client_id: " + clientId);
+			log.info("redirect_uri: " + redirectUri);
+			log.info("scope: " + scope);
+			log.info("state: " + state);			
+			
+			log.info("URL = " + "GET " + oauthConnector.baseUrl + url + params);
+			log.info("Cookies = " + oauthConnector.cookies);
+
+			bResult = oauthConnector.doGET("HTML", url, params, status)
+			assert(bResult)
+			
+			return;]]></script></con:config>
+</con:testStep><con:testStep type="groovy" name="DEMO [NEG] OAuth Authorize Endpoint -- Reject malformed request (multiple client_id parameters)">
+		<con:settings/>
+		<con:config><script><![CDATA[/////////////////////////////////////////////////////////
+				// Need these imports to run tests
+				/////////////////////////////////////////////////////////
+
+				import com.rhythmicsoftware.cmd.utils.HTTPConnector;
+
+
+
+				/////////////////////////////////////////////////////////
+				// define some variables
+				/////////////////////////////////////////////////////////
+
+				def project = testRunner.testCase.testSuite.project
+				def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+				def projectPath = groovyUtils.projectPath
+
+				def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+				def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+				def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+
+				def clientId = project.getPropertyValue("client_id")
+				def redirectUri = project.getPropertyValue("redirect_uri")
+				def scope = project.getPropertyValue("scope")
+				def state = project.getPropertyValue("state")
+
+				def String sessionCookie = null
+
+			///////////////////////////////
+			// 
+			//	Main Body
+			//
+			///////////////////////////////
+
+
+			log.info("*****************************************************************************************************");
+			log.info("   RESET Data Custodian Database ");
+			log.info("*****************************************************************************************************");	
+
+			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
+
+
+			log.info("*****************************************************************************************************");
+			log.info("   Login Retail Customer -- Alan ");
+			log.info("*****************************************************************************************************");	
+
+			HTTPConnector httpConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log);
+//			log.info("httpConnector: " + httpConnector);
+
+			if( context["httpConnector"] == null )
+			context["httpConnector"] = httpConnector
+//			log.info("context: " + context["httpConnector"]);
+
+			url = '/j_spring_security_check'
+			params = "?j_username=" + TestRetailCustomer + "&j_password=" + TestRetailCustomerPW
+			status = 302
+
+			boolean bResult = httpConnector.doPOST("application/x-www-form-urlencoded", url, params, status);
+			log.info("bResult: " + bResult);
+			log.info("httpConnector cookies: " + httpConnector.cookies);
+
+			assert (bResult)
+			assert !(httpConnector.cookies.empty)
+
+			sessionCookie = httpConnector.cookies;
+
+			log.info("Returned session cookie = " + httpConnector.cookies);
+
+
+log.info("*****************************************************************************************************");
+log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
+log.info("*****************************************************************************************************");	
+
+			oauthConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log)
+
+			log.info("oauthConnector: " + oauthConnector);
+			log.info("oauthConnector baseUrl: " + oauthConnector.baseUrl);
+			log.info("oauthConnector cookies: " + oauthConnector.cookies);
+
+			url = '/oauth/authorize'
+			params = "?response_type=" + "code" + "&client_id=" + clientId + "&redirect_uri=" + redirectUri + "&scope=" + scope +"&state=" + state + "&client_id=" + clientId
+			status = 302
+
+			log.info("url: " + url);
+			log.info("client_id: " + clientId);
+			log.info("redirect_uri: " + redirectUri);
+			log.info("scope: " + scope);
+			log.info("state: " + state);			
+			
+			log.info("URL = " + "GET " + oauthConnector.baseUrl + url + params);
+			log.info("Cookies = " + oauthConnector.cookies);
+
+			bResult = oauthConnector.doGET("HTML", url, params, status)
+			assert(bResult)
+			
+			return;]]></script></con:config>
+</con:testStep><con:testStep type="groovy" name="DEMO [NEG] OAuth Authorize Endpoint -- Reject malformed request (multiple scope parameters)">
+		<con:settings/>
+		<con:config><script><![CDATA[/////////////////////////////////////////////////////////
+				// Need these imports to run tests
+				/////////////////////////////////////////////////////////
+
+				import com.rhythmicsoftware.cmd.utils.HTTPConnector;
+
+
+
+				/////////////////////////////////////////////////////////
+				// define some variables
+				/////////////////////////////////////////////////////////
+
+				def project = testRunner.testCase.testSuite.project
+				def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+				def projectPath = groovyUtils.projectPath
+
+				def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+				def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+				def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+
+				def clientId = project.getPropertyValue("client_id")
+				def redirectUri = project.getPropertyValue("redirect_uri")
+				def scope = project.getPropertyValue("scope")
+				def state = project.getPropertyValue("state")
+
+				def String sessionCookie = null
+
+			///////////////////////////////
+			// 
+			//	Main Body
+			//
+			///////////////////////////////
+
+
+			log.info("*****************************************************************************************************");
+			log.info("   RESET Data Custodian Database ");
+			log.info("*****************************************************************************************************");	
+
+			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
+
+
+			log.info("*****************************************************************************************************");
+			log.info("   Login Retail Customer -- Alan ");
+			log.info("*****************************************************************************************************");	
+
+			HTTPConnector httpConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log);
+//			log.info("httpConnector: " + httpConnector);
+
+			if( context["httpConnector"] == null )
+			context["httpConnector"] = httpConnector
+//			log.info("context: " + context["httpConnector"]);
+
+			url = '/j_spring_security_check'
+			params = "?j_username=" + TestRetailCustomer + "&j_password=" + TestRetailCustomerPW
+			status = 302
+
+			boolean bResult = httpConnector.doPOST("application/x-www-form-urlencoded", url, params, status);
+			log.info("bResult: " + bResult);
+			log.info("httpConnector cookies: " + httpConnector.cookies);
+
+			assert (bResult)
+			assert !(httpConnector.cookies.empty)
+
+			sessionCookie = httpConnector.cookies;
+
+			log.info("Returned session cookie = " + httpConnector.cookies);
+
+
+log.info("*****************************************************************************************************");
+log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
+log.info("*****************************************************************************************************");	
+
+			oauthConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log)
+
+			log.info("oauthConnector: " + oauthConnector);
+			log.info("oauthConnector baseUrl: " + oauthConnector.baseUrl);
+			log.info("oauthConnector cookies: " + oauthConnector.cookies);
+
+			url = '/oauth/authorize'
+			params = "?response_type=" + "code" + "&client_id=" + clientId + "&redirect_uri=" + redirectUri + "&scope=" + scope +"&state=" + state + "&scope=" + scope
+			status = 302
+
+			log.info("url: " + url);
+			log.info("client_id: " + clientId);
+			log.info("redirect_uri: " + redirectUri);
+			log.info("scope: " + scope);
+			log.info("state: " + state);			
+			
+			log.info("URL = " + "GET " + oauthConnector.baseUrl + url + params);
+			log.info("Cookies = " + oauthConnector.cookies);
+
+			bResult = oauthConnector.doGET("HTML", url, params, status)
+			assert(bResult)
+			
+			return;]]></script></con:config>
+</con:testStep><con:testStep type="groovy" name="DEMO [NEG] OAuth Authorize Endpoint -- Reject malformed request (multiple redirect_uri parameters)">
+		<con:settings/>
+		<con:config><script><![CDATA[/////////////////////////////////////////////////////////
+				// Need these imports to run tests
+				/////////////////////////////////////////////////////////
+
+				import com.rhythmicsoftware.cmd.utils.HTTPConnector;
+
+
+
+				/////////////////////////////////////////////////////////
+				// define some variables
+				/////////////////////////////////////////////////////////
+
+				def project = testRunner.testCase.testSuite.project
+				def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+				def projectPath = groovyUtils.projectPath
+
+				def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+				def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+				def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+
+				def clientId = project.getPropertyValue("client_id")
+				def redirectUri = project.getPropertyValue("redirect_uri")
+				def scope = project.getPropertyValue("scope")
+				def state = project.getPropertyValue("state")
+
+				def String sessionCookie = null
+
+			///////////////////////////////
+			// 
+			//	Main Body
+			//
+			///////////////////////////////
+
+
+			log.info("*****************************************************************************************************");
+			log.info("   RESET Data Custodian Database ");
+			log.info("*****************************************************************************************************");	
+
+			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
+
+
+			log.info("*****************************************************************************************************");
+			log.info("   Login Retail Customer -- Alan ");
+			log.info("*****************************************************************************************************");	
+
+			HTTPConnector httpConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log);
+//			log.info("httpConnector: " + httpConnector);
+
+			if( context["httpConnector"] == null )
+			context["httpConnector"] = httpConnector
+//			log.info("context: " + context["httpConnector"]);
+
+			url = '/j_spring_security_check'
+			params = "?j_username=" + TestRetailCustomer + "&j_password=" + TestRetailCustomerPW
+			status = 302
+
+			boolean bResult = httpConnector.doPOST("application/x-www-form-urlencoded", url, params, status);
+			log.info("bResult: " + bResult);
+			log.info("httpConnector cookies: " + httpConnector.cookies);
+
+			assert (bResult)
+			assert !(httpConnector.cookies.empty)
+
+			sessionCookie = httpConnector.cookies;
+
+			log.info("Returned session cookie = " + httpConnector.cookies);
+
+
+log.info("*****************************************************************************************************");
+log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
+log.info("*****************************************************************************************************");	
+
+			oauthConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log)
+
+			log.info("oauthConnector: " + oauthConnector);
+			log.info("oauthConnector baseUrl: " + oauthConnector.baseUrl);
+			log.info("oauthConnector cookies: " + oauthConnector.cookies);
+
+			url = '/oauth/authorize'
+			params = "?response_type=" + "code" + "&client_id=" + clientId + "&redirect_uri=" + redirectUri + "&scope=" + scope +"&state=" + state + "&redirect_uri=" + redirectUri
+			status = 302
+
+			log.info("url: " + url);
+			log.info("client_id: " + clientId);
+			log.info("redirect_uri: " + redirectUri);
+			log.info("scope: " + scope);
+			log.info("state: " + state);			
+			
+			log.info("URL = " + "GET " + oauthConnector.baseUrl + url + params);
+			log.info("Cookies = " + oauthConnector.cookies);
+
+			bResult = oauthConnector.doGET("HTML", url, params, status)
+			assert(bResult)
+			
+			return;]]></script></con:config>
+</con:testStep><con:testStep type="groovy" name="DEMO [NEG] OAuth Authorize Endpoint -- Reject malformed request (multiple state parameters)">
+		<con:settings/>
+		<con:config><script><![CDATA[/////////////////////////////////////////////////////////
+				// Need these imports to run tests
+				/////////////////////////////////////////////////////////
+
+				import com.rhythmicsoftware.cmd.utils.HTTPConnector;
+
+
+
+				/////////////////////////////////////////////////////////
+				// define some variables
+				/////////////////////////////////////////////////////////
+
+				def project = testRunner.testCase.testSuite.project
+				def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+				def projectPath = groovyUtils.projectPath
+
+				def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+				def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+				def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+
+				def clientId = project.getPropertyValue("client_id")
+				def redirectUri = project.getPropertyValue("redirect_uri")
+				def scope = project.getPropertyValue("scope")
+				def state = project.getPropertyValue("state")
+
+				def String sessionCookie = null
+
+			///////////////////////////////
+			// 
+			//	Main Body
+			//
+			///////////////////////////////
+
+
+			log.info("*****************************************************************************************************");
+			log.info("   RESET Data Custodian Database ");
+			log.info("*****************************************************************************************************");	
+
+			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
+
+
+			log.info("*****************************************************************************************************");
+			log.info("   Login Retail Customer -- Alan ");
+			log.info("*****************************************************************************************************");	
+
+			HTTPConnector httpConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log);
+//			log.info("httpConnector: " + httpConnector);
+
+			if( context["httpConnector"] == null )
+			context["httpConnector"] = httpConnector
+//			log.info("context: " + context["httpConnector"]);
+
+			url = '/j_spring_security_check'
+			params = "?j_username=" + TestRetailCustomer + "&j_password=" + TestRetailCustomerPW
+			status = 302
+
+			boolean bResult = httpConnector.doPOST("application/x-www-form-urlencoded", url, params, status);
+			log.info("bResult: " + bResult);
+			log.info("httpConnector cookies: " + httpConnector.cookies);
+
+			assert (bResult)
+			assert !(httpConnector.cookies.empty)
+
+			sessionCookie = httpConnector.cookies;
+
+			log.info("Returned session cookie = " + httpConnector.cookies);
+
+
+log.info("*****************************************************************************************************");
+log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
+log.info("*****************************************************************************************************");	
+
+			oauthConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log)
+
+			log.info("oauthConnector: " + oauthConnector);
+			log.info("oauthConnector baseUrl: " + oauthConnector.baseUrl);
+			log.info("oauthConnector cookies: " + oauthConnector.cookies);
+
+			url = '/oauth/authorize'
+			params = "?response_type=" + "code" + "&client_id=" + clientId + "&redirect_uri=" + redirectUri + "&scope=" + scope +"&state=" + state + "&state=" + state
+			status = 302
+
+			log.info("url: " + url);
+			log.info("client_id: " + clientId);
+			log.info("redirect_uri: " + redirectUri);
+			log.info("scope: " + scope);
+			log.info("state: " + state);			
+			
+			log.info("URL = " + "GET " + oauthConnector.baseUrl + url + params);
+			log.info("Cookies = " + oauthConnector.cookies);
+
+			bResult = oauthConnector.doGET("HTML", url, params, status)
+			assert(bResult)
+			
+			return;]]></script></con:config>
+</con:testStep><con:properties/>
 </con:testCase>
 <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_14] Authorization and Authentication" searchProperties="true">
 		<con:settings/>
@@ -16442,7 +17342,104 @@ return;
 	<con:settings/>
 	<con:runType>SEQUENTIAL</con:runType>
 	
-	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD005 [NEG] Malformed Authorization Code Request (No &quot;response_code&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD006 [NEG] Malformed Authorization Code Request (No &quot;client_id&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD007 [NEG] Malformed Authorization Code Request (No &quot;redirect_uri&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD008 [NEG] Malformed Authorization Code Request (No &quot;scope&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD009 [NEG] Malformed Authorization Code Request (No &quot;state&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD010 [NEG] Malformed Authorization Code Request (Multiple &quot;response_code&quot; field-value pairs)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD011 [NEG] Malformed Authorization Code Request (Multiple &quot;client_id&quot; field-value pairs)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD012 [NEG] Malformed Authorization Code Request (Multiple &quot;scope&quot; field-value pairs)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD013 [NEG] Malformed Authorization Code Request (Multiple &quot;redirect_uri&quot; field-value pairs)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD014 [NEG] Malformed Authorization Code Request (Multiple &quot;state&quot; field-value pairs)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD015 [NEG] Malformed Authorization Code Request (Invalid field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD016 [NEG] Malformed Authorization Code Request (Invalid &quot;response_code&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD017 [NEG] Authorization Code Request (Invalid &quot;client_id&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD018 [NEG] Authorization Code Request (Invalid &quot;redirect_uri&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD019 [NEG] Authorization Code Request (Invalid &quot;scope&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD020 [NEG] Authorization Code Request (Retail Customer FAILS authentication)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD021 [NEG] Authorization Code Request (Retail Customer Passes Authentication and DENIES access)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD022 [NEG] Authorization Code Request (Retail Customer Authenticates and APPROVES access)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD023 [NEG] Access Token Request Authorization Header Acceptance" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD024 [NEG] Access Token Request Authorization Header Rejection" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD025 [NEG] Malformed Authorization Code Grant Access Token Request (No &quot;grant_type&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD026 [NEG] Malformed Authorization Code Grant Access Token Request (No &quot;code&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD027 [NEG] Malformed Authorization Code Grant Access Token Request (No &quot;redirect_uri&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD028 [NEG] Malformed Authorization Code Grant Access Token Request (Multiple &quot;grant_type&quot; field-value pairs)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD029 [NEG] Malformed Authorization Code Grant Access Token Request (Multiple &quot;code&quot; field-value pairs)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD030 [NEG] Malformed Authorization Code Grant Access Token Request (Multiple &quot;redirect_uri&quot; field-value pairs)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD031 [NEG] Malformed Authorization Code Grant Access Token Request (Contains  HTTP BASIC Authorization header and &quot;client_id&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD032 [NEG] Invalid Authorization Code Grant Access Token Request (&quot;redirect_uri&quot; field-value pair doess not match the &quot;redirect_uri&quot; field-value pair in the Authorization Code Request)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD033 [NEG] Invalid Authorization Code Grant Access Token Request (&quot;code&quot; field-value pair contains an authorization code issued to another client)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD034 [NEG] Invalid Authorization Code Grant Access Token Request (&quot;code&quot; field-value pair contains an invalid authorization code)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD035 [NEG] Invalid Authorization Code Grant Access Token Request (&quot;code&quot; field-value pair contains a valid authorization code issued 15 minutes prior)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD036 [NEG] Invalid Authorization Code Grant Access Token Request (&quot;code&quot; field-value pair contains a valid authorization code issued 10 minutes prior)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD037 [NEG] Invalid Authorization Code Grant Access Token Request (&quot;code&quot; field-value pair contains a valid authorization code issued 5 minutes prior)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD038 [NEG] Invalid Authorization Code Grant Access Token Request (&quot;code&quot; field-value pair contains a valid authorization code issued 1 minute prior)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD039 [NEG] Invalid Authorization Code Grant Access Token Request (&quot;code&quot; field-value pair contains a previously used authorization code)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD040 [NEG] Invalid Authorization Code Grant Access Token Request (Application Information record &quot;grant_type&quot; field-value pair contains &quot;client_credentials&quot;)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD041 [NEG] Malformed Client Credentials Grant Access Token Request (No &quot;grant_type=&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD042 [NEG] Malformed Client Credentials Grant Access Token Request (No &quot;scope=&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD043 [NEG] Malformed Client Credentials Grant Access Token Request (Multiple &quot;grant_type=&quot; field-value pairs)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD044 [NEG] Malformed Client Credentials Grant Access Token Request (Multiple &quot;scope=&quot; field-value pairs)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD045 [NEG] Malformed Client Credentials Grant Access Token Request (contents of &quot;scope=&quot; field-value pair does not match contents of Application Information structure &quot;scope&quot; field)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD046 [NEG] Invalid Client Credentials Grant Access Token Request (Application Information record &quot;grant_type&quot; field contains &quot;authorization_code, refresh_token&quot;)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD047 [NEG] Valid JSON structure returned during Data Custodian Client Credentials Grant Access Token Request processing" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD048 [NEG] Malformed Refresh Token Request (No &quot;grant_type=&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD049 [NEG] Malformed Refresh Token Request (No &quot;refresh_token=&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD050 [NEG] Malformed Refresh Token Request (No &quot;scope=&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD051 [NEG] Malformed Refresh Token Request (Multiple &quot;grant_type=&quot; field-value pairs)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD052 [NEG] Malformed Refresh Token Request (Multiple &quot;refresh_token=&quot; field-value pairs)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD053 [NEG] Malformed Refresh Token Request (Multiple &quot;scope=&quot; field-value pairs)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD054 [NEG] Invalid Refresh Token Request (Contents of &quot;refresh_token=&quot; field-value pair was issued to a different Third Party)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD055 [NEG] Invalid Refresh Token Request (Contents of &quot;scope=&quot; field-value pair does not match &quot;scope=&quot; used in original access token request)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD056 [NEG] Invalid Refresh Token Request (Value found in &quot;refresh_token=&quot; field-value pair has expired)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD057 [NEG] Invalid Access Token Request (Access Token contained in the Authorization Header was NOT issued to the requesting Third Party." searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD058 [NEG] Invalid Access Token Request (Access Token contained in the Authorization Header has expired)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD059 [NEG] Invalid Access Token Request (GET RESTful AppplicationInformation request contains &quot;client_access_token&quot;)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD060 [NEG] Invalid Access Token Request (GET RESTful AppplicationInformation request contains &quot;access_token&quot;)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD061 [NEG] Invalid Access Token Request (GET RESTful AppplicationInformation request does NOT contain an Authorization Header)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD062 [NEG] Invalid Access Token Request (GET RESTful Authorization request contains &quot;registration_access_token&quot;)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD063 [NEG] Invalid Access Token Request (GET RESTful Authorization request contains &quot;access_token&quot;)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD064 [NEG] Invalid Access Token Request (GET RESTful Authorization request does NOT contain an Authorization Header)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD065 [NEG] Invalid Access Token Request (GET RESTful Batch/Subscription request contains &quot;registration_access_token&quot;)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD066 [NEG] Invalid Access Token Request (GET RESTful Batch/Subscription request contains &quot;client_access_token&quot;)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD067 [NEG] Invalid Access Token Request (GET RESTful Batch/Subscription request does NOT contain an Authorization Header)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD068 [NEG] Invalid Access Token Request (GET RESTful ReadServiceStats request contains &quot;registration_access_token&quot;)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD069 [NEG] Invalid Access Token Request (GET RESTful ReadServiceStats request contains &quot;access_token&quot;)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD070 [NEG] Invalid Access Token Request (GET RESTful ReadServiceStats request does NOT contain an Authorization Header)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:properties/>
+	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD005 [NEG] Malformed Authorization Code Request (No &quot;response_code&quot; field-value pair)" searchProperties="true"><con:settings/><con:testStep type="groovy" name="[NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter)">
+		<con:settings/>
+		<con:config><script>/////////////////////////////////////////////////////////
+				// Need these imports to run tests
+				/////////////////////////////////////////////////////////
+
+				import com.rhythmicsoftware.cmd.utils.HTTPConnector;
+
+
+
+				/////////////////////////////////////////////////////////
+				// define some variables
+				/////////////////////////////////////////////////////////
+
+				def project = testRunner.testCase.testSuite.project
+				def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+				def projectPath = groovyUtils.projectPath
+
+				def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+				def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+				def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+
+				def clientId = project.getPropertyValue("client_id")
+				def redirectUri = project.getPropertyValue("redirect_uri")
+				def scope = project.getPropertyValue("scope")
+				def state = project.getPropertyValue("state")
+
+				def String sessionCookie = null
+
+			///////////////////////////////
+			// 
+			//	Main Body
+			//
+			///////////////////////////////
+
+
+			log.info("*****************************************************************************************************");
+			log.info("   RESET Data Custodian Database ");
+			log.info("*****************************************************************************************************");	
+
+			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
+
+
+			log.info("*****************************************************************************************************");
+			log.info("   Login Retail Customer -- Alan ");
+			log.info("*****************************************************************************************************");	
+
+			HTTPConnector httpConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log);
+//			log.info("httpConnector: " + httpConnector);
+
+			if( context["httpConnector"] == null )
+			context["httpConnector"] = httpConnector
+//			log.info("context: " + context["httpConnector"]);
+
+			url = '/j_spring_security_check'
+			params = "?j_username=" + TestRetailCustomer + "&amp;j_password=" + TestRetailCustomerPW
+			status = 302
+
+			boolean bResult = httpConnector.doPOST("application/x-www-form-urlencoded", url, params, status);
+			log.info("bResult: " + bResult);
+			log.info("httpConnector cookies: " + httpConnector.cookies);
+
+			assert (bResult)
+			assert !(httpConnector.cookies.empty)
+
+			sessionCookie = httpConnector.cookies;
+
+			log.info("Returned session cookie = " + httpConnector.cookies);
+
+
+log.info("*****************************************************************************************************");
+log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
+log.info("*****************************************************************************************************");	
+
+			oauthConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log)
+
+			log.info("oauthConnector: " + oauthConnector);
+			log.info("oauthConnector baseUrl: " + oauthConnector.baseUrl);
+			log.info("oauthConnector cookies: " + oauthConnector.cookies);
+
+			url = '/oauth/authorize'
+			params = "?client_id=" + clientId + "&amp;redirect_uri=" + redirectUri + "&amp;scope=" + scope + "&amp;state=" + state
+			status = 302
+
+			log.info("url: " + url);
+			log.info("client_id: " + clientId);
+			log.info("redirect_uri: " + redirectUri);
+			log.info("scope: " + scope);
+			log.info("state: " + state);			
+			
+			log.info("URL = " + "GET " + oauthConnector.baseUrl + url + params);
+			log.info("Cookies = " + oauthConnector.cookies);
+
+			bResult = oauthConnector.doGET("HTML", url, params, status)
+			assert(bResult)
+			
+			return;</script></con:config>
+</con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD006 [NEG] Malformed Authorization Code Request (No &quot;client_id&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD007 [NEG] Malformed Authorization Code Request (No &quot;redirect_uri&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD008 [NEG] Malformed Authorization Code Request (No &quot;scope&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD009 [NEG] Malformed Authorization Code Request (No &quot;state&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD010 [NEG] Malformed Authorization Code Request (Multiple &quot;response_code&quot; field-value pairs)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD011 [NEG] Malformed Authorization Code Request (Multiple &quot;client_id&quot; field-value pairs)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD012 [NEG] Malformed Authorization Code Request (Multiple &quot;scope&quot; field-value pairs)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD013 [NEG] Malformed Authorization Code Request (Multiple &quot;redirect_uri&quot; field-value pairs)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD014 [NEG] Malformed Authorization Code Request (Multiple &quot;state&quot; field-value pairs)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD015 [NEG] Malformed Authorization Code Request (Invalid field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD016 [NEG] Malformed Authorization Code Request (Invalid &quot;response_code&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD017 [NEG] Authorization Code Request (Invalid &quot;client_id&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD018 [NEG] Authorization Code Request (Invalid &quot;redirect_uri&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD019 [NEG] Authorization Code Request (Invalid &quot;scope&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD020 [NEG] Authorization Code Request (Retail Customer FAILS authentication)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD021 [NEG] Authorization Code Request (Retail Customer Passes Authentication and DENIES access)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD022 [NEG] Authorization Code Request (Retail Customer Authenticates and APPROVES access)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD023 [NEG] Access Token Request Authorization Header Acceptance" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD024 [NEG] Access Token Request Authorization Header Rejection" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD025 [NEG] Malformed Authorization Code Grant Access Token Request (No &quot;grant_type&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD026 [NEG] Malformed Authorization Code Grant Access Token Request (No &quot;code&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD027 [NEG] Malformed Authorization Code Grant Access Token Request (No &quot;redirect_uri&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD028 [NEG] Malformed Authorization Code Grant Access Token Request (Multiple &quot;grant_type&quot; field-value pairs)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD029 [NEG] Malformed Authorization Code Grant Access Token Request (Multiple &quot;code&quot; field-value pairs)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD030 [NEG] Malformed Authorization Code Grant Access Token Request (Multiple &quot;redirect_uri&quot; field-value pairs)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD031 [NEG] Malformed Authorization Code Grant Access Token Request (Contains  HTTP BASIC Authorization header and &quot;client_id&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD032 [NEG] Invalid Authorization Code Grant Access Token Request (&quot;redirect_uri&quot; field-value pair doess not match the &quot;redirect_uri&quot; field-value pair in the Authorization Code Request)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD033 [NEG] Invalid Authorization Code Grant Access Token Request (&quot;code&quot; field-value pair contains an authorization code issued to another client)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD034 [NEG] Invalid Authorization Code Grant Access Token Request (&quot;code&quot; field-value pair contains an invalid authorization code)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD035 [NEG] Invalid Authorization Code Grant Access Token Request (&quot;code&quot; field-value pair contains a valid authorization code issued 15 minutes prior)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD036 [NEG] Invalid Authorization Code Grant Access Token Request (&quot;code&quot; field-value pair contains a valid authorization code issued 10 minutes prior)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD037 [NEG] Invalid Authorization Code Grant Access Token Request (&quot;code&quot; field-value pair contains a valid authorization code issued 5 minutes prior)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD038 [NEG] Invalid Authorization Code Grant Access Token Request (&quot;code&quot; field-value pair contains a valid authorization code issued 1 minute prior)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD039 [NEG] Invalid Authorization Code Grant Access Token Request (&quot;code&quot; field-value pair contains a previously used authorization code)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD040 [NEG] Invalid Authorization Code Grant Access Token Request (Application Information record &quot;grant_type&quot; field-value pair contains &quot;client_credentials&quot;)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD041 [NEG] Malformed Client Credentials Grant Access Token Request (No &quot;grant_type=&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD042 [NEG] Malformed Client Credentials Grant Access Token Request (No &quot;scope=&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD043 [NEG] Malformed Client Credentials Grant Access Token Request (Multiple &quot;grant_type=&quot; field-value pairs)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD044 [NEG] Malformed Client Credentials Grant Access Token Request (Multiple &quot;scope=&quot; field-value pairs)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD045 [NEG] Malformed Client Credentials Grant Access Token Request (contents of &quot;scope=&quot; field-value pair does not match contents of Application Information structure &quot;scope&quot; field)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD046 [NEG] Invalid Client Credentials Grant Access Token Request (Application Information record &quot;grant_type&quot; field contains &quot;authorization_code, refresh_token&quot;)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD047 [NEG] Valid JSON structure returned during Data Custodian Client Credentials Grant Access Token Request processing" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD048 [NEG] Malformed Refresh Token Request (No &quot;grant_type=&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD049 [NEG] Malformed Refresh Token Request (No &quot;refresh_token=&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD050 [NEG] Malformed Refresh Token Request (No &quot;scope=&quot; field-value pair)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD051 [NEG] Malformed Refresh Token Request (Multiple &quot;grant_type=&quot; field-value pairs)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD052 [NEG] Malformed Refresh Token Request (Multiple &quot;refresh_token=&quot; field-value pairs)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD053 [NEG] Malformed Refresh Token Request (Multiple &quot;scope=&quot; field-value pairs)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD054 [NEG] Invalid Refresh Token Request (Contents of &quot;refresh_token=&quot; field-value pair was issued to a different Third Party)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD055 [NEG] Invalid Refresh Token Request (Contents of &quot;scope=&quot; field-value pair does not match &quot;scope=&quot; used in original access token request)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD056 [NEG] Invalid Refresh Token Request (Value found in &quot;refresh_token=&quot; field-value pair has expired)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD057 [NEG] Invalid Access Token Request (Access Token contained in the Authorization Header was NOT issued to the requesting Third Party." searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD058 [NEG] Invalid Access Token Request (Access Token contained in the Authorization Header has expired)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD059 [NEG] Invalid Access Token Request (GET RESTful AppplicationInformation request contains &quot;client_access_token&quot;)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD060 [NEG] Invalid Access Token Request (GET RESTful AppplicationInformation request contains &quot;access_token&quot;)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD061 [NEG] Invalid Access Token Request (GET RESTful AppplicationInformation request does NOT contain an Authorization Header)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD062 [NEG] Invalid Access Token Request (GET RESTful Authorization request contains &quot;registration_access_token&quot;)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD063 [NEG] Invalid Access Token Request (GET RESTful Authorization request contains &quot;access_token&quot;)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD064 [NEG] Invalid Access Token Request (GET RESTful Authorization request does NOT contain an Authorization Header)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD065 [NEG] Invalid Access Token Request (GET RESTful Batch/Subscription request contains &quot;registration_access_token&quot;)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD066 [NEG] Invalid Access Token Request (GET RESTful Batch/Subscription request contains &quot;client_access_token&quot;)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD067 [NEG] Invalid Access Token Request (GET RESTful Batch/Subscription request does NOT contain an Authorization Header)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD068 [NEG] Invalid Access Token Request (GET RESTful ReadServiceStats request contains &quot;registration_access_token&quot;)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD069 [NEG] Invalid Access Token Request (GET RESTful ReadServiceStats request contains &quot;access_token&quot;)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD070 [NEG] Invalid Access Token Request (GET RESTful ReadServiceStats request does NOT contain an Authorization Header)" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:properties/>
 </con:testSuite>
 <con:testSuite name="[FB_19] Partial Update Data">
 	<con:settings/>
@@ -18253,11 +19250,11 @@ requestContext.mockService.setPropertyValue("rxNotificationBody",strBody);
 	</con:property>
 	<con:property>
 		<con:name>applicationInformationId</con:name>
-		<con:value>1</con:value>
+		<con:value>2</con:value>
 	</con:property>
 	<con:property>
 		<con:name>authorizationId</con:name>
-		<con:value>1</con:value>
+		<con:value>4</con:value>
 	</con:property>
 	<con:property>
 		<con:name>bulkId</con:name>
@@ -18337,7 +19334,7 @@ requestContext.mockService.setPropertyValue("rxNotificationBody",strBody);
 	</con:property>
 	<con:property>
 		<con:name>client_id</con:name>
-		<con:value>third_party</con:value>
+		<con:value>test_third_party</con:value>
 	</con:property>
 	<con:property>
 		<con:name>redirect_uri</con:name>
