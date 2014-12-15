@@ -16526,32 +16526,9 @@ declare namespace espi='http://naesb.org/espi';
 		<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 		<con:request/>
 		<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri>
-		<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema Validation"><con:configuration><scriptText>import javax.xml.XMLConstants;
-import javax.xml.transform.Source;
-import javax.xml.transform.stream.StreamSource;
-import javax.xml.validation.SchemaFactory;
-import javax.xml.validation.Schema;
-import javax.xml.validation.Validator;
-
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-
-String strSchemaFile1 = groovyUtils.projectPath + "/etc/atom.xsd";
-String strSchemaFile2 = groovyUtils.projectPath + "/etc/espiDerived.xsd";
-
-String response = messageExchange.response.contentAsString;
-log.info("validating: " + response);
-
-StreamSource[] schemaDocuments = new StreamSource[2];
-schemaDocuments[0] = new StreamSource(strSchemaFile1);
-schemaDocuments[1] = new StreamSource(strSchemaFile2);
-Source instanceDocument = new StreamSource(new StringReader(response));
-
-SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-Schema s = sf.newSchema(schemaDocuments);
-Validator v = s.newValidator();
-v.validate(instanceDocument);</scriptText></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
+		<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
 declare namespace espi='http://naesb.org/espi';
-count(/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianScopeSelectionScreen)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials>
+count(/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianScopeSelectionScreenURI)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials>
 			<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
 			<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
 			<con:authType>Global HTTP Settings</con:authType>
@@ -16566,7 +16543,79 @@ count(/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianScope
 		</con:parameterOrder>
 	</con:restRequest></con:config></con:testStep><con:testStep type="transfer" name="*Extract DC scope selection URI"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>extract DC scope selection URI</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GET ApplicationInformation by Id</con:sourceStep><con:sourcePath>declare namespace ns3='http://www.w3.org/2005/Atom';
 declare namespace espi='http://naesb.org/espi';
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:thirdPartyNotifyUri</con:sourcePath><con:targetType>extracted_scope_sel_uri</con:targetType><con:targetStep>#TestCase#</con:targetStep></con:transfers></con:config></con:testStep><con:properties><con:property><con:name>extracted_scope_sel_uri</con:name><con:value>http://localhost:8080/ThirdParty/espi/1_1/Notification</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FND006 [POS][C] Authorized GET access to ReadServiceStatus" searchProperties="true" id="a5744784-2b85-461b-b265-c3ee56742237">
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianScopeSelectionScreenURI</con:sourcePath><con:targetType>extracted_scope_sel_uri</con:targetType><con:targetStep>#TestCase#</con:targetStep></con:transfers></con:config></con:testStep><con:testStep type="groovy" name="Verify DC scope section URI present"><con:settings/><con:config><script>
+if((testRunner.testCase.getPropertyValue("extracted_scope_sel_uri")==null)||
+(testRunner.testCase.getPropertyValue("extracted_scope_sel_uri")=="")){
+	log.error("No scope selection URI present in ApplicationInformation");
+	testRunner.fail("No scope selection URI present in ApplicationInformation");
+	return;		
+}
+
+context.ScopeSelURI = testRunner.testCase.getPropertyValue("extracted_scope_sel_uri");</script></con:config></con:testStep><con:testStep type="groovy" name="Start Mock Service"><con:settings/><con:config><script>def service = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Authorization Mock Service");
+
+service.setPropertyValue("tokenResponse","");
+
+def runner = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Authorization Mock Service").start();
+context.mockRunner = runner;
+
+return;</script></con:config></con:testStep><con:testStep type="groovy" name="Script will bring up browser to DC Scope selection screen"><con:settings/><con:config><script>import org.greenbutton.cmd.utils.DriverHelper;
+
+String strScopeSelURI = context.ScopeSelURI;
+
+String strHost = strScopeSelURI.substring("http://".length());
+String strResource = strHost.substring(strHost.indexOf("/"));
+strHost = strScopeSelURI.substring(0,strScopeSelURI.indexOf(strResource));
+//context.strHost = strHost;
+//context.strResource = strResource;
+
+DriverHelper driver = new DriverHelper(strHost,strResource,"",log);
+
+context["driver"] = driver;
+
+strScopeSelURI = 'http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?scope=FB=4_5_15;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;ThirdPartyID=third_party';
+                     //[truncated] GET /DataCustodian/RetailCustomer/ScopeSelectionList?scope=FB=4_5_15;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;ThirdPartyID=third_pa
+
+driver.get(strScopeSelURI);</script></con:config></con:testStep><con:testStep type="manualTestStep" name="Perform log on and authorization"><con:description>Perform log on and authorization</con:description><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:testStep><con:testStep type="groovy" name="End Browser session"><con:settings/><con:config><script>context["driver"].quit();</script></con:config></con:testStep><con:testStep type="groovy" name="Stop Mock Service"><con:settings/><con:config><script>context.mockRunner.stop();
+return;</script></con:config></con:testStep><con:testStep type="groovy" name="Validate and extract information from authorization"><con:settings/><con:config><script>import groovy.json.JsonSlurper;
+import com.eviware.soapui.support.types.StringToStringMap;
+
+def service = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Authorization Mock Service");
+String strTokenResponse =  service.getPropertyValue("tokenResponse");
+
+if((strTokenResponse==null)||(strTokenResponse=="")){
+	log.error("No authorization received");
+	testRunner.fail("No authorization received");
+	return;
+}
+
+def slurper = new JsonSlurper();
+def tokenResponse = slurper.parseText(strTokenResponse);
+def headers = new StringToStringMap()
+
+log.info("access_token = " + tokenResponse.access_token);
+log.info("resourceURI = " + tokenResponse.resourceURI);
+log.info("authorizationURI = " + tokenResponse.authorizationURI);
+
+propTestStep = context.testCase.getTestStepByName("GET Resource URI");
+
+propTestStep.setPropertyValue("Endpoint",tokenResponse.resourceURI);
+headers.put("Authorization","Bearer " + tokenResponse.access_token);
+headers.put("Content-Type","Application/atom+xml");
+propTestStep.testRequest.setRequestHeaders(headers);
+
+propTestStep = context.testCase.getTestStepByName("GET Authorization URI");
+
+propTestStep.setPropertyValue("Endpoint",tokenResponse.authorizationURI);
+headers.put("Authorization","Bearer " + testRunner.testCase.testSuite.project.getPropertyValue("client_access_token"));
+headers.put("Content-Type","Application/atom+xml");
+propTestStep.testRequest.setRequestHeaders(headers);
+ </script></con:config></con:testStep><con:testStep type="httprequest" name="GET Resource URI"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Resource URI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Authorization" value="Bearer fefbee23-5e74-46b1-a683-e39a37cc2f2d"/>
+  &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="GET Authorization URI"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Authorization URI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Authorization" value="Bearer 75dd9c46-becf-48b5-9cb5-9c3233d718d0"/>
+  &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:properties><con:property><con:name>extracted_scope_sel_uri</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FND006 [POS][C] Authorized GET access to ReadServiceStatus" searchProperties="true" id="a5744784-2b85-461b-b265-c3ee56742237">
 	<con:settings/>
 	<con:testStep type="restrequest" name="GET and verify ServiceStatus">
 		<con:settings/>
@@ -19141,7 +19190,7 @@ If the Data Custodian detected the failure please mark this test as "Pass" other
 	</con:parameterOrder>
 </con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/>
 </con:testSuite>
-<con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty Notification REST MockService 1" docroot=""><con:settings/><con:startScript>context.mockService.setPropertyValue("rxNotificationBody","");</con:startScript><con:properties><con:property><con:name>rxNotificationBody</con:name><con:value>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?>&lt;espi:BatchList xmlns:espi="http://naesb.org/espi">&lt;espi:resources>http://localhost:8080/DataCustodian/espi/1_1/resource/ApplicationInformation/2&lt;/espi:resources>&lt;/espi:BatchList></con:value></con:property></con:properties><con:onRequestScript/><con:restMockAction name="/ThirdParty/espi/1_1/Notification" method="POST" resourcePath="/ThirdParty/espi/1_1/Notification"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>
+<con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty Notification REST MockService 1" docroot=""><con:settings/><con:startScript>context.mockService.setPropertyValue("rxNotificationBody","");</con:startScript><con:properties><con:property><con:name>rxNotificationBody</con:name><con:value/></con:property></con:properties><con:onRequestScript/><con:restMockAction name="/ThirdParty/espi/1_1/Notification" method="POST" resourcePath="/ThirdParty/espi/1_1/Notification"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>
 if(requestContext.mockService.getPropertyValue("rxNotificationBody")!= "") {
 	log.info("Discarding addtional notifications");
 	return;	
@@ -19171,7 +19220,197 @@ requestContext.mockService.setPropertyValue("rxNotificationBody",strBody);
 
 
 
-</con:dispatchPath><con:response name="Response 1" httpResponseStatus="200"><con:settings/><con:script/><con:responseContent/></con:response></con:restMockAction></con:restMockService><con:properties>
+</con:dispatchPath><con:response name="Response 1" httpResponseStatus="200"><con:settings/><con:script/><con:responseContent/></con:response></con:restMockAction></con:restMockService><con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty Authorization Mock Service" docroot=""><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Examples showing how to match based on path, query param and header
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeadeList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncodig Header List: " + acceptEncodingHeadeList
+
+if( acceptEncodingHeadeList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+*/
+</con:dispatchPath><con:response name="Response 1" httpResponseStatus="302" mediaType="text/xml"><con:settings/><con:script>log.info("received GET ScopeSelection");</con:script><con:responseContent>
+</con:responseContent><con:header><con:name>Location</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize?client_id=third_party&amp;redirect_uri=http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack&amp;response_type=code&amp;scope=FB=4_5_15;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;ThirdPartyID=third_party&amp;state=ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/ThirdParty/espi/1_1/OAuthCallBack" method="GET" resourcePath="/ThirdParty/espi/1_1/OAuthCallBack"><con:settings/><con:defaultResponse xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Examples showing how to match based on path, query param and header
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeadeList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncodig Header List: " + acceptEncodingHeadeList
+
+if( acceptEncodingHeadeList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+*/
+</con:dispatchPath><con:response name="Respond with 302" httpResponseStatus="302" mediaType="text/xml"><con:settings/><con:script>import groovyx.net.http.HTTPBuilder
+import static groovyx.net.http.Method.GET
+import static groovyx.net.http.ContentType.TEXT
+
+public class ResourceTester {
+	Object log;
+	String _strResponseBody = null;
+
+	ResourceTester(Object theLog)
+	{
+		log = theLog;
+	}
+
+	public String doGET(String strBaseEndpoint,String href, String token,Map&lt;String, Serializable> params) {
+		_strResponseBody = null;
+		
+	  	def http = new HTTPBuilder();
+
+		http.request( strBaseEndpoint, GET, TEXT ) { req ->
+			uri.path = href
+			uri.query = params
+		     headers.Authorization = 'Basic ' + token
+			headers.Accept = 'application/json, application/*+json'
+			
+			response.success = { resp, reader ->
+				_strResponseBody = reader.text;				
+			}		
+										
+			response.failure = { resp ->
+				log.error("GET Failed: " + resp.statusLine);
+				return null;
+			}  
+		}
+		return _strResponseBody;
+	}	
+}
+
+String strQry = mockRequest.getHttpRequest().getQueryString(); 
+String strCode = "";
+
+int iPos = strQry.indexOf("&amp;");
+if(iPos>0){
+	strCode = strQry.substring(strQry.indexOf("code=")+"code=".length(),iPos);
+}
+else {
+	strCode = strQry.substring(strQry.indexOf("code=")+"code=".length());
+}
+
+log.info("Received OAuthCallback with code:" + strCode);
+
+ResourceTester resourceTester = new ResourceTester(log);
+
+Map params = [redirect_uri: 'http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack', code: strCode,grant_type:'authorization_code'];
+
+String strGetResponseBody = resourceTester.doGET("http://localhost:8080","/DataCustodian/oauth/token","dGhpcmRfcGFydHk6c2VjcmV0",params);
+
+if(strGetResponseBody==null) {
+	log.error("GET request failed.");
+	return;	
+}
+
+log.info("OAuth token response:" + strGetResponseBody);
+requestContext.mockService.setPropertyValue("tokenResponse",strGetResponseBody);
+
+</con:script><con:responseContent/><con:header><con:name>Location</con:name><con:value>http://localhost:8081/ThirdParty/RetailCustomer/1/AuthorizationList</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/ThirdParty/RetailCustomer/1/AuthorizationList" method="GET" resourcePath="/ThirdParty/RetailCustomer/1/AuthorizationList"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Examples showing how to match based on path, query param and header
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeadeList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncodig Header List: " + acceptEncodingHeadeList
+
+if( acceptEncodingHeadeList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+*/
+</con:dispatchPath><con:response name="Response 1" httpResponseStatus="200" mediaType="text/xml"><con:settings/><con:script>log.info("received RetailCustomer/1/AuthorizationList");</con:script><con:responseContent><![CDATA[<html>
+<body>
+<p>Test complete. Please do not close this browser window.</p>
+<p>If the manual DataCustodian steps were successful, in SoapUI Please mark the manual step stetp as complete with "Pass" otherwise "Fail".</p>
+</body>
+</html>]]></con:responseContent></con:response></con:restMockAction></con:restMockService><con:properties>
 	<con:property>
 		<con:name>BaseURL</con:name>
 		<con:value>http://localhost:8080</con:value>
@@ -19306,11 +19545,11 @@ requestContext.mockService.setPropertyValue("rxNotificationBody",strBody);
 	</con:property>
 	<con:property>
 		<con:name>userAccessToken1</con:name>
-		<con:value>9f07af3e-2424-488b-b6c5-37c6e5de187c</con:value>
+		<con:value>4f36b2a7-677b-4d54-a2c6-dff85d4986bf</con:value>
 	</con:property>
 	<con:property>
 		<con:name>userAccessToken2</con:name>
-		<con:value>d2bc24aa-4a16-4114-8e0d-0331991c8c55</con:value>
+		<con:value>2ced613d-7cc5-4306-9142-70f8cbc6a265</con:value>
 	</con:property>
 	<con:property>
 		<con:name>registration_third_party_access_token</con:name>
