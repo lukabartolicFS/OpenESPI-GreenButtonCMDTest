@@ -14926,32 +14926,32 @@ return;
 	</con:testStep>
 	<con:testStep type="groovy" name="DEMO [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter)">
 		<con:settings/>
-		<con:config><script>/////////////////////////////////////////////////////////
-				// Need these imports to run tests
-				/////////////////////////////////////////////////////////
+		<con:config><script>			/////////////////////////////////////////////////////////
+			// Need these imports to run tests
+			/////////////////////////////////////////////////////////
 
-				import com.rhythmicsoftware.cmd.utils.HTTPConnector;
+			import com.rhythmicsoftware.cmd.utils.HTTPConnector;
 
 
 
-				/////////////////////////////////////////////////////////
-				// define some variables
-				/////////////////////////////////////////////////////////
+			/////////////////////////////////////////////////////////
+			// define some variables
+			/////////////////////////////////////////////////////////
 
-				def project = testRunner.testCase.testSuite.project
-				def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-				def projectPath = groovyUtils.projectPath
+			def project = testRunner.testCase.testSuite.project
+			def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+			def projectPath = groovyUtils.projectPath
 
-				def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
-				def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
-				def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+			def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+			def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+			def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
 
-				def clientId = project.getPropertyValue("client_id")
-				def redirectUri = project.getPropertyValue("redirect_uri")
-				def scope = project.getPropertyValue("scope")
-				def state = project.getPropertyValue("state")
+			def clientId = project.getPropertyValue("client_id")
+			def redirectUri = project.getPropertyValue("redirect_uri")
+			def scope = project.getPropertyValue("scope")
+			def state = project.getPropertyValue("state")
 
-				def String sessionCookie = null
+			def String sessionCookie = null
 
 			///////////////////////////////
 			// 
@@ -14961,10 +14961,10 @@ return;
 
 
 			log.info("*****************************************************************************************************");
-			log.info("   RESET Data Custodian Database ");
+			log.info("   Load Certification Configuration ");
 			log.info("*****************************************************************************************************");	
 
-			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
+			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['LoadConfigCert']);
 
 
 			log.info("*****************************************************************************************************");
@@ -14994,9 +14994,9 @@ return;
 			log.info("Returned session cookie = " + httpConnector.cookies);
 
 
-log.info("*****************************************************************************************************");
-log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
-log.info("*****************************************************************************************************");	
+			log.info("*****************************************************************************************************");
+			log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
+			log.info("*****************************************************************************************************");	
 
 			oauthConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log)
 
@@ -15023,32 +15023,32 @@ log.info("**********************************************************************
 			return;</script></con:config>
 </con:testStep>			<con:testStep type="groovy" name="DEMO [NEG] OAuth Authorize Endpoint -- Reject malformed request (no client_id parameter)">
 		<con:settings/>
-		<con:config><script>/////////////////////////////////////////////////////////
-				// Need these imports to run tests
-				/////////////////////////////////////////////////////////
+		<con:config><script>			/////////////////////////////////////////////////////////
+			// Need these imports to run tests
+			/////////////////////////////////////////////////////////
 
-				import com.rhythmicsoftware.cmd.utils.HTTPConnector;
+			import com.rhythmicsoftware.cmd.utils.HTTPConnector;
 
 
 
-				/////////////////////////////////////////////////////////
-				// define some variables
-				/////////////////////////////////////////////////////////
+			/////////////////////////////////////////////////////////
+			// define some variables
+			/////////////////////////////////////////////////////////
 
-				def project = testRunner.testCase.testSuite.project
-				def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-				def projectPath = groovyUtils.projectPath
+			def project = testRunner.testCase.testSuite.project
+			def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+			def projectPath = groovyUtils.projectPath
 
-				def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
-				def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
-				def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+			def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+			def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+			def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
 
-				def clientId = project.getPropertyValue("client_id")
-				def redirectUri = project.getPropertyValue("redirect_uri")
-				def scope = project.getPropertyValue("scope")
-				def state = project.getPropertyValue("state")
+			def clientId = project.getPropertyValue("client_id")
+			def redirectUri = project.getPropertyValue("redirect_uri")
+			def scope = project.getPropertyValue("scope")
+			def state = project.getPropertyValue("state")
 
-				def String sessionCookie = null
+			def String sessionCookie = null
 
 			///////////////////////////////
 			// 
@@ -15058,10 +15058,10 @@ log.info("**********************************************************************
 
 
 			log.info("*****************************************************************************************************");
-			log.info("   RESET Data Custodian Database ");
+			log.info("   Load Certification Configuration ");
 			log.info("*****************************************************************************************************");	
 
-			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
+			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['LoadConfigCert']);
 
 
 			log.info("*****************************************************************************************************");
@@ -15091,9 +15091,9 @@ log.info("**********************************************************************
 			log.info("Returned session cookie = " + httpConnector.cookies);
 
 
-log.info("*****************************************************************************************************");
-log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
-log.info("*****************************************************************************************************");	
+			log.info("*****************************************************************************************************");
+			log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
+			log.info("*****************************************************************************************************");	
 
 			oauthConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log)
 
@@ -15120,32 +15120,32 @@ log.info("**********************************************************************
 			return;</script></con:config>
 </con:testStep><con:testStep type="groovy" name="DEMO [NEG] OAuth Authorize Endpoint -- Reject malformed request (no redirect_uri parameter)">
 		<con:settings/>
-		<con:config><script>/////////////////////////////////////////////////////////
-				// Need these imports to run tests
-				/////////////////////////////////////////////////////////
+		<con:config><script>			/////////////////////////////////////////////////////////
+			// Need these imports to run tests
+			/////////////////////////////////////////////////////////
 
-				import com.rhythmicsoftware.cmd.utils.HTTPConnector;
+			import com.rhythmicsoftware.cmd.utils.HTTPConnector;
 
 
 
-				/////////////////////////////////////////////////////////
-				// define some variables
-				/////////////////////////////////////////////////////////
+			/////////////////////////////////////////////////////////
+			// define some variables
+			/////////////////////////////////////////////////////////
 
-				def project = testRunner.testCase.testSuite.project
-				def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-				def projectPath = groovyUtils.projectPath
+			def project = testRunner.testCase.testSuite.project
+			def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+			def projectPath = groovyUtils.projectPath
 
-				def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
-				def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
-				def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+			def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+			def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+			def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
 
-				def clientId = project.getPropertyValue("client_id")
-				def redirectUri = project.getPropertyValue("redirect_uri")
-				def scope = project.getPropertyValue("scope")
-				def state = project.getPropertyValue("state")
+			def clientId = project.getPropertyValue("client_id")
+			def redirectUri = project.getPropertyValue("redirect_uri")
+			def scope = project.getPropertyValue("scope")
+			def state = project.getPropertyValue("state")
 
-				def String sessionCookie = null
+			def String sessionCookie = null
 
 			///////////////////////////////
 			// 
@@ -15155,10 +15155,10 @@ log.info("**********************************************************************
 
 
 			log.info("*****************************************************************************************************");
-			log.info("   RESET Data Custodian Database ");
+			log.info("   Load Certification Configuration ");
 			log.info("*****************************************************************************************************");	
 
-			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
+			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['LoadConfigCert']);
 
 
 			log.info("*****************************************************************************************************");
@@ -15188,9 +15188,9 @@ log.info("**********************************************************************
 			log.info("Returned session cookie = " + httpConnector.cookies);
 
 
-log.info("*****************************************************************************************************");
-log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
-log.info("*****************************************************************************************************");	
+			log.info("*****************************************************************************************************");
+			log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
+			log.info("*****************************************************************************************************");	
 
 			oauthConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log)
 
@@ -15199,7 +15199,7 @@ log.info("**********************************************************************
 			log.info("oauthConnector cookies: " + oauthConnector.cookies);
 
 			url = '/oauth/authorize'
-			params = "?response_type=" + "code" + "&amp;client_id=" + clientId + "&amp;scope=" + scope + "&amp;state=" + state
+			params = "?response_type=" + "code" + "&amp;client_id=" + clientId + "&amp;scope=" + scope + "&amp;state=" + state 
 			status = 302
 
 			log.info("url: " + url);
@@ -15217,32 +15217,32 @@ log.info("**********************************************************************
 			return;</script></con:config>
 </con:testStep><con:testStep type="groovy" name="DEMO [NEG] OAuth Authorize Endpoint -- Reject malformed request (no scope parameter)">
 		<con:settings/>
-		<con:config><script>/////////////////////////////////////////////////////////
-				// Need these imports to run tests
-				/////////////////////////////////////////////////////////
+		<con:config><script>			/////////////////////////////////////////////////////////
+			// Need these imports to run tests
+			/////////////////////////////////////////////////////////
 
-				import com.rhythmicsoftware.cmd.utils.HTTPConnector;
+			import com.rhythmicsoftware.cmd.utils.HTTPConnector;
 
 
 
-				/////////////////////////////////////////////////////////
-				// define some variables
-				/////////////////////////////////////////////////////////
+			/////////////////////////////////////////////////////////
+			// define some variables
+			/////////////////////////////////////////////////////////
 
-				def project = testRunner.testCase.testSuite.project
-				def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-				def projectPath = groovyUtils.projectPath
+			def project = testRunner.testCase.testSuite.project
+			def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+			def projectPath = groovyUtils.projectPath
 
-				def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
-				def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
-				def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+			def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+			def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+			def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
 
-				def clientId = project.getPropertyValue("client_id")
-				def redirectUri = project.getPropertyValue("redirect_uri")
-				def scope = project.getPropertyValue("scope")
-				def state = project.getPropertyValue("state")
+			def clientId = project.getPropertyValue("client_id")
+			def redirectUri = project.getPropertyValue("redirect_uri")
+			def scope = project.getPropertyValue("scope")
+			def state = project.getPropertyValue("state")
 
-				def String sessionCookie = null
+			def String sessionCookie = null
 
 			///////////////////////////////
 			// 
@@ -15252,10 +15252,10 @@ log.info("**********************************************************************
 
 
 			log.info("*****************************************************************************************************");
-			log.info("   RESET Data Custodian Database ");
+			log.info("   Load Certification Configuration ");
 			log.info("*****************************************************************************************************");	
 
-			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
+			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['LoadConfigCert']);
 
 
 			log.info("*****************************************************************************************************");
@@ -15285,9 +15285,9 @@ log.info("**********************************************************************
 			log.info("Returned session cookie = " + httpConnector.cookies);
 
 
-log.info("*****************************************************************************************************");
-log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
-log.info("*****************************************************************************************************");	
+			log.info("*****************************************************************************************************");
+			log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
+			log.info("*****************************************************************************************************");	
 
 			oauthConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log)
 
@@ -15314,32 +15314,32 @@ log.info("**********************************************************************
 			return;</script></con:config>
 </con:testStep><con:testStep type="groovy" name="DEMO [NEG] OAuth Authorize Endpoint -- Reject malformed request (no state parameter)">
 		<con:settings/>
-		<con:config><script>/////////////////////////////////////////////////////////
-				// Need these imports to run tests
-				/////////////////////////////////////////////////////////
+		<con:config><script>			/////////////////////////////////////////////////////////
+			// Need these imports to run tests
+			/////////////////////////////////////////////////////////
 
-				import com.rhythmicsoftware.cmd.utils.HTTPConnector;
+			import com.rhythmicsoftware.cmd.utils.HTTPConnector;
 
 
 
-				/////////////////////////////////////////////////////////
-				// define some variables
-				/////////////////////////////////////////////////////////
+			/////////////////////////////////////////////////////////
+			// define some variables
+			/////////////////////////////////////////////////////////
 
-				def project = testRunner.testCase.testSuite.project
-				def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-				def projectPath = groovyUtils.projectPath
+			def project = testRunner.testCase.testSuite.project
+			def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+			def projectPath = groovyUtils.projectPath
 
-				def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
-				def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
-				def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+			def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+			def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+			def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
 
-				def clientId = project.getPropertyValue("client_id")
-				def redirectUri = project.getPropertyValue("redirect_uri")
-				def scope = project.getPropertyValue("scope")
-				def state = project.getPropertyValue("state")
+			def clientId = project.getPropertyValue("client_id")
+			def redirectUri = project.getPropertyValue("redirect_uri")
+			def scope = project.getPropertyValue("scope")
+			def state = project.getPropertyValue("state")
 
-				def String sessionCookie = null
+			def String sessionCookie = null
 
 			///////////////////////////////
 			// 
@@ -15349,10 +15349,10 @@ log.info("**********************************************************************
 
 
 			log.info("*****************************************************************************************************");
-			log.info("   RESET Data Custodian Database ");
+			log.info("   Load Certification Configuration ");
 			log.info("*****************************************************************************************************");	
 
-			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
+			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['LoadConfigCert']);
 
 
 			log.info("*****************************************************************************************************");
@@ -15382,9 +15382,9 @@ log.info("**********************************************************************
 			log.info("Returned session cookie = " + httpConnector.cookies);
 
 
-log.info("*****************************************************************************************************");
-log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
-log.info("*****************************************************************************************************");	
+			log.info("*****************************************************************************************************");
+			log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
+			log.info("*****************************************************************************************************");	
 
 			oauthConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log)
 
@@ -15411,32 +15411,32 @@ log.info("**********************************************************************
 			return;</script></con:config>
 </con:testStep><con:testStep type="groovy" name="DEMO [NEG] OAuth Authorize Endpoint -- Reject malformed request (multiple response_type parameters)">
 		<con:settings/>
-		<con:config><script><![CDATA[/////////////////////////////////////////////////////////
-				// Need these imports to run tests
-				/////////////////////////////////////////////////////////
+		<con:config><script><![CDATA[			/////////////////////////////////////////////////////////
+			// Need these imports to run tests
+			/////////////////////////////////////////////////////////
 
-				import com.rhythmicsoftware.cmd.utils.HTTPConnector;
+			import com.rhythmicsoftware.cmd.utils.HTTPConnector;
 
 
 
-				/////////////////////////////////////////////////////////
-				// define some variables
-				/////////////////////////////////////////////////////////
+			/////////////////////////////////////////////////////////
+			// define some variables
+			/////////////////////////////////////////////////////////
 
-				def project = testRunner.testCase.testSuite.project
-				def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-				def projectPath = groovyUtils.projectPath
+			def project = testRunner.testCase.testSuite.project
+			def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+			def projectPath = groovyUtils.projectPath
 
-				def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
-				def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
-				def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+			def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+			def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+			def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
 
-				def clientId = project.getPropertyValue("client_id")
-				def redirectUri = project.getPropertyValue("redirect_uri")
-				def scope = project.getPropertyValue("scope")
-				def state = project.getPropertyValue("state")
+			def clientId = project.getPropertyValue("client_id")
+			def redirectUri = project.getPropertyValue("redirect_uri")
+			def scope = project.getPropertyValue("scope")
+			def state = project.getPropertyValue("state")
 
-				def String sessionCookie = null
+			def String sessionCookie = null
 
 			///////////////////////////////
 			// 
@@ -15446,10 +15446,10 @@ log.info("**********************************************************************
 
 
 			log.info("*****************************************************************************************************");
-			log.info("   RESET Data Custodian Database ");
+			log.info("   Load Certification Configuration ");
 			log.info("*****************************************************************************************************");	
 
-			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
+			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['LoadConfigCert']);
 
 
 			log.info("*****************************************************************************************************");
@@ -15479,9 +15479,9 @@ log.info("**********************************************************************
 			log.info("Returned session cookie = " + httpConnector.cookies);
 
 
-log.info("*****************************************************************************************************");
-log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
-log.info("*****************************************************************************************************");	
+			log.info("*****************************************************************************************************");
+			log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
+			log.info("*****************************************************************************************************");	
 
 			oauthConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log)
 
@@ -15508,32 +15508,32 @@ log.info("**********************************************************************
 			return;]]></script></con:config>
 </con:testStep><con:testStep type="groovy" name="DEMO [NEG] OAuth Authorize Endpoint -- Reject malformed request (multiple client_id parameters)">
 		<con:settings/>
-		<con:config><script><![CDATA[/////////////////////////////////////////////////////////
-				// Need these imports to run tests
-				/////////////////////////////////////////////////////////
+		<con:config><script><![CDATA[			/////////////////////////////////////////////////////////
+			// Need these imports to run tests
+			/////////////////////////////////////////////////////////
 
-				import com.rhythmicsoftware.cmd.utils.HTTPConnector;
+			import com.rhythmicsoftware.cmd.utils.HTTPConnector;
 
 
 
-				/////////////////////////////////////////////////////////
-				// define some variables
-				/////////////////////////////////////////////////////////
+			/////////////////////////////////////////////////////////
+			// define some variables
+			/////////////////////////////////////////////////////////
 
-				def project = testRunner.testCase.testSuite.project
-				def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-				def projectPath = groovyUtils.projectPath
+			def project = testRunner.testCase.testSuite.project
+			def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+			def projectPath = groovyUtils.projectPath
 
-				def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
-				def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
-				def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+			def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+			def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+			def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
 
-				def clientId = project.getPropertyValue("client_id")
-				def redirectUri = project.getPropertyValue("redirect_uri")
-				def scope = project.getPropertyValue("scope")
-				def state = project.getPropertyValue("state")
+			def clientId = project.getPropertyValue("client_id")
+			def redirectUri = project.getPropertyValue("redirect_uri")
+			def scope = project.getPropertyValue("scope")
+			def state = project.getPropertyValue("state")
 
-				def String sessionCookie = null
+			def String sessionCookie = null
 
 			///////////////////////////////
 			// 
@@ -15543,10 +15543,10 @@ log.info("**********************************************************************
 
 
 			log.info("*****************************************************************************************************");
-			log.info("   RESET Data Custodian Database ");
+			log.info("   Load Certification Configuration ");
 			log.info("*****************************************************************************************************");	
 
-			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
+			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['LoadConfigCert']);
 
 
 			log.info("*****************************************************************************************************");
@@ -15576,9 +15576,9 @@ log.info("**********************************************************************
 			log.info("Returned session cookie = " + httpConnector.cookies);
 
 
-log.info("*****************************************************************************************************");
-log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
-log.info("*****************************************************************************************************");	
+			log.info("*****************************************************************************************************");
+			log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
+			log.info("*****************************************************************************************************");	
 
 			oauthConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log)
 
@@ -15605,32 +15605,32 @@ log.info("**********************************************************************
 			return;]]></script></con:config>
 </con:testStep><con:testStep type="groovy" name="DEMO [NEG] OAuth Authorize Endpoint -- Reject malformed request (multiple scope parameters)">
 		<con:settings/>
-		<con:config><script><![CDATA[/////////////////////////////////////////////////////////
-				// Need these imports to run tests
-				/////////////////////////////////////////////////////////
+		<con:config><script><![CDATA[			/////////////////////////////////////////////////////////
+			// Need these imports to run tests
+			/////////////////////////////////////////////////////////
 
-				import com.rhythmicsoftware.cmd.utils.HTTPConnector;
+			import com.rhythmicsoftware.cmd.utils.HTTPConnector;
 
 
 
-				/////////////////////////////////////////////////////////
-				// define some variables
-				/////////////////////////////////////////////////////////
+			/////////////////////////////////////////////////////////
+			// define some variables
+			/////////////////////////////////////////////////////////
 
-				def project = testRunner.testCase.testSuite.project
-				def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-				def projectPath = groovyUtils.projectPath
+			def project = testRunner.testCase.testSuite.project
+			def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+			def projectPath = groovyUtils.projectPath
 
-				def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
-				def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
-				def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+			def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+			def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+			def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
 
-				def clientId = project.getPropertyValue("client_id")
-				def redirectUri = project.getPropertyValue("redirect_uri")
-				def scope = project.getPropertyValue("scope")
-				def state = project.getPropertyValue("state")
+			def clientId = project.getPropertyValue("client_id")
+			def redirectUri = project.getPropertyValue("redirect_uri")
+			def scope = project.getPropertyValue("scope")
+			def state = project.getPropertyValue("state")
 
-				def String sessionCookie = null
+			def String sessionCookie = null
 
 			///////////////////////////////
 			// 
@@ -15640,10 +15640,10 @@ log.info("**********************************************************************
 
 
 			log.info("*****************************************************************************************************");
-			log.info("   RESET Data Custodian Database ");
+			log.info("   Load Certification Configuration ");
 			log.info("*****************************************************************************************************");	
 
-			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
+			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['LoadConfigCert']);
 
 
 			log.info("*****************************************************************************************************");
@@ -15673,9 +15673,9 @@ log.info("**********************************************************************
 			log.info("Returned session cookie = " + httpConnector.cookies);
 
 
-log.info("*****************************************************************************************************");
-log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
-log.info("*****************************************************************************************************");	
+			log.info("*****************************************************************************************************");
+			log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
+			log.info("*****************************************************************************************************");	
 
 			oauthConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log)
 
@@ -15702,32 +15702,32 @@ log.info("**********************************************************************
 			return;]]></script></con:config>
 </con:testStep><con:testStep type="groovy" name="DEMO [NEG] OAuth Authorize Endpoint -- Reject malformed request (multiple redirect_uri parameters)">
 		<con:settings/>
-		<con:config><script><![CDATA[/////////////////////////////////////////////////////////
-				// Need these imports to run tests
-				/////////////////////////////////////////////////////////
+		<con:config><script><![CDATA[			/////////////////////////////////////////////////////////
+			// Need these imports to run tests
+			/////////////////////////////////////////////////////////
 
-				import com.rhythmicsoftware.cmd.utils.HTTPConnector;
+			import com.rhythmicsoftware.cmd.utils.HTTPConnector;
 
 
 
-				/////////////////////////////////////////////////////////
-				// define some variables
-				/////////////////////////////////////////////////////////
+			/////////////////////////////////////////////////////////
+			// define some variables
+			/////////////////////////////////////////////////////////
 
-				def project = testRunner.testCase.testSuite.project
-				def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-				def projectPath = groovyUtils.projectPath
+			def project = testRunner.testCase.testSuite.project
+			def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+			def projectPath = groovyUtils.projectPath
 
-				def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
-				def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
-				def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+			def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+			def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+			def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
 
-				def clientId = project.getPropertyValue("client_id")
-				def redirectUri = project.getPropertyValue("redirect_uri")
-				def scope = project.getPropertyValue("scope")
-				def state = project.getPropertyValue("state")
+			def clientId = project.getPropertyValue("client_id")
+			def redirectUri = project.getPropertyValue("redirect_uri")
+			def scope = project.getPropertyValue("scope")
+			def state = project.getPropertyValue("state")
 
-				def String sessionCookie = null
+			def String sessionCookie = null
 
 			///////////////////////////////
 			// 
@@ -15737,10 +15737,10 @@ log.info("**********************************************************************
 
 
 			log.info("*****************************************************************************************************");
-			log.info("   RESET Data Custodian Database ");
+			log.info("   Load Certification Configuration ");
 			log.info("*****************************************************************************************************");	
 
-			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
+			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['LoadConfigCert']);
 
 
 			log.info("*****************************************************************************************************");
@@ -15770,9 +15770,9 @@ log.info("**********************************************************************
 			log.info("Returned session cookie = " + httpConnector.cookies);
 
 
-log.info("*****************************************************************************************************");
-log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
-log.info("*****************************************************************************************************");	
+			log.info("*****************************************************************************************************");
+			log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
+			log.info("*****************************************************************************************************");	
 
 			oauthConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log)
 
@@ -15799,32 +15799,32 @@ log.info("**********************************************************************
 			return;]]></script></con:config>
 </con:testStep><con:testStep type="groovy" name="DEMO [NEG] OAuth Authorize Endpoint -- Reject malformed request (multiple state parameters)">
 		<con:settings/>
-		<con:config><script><![CDATA[/////////////////////////////////////////////////////////
-				// Need these imports to run tests
-				/////////////////////////////////////////////////////////
+		<con:config><script><![CDATA[			/////////////////////////////////////////////////////////
+			// Need these imports to run tests
+			/////////////////////////////////////////////////////////
 
-				import com.rhythmicsoftware.cmd.utils.HTTPConnector;
+			import com.rhythmicsoftware.cmd.utils.HTTPConnector;
 
 
 
-				/////////////////////////////////////////////////////////
-				// define some variables
-				/////////////////////////////////////////////////////////
+			/////////////////////////////////////////////////////////
+			// define some variables
+			/////////////////////////////////////////////////////////
 
-				def project = testRunner.testCase.testSuite.project
-				def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-				def projectPath = groovyUtils.projectPath
+			def project = testRunner.testCase.testSuite.project
+			def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+			def projectPath = groovyUtils.projectPath
 
-				def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
-				def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
-				def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
+			def ServiceEndpoint=project.getPropertyValue("ServiceEndpoint")
+			def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
+			def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
 
-				def clientId = project.getPropertyValue("client_id")
-				def redirectUri = project.getPropertyValue("redirect_uri")
-				def scope = project.getPropertyValue("scope")
-				def state = project.getPropertyValue("state")
+			def clientId = project.getPropertyValue("client_id")
+			def redirectUri = project.getPropertyValue("redirect_uri")
+			def scope = project.getPropertyValue("scope")
+			def state = project.getPropertyValue("state")
 
-				def String sessionCookie = null
+			def String sessionCookie = null
 
 			///////////////////////////////
 			// 
@@ -15834,10 +15834,10 @@ log.info("**********************************************************************
 
 
 			log.info("*****************************************************************************************************");
-			log.info("   RESET Data Custodian Database ");
+			log.info("   Load Certification Configuration ");
 			log.info("*****************************************************************************************************");	
 
-			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
+			testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['LoadConfigCert']);
 
 
 			log.info("*****************************************************************************************************");
@@ -15867,9 +15867,9 @@ log.info("**********************************************************************
 			log.info("Returned session cookie = " + httpConnector.cookies);
 
 
-log.info("*****************************************************************************************************");
-log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
-log.info("*****************************************************************************************************");	
+			log.info("*****************************************************************************************************");
+			log.info("   [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter");
+			log.info("*****************************************************************************************************");	
 
 			oauthConnector = new HTTPConnector(ServiceEndpoint, sessionCookie, log)
 
