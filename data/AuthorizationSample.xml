@@ -14,11 +14,9 @@
 				<duration>31536000</duration>
 				<start>1333252800</start>
 			</publishedPeriod>
-			<access_token>AA886A7A-078D-4307-A3D9-AA036796DBC3</access_token>
 			<status>1</status>
 			<expires_at>86400</expires_at>
 			<grant_type>authorization_code</grant_type>
-			<refresh_token>AA886A7A-078D-4307-A3D9-AA036796DBC4</refresh_token>
 			<scope>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</scope>
 			<token_type>bearer</token_type>
 			<error>server_error</error>
