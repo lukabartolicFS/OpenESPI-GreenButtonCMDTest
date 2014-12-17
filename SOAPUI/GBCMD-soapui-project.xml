@@ -13642,10 +13642,11 @@ request.requestHeaders = headers
 		</con:property>
 	</con:properties>
 </con:testSuite>
+
 <con:testSuite name="Dons Sandbox">
 	<con:settings/>
 	<con:runType>SEQUENTIAL</con:runType>
-	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestTwoTokens" searchProperties="true" id="52471459-d197-4027-aabe-61f91f6c298b">
+	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestTwoTokens" searchProperties="true">
 		<con:settings/>
 		<con:testStep type="groovy" name="StartDriver">
 			<con:settings/>
@@ -13925,7 +13926,7 @@ request.requestHeaders = headers
 </con:testStep>
 <con:properties/>
 </con:testCase>
-<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Data Custodian Admin API" searchProperties="true" id="ef1c812e-29c0-4ed1-9b66-e487d8d1e0de">
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Data Custodian Admin API" searchProperties="true">
 	<con:settings/>
 	<con:testStep type="groovy" name="Feature: Data Custodian Admin API">
 		<con:settings/>
@@ -14176,7 +14177,7 @@ request.requestHeaders = headers
 </con:testStep>
 <con:properties/>
 </con:testCase>
-<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Third Party Registration Admin API" searchProperties="true" id="b7ace92d-5fed-4b5d-be75-28f4104ab172">
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Third Party Registration Admin API" searchProperties="true">
 	<con:settings/>
 	<con:testStep type="groovy" name="Feature: Third Party Registration Admin">
 		<con:settings/>
@@ -14363,7 +14364,7 @@ request.requestHeaders = headers
 </con:testStep>
 <con:properties/>
 </con:testCase>
-<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Upload Admin API" searchProperties="true" id="e8a06467-be55-46f2-9dd7-2d141fb18389">
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Upload Admin API" searchProperties="true">
 	<con:settings/>
 	<con:testStep type="groovy" name="Feature: Upload Admin API">
 		<con:settings/>
@@ -14522,7 +14523,7 @@ request.requestHeaders = headers
 </con:testStep>
 <con:properties/>
 </con:testCase>
-<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_xx] OAuth 2.0 [RFC6749] Compliance" searchProperties="true" id="7b5dd0a1-dcb7-40b5-8336-7b5071fbbdbb">
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_xx] OAuth 2.0 [RFC6749] Compliance" searchProperties="true">
 	<con:settings/>
 	<con:testStep type="groovy" name="[NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter)">
 		<con:settings/>
@@ -14723,7 +14724,7 @@ return;
 </con:testStep>
 <con:properties/>
 </con:testCase>
-<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Groovy Test Script [NEG] OAuth Authorize Endpoint -- malformed" searchProperties="true" id="5fef2c1f-372a-41c6-9ad6-bdb8138b15be">
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Groovy Test Script [NEG] OAuth Authorize Endpoint -- malformed" searchProperties="true">
 	<con:settings/>
 	<con:testStep type="groovy" name="[NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter)">
 		<con:settings/>
@@ -16287,7 +16288,7 @@ return;
 			</con:config>
 		</con:testStep>
 		<con:properties/>
-	</con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD005 [NEG] Malformed Authorization Code Request (No &quot;response_code&quot; field-value pair)" searchProperties="true" id="8dd6ab87-2e35-4113-be2e-701efd64d268"><con:settings/><con:testStep type="restrequest" name="GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+	</con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD005 [NEG] Malformed Authorization Code Request (No &quot;response_code&quot; field-value pair)" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
 				<con:settings>
 					<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 		</con:settings>
@@ -20295,8 +20296,7 @@ If the Data Custodian detected the failure please mark this test as "Pass" other
 		<con:entry>Content-Type</con:entry>
 	</con:parameterOrder>
 </con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/>
-</con:testSuite>
-<con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty Notification REST MockService 1" docroot=""><con:settings/><con:startScript>context.mockService.setPropertyValue("rxNotificationBody","");</con:startScript><con:properties><con:property><con:name>rxNotificationBody</con:name><con:value>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?>&lt;espi:BatchList xmlns:espi="http://naesb.org/espi">&lt;espi:resources>sftp://localhost/home/bitnami/sampledata/BatchBulk.xml&lt;/espi:resources>&lt;/espi:BatchList></con:value></con:property></con:properties><con:onRequestScript/><con:restMockAction name="/ThirdParty/espi/1_1/Notification" method="POST" resourcePath="/ThirdParty/espi/1_1/Notification"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>
+</con:testSuite><con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty Notification REST MockService 1" docroot=""><con:settings/><con:startScript>context.mockService.setPropertyValue("rxNotificationBody","");</con:startScript><con:properties><con:property><con:name>rxNotificationBody</con:name><con:value/></con:property></con:properties><con:onRequestScript/><con:restMockAction name="/ThirdParty/espi/1_1/Notification" method="POST" resourcePath="/ThirdParty/espi/1_1/Notification"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>
 if(requestContext.mockService.getPropertyValue("rxNotificationBody")!= "") {
 	log.info("Discarding addtional notifications");
 	return;	
