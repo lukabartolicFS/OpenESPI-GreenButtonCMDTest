@@ -5,11 +5,10 @@ This project will hold test scripts and tools for Green Button Connect My Data
 ## Requirements
 
 - [Install SOAPUI](http://sourceforge.net/projects/soapui/files/soapui/5.0.0/SoapUI-x64-5.0.0.sh/download)
-- Retrieve support files from [project dependencies folder](https://github.com/energyos/OpenESPI-GreenButtonCMDTest/tree/master/SOAPUI/projectDependencies)
-- 
+- [Install project dependencies](https://github.com/energyos/OpenESPI-GreenButtonCMDTest/tree/master/SOAPUI/projectDependencies)
+ 
 ## Setup
 How to integrate selenium with SOAPUI:
-see http://siking.wordpress.com/2011/08/22/groovy-selenium-webdriver-and-soapui-part-3/
 
 1.	Install SoapUI.
 1.	Retrieve project dependencies jars and drop them into your SoapUI installation (into %SOAPUI_HOME%\bin\ext).	
