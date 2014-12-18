@@ -5,18 +5,16 @@ This project will hold test scripts and tools for Green Button Connect My Data
 ## Requirements
 
 - [Install SOAPUI](http://sourceforge.net/projects/soapui/files/soapui/5.0.0/SoapUI-x64-5.0.0.sh/download)
-- [Install Selenium Library] (http://selenium-release.storage.googleapis.com/2.42/selenium-server-standalone-2.42.2.jar)
-- [Install Groovy HTTP Library] (http://repository.codehaus.org/org/codehaus/groovy/modules/http-builder/http-builder/0.7/http-builder-0.7-all.zip)
-
+- Retrieve support files from [project dependencies folder](https://github.com/energyos/OpenESPI-GreenButtonCMDTest/tree/master/SOAPUI/projectDependencies)
+- 
 ## Setup
 How to integrate selenium with SOAPUI:
 see http://siking.wordpress.com/2011/08/22/groovy-selenium-webdriver-and-soapui-part-3/
 
 1.	Install SoapUI.
-2.	Download Selenium (you need the selenium-server-standalone-2.*.jar) and drop it into your SoapUI installation (into %SOAPUI_HOME%\bin\ext).	
-3.	Add the Groovy libaries to (That zip file has a main jar file and folder dependencies. Copy all these jar files to the <SOAPUI installfolder>/bin/ext)
-4.	Ensure lftp is installed. To install use the follloing command: sudo apt-get install lftp
-5.	For the given unit under test use lftp to ensure sftp credentials work and are applied. For example: lftp sftp://user:password@host  -e "dir /; bye"
+1.	Retrieve project dependencies jars and drop them into your SoapUI installation (into %SOAPUI_HOME%\bin\ext).	
+1.	Ensure lftp is installed. To install use the follloing command: sudo apt-get install lftp
+1.	For the given unit under test use lftp to ensure sftp credentials work and are applied. For example: lftp sftp://user:password@host  -e "dir /; bye"
 
 ##	Documentation on the WebDriver API 
 This link provides documentation of the WebDriver API for running selenium steps from within a programming language.
