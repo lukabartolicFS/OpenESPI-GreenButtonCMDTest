@@ -4,6 +4,7 @@ This project will hold test scripts and tools for Green Button Connect My Data
 
 ## Requirements
 
+- Install Firefox version 31 (jar files are compatible with this version only at this time)
 - [Install SOAPUI](http://sourceforge.net/projects/soapui/files/soapui/5.0.0/SoapUI-x64-5.0.0.sh/download)
 - [Install project dependencies](https://github.com/energyos/OpenESPI-GreenButtonCMDTest/tree/master/SOAPUI/projectDependencies)
  
