@@ -16673,10 +16673,7 @@ Source instanceDocument = new StreamSource(new StringReader(response));
 SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 Schema s = sf.newSchema(schemaDocuments);
 Validator v = s.newValidator();
-v.validate(instanceDocument);</scriptText></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
-declare namespace espi='http://naesb.org/espi';
-declare namespace ns1='http://www.w3.org/2005/Atom';
-count(/ns3:feed/ns3:entry/ns3:content/espi:Authorization[espi:access_token='${#Project#registration_access_token}']) +  count(/ns3:feed/ns3:entry/ns3:content/espi:Authorization[espi:access_token='${#Project#client_access_token}'])</path><content>2</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials>
+v.validate(instanceDocument);</scriptText></con:configuration></con:assertion><con:credentials>
 			<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
 			<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
 			<con:authType>Global HTTP Settings</con:authType>
