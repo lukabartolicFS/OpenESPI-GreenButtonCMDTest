@@ -14726,8 +14726,7 @@ return;
 	<con:settings/>
 	<con:testStep type="groovy" name="[NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter)">
 		<con:settings/>
-		<con:config>
-			<script><![CDATA[/////////////////////////////////////////////////////////
+		<con:config><script><![CDATA[/////////////////////////////////////////////////////////
 // Need these imports to run tests
 /////////////////////////////////////////////////////////
 
@@ -14916,12 +14915,11 @@ params = [client_id: clientId, redirect_uri: redirectUri, scope: scope, state: s
 log.info("URL = " + "GET " + oauthConnector.baseUrl + url + params);
 log.info("Cookies = " + oauthConnector.cookies);
 
-oauthConnector.request(Method.GET, ContentType.HTML, url, params)
+oauthConnector.request(Method.GET, ContentType.HTML, url, params);
 	
 return;
 
-]]></script>
-		</con:config>
+]]></script></con:config>
 	</con:testStep>
 	<con:testStep type="groovy" name="DEMO [NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter)">
 		<con:settings/>
@@ -16286,7 +16284,7 @@ return;
 			</con:config>
 		</con:testStep>
 		<con:properties/>
-	</con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD005 [NEG] Malformed Authorization Code Request (No &quot;response_code&quot; field-value pair)" searchProperties="true" id="94c03e3b-04fb-4656-a3af-21a62850161f"><con:description/><con:settings/><con:testStep type="restrequest" name="GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+	</con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*OAD005 [NEG] Malformed Authorization Code Request (No &quot;response_code&quot; field-value pair)" searchProperties="true" id="94c03e3b-04fb-4656-a3af-21a62850161f" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:description/><con:settings/><con:testStep type="restrequest" name="GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
 				<con:settings>
 					<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 		</con:settings>
@@ -16324,212 +16322,237 @@ if((testRunner.testCase.getPropertyValue("extracted_scope_sel_uri")==null)||
 	return;		
 }
 
-context.ScopeSelURI = testRunner.testCase.getPropertyValue("extracted_scope_sel_uri");</script></con:config></con:testStep><con:testStep type="groovy" name="Start Mock Service"><con:settings/><con:config><script>def service = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Authorization Mock Service");
+context.ScopeSelURI = testRunner.testCase.getPropertyValue("extracted_scope_sel_uri");</script></con:config></con:testStep><con:testStep type="groovy" name="Script will bring up browser to DC Scope selection screen"><con:settings/><con:config><script>import org.greenbutton.cmd.utils.DriverHelper;
+import groovyx.net.http.HTTPBuilder;
+import static groovyx.net.http.Method.GET;
+import static groovyx.net.http.ContentType.TEXT;
+import java.net.*;
+import java.io.*;
 
-service.setPropertyValue("tokenResponse","");
-service.setPropertyValue("authorizationServerAuthorizationEndpoint",testRunner.testCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
-service.setPropertyValue("redirect_uri",testRunner.testCase.getPropertyValue("redirect_uri"));
-service.setPropertyValue("authorizationServerTokenEndpoint",testRunner.testCase.getPropertyValue("authorizationServerTokenEndpoint"));
+String parseEndpointFromURI(String strURI) throws Exception {
+    URL aURL = new URL(strURI);
+    return aURL.getProtocol() + "://" +  aURL.getHost() + ":" + aURL.getPort();
+}
 
-def runner = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Authorization Mock Service").start();
-context.mockRunner = runner;
+String parseResource(String strURI) throws Exception {
+    URL aURL = new URL(strURI);
+    return aURL.getPath();
+}
 
-return;</script></con:config></con:testStep><con:testStep type="groovy" name="Script will bring up browser to DC Scope selection screen"><con:settings/><con:config><script>import org.greenbutton.cmd.utils.DriverHelper;
 
+String strEndpoint = parseEndpointFromURI(context.ScopeSelURI);
+String strResource = parseResource(context.ScopeSelURI);
 
-String strScopeSelURI = context.ScopeSelURI;
-
-String strHost = strScopeSelURI.substring("http://".length());
-String strResource = strHost.substring(strHost.indexOf("/"));
-strHost = strScopeSelURI.substring(0,strScopeSelURI.indexOf(strResource));
-//context.strHost = strHost;
-//context.strResource = strResource;
-
-DriverHelper driver = new DriverHelper(strHost,strResource,"",log);
+DriverHelper driver = new DriverHelper(strEndpoint,strResource,"",log);
 
 context["driver"] = driver;
 
-//strScopeSelURI = 'http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?scope=FB=4_5_15;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;ThirdPartyID=third_party';
-//strScopeSelURI = 'http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party';
+driver.get(context.ScopeSelURI);
 
+</script></con:config></con:testStep><con:testStep type="groovy" name="Start Mock Service"><con:settings/><con:config><script>context.mockService =  testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Authorization Mock Service for NEG tests type A");
 
-driver.get(strScopeSelURI);</script></con:config></con:testStep><con:testStep type="manualTestStep" name="Perform log on and authorization"><con:description>Perform log on and authorization</con:description><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:testStep><con:testStep type="groovy" name="End Browser session"><con:settings/><con:config><script>context["driver"].quit();</script></con:config></con:testStep><con:testStep type="groovy" name="Stop Mock Service"><con:settings/><con:config><script>context.mockRunner.stop();
-return;</script></con:config></con:testStep><con:testStep type="groovy" name="Validate and extract information from authorization"><con:settings/><con:config><script>import groovy.json.JsonSlurper;
-import com.eviware.soapui.support.types.StringToStringMap;
+context.mockService.setPropertyValue("tokenResponse","");
+context.mockService.setPropertyValue("authorizationServerAuthorizationEndpoint",testRunner.testCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
+context.mockService.setPropertyValue("redirect_uri",testRunner.testCase.getPropertyValue("redirect_uri"));
+context.mockService.setPropertyValue("authorizationServerTokenEndpoint",testRunner.testCase.getPropertyValue("authorizationServerTokenEndpoint"));
+context.mockService.setPropertyValue("GotFirstRedirect","FALSE");
+context.mockService.setPropertyValue("GotScopeSelPOST","FALSE");
 
-def service = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Authorization Mock Service");
-String strTokenResponse =  service.getPropertyValue("tokenResponse");
+context.mockRunner = context.mockService.start();
 
-if((strTokenResponse==null)||(strTokenResponse=="")){
-	log.error("No authorization received");
-	testRunner.fail("No authorization received");
-	return;
-}
+return;</script></con:config></con:testStep><con:testStep type="manualTestStep" name="Perform Login"><con:description>Please login to the Data Custodian under 
+test and wait for the Thid Party Scope
+Selection Screen.
 
-def slurper = new JsonSlurper();
-def tokenResponse = slurper.parseText(strTokenResponse);
-def headers = new StringToStringMap()
+When this screen appears please right click
+on the page and select "Page Info" from
+the conext menu.
 
-log.info("access_token = " + tokenResponse.access_token);
-log.info("resourceURI = " + tokenResponse.resourceURI);
-log.info("authorizationURI = " + tokenResponse.authorizationURI);
+Choose the Security tab click the view cookies 
+button and copy the session cookie
+ for the Data Custodian path.
 
-propTestStep = context.testCase.getTestStepByName("GET Resource URI");
-
-propTestStep.setPropertyValue("Endpoint",tokenResponse.resourceURI);
-headers.put("Authorization","Bearer " + tokenResponse.access_token);
-headers.put("Content-Type","Application/atom+xml");
-propTestStep.testRequest.setRequestHeaders(headers);
-
-propTestStep = context.testCase.getTestStepByName("GET Authorization URI");
-
-propTestStep.setPropertyValue("Endpoint",tokenResponse.authorizationURI);
-headers.put("Authorization","Bearer " + testRunner.testCase.testSuite.project.getPropertyValue("client_access_token"));
-headers.put("Content-Type","Application/atom+xml");
-propTestStep.testRequest.setRequestHeaders(headers);
- </script></con:config></con:testStep><con:testStep type="httprequest" name="GET Resource URI"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Resource URI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
-  &lt;con:entry key="Authorization" value="Bearer 6e573b9e-988d-48a1-8e3d-6d5f854e35a7"/>
-  &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
-&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema Validation"><con:configuration><scriptText>import javax.xml.XMLConstants;
-import javax.xml.transform.Source;
-import javax.xml.transform.stream.StreamSource;
-import javax.xml.validation.SchemaFactory;
-import javax.xml.validation.Schema;
-import javax.xml.validation.Validator;
-
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-
-String strSchemaFile1 = groovyUtils.projectPath + "/etc/atom.xsd";
-String strSchemaFile2 = groovyUtils.projectPath + "/etc/espiDerived.xsd";
-
-String response = messageExchange.response.contentAsString;
-log.info("validating: " + response);
-
-StreamSource[] schemaDocuments = new StreamSource[2];
-schemaDocuments[0] = new StreamSource(strSchemaFile1);
-schemaDocuments[1] = new StreamSource(strSchemaFile2);
-Source instanceDocument = new StreamSource(new StringReader(response));
-
-SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-Schema s = sf.newSchema(schemaDocuments);
-Validator v = s.newValidator();
-v.validate(instanceDocument);</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="groovy" name="FB Data Valiation Tests"><con:settings/><con:config><script>import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.stream.StreamResult;
-import javax.xml.transform.stream.StreamSource;
-
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
-def ResponseMessage = testRunner.testCase.testSteps["GET Resource URI"].testRequest.response.contentAsString;
-def service = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Authorization Mock Service");
-
-String strScope =  service.getPropertyValue("SelectedScope");
-String strFBs;
-strScope.eachMatch("FB=.*?;") { match ->
-	strFBs = match;
-}
+Paste this session cookie into the "Result"
+field of this dialog box.
+</con:description><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult/></con:config></con:testStep><con:testStep type="groovy" name="Extract sessionID"><con:settings/><con:config><script>
+testRunner.testCase.setPropertyValue("browserSession",testRunner.testCase.getTestStepByName("Perform Login").getPropertyValue("Result"));
  
-strFBs = strFBs.replace("FB=","");
-strFBs = strFBs.replace(";","");
+</script></con:config></con:testStep><con:testStep type="groovy" name="Wait for Mock Service to receive first redirect"><con:settings/><con:config><script>
 
-List listFB = strFBs.tokenize("_");
+int cnt=20;
 
-String strPassedTests = "";
+while(cnt>0){
+	log.info("Script waiting for first browser TP redirect");
+	if(context.mockService.getPropertyValue("GotFirstRedirect").equals("TRUE")){
+		assert true;
+		return;
+	}
+	Thread.sleep(1000);
+	cnt--;
+}
 
-boolean bFailure = false;
+log.error("No authorization received");
+testRunner.fail("Never received first redirection to the Third Party");
+</script></con:config></con:testStep><con:testStep type="manualTestStep" name="Perform TP Scope Selection"><con:description>Please select a scope on the Thisrd Party Scope
+selection screen and press submit.</con:description><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:testStep><con:testStep type="groovy" name="Wait for Mock Service to receive TP scope sel POST"><con:settings/><con:config><script>
+int cnt=20;
 
-boolean bFirst = true;
-for(Object object : listFB) {
-	String strFB = (String) object;
+while(cnt>0){
+	log.info("Script waiting for TP scope select POST");
+	if(context.mockService.getPropertyValue("GotScopeSelPOST").equals("TRUE")){
+		assert true;
+		return;
+	}
+	Thread.sleep(1000);
+	cnt--;
+}
 
-	if((strFB=="1")||(strFB=="4")||(strFB=="5")||(strFB=="6")||(strFB=="7")||(strFB=="8")||(strFB=="9")||(strFB=="10")||
-		(strFB=="11")||(strFB=="12")||(strFB=="15")||(strFB=="16")||(strFB=="17")||(strFB=="27")||(strFB=="28")||(strFB=="29")||(strFB=="99")){
-		
-		//log.info("Running data test for FB:" + strFB);
+log.error("No scope sel POST received");
+testRunner.fail("No scope sel POST received.");
+</script></con:config></con:testStep><con:testStep type="groovy" name="Issue malformed oauth/authorized GETs"><con:settings/><con:config><script><![CDATA[import java.net.HttpUrlConnection.*;
+
+int issueGET(String targetURL,String strSessionID){
+
+	log.info("Issuing malformed GET " + targetURL);
+	int iRespCode = 0;
+	String urlParameters = "";
 	
-		String strFBTestXSLT = groovyUtils.projectPath + "/fnBlockTests/FB_" + strFB + ".xsl";
- 	
-		java.io.StringWriter sw=new java.io.StringWriter();
-		StreamResult sr=new StreamResult(sw);
+	URL url;
+	
+	HttpURLConnection connection = null;  
+	
+	try {
+		//Create connection
+		url = new URL(targetURL);
+		connection = (HttpURLConnection)url.openConnection();
+		connection.setRequestMethod("GET");
+		connection.setInstanceFollowRedirects(false);
+		connection.setRequestProperty("Cookie", "JSESSIONID=" + strSessionID);
 		
-		StringReader readerResponseBody = new StringReader(ResponseMessage);		
-		
-		def factory = TransformerFactory.newInstance();
-		def transformer = factory.newTransformer(new StreamSource(strFBTestXSLT));
-		transformer.transform(new StreamSource(readerResponseBody), sr);
-		 
-		def holder;
-		try{
-			holder = groovyUtils.getXmlHolder(sw.toString());
-		} catch(org.apache.xmlbeans.XmlException e) {
-			log.error("Invalid xslt result body:" + e.toString());
-			bFailure = true;
-			break;
+		//Get Response    
+		InputStream is = connection.getInputStream();
+		BufferedReader rd = new BufferedReader(new InputStreamReader(is));
+		String line;
+		StringBuffer response = new StringBuffer(); 
+		while((line = rd.readLine()) != null) {
+			response.append(line);
+			response.append('\r');
 		}
+		rd.close();
+		//log.info response.toString();
 		
-		String strCount = "0";
-		try{
-			strCount = holder.getNodeValue("count(//assert)")
-		} catch(org.apache.xmlbeans.XmlException e) {
-			log.error("Invalid xslt body: " + e.toString());
-			bFailure = true;
-			break;
+		log.info "Response = " + connection.getResponseCode();
+
+		iRespCode = connection.getResponseCode();
+	
+	} catch (Exception e) {
+		log.info e.getMessage();
+		return 0;
+	} finally {
+		if(connection != null) {
+			log.info "Response = " + connection.getResponseCode();
+			iRespCode = connection.getResponseCode();		
+			connection.disconnect(); 
 		}
+
+		return iRespCode;
+	}	
+}
+
+String strSessionID = testRunner.testCase.getPropertyValue("browserSession");
+String strAuthEndpoint = testRunner.testCase.getPropertyValue("authorizationServerAuthorizationEndpoint");
+String strSelectedScope = context.mockService.getPropertyValue("SelectedScope").replace("scope=","");
+String strRedirURI =  testRunner.testCase.getPropertyValue("redirect_uri");
+
+// sample valid qry string:
+//strQryParams = "?client_id=third_party&redirect_uri=" + strRedirURI + "&response_type=code&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018"; 
+
+int iTestID= 0;
+while(true) {
+	// loop through different malformation tests
+	String strTestName = "";
+	String strQryParams = "";
+	int iRespCode = 0;
+	int iExpectedRespCode = 0;
+
+	switch(iTestID) {
+		case 0:
+			strTestName = "Malformed Authorization Code Request (No response_code field-value pair)	OAD005";						
+			//strQryParams = "?redirect_uri=" + strRedirURI + "&response_type=code&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018";
+			iExpectedRespCode = 0;
+			break;
+		case 1:
+			strTestName = "Malformed Authorization Code Request (No client_id field-value pair)	OAD006";
+			strQryParams = "?redirect_uri=" + strRedirURI + "&response_type=code&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018";
+			iExpectedRespCode = 400;
+			break;
+		case 2:
+			strTestName = "Malformed Authorization Code Request (No redirect_uri field-value pair	OAD007";
+			break;
+		case 3:
+			strTestName = "Malformed Authorization Code Request (No scope field-value pair)	OAD008";
+			break;
+		case 4:
+			strTestName = "Malformed Authorization Code Request (No state field-value pair)	OAD009";
+			break;
+		case 5:
+			strTestName = "Malformed Authorization Code Request (Multiple response_code field-value pairs)	OAD010";
+			break;
+		case 6:
+			strTestName = "Malformed Authorization Code Request (Multiple client_id field-value pairs)	OAD011";
+			break;
+		case 7:
+			strTestName = "Malformed Authorization Code Request (Multiple scope field-value pairs)	OAD012";
+			break;
+		case 8:
+			strTestName = "Malformed Authorization Code Request (Multiple redirect_uri field-value pairs)	OAD013";
+			break;
+		case 9:
+			strTestName = "Malformed Authorization Code Request (Multiple state field-value pairs)	OAD014";
+			break;
+		case 10:
+			strTestName = "Malformed Authorization Code Request (Invalid field-value pair)	OAD015";
+			break;
+		case 11:
+			strTestName = "Malformed Authorization Code Request (Invalid response_code field-value pair)	OAD016";
+			break;
+		case 12:
+			strTestName = "Authorization Code Request (Invalid client_id field-value pair)	OAD017";
+			break;
+		case 13:
+			strTestName = "Authorization Code Request (Invalid redirect_uri field-value pair)	OAD018";
+			break;
+		case 14:
+			strTestName = "Authorization Code Request (Invalid scope field-value pair)	OAD019";
+			break;
+		default:
+			break;
+	}
+
+	// 0 indicates skip test
+	if(iExpectedRespCode != 0) {
+		log.info("testing: " + strTestName);
+		iRespCode = issueGET(strAuthEndpoint + strQryParams,strSessionID);
 		
-		for(int i=1;i&lt;strCount.toInteger()+1;i++){
-			String strTestID = holder.getNodeValue("//assert[" + i + "]/@TestID");
-			String strTestName = holder.getNodeValue("//assert[" + i + "]/TestName");
-			String strReport = holder.getNodeValue("//assert[" + i + "]/Report");		
-			log.error("FB Test Failed ID:" + strTestID + " Name:'" + strTestName + "' Report:'" + strReport + "'");
-			bFailure = true;
+		if(iRespCode != iExpectedRespCode) {
+			log.error("Failed malformed Authorization request: " + strTestName + " expected response code:" + iExpectedRespCode + " but received:" + iRespCode);
+			testRunner.fail("Failed malformed Authorization request: " + strTestName + " expected response code:" + iExpectedRespCode + " but received:" + iRespCode);
+			return;						
 		}		
+	} else {
+		log.info("skipping: " + strTestName);
+	}
 
-		if(strCount.toInteger()==0){
-			// passed
-			if(bFirst){
-				bFirst = false;
-				strPassedTests = strFB;
-			} else {
-				strPassedTests += "_" + strFB;
-			}
-		}
-	} 
+	iTestID++;
+	if(iTestID > 14){
+		break;
+	}
 }
 
-if(strPassedTests!=""){
-	log.info("Passed the following FB data validations: " + strPassedTests);
-}
-
-if(bFailure){
-	log.error("Failed FB validation tests. Please refer to error log for details.");
-	testRunner.fail("Failed FB validation tests. Please refer to error log for details.");
-}
-
-</script></con:config></con:testStep><con:testStep type="httprequest" name="GET Authorization URI"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Authorization URI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
-  &lt;con:entry key="Authorization" value="Bearer 75dd9c46-becf-48b5-9cb5-9c3233d718d0"/>
-  &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
-&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema validation"><con:configuration><scriptText>import javax.xml.XMLConstants;
-import javax.xml.transform.Source;
-import javax.xml.transform.stream.StreamSource;
-import javax.xml.validation.SchemaFactory;
-import javax.xml.validation.Schema;
-import javax.xml.validation.Validator;
-
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-
-String strSchemaFile1 = groovyUtils.projectPath + "/etc/atom.xsd";
-String strSchemaFile2 = groovyUtils.projectPath + "/etc/espiDerived.xsd";
-
-String response = messageExchange.response.contentAsString;
-log.info("validating: " + response);
-
-StreamSource[] schemaDocuments = new StreamSource[2];
-schemaDocuments[0] = new StreamSource(strSchemaFile1);
-schemaDocuments[1] = new StreamSource(strSchemaFile2);
-Source instanceDocument = new StreamSource(new StringReader(response));
-
-SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-Schema s = sf.newSchema(schemaDocuments);
-Validator v = s.newValidator();
-v.validate(instanceDocument);</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:properties><con:property><con:name>extracted_scope_sel_uri</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property></con:properties></con:testCase><con:properties/>
+assert true;
+	
+]]></script></con:config></con:testStep><con:testStep type="groovy" name="End Browser session"><con:settings/><con:config><script>context["driver"].quit();</script></con:config></con:testStep><con:testStep type="groovy" name="Stop Mock Service"><con:settings/><con:config><script>context.mockRunner.stop();
+return;</script></con:config></con:testStep><con:properties><con:property><con:name>extracted_scope_sel_uri</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value>4259B15F5355D21F29AF18E094ABA952</con:value></con:property></con:properties></con:testCase><con:properties/>
 </con:testSuite>
 <con:testSuite name="[FB_03] Core Green Button Connect My Data">
 	<con:settings/>
@@ -16820,7 +16843,7 @@ headers.put("Authorization","Bearer " + testRunner.testCase.testSuite.project.ge
 headers.put("Content-Type","Application/atom+xml");
 propTestStep.testRequest.setRequestHeaders(headers);
  </script></con:config></con:testStep><con:testStep type="httprequest" name="GET Resource URI"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Resource URI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
-  &lt;con:entry key="Authorization" value="Bearer b920c696-1a91-44d8-853c-53cf48f4be86"/>
+  &lt;con:entry key="Authorization" value="Bearer 8f14248a-de99-4b6f-9972-00edbad2dc87"/>
   &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
 &lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema Validation"><con:configuration><scriptText>import javax.xml.XMLConstants;
 import javax.xml.transform.Source;
@@ -20605,7 +20628,8 @@ requestContext.mockService.setPropertyValue("rxNotificationBody",strBody);
 
 
 
-</con:dispatchPath><con:response name="Response 1" httpResponseStatus="200"><con:settings/><con:script/><con:responseContent/></con:response></con:restMockAction></con:restMockService><con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty Authorization Mock Service" docroot=""><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"b920c696-1a91-44d8-853c-53cf48f4be86","token_type":"bearer","refresh_token":"e766b79f-25e8-494b-8b65-9c6f603b9b13","expires_in":31535999,"scope":"FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13","resourceURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5","authorizationURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5"}</con:value></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+</con:dispatchPath><con:response name="Response 1" httpResponseStatus="200"><con:settings/><con:script/><con:responseContent/></con:response></con:restMockAction></con:restMockService>
+<con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty Authorization Mock Service" docroot=""><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"8f14248a-de99-4b6f-9972-00edbad2dc87","token_type":"bearer","refresh_token":"1ea2a291-e33d-4cca-935c-ac33ee666862","expires_in":31535999,"scope":"FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13","resourceURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5","authorizationURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5"}</con:value></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value>9C0B4BBAD2FBDAF475058F4996FE725B</con:value></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value>TRUE</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Examples showing how to match based on path, query param and header
 // Match based on path
 def requestPath = mockRequest.getPath()
@@ -20648,9 +20672,10 @@ if( acceptEncodingHeadeList.contains("gzip,deflate") )
 </con:dispatchPath><con:response name="Response 1" httpResponseStatus="200" mediaType="text/html"><con:settings/><con:script>
 String strQry = mockRequest.getHttpRequest().getQueryString(); 
 
+log.info("TP GET ScopeSelection: " + strQry);
+
 requestContext.mockService.setPropertyValue("DataCustodianAuthorizeQry",strQry);
 
-log.info("TP GET ScopeSelection: " + strQry);
 
 List listScopes = strQry.tokenize("&amp;");
 
@@ -20895,7 +20920,8 @@ if( acceptEncodingHeadeList.contains("gzip,deflate") )
 }
 
 */
-</con:dispatchPath><con:response name="Response 1" httpResponseStatus="302"><con:settings/><con:script><![CDATA[log.info("TP POST Scope Selection");
+</con:dispatchPath><con:response name="Response 1" httpResponseStatus="302"><con:settings/><con:script><![CDATA[
+log.info("TP POST Scope Selection");
 
 String strBody = "";
 
@@ -20932,9 +20958,473 @@ strRespLoc += "&" + strSelectedScope;
 strRespLoc += "&state=ee148ec2-9892-466e-a013-4dedf1eb3018";
 
 log.info("POST TP Scope selection returning 302 redirect to: " + strRespLoc);
+
 def httpResponse = mockRequest.httpResponse
 httpResponse.addHeader("Location",strRespLoc);
-]]></con:script><con:responseContent/></con:response></con:restMockAction></con:restMockService><con:properties>
+
+
+
+]]></con:script><con:responseContent/></con:response></con:restMockAction></con:restMockService>
+<con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty Authorization Mock Service for NEG tests type A" docroot=""><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value>TRUE</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Examples showing how to match based on path, query param and header
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeadeList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncodig Header List: " + acceptEncodingHeadeList
+
+if( acceptEncodingHeadeList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+*/
+</con:dispatchPath><con:response name="Response 1" httpResponseStatus="200" mediaType="text/html"><con:settings/><con:script>
+String strQry = mockRequest.getHttpRequest().getQueryString(); 
+
+log.info("TP GET ScopeSelection: " + strQry);
+
+requestContext.mockService.setPropertyValue("DataCustodianAuthorizeQry",strQry);
+
+requestContext.mockService.setPropertyValue("GotFirstRedirect","TRUE");
+/*
+int cnt = 20;
+
+while(cnt>0){
+	log.info("TP waiting for sessionID");
+	if(requestContext.mockService.getPropertyValue("ExtractedSessionID").equals("TRUE")){
+		break;
+	}
+	Thread.sleep(1000);
+	cnt--;
+}
+
+if(cnt==0){
+	log.error("TP - sessionID never extracted");
+	return;
+}
+*/
+List listScopes = strQry.tokenize("&amp;");
+
+String strFormSelections = "";
+int idx = 0;
+for(Object object : listScopes) {
+	String strScope = (String) object;
+	if(strScope.contains("scope=")){
+		strFormSelections += '&lt;input type="radio" name="scope" value="' + idx + '">' + strScope + '&lt;br>';
+		log.info("scope:" + strScope);
+	}
+	idx++;
+}
+
+requestContext.list = strFormSelections;</con:script><con:responseContent><![CDATA[<!DOCTYPE html>
+<html>
+<body>
+<br><br>
+<p>Please right click on the page and select "Page Info" from the conext menu.</p>
+<br><br>
+<p>Choose the Security tab click the view cookies button and copy the session cookie for the Data Custodian path.</p>
+<br><br>
+<p>Paste this session cookie into the "Result" field of this dialog box.</p>
+<br><br>
+<p>After this step is complete:</p>
+<br><br>
+<p>Please select a scope for testing and submit.</p>
+<br><br>
+<form action="/ThirdParty/RetailCustomer/ScopeSelection" method="POST">
+${list}
+<br><br>
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>
+]]></con:responseContent></con:response></con:restMockAction><con:restMockAction name="/ThirdParty/espi/1_1/OAuthCallBack" method="GET" resourcePath="/ThirdParty/espi/1_1/OAuthCallBack"><con:settings/><con:defaultResponse xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Examples showing how to match based on path, query param and header
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeadeList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncodig Header List: " + acceptEncodingHeadeList
+
+if( acceptEncodingHeadeList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+*/
+</con:dispatchPath><con:response name="Respond with 302" httpResponseStatus="302" mediaType="text/xml"><con:settings/><con:script>import groovyx.net.http.HTTPBuilder;
+import static groovyx.net.http.Method.GET;
+import static groovyx.net.http.ContentType.TEXT;
+import java.net.*;
+import java.io.*;
+
+String parseEndpointFromURI(String strURI) throws Exception {
+
+    URL aURL = new URL(strURI);
+/*
+    log.info("protocol = " + aURL.getProtocol()); //http
+    log.info("authority = " + aURL.getAuthority()); //example.com:80
+    log.info("host = " + aURL.getHost()); //example.com
+    log.info("port = " + aURL.getPort()); //80
+    log.info("path = " + aURL.getPath()); //  /docs/books/tutorial/index.html
+    log.info("query = " + aURL.getQuery()); //name=networking
+    log.info("filename = " + aURL.getFile()); ///docs/books/tutorial/index.html?name=networking
+    log.info("ref = " + aURL.getRef()); //DOWNLOADING
+*/
+    return aURL.getProtocol() + "://" +  aURL.getHost() + ":" + aURL.getPort();
+}
+
+String parseResource(String strURI) throws Exception {
+    URL aURL = new URL(strURI);
+    return aURL.getPath();
+}
+
+public class ResourceTester {
+	Object log;
+	String _strResponseBody = null;
+
+	ResourceTester(Object theLog)
+	{
+		log = theLog;
+	}
+
+	public String doGET(String strBaseEndpoint,String href, String token,Map&lt;String, Serializable> params) {
+		_strResponseBody = null;
+		
+	  	def http = new HTTPBuilder();
+
+		http.request( strBaseEndpoint, GET, TEXT ) { req ->
+			uri.path = href
+			uri.query = params
+		     headers.Authorization = 'Basic ' + token
+			headers.Accept = 'application/json, application/*+json'
+			
+			response.success = { resp, reader ->
+				_strResponseBody = reader.text;				
+			}		
+										
+			response.failure = { resp ->
+				log.error("GET Failed: " + resp.statusLine);
+				return null;
+			}  
+		}
+		return _strResponseBody;
+	}	
+}
+
+
+String strQry = mockRequest.getHttpRequest().getQueryString(); 
+String strCode = "";
+
+int iPos = strQry.indexOf("&amp;");
+if(iPos>0){
+	strCode = strQry.substring(strQry.indexOf("code=")+"code=".length(),iPos);
+}
+else {
+	strCode = strQry.substring(strQry.indexOf("code=")+"code=".length());
+}
+
+log.info("Received OAuthCallback with code:" + strCode);
+
+ResourceTester resourceTester = new ResourceTester(log);
+
+Map params = [redirect_uri: requestContext.mockService.getPropertyValue("redirect_uri"), code: strCode,grant_type:'authorization_code'];
+String strAuthorizationServerTokenEndpoint = requestContext.mockService.getPropertyValue("authorizationServerTokenEndpoint");
+String strHost = parseEndpointFromURI(strAuthorizationServerTokenEndpoint);
+String strResource = parseResource(strAuthorizationServerTokenEndpoint);
+
+String strGetResponseBody = resourceTester.doGET(strHost,strResource,"dGhpcmRfcGFydHk6c2VjcmV0",params);
+
+if(strGetResponseBody==null) {
+	log.error("GET request failed.");
+	return;	
+}
+
+log.info("OAuth token response:" + strGetResponseBody);
+requestContext.mockService.setPropertyValue("tokenResponse",strGetResponseBody);
+
+</con:script><con:responseContent/><con:header><con:name>Location</con:name><con:value>http://localhost:8081/ThirdParty/RetailCustomer/1/AuthorizationList</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/ThirdParty/RetailCustomer/1/AuthorizationList" method="GET" resourcePath="/ThirdParty/RetailCustomer/1/AuthorizationList"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Examples showing how to match based on path, query param and header
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeadeList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncodig Header List: " + acceptEncodingHeadeList
+
+if( acceptEncodingHeadeList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+*/
+</con:dispatchPath><con:response name="Response 1" httpResponseStatus="200" mediaType="text/xml"><con:settings/><con:script>log.info("received RetailCustomer/1/AuthorizationList");</con:script><con:responseContent><![CDATA[<html>
+<body>
+<p>Test complete. Please do not close this browser window.</p>
+<p>If the manual DataCustodian steps were successful, in SoapUI Please mark the manual step as complete with "Pass" otherwise "Fail".</p>
+</body>
+</html>]]></con:responseContent></con:response></con:restMockAction><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="POST" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Examples showing how to match based on path, query param and header
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeadeList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncodig Header List: " + acceptEncodingHeadeList
+
+if( acceptEncodingHeadeList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+*/
+</con:dispatchPath><con:response name="Response 1" httpResponseStatus="200" mediaType="text/html"><con:settings/><con:script><![CDATA[
+import groovyx.net.http.Method
+import groovyx.net.http.ContentType
+import groovyx.net.http.HTTPBuilder
+import groovyx.net.http.HttpResponseDecorator
+import groovy.util.logging.Log
+import org.apache.http.client.RedirectStrategy
+
+import java.net.HttpUrlConnection.*;
+
+/*
+def List<String> sessionCookie = []
+
+public class OauthConnector { 
+	private log
+	private String baseUrl
+	private HTTPBuilder httpBuilder
+	private List<String> cookies
+
+	OauthConnector(String url, List<String> cookies, log) {
+		this.baseUrl = url
+		this.httpBuilder = initializeOauthHttpBuilder()
+		this.cookies = cookies
+		this.log = log
+	}
+
+	public def request(Method method, ContentType contentType, String url, Map<String, Serializable> params) {
+				
+		debug("Send $method request to ${this.baseUrl}$url: $params")
+
+		String strResult = "";
+
+		// Make sure the HttpClient doesn't perform a redirect
+		def dontHandleRedirectStrategy = [
+			getRedirect : { request, response, context -> null},
+			isRedirected : { request, response, context -> false}
+		]
+
+		httpBuilder.client.setRedirectStrategy(dontHandleRedirectStrategy as RedirectStrategy)
+		
+		// Execute a GET request and expect a redirect
+		httpBuilder.request(method, contentType) { req ->
+			uri.path = baseUrl + url
+			uri.query = params
+			headers['Cookie'] = cookies.join(';')
+
+			response.success = { response, reader ->
+
+				strResult = "OauthConnector Succeeded: " + response.statusLine.statusCode + " \n" + response.headers['Location'].value;
+				debug(strResult);
+			
+				assertThat response.statusLine.statusCode, is (302)
+				assertThat response.headers['Location'].value, startsWith("${baseUrl}")
+			}
+
+			response.failure = { response, reader ->
+				fail("Expected redirect but received ${response.statusLine} \n ${reader}")
+				strResult = "OauthConnector Failed: " + response.statusLine;
+				debug(strResult)	
+			}	
+		}
+	}
+
+	private HTTPBuilder initializeOauthHttpBuilder() {
+		def httpBuilder = new HTTPBuilder(baseUrl)
+
+		return httpBuilder
+	}
+	
+	private debug(String message) {
+  		log.info(message);
+	}
+}
+*/
+
+
+log.info("TP POST Scope Selection");
+
+String strBody = "";
+
+try {
+	while ((line = mockRequest.getRequest().getReader().readLine()) != null){
+		strBody = strBody + line;
+	}
+
+  } catch (Exception e) { 
+	log.error("exception:"+e)
+}
+
+if(strBody==""){
+	return;
+}
+
+int iSelScopeIdx = strBody.replace("scope=","").toInteger();
+
+String strQry = requestContext.mockService.getPropertyValue("DataCustodianAuthorizeQry");
+
+List listScopes = strQry.tokenize("&");
+
+String strSelectedScope = listScopes[iSelScopeIdx];
+requestContext.mockService.setPropertyValue("SelectedScope",strSelectedScope);
+
+String strRespLoc = "";
+
+strRespLoc += requestContext.mockService.getPropertyValue("authorizationServerAuthorizationEndpoint");
+strRespLoc += "?client_id=third_party";
+strRespLoc += "&redirect_uri=" + requestContext.mockService.getPropertyValue("redirect_uri");
+strRespLoc += "&response_type=code";
+strRespLoc += "&" + strSelectedScope;
+//strRespLoc += "&ThirdPartyID=third_party"; // ??? TBD
+strRespLoc += "&state=ee148ec2-9892-466e-a013-4dedf1eb3018";
+
+log.info("POST TP Scope selection returning 302 redirect to: " + strRespLoc);
+
+//def httpResponse = mockRequest.httpResponse
+//httpResponse.addHeader("Location",strRespLoc);
+
+String strSessionID = requestContext.mockService.getPropertyValue("browserSession");
+/*
+
+String strSessionID = requestContext.mockService.getPropertyValue("browserSession");
+sessionCookie = new ArrayList<>();
+sessionCookie.add('JSESSIONID=' + strSessionID);
+log.info("Using session cookie = " + sessionCookie);
+oauthConnector = new OauthConnector("http://localhost:8080/DataCustodian", sessionCookie, log);
+strSelectedScope =  strSelectedScope.replace("scope=","");
+url = '/oauth/authorize'
+params = [redirect_uri: requestContext.mockService.getPropertyValue("redirect_uri"), response_type: 'code', scope: strSelectedScope, state: 'ee148ec2-9892-466e-a013-4dedf1eb3018']
+
+//params = [client_id: 'third_party', redirect_uri: requestContext.mockService.getPropertyValue("redirect_uri"), response_type: 'code', scope: strSelectedScope, state: 'ee148ec2-9892-466e-a013-4dedf1eb3018']
+oauthConnector.request(Method.GET, ContentType.HTML, url, params)
+
+*/
+
+requestContext.mockService.setPropertyValue("GotScopeSelPOST","TRUE");
+
+]]></con:script><con:responseContent><![CDATA[<!DOCTYPE html>
+<html>
+<body>
+Please select "Pass" on SoapUI manual test step now.
+<br><br>
+</body>
+</html>
+]]></con:responseContent></con:response></con:restMockAction></con:restMockService>
+<con:properties>
 	<con:property>
 		<con:name>BaseURL</con:name>
 		<con:value>http://localhost:8080</con:value>
