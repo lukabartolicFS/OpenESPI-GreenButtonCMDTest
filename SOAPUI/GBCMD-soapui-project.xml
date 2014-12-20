@@ -4179,8 +4179,8 @@
 <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
 <con:jmsPropertyConfig/>
 <con:parameters>
-  <con:entry key="Authorization" value="Basic dGhpcmRfcGFydHk6c2VjcmV0"/>
   <con:entry key="scope" value="FB=4_5_15;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13"/>
+  <con:entry key="Authorization" value="Basic dGhpcmRfcGFydHk6c2VjcmV0"/>
   <con:entry key="grant_type" value="refresh_token"/>
   <con:entry key="refresh_token" value="2556334b-c989-47ab-8391-554cd3e646ab"/>
 </con:parameters>
@@ -5906,7 +5906,7 @@ testRunner.fail("could not curl up file");
 </con:testCase>
 <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="EstablishTwoSubscriptions" searchProperties="true" id="842a41c8-96fb-4b15-bab5-c26d1f3f0dba">
 	<con:settings/>
-	<con:testStep type="groovy" name="resetDB">
+	<con:testStep type="groovy" name="resetDB" id="55d33794-80f3-4a40-bb8e-721b359f1a99">
 		<con:settings/>
 		<con:config>
 			<script>	// reset DB : run library groovy script
@@ -5915,7 +5915,7 @@ testRunner.fail("could not curl up file");
 				assert true;</script>
 		</con:config>
 	</con:testStep>
-	<con:testStep type="groovy" name="StartDriver">
+	<con:testStep type="groovy" name="StartDriver" id="4e0e2ad8-b914-4cd1-b773-40914166a5ad">
 		<con:settings/>
 		<con:config>
 			<script>/////////////////////////////////////////////////////////
@@ -5966,7 +5966,7 @@ testRunner.fail("could not curl up file");
 			</script>
 		</con:config>
 	</con:testStep>
-	<con:testStep type="groovy" name="LoginManager">
+	<con:testStep type="groovy" name="LoginManager" id="1ee801b5-fa00-405a-b3fc-f1e89b27d7f5">
 		<con:settings/>
 		<con:config>
 			<script>/////////////////////////////////////////////////////////
@@ -6027,7 +6027,7 @@ testRunner.fail("could not curl up file");
 				}</script>
 		</con:config>
 	</con:testStep>
-	<con:testStep type="groovy" name="UploadTwoFilesViaGui">
+	<con:testStep type="groovy" name="UploadTwoFilesViaGui" id="ab389e66-3ccd-4954-8222-bf8d1282f77f">
 		<con:settings/>
 		<con:config>
 			<script>/////////////////////////////////////////////////////////
@@ -6106,7 +6106,7 @@ testRunner.fail("could not curl up file");
 				}</script>
 		</con:config>
 	</con:testStep>
-	<con:testStep type="groovy" name="AuthorizeTwoCustomer">
+	<con:testStep type="groovy" name="AuthorizeTwoCustomer" id="add5f47c-d759-4b62-aedf-ea53295a4989">
 		<con:settings/>
 		<con:config><script>/////////////////////////////////////////////////////////
 				//	WebDriverTestStepTemplate
@@ -6233,7 +6233,7 @@ testRunner.fail("could not curl up file");
 			driver.quit();
 			}</script></con:config>
 </con:testStep>
-<con:testStep type="groovy" name="Set Access Tokens">
+<con:testStep type="groovy" name="Set Access Tokens" id="67c786c8-0108-4665-b3e7-03b828d963fe">
 	<con:settings/>
 	<con:config>
 		<script>/////////////////////////////////////////////////////////
@@ -6310,7 +6310,7 @@ testRunner.fail("could not curl up file");
 	</script>
 </con:config>
 </con:testStep>
-<con:testStep type="groovy" name="LogoutManager">
+<con:testStep type="groovy" name="LogoutManager" id="7f187f84-ae08-482b-a645-747bf5c11ee9">
 	<con:settings/>
 	<con:config>
 		<script>/////////////////////////////////////////////////////////
@@ -6359,7 +6359,7 @@ testRunner.fail("could not curl up file");
 			}</script>
 	</con:config>
 </con:testStep>
-<con:testStep type="groovy" name="StopDriver">
+<con:testStep type="groovy" name="StopDriver" id="e938faaf-6f51-4831-bed8-257b1466f5a2">
 	<con:settings/>
 	<con:config>
 		<script>/////////////////////////////////////////////////////////
@@ -6403,7 +6403,7 @@ testRunner.fail("could not curl up file");
 <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AuthorizeSubcscription" searchProperties="true" id="4c20478c-a431-4761-bd93-3e878a74bbad">
 	<con:description>Authorizes subscription for Alan</con:description>
 	<con:settings/>
-	<con:testStep type="groovy" name="StartDriver">
+	<con:testStep type="groovy" name="StartDriver" id="dfb4e415-2520-401a-90ab-dd68991e5c22">
 		<con:settings/>
 		<con:config>
 			<script>/////////////////////////////////////////////////////////
@@ -6456,7 +6456,7 @@ testRunner.fail("could not curl up file");
 			</script>
 		</con:config>
 	</con:testStep>
-	<con:testStep type="groovy" name="AuthorizeStartDataCustodian">
+	<con:testStep type="groovy" name="AuthorizeStartDataCustodian" id="ab05ca0e-8b19-467e-9474-ac5daac4bcf6">
 		<con:settings/>
 		<con:config><script>/////////////////////////////////////////////////////////
 				//	WebDriverTestStepTemplate
@@ -6561,7 +6561,7 @@ testRunner.fail("could not curl up file");
 				driver.quit();
 				}</script></con:config>
 	</con:testStep>
-	<con:testStep type="groovy" name="StopDriver">
+	<con:testStep type="groovy" name="StopDriver" id="6847afaf-b9b9-4893-94be-3ecbf18725c6">
 		<con:settings/>
 		<con:config>
 			<script>/////////////////////////////////////////////////////////
@@ -6606,9 +6606,9 @@ testRunner.fail("could not curl up file");
 	</con:testStep>
 	<con:properties/>
 </con:testCase>
-<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ResourceTestScripts" searchProperties="true">
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ResourceTestScripts" searchProperties="true" id="3790fa3a-d527-4967-914f-127f7bb087c5">
 	<con:settings/>
-	<con:testStep type="groovy" name="resourceTests">
+	<con:testStep type="groovy" name="resourceTests" id="3fda0502-2b45-4ddd-b460-f0e597be40d6">
 		<con:settings/>
 		<con:config>
 			<script><![CDATA[import org.xml.sax.SAXException;
@@ -7851,7 +7851,14 @@ public boolean TestType1ROOT(Object testRunner,Object context,String strInputFil
 		</con:property>
 	</con:properties>
 </con:testCase>
-<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Create Authorization and extract all information" searchProperties="true" id="00812f7a-b4ce-4782-bf13-f27a979f6d00"><con:description/><con:settings/><con:testStep type="restrequest" name="GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Create Authorization and extract all information" searchProperties="true" id="00812f7a-b4ce-4782-bf13-f27a979f6d00"><con:description/><con:settings/><con:testStep type="manualTestStep" name="Choose whether or not to perform an Authorization"><con:description>Do you wish to perform an Authorization?
+If yes, type YES in the "Result" field
+ and press OK.</con:description><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:testStep><con:testStep type="groovy" name="branch based on user input"><con:settings/><con:config><script>if(testRunner.testCase.getTestStepByName("Choose whether or not to perform an Authorization").getPropertyValue("Result").equals("YES") ){
+	testRunner.gotoStepByName( "GET ApplicationInformation by Id");
+} else {
+	testRunner.gotoStepByName( "Done");
+}
+</script></con:config></con:testStep><con:testStep type="restrequest" name="GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
 				<con:settings>
 					<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 		</con:settings>
@@ -7926,8 +7933,6 @@ import com.eviware.soapui.support.types.StringToStringMap;
 
 
 String strTokenResponse =  context.mockService.getPropertyValue("tokenResponse");
-String strSelectedScope = context.mockService.getPropertyValue("SelectedScope");
-
 
 if((strTokenResponse==null)||(strTokenResponse=="")){
 	log.error("No authorization received");
@@ -7940,16 +7945,31 @@ def tokenResponse = slurper.parseText(strTokenResponse);
 def headers = new StringToStringMap()
 
 log.info("access_token = " + tokenResponse.access_token);
+log.info("token_type = " + tokenResponse.token_type);
+log.info("refresh_token = " + tokenResponse.refresh_token);
+log.info("expires_in = " + tokenResponse.expires_in);
+log.info("scope = " + tokenResponse.scope);
 log.info("resourceURI = " + tokenResponse.resourceURI);
 log.info("authorizationURI = " + tokenResponse.authorizationURI);
-log.info("SelectedScope = " + strSelectedScope);
+
 
 testRunner.testCase.setPropertyValue("access_token",tokenResponse.access_token);
+testRunner.testCase.setPropertyValue("token_type",tokenResponse.token_type);
+testRunner.testCase.setPropertyValue("refresh_token",tokenResponse.refresh_token);
+testRunner.testCase.setPropertyValue("expires_in",tokenResponse.expires_in.toString());
+testRunner.testCase.setPropertyValue("scope",tokenResponse.scope);
 testRunner.testCase.setPropertyValue("resourceURI",tokenResponse.resourceURI);
 testRunner.testCase.setPropertyValue("authorizationURI",tokenResponse.authorizationURI);
-testRunner.testCase.setPropertyValue("SelectedScope",strSelectedScope);
 
-</script></con:config></con:testStep><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>2368a396-f8b6-4842-8429-672e01542bfa</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property></con:properties></con:testCase><con:properties/>
+/*
+getPropertyValue("access_token");
+getPropertyValue("token_type");
+getPropertyValue("refresh_token");
+getPropertyValue("expires_in");
+getPropertyValue("scope");
+getPropertyValue("resourceURI");
+getPropertyValue("authorizationURI");
+ */</script></con:config></con:testStep><con:testStep type="groovy" name="Done"><con:settings/><con:config><script/></con:config></con:testStep><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>bc71cd04-3267-4c21-9c04-296aaad6673e</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>594b99be-e82f-46f5-89f5-6e7114489d53</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property></con:properties></con:testCase><con:properties/>
 </con:testSuite>
 <con:testSuite name="OpenEspiIntegrationTests">
 	<con:settings/>
@@ -13669,7 +13689,281 @@ def headers = request.requestHeaders
 headers.put( "X-tokenHeader", "value" )
 3.
 request.requestHeaders = headers
-*/</script></con:config></con:testStep><con:testStep type="httprequest" name="HTTP Test Request"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="HTTP Test Request" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:endpoint/><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:setupScript/><con:tearDownScript/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAuth Tests Type B" searchProperties="true" id="9ec27749-744c-4f0e-a669-38368e7cf782"><con:description/><con:settings/><con:testStep type="restrequest" name="GET ApplicationInformation by Id"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+*/</script></con:config></con:testStep><con:testStep type="httprequest" name="HTTP Test Request"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="HTTP Test Request" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:endpoint/><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:setupScript/><con:tearDownScript/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAuth Tests Type C client credentials" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Issue malformed client credentials access token requets"><con:settings/><con:config><script>import java.net.*;
+import java.io.*;
+
+int issueGET(String targetURL,String strToken){
+
+	log.info("Issuing malformed GET " + targetURL);
+	int iRespCode = 0;
+	String urlParameters = "";
+	
+	URL url;
+	
+	HttpURLConnection connection = null;  
+	
+	try {
+		//Create connection
+		url = new URL(targetURL);
+		connection = (HttpURLConnection)url.openConnection();
+		connection.setRequestMethod("GET");
+		connection.setInstanceFollowRedirects(false);
+		connection.setRequestProperty("Authorization", "Basic " + strToken);
+		connection.setRequestProperty("Accept", "application/json, application/*+json");
+		
+		//Get Response    
+		InputStream is = connection.getInputStream();
+		BufferedReader rd = new BufferedReader(new InputStreamReader(is));
+		String line;
+		StringBuffer response = new StringBuffer(); 
+		while((line = rd.readLine()) != null) {
+			response.append(line);
+			response.append('\r');
+		}
+		rd.close();
+		//log.info response.toString();
+		
+		log.info "Response = " + connection.getResponseCode();
+
+		iRespCode = connection.getResponseCode();
+	
+	} catch (Exception e) {
+		log.info e.getMessage();
+		return 0;
+	} finally {
+		if(connection != null) {
+			log.info "Response = " + connection.getResponseCode();
+			iRespCode = connection.getResponseCode();		
+			connection.disconnect(); 
+		}
+
+		return iRespCode;
+	}	
+}
+
+String strRedirURI = testRunner.testCase.getPropertyValue("redirect_uri");
+String strAuthorizationServerTokenEndpoint = testRunner.testCase.getPropertyValue("authorizationServerTokenEndpoint");
+
+
+int iTestID= 0;
+while(true) {
+	// loop through different malformation tests
+	String strTestName = "";
+	String strQryParams = "?redirect_uri=" + strRedirURI + "&amp;code=" + strOAuthCodeReceivedValue + "&amp;grant_type=authorization_code";
+	String strToken = "dGhpcmRfcGFydHk6c2VjcmV0";
+	 
+	int iRespCode = 0;
+	int iExpectedRespCode = 0;
+
+	switch(iTestID) {
+		case 0:
+			strTestName = "Malformed Client Credentials Grant Access Token Request (No grant_type= field-value pair)	OAD041";
+			//strQryParams = "";			
+			//iExpectedRespCode = 401;
+			break;
+		case 1:
+			strTestName = "Malformed Client Credentials Grant Access Token Request (No scope= field-value pair)	OAD042";
+			//strQryParams = "";			
+			//iExpectedRespCode = 401;
+			break;
+		case 2:
+			strTestName = "Malformed Client Credentials Grant Access Token Request (Multiple grant_type= field-value pairs)	OAD043";
+			//strQryParams = "";			
+			//iExpectedRespCode = 401;
+			break;
+		case 3:
+			strTestName = "Malformed Client Credentials Grant Access Token Request (Multiple scope= field-value pairs)	OAD044";
+			//strQryParams = "";			
+			//iExpectedRespCode = 401;
+			break;
+		case 4:
+			strTestName = "Malformed Client Credentials Grant Access Token Request (contents of scope= field-value pair does not match contents of Application Information structure "scope" field)	OAD045";
+			//strQryParams = "";			
+			//iExpectedRespCode = 401;
+			break;
+		case 5:
+			strTestName = "Invalid Client Credentials Grant Access Token Request (Application Information record grant_type field contains authorization_code, refresh_token)	OAD046";
+			//strQryParams = "";			
+			//iExpectedRespCode = 401;
+			break;
+		case 6:
+			strTestName = "Valid JSON structure returned during Data Custodian Client Credentials Grant Access Token Request processing	OAD047";
+			//strQryParams = "";			
+			//iExpectedRespCode = 401;
+			break;			
+		default:
+			break;
+	}
+
+	// 0 indicates skip test
+	if(iExpectedRespCode != 0) {
+		log.info("testing: " + strTestName);
+		iRespCode = iRespCode = issueGET(strAuthorizationServerTokenEndpoint + strQryParams,strToken);
+		
+		if(iRespCode != iExpectedRespCode) {
+			log.error("Failed malformed client credential grant access token request: " + strTestName + " expected response code:" + iExpectedRespCode + " but received:" + iRespCode);
+			testRunner.fail("Failed malformed client credential grant access token request: " + strTestName + " expected response code:" + iExpectedRespCode + " but received:" + iRespCode);
+			return;						
+		}		
+	} else {
+		log.info("skipping: " + strTestName);
+	}	
+
+	iTestID++;
+	if(iTestID > 6){
+		break;
+	}
+}	
+
+
+
+assert true;
+
+</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAuth Tests Type D refresh token" searchProperties="true" id="afc6bfd2-1d75-4f3d-8193-61a81676425e"><con:settings/><con:testStep type="calltestcase" name="Run TestCase Create Authorization"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>00812f7a-b4ce-4782-bf13-f27a979f6d00</con:targetTestCase><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>bc71cd04-3267-4c21-9c04-296aaad6673e</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>594b99be-e82f-46f5-89f5-6e7114489d53</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property></con:properties><con:returnProperties><con:entry>dataCustodianScopeSelectionScreenURI</con:entry><con:entry>authorizationServerAuthorizationEndpoint</con:entry><con:entry>redirect_uri</con:entry><con:entry>authorizationServerTokenEndpoint</con:entry><con:entry>access_token</con:entry><con:entry>resourceURI</con:entry><con:entry>authorizationURI</con:entry><con:entry>SelectedScope</con:entry><con:entry>token_type</con:entry><con:entry>refresh_token</con:entry><con:entry>expires_in</con:entry><con:entry>scope</con:entry></con:returnProperties><con:runMode>SINGLETON_AND_WAIT</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Issue malformed refresh token requets"><con:settings/><con:config><script>import java.net.*;
+import java.io.*;
+
+int issueGET(String targetURL,String strToken){
+
+	log.info("Issuing malformed GET " + targetURL);
+	int iRespCode = 0;
+	String urlParameters = "";
+	
+	URL url;
+	
+	HttpURLConnection connection = null;  
+	
+	try {
+		//Create connection
+		url = new URL(targetURL);
+		connection = (HttpURLConnection)url.openConnection();
+		connection.setRequestMethod("GET");
+		connection.setInstanceFollowRedirects(false);
+		connection.setRequestProperty("Authorization", "Basic " + strToken);
+		connection.setRequestProperty("Accept", "application/json, application/*+json");
+		
+		//Get Response    
+		InputStream is = connection.getInputStream();
+		BufferedReader rd = new BufferedReader(new InputStreamReader(is));
+		String line;
+		StringBuffer response = new StringBuffer(); 
+		while((line = rd.readLine()) != null) {
+			response.append(line);
+			response.append('\r');
+		}
+		rd.close();
+		//log.info response.toString();
+		
+		log.info "Response = " + connection.getResponseCode();
+
+		iRespCode = connection.getResponseCode();
+	
+	} catch (Exception e) {
+		log.info e.getMessage();
+		return 0;
+	} finally {
+		if(connection != null) {
+			log.info "Response = " + connection.getResponseCode();
+			iRespCode = connection.getResponseCode();		
+			connection.disconnect(); 
+		}
+
+		return iRespCode;
+	}	
+}
+
+
+propCreateAuthResults = context.testCase.getTestStepByName("Run TestCase Create Authorization");
+
+String strRedirURI = propCreateAuthResults.getPropertyValue("redirect_uri");
+String strAuthorizationServerTokenEndpoint = propCreateAuthResults.getPropertyValue("authorizationServerTokenEndpoint");
+
+int iTestID= 0;
+while(true) {
+	// loop through different malformation tests
+	String strTestName = "";
+
+	String strQryParams = "?grant_type=refresh_token&amp;refresh_token=" + propCreateAuthResults.getPropertyValue("refresh_token") + "&amp;scope=" + propCreateAuthResults.getPropertyValue("scope") ;
+	String strToken = "dGhpcmRfcGFydHk6c2VjcmV0";
+	 
+	int iRespCode = 0;
+	int iExpectedRespCode = 0;
+
+	switch(iTestID) {
+		case 0:
+			strTestName = "Malformed Refresh Token Request (No grant_type= field-value pair)	OAD048";
+			strQryParams = "?grant_type=refresh_token&amp;refresh_token=" + propCreateAuthResults.getPropertyValue("refresh_token") + "&amp;scope=" + propCreateAuthResults.getPropertyValue("scope") ;			
+			//iExpectedRespCode = 401;
+			iExpectedRespCode = 200;
+			break;
+		case 1:
+			strTestName = "Malformed Refresh Token Request (No refresh_token= field-value pair)	OAD049";
+			//strQryParams = "";			
+			//iExpectedRespCode = 401;
+			break;
+		case 2:
+			strTestName = "Malformed Refresh Token Request (No scope= field-value pair)	OAD050";
+			//strQryParams = "";			
+			//iExpectedRespCode = 401;
+			break;
+		case 3:
+			strTestName = "Malformed Refresh Token Request (Multiple grant_type= field-value pairs)	OAD051";
+			//strQryParams = "";			
+			//iExpectedRespCode = 401;
+			break;
+		case 4:
+			strTestName = "Malformed Refresh Token Request (Multiple refresh_token= field-value pairs)	OAD052";
+			//strQryParams = "";			
+			//iExpectedRespCode = 401;
+			break;
+		case 5:
+			strTestName = "Malformed Refresh Token Request (Multiple scope field-value pairs)	OAD053";
+			//strQryParams = "";			
+			//iExpectedRespCode = 401;
+			break;
+		case 6:
+			strTestName = "Invalid Refresh Token Request (Contents of refresh_token= field-value pair was issued to a different Third Party)	OAD054";
+			//strQryParams = "";			
+			//iExpectedRespCode = 401;
+			break;
+		case 7:
+			strTestName = "Invalid Refresh Token Request (Contents of scope= field-value pair does not match "scope=" used in original access token request)	AOD055";
+			//strQryParams = "";			
+			//iExpectedRespCode = 401;
+			break;
+		case 8:
+			strTestName = "Invalid Refresh Token Request (Value found in refresh_token= field-value pair has expired)	AOD056";
+			//strQryParams = "";			
+			//iExpectedRespCode = 401;
+			break;
+		default:
+			break;
+	}
+
+	// 0 indicates skip test
+	if(iExpectedRespCode != 0) {
+		log.info("testing: " + strTestName);
+		iRespCode = iRespCode = issueGET(strAuthorizationServerTokenEndpoint + strQryParams,strToken);
+		
+		if(iRespCode != iExpectedRespCode) {
+			log.error("Failed malformed refresh token request: " + strTestName + " expected response code:" + iExpectedRespCode + " but received:" + iRespCode);
+			testRunner.fail("Failed malformed refresh token request: " + strTestName + " expected response code:" + iExpectedRespCode + " but received:" + iRespCode);
+			return;						
+		}		
+	} else {
+		log.info("skipping: " + strTestName);
+	}	
+
+	iTestID++;
+	if(iTestID > 8){
+		break;
+	}
+}	
+
+
+
+assert true;
+
+</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAuth Tests Type B" searchProperties="true"><con:description/><con:settings/><con:testStep type="restrequest" name="GET ApplicationInformation by Id" id="558942e6-ac48-4fce-af1e-5d456f607c4e"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
 				<con:settings>
 					<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 		</con:settings>
@@ -13691,15 +13985,15 @@ count(/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianScope
 			<con:entry>Authorization</con:entry>
 			<con:entry>Content-Type</con:entry>
 		</con:parameterOrder>
-	</con:restRequest></con:config></con:testStep><con:testStep type="transfer" name="Extract dataCustodianScopeSelectionScreenURI"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>extract DC scope selection URI</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GET ApplicationInformation by Id</con:sourceStep><con:sourcePath>declare namespace ns3='http://www.w3.org/2005/Atom';
+	</con:restRequest></con:config></con:testStep><con:testStep type="transfer" name="Extract dataCustodianScopeSelectionScreenURI" id="d9e1122b-0857-4169-8601-a5330d74a8a2"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>extract DC scope selection URI</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GET ApplicationInformation by Id</con:sourceStep><con:sourcePath>declare namespace ns3='http://www.w3.org/2005/Atom';
 declare namespace espi='http://naesb.org/espi';
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianScopeSelectionScreenURI</con:sourcePath><con:targetType>extracted_scope_sel_uri</con:targetType><con:targetStep>#TestCase#</con:targetStep></con:transfers></con:config></con:testStep><con:testStep type="transfer" name="Extract authorizationServerAuthorizationEndpoint"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>extract DC scope selection URI</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GET ApplicationInformation by Id</con:sourceStep><con:sourcePath>declare namespace ns3='http://www.w3.org/2005/Atom';
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianScopeSelectionScreenURI</con:sourcePath><con:targetType>extracted_scope_sel_uri</con:targetType><con:targetStep>#TestCase#</con:targetStep></con:transfers></con:config></con:testStep><con:testStep type="transfer" name="Extract authorizationServerAuthorizationEndpoint" id="07186b4e-b8a2-46c9-a1fc-c897ba3dbea3"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>extract DC scope selection URI</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GET ApplicationInformation by Id</con:sourceStep><con:sourcePath>declare namespace ns3='http://www.w3.org/2005/Atom';
 declare namespace espi='http://naesb.org/espi';
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:authorizationServerAuthorizationEndpoint</con:sourcePath><con:targetType>authorizationServerAuthorizationEndpoint</con:targetType><con:targetStep>#TestCase#</con:targetStep></con:transfers></con:config></con:testStep><con:testStep type="transfer" name="Extract redirect_uri"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>extract DC scope selection URI</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GET ApplicationInformation by Id</con:sourceStep><con:sourcePath>declare namespace ns3='http://www.w3.org/2005/Atom';
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:authorizationServerAuthorizationEndpoint</con:sourcePath><con:targetType>authorizationServerAuthorizationEndpoint</con:targetType><con:targetStep>#TestCase#</con:targetStep></con:transfers></con:config></con:testStep><con:testStep type="transfer" name="Extract redirect_uri" id="b2d8bb39-247a-40cd-87ce-3efb15e40303"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>extract DC scope selection URI</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GET ApplicationInformation by Id</con:sourceStep><con:sourcePath>declare namespace ns3='http://www.w3.org/2005/Atom';
 declare namespace espi='http://naesb.org/espi';
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:redirect_uri</con:sourcePath><con:targetType>redirect_uri</con:targetType><con:targetStep>#TestCase#</con:targetStep></con:transfers></con:config></con:testStep><con:testStep type="transfer" name="Extract authorizationServerTokenEndpoint"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>extract DC scope selection URI</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GET ApplicationInformation by Id</con:sourceStep><con:sourcePath>declare namespace ns3='http://www.w3.org/2005/Atom';
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:redirect_uri</con:sourcePath><con:targetType>redirect_uri</con:targetType><con:targetStep>#TestCase#</con:targetStep></con:transfers></con:config></con:testStep><con:testStep type="transfer" name="Extract authorizationServerTokenEndpoint" id="820c4931-531c-449b-b0a5-69ae5bb65e39"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>extract DC scope selection URI</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GET ApplicationInformation by Id</con:sourceStep><con:sourcePath>declare namespace ns3='http://www.w3.org/2005/Atom';
 declare namespace espi='http://naesb.org/espi';
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:authorizationServerTokenEndpoint</con:sourcePath><con:targetType>authorizationServerTokenEndpoint</con:targetType><con:targetStep>#TestCase#</con:targetStep></con:transfers></con:config></con:testStep><con:testStep type="groovy" name="Verify DC scope section URI present"><con:settings/><con:config><script>
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:authorizationServerTokenEndpoint</con:sourcePath><con:targetType>authorizationServerTokenEndpoint</con:targetType><con:targetStep>#TestCase#</con:targetStep></con:transfers></con:config></con:testStep><con:testStep type="groovy" name="Verify DC scope section URI present" id="74fe3893-be81-40d3-b0ee-c71414febd47"><con:settings/><con:config><script>
 if((testRunner.testCase.getPropertyValue("extracted_scope_sel_uri")==null)||
 (testRunner.testCase.getPropertyValue("extracted_scope_sel_uri")=="")){
 	log.error("No scope selection URI present in ApplicationInformation");
@@ -13707,7 +14001,7 @@ if((testRunner.testCase.getPropertyValue("extracted_scope_sel_uri")==null)||
 	return;		
 }
 
-context.ScopeSelURI = testRunner.testCase.getPropertyValue("extracted_scope_sel_uri");</script></con:config></con:testStep><con:testStep type="groovy" name="Start Mock Service"><con:settings/><con:config><script>context.mockService = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Authorization Mock Service for NEG tests type B");
+context.ScopeSelURI = testRunner.testCase.getPropertyValue("extracted_scope_sel_uri");</script></con:config></con:testStep><con:testStep type="groovy" name="Start Mock Service" id="99e43ea3-35da-431a-9e17-058d72b40c82"><con:settings/><con:config><script>context.mockService = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Authorization Mock Service for NEG tests type B");
 
 context.mockService.setPropertyValue("tokenResponse","");
 context.mockService.setPropertyValue("authorizationServerAuthorizationEndpoint",testRunner.testCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
@@ -13717,7 +14011,7 @@ context.mockService.setPropertyValue("authorizationServerTokenEndpoint",testRunn
 def runner = context.mockService.start();
 context.mockRunner = runner;
 
-return;</script></con:config></con:testStep><con:testStep type="groovy" name="Script will bring up browser to DC Scope selection screen"><con:settings/><con:config><script>import org.greenbutton.cmd.utils.DriverHelper;
+return;</script></con:config></con:testStep><con:testStep type="groovy" name="Script will bring up browser to DC Scope selection screen" id="f3bddd85-d1d8-472c-8217-29c1271d6b9b"><con:settings/><con:config><script>import org.greenbutton.cmd.utils.DriverHelper;
 
 String strScopeSelURI = context.ScopeSelURI;
 
@@ -13729,8 +14023,8 @@ DriverHelper driver = new DriverHelper(strHost,strResource,"",log);
 
 context["driver"] = driver;
 
-driver.get(strScopeSelURI);</script></con:config></con:testStep><con:testStep type="manualTestStep" name="Perform log on and authorization"><con:description>Perform log on and authorization</con:description><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:testStep><con:testStep type="groovy" name="End Browser session"><con:settings/><con:config><script>context["driver"].quit();</script></con:config></con:testStep><con:testStep type="groovy" name="Stop Mock Service"><con:settings/><con:config><script>context.mockRunner.stop();
-return;</script></con:config></con:testStep><con:testStep type="groovy" name="Issue GET OAuth Token"><con:settings/><con:config><script><![CDATA[import java.net.*;
+driver.get(strScopeSelURI);</script></con:config></con:testStep><con:testStep type="manualTestStep" name="Perform log on and authorization" id="ea242fc5-5b37-4c70-bcf1-ec19a5a9cbe2"><con:description>Perform log on and authorization</con:description><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:testStep><con:testStep type="groovy" name="End Browser session" id="ccecf42d-3fc3-4821-a9e1-0d4301a7b6c8"><con:settings/><con:config><script>context["driver"].quit();</script></con:config></con:testStep><con:testStep type="groovy" name="Stop Mock Service" id="846f3936-d585-4e88-947a-bc987d5cd77f"><con:settings/><con:config><script>context.mockRunner.stop();
+return;</script></con:config></con:testStep><con:testStep type="groovy" name="Issue GET OAuth Token" id="d1e05c72-270d-456f-b0da-d2e81b64e49a"><con:settings/><con:config><script><![CDATA[import java.net.*;
 import java.io.*;
 
 int issueGET(String targetURL,String strToken){
@@ -13910,7 +14204,7 @@ while(true) {
 
 assert true;
 
-]]></script></con:config></con:testStep><con:testStep type="groovy" name="Validate and extract information from authorization" disabled="true"><con:settings/><con:config><script>import groovy.json.JsonSlurper;
+]]></script></con:config></con:testStep><con:testStep type="groovy" name="Validate and extract information from authorization" disabled="true" id="7837d8a1-8c2e-4768-bb50-82b7730e1927"><con:settings/><con:config><script>import groovy.json.JsonSlurper;
 import com.eviware.soapui.support.types.StringToStringMap;
 
 def service = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Authorization Mock Service");
@@ -13943,7 +14237,7 @@ propTestStep.setPropertyValue("Endpoint",tokenResponse.authorizationURI);
 headers.put("Authorization","Bearer " + testRunner.testCase.testSuite.project.getPropertyValue("client_access_token"));
 headers.put("Content-Type","Application/atom+xml");
 propTestStep.testRequest.setRequestHeaders(headers);
- </script></con:config></con:testStep><con:testStep type="httprequest" name="GET Resource URI" disabled="true"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Resource URI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+ </script></con:config></con:testStep><con:testStep type="httprequest" name="GET Resource URI" disabled="true" id="3f0f8665-2f94-494a-b1dd-07c07a8a350d"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Resource URI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
   &lt;con:entry key="Authorization" value="Bearer 8f14248a-de99-4b6f-9972-00edbad2dc87"/>
   &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
 &lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema Validation"><con:configuration><scriptText>import javax.xml.XMLConstants;
@@ -13969,7 +14263,7 @@ Source instanceDocument = new StreamSource(new StringReader(response));
 SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 Schema s = sf.newSchema(schemaDocuments);
 Validator v = s.newValidator();
-v.validate(instanceDocument);</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="groovy" name="FB Data Valiation Tests" disabled="true"><con:settings/><con:config><script>import javax.xml.transform.TransformerFactory;
+v.validate(instanceDocument);</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="groovy" name="FB Data Valiation Tests" disabled="true" id="5bc02dd7-0fe3-436d-b3c7-6bef90202ea5"><con:settings/><con:config><script>import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
@@ -14059,7 +14353,7 @@ if(bFailure){
 	testRunner.fail("Failed FB validation tests. Please refer to error log for details.");
 }
 
-</script></con:config></con:testStep><con:testStep type="httprequest" name="GET Authorization URI" disabled="true"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Authorization URI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+</script></con:config></con:testStep><con:testStep type="httprequest" name="GET Authorization URI" disabled="true" id="61fbadef-43d0-40f0-9429-1a29e794cb79"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Authorization URI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
   &lt;con:entry key="Authorization" value="Bearer 75dd9c46-becf-48b5-9cb5-9c3233d718d0"/>
   &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
 &lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema validation"><con:configuration><scriptText>import javax.xml.XMLConstants;
@@ -14085,277 +14379,7 @@ Source instanceDocument = new StreamSource(new StringReader(response));
 SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 Schema s = sf.newSchema(schemaDocuments);
 Validator v = s.newValidator();
-v.validate(instanceDocument);</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:properties><con:property><con:name>extracted_scope_sel_uri</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAuth Tests Type C client credentials" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Issue malformed client credentials access token requets"><con:settings/><con:config><script>import java.net.*;
-import java.io.*;
-
-int issueGET(String targetURL,String strToken){
-
-	log.info("Issuing malformed GET " + targetURL);
-	int iRespCode = 0;
-	String urlParameters = "";
-	
-	URL url;
-	
-	HttpURLConnection connection = null;  
-	
-	try {
-		//Create connection
-		url = new URL(targetURL);
-		connection = (HttpURLConnection)url.openConnection();
-		connection.setRequestMethod("GET");
-		connection.setInstanceFollowRedirects(false);
-		connection.setRequestProperty("Authorization", "Basic " + strToken);
-		connection.setRequestProperty("Accept", "application/json, application/*+json");
-		
-		//Get Response    
-		InputStream is = connection.getInputStream();
-		BufferedReader rd = new BufferedReader(new InputStreamReader(is));
-		String line;
-		StringBuffer response = new StringBuffer(); 
-		while((line = rd.readLine()) != null) {
-			response.append(line);
-			response.append('\r');
-		}
-		rd.close();
-		//log.info response.toString();
-		
-		log.info "Response = " + connection.getResponseCode();
-
-		iRespCode = connection.getResponseCode();
-	
-	} catch (Exception e) {
-		log.info e.getMessage();
-		return 0;
-	} finally {
-		if(connection != null) {
-			log.info "Response = " + connection.getResponseCode();
-			iRespCode = connection.getResponseCode();		
-			connection.disconnect(); 
-		}
-
-		return iRespCode;
-	}	
-}
-
-String strRedirURI = testRunner.testCase.getPropertyValue("redirect_uri");
-String strAuthorizationServerTokenEndpoint = testRunner.testCase.getPropertyValue("authorizationServerTokenEndpoint");
-
-
-int iTestID= 0;
-while(true) {
-	// loop through different malformation tests
-	String strTestName = "";
-	String strQryParams = "?redirect_uri=" + strRedirURI + "&amp;code=" + strOAuthCodeReceivedValue + "&amp;grant_type=authorization_code";
-	String strToken = "dGhpcmRfcGFydHk6c2VjcmV0";
-	 
-	int iRespCode = 0;
-	int iExpectedRespCode = 0;
-
-	switch(iTestID) {
-		case 0:
-			strTestName = "Malformed Client Credentials Grant Access Token Request (No grant_type= field-value pair)	OAD041";
-			//strQryParams = "";			
-			//iExpectedRespCode = 401;
-			break;
-		case 1:
-			strTestName = "Malformed Client Credentials Grant Access Token Request (No scope= field-value pair)	OAD042";
-			//strQryParams = "";			
-			//iExpectedRespCode = 401;
-			break;
-		case 2:
-			strTestName = "Malformed Client Credentials Grant Access Token Request (Multiple grant_type= field-value pairs)	OAD043";
-			//strQryParams = "";			
-			//iExpectedRespCode = 401;
-			break;
-		case 3:
-			strTestName = "Malformed Client Credentials Grant Access Token Request (Multiple scope= field-value pairs)	OAD044";
-			//strQryParams = "";			
-			//iExpectedRespCode = 401;
-			break;
-		case 4:
-			strTestName = "Malformed Client Credentials Grant Access Token Request (contents of scope= field-value pair does not match contents of Application Information structure "scope" field)	OAD045";
-			//strQryParams = "";			
-			//iExpectedRespCode = 401;
-			break;
-		case 5:
-			strTestName = "Invalid Client Credentials Grant Access Token Request (Application Information record grant_type field contains authorization_code, refresh_token)	OAD046";
-			//strQryParams = "";			
-			//iExpectedRespCode = 401;
-			break;
-		case 6:
-			strTestName = "Valid JSON structure returned during Data Custodian Client Credentials Grant Access Token Request processing	OAD047";
-			//strQryParams = "";			
-			//iExpectedRespCode = 401;
-			break;			
-		default:
-			break;
-	}
-
-	// 0 indicates skip test
-	if(iExpectedRespCode != 0) {
-		log.info("testing: " + strTestName);
-		iRespCode = iRespCode = issueGET(strAuthorizationServerTokenEndpoint + strQryParams,strToken);
-		
-		if(iRespCode != iExpectedRespCode) {
-			log.error("Failed malformed client credential grant access token request: " + strTestName + " expected response code:" + iExpectedRespCode + " but received:" + iRespCode);
-			testRunner.fail("Failed malformed client credential grant access token request: " + strTestName + " expected response code:" + iExpectedRespCode + " but received:" + iRespCode);
-			return;						
-		}		
-	} else {
-		log.info("skipping: " + strTestName);
-	}	
-
-	iTestID++;
-	if(iTestID > 6){
-		break;
-	}
-}	
-
-
-
-assert true;
-
-</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAuth Tests Type D refresh token" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Issue malformed refresh token requets"><con:settings/><con:config><script>import java.net.*;
-import java.io.*;
-
-int issueGET(String targetURL,String strToken){
-
-	log.info("Issuing malformed GET " + targetURL);
-	int iRespCode = 0;
-	String urlParameters = "";
-	
-	URL url;
-	
-	HttpURLConnection connection = null;  
-	
-	try {
-		//Create connection
-		url = new URL(targetURL);
-		connection = (HttpURLConnection)url.openConnection();
-		connection.setRequestMethod("GET");
-		connection.setInstanceFollowRedirects(false);
-		connection.setRequestProperty("Authorization", "Basic " + strToken);
-		connection.setRequestProperty("Accept", "application/json, application/*+json");
-		
-		//Get Response    
-		InputStream is = connection.getInputStream();
-		BufferedReader rd = new BufferedReader(new InputStreamReader(is));
-		String line;
-		StringBuffer response = new StringBuffer(); 
-		while((line = rd.readLine()) != null) {
-			response.append(line);
-			response.append('\r');
-		}
-		rd.close();
-		//log.info response.toString();
-		
-		log.info "Response = " + connection.getResponseCode();
-
-		iRespCode = connection.getResponseCode();
-	
-	} catch (Exception e) {
-		log.info e.getMessage();
-		return 0;
-	} finally {
-		if(connection != null) {
-			log.info "Response = " + connection.getResponseCode();
-			iRespCode = connection.getResponseCode();		
-			connection.disconnect(); 
-		}
-
-		return iRespCode;
-	}	
-}
-
-String strRedirURI = testRunner.testCase.getPropertyValue("redirect_uri");
-String strAuthorizationServerTokenEndpoint = testRunner.testCase.getPropertyValue("authorizationServerTokenEndpoint");
-
-
-int iTestID= 0;
-while(true) {
-	// loop through different malformation tests
-	String strTestName = "";
-	String strQryParams = "?redirect_uri=" + strRedirURI + "&amp;code=" + strOAuthCodeReceivedValue + "&amp;grant_type=authorization_code";
-	String strToken = "dGhpcmRfcGFydHk6c2VjcmV0";
-	 
-	int iRespCode = 0;
-	int iExpectedRespCode = 0;
-
-	switch(iTestID) {
-		case 0:
-			strTestName = "Malformed Refresh Token Request (No grant_type= field-value pair)	OAD048";
-			//strQryParams = "";			
-			//iExpectedRespCode = 401;
-			break;
-		case 1:
-			strTestName = "Malformed Refresh Token Request (No refresh_token= field-value pair)	OAD049";
-			//strQryParams = "";			
-			//iExpectedRespCode = 401;
-			break;
-		case 2:
-			strTestName = "Malformed Refresh Token Request (No scope= field-value pair)	OAD050";
-			//strQryParams = "";			
-			//iExpectedRespCode = 401;
-			break;
-		case 3:
-			strTestName = "Malformed Refresh Token Request (Multiple grant_type= field-value pairs)	OAD051";
-			//strQryParams = "";			
-			//iExpectedRespCode = 401;
-			break;
-		case 4:
-			strTestName = "Malformed Refresh Token Request (Multiple refresh_token= field-value pairs)	OAD052";
-			//strQryParams = "";			
-			//iExpectedRespCode = 401;
-			break;
-		case 5:
-			strTestName = "Malformed Refresh Token Request (Multiple scope" field-value pairs)	OAD053";
-			//strQryParams = "";			
-			//iExpectedRespCode = 401;
-			break;
-		case 6:
-			strTestName = "Invalid Refresh Token Request (Contents of refresh_token= field-value pair was issued to a different Third Party)	OAD054";
-			//strQryParams = "";			
-			//iExpectedRespCode = 401;
-			break;
-		case 7:
-			strTestName = "Invalid Refresh Token Request (Contents of scope= field-value pair does not match "scope=" used in original access token request)	AOD055";
-			//strQryParams = "";			
-			//iExpectedRespCode = 401;
-			break;
-		case 8:
-			strTestName = "Invalid Refresh Token Request (Value found in refresh_token= field-value pair has expired)	AOD056";
-			//strQryParams = "";			
-			//iExpectedRespCode = 401;
-			break;
-		default:
-			break;
-	}
-
-	// 0 indicates skip test
-	if(iExpectedRespCode != 0) {
-		log.info("testing: " + strTestName);
-		iRespCode = iRespCode = issueGET(strAuthorizationServerTokenEndpoint + strQryParams,strToken);
-		
-		if(iRespCode != iExpectedRespCode) {
-			log.error("Failed malformed refresh token request: " + strTestName + " expected response code:" + iExpectedRespCode + " but received:" + iRespCode);
-			testRunner.fail("Failed malformed refresh token request: " + strTestName + " expected response code:" + iExpectedRespCode + " but received:" + iRespCode);
-			return;						
-		}		
-	} else {
-		log.info("skipping: " + strTestName);
-	}	
-
-	iTestID++;
-	if(iTestID > 8){
-		break;
-	}
-}	
-
-
-
-assert true;
-
-</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[NEG] Unauthorized GET access to ApplicationInformation entry" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="GET and verify ApplicationInformation"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET and verify ApplicationInformation" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+v.validate(instanceDocument);</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:properties><con:property><con:name>extracted_scope_sel_uri</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[NEG] Unauthorized GET access to ApplicationInformation entry" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="GET and verify ApplicationInformation"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET and verify ApplicationInformation" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
 					<con:settings>
 						<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 			</con:settings>
@@ -17904,14 +17928,7 @@ declare namespace espi='http://naesb.org/espi';
 			<con:entry>Authorization</con:entry>
 			<con:entry>Content-Type</con:entry>
 		</con:parameterOrder>
-	</con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FND005 [POS][A] Authorized GET access to Batch/Subscription feed" searchProperties="true" id="d62e2649-ece3-49b5-ac10-ee1ec70600b7"><con:description/><con:settings/><con:testStep type="manualTestStep" name="Choose whether or not to perform an Authorization"><con:description>Do you wish to perform an Authorization?
-If yes, type YES in the "Result" field
- and press OK.</con:description><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:testStep><con:testStep type="groovy" name="branch based on user input"><con:settings/><con:config><script>if(testRunner.testCase.getTestStepByName("Choose whether or not to perform an Authorization").getPropertyValue("Result").equals("YES") ){
-	testRunner.gotoStepByName( "Run TestCase Create Authorization");
-} else {
-	testRunner.gotoStepByName( "Extract information from authorization");
-}
-</script></con:config></con:testStep><con:testStep type="calltestcase" name="Run TestCase Create Authorization"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>00812f7a-b4ce-4782-bf13-f27a979f6d00</con:targetTestCase><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>2368a396-f8b6-4842-8429-672e01542bfa</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property><con:property><con:name>SelectedScope</con:name></con:property></con:properties><con:returnProperties><con:entry>dataCustodianScopeSelectionScreenURI</con:entry><con:entry>authorizationServerAuthorizationEndpoint</con:entry><con:entry>redirect_uri</con:entry><con:entry>authorizationServerTokenEndpoint</con:entry><con:entry>access_token</con:entry><con:entry>resourceURI</con:entry><con:entry>authorizationURI</con:entry></con:returnProperties><con:runMode>SINGLETON_AND_WAIT</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Extract information from authorization"><con:settings/><con:config><script>import com.eviware.soapui.support.types.StringToStringMap;
+	</con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FND005 [POS][A] Authorized GET access to Batch/Subscription feed" searchProperties="true" id="d62e2649-ece3-49b5-ac10-ee1ec70600b7"><con:description/><con:settings/><con:testStep type="calltestcase" name="Run TestCase Create Authorization"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>00812f7a-b4ce-4782-bf13-f27a979f6d00</con:targetTestCase><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>bc71cd04-3267-4c21-9c04-296aaad6673e</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>594b99be-e82f-46f5-89f5-6e7114489d53</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property></con:properties><con:returnProperties><con:entry>dataCustodianScopeSelectionScreenURI</con:entry><con:entry>authorizationServerAuthorizationEndpoint</con:entry><con:entry>redirect_uri</con:entry><con:entry>authorizationServerTokenEndpoint</con:entry><con:entry>access_token</con:entry><con:entry>resourceURI</con:entry><con:entry>authorizationURI</con:entry><con:entry>SelectedScope</con:entry><con:entry>token_type</con:entry><con:entry>refresh_token</con:entry><con:entry>expires_in</con:entry><con:entry>scope</con:entry></con:returnProperties><con:runMode>SINGLETON_AND_WAIT</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Extract information from authorization"><con:settings/><con:config><script>import com.eviware.soapui.support.types.StringToStringMap;
 
 
 propCreateAuthResults = context.testCase.getTestStepByName("Run TestCase Create Authorization");
@@ -17932,7 +17949,7 @@ headers.put("Authorization","Bearer " + testRunner.testCase.testSuite.project.ge
 headers.put("Content-Type","Application/atom+xml");
 propTestStep.testRequest.setRequestHeaders(headers);
  </script></con:config></con:testStep><con:testStep type="httprequest" name="GET Resource URI"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Resource URI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
-  &lt;con:entry key="Authorization" value="Bearer 2368a396-f8b6-4842-8429-672e01542bfa"/>
+  &lt;con:entry key="Authorization" value="Bearer bc71cd04-3267-4c21-9c04-296aaad6673e"/>
   &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
 &lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema Validation"><con:configuration><scriptText>import javax.xml.XMLConstants;
 import javax.xml.transform.Source;
@@ -21718,7 +21735,7 @@ requestContext.mockService.setPropertyValue("rxNotificationBody",strBody);
 
 
 </con:dispatchPath><con:response name="Response 1" httpResponseStatus="200"><con:settings/><con:script/><con:responseContent/></con:response></con:restMockAction></con:restMockService>
-<con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty Authorization Mock Service" docroot=""><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"2368a396-f8b6-4842-8429-672e01542bfa","token_type":"bearer","refresh_token":"8ef3d550-b894-4d36-b0f3-1bd38ee73682","expires_in":31535999,"scope":"FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13","resourceURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5","authorizationURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5"}</con:value></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value>9C0B4BBAD2FBDAF475058F4996FE725B</con:value></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value>TRUE</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+<con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty Authorization Mock Service" docroot=""><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"bc71cd04-3267-4c21-9c04-296aaad6673e","token_type":"bearer","refresh_token":"594b99be-e82f-46f5-89f5-6e7114489d53","expires_in":31535999,"scope":"FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13","resourceURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5","authorizationURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5"}</con:value></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value>9C0B4BBAD2FBDAF475058F4996FE725B</con:value></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value>TRUE</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Examples showing how to match based on path, query param and header
 // Match based on path
 def requestPath = mockRequest.getPath()
