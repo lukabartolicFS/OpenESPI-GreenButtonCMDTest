@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="GreenButtonDataStyleSheet.xslt"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<id>urn:uuid:3318803f-9b53-4f27-9608-cb8b8f913001</id>
+<title>Green Button Usage Feed</title>
+<updated>2014-12-10T16:18:40Z</updated>
+<link href="http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization" rel="self"/>
+<ns3:entry xmlns:espi="http://naesb.org/espi" xmlns:ns3="http://www.w3.org/2005/Atom">
+    <ns3:id>urn:uuid:0ba247e0-87f0-41e1-bb50-271468b00dc0</ns3:id>
+    <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization" rel="up"/>
+    <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/2" rel="self"/>
+    <ns3:content>
+        <espi:Authorization>
+            <espi:authorizedPeriod>
+                <espi:duration>0</espi:duration>
+                <espi:start>0</espi:start>
+            </espi:authorizedPeriod>
+            <espi:publishedPeriod>
+                <espi:duration>0</espi:duration>
+                <espi:start>0</espi:start>
+            </espi:publishedPeriod>
+            <espi:accessToken>75dd9c46-becf-48b5-9cb5-9c3233d718d0</espi:accessToken>
+            <espi:status>1</espi:status>
+            <espi:expires_in>31536000</espi:expires_in>
+            <espi:scope>ThirdParty_Admin_Access</espi:scope>
+            <espi:token_type>bearer</espi:token_type>
+            <espi:resourceURI>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Bulk</espi:resourceURI>
+            <espi:authorizationURI>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/2</espi:authorizationURI>
+            <espi:thirdParty>third_party_admin</espi:thirdParty>
+        </espi:Authorization>
+    </ns3:content>
+    <ns3:published>2014-05-12T13:02:03Z</ns3:published>
+    <ns3:updated>2014-05-12T13:02:03Z</ns3:updated>
+</ns3:entry>
+
+<ns3:entry xmlns:espi="http://naesb.org/espi" xmlns:ns3="http://www.w3.org/2005/Atom">
+    <ns3:id>urn:uuid:2bbcc436-e545-459f-90e9-99113c11ffd4</ns3:id>
+    <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization" rel="up"/>
+    <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/4" rel="self"/>
+    <ns3:content>
+        <espi:Authorization>
+            <espi:authorizedPeriod>
+                <espi:duration>0</espi:duration>
+                <espi:start>0</espi:start>
+            </espi:authorizedPeriod>
+            <espi:publishedPeriod>
+                <espi:duration>0</espi:duration>
+                <espi:start>0</espi:start>
+            </espi:publishedPeriod>
+            <espi:accessToken>d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c</espi:accessToken>
+            <espi:status>1</espi:status>
+            <espi:expires_in>31536000</espi:expires_in>
+            <espi:scope>ThirdParty_Registration_Access</espi:scope>
+            <espi:token_type>bearer</espi:token_type>
+            <espi:resourceURI>http://localhost:8080/DataCustodian/espi/1_1/resource/ApplicationInformation/2</espi:resourceURI>
+            <espi:authorizationURI>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/4</espi:authorizationURI>
+            <espi:thirdParty>REGISTRATION_third_party</espi:thirdParty>
+        </espi:Authorization>
+    </ns3:content>
+    <ns3:published>2014-05-12T13:02:03Z</ns3:published>
+    <ns3:updated>2014-05-12T13:02:03Z</ns3:updated>
+</ns3:entry>
+
+<ns3:entry xmlns:espi="http://naesb.org/espi" xmlns:ns3="http://www.w3.org/2005/Atom">
+    <ns3:id>urn:uuid:f459cbae-8d88-47d9-8111-e661a9c58c59</ns3:id>
+    <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization" rel="up"/>
+    <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5" rel="self"/>
+    <ns3:content>
+        <espi:Authorization>
+            <espi:authorizedPeriod>
+                <espi:duration>0</espi:duration>
+                <espi:start>0</espi:start>
+            </espi:authorizedPeriod>
+            <espi:publishedPeriod>
+                <espi:duration>0</espi:duration>
+                <espi:start>0</espi:start>
+            </espi:publishedPeriod>
+            <espi:accessToken>f811c388-e3d9-46df-8398-de2814efa94a</espi:accessToken>
+            <espi:status>1</espi:status>
+            <espi:expires_in>31535999</espi:expires_in>
+            <espi:refresh_token>29cf8dbc-ccb3-418c-95ff-188734274c3f</espi:refresh_token>
+            <espi:scope>FB=4_5_15;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</espi:scope>
+            <espi:token_type>bearer</espi:token_type>
+            <espi:resourceURI>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</espi:resourceURI>
+            <espi:authorizationURI>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</espi:authorizationURI>
+            <espi:thirdParty>third_party</espi:thirdParty>
+        </espi:Authorization>
+    </ns3:content>
+    <ns3:published>2014-12-08T20:50:50Z</ns3:published>
+    <ns3:updated>2014-12-08T20:50:50Z</ns3:updated>
+</ns3:entry>
+
+<ns3:entry xmlns:espi="http://naesb.org/espi" xmlns:ns3="http://www.w3.org/2005/Atom">
+    <ns3:id>urn:uuid:a88dd61c-5a29-48f9-9bc5-b1dcd370f12d</ns3:id>
+    <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization" rel="up"/>
+    <ns3:link href="http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/6" rel="self"/>
+    <ns3:content>
+        <espi:Authorization>
+            <espi:authorizedPeriod>
+                <espi:duration>0</espi:duration>
+                <espi:start>0</espi:start>
+            </espi:authorizedPeriod>
+            <espi:publishedPeriod>
+                <espi:duration>0</espi:duration>
+                <espi:start>0</espi:start>
+            </espi:publishedPeriod>
+            <espi:accessToken>f4c6b3d0-882a-469d-9e45-487bcbbe20dc</espi:accessToken>
+            <espi:status>1</espi:status>
+            <espi:expires_in>31535999</espi:expires_in>
+            <espi:refresh_token>e73f7f18-d7cf-48a7-9958-814fc01a724f</espi:refresh_token>
+            <espi:scope>FB=4_5_15;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</espi:scope>
+            <espi:token_type>bearer</espi:token_type>
+            <espi:resourceURI>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/6</espi:resourceURI>
+            <espi:authorizationURI>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/6</espi:authorizationURI>
+            <espi:thirdParty>third_party</espi:thirdParty>
+        </espi:Authorization>
+    </ns3:content>
+    <ns3:published>2014-12-08T20:50:58Z</ns3:published>
+    <ns3:updated>2014-12-08T20:50:58Z</ns3:updated>
+</ns3:entry>
+</feed>
