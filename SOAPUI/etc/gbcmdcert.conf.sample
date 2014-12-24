@@ -1,47 +1,31 @@
 FileName="gbcmdcert.conf"
 
-// urls
-BaseURL="http://localhost:8080"
-ServiceEndpoint="http://localhost:8080/DataCustodian"
-DataCustodianContext="DataCustodian"
-ThirdPartyContext="ThirdParty"
-linkPrefixForReplace="http://localhost:8080/DataCustodian/"
-
-// access tokens
-third_party_access_token="75dd9c46-becf-48b5-9cb5-9c3233d718d0"
-registration_third_party_access_token="d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c"
-
-// external program system commands
+// configuration of test harness (not from testee)
 mysqlCmdDC="mysql --user=root --password=password"
 mysqlCmdTP="mysql --user=root --password=password"
 opensslCmd="openssl"
 timeoutCmd="timeout"
 DBprepopulateScriptName="prepopulatesql_dc.sql"
-
-// security test parameters
-securityTimeout="2"
-HomePageURLEndpoint="https://services.greenbuttondata.org"
-DataCustodianHostName="127.0.0.1"
-DataCustodianSSLPort="8081"
-ThirdPartyHostName="127.0.0.1"
-ThirdPartySSLPort="8081"
 openSSLCommand="/usr/local/ssl/bin/openssl"
 cmdTimeout="timeout.sh -t"
-cygwinHome=""
+securityTimeout="2"
 
-// oauth authorize endpoint variables
-dataCustodianId="data_custodian"
+// Certification Input Configuration from testee
+BaseURL="http://localhost:8080"
+ServiceEndpoint="http://localhost:8080/DataCustodian"
+DataCustodianContext="DataCustodian"
+ThirdPartyContext="ThirdParty"
+
 federalEIN="123456"
 dataCustodianResourceEndpoint="http://localhost:8080/DataCustodian/espi/1_1/resource"
 applicationInformationId="2"
 authorizationId="4"
 registration_access_token="d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c"
 client_access_token="75dd9c46-becf-48b5-9cb5-9c3233d718d0"
-client_id="test_third_party"
-redirect_uri="http://localhost:8080/ThirdParty/espi/1_1/OAuthCallBack"
+HomePageURLEndpoint="http://localhost:8080"
+
+redirect_uri="http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack"
 scope="FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13"
 state="abcdef12345"
-thirdPartyNotificationEndpoint="http://localhost:8081/ThirdParty/espi/1_1" // Note: Full uri would be: http://localhost:8081/ThirdParty/espi/1_1/Notification
-
-
+thirdPartyNotificationEndpoint="http://localhost:8081/ThirdParty/espi/1_1" 
 
