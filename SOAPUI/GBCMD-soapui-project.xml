@@ -18013,12 +18013,38 @@ log.error("No scope sel POST received");
 testRunner.fail("No scope sel POST received.");
 </script></con:config></con:testStep><con:testStep type="groovy" name="*Issue malformed oauth/authorize GETs"><con:settings/><con:config><script><![CDATA[import java.net.HttpUrlConnection.*;
 
+public class codeLocation {
+	
+	private int iRespCode;
+	private String strRespLoc;
+
+	public codeLocation (int c, String l) {
+		iRespCode = c;
+		strRespLoc = l;
+	}
+
+
+	/******************************
+	 * Return Response Code
+	 ******************************/
+	 public int getCode() {
+	 	return iRespCode;
+	 }
+
+
+	/******************************
+	 * Return Response Location
+	 ******************************/
+	 public String getLocation() {
+	 	return strRespLoc;
+	 }
+}
+
 int issueGET(String targetURL,String strSessionID){
 
 	log.info("Issuing malformed GET " + targetURL);
 	int iRespCode = 0;
 	String urlParameters = "";
-	String strRespLocation = "";
 	
 	URL url;
 	
@@ -18048,7 +18074,9 @@ int issueGET(String targetURL,String strSessionID){
 		log.info "Response message = " + connection.getHeaderField("Location");
 
 
-		strRespLocation = connection.getHeaderField("Location");
+		strRespLoc = connection.getHeaderField("Location");
+		log.info "issueGET -- strRespLocation: " + strRespLoc;
+		
 		iRespCode = connection.getResponseCode();
 	
 	} catch (Exception e) {
@@ -18070,6 +18098,8 @@ String strAuthEndpoint = testRunner.testCase.getPropertyValue("authorizationServ
 String strSelectedScope = context.mockService.getPropertyValue("SelectedScope").replace("scope=","");
 String strRedirURI =  testRunner.testCase.getPropertyValue("redirect_uri");
 
+String strRespLocation;
+
 // sample valid query string:
 //strQryParams = "?response_type=code" + "&client_id=third_party" + "&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018"; 
 
@@ -18086,6 +18116,7 @@ while(true) {
 	int iRespCode = 0;
 	int iExpectedRespCode = 0;
 
+	log.info "while loop -- strRespLocation: " + strRespLocation;
 
 /*
 
@@ -18102,53 +18133,61 @@ while(true) {
 		case 1:
 			strTestName = "Malformed Authorization Code Request (No client_id field-value pair)";
 			strQryParams = "?response_type=code" + "&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018";  
-  			iExpectedRespCode = 401;
-  			iExpectedRespCode = 0;  							
+  			iExpectedRespCode = 401;							
 			break;
 		case 2:
 			strTestName = "Malformed Authorization Code Request (No redirect_uri field-value pair)";
 			strQryParams = "?response_type=code" + "&client_id=third_party" + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018"; 
-  			iExpectedRespCode = 302;   				
+  			iExpectedRespCode = 302;
+//  			iExpectedRespCode = 0;   				
 			break;
 		case 3:
 			strTestName = "Malformed Authorization Code Request (No scope field-value pair)";
 			strQryParams = "?response_type=code" + "&client_id=third_party" + "&redirect_uri=" + strRedirURI + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018"; 
   			iExpectedRespCode = 302;	
+//  			iExpectedRespCode = 0;   			
 			break;
 		case 4:
 			strTestName = "Malformed Authorization Code Request (No state field-value pair)";
 			strQryParams = "?response_type=code" + "&client_id=third_party" + "&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope; 
-  			iExpectedRespCode = 302;	
+  			iExpectedRespCode = 302;
+//  			iExpectedRespCode = 0;   				
 			break;
 		case 5:
 			strTestName = "Malformed Authorization Code Request (Multiple response_type field-value pairs)";
 			strQryParams = "?response_type=code" + "&client_id=third_party" + "&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018" + "&response_type=code"; 
-  			iExpectedRespCode = 302;	
+  			iExpectedRespCode = 302;
+//  			iExpectedRespCode = 0;   				
 			break;
 		case 6:
 			strTestName = "Malformed Authorization Code Request (Multiple client_id field-value pairs)";
 			strQryParams = "?response_type=code" + "&client_id=third_party" + "&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018" + "&client_id=third_party"; 
   			iExpectedRespCode = 302;	
+//  			iExpectedRespCode = 0;    			
 			break;
 		case 7:
 			strTestName = "Malformed Authorization Code Request (Multiple redirect_uri field-value pairs)";
 			strQryParams = "?response_type=code" + "&client_id=third_party" + "&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018" + "&redirect_uri" + strRedirURI; 
-  			iExpectedRespCode = 302;	
+  			iExpectedRespCode = 302;
+//  			iExpectedRespCode = 0;   				
 			break;			
 		case 8:
 			strTestName = "Malformed Authorization Code Request (Multiple scope field-value pairs)";
 			strQryParams = "?response_type=code" + "&client_id=third_party" + "&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018" + "&scope=" + strSelectedScope; 
   			iExpectedRespCode = 302;	
+//  			iExpectedRespCode = 0;    			
 			break;
 		case 9:
 			strTestName = "Malformed Authorization Code Request (Multiple state field-value pairs)";
 			strQryParams = "?response_type=code" + "&client_id=third_party" + "&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018" + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018"; 
-  			iExpectedRespCode = 302;				
+  			iExpectedRespCode = 302;
+//  			iExpectedRespCode = 0;   							
 			break;
 		case 10:
 			strTestName = "Malformed Authorization Code Request (Invalid field-value pair)";
 			strQryParams = "?response_type=code&client_id=third_party&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018" + "&Garbage=Gigo";
-  			iExpectedRespCode = 302;	
+  			iExpectedRespCode = 302;
+//  			iExpectedRespCode = 0;  				
 			break;
 		case 11:
 			strTestName = "Malformed Authorization Code Request (Invalid response_type field-value pair)";
@@ -18164,6 +18203,7 @@ while(true) {
 			strTestName = "Authorization Code Request (Invalid redirect_uri field-value pair)";
 			strQryParams = "?response_type=code&client_id=third_party&redirect_uri=" + "https://services.greenbuttondata.org" + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018";
 			iExpectedRespCode = 302;
+//  			iExpectedRespCode = 0; 			
 			break;
 		case 14:
 			strTestName = "Authorization Code Request (Invalid scope field-value pair)";
@@ -18185,9 +18225,12 @@ while(true) {
 			return;						
 		} else {
 			if (iRespCode == 302) {
-				if (strRespLocation.indexOf("code=") != -1) {
-					log.error("Failed malformed Authorization request: " + strTestName + " received expected response code: " + iExpectedCode + " but response contained code=");
-					testRunner.fail("Failed malformed Authorization request: " + strTestName + " received expected response code: " + iExpectedCode + " but response contained code=");
+				if (strRespLoc != null) {
+					if (strRespLoc.indexOf("code=") != -1) {
+						log.error("Failed malformed Authorization request: " + strTestName + " received expected response code: " + iExpectedRespCode + " but response contained code=");
+						testRunner.fail("Failed malformed Authorization request: " + strTestName + " received expected response code: " + iExpectedRespCode + " but response contained code=");
+						return;
+					}
 				}
 			}
 		}
@@ -18202,7 +18245,7 @@ while(true) {
 }
 
 assert true;]]></script></con:config></con:testStep><con:testStep type="groovy" name="End Browser session"><con:settings/><con:config><script>context["driver"].quit();</script></con:config></con:testStep><con:testStep type="groovy" name="Stop Mock Service"><con:settings/><con:config><script>context.mockRunner.stop();
-return;</script></con:config></con:testStep><con:properties><con:property><con:name>extracted_scope_sel_uri</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value>E437CA7BD72F1F965C7B918C03512AA3</con:value></con:property></con:properties></con:testCase><con:properties/>
+return;</script></con:config></con:testStep><con:properties><con:property><con:name>extracted_scope_sel_uri</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value>098009AF322BEFE495D8ACA9B071BE20</con:value></con:property></con:properties></con:testCase><con:properties/>
 </con:testSuite>
 <con:testSuite name="[FB_01] Common"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[TR_CPYRT001] Verify the implementer has purchased the NAESB ESPI standard" searchProperties="true" id="171f69e0-c8a5-4aaa-88ed-edf5513db70f"><con:settings/><con:testStep type="groovy" name="Verify Purchase"><con:settings/><con:config><script>def procedure;
 
@@ -24439,11 +24482,11 @@ httpResponse.addHeader("Location",strRespLoc);
 <con:properties>
 	<con:property>
 		<con:name>BaseURL</con:name>
-		<con:value>https://services.greenbuttondata.org</con:value>
+		<con:value>http://localhost:8080</con:value>
 	</con:property>
 	<con:property>
 		<con:name>ServiceEndpoint</con:name>
-		<con:value>https://services.greenbuttondata.org/DataCustodian</con:value>
+		<con:value>http://localhost:8080/DataCustodian</con:value>
 	</con:property>
 	<con:property>
 		<con:name>DataCustodianContext</con:name>
@@ -24623,7 +24666,7 @@ httpResponse.addHeader("Location",strRespLoc);
 	</con:property>
 	<con:property>
 		<con:name>dataCustodianResourceEndpoint</con:name>
-		<con:value>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource</con:value>
+		<con:value>http://localhost:8080/DataCustodian/espi/1_1/resource</con:value>
 	</con:property>
 	<con:property>
 		<con:name>dataCustodianId</con:name>
@@ -24641,7 +24684,7 @@ httpResponse.addHeader("Location",strRespLoc);
 		<con:name>client_access_token</con:name>
 		<con:value>75dd9c46-becf-48b5-9cb5-9c3233d718d0</con:value>
 	</con:property>
-<con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1</con:value></con:property><con:property><con:name>NotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty</con:value></con:property><con:property><con:name>notificationUri</con:name><con:value>espi/1_1</con:value></con:property><con:property><con:name>access_token</con:name><con:value>f711706f-04df-4a76-a4d9-c819deec2ea3</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value>https://services.greenbuttondata.org/DataCustodian/</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>services.greenbuttondata.org</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>services.greenbuttondata.org</con:value></con:property></con:properties>
+<con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1</con:value></con:property><con:property><con:name>NotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty</con:value></con:property><con:property><con:name>notificationUri</con:name><con:value>espi/1_1</con:value></con:property><con:property><con:name>access_token</con:name><con:value>f711706f-04df-4a76-a4d9-c819deec2ea3</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value/></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>services.greenbuttondata.org</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>services.greenbuttondata.org</con:value></con:property></con:properties>
 <con:wssContainer/>
 <con:oAuth2ProfileContainer/>
 <con:sensitiveInformation/>
