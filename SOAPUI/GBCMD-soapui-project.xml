@@ -8005,11 +8005,20 @@ def projectPath = groovyUtils.projectPath
 public boolean RunCommand(String path,String cmd)
 {
 	def doCmd;
+	def myTimeoutValue= testRunner.testCase.getPropertyValue("timeout");
+	def timeoutCmd= testRunner.testCase.testSuite.project.getPropertyValue("timeoutCmd");
+
+	if(myTimeoutValue > 0)
+	{
+		cmd = timeoutCmd + " " + myTimeoutValue + " " + cmd;
+	}
+
 	
 	log.info("path: " + path);
 	log.info("exec: " + cmd);
 	log.info("os  : " + System.properties['os.name']);
-	
+
+
 	if (System.properties['os.name'].toLowerCase().contains('windows')) {
 		doCmd = ["cmd", "/c",cmd].execute(null, new File(path));
 	} else {
@@ -8102,21 +8111,21 @@ Expansion: NONE
 SSL-Session:
     Protocol  : TLSv1
     Cipher    : RC4-MD5
-    Session-ID: 492200009AE0D215CCC9C15C97D840211F22BB3270712461B0AA15E1EE6B9AD2
+    Session-ID: E0220000CDD482FB6C95DF455DCF711DD12D5F3B51402882288085C007BE57D6
     Session-ID-ctx: 
-    Master-Key: 246B988A8956976825D1B4D99D463614E07B5F82225B967430D3B73689D01924120B7ABD5E31BA63966AA43E9E6340F5
+    Master-Key: 2B1AAB2DF4700E45D64343F8A5F3545A365E405FE5F6F365542D58873BEFDBD656C9521C56430E35E6CF5017A579D464
     Key-Arg   : None
     PSK identity: None
     PSK identity hint: None
     SRP username: None
-    Start Time: 1419438776
+    Start Time: 1419808513
     Timeout   : 300 (sec)
     Verify return code: 20 (unable to get local issuer certificate)
 ---
-</con:value></con:property><con:property><con:name>cmd</con:name><con:value>timeout 2 openssl s_client -connect services.greenbuttondata.org:443</con:value></con:property><con:property><con:name>path</con:name><con:value>.</con:value></con:property><con:property><con:name>stderr</con:name><con:value>depth=1 C = US, O = DigiCert Inc, CN = DigiCert Secure Server CA
+</con:value></con:property><con:property><con:name>cmd</con:name><con:value>openssl s_client -connect services.greenbuttondata.org:443</con:value></con:property><con:property><con:name>path</con:name><con:value>.</con:value></con:property><con:property><con:name>stderr</con:name><con:value>depth=1 C = US, O = DigiCert Inc, CN = DigiCert Secure Server CA
 verify error:num=20:unable to get local issuer certificate
 verify return:0
-</con:value></con:property><con:property><con:name>returncode</con:name><con:value>124</con:value></con:property></con:properties></con:testCase><con:properties/>
+</con:value></con:property><con:property><con:name>returncode</con:name><con:value>124</con:value></con:property><con:property><con:name>timeout</con:name><con:value>2</con:value></con:property></con:properties></con:testCase><con:properties/>
 </con:testSuite>
 <con:testSuite name="OpenEspiIntegrationTests">
 	<con:settings/>
@@ -15014,7 +15023,7 @@ tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 
 assert true;
 </script></con:config></con:testStep><con:testStep type="calltestcase" name="Run TestCase"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3</con:targetTestCase><con:properties><con:property><con:name>stdout</con:name><con:value>total 14196 drwxr-xr-x  5 bitnami bitnami     4096 Aug  6 21:05 . drwxrwxr-x 10 bitnami bitnami     4096 Jul 26 18:32 .. drwxr-xr-x  2 bitnami bitnami     4096 Apr  9  2014 actions -rw-rw-r--  1 bitnami bitnami     5494 Dec 21 15:35 error.log drwxr-xr-x  2 bitnami bitnami     4096 Dec 18 15:26 ext drwxr-xr-x  2 bitnami bitnami     4096 Apr  9  2014 listeners -rwxr-xr-x  1 bitnami bitnami     1918 Apr  9  2014 loadtestrunner.sh -rwxr-xr-x  1 bitnami bitnami     1889 Apr  9  2014 mockservicerunner.sh -rwxr-xr-x  1 bitnami bitnami     1872 Apr  9  2014 securitytestrunner.sh -rwxr-xr-x  1 bitnami bitnami    10562 Apr  9  2014 SoapUI-5.0.0 -rw-r--r--  1 bitnami bitnami 11519067 Apr  9  2014 soapui-5.0.0.jar -rw-rw-r--  1 bitnami bitnami      516 Jul 26 18:26 SoapUI-5.0.0.vmoptions -rw-rw-rw-  1 bitnami bitnami  1873343 Dec 21 15:40 soapui-errors.log -rw-rw-rw-  1 bitnami bitnami  1020898 Dec 21 15:40 soapui.log -rw-r--r--  1 bitnami bitnami     3606 Apr  9  2014 soapui-log4j.xml -rwxr-xr-x  1 bitnami bitnami     2326 Apr  9  2014 soapui.sh -rw-r--r--  1 bitnami bitnami    27186 Apr  9  2014 soapui-splash.png -rw-r--r--  1 bitnami bitnami     1322 Apr  9  2014 starter-page.html -rwxr-xr-x  1 bitnami bitnami     1887 Apr  9  2014 testrunner.sh -rwxr-xr-x  1 bitnami bitnami     1883 Apr  9  2014 toolrunner.sh -rwxr-xr-x  1 bitnami bitnami     1896 Apr  9  2014 wargenerator.sh </con:value></con:property><con:property><con:name>cmd</con:name><con:value>ls</con:value></con:property><con:property><con:name>path</con:name><con:value>\etc\OpenESPI</con:value></con:property><con:property><con:name>stderr</con:name><con:value>bash: lsa: command not found
-</con:value></con:property><con:property><con:name>returncode</con:name><con:value>127</con:value></con:property></con:properties><con:returnProperties><con:entry>stdout</con:entry><con:entry>stderr</con:entry><con:entry>returncode</con:entry></con:returnProperties><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:properties><con:property><con:name>cmd</con:name><con:value>openssl s_client -tls1_2 -connect services.greenbuttondata.org:443</con:value></con:property><con:property><con:name>path</con:name><con:value>.</con:value></con:property></con:properties></con:testCase><con:properties>
+</con:value></con:property><con:property><con:name>returncode</con:name><con:value>127</con:value></con:property><con:property><con:name>timeout</con:name></con:property></con:properties><con:returnProperties><con:entry>stdout</con:entry><con:entry>stderr</con:entry><con:entry>returncode</con:entry></con:returnProperties><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:properties><con:property><con:name>cmd</con:name><con:value>openssl s_client -tls1_2 -connect services.greenbuttondata.org:443</con:value></con:property><con:property><con:name>path</con:name><con:value>.</con:value></con:property></con:properties></con:testCase><con:properties>
 		<con:property>
 			<con:name>sessionid</con:name>
 			<con:value>null</con:value>
@@ -18421,7 +18430,7 @@ while(true) {
 
 assert true;
 
-]]></script></con:config></con:testStep><con:testStep type="restrequest" name="GET ApplicationInformation and verify grant_types"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of GET and verify ApplicationInformation" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+]]></script></con:config></con:testStep><con:testStep type="restrequest" name="GET ApplicationInformation and verify grant_types"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ApplicationInformation and verify grant_types" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
 					<con:settings>
 						<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 			</con:settings>
@@ -18679,11 +18688,7 @@ if(result)
 	assert("true");
 } else {
 testRunner.fail("Failed to verify purchase of standard");
-}</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite>
-<con:testSuite name="[FB_03] Core Green Button Connect My Data">
-	<con:settings/>
-	<con:runType>SEQUENTIAL</con:runType>
-	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FND001 Initial Test Configuration" searchProperties="true" id="6f98eaed-016c-4e8a-b571-dc8759474507"><con:description>The ThirdParty tester requires the following initial information be provided as part of the application for certification and readiness for testing.
+}</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FND001 Initial Test Configuration" searchProperties="true" id="6f98eaed-016c-4e8a-b571-dc8759474507"><con:description>The ThirdParty tester requires the following initial information be provided as part of the application for certification and readiness for testing.
 Verify this information has been received and that SoapUI has been configured with this information.
 
 dataCustodianId="data_custodian"
@@ -18803,7 +18808,11 @@ if(i>0) {
 	log.info ("Uri not well formed: " + uri);					
 	project.setPropertyValue("authorizationServer","");
 }
-</script></con:config></con:testStep><con:properties/></con:testCase>
+</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite>
+<con:testSuite name="[FB_03] Core Green Button Connect My Data">
+	<con:settings/>
+	<con:runType>SEQUENTIAL</con:runType>
+	
 <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FND002 [POS][R] Authorized GET access to ApplicationInformation entry" searchProperties="true" id="720bfc98-a2d2-4679-a25c-1ab6b2ec6cb6"><con:settings/><con:testStep type="restrequest" name="GET and verify ApplicationInformation"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET and verify ApplicationInformation" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
 					<con:settings>
 						<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
@@ -24969,15 +24978,15 @@ httpResponse.addHeader("Location",strRespLoc);
 	</con:property>
 	<con:property>
 		<con:name>subscriptionId</con:name>
-		<con:value>1</con:value>
+		<con:value>5</con:value>
 	</con:property>
 	<con:property>
 		<con:name>applicationInformationId</con:name>
-		<con:value>2</con:value>
+		<con:value>1</con:value>
 	</con:property>
 	<con:property>
 		<con:name>authorizationId</con:name>
-		<con:value>4</con:value>
+		<con:value>1</con:value>
 	</con:property>
 	<con:property>
 		<con:name>bulkId</con:name>
@@ -25061,11 +25070,11 @@ httpResponse.addHeader("Location",strRespLoc);
 	</con:property>
 	<con:property>
 		<con:name>redirect_uri</con:name>
-		<con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value>
+		<con:value>http://localhost:8080/ThirdParty/espi/1_1/OAuthCallBack</con:value>
 	</con:property>
 	<con:property>
 		<con:name>scope</con:name>
-		<con:value>http://localhost:8080/DataCustodian/oauth/token</con:value>
+		<con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value>
 	</con:property>
 	<con:property>
 		<con:name>state</con:name>
@@ -25099,7 +25108,7 @@ httpResponse.addHeader("Location",strRespLoc);
 		<con:name>client_access_token</con:name>
 		<con:value>75dd9c46-becf-48b5-9cb5-9c3233d718d0</con:value>
 	</con:property>
-<con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1</con:value></con:property><con:property><con:name>NotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty</con:value></con:property><con:property><con:name>notificationUri</con:name><con:value>espi/1_1</con:value></con:property><con:property><con:name>access_token</con:name><con:value>f711706f-04df-4a76-a4d9-c819deec2ea3</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>services.greenbuttondata.org</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>services.greenbuttondata.org</con:value></con:property></con:properties>
+<con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1</con:value></con:property><con:property><con:name>NotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty</con:value></con:property><con:property><con:name>notificationUri</con:name><con:value>espi/1_1</con:value></con:property><con:property><con:name>access_token</con:name><con:value>f711706f-04df-4a76-a4d9-c819deec2ea3</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>services.greenbuttondata.org</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>services.greenbuttondata.org</con:value></con:property><con:property><con:name>myTimeoutCmd</con:name><con:value>timeout</con:value></con:property></con:properties>
 <con:wssContainer/>
 <con:oAuth2ProfileContainer/>
 <con:sensitiveInformation/>
