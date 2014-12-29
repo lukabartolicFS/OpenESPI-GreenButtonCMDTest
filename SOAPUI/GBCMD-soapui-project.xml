@@ -4338,7 +4338,7 @@
 			<con:params/>
 			<con:element>data</con:element>
 		</con:representation>
-		<con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="resetDataCustodianDB" mediaType="application/xml" postQueryString="false" id="6511b5ba-23eb-4bfe-9f6a-58577bfdfd37">
+		<con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="resetDataCustodianDB" mediaType="application/xml" postQueryString="false" id="6511b5ba-23eb-4bfe-9f6a-58577bfdfd37">
 			<con:settings>
 				<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 	</con:settings>
@@ -4621,27 +4621,34 @@ testRunner.fail("could not curl up file");
 			<con:config><script>	def project = testRunner.testCase.testSuite.project
 	def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 	def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmdcert.conf").toURL())
+	def target = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmdcert_target.conf").toURL())
 	def uri;
+
+
+	// external program system commands
+	project.setPropertyValue("mysqlCmdDC",config.mysqlCmdDC);
+	project.setPropertyValue("mysqlCmdTP",config.mysqlCmdTP);
+	project.setPropertyValue("opensslCmd",config.opensslCmd);
+	project.setPropertyValue("timeoutCmd",config.timeoutCmd);
+	project.setPropertyValue("DBprepopulateScriptName",config.DBprepopulateScriptName);
 	
 	// urls
 	project.setPropertyValue("BaseURL",config.BaseURL);
 	project.setPropertyValue("ServiceEndpoint",config.ServiceEndpoint);
 	project.setPropertyValue("DataCustodianContext",config.DataCustodianContext);
 	project.setPropertyValue("ThirdPartyContext",config.ThirdPartyContext);
-	project.setPropertyValue("dataCustodianResourceEndpoint",config.dataCustodianResourceEndpoint);
-//	project.setPropertyValue("dataCustodianId",config.dataCustodianId);
+	project.setPropertyValue("thirdPartyNotificationEndpoint",config.thirdPartyNotificationEndpoint);
 
 
 	project.setPropertyValue("authorizationServerUri", "");
 	
-	project.setPropertyValue("federalEIN",config.federalEIN);
-	project.setPropertyValue("dataCustodianResourceEndpoint",config.dataCustodianResourceEndpoint);
-	project.setPropertyValue("applicationInformationId",config.applicationInformationId);
-	project.setPropertyValue("authorizationId",config.authorizationId);
-	project.setPropertyValue("registration_access_token",config.registration_access_token);
-	project.setPropertyValue("client_access_token",config.client_access_token);
-//	project.setPropertyValue("client_id",config.client_id);
-	project.setPropertyValue("thirdPartyNotificationEndpoint",config.thirdPartyNotificationEndpoint);
+	project.setPropertyValue("federalEIN",target.federalEIN);
+	project.setPropertyValue("dataCustodianResourceEndpoint",target.dataCustodianResourceEndpoint);
+	project.setPropertyValue("applicationInformationId",target.applicationInformationId);
+	project.setPropertyValue("authorizationId",target.authorizationId);
+	project.setPropertyValue("registration_access_token",target.registration_access_token);
+	project.setPropertyValue("client_access_token",target.client_access_token);
+	project.setPropertyValue("scope",target.scope);
 
 	
 	
@@ -4686,18 +4693,12 @@ testRunner.fail("could not curl up file");
 	}
 	
 	
-	// external program system commands
-	project.setPropertyValue("mysqlCmdDC",config.mysqlCmdDC);
-	project.setPropertyValue("mysqlCmdTP",config.mysqlCmdTP);
-	project.setPropertyValue("opensslCmd",config.opensslCmd);
-	project.setPropertyValue("timeoutCmd",config.timeoutCmd);
-	project.setPropertyValue("DBprepopulateScriptName",config.DBprepopulateScriptName);
+
 	
 	// oauth authorize endpoint testing
 //	project.setPropertyValue("client_id",config.client_id);
-	project.setPropertyValue("redirect_uri",config.redirect_uri);
-	project.setPropertyValue("scope",config.scope);
-	project.setPropertyValue("state",config.state);
+//	project.setPropertyValue("redirect_uri",config.redirect_uri);
+//	project.setPropertyValue("state",config.state);
 </script></con:config>
 	</con:testStep>
 	<con:properties>
@@ -7902,7 +7903,9 @@ declare namespace espi='http://naesb.org/espi';
 declare namespace espi='http://naesb.org/espi';
 /ns3:entry/ns3:content/espi:ApplicationInformation/espi:redirect_uri</con:sourcePath><con:targetType>redirect_uri</con:targetType><con:targetStep>#TestCase#</con:targetStep></con:transfers></con:config></con:testStep><con:testStep type="transfer" name="Extract authorizationServerTokenEndpoint" id="ad8620e1-12e4-4fc8-aa22-ea18f66fe5d2"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>extract DC scope selection URI</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GET ApplicationInformation by Id</con:sourceStep><con:sourcePath>declare namespace ns3='http://www.w3.org/2005/Atom';
 declare namespace espi='http://naesb.org/espi';
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:authorizationServerTokenEndpoint</con:sourcePath><con:targetType>authorizationServerTokenEndpoint</con:targetType><con:targetStep>#TestCase#</con:targetStep></con:transfers></con:config></con:testStep><con:testStep type="groovy" name="Verify DC scope section URI present" id="33e94086-1434-4b24-b323-e6ef7614e927"><con:settings/><con:config><script>
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:authorizationServerTokenEndpoint</con:sourcePath><con:targetType>authorizationServerTokenEndpoint</con:targetType><con:targetStep>#TestCase#</con:targetStep></con:transfers></con:config></con:testStep><con:testStep type="transfer" name="Extract client_id"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>client_id</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GET ApplicationInformation by Id</con:sourceStep><con:sourcePath>declare namespace ns3='http://www.w3.org/2005/Atom';
+declare namespace espi='http://naesb.org/espi';
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:client_id</con:sourcePath><con:targetType>client_id</con:targetType><con:targetStep>#TestCase#</con:targetStep></con:transfers></con:config></con:testStep><con:testStep type="groovy" name="Verify DC scope section URI present" id="33e94086-1434-4b24-b323-e6ef7614e927"><con:settings/><con:config><script>
 if((testRunner.testCase.getPropertyValue("dataCustodianScopeSelectionScreenURI")==null)||
 (testRunner.testCase.getPropertyValue("dataCustodianScopeSelectionScreenURI")=="")){
 	log.error("No scope selection URI present in ApplicationInformation");
@@ -7910,17 +7913,7 @@ if((testRunner.testCase.getPropertyValue("dataCustodianScopeSelectionScreenURI")
 	return;		
 }
 
-context.ScopeSelURI = testRunner.testCase.getPropertyValue("dataCustodianScopeSelectionScreenURI");</script></con:config></con:testStep><con:testStep type="groovy" name="Start Mock Service" id="b5180cc9-a09b-47cf-b76f-42ed235424c3"><con:settings/><con:config><script>context.mockService = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Authorization Mock Service");
-
-context.mockService.setPropertyValue("tokenResponse","");
-context.mockService.setPropertyValue("authorizationServerAuthorizationEndpoint",testRunner.testCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
-context.mockService.setPropertyValue("redirect_uri",testRunner.testCase.getPropertyValue("redirect_uri"));
-context.mockService.setPropertyValue("authorizationServerTokenEndpoint",testRunner.testCase.getPropertyValue("authorizationServerTokenEndpoint"));
-
-def runner = context.mockService.start();
-context.mockRunner = runner;
-
-return;</script></con:config></con:testStep><con:testStep type="groovy" name="Script will bring up browser to DC Scope selection screen" id="1afd759c-0ac6-4184-99ad-d9656769face"><con:settings/><con:config><script>import org.greenbutton.cmd.utils.DriverHelper;
+context.ScopeSelURI = testRunner.testCase.getPropertyValue("dataCustodianScopeSelectionScreenURI");</script></con:config></con:testStep><con:testStep type="groovy" name="Start Mock Service" id="b5180cc9-a09b-47cf-b76f-42ed235424c3"><con:settings/><con:config><script>context.mockService = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Authorization Mock Service");  context.mockService.setPropertyValue("tokenResponse",""); context.mockService.setPropertyValue("authorizationServerAuthorizationEndpoint",testRunner.testCase.getPropertyValue("authorizationServerAuthorizationEndpoint")); context.mockService.setPropertyValue("redirect_uri",testRunner.testCase.getPropertyValue("redirect_uri")); context.mockService.setPropertyValue("authorizationServerTokenEndpoint",testRunner.testCase.getPropertyValue("authorizationServerTokenEndpoint"));  def runner = context.mockService.start(); context.mockRunner = runner;  return;</script></con:config></con:testStep><con:testStep type="groovy" name="Script will bring up browser to DC Scope selection screen" id="1afd759c-0ac6-4184-99ad-d9656769face"><con:settings/><con:config><script>import org.greenbutton.cmd.utils.DriverHelper;
 import java.net.*;
 import java.io.*;
 
@@ -7937,11 +7930,13 @@ String parseResource(String strURI) throws Exception {
 String strEndpoint = parseEndpointFromURI(context.ScopeSelURI);
 String strResource = parseResource(context.ScopeSelURI);
 
+def clientId = testRunner.testCase.getPropertyValue("client_id" );
+
 DriverHelper driver = new DriverHelper(strEndpoint,strResource,"",log);
 
 context["driver"] = driver;
 
-driver.get(context.ScopeSelURI);</script></con:config></con:testStep><con:testStep type="groovy" name="Wait for Authorization to Complete and End Browser session" id="b113e147-1128-47b8-ad30-8e704a9a4446"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
+driver.get(context.ScopeSelURI + "?ThirdPartyID=" + clientId);</script></con:config></con:testStep><con:testStep type="groovy" name="Wait for Authorization to Complete and End Browser session" id="b113e147-1128-47b8-ad30-8e704a9a4446"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
 
 result = ui.getDialogs().showInfoMessage("Perform logon and authorization and hit OK when done", "");
 
@@ -7997,7 +7992,7 @@ testRunner.testCase.setPropertyValue("resourceURI",tokenResponse.resourceURI);
 testRunner.testCase.setPropertyValue("authorizationURI",tokenResponse.authorizationURI);
 
 
-testRunner.testCase.testSuite.project.setPropertyValue("access_token",testRunner.testCase.getPropertyValue("access_token"));</script></con:config></con:testStep><con:testStep type="groovy" name="Done" id="1506c724-dddb-4676-bd09-aabebed84455"><con:settings/><con:config><script/></con:config></con:testStep><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>f711706f-04df-4a76-a4d9-c819deec2ea3</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>95ac66c1-8693-4348-a7cb-9382a6353061</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
+testRunner.testCase.testSuite.project.setPropertyValue("access_token",testRunner.testCase.getPropertyValue("access_token"));</script></con:config></con:testStep><con:testStep type="groovy" name="Done" id="1506c724-dddb-4676-bd09-aabebed84455"><con:settings/><con:config><script/></con:config></con:testStep><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>0f4c2aa7-834f-4659-8d6f-ba55f850e3d3</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>8442b4f8-40c4-430c-8103-30bb6ef4ce42</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535903</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
@@ -8027,6 +8022,7 @@ public boolean RunCommand(String path,String cmd)
 
 	doCmd.waitFor()
 
+
 	if(doCmd.exitValue()!=0)
 	{
 		testRunner.testCase.setPropertyValue("stderr", doCmd.err.text);
@@ -8051,81 +8047,32 @@ cmd = testRunner.testCase.getPropertyValue("cmd");
 td = testRunner.testCase.getPropertyValue("path");
 RunCommand(td,cmd);</script></con:config></con:testStep><con:properties><con:property><con:name>stdout</con:name><con:value>CONNECTED(00000003)
 ---
-Certificate chain
- 0 s:/C=US/ST=Tennessee/L=Knoxville/O=EnerNex LLC/CN=services.greenbuttondata.org
-   i:/C=US/O=DigiCert Inc/CN=DigiCert Secure Server CA
- 1 s:/C=US/O=DigiCert Inc/CN=DigiCert Secure Server CA
-   i:/C=US/O=DigiCert Inc/OU=www.digicert.com/CN=DigiCert Global Root CA
----
-Server certificate
------BEGIN CERTIFICATE-----
-MIIGlTCCBX2gAwIBAgIQDpaaYOGJkttnCx7YHOPOdzANBgkqhkiG9w0BAQUFADBI
-MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMSIwIAYDVQQDExlE
-aWdpQ2VydCBTZWN1cmUgU2VydmVyIENBMB4XDTE0MDExNjAwMDAwMFoXDTE1MDEy
-MTEyMDAwMFowcjELMAkGA1UEBhMCVVMxEjAQBgNVBAgTCVRlbm5lc3NlZTESMBAG
-A1UEBxMJS25veHZpbGxlMRQwEgYDVQQKEwtFbmVyTmV4IExMQzElMCMGA1UEAxMc
-c2VydmljZXMuZ3JlZW5idXR0b25kYXRhLm9yZzCCASIwDQYJKoZIhvcNAQEBBQAD
-ggEPADCCAQoCggEBALML4sWhiI/C6s5ef+ogPPixc4oilbTDZ1E9iDTBHL0r/Bf0
-R+3JfqROywj9GMReBTR/431xaSz7sC2n8Ie6FYdcHIi1o1ppPVpX1QNwASGFx+Q0
-fPJ+HDYRAEpJrKkY4QoNmdltYEJFK7poqDHTlUrsmlW5TIVqI7SbIyt35Nb1IAbz
-bbxGIba92xsAxFdVUPEvW2LQJtxWErkfsezuaWvcm6WiztzSsuYfyDiYEV916Xb8
-sJ8gFJe27K2Fezl+kLGTJ12/tbrW8UBzG3cNwjxM0J9JGdgTCElfxyTWHKXT5rCm
-55VL1ikfyLmrIedsBfAchHM+Pa8Zq/xJctN6SHUCAwEAAaOCA08wggNLMB8GA1Ud
-IwQYMBaAFJBx2zfrc8jv3NUeErY0uitaoKaSMB0GA1UdDgQWBBRmthBT+jq3Mj+x
-9LmZP8psMyerdzAnBgNVHREEIDAeghxzZXJ2aWNlcy5ncmVlbmJ1dHRvbmRhdGEu
-b3JnMA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUH
-AwIwYQYDVR0fBFowWDAqoCigJoYkaHR0cDovL2NybDMuZGlnaWNlcnQuY29tL3Nz
-Y2EtZzUuY3JsMCqgKKAmhiRodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vc3NjYS1n
-NS5jcmwwggHEBgNVHSAEggG7MIIBtzCCAbMGCWCGSAGG/WwBATCCAaQwOgYIKwYB
-BQUHAgEWLmh0dHA6Ly93d3cuZGlnaWNlcnQuY29tL3NzbC1jcHMtcmVwb3NpdG9y
-eS5odG0wggFkBggrBgEFBQcCAjCCAVYeggFSAEEAbgB5ACAAdQBzAGUAIABvAGYA
-IAB0AGgAaQBzACAAQwBlAHIAdABpAGYAaQBjAGEAdABlACAAYwBvAG4AcwB0AGkA
-dAB1AHQAZQBzACAAYQBjAGMAZQBwAHQAYQBuAGMAZQAgAG8AZgAgAHQAaABlACAA
-RABpAGcAaQBDAGUAcgB0ACAAQwBQAC8AQwBQAFMAIABhAG4AZAAgAHQAaABlACAA
-UgBlAGwAeQBpAG4AZwAgAFAAYQByAHQAeQAgAEEAZwByAGUAZQBtAGUAbgB0ACAA
-dwBoAGkAYwBoACAAbABpAG0AaQB0ACAAbABpAGEAYgBpAGwAaQB0AHkAIABhAG4A
-ZAAgAGEAcgBlACAAaQBuAGMAbwByAHAAbwByAGEAdABlAGQAIABoAGUAcgBlAGkA
-bgAgAGIAeQAgAHIAZQBmAGUAcgBlAG4AYwBlAC4weAYIKwYBBQUHAQEEbDBqMCQG
-CCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQgYIKwYBBQUHMAKG
-Nmh0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydFNlY3VyZVNlcnZl
-ckNBLmNydDAMBgNVHRMBAf8EAjAAMA0GCSqGSIb3DQEBBQUAA4IBAQCODC+NgdeL
-PNzqEMZBNynGQ5Te0h5FnXwbgTCC+P/pS3vZ1PzmSJqhGAFHyjtiNEoEH0fEUKBV
-cZSR4qp/rMiFRUzRPUVZSwES1reilrRw88W6yErjxkVKmPEILhYfDurVM7P1FCX0
-lSCE6mcUBqBYLDNHkqHT4mh1zXNLRMckBHgFK+bHY3asgN7KTCMGrLcuOFlyCwrT
-9jPZnKB4gObWx67woamfJHFjJttm1l7pQimGAWsh8zhZvyQoN5taXBBxkIm9wlhP
-/S3lnyw7i/I8D/ik6TVpiRxwjkxdlkH8v7fPGGBpCfYp/ocbtzW3FOoWkNEv8cAe
-SCenEDjsY/g4
------END CERTIFICATE-----
-subject=/C=US/ST=Tennessee/L=Knoxville/O=EnerNex LLC/CN=services.greenbuttondata.org
-issuer=/C=US/O=DigiCert Inc/CN=DigiCert Secure Server CA
+no peer certificate available
 ---
 No client certificate CA names sent
 ---
-SSL handshake has read 2999 bytes and written 615 bytes
+SSL handshake has read 5 bytes and written 7 bytes
 ---
-New, TLSv1/SSLv3, Cipher is RC4-MD5
-Server public key is 2048 bit
+New, (NONE), Cipher is (NONE)
 Secure Renegotiation IS NOT supported
 Compression: NONE
 Expansion: NONE
 SSL-Session:
-    Protocol  : TLSv1
-    Cipher    : RC4-MD5
-    Session-ID: E0220000CDD482FB6C95DF455DCF711DD12D5F3B51402882288085C007BE57D6
+    Protocol  : TLSv1.2
+    Cipher    : 0000
+    Session-ID: 
     Session-ID-ctx: 
-    Master-Key: 2B1AAB2DF4700E45D64343F8A5F3545A365E405FE5F6F365542D58873BEFDBD656C9521C56430E35E6CF5017A579D464
+    Master-Key: 
     Key-Arg   : None
     PSK identity: None
     PSK identity hint: None
     SRP username: None
-    Start Time: 1419808513
-    Timeout   : 300 (sec)
-    Verify return code: 20 (unable to get local issuer certificate)
+    Start Time: 1419867506
+    Timeout   : 7200 (sec)
+    Verify return code: 0 (ok)
 ---
-</con:value></con:property><con:property><con:name>cmd</con:name><con:value>openssl s_client -connect services.greenbuttondata.org:443</con:value></con:property><con:property><con:name>path</con:name><con:value>.</con:value></con:property><con:property><con:name>stderr</con:name><con:value>depth=1 C = US, O = DigiCert Inc, CN = DigiCert Secure Server CA
-verify error:num=20:unable to get local issuer certificate
-verify return:0
-</con:value></con:property><con:property><con:name>returncode</con:name><con:value>124</con:value></con:property><con:property><con:name>timeout</con:name><con:value>2</con:value></con:property></con:properties></con:testCase><con:properties/>
+</con:value></con:property><con:property><con:name>cmd</con:name><con:value>openssl s_client -tls1_2 -cipher AES128-SHA -connect localhost:8080:443 -tlsextdebug </con:value></con:property><con:property><con:name>path</con:name><con:value>.</con:value></con:property><con:property><con:name>stderr</con:name><con:value>140487531558560:error:1408F10B:SSL routines:SSL3_GET_RECORD:wrong version number:s3_pkt.c:337:
+</con:value></con:property><con:property><con:name>returncode</con:name><con:value>1</con:value></con:property><con:property><con:name>timeout</con:name><con:value>2</con:value></con:property></con:properties></con:testCase><con:properties/>
 </con:testSuite>
 <con:testSuite name="OpenEspiIntegrationTests">
 	<con:settings/>
@@ -13978,7 +13925,7 @@ while(true) {
 
 assert true;
 
-</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAuth Tests Type D refresh token" searchProperties="true" id="afc6bfd2-1d75-4f3d-8193-61a81676425e"><con:settings/><con:testStep type="calltestcase" name="Run TestCase Create Authorization"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>00812f7a-b4ce-4782-bf13-f27a979f6d00</con:targetTestCase><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>bc71cd04-3267-4c21-9c04-296aaad6673e</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>594b99be-e82f-46f5-89f5-6e7114489d53</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name></con:property><con:property><con:name>error</con:name></con:property></con:properties><con:returnProperties><con:entry>dataCustodianScopeSelectionScreenURI</con:entry><con:entry>authorizationServerAuthorizationEndpoint</con:entry><con:entry>redirect_uri</con:entry><con:entry>authorizationServerTokenEndpoint</con:entry><con:entry>access_token</con:entry><con:entry>resourceURI</con:entry><con:entry>authorizationURI</con:entry><con:entry>SelectedScope</con:entry><con:entry>token_type</con:entry><con:entry>refresh_token</con:entry><con:entry>expires_in</con:entry><con:entry>scope</con:entry></con:returnProperties><con:runMode>SINGLETON_AND_WAIT</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Issue malformed refresh token requets"><con:settings/><con:config><script>import java.net.*;
+</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAuth Tests Type D refresh token" searchProperties="true" id="afc6bfd2-1d75-4f3d-8193-61a81676425e"><con:settings/><con:testStep type="calltestcase" name="Run TestCase Create Authorization"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>00812f7a-b4ce-4782-bf13-f27a979f6d00</con:targetTestCase><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>bc71cd04-3267-4c21-9c04-296aaad6673e</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>594b99be-e82f-46f5-89f5-6e7114489d53</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name></con:property><con:property><con:name>error</con:name></con:property><con:property><con:name>client_id</con:name></con:property></con:properties><con:returnProperties><con:entry>dataCustodianScopeSelectionScreenURI</con:entry><con:entry>authorizationServerAuthorizationEndpoint</con:entry><con:entry>redirect_uri</con:entry><con:entry>authorizationServerTokenEndpoint</con:entry><con:entry>access_token</con:entry><con:entry>resourceURI</con:entry><con:entry>authorizationURI</con:entry><con:entry>SelectedScope</con:entry><con:entry>token_type</con:entry><con:entry>refresh_token</con:entry><con:entry>expires_in</con:entry><con:entry>scope</con:entry></con:returnProperties><con:runMode>SINGLETON_AND_WAIT</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Issue malformed refresh token requets"><con:settings/><con:config><script>import java.net.*;
 import java.io.*;
 
 int issueGET(String targetURL,String strToken){
@@ -14985,45 +14932,48 @@ v.validate(instanceDocument);</scriptText></con:configuration></con:assertion><c
 		<con:properties/>
 	</con:testCase>
 	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestSSL" searchProperties="true"><con:settings/><con:testStep type="groovy" name="testssl"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def tc= testRunner.testCase.testSuite.project.testSuites['Library'].testCases['RunCommand'];
 
-def sslhost = project.getPropertyValue( "authorizationServer" )
-//def sslport = testRunner.testCase.testSuite.getPropertyValue( "DataCustodianSSLPort" )
-
-//sslhost="services.greenbuttondata.org";
+def sslhost = project.getPropertyValue( "authorizationServer" );
+def opensslCmd = project.getPropertyValue("opensslCmd");
 sslport="443";
 
-
-def cmdSubString = "s_client -connect " + sslhost + ":" + sslport;
-//def cmdSubString = "s_client -tls1_2 -connect " + sslhost + ":" + sslport;
-def command = "/usr/bin/openssl " + cmdSubString;
-
-
-// first see if tls 1.2 is negotiated
-//cmdSubString = "s_client -tls1 -tls1_1 -tls1_2 -connect services.greenbuttondata.org";
-if (System.properties['os.name'].toLowerCase().contains('windows')) {
-		// on windows with cygwin
-		log.info("windows");
-		command = "/c/cygwin/bin/timeout 2 /c/cygwin/bin/openssl ${cmdSubString}";
-} else {
-	// linux or OS X
-	command = """timeout 2 openssl ${cmdSubString}""";	
-}
-
-
-
+//def cmdSubString = "s_client -connect " + sslhost + ":" + sslport;
+def cmdSubString = "s_client -tls1_2 -connect " + sslhost + ":" + sslport;
+def command = opensslCmd + " " + cmdSubString;
 
 log.info command;
 
 
-def tc= testRunner.testCase.testSuite.project.testSuites['Library'].testCases['RunCommand'];
 tc.setPropertyValue("cmd",command);
 tc.setPropertyValue("path",".");
+tc.setPropertyValue("timeout","2");
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 
 assert true;
-</script></con:config></con:testStep><con:testStep type="calltestcase" name="Run TestCase"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3</con:targetTestCase><con:properties><con:property><con:name>stdout</con:name><con:value>total 14196 drwxr-xr-x  5 bitnami bitnami     4096 Aug  6 21:05 . drwxrwxr-x 10 bitnami bitnami     4096 Jul 26 18:32 .. drwxr-xr-x  2 bitnami bitnami     4096 Apr  9  2014 actions -rw-rw-r--  1 bitnami bitnami     5494 Dec 21 15:35 error.log drwxr-xr-x  2 bitnami bitnami     4096 Dec 18 15:26 ext drwxr-xr-x  2 bitnami bitnami     4096 Apr  9  2014 listeners -rwxr-xr-x  1 bitnami bitnami     1918 Apr  9  2014 loadtestrunner.sh -rwxr-xr-x  1 bitnami bitnami     1889 Apr  9  2014 mockservicerunner.sh -rwxr-xr-x  1 bitnami bitnami     1872 Apr  9  2014 securitytestrunner.sh -rwxr-xr-x  1 bitnami bitnami    10562 Apr  9  2014 SoapUI-5.0.0 -rw-r--r--  1 bitnami bitnami 11519067 Apr  9  2014 soapui-5.0.0.jar -rw-rw-r--  1 bitnami bitnami      516 Jul 26 18:26 SoapUI-5.0.0.vmoptions -rw-rw-rw-  1 bitnami bitnami  1873343 Dec 21 15:40 soapui-errors.log -rw-rw-rw-  1 bitnami bitnami  1020898 Dec 21 15:40 soapui.log -rw-r--r--  1 bitnami bitnami     3606 Apr  9  2014 soapui-log4j.xml -rwxr-xr-x  1 bitnami bitnami     2326 Apr  9  2014 soapui.sh -rw-r--r--  1 bitnami bitnami    27186 Apr  9  2014 soapui-splash.png -rw-r--r--  1 bitnami bitnami     1322 Apr  9  2014 starter-page.html -rwxr-xr-x  1 bitnami bitnami     1887 Apr  9  2014 testrunner.sh -rwxr-xr-x  1 bitnami bitnami     1883 Apr  9  2014 toolrunner.sh -rwxr-xr-x  1 bitnami bitnami     1896 Apr  9  2014 wargenerator.sh </con:value></con:property><con:property><con:name>cmd</con:name><con:value>ls</con:value></con:property><con:property><con:name>path</con:name><con:value>\etc\OpenESPI</con:value></con:property><con:property><con:name>stderr</con:name><con:value>bash: lsa: command not found
-</con:value></con:property><con:property><con:name>returncode</con:name><con:value>127</con:value></con:property><con:property><con:name>timeout</con:name></con:property></con:properties><con:returnProperties><con:entry>stdout</con:entry><con:entry>stderr</con:entry><con:entry>returncode</con:entry></con:returnProperties><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:properties><con:property><con:name>cmd</con:name><con:value>openssl s_client -tls1_2 -connect services.greenbuttondata.org:443</con:value></con:property><con:property><con:name>path</con:name><con:value>.</con:value></con:property></con:properties></con:testCase><con:properties>
+</script></con:config></con:testStep><con:testStep type="calltestcase" name="Run TestCase"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3</con:targetTestCase><con:properties><con:property><con:name>stdout</con:name><con:value>total 11508
+drwxr-xr-x  5 bitnami bitnami     4096 Dec 27 22:09 .
+drwxrwxr-x 10 bitnami bitnami     4096 Jul 15 15:17 ..
+drwxr-xr-x  2 bitnami bitnami     4096 Apr  9  2014 actions
+-rw-rw-r--  1 bitnami bitnami     9422 Dec 28 18:13 error.log
+drwxr-xr-x  2 bitnami bitnami     4096 Dec 27 19:11 ext
+drwxr-xr-x  2 bitnami bitnami     4096 Apr  9  2014 listeners
+-rwxr-xr-x  1 bitnami bitnami     1918 Apr  9  2014 loadtestrunner.sh
+-rwxr-xr-x  1 bitnami bitnami     1889 Apr  9  2014 mockservicerunner.sh
+-rwxr-xr-x  1 bitnami bitnami     1872 Apr  9  2014 securitytestrunner.sh
+-rwxr-xr-x  1 bitnami bitnami    10562 Apr  9  2014 SoapUI-5.0.0
+-rw-r--r--  1 bitnami bitnami 11519067 Apr  9  2014 soapui-5.0.0.jar
+-rw-rw-r--  1 bitnami bitnami      516 Jul 15 15:17 SoapUI-5.0.0.vmoptions
+-rw-rw-rw-  1 bitnami bitnami   100546 Dec 29 07:59 soapui-errors.log
+-rw-rw-rw-  1 bitnami bitnami    34611 Dec 29 08:04 soapui.log
+-rw-r--r--  1 bitnami bitnami     3606 Apr  9  2014 soapui-log4j.xml
+-rwxr-xr-x  1 bitnami bitnami     2326 Apr  9  2014 soapui.sh
+-rw-r--r--  1 bitnami bitnami    27186 Apr  9  2014 soapui-splash.png
+-rw-r--r--  1 bitnami bitnami     1322 Apr  9  2014 starter-page.html
+-rwxr-xr-x  1 bitnami bitnami     1887 Apr  9  2014 testrunner.sh
+-rwxr-xr-x  1 bitnami bitnami     1883 Apr  9  2014 toolrunner.sh
+-rwxr-xr-x  1 bitnami bitnami     1896 Apr  9  2014 wargenerator.sh
+</con:value></con:property><con:property><con:name>cmd</con:name><con:value>ls -al</con:value></con:property><con:property><con:name>path</con:name><con:value>.</con:value></con:property><con:property><con:name>stderr</con:name><con:value>depth=1 C = US, O = DigiCert Inc, CN = DigiCert Secure Server CA verify error:num=20:unable to get local issuer certificate verify return:0 </con:value></con:property><con:property><con:name>returncode</con:name><con:value>124</con:value></con:property><con:property><con:name>timeout</con:name><con:value>0</con:value></con:property></con:properties><con:returnProperties><con:entry>stdout</con:entry><con:entry>stderr</con:entry><con:entry>returncode</con:entry></con:returnProperties><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:properties><con:property><con:name>cmd</con:name><con:value>openssl s_client -tls1_2 -connect services.greenbuttondata.org:443</con:value></con:property><con:property><con:name>path</con:name><con:value>.</con:value></con:property></con:properties></con:testCase><con:properties>
 		<con:property>
 			<con:name>sessionid</con:name>
 			<con:value>null</con:value>
@@ -18988,7 +18938,7 @@ declare namespace espi='http://naesb.org/espi';
 			<con:entry>Authorization</con:entry>
 			<con:entry>Content-Type</con:entry>
 		</con:parameterOrder>
-	</con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FND005 [POS][A] Authorized GET access to Batch/Subscription feed" searchProperties="true" id="d62e2649-ece3-49b5-ac10-ee1ec70600b7"><con:description/><con:settings/><con:testStep type="calltestcase" name="Run TestCase Create Authorization"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>00812f7a-b4ce-4782-bf13-f27a979f6d00</con:targetTestCase><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>f711706f-04df-4a76-a4d9-c819deec2ea3</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>95ac66c1-8693-4348-a7cb-9382a6353061</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name></con:property><con:property><con:name>error</con:name></con:property></con:properties><con:returnProperties><con:entry>dataCustodianScopeSelectionScreenURI</con:entry><con:entry>authorizationServerAuthorizationEndpoint</con:entry><con:entry>redirect_uri</con:entry><con:entry>authorizationServerTokenEndpoint</con:entry><con:entry>access_token</con:entry><con:entry>resourceURI</con:entry><con:entry>authorizationURI</con:entry><con:entry>SelectedScope</con:entry><con:entry>token_type</con:entry><con:entry>refresh_token</con:entry><con:entry>expires_in</con:entry><con:entry>scope</con:entry></con:returnProperties><con:runMode>SINGLETON_AND_WAIT</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Extract information from authorization"><con:settings/><con:config><script>import com.eviware.soapui.support.types.StringToStringMap;
+	</con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FND005 [POS][A] Authorized GET access to Batch/Subscription feed" searchProperties="true" id="d62e2649-ece3-49b5-ac10-ee1ec70600b7"><con:description/><con:settings/><con:testStep type="calltestcase" name="Run TestCase Create Authorization"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>00812f7a-b4ce-4782-bf13-f27a979f6d00</con:targetTestCase><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>0f4c2aa7-834f-4659-8d6f-ba55f850e3d3</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>8442b4f8-40c4-430c-8103-30bb6ef4ce42</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name></con:property><con:property><con:name>error</con:name></con:property><con:property><con:name>client_id</con:name></con:property></con:properties><con:returnProperties><con:entry>dataCustodianScopeSelectionScreenURI</con:entry><con:entry>authorizationServerAuthorizationEndpoint</con:entry><con:entry>redirect_uri</con:entry><con:entry>authorizationServerTokenEndpoint</con:entry><con:entry>access_token</con:entry><con:entry>resourceURI</con:entry><con:entry>authorizationURI</con:entry><con:entry>SelectedScope</con:entry><con:entry>token_type</con:entry><con:entry>refresh_token</con:entry><con:entry>expires_in</con:entry><con:entry>scope</con:entry></con:returnProperties><con:runMode>SINGLETON_AND_WAIT</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Extract information from authorization"><con:settings/><con:config><script>import com.eviware.soapui.support.types.StringToStringMap;
 
 
 propCreateAuthResults = context.testCase.getTestStepByName("Run TestCase Create Authorization");
@@ -19009,7 +18959,7 @@ headers.put("Authorization","Bearer " + testRunner.testCase.testSuite.project.ge
 headers.put("Content-Type","Application/atom+xml");
 propTestStep.testRequest.setRequestHeaders(headers);
  </script></con:config></con:testStep><con:testStep type="httprequest" name="GET Resource URI"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Resource URI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
-  &lt;con:entry key="Authorization" value="Bearer f711706f-04df-4a76-a4d9-c819deec2ea3"/>
+  &lt;con:entry key="Authorization" value="Bearer 0f4c2aa7-834f-4659-8d6f-ba55f850e3d3"/>
   &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
 &lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema Validation"><con:configuration><scriptText>import javax.xml.XMLConstants;
 import javax.xml.transform.Source;
@@ -19281,34 +19231,43 @@ assert false;
 			<con:entry>Authorization</con:entry>
 			<con:entry>Content-Type</con:entry>
 		</con:parameterOrder>
-	</con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC003 Data Custodian implements TLS 1.2" searchProperties="true"><con:description>Verify the Data Custodian under test implements TLS 1.2.</con:description><con:settings/><con:testStep type="groovy" name="Verify support for TLS 1.2 using OpenSSL">
+	</con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC003 Data Custodian implements TLS 1.2" searchProperties="true" id="59421929-9eb3-464c-87c9-532926b977ae"><con:description>Verify the Data Custodian under test implements TLS 1.2.</con:description><con:settings/><con:testStep type="groovy" name="Verify support for TLS 1.2 using OpenSSL">
 	<con:settings/>
-	<con:config><script>def cmdSubString = "s_client -tls1_2 -connect ${config.DataCustodianHostName}:${config.DataCustodianSSLPort}";
-def command;
+	<con:config><script>def project = testRunner.testCase.testSuite.project
+def tc= testRunner.testCase.testSuite.project.testSuites['Library'].testCases['RunCommand'];
 
-log.info ("Executing: ${command}");
-def proc = command.execute();
-proc.waitFor();
+def sslhost = project.getPropertyValue( "authorizationServer" );
+def opensslCmd = project.getPropertyValue("opensslCmd");
+sslport="443";
+
+def cmdSubString = "s_client -tls1_2 -connect " + sslhost + ":" + sslport;
+def command = opensslCmd + " " + cmdSubString;
 
 
-String strResult = proc.text;
+tc.setPropertyValue("cmd",command);
+tc.setPropertyValue("path",".");
+tc.setPropertyValue("timeout","2");
+tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 
-//proc.in.eachLine {
+
+String strResult = tc.getPropertyValue("stdout");
+log.info command;
+log.info strResult;
+
+//strResult.eachLine {
 //	line -> log.info(line);
 //};
 
-	log.info(strResult);
+if(strResult.contains("Protocol  : TLSv1.2")){
+log.info("TLS 1.2 implemented");
+} else {
+testRunner.fail( "TLS 1.2 not implemented" );
+}
 
-	if(strResult.contains("Protocol  : TLSv1.2")){
-	log.info("TLS 1.2 implemented");
-	} else {
-	testRunner.fail( "TLS 1.2 not implemented" );
-	}
 
-	return;
-
+assert true;
 </script></con:config>
-</con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC004 Negotiate highest level of TLS with browser" searchProperties="true"><con:description>Verify that when communicating with a Retail Customer the Data Custodian negotiates the highest level of TLS supported by both parties.</con:description><con:settings/><con:testStep type="groovy" name="Verify that when communicating with a Retail Customer or Third Party the Data Custodian negotiates the highest level of TLS mutually supported.">
+</con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC004 Negotiate highest level of TLS with browser" searchProperties="true" id="9577e760-6e35-4c01-9935-a0166e0f5807"><con:description>Verify that when communicating with a Retail Customer the Data Custodian negotiates the highest level of TLS supported by both parties.</con:description><con:settings/><con:testStep type="groovy" name="Verify that when communicating with a Retail Customer or Third Party the Data Custodian negotiates the highest level of TLS mutually supported.">
 	<con:settings/>
 	<con:config>
 		<script>
@@ -19401,88 +19360,76 @@ return;
 
 </script>
 </con:config>
-</con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC005 Reject TLS_RSA_WITH_NULL_SHA cipher suite" searchProperties="true"><con:description>Verify that when communicating with a Retail Customer the Data Custodian rejects TLS_RSA_WITH_NULL_SHA cipher suites.</con:description><con:settings/><con:testStep type="groovy" name="Reject TLS_RSA_WITH_NULL_SHA cipher suite">
+</con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC005 Reject TLS_RSA_WITH_NULL_SHA cipher suite" searchProperties="true" id="238f3f12-d890-4cea-863c-5d9c4eed2e3c"><con:description>Verify that when communicating with a Retail Customer the Data Custodian rejects TLS_RSA_WITH_NULL_SHA cipher suites.</con:description><con:settings/><con:testStep type="groovy" name="Reject TLS_RSA_WITH_NULL_SHA cipher suite">
 	<con:settings/>
-	<con:config>
-		<script>
-			def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
-			def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL());
+	<con:config><script>def project = testRunner.testCase.testSuite.project
+def tc= testRunner.testCase.testSuite.project.testSuites['Library'].testCases['RunCommand'];
 
-			def cmdSubString = "s_client -connect ${config.DataCustodianHostName}:${config.DataCustodianSSLPort} -cipher NULL-SHA"
-			def command;
-			if((config.cygwinHome)) {
-			if(config.cygwinHome.length()>0) {
-		// on windows with cygwin
-		log.info("windows");
-		command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
-		}
-		} else {
-		// linux or OS X
-		command = """${groovyUtils.projectPath}/etc/${config.cmdTimeout} ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";
-		}
+def sslhost = project.getPropertyValue( "authorizationServer" );
+def opensslCmd = project.getPropertyValue("opensslCmd");
+sslport="443";
+
+def cmdSubString = "s_client -cipher NULL-SHA -connect " + sslhost + ":" + sslport;
+def command = opensslCmd + " " + cmdSubString;
 
 
-		log.info ("Executing: ${command}");
-		def proc = command.execute();
-		proc.waitFor();
+tc.setPropertyValue("cmd",command);
+tc.setPropertyValue("path",".");
+tc.setPropertyValue("timeout","2");
+tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 
 
-		String strResult = proc.text;
+String strResult = tc.getPropertyValue("stdout");
+log.info command;
+log.info strResult;
 
-		if(strResult.contains("Cipher is NULL-SHA") ||
-		strResult.contains("SSL-Session:") ||
-		strResult.contains("Protocol  :") ||
-		!strResult.contains("Cipher is (NONE)")) {
+if( strResult.contains("Cipher is NULL-SHA")) {
 
-		testRunner.fail( "NULL-SHA accepted" );
+	testRunner.fail( "NULL-SHA accepted" );
 
-		} else {
-		log.info("NULL-SHA rejected");
-		}
+} else {
+	log.info("NULL-SHA rejected");
+}
 
-		return;
 
-	</script>
-</con:config>
-</con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC006 Accept TLS_RSA_WITH_AES_128_CBC_SHA cipher suite" searchProperties="true"><con:description>Verify that when communicating with a Retail Customer at a minimum the Data Custodian accepts the TLS_RSA_WITH_AES_128_CBC_SHA cipher suite.</con:description><con:settings/><con:testStep type="groovy" name="Accept TLS_RSA_WITH_AES_128_CBC_SHA cipher suite">
+assert true;
+</script></con:config>
+</con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC006 Accept TLS_RSA_WITH_AES_128_CBC_SHA cipher suite" searchProperties="true" id="36974385-b72a-434c-a67c-03c1d2b041f8"><con:description>Verify that when communicating with a Retail Customer at a minimum the Data Custodian accepts the TLS_RSA_WITH_AES_128_CBC_SHA cipher suite.</con:description><con:settings/><con:testStep type="groovy" name="Accept TLS_RSA_WITH_AES_128_CBC_SHA cipher suite">
 	<con:settings/>
-	<con:config>
-		<script>
-			def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
-			def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL());
+	<con:config><script>def project = testRunner.testCase.testSuite.project
+def tc= testRunner.testCase.testSuite.project.testSuites['Library'].testCases['RunCommand'];
 
-			def cmdSubString = "s_client -connect ${config.DataCustodianHostName}:${config.DataCustodianSSLPort} -cipher AES128-SHA";
-			def command;
-			if((config.cygwinHome)) {
-			if(config.cygwinHome.length()>0) {
-		// on windows with cygwin
-		log.info("windows");
-		command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
-		}
-		} else {
-		// linux or OS X
-		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
-		}
+def sslhost = project.getPropertyValue( "authorizationServer" );
+def opensslCmd = project.getPropertyValue("opensslCmd");
+sslport="443";
+
+def cmdSubString = "s_client -tls1_2 -cipher AES128-SHA -connect " + sslhost + ":" + sslport + " -tlsextdebug ";
+def command = opensslCmd + " " + cmdSubString;
 
 
-		log.info ("Executing: ${command}");
-		def proc = command.execute();
-		proc.waitFor();
+tc.setPropertyValue("cmd",command);
+tc.setPropertyValue("path",".");
+tc.setPropertyValue("timeout","2");
+tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 
 
-		String strResult = proc.text;
+String strResult = tc.getPropertyValue("stdout");
+log.info command;
+log.info strResult;
 
-		if(strResult.contains("Cipher    : AES128-SHA")){
-		log.info("AES128-SHA accepted");
-		} else {
-		testRunner.fail( "AES128-SHA not accepted" );
-		}
+if( strResult.contains("Cipher is AES128-SHA")) {
 
-		return;
+	log.info("AES128-SHA accepted");
 
-	</script>
-</con:config>
-</con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC008 Quality of Certificate" searchProperties="true"><con:description>Verify that the Data Custodian maintains an unexpired unrevoked RSA certificate with a public key length of at least 2048 bits.</con:description><con:settings/><con:testStep type="groovy" name="Quality of Certificate">
+} else {
+	testRunner.fail( "AES128-SHA rejected" );
+}
+
+
+assert true;
+
+</script></con:config>
+</con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC008 Quality of Certificate" searchProperties="true" id="76e37de4-6226-4db6-853a-0c84860681df"><con:description>Verify that the Data Custodian maintains an unexpired unrevoked RSA certificate with a public key length of at least 2048 bits.</con:description><con:settings/><con:testStep type="groovy" name="Quality of Certificate">
 	<con:settings/>
 	<con:config>
 		<script>import java.text.DateFormat;
@@ -19640,7 +19587,7 @@ return;
 
 </script>
 </con:config>
-</con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC009 Root of trust" searchProperties="true"><con:description>Test software or manual inspection shall verify that the Data Custodian RSA certificate was issued by a Certificate Authority (CA) that has been successfully audited according to the criteria of ETSI or WebTrust.</con:description><con:settings/><con:testStep type="groovy" name="Root of trust"><con:settings/><con:config><script/></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC010 Tokens and IDs have no PII" searchProperties="true"><con:description>Test software or manual inspection shall verify that Tokens and IDs communicated by the Data Custodian are opaque and if based on actual Customer information that they are randomized using a secure method to protect privacy.</con:description><con:settings/><con:testStep type="groovy" name="Tokens and IDs have no PII"><con:settings/><con:config><script/></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC011 Tokens and IDs have at least 48bits" searchProperties="true"><con:description>Test software or manual inspection shall verify that Tokens and IDs communicated by the Data Custodian consist of at least 48 bits and can be the random number part of an RFC2422 UUID.</con:description><con:settings/><con:testStep type="groovy" name="Tokens and IDs have at least 48bits"><con:settings/><con:config><script/></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC012 FIPS 140-2 support" searchProperties="true"><con:description>Manual inspection of supporting documentation shall confirm that the Data Custodian implementation utilizes software libraries which are FIPS 140-2 level 1 or higher and listed on the CMVP website.</con:description><con:settings/><con:testStep type="groovy" name="FIPS 140-2 support"><con:settings/><con:config><script/></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC013 Negotiate highest level of TLS using resourceServer" searchProperties="true"><con:description>Verify that when communicating with a resourceServer the Data Custodian negotiates the highest level of TLS supported by both parties.</con:description><con:settings/><con:testStep type="groovy" name="Negotiate highest level of TLS using authorizationServerUri">
+</con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC009 Root of trust" searchProperties="true" id="83e3a0af-1dca-484e-9113-2b9f5167818d"><con:description>Test software or manual inspection shall verify that the Data Custodian RSA certificate was issued by a Certificate Authority (CA) that has been successfully audited according to the criteria of ETSI or WebTrust.</con:description><con:settings/><con:testStep type="groovy" name="Root of trust"><con:settings/><con:config><script/></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC010 Tokens and IDs have no PII" searchProperties="true" id="7047ab3f-40e4-4743-926a-ccec7f5ec56c"><con:description>Test software or manual inspection shall verify that Tokens and IDs communicated by the Data Custodian are opaque and if based on actual Customer information that they are randomized using a secure method to protect privacy.</con:description><con:settings/><con:testStep type="groovy" name="Tokens and IDs have no PII"><con:settings/><con:config><script/></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC011 Tokens and IDs have at least 48bits" searchProperties="true" id="71f2fc9c-079f-4900-b18a-b6643a424ea3"><con:description>Test software or manual inspection shall verify that Tokens and IDs communicated by the Data Custodian consist of at least 48 bits and can be the random number part of an RFC2422 UUID.</con:description><con:settings/><con:testStep type="groovy" name="Tokens and IDs have at least 48bits"><con:settings/><con:config><script/></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC012 FIPS 140-2 support" searchProperties="true" id="13c36354-0f45-493b-9c6f-af3bc3c5ddc5"><con:description>Manual inspection of supporting documentation shall confirm that the Data Custodian implementation utilizes software libraries which are FIPS 140-2 level 1 or higher and listed on the CMVP website.</con:description><con:settings/><con:testStep type="groovy" name="FIPS 140-2 support"><con:settings/><con:config><script/></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC013 Negotiate highest level of TLS using resourceServer" searchProperties="true" id="dfd8eadd-b87e-4d0f-bb67-b25067ff8502"><con:description>Verify that when communicating with a resourceServer the Data Custodian negotiates the highest level of TLS supported by both parties.</con:description><con:settings/><con:testStep type="groovy" name="Negotiate highest level of TLS using authorizationServerUri">
 	<con:settings/>
 	<con:config>
 		<script>
@@ -19708,7 +19655,7 @@ return;
 
 </script>
 </con:config>
-</con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC014 Negotiate highest level of TLS using authorizationServer" searchProperties="true"><con:description>Verify that when communicating with a authorizationServer the Data Custodian negotiates the highest level of TLS supported by both parties.
+</con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC014 Negotiate highest level of TLS using authorizationServer" searchProperties="true" id="b6225da2-613c-4ff6-96fb-315b06fcccf7"><con:description>Verify that when communicating with a authorizationServer the Data Custodian negotiates the highest level of TLS supported by both parties.
 </con:description><con:settings/><con:testStep type="groovy" name="Negotiate highest level of TLS using authorizationServerUri">
 	<con:settings/>
 	<con:config>
@@ -23932,7 +23879,7 @@ requestContext.mockService.setPropertyValue("rxNotificationBody",strBody);
 
 
 </con:dispatchPath><con:response name="Response 1" httpResponseStatus="200"><con:settings/><con:script/><con:responseContent/></con:response></con:restMockAction></con:restMockService>
-<con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty Authorization Mock Service" docroot=""><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"f711706f-04df-4a76-a4d9-c819deec2ea3","token_type":"bearer","refresh_token":"95ac66c1-8693-4348-a7cb-9382a6353061","expires_in":31535999,"scope":"FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13","resourceURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5","authorizationURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5"}</con:value></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value>9C0B4BBAD2FBDAF475058F4996FE725B</con:value></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>error</con:name><con:value/></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+<con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty Authorization Mock Service" docroot=""><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"0f4c2aa7-834f-4659-8d6f-ba55f850e3d3","token_type":"bearer","refresh_token":"8442b4f8-40c4-430c-8103-30bb6ef4ce42","expires_in":31535903,"scope":"FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13","resourceURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5","authorizationURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5"}</con:value></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value>9C0B4BBAD2FBDAF475058F4996FE725B</con:value></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>error</con:name><con:value/></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Examples showing how to match based on path, query param and header
 // Match based on path
 def requestPath = mockRequest.getPath()
@@ -24982,11 +24929,11 @@ httpResponse.addHeader("Location",strRespLoc);
 	</con:property>
 	<con:property>
 		<con:name>applicationInformationId</con:name>
-		<con:value>1</con:value>
+		<con:value>2</con:value>
 	</con:property>
 	<con:property>
 		<con:name>authorizationId</con:name>
-		<con:value>1</con:value>
+		<con:value>4</con:value>
 	</con:property>
 	<con:property>
 		<con:name>bulkId</con:name>
@@ -25082,7 +25029,7 @@ httpResponse.addHeader("Location",strRespLoc);
 	</con:property>
 	<con:property>
 		<con:name>dataCustodianResourceUri</con:name>
-		<con:value>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource</con:value>
+		<con:value>http://localhost:8080/DataCustodian/espi/1_1/resource</con:value>
 	</con:property>
 	<con:property>
 		<con:name>resourceUri</con:name>
@@ -25108,7 +25055,7 @@ httpResponse.addHeader("Location",strRespLoc);
 		<con:name>client_access_token</con:name>
 		<con:value>75dd9c46-becf-48b5-9cb5-9c3233d718d0</con:value>
 	</con:property>
-<con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1</con:value></con:property><con:property><con:name>NotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty</con:value></con:property><con:property><con:name>notificationUri</con:name><con:value>espi/1_1</con:value></con:property><con:property><con:name>access_token</con:name><con:value>f711706f-04df-4a76-a4d9-c819deec2ea3</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>services.greenbuttondata.org</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>services.greenbuttondata.org</con:value></con:property><con:property><con:name>myTimeoutCmd</con:name><con:value>timeout</con:value></con:property></con:properties>
+<con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1</con:value></con:property><con:property><con:name>NotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty</con:value></con:property><con:property><con:name>notificationUri</con:name><con:value>espi/1_1</con:value></con:property><con:property><con:name>access_token</con:name><con:value>0f4c2aa7-834f-4659-8d6f-ba55f850e3d3</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value>http://localhost:8080/DataCustodian/</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>localhost:8080</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>localhost:8080</con:value></con:property><con:property><con:name>myTimeoutCmd</con:name><con:value>timeout</con:value></con:property></con:properties>
 <con:wssContainer/>
 <con:oAuth2ProfileContainer/>
 <con:sensitiveInformation/>
