@@ -18114,7 +18114,7 @@ while(true) {
 
 	// 0 indicates skip test
 	if(iExpectedRespCode != 0) {
-		log.info("\n==================================================================================================================");
+		log.info("==================================================================================================================");
 		log.info("testing: " + strTestName);
 		iRespCode = iRespCode = issueGET(strAuthorizationServerTokenEndpoint + strQryParams,strToken);
 		
@@ -18283,7 +18283,7 @@ while(true) {
 
 	// 0 indicates skip test
 	if(iExpectedRespCode != 0) {
-		log.info("\n==================================================================================================================");		
+		log.info("==================================================================================================================");		
 		log.info("testing: " + strTestName);
 		iRespCode = iRespCode = issueGET(strAuthorizationServerTokenEndpoint + strQryParams,strToken);
 		
