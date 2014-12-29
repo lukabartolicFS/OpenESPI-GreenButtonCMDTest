@@ -17744,14 +17744,11 @@ int issueGET(String targetURL,String strSessionID){
 			response.append('\r');
 		}
 		rd.close();
-		log.info "response body = " + response.toString();
-		
-		log.info "Response code = " + connection.getResponseCode();
-		log.info "Response message = " + connection.getHeaderField("Location");
 
+		log.info "Response code = " + connection.getResponseCode();
 
 		strRespLoc = connection.getHeaderField("Location");
-		log.info "issueGET -- strRespLocation: " + strRespLoc;
+		log.info "Response Location: " + strRespLoc;
 		
 		iRespCode = connection.getResponseCode();
 	
@@ -17776,13 +17773,9 @@ String strRedirURI =  testRunner.testCase.getPropertyValue("redirect_uri");
 
 String strRespLocation;
 
-// sample valid query string:
+// Sample Authorization Code Grant request valid query string:
 //strQryParams = "?response_type=code" + "&client_id=third_party" + "&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018"; 
 
-//iRespCode = issueGET(strAuthEndpoint + strQryParams,strSessionID);
-
-//log.info("resp: " + iRespCode);
-//return 
 
 int iTestID= 0;
 while(true) {
@@ -17791,8 +17784,6 @@ while(true) {
 	String strQryParams = "";
 	int iRespCode = 0;
 	int iExpectedRespCode = 0;
-
-	log.info "while loop -- strRespLocation: " + strRespLocation;
 
 /*
 
@@ -17814,56 +17805,47 @@ while(true) {
 		case 2:
 			strTestName = "Malformed Authorization Code Request (No redirect_uri field-value pair)";
 			strQryParams = "?response_type=code" + "&client_id=third_party" + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018"; 
-  			iExpectedRespCode = 302;
-//  			iExpectedRespCode = 0;   				
+  			iExpectedRespCode = 302;  				
 			break;
 		case 3:
 			strTestName = "Malformed Authorization Code Request (No scope field-value pair)";
 			strQryParams = "?response_type=code" + "&client_id=third_party" + "&redirect_uri=" + strRedirURI + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018"; 
-  			iExpectedRespCode = 302;	
-//  			iExpectedRespCode = 0;   			
+  			iExpectedRespCode = 302;	   			
 			break;
 		case 4:
 			strTestName = "Malformed Authorization Code Request (No state field-value pair)";
 			strQryParams = "?response_type=code" + "&client_id=third_party" + "&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope; 
-  			iExpectedRespCode = 302;
-//  			iExpectedRespCode = 0;   				
+  			iExpectedRespCode = 302;  				
 			break;
 		case 5:
 			strTestName = "Malformed Authorization Code Request (Multiple response_type field-value pairs)";
 			strQryParams = "?response_type=code" + "&client_id=third_party" + "&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018" + "&response_type=code"; 
-  			iExpectedRespCode = 302;
-//  			iExpectedRespCode = 0;   				
+  			iExpectedRespCode = 302;  				
 			break;
 		case 6:
 			strTestName = "Malformed Authorization Code Request (Multiple client_id field-value pairs)";
 			strQryParams = "?response_type=code" + "&client_id=third_party" + "&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018" + "&client_id=third_party"; 
-  			iExpectedRespCode = 302;	
-//  			iExpectedRespCode = 0;    			
+  			iExpectedRespCode = 302;	  			
 			break;
 		case 7:
 			strTestName = "Malformed Authorization Code Request (Multiple redirect_uri field-value pairs)";
 			strQryParams = "?response_type=code" + "&client_id=third_party" + "&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018" + "&redirect_uri" + strRedirURI; 
-  			iExpectedRespCode = 302;
-//  			iExpectedRespCode = 0;   				
+  			iExpectedRespCode = 302; 				
 			break;			
 		case 8:
 			strTestName = "Malformed Authorization Code Request (Multiple scope field-value pairs)";
 			strQryParams = "?response_type=code" + "&client_id=third_party" + "&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018" + "&scope=" + strSelectedScope; 
-  			iExpectedRespCode = 302;	
-//  			iExpectedRespCode = 0;    			
+  			iExpectedRespCode = 302;	 			
 			break;
 		case 9:
 			strTestName = "Malformed Authorization Code Request (Multiple state field-value pairs)";
 			strQryParams = "?response_type=code" + "&client_id=third_party" + "&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018" + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018"; 
-  			iExpectedRespCode = 302;
-//  			iExpectedRespCode = 0;   							
+  			iExpectedRespCode = 302;							
 			break;
 		case 10:
 			strTestName = "Malformed Authorization Code Request (Invalid field-value pair)";
 			strQryParams = "?response_type=code&client_id=third_party&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018" + "&Garbage=Gigo";
-  			iExpectedRespCode = 302;
-//  			iExpectedRespCode = 0;  				
+  			iExpectedRespCode = 302;				
 			break;
 		case 11:
 			strTestName = "Malformed Authorization Code Request (Invalid response_type field-value pair)";
@@ -17878,8 +17860,7 @@ while(true) {
 		case 13:
 			strTestName = "Authorization Code Request (Invalid redirect_uri field-value pair)";
 			strQryParams = "?response_type=code&client_id=third_party&redirect_uri=" + "https://services.greenbuttondata.org" + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018";
-			iExpectedRespCode = 302;
-//  			iExpectedRespCode = 0; 			
+			iExpectedRespCode = 400;			
 			break;
 		case 14:
 			strTestName = "Authorization Code Request (Invalid scope field-value pair)";
@@ -17895,14 +17876,16 @@ while(true) {
 		log.info("testing: " + strTestName);
 		iRespCode = issueGET(strAuthEndpoint + strQryParams,strSessionID);
 		
-		if(iRespCode != iExpectedRespCode) {
-			log.error("Failed malformed Authorization request: " + strTestName + " expected response code:" + iExpectedRespCode + " but received:" + iRespCode);
-			testRunner.fail("Failed malformed Authorization request: " + strTestName + " expected response code:" + iExpectedRespCode + " but received:" + iRespCode);
-			return;						
+		if(iRespCode != iExpectedRespCode) {	// Received Response Code does not mat expected Response Code
+			if(iRespCode != 200) {			// A 200 OK Response Code is acceptable for interoperability although not in compliance with RFC 6749 "The OAuth 2.0 Authorization Framework"
+				log.error("Failed malformed Authorization request: " + strTestName + " expected response code:" + iExpectedRespCode + " but received:" + iRespCode);
+				testRunner.fail("Failed malformed Authorization request: " + strTestName + " expected response code:" + iExpectedRespCode + " but received:" + iRespCode);
+				return;
+			}
 		} else {
-			if (iRespCode == 302) {
+			if (iRespCode == 302) {			// Received Response Code matches expected Response Code
 				if (strRespLoc != null) {
-					if (strRespLoc.indexOf("code=") != -1) {
+					if (strRespLoc.indexOf("code=") != -1) {	// A 302 Redirect Response Code with a "code=" parameter is NOT valid 
 						log.error("Failed malformed Authorization request: " + strTestName + " received expected response code: " + iExpectedRespCode + " but response contained code=");
 						testRunner.fail("Failed malformed Authorization request: " + strTestName + " received expected response code: " + iExpectedRespCode + " but response contained code=");
 						return;
@@ -17921,7 +17904,7 @@ while(true) {
 }
 
 assert true;]]></script></con:config></con:testStep><con:testStep type="groovy" name="End Browser session"><con:settings/><con:config><script>context["driver"].quit();</script></con:config></con:testStep><con:testStep type="groovy" name="Stop Mock Service"><con:settings/><con:config><script>context.mockRunner.stop();
-return;</script></con:config></con:testStep><con:properties><con:property><con:name>extracted_scope_sel_uri</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value>86493CE353882839B7981B85A7C49AD1</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD007 [NEG] Access Token Request Authorization Header and malformation Access Token Authorization Code Request Rejection" searchProperties="true" id="5e670f61-7366-4e72-9bf3-92c57e462f1f"><con:description/><con:settings/><con:testStep type="restrequest" name="GET ApplicationInformation by Id" disabled="true"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+return;</script></con:config></con:testStep><con:properties><con:property><con:name>extracted_scope_sel_uri</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value>E59BF515078A48B178A332A271568059</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD007 [NEG] Access Token Request Authorization Header and malformation Access Token Authorization Code Request Rejection" searchProperties="true" id="5e670f61-7366-4e72-9bf3-92c57e462f1f"><con:description/><con:settings/><con:testStep type="restrequest" name="GET ApplicationInformation by Id" disabled="true"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
 				<con:settings>
 					<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 		</con:settings>
@@ -24187,7 +24170,7 @@ httpResponse.addHeader("Location",strRespLoc);
 
 
 </con:script><con:responseContent/></con:response></con:restMockAction></con:restMockService>
-<con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty Authorization Mock Service for NEG tests type A" docroot=""><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value>FALSE</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+<con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty Authorization Mock Service for NEG tests type A" docroot=""><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value>TRUE</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Examples showing how to match based on path, query param and header
 // Match based on path
 def requestPath = mockRequest.getPath()
