@@ -17515,9 +17515,9 @@ return;
 <con:testSuite name="[FB_01] Common"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[TR_CPYRT001] Verify the implementer has purchased the NAESB ESPI standard" searchProperties="true" id="171f69e0-c8a5-4aaa-88ed-edf5513db70f"><con:settings/><con:testStep type="groovy" name="Verify Purchase"><con:settings/><con:config><script>def procedure;
 
 procedure = "Verify that testee has evidence of purchase of the NAESB standard"+"\n";
-procedure = procedure + "1.  Obtain the current 'NAESB Copyright Policy and Companies with Access to NAESB Standard' at http://www.naesb.org/pdf2/copyright.pdf. Alternatively, review list of purchased standards provided by NAESB to UCAIug for this purpose. If using NAESB list, skip steps 2&amp;3 and paste instead row from NAESB list into box below." + "\n"
-procedure = procedure + "2.  Locate implementer's name on the North American Energy Standards Board's (NAESB) 'Companies with Access to NAESB Standards' report." + "\n"
-procedure = procedure + "3.  Verify the 'Retail Version(s)' column of the report's 'Standard Products' section contains evidence of implementer having purchased the NAESB ESPI 1.0 Standard [column includes  the '2.0' version or 'Final Action (ESPI): 2011 Retail API 8c/R10008' | 'REQ.21 (ESPI'] or equivalent evidence of purchase.";
+procedure = procedure + "1.  Obtain the current 'NAESB Copyright Policy and Companies\n with Access to NAESB Standard' at http://www.naesb.org/pdf2/copyright.pdf. \nAlternatively, review list of purchased standards provided by NAESB to UCAIug for this purpose. If using NAESB list, \nskip steps 2&amp;3 and paste instead row from NAESB list into box below." + "\n"
+procedure = procedure + "2.  Locate implementer's name on the North American \nEnergy Standards Board's (NAESB) 'Companies with Access to NAESB Standards' report." + "\n"
+procedure = procedure + "3.  Verify the 'Retail Version(s)' column of the report's \n'Standard Products' section contains evidence of implementer having \npurchased the NAESB ESPI 1.0 Standard [column includes  the '2.0' version or 'Final Action (ESPI): 2011 Retail API 8c/R10008' \n| 'REQ.21 (ESPI'] or equivalent evidence of purchase.";
 
 def ui = com.eviware.soapui.support.UISupport;
 
@@ -17566,7 +17566,7 @@ count(/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianScope
 		</con:parameterOrder>
 	</con:restRequest></con:config></con:testStep><con:testStep type="transfer" name="Extract ApplicationInformation properties"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>dataCustodianId</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>GET ApplicationInformation by Id</con:sourceStep><con:sourcePath>declare namespace ns3='http://www.w3.org/2005/Atom';
 declare namespace espi='http://naesb.org/espi';
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianId</con:sourcePath><con:targetType>dataCustodianId</con:targetType><con:targetStep>#Project#</con:targetStep></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" entitize="false" transferToAll="false" useXQuery="false" ignoreEmpty="false"><con:name>dataCustodianResourceEndpoint</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>GET ApplicationInformation by Id</con:sourceStep><con:sourcePath>declare namespace ns3='http://www.w3.org/2005/Atom';
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianId</con:sourcePath><con:targetType>dataCustodianId</con:targetType><con:targetStep>#Project#</con:targetStep></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" entitize="false" transferToAll="false" useXQuery="false" ignoreEmpty="false" transferChildNodes="false"><con:name>dataCustodianResourceEndpoint</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>GET ApplicationInformation by Id</con:sourceStep><con:sourcePath>declare namespace ns3='http://www.w3.org/2005/Atom';
 declare namespace espi='http://naesb.org/espi';
 /ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianResourceEndpoint</con:sourcePath><con:targetType>dataCustodianResourceUri</con:targetType><con:targetStep>#Project#</con:targetStep></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" entitize="false" transferToAll="false" ignoreEmpty="false" useXQuery="false" transferChildNodes="false"><con:name>client_id</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>GET ApplicationInformation by Id</con:sourceStep><con:sourcePath>declare namespace ns3='http://www.w3.org/2005/Atom';
 declare namespace espi='http://naesb.org/espi';
@@ -17758,7 +17758,7 @@ declare namespace espi='http://naesb.org/espi';
 /ns3:entry/ns3:content/espi:ApplicationInformation/espi:response_types and
 /ns3:entry/ns3:content/espi:ApplicationInformation/espi:registration_client_uri and
 /ns3:entry/ns3:content/espi:ApplicationInformation/espi:registration_access_token and
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianScopeSelectionScreen</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="dataCustodianApplicationStatus must contain a value of 1,2,3 or 4"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianScopeSelectionScreenURI</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="dataCustodianApplicationStatus must contain a value of 1,2,3 or 4"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
 declare namespace espi='http://naesb.org/espi';
 /ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianApplicationStatus=1 or
 /ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianApplicationStatus=2 or
@@ -24037,7 +24037,7 @@ httpResponse.addHeader("Location",strRespLoc);
 	</con:property>
 	<con:property>
 		<con:name>ServiceEndpoint</con:name>
-		<con:value>https://services.greenbuttondata.org/DataCustodian</con:value>
+		<con:value>http://localhost:8080/DataCustodian</con:value>
 	</con:property>
 	<con:property>
 		<con:name>DataCustodianContext</con:name>
@@ -24197,7 +24197,7 @@ httpResponse.addHeader("Location",strRespLoc);
 	</con:property>
 	<con:property>
 		<con:name>redirect_uri</con:name>
-		<con:value>https://services.greenbuttondata.org/ThirdParty/espi/1_1/OAuthCallBack</con:value>
+		<con:value>http://localhost:8080/ThirdParty/espi/1_1/OAuthCallBack</con:value>
 	</con:property>
 	<con:property>
 		<con:name>scope</con:name>
@@ -24209,7 +24209,7 @@ httpResponse.addHeader("Location",strRespLoc);
 	</con:property>
 	<con:property>
 		<con:name>dataCustodianResourceUri</con:name>
-		<con:value>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource</con:value>
+		<con:value>http://localhost:8080/DataCustodian/espi/1_1/resource</con:value>
 	</con:property>
 	<con:property>
 		<con:name>resourceUri</con:name>
@@ -24217,7 +24217,7 @@ httpResponse.addHeader("Location",strRespLoc);
 	</con:property>
 	<con:property>
 		<con:name>dataCustodianResourceEndpoint</con:name>
-		<con:value>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource</con:value>
+		<con:value>http://localhost:8080/DataCustodian/espi/1_1/resource</con:value>
 	</con:property>
 	<con:property>
 		<con:name>dataCustodianId</con:name>
@@ -24235,7 +24235,7 @@ httpResponse.addHeader("Location",strRespLoc);
 		<con:name>client_access_token</con:name>
 		<con:value>75dd9c46-becf-48b5-9cb5-9c3233d718d0</con:value>
 	</con:property>
-<con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1</con:value></con:property><con:property><con:name>NotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty</con:value></con:property><con:property><con:name>notificationUri</con:name><con:value>espi/1_1</con:value></con:property><con:property><con:name>access_token</con:name><con:value>7555b333-efdd-4a0a-b10a-607cce5a6081</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>services.greenbuttondata.org</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>localhost:8080</con:value></con:property><con:property><con:name>myTimeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://services.greenbuttondata.org/DataCustodian/RetailCustomer/ScopeSelectionList</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property></con:properties>
+<con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1</con:value></con:property><con:property><con:name>NotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty</con:value></con:property><con:property><con:name>notificationUri</con:name><con:value>espi/1_1</con:value></con:property><con:property><con:name>access_token</con:name><con:value>7555b333-efdd-4a0a-b10a-607cce5a6081</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>services.greenbuttondata.org</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>localhost:8080</con:value></con:property><con:property><con:name>myTimeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/token</con:value></con:property></con:properties>
 <con:wssContainer/>
 <con:oAuth2ProfileContainer/>
 <con:sensitiveInformation/>
