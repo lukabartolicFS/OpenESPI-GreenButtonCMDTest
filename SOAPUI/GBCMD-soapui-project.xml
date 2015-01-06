@@ -7940,7 +7940,7 @@ if(context["driver"] != null){
 	context["driver"].quit();
 	context["driver"] = null;	
 }
-</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>c85d7f52-7725-4638-a7bf-03bbbce9433f</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property><con:property><con:name>token_type</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">77b909cd-9805-46cd-9e8b-9f33185e021e</con:value></con:property><con:property><con:name>expires_in</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">mryNSy</con:value></con:property><con:property><con:name>error</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
+</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>8157d296-5511-4fb0-b5c1-9d45e77e075e</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property><con:property><con:name>token_type</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">b7cca84f-c401-4873-a476-69b266824a34</con:value></con:property><con:property><con:name>expires_in</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">UAh6VR</con:value></con:property><con:property><con:name>error</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
@@ -19122,7 +19122,7 @@ if(context["driver"] != null){
 	context["driver"].quit();
 	context["driver"] = null;	
 }
-</con:tearDownScript><con:properties><con:property><con:name>extracted_scope_sel_uri</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value>23749AA7788707B0C81681A27BDB453A</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD006 [NEG] Authorization Code Request (Retail Customer Passes Authentication and DENIES access)" searchProperties="true" id="bccca4c3-2b7b-4359-8ca2-2159ecd05c3e"><con:description/><con:settings/><con:testStep type="restrequest" name="GET ApplicationInformation by Id" disabled="true"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+</con:tearDownScript><con:properties><con:property><con:name>extracted_scope_sel_uri</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value>CDE30AFCC648E8B9A964F5F74DAE96B1</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD006 [NEG] Authorization Code Request (Retail Customer Passes Authentication and DENIES access)" searchProperties="true" id="bccca4c3-2b7b-4359-8ca2-2159ecd05c3e"><con:description/><con:settings/><con:testStep type="restrequest" name="GET ApplicationInformation by Id" disabled="true"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
 				<con:settings>
 					<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 		</con:settings>
@@ -19460,7 +19460,7 @@ if(context["driver"] != null){
 	context["driver"].quit();
 	context["driver"] = null;	
 }
-</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>U7WTHE</con:value></con:property><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"06430590-2897-422a-9316-95fccb60e96d","token_type":"bearer","refresh_token":"1d8e2070-73ee-40f8-9549-dad626ead16a","expires_in":31535999,"scope":"FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13","resourceURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5","authorizationURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5"}
+</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>iJynXR</con:value></con:property><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"06430590-2897-422a-9316-95fccb60e96d","token_type":"bearer","refresh_token":"1d8e2070-73ee-40f8-9549-dad626ead16a","expires_in":31535999,"scope":"FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13","resourceURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5","authorizationURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5"}
 </con:value></con:property><con:property><con:name>access_token</con:name><con:value>06430590-2897-422a-9316-95fccb60e96d</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>1d8e2070-73ee-40f8-9549-dad626ead16a</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD008 [POS] Successful Access Token Request" searchProperties="true" id="e85a65a3-3c40-4d23-9720-1830d5cb4b6f"><con:description/><con:settings/><con:testStep type="restrequest" name="GET ApplicationInformation by Id" disabled="true"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ApplicationInformation by Id" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
 				<con:settings>
 					<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
@@ -19709,7 +19709,7 @@ if(context["driver"] != null){
 	context["driver"].quit();
 	context["driver"] = null;	
 }
-</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>mryNSy</con:value></con:property><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"c85d7f52-7725-4638-a7bf-03bbbce9433f","token_type":"bearer","refresh_token":"77b909cd-9805-46cd-9e8b-9f33185e021e","expires_in":31535999,"scope":"FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13","resourceURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5","authorizationURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5"}</con:value></con:property><con:property><con:name>access_token</con:name><con:value>c85d7f52-7725-4638-a7bf-03bbbce9433f</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>77b909cd-9805-46cd-9e8b-9f33185e021e</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD009 [NEG] Invalid Authorization Code Grant Access Token Request (code field-value pair contains a previously used authorization code)" searchProperties="true" id="b15099c2-2c8e-4569-b4ed-8e6be0ff849a"><con:description/><con:settings/><con:testStep type="groovy" name="Issue GET OAuth Token requests"><con:settings/><con:config><script>import java.net.*;
+</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>UAh6VR</con:value></con:property><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"8157d296-5511-4fb0-b5c1-9d45e77e075e","token_type":"bearer","refresh_token":"b7cca84f-c401-4873-a476-69b266824a34","expires_in":31535999,"scope":"FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13","resourceURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5","authorizationURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5"}</con:value></con:property><con:property><con:name>access_token</con:name><con:value>8157d296-5511-4fb0-b5c1-9d45e77e075e</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>b7cca84f-c401-4873-a476-69b266824a34</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD009 [NEG] Invalid Authorization Code Grant Access Token Request (code field-value pair contains a previously used authorization code)" searchProperties="true" id="b15099c2-2c8e-4569-b4ed-8e6be0ff849a"><con:description/><con:settings/><con:testStep type="groovy" name="Issue GET OAuth Token requests"><con:settings/><con:config><script>import java.net.*;
 import java.io.*;
 
 int issueGET(String targetURL,String strToken){
@@ -20186,36 +20186,31 @@ while(true) {
 			iExpectedRespCode = 400;
 			break;
 		case 2:
-			strTestName = "Malformed Refresh Token Request (No scope= field-value pair)";
-			strQryParams = "?grant_type=refresh_token" + "&refresh_token=" + strRefreshToken;			
-			iExpectedRespCode = 400;
-			break;
-		case 3:
 			strTestName = "Malformed Refresh Token Request (Multiple grant_type= field-value pairs)";
 			strQryParams = "?grant_type=refresh_token" + "&refresh_token=" + strRefreshToken + "&scope=" + strScope + "&grant_type=refresh_token";			
 			iExpectedRespCode = 400;
 			break;
-		case 4:
+		case 3:
 			strTestName = "Malformed Refresh Token Request (Multiple refresh_token= field-value pairs)";
 			strQryParams = "?grant_type=refresh_token" + "&refresh_token=" + strRefreshToken + "&scope=" + strScope + "&refresh_token=" + strRefreshToken;			
 			iExpectedRespCode = 400;
 			break;
-		case 5:
+		case 4:
 			strTestName = "Malformed Refresh Token Request (Multiple scope field-value pairs)";
 			strQryParams = "?grant_type=refresh_token" + "&refresh_token=" + strRefreshToken + "&scope=" + strScope + "&scope=" + strScope;			
 			iExpectedRespCode = 400;
 			break;
-		case 6:
+		case 5:
 			strTestName = "Invalid Refresh Token Request (Contents of refresh_token= field-value pair was issued to a different Third Party)";
 			strQryParams = "?grant_type=refresh_token" + "&refresh_token=" + strRefreshToken + "&scope=" + strScope;			
 			iExpectedRespCode = 400;
 			break;
-		case 7:
+		case 6:
 			strTestName = "Invalid Refresh Token Request (Contents of scope= field-value pair does not match 'scope=' used in original access token request)";
 			strQryParams = "?grant_type=refresh_token" + "&refresh_token=" + strRefreshToken + "&scope=Read/Write";			
 			iExpectedRespCode = 400;
 			break;
-		case 8:
+		case 7:
 			strTestName = "Invalid Refresh Token Request (Value found in refresh_token= field-value pair has expired)";
 			strQryParams = "?grant_type=refresh_token" + "&refresh_token=" + strRefreshToken + "&scope=" + strScope;			
 			iExpectedRespCode = 400;
@@ -20240,7 +20235,7 @@ while(true) {
 	}	
 
 	iTestID++;
-	if(iTestID > 8){
+	if(iTestID > 7){
 		break;
 	}
 }	
@@ -20256,7 +20251,7 @@ assert true;
 			<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 			<con:request/>
 			<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri>
-			<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>401</codes></con:configuration></con:assertion><con:credentials>
+			<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
 				<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
 				<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
 				<con:authType>Global HTTP Settings</con:authType>
@@ -20276,7 +20271,7 @@ assert true;
 			<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 			<con:request/>
 			<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri>
-			<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>401</codes></con:configuration></con:assertion><con:credentials>
+			<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
 				<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
 				<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
 				<con:authType>Global HTTP Settings</con:authType>
@@ -20315,7 +20310,7 @@ assert true;
 		</con:settings>
 		<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 		<con:request/>
-		<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>401</codes></con:configuration></con:assertion><con:credentials>
+		<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
 			<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
 		</con:credentials>
 		<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
@@ -20332,7 +20327,7 @@ assert true;
 		</con:settings>
 		<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 		<con:request/>
-		<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>401</codes></con:configuration></con:assertion><con:credentials>
+		<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization/1</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
 			<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
 		</con:credentials>
 		<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
@@ -20367,7 +20362,7 @@ assert true;
 		<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 		<con:request/>
 		<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization</con:originalUri>
-		<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:credentials>
+		<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
 			<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
 			<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
 			<con:authType>Global HTTP Settings</con:authType>
@@ -20386,7 +20381,7 @@ assert true;
 		<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 		<con:request/>
 		<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization</con:originalUri>
-		<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:credentials>
+		<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials>
 			<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
 			<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
 			<con:authType>Global HTTP Settings</con:authType>
@@ -20405,7 +20400,7 @@ assert true;
 		<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 		<con:request/>
 		<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/Authorization</con:originalUri>
-		<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:credentials>
+		<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>401</codes></con:configuration></con:assertion><con:credentials>
 			<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
 			<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
 			<con:authType>Global HTTP Settings</con:authType>
@@ -20432,7 +20427,7 @@ propTestStep.testRequest.setRequestHeaders(headers);
  </script></con:config></con:testStep><con:testStep type="httprequest" name="GET Resource URI with invalid token - registration_access_token"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Resource URI with invalid token - registration_access_token" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
   &lt;con:entry key="Authorization" value="Bearer d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c"/>
   &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
-&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="groovy" name="Extract information from authorization for client access token"><con:settings/><con:config><script>import com.eviware.soapui.support.types.StringToStringMap;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="groovy" name="Extract information from authorization for client access token"><con:settings/><con:config><script>import com.eviware.soapui.support.types.StringToStringMap;
 
 def propCreateAuthResults = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
 
@@ -20447,11 +20442,11 @@ propTestStep.testRequest.setRequestHeaders(headers);
  </script></con:config></con:testStep><con:testStep type="httprequest" name="GET Resource URI with invalid token - client_access_token"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Resource URI with invalid token - client_access_token" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
   &lt;con:entry key="Authorization" value="Bearer 75dd9c46-becf-48b5-9cb5-9c3233d718d0"/>
   &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
-&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="groovy" name="Extract information from authorization no Authorization Header"><con:settings/><con:config><script>import com.eviware.soapui.support.types.StringToStringMap;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="groovy" name="Extract information from authorization no Authorization Header"><con:settings/><con:config><script>import com.eviware.soapui.support.types.StringToStringMap;
 
 def propCreateAuthResults = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
 
-propTestStep = context.testCase.getTestStepByName("GET Resource URI with invalid no authorization header");
+propTestStep = context.testCase.getTestStepByName("GET Resource URI with invalid no Authorization Header");
 def headers = new StringToStringMap();
 
 propTestStep.setPropertyValue("Endpoint",propCreateAuthResults.getPropertyValue("resourceURI"));
@@ -20460,7 +20455,7 @@ headers.put("Content-Type","Application/atom+xml");
 propTestStep.testRequest.setRequestHeaders(headers);
 
  
- </script></con:config></con:testStep><con:testStep type="httprequest" name="GET Resource URI with invalid no Authorization Header"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Resource URI with invalid no Authorization Header" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Content-Type" value="Application/atom+xml" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD018 [NEG] Invalid Access Token Request (GET RESTful ReadServiceStats request contains &quot;registration_access_token&quot;)" searchProperties="true" id="2b179321-2f69-48d8-928d-daf4a9914977"><con:settings/><con:testStep type="restrequest" name="GET ServiceStatus with incorrect access token registration_access_token">
+ </script></con:config></con:testStep><con:testStep type="httprequest" name="GET Resource URI with invalid no Authorization Header"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Resource URI with invalid no Authorization Header" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Content-Type" value="Application/atom+xml" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>401</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD018 [NEG] Invalid Access Token Request (GET RESTful ReadServiceStats request contains &quot;registration_access_token&quot;)" searchProperties="true" id="2b179321-2f69-48d8-928d-daf4a9914977"><con:settings/><con:testStep type="restrequest" name="GET ServiceStatus with incorrect access token registration_access_token">
 		<con:settings/>
 		<con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ReadServiceStatus" methodName="GET ServiceStatus" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 			<con:restRequest name="GET ServiceStatus with incorrect access token registration_access_token" mediaType="application/json" id="60e1ff43-7b61-4173-9448-051a3c6ddf48">
@@ -20544,9 +20539,93 @@ propTestStep.testRequest.setRequestHeaders(headers);
 		</con:parameterOrder>
 	</con:restRequest>
 </con:config>
-</con:testStep><con:properties/></con:testCase><con:properties/>
+</con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD019 [POS] Valid refresh_token request" searchProperties="true" id="f45a7dc4-3dab-4615-99c3-42b6153fdea3"><con:settings/><con:testStep type="groovy" name="Issue refresh token request"><con:settings/><con:config><script>import java.net.*;
+import java.io.*;
+
+int issueGET(String targetURL,String strToken){
+
+	log.info("Issuing malformed GET " + targetURL);
+	int iRespCode = 0;
+	String urlParameters = "";
+	
+	URL url;
+	
+	HttpURLConnection connection = null;  
+	
+	try {
+		//Create connection
+		url = new URL(targetURL);
+		connection = (HttpURLConnection)url.openConnection();
+		connection.setRequestMethod("GET");
+		connection.setInstanceFollowRedirects(false);
+		connection.setRequestProperty("Authorization", "Basic " + strToken);
+		connection.setRequestProperty("Accept", "application/json, application/*+json");
+		
+		//Get Response    
+		InputStream is = connection.getInputStream();
+		BufferedReader rd = new BufferedReader(new InputStreamReader(is));
+		String line;
+		StringBuffer response = new StringBuffer(); 
+		while((line = rd.readLine()) != null) {
+			response.append(line);
+			response.append('\r');
+		}
+		rd.close();
+		//log.info response.toString();
+		
+		log.info "Response = " + connection.getResponseCode();
+
+		iRespCode = connection.getResponseCode();
+	
+	} catch (Exception e) {
+		log.info e.getMessage();
+		return 0;
+	} finally {
+		if(connection != null) {
+			log.info "Response = " + connection.getResponseCode();
+			iRespCode = connection.getResponseCode();		
+			connection.disconnect(); 
+		}
+
+		return iRespCode;
+	}	
+}
+
+propCreateAuthResults  = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
+
+
+//propCreateAuthResults = context.testCase.getTestStepByName("Run TestCase Create Authorization");
+
+//String strRedirURI = propCreateAuthResults.getPropertyValue("redirect_uri");
+String strAuthorizationServerTokenEndpoint = propCreateAuthResults.getPropertyValue("authorizationServerTokenEndpoint");
+String strRefreshToken = propCreateAuthResults.getPropertyValue("refresh_token");
+String strScope = propCreateAuthResults.getPropertyValue("scope");
+
+
+
+String strTestName = "";
+
+String strQryParams = "?grant_type=refresh_token" + "&amp;refresh_token=" + strRefreshToken + "&amp;scope=" + strScope;
+String strToken = "dGhpcmRfcGFydHk6c2VjcmV0";
+ 
+int iRespCode = 0;
+
+log.info("==================================================================================================================");		
+log.info("testing: " + strTestName);
+iRespCode = iRespCode = issueGET(strAuthorizationServerTokenEndpoint + strQryParams,strToken);
+
+if(iRespCode != 200) {
+	log.error("Failed  refresh token request: " + strTestName + " received:" + iRespCode);
+	testRunner.fail("Failed  refresh token request: " + strTestName + " received:" + iRespCode);
+	return;						
+}		
+
+
+assert true;
+
+</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/>
 </con:testSuite>
-<con:testSuite name="*[FB_19] Partial Update Data">
+<con:testSuite name="[FUTURE]*[FB_19] Partial Update Data">
 	<con:settings/>
 	<con:runType>SEQUENTIAL</con:runType>
 	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_19] Partial Update Data" searchProperties="true">
@@ -20555,7 +20634,7 @@ propTestStep.testRequest.setRequestHeaders(headers);
 	</con:testCase>
 	<con:properties/>
 </con:testSuite>
-<con:testSuite name="*[FB_33] DataCustodian Management Interface">
+<con:testSuite name="[FUTURE]*[FB_33] DataCustodian Management Interface">
 	<con:settings/>
 	<con:runType>SEQUENTIAL</con:runType>
 	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_33] DataCustodian Management Interface" searchProperties="true">
@@ -23873,7 +23952,7 @@ Please select "Pass" on SoapUI manual test step now.
 </body>
 </html>
 ]]></con:responseContent></con:response></con:restMockAction></con:restMockService>
-<con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty Authorization Mock Service for NEG tests type B" docroot=""><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value>9C0B4BBAD2FBDAF475058F4996FE725B</con:value></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>mryNSy</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+<con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty Authorization Mock Service for NEG tests type B" docroot=""><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value>9C0B4BBAD2FBDAF475058F4996FE725B</con:value></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>UAh6VR</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Examples showing how to match based on path, query param and header
 // Match based on path
 def requestPath = mockRequest.getPath()
@@ -24334,7 +24413,7 @@ httpResponse.addHeader("Location",strRespLoc);
 		<con:name>client_access_token</con:name>
 		<con:value>75dd9c46-becf-48b5-9cb5-9c3233d718d0</con:value>
 	</con:property>
-<con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1</con:value></con:property><con:property><con:name>NotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty</con:value></con:property><con:property><con:name>notificationUri</con:name><con:value>espi/1_1</con:value></con:property><con:property><con:name>access_token</con:name><con:value>c85d7f52-7725-4638-a7bf-03bbbce9433f</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>localhost:8080</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>localhost:8080</con:value></con:property><con:property><con:name>myTimeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/token</con:value></con:property></con:properties>
+<con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1</con:value></con:property><con:property><con:name>NotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty</con:value></con:property><con:property><con:name>notificationUri</con:name><con:value>espi/1_1</con:value></con:property><con:property><con:name>access_token</con:name><con:value>8157d296-5511-4fb0-b5c1-9d45e77e075e</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>localhost:8080</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>localhost:8080</con:value></con:property><con:property><con:name>myTimeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/token</con:value></con:property></con:properties>
 <con:wssContainer/>
 <con:oAuth2ProfileContainer/>
 <con:sensitiveInformation/>
