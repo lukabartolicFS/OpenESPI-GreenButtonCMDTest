@@ -6,6 +6,7 @@ data/test_subscription.xml
 /SOAPUI/etc/gbcmd.conf
 /SOAPUI/etc/gbcmdcert.conf
 SOAPUI/etc/prepopulatesql_applicationinformation_dc.sql
+SOAPUI/etc/prepopulatesql_tokenstore.sql
 ./SOAPUI/CMDUtils/target/
 transferred/*
 
