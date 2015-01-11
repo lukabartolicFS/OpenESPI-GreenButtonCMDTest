@@ -7928,7 +7928,7 @@ testRunner.testCase.setPropertyValue("resourceURI",tokenResponse.resourceURI);
 testRunner.testCase.setPropertyValue("authorizationURI",tokenResponse.authorizationURI);
 
 
-testRunner.testCase.testSuite.project.setPropertyValue("access_token",testRunner.testCase.getPropertyValue("access_token"));</script></con:config></con:testStep><con:testStep type="groovy" name="Done" id="1506c724-dddb-4676-bd09-aabebed84455"><con:settings/><con:config><script/></con:config></con:testStep><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://services.greenbuttondata.org/DataCustodian/RetailCustomer/ScopeSelectionList</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://services.greenbuttondata.org/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>access_token</con:name><con:value>0ac64e99-b617-4734-8c8d-5fe93e067ded</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>espi/1_1/resource</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>token_type</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>refresh_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>expires_in</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
+testRunner.testCase.testSuite.project.setPropertyValue("access_token",testRunner.testCase.getPropertyValue("access_token"));</script></con:config></con:testStep><con:testStep type="groovy" name="Done" id="1506c724-dddb-4676-bd09-aabebed84455"><con:settings/><con:config><script/></con:config></con:testStep><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>0ac64e99-b617-4734-8c8d-5fe93e067ded</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>espi/1_1/resource</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>token_type</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>refresh_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>expires_in</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
@@ -7985,113 +7985,105 @@ RunCommand(td,cmd);
 </script></con:config></con:testStep><con:properties><con:property><con:name>stdout</con:name><con:value>Certificate:
     Data:
         Version: 3 (0x2)
-        Serial Number:
-            47:95:db:30:0b:1f:80:b4:2d:11:ea:b5:2f:0b:6b:e2
+        Serial Number: 3560456681580786076 (0x3169487cdfc9f19c)
     Signature Algorithm: sha1WithRSAEncryption
-        Issuer: C=US, O=VeriSign, Inc., OU=VeriSign Trust Network, OU=Terms of use at https://www.verisign.com/rpa (c)10, CN=VeriSign Class 3 Secure Server CA - G3
+        Issuer: C=US, O=Google Inc, CN=Google Internet Authority G2
         Validity
-            Not Before: Sep  8 00:00:00 2014 GMT
-            Not After : Sep  9 23:59:59 2015 GMT
-        Subject: C=US, ST=California, L=San Francisco, O=Pacific Gas and Electric Company, CN=mqa.pge.com
+            Not Before: Dec 10 12:05:39 2014 GMT
+            Not After : Mar 10 00:00:00 2015 GMT
+        Subject: C=US, ST=California, L=Mountain View, O=Google Inc, CN=www.google.com
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
                 Public-Key: (2048 bit)
                 Modulus:
-                    00:c4:93:39:50:9f:36:b2:3f:7a:c5:d6:72:4d:6d:
-                    32:64:cb:fc:64:02:9f:3e:b4:a8:29:60:8d:b4:de:
-                    a1:71:75:b2:bc:cf:5a:de:dd:c8:c4:1f:5b:1d:65:
-                    5c:32:a9:66:e3:c5:90:0b:bb:e0:e3:37:00:e4:12:
-                    d1:5b:fd:cb:7f:53:2b:ea:92:22:68:7d:3e:db:28:
-                    94:50:54:8b:01:39:8e:b4:56:64:1c:92:1e:7f:d8:
-                    5c:77:b4:34:37:2a:01:ee:49:9d:24:fa:db:d9:f7:
-                    72:9e:b0:bc:3b:db:9f:31:8e:62:9b:4c:db:4b:fb:
-                    4e:83:c0:cd:2f:12:3e:aa:eb:50:22:d2:97:9d:67:
-                    6d:d0:03:4a:7e:08:fe:3e:01:f5:95:c6:f1:b4:c5:
-                    5f:b0:a2:47:33:68:8c:8c:cb:ae:c6:28:8d:43:17:
-                    9f:d1:ed:db:f8:c3:3a:75:11:11:0b:0d:17:d9:a8:
-                    c0:6d:a7:3c:0c:47:96:eb:e5:27:ea:9c:3c:a2:7e:
-                    62:f6:f5:61:1b:30:f4:a1:79:4b:e7:ee:29:05:b9:
-                    4e:a5:e3:a2:05:99:43:91:b8:2b:11:68:4d:9c:13:
-                    b6:b6:35:e0:bc:f1:81:e9:0c:51:d5:91:39:41:9a:
-                    fb:7a:5a:4e:78:7a:1f:b3:ce:a4:30:7a:89:d2:0c:
-                    72:cb
+                    00:af:a5:6a:e2:fb:37:d7:b5:7f:07:ef:0b:78:83:
+                    90:0d:8d:b7:92:09:62:65:04:ec:e5:54:eb:ed:1c:
+                    f4:41:d9:28:e5:3e:65:23:46:0e:18:55:91:cc:72:
+                    b9:1a:c5:26:7e:36:18:1d:52:58:63:b2:91:69:71:
+                    75:36:66:c0:0c:d3:f8:de:78:a1:57:e0:b8:5c:9c:
+                    5a:29:eb:5b:d6:15:f3:89:70:93:6b:bc:32:6c:93:
+                    c2:ff:61:3b:10:94:3c:a9:8c:ec:4d:02:63:3b:f3:
+                    54:8a:da:7e:53:50:20:01:26:ee:00:4a:a7:66:20:
+                    0c:74:19:88:fa:d1:97:93:91:6e:d8:9b:9d:23:bc:
+                    7b:42:29:57:61:70:ca:9f:61:73:51:dd:20:b2:37:
+                    28:46:6c:13:73:4a:a0:a3:7b:c3:d3:96:af:84:ec:
+                    f3:6d:f8:86:f2:32:bb:3b:3d:85:68:c0:74:4b:79:
+                    4c:f8:46:9e:1b:ce:43:8b:f5:9e:07:72:04:43:83:
+                    cf:33:e6:14:de:47:22:ca:b7:6d:ad:ad:b1:47:3d:
+                    ef:91:d6:5b:ac:af:dd:e4:91:78:94:0e:49:1c:be:
+                    26:de:5d:70:02:03:e3:8e:60:8e:05:ba:56:8b:90:
+                    d5:f2:65:c9:30:f5:5c:79:f0:04:cd:5f:2d:3a:eb:
+                    4c:e7
                 Exponent: 65537 (0x10001)
         X509v3 extensions:
-            X509v3 Subject Alternative Name: 
-                DNS:mqa.pge.com
-            X509v3 Basic Constraints: 
-                CA:FALSE
-            X509v3 Key Usage: critical
-                Digital Signature, Key Encipherment
             X509v3 Extended Key Usage: 
                 TLS Web Server Authentication, TLS Web Client Authentication
-            X509v3 Certificate Policies: 
-                Policy: 2.16.840.1.113733.1.7.54
-                  CPS: https://d.symcb.com/cps
-                  User Notice:
-                    Explicit Text: https://d.symcb.com/rpa
+            X509v3 Subject Alternative Name: 
+                DNS:www.google.com
+            Authority Information Access: 
+                CA Issuers - URI:http://pki.google.com/GIAG2.crt
+                OCSP - URI:http://clients1.google.com/ocsp
 
+            X509v3 Subject Key Identifier: 
+                9E:9F:AE:7B:6E:20:8A:68:22:ED:81:36:DA:97:5E:50:2A:73:A3:C3
+            X509v3 Basic Constraints: critical
+                CA:FALSE
             X509v3 Authority Key Identifier: 
-                keyid:0D:44:5C:16:53:44:C1:82:7E:1D:20:AB:25:F4:01:63:D8:BE:79:A5
+                keyid:4A:DD:06:16:1B:BC:F6:68:B5:76:F5:81:B6:BB:62:1A:BA:5A:81:2F
+
+            X509v3 Certificate Policies: 
+                Policy: 1.3.6.1.4.1.11129.2.5.1
 
             X509v3 CRL Distribution Points: 
 
                 Full Name:
-                  URI:http://sd.symcb.com/sd.crl
-
-            Authority Information Access: 
-                OCSP - URI:http://sd.symcd.com
-                CA Issuers - URI:http://sd.symcb.com/sd.crt
+                  URI:http://pki.google.com/GIAG2.crl
 
     Signature Algorithm: sha1WithRSAEncryption
-         26:c6:9f:4a:9f:3f:06:ab:79:9f:68:41:6d:10:7b:d9:9b:e7:
-         a3:a3:e4:d0:ae:a2:b2:8f:c8:9e:2f:eb:90:f8:f2:50:7d:fa:
-         8e:f4:b1:59:c8:d7:29:d2:98:a6:7e:80:0b:33:bd:1c:26:cb:
-         b8:e6:08:60:8a:3c:07:81:d1:ca:d3:62:eb:e3:42:8d:c6:71:
-         6a:59:89:7a:55:3b:a1:6c:ad:60:6b:e2:d6:49:d3:cc:4a:68:
-         76:93:9f:c4:0f:3b:b6:82:f2:e4:4d:5e:82:a0:7d:b3:d5:0e:
-         73:64:a9:53:fa:fe:0b:e2:c2:55:65:ec:2d:11:d6:2f:cb:9f:
-         80:d4:a4:97:2d:e3:84:c1:1f:45:3c:7a:49:14:7e:b8:4b:82:
-         9f:fb:3a:ab:46:3b:74:4f:d7:b5:29:d2:d7:69:e8:87:93:ef:
-         69:86:5d:3a:01:a6:90:c7:08:9a:02:fd:a1:ac:be:1c:23:d2:
-         25:be:ac:80:e2:97:e4:a7:17:be:97:12:32:91:06:44:2f:af:
-         3f:e4:9f:d9:ce:f9:33:ab:ae:b4:b9:ec:47:62:4c:81:8c:24:
-         fc:dd:01:87:62:49:bc:61:c8:4c:58:b6:d9:c0:b6:1d:f3:47:
-         9b:2c:b2:bf:ce:c4:95:3a:86:7c:d9:90:dd:16:62:e7:e1:fe:
-         09:cb:63:6e
-notBefore=Sep  8 00:00:00 2014 GMT
-notAfter=Sep  9 23:59:59 2015 GMT
+         60:5b:b9:22:9b:fe:93:a1:b5:68:59:ee:2a:b2:8f:dc:70:10:
+         4e:bb:05:e1:b1:c6:1e:8e:8c:69:32:98:15:07:e2:f9:ce:14:
+         45:5a:31:ba:59:66:fd:9a:5b:0e:41:e6:61:57:99:9b:ff:39:
+         79:96:df:e9:80:5c:7b:5a:a2:7c:f8:20:fe:a2:f0:f3:b8:b9:
+         6d:07:2d:8e:40:1b:47:37:4d:5c:c3:e5:1e:e8:e7:94:67:79:
+         ea:c4:41:44:99:b0:e8:63:82:9f:c6:a2:05:71:f5:92:fd:31:
+         54:0d:d8:a3:e0:d7:69:8a:4d:90:0f:f7:a5:df:49:8e:26:e2:
+         a5:8b:9a:15:18:93:1d:2f:2d:79:ac:c6:71:4f:21:38:c5:3a:
+         b4:45:37:1e:18:ff:ef:37:d7:b5:8b:43:48:ec:51:06:17:10:
+         f7:0b:f1:1a:af:52:c9:e9:7d:17:16:ff:3d:6a:e5:6e:ee:ff:
+         6f:06:dc:c5:97:97:63:62:24:49:d9:0e:ef:54:80:c5:54:ed:
+         40:63:e1:ad:2e:33:50:ad:46:5a:8e:5c:47:b8:51:9d:60:00:
+         31:8e:d3:ce:68:44:8a:d3:7d:52:01:ba:d2:bf:29:c2:f1:d0:
+         64:90:b3:38:31:53:41:0f:22:4c:81:2e:8a:5a:9e:52:fd:8a:
+         01:33:00:43
+notBefore=Dec 10 12:05:39 2014 GMT
+notAfter=Mar 10 00:00:00 2015 GMT
 -----BEGIN CERTIFICATE-----
-MIIFITCCBAmgAwIBAgIQR5XbMAsfgLQtEeq1Lwtr4jANBgkqhkiG9w0BAQUFADCB
-tTELMAkGA1UEBhMCVVMxFzAVBgNVBAoTDlZlcmlTaWduLCBJbmMuMR8wHQYDVQQL
-ExZWZXJpU2lnbiBUcnVzdCBOZXR3b3JrMTswOQYDVQQLEzJUZXJtcyBvZiB1c2Ug
-YXQgaHR0cHM6Ly93d3cudmVyaXNpZ24uY29tL3JwYSAoYykxMDEvMC0GA1UEAxMm
-VmVyaVNpZ24gQ2xhc3MgMyBTZWN1cmUgU2VydmVyIENBIC0gRzMwHhcNMTQwOTA4
-MDAwMDAwWhcNMTUwOTA5MjM1OTU5WjB7MQswCQYDVQQGEwJVUzETMBEGA1UECBMK
-Q2FsaWZvcm5pYTEWMBQGA1UEBxQNU2FuIEZyYW5jaXNjbzEpMCcGA1UEChQgUGFj
-aWZpYyBHYXMgYW5kIEVsZWN0cmljIENvbXBhbnkxFDASBgNVBAMUC21xYS5wZ2Uu
-Y29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxJM5UJ82sj96xdZy
-TW0yZMv8ZAKfPrSoKWCNtN6hcXWyvM9a3t3IxB9bHWVcMqlm48WQC7vg4zcA5BLR
-W/3Lf1Mr6pIiaH0+2yiUUFSLATmOtFZkHJIef9hcd7Q0NyoB7kmdJPrb2fdynrC8
-O9ufMY5im0zbS/tOg8DNLxI+qutQItKXnWdt0ANKfgj+PgH1lcbxtMVfsKJHM2iM
-jMuuxiiNQxef0e3b+MM6dRERCw0X2ajAbac8DEeW6+Un6pw8on5i9vVhGzD0oXlL
-5+4pBblOpeOiBZlDkbgrEWhNnBO2tjXgvPGB6QxR1ZE5QZr7elpOeHofs86kMHqJ
-0gxyywIDAQABo4IBZDCCAWAwFgYDVR0RBA8wDYILbXFhLnBnZS5jb20wCQYDVR0T
-BAIwADAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUF
-BwMCMGUGA1UdIAReMFwwWgYKYIZIAYb4RQEHNjBMMCMGCCsGAQUFBwIBFhdodHRw
-czovL2Quc3ltY2IuY29tL2NwczAlBggrBgEFBQcCAjAZGhdodHRwczovL2Quc3lt
-Y2IuY29tL3JwYTAfBgNVHSMEGDAWgBQNRFwWU0TBgn4dIKsl9AFj2L55pTArBgNV
-HR8EJDAiMCCgHqAchhpodHRwOi8vc2Quc3ltY2IuY29tL3NkLmNybDBXBggrBgEF
-BQcBAQRLMEkwHwYIKwYBBQUHMAGGE2h0dHA6Ly9zZC5zeW1jZC5jb20wJgYIKwYB
-BQUHMAKGGmh0dHA6Ly9zZC5zeW1jYi5jb20vc2QuY3J0MA0GCSqGSIb3DQEBBQUA
-A4IBAQAmxp9Knz8Gq3mfaEFtEHvZm+ejo+TQrqKyj8ieL+uQ+PJQffqO9LFZyNcp
-0pimfoALM70cJsu45ghgijwHgdHK02Lr40KNxnFqWYl6VTuhbK1ga+LWSdPMSmh2
-k5/EDzu2gvLkTV6CoH2z1Q5zZKlT+v4L4sJVZewtEdYvy5+A1KSXLeOEwR9FPHpJ
-FH64S4Kf+zqrRjt0T9e1KdLXaeiHk+9phl06AaaQxwiaAv2hrL4cI9IlvqyA4pfk
-pxe+lxIykQZEL68/5J/Zzvkzq660uexHYkyBjCT83QGHYkm8YchMWLbZwLYd80eb
-LLK/zsSVOoZ82ZDdFmLn4f4Jy2Nu
+MIIEdjCCA16gAwIBAgIIMWlIfN/J8ZwwDQYJKoZIhvcNAQEFBQAwSTELMAkGA1UE
+BhMCVVMxEzARBgNVBAoTCkdvb2dsZSBJbmMxJTAjBgNVBAMTHEdvb2dsZSBJbnRl
+cm5ldCBBdXRob3JpdHkgRzIwHhcNMTQxMjEwMTIwNTM5WhcNMTUwMzEwMDAwMDAw
+WjBoMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwN
+TW91bnRhaW4gVmlldzETMBEGA1UECgwKR29vZ2xlIEluYzEXMBUGA1UEAwwOd3d3
+Lmdvb2dsZS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCvpWri
++zfXtX8H7wt4g5ANjbeSCWJlBOzlVOvtHPRB2SjlPmUjRg4YVZHMcrkaxSZ+Nhgd
+UlhjspFpcXU2ZsAM0/jeeKFX4LhcnFop61vWFfOJcJNrvDJsk8L/YTsQlDypjOxN
+AmM781SK2n5TUCABJu4ASqdmIAx0GYj60ZeTkW7Ym50jvHtCKVdhcMqfYXNR3SCy
+NyhGbBNzSqCje8PTlq+E7PNt+IbyMrs7PYVowHRLeUz4Rp4bzkOL9Z4HcgRDg88z
+5hTeRyLKt22trbFHPe+R1lusr93kkXiUDkkcvibeXXACA+OOYI4FulaLkNXyZckw
+9Vx58ATNXy0660znAgMBAAGjggFBMIIBPTAdBgNVHSUEFjAUBggrBgEFBQcDAQYI
+KwYBBQUHAwIwGQYDVR0RBBIwEIIOd3d3Lmdvb2dsZS5jb20waAYIKwYBBQUHAQEE
+XDBaMCsGCCsGAQUFBzAChh9odHRwOi8vcGtpLmdvb2dsZS5jb20vR0lBRzIuY3J0
+MCsGCCsGAQUFBzABhh9odHRwOi8vY2xpZW50czEuZ29vZ2xlLmNvbS9vY3NwMB0G
+A1UdDgQWBBSen657biCKaCLtgTbal15QKnOjwzAMBgNVHRMBAf8EAjAAMB8GA1Ud
+IwQYMBaAFErdBhYbvPZotXb1gba7Yhq6WoEvMBcGA1UdIAQQMA4wDAYKKwYBBAHW
+eQIFATAwBgNVHR8EKTAnMCWgI6Ahhh9odHRwOi8vcGtpLmdvb2dsZS5jb20vR0lB
+RzIuY3JsMA0GCSqGSIb3DQEBBQUAA4IBAQBgW7kim/6TobVoWe4qso/ccBBOuwXh
+scYejoxpMpgVB+L5zhRFWjG6WWb9mlsOQeZhV5mb/zl5lt/pgFx7WqJ8+CD+ovDz
+uLltBy2OQBtHN01cw+Ue6OeUZ3nqxEFEmbDoY4KfxqIFcfWS/TFUDdij4Ndpik2Q
+D/el30mOJuKli5oVGJMdLy15rMZxTyE4xTq0RTceGP/vN9e1i0NI7FEGFxD3C/Ea
+r1LJ6X0XFv89auVu7v9vBtzFl5djYiRJ2Q7vVIDFVO1AY+GtLjNQrUZajlxHuFGd
+YAAxjtPOaESK031SAbrSvynC8dBkkLM4MVNBDyJMgS6KWp5S/YoBMwBD
 -----END CERTIFICATE-----
-</con:value></con:property><con:property><con:name>cmd</con:name><con:value>openssl x509 -text -in /home/bitnami/git/energyos/test/OpenESPI-GreenButtonCMDTest/SOAPUI/etc/getcert.pem -dates</con:value></con:property><con:property><con:name>path</con:name><con:value>.</con:value></con:property><con:property><con:name>stderr</con:name><con:value>140661851514528:error:14077417:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert illegal parameter:s23_clnt.c:770:
+</con:value></con:property><con:property><con:name>cmd</con:name><con:value>openssl x509 -text -in /home/bitnami/git/energyos/test/OpenESPI-GreenButtonCMDTest/SOAPUI/etc/getcert.pem -dates</con:value></con:property><con:property><con:name>path</con:name><con:value>.</con:value></con:property><con:property><con:name>stderr</con:name><con:value>140630051493536:error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure:s23_clnt.c:770:
 </con:value></con:property><con:property><con:name>returncode</con:name><con:value>1</con:value></con:property><con:property><con:name>timeout</con:name><con:value>2</con:value></con:property></con:properties></con:testCase><con:properties/>
 </con:testSuite>
 <con:testSuite name="OpenEspiIntegrationTests">
@@ -18514,9 +18506,7 @@ tc.setPropertyValue("timeout","2");
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 
 
-String strResult = tc.getPropertyValue("stdout");
-log.info command;
-log.info strResult;
+strResult = tc.getPropertyValue("stdout");
 
 if( strResult.contains("Cipher is AES128-SHA")) {
 
@@ -18536,9 +18526,7 @@ tc.setPropertyValue("timeout","2");
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 
 
-String strResult = tc.getPropertyValue("stdout");
-log.info command;
-log.info strResult;
+strResult = tc.getPropertyValue("stdout");
 
 if( strResult.contains("Cipher is AES128-SHA")) {
 
@@ -18741,146 +18729,30 @@ return;
 
 
 </script></con:config>
-</con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC009 Root of trust" searchProperties="true" id="83e3a0af-1dca-484e-9113-2b9f5167818d"><con:description>Test software or manual inspection shall verify that the Data Custodian RSA certificate was issued by a Certificate Authority (CA) that has been successfully audited according to the criteria of ETSI or WebTrust.</con:description><con:settings/><con:testStep type="groovy" name="Root of trust"><con:settings/><con:config><script/></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC010 Tokens and IDs have no PII" searchProperties="true" id="7047ab3f-40e4-4743-926a-ccec7f5ec56c"><con:description>Test software or manual inspection shall verify that Tokens and IDs communicated by the Data Custodian are opaque and if based on actual Customer information that they are randomized using a secure method to protect privacy.</con:description><con:settings/><con:testStep type="groovy" name="Tokens and IDs have no PII"><con:settings/><con:config><script/></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC011 Tokens and IDs have at least 48bits" searchProperties="true" id="71f2fc9c-079f-4900-b18a-b6643a424ea3"><con:description>Test software or manual inspection shall verify that Tokens and IDs communicated by the Data Custodian consist of at least 48 bits and can be the random number part of an RFC2422 UUID.</con:description><con:settings/><con:testStep type="groovy" name="Tokens and IDs have at least 48bits"><con:settings/><con:config><script/></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC012 FIPS 140-2 support" searchProperties="true" id="13c36354-0f45-493b-9c6f-af3bc3c5ddc5"><con:description>Manual inspection of supporting documentation shall confirm that the Data Custodian implementation utilizes software libraries which are FIPS 140-2 level 1 or higher and listed on the CMVP website.</con:description><con:settings/><con:testStep type="groovy" name="FIPS 140-2 support"><con:settings/><con:config><script/></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC013 Negotiate highest level of TLS using resourceServer" searchProperties="true" id="dfd8eadd-b87e-4d0f-bb67-b25067ff8502"><con:description>Verify that when communicating with a resourceServer the Data Custodian negotiates the highest level of TLS supported by both parties.</con:description><con:settings/><con:testStep type="groovy" name="Negotiate highest level of TLS using authorizationServerUri">
-	<con:settings/>
-	<con:config>
-		<script>
-			def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
-			def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL());
+</con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC009 Root of trust" searchProperties="true" id="83e3a0af-1dca-484e-9113-2b9f5167818d"><con:description>Test software or manual inspection shall verify that the Data Custodian RSA certificate was issued by a Certificate Authority (CA) that has been successfully audited according to the criteria of ETSI or WebTrust.</con:description><con:settings/><con:testStep type="groovy" name="Root of trust"><con:settings/><con:config><script/></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC010 Tokens and IDs have no PII" searchProperties="true" id="7047ab3f-40e4-4743-926a-ccec7f5ec56c"><con:description>Test software or manual inspection shall verify that Tokens and IDs communicated by the Data Custodian are opaque and if based on actual Customer information that they are randomized using a secure method to protect privacy.</con:description><con:settings/><con:testStep type="groovy" name="Tokens and IDs have no PII"><con:settings/><con:config><script/></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC011 Tokens and IDs have at least 48bits" searchProperties="true" id="71f2fc9c-079f-4900-b18a-b6643a424ea3"><con:description>Test software or manual inspection shall verify that Tokens and IDs communicated by the Data Custodian consist of at least 48 bits and can be the random number part of an RFC2422 UUID.</con:description><con:settings/><con:testStep type="groovy" name="Tokens and IDs have at least 48bits"><con:settings/><con:config><script/></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC012 FIPS 140-2 support" searchProperties="true" id="13c36354-0f45-493b-9c6f-af3bc3c5ddc5"><con:description>Manual inspection of supporting documentation shall confirm that the Data Custodian implementation utilizes software libraries which are FIPS 140-2 level 1 or higher and listed on the CMVP website.</con:description><con:settings/><con:testStep type="groovy" name="FIPS 140-2 support"><con:settings/><con:config><script/></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties/></con:testCase><con:properties/>
+<con:setupScript>log.info "===== Start TestSuite =====> " + testSuite.name</con:setupScript><con:tearDownScript>def results = true;
 
-
-			// next see if tls 1.1 is negotiated
-			def cmdSubString = "s_client -tls1 -tls1_1 -connect ${config.ThirdPartyHostName}:${config.ThirdPartySSLPort}";
-			def command;
-			if((config.cygwinHome)) {
-			if(config.cygwinHome.length()>0) {
-		// on windows with cygwin
-		log.info("windows");
-		command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
-		}
-		} else {
-		// linux or OS X
-		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
-		}
-
-
-		log.info ("Executing: ${command}");
-		def proc = command.execute();
-		proc.waitFor();
-
-
-		String strResult = proc.text;
-
-		if(strResult.contains("Protocol  : TLSv1.1")){
-		log.info("TLS 1.1 negotiated");
-		} else {
-		testRunner.fail( "TLS 1.1 not negotiated" );
-		}
-
-		// next see if tls 1.0 is negotiated
-		cmdSubString = "s_client -tls1 -connect ${config.ThirdPartyHostName}:${config.ThirdPartySSLPort}";
-
-		if((config.cygwinHome)) {
-		if(config.cygwinHome.length()>0) {
-	// on windows with cygwin
-	log.info("windows");
-	command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
-	}
-	} else {
-	// linux or OS X
-	command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
-	}
-
-	log.info ("Executing: ${command}");
-	proc = command.execute();
-	proc.waitFor();
-
-
-	strResult = proc.text;
-
-	if(strResult.contains("Protocol  : TLSv1\n")){
-	log.info("TLS 1 negotiated");
-	} else {
-	testRunner.fail( "TLS 1 not negotiated" );
-	}
-
-
-	return;
-
-</script>
-</con:config>
-</con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="*TC014 Negotiate highest level of TLS using authorizationServer" searchProperties="true" id="b6225da2-613c-4ff6-96fb-315b06fcccf7"><con:description>Verify that when communicating with a authorizationServer the Data Custodian negotiates the highest level of TLS supported by both parties.
-</con:description><con:settings/><con:testStep type="groovy" name="Negotiate highest level of TLS using authorizationServerUri">
-	<con:settings/>
-	<con:config>
-		<script>
-			def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
-			def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmd.conf").toURL());
-
-
-			// next see if tls 1.1 is negotiated
-			def cmdSubString = "s_client -tls1 -tls1_1 -connect ${config.ThirdPartyHostName}:${config.ThirdPartySSLPort}";
-			def command;
-			if((config.cygwinHome)) {
-			if(config.cygwinHome.length()>0) {
-		// on windows with cygwin
-		log.info("windows");
-		command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
-		}
-		} else {
-		// linux or OS X
-		command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
-		}
-
-
-		log.info ("Executing: ${command}");
-		def proc = command.execute();
-		proc.waitFor();
-
-
-		String strResult = proc.text;
-
-		if(strResult.contains("Protocol  : TLSv1.1")){
-		log.info("TLS 1.1 negotiated");
-		} else {
-		testRunner.fail( "TLS 1.1 not negotiated" );
-		}
-
-		// next see if tls 1.0 is negotiated
-		cmdSubString = "s_client -tls1 -connect ${config.ThirdPartyHostName}:${config.ThirdPartySSLPort}";
-
-		if((config.cygwinHome)) {
-		if(config.cygwinHome.length()>0) {
-	// on windows with cygwin
-	log.info("windows");
-	command = "${config.cygwinHome}/timeout ${config.securityTimeout} ${config.cygwinHome}/openssl ${cmdSubString}";
-	}
-	} else {
-	// linux or OS X
-	command = """${groovyUtils.projectPath}/etc/timeout.sh -t ${config.securityTimeout} ${config.openSSLCommand} ${cmdSubString}""";	
-	}
-
-	log.info ("Executing: ${command}");
-	proc = command.execute();
-	proc.waitFor();
-
-
-	strResult = proc.text;
-
-	if(strResult.contains("Protocol  : TLSv1\n")){
-	log.info("TLS 1 negotiated");
-	} else {
-	testRunner.fail( "TLS 1 not negotiated" );
-	}
-
-
-	return;
-
-</script>
-</con:config>
-</con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties/></con:testCase><con:properties/>
-<con:setupScript>log.info "===== Start TestSuite =====> " + testSuite.name</con:setupScript><con:tearDownScript>log.info "===== End   TestSuite =====> " + testSuite.name
-
+log.info "===== SUMMARY   TestSuite =====> " + testSuite.name
+for ( testCaseResult in runner.results )
+{
+   testCaseName = testCaseResult.getTestCase().name
+//   log.info testCaseName
+   if ( testCaseResult.getStatus().toString() == 'FAILED' )
+   {
+      log.info "$testCaseName has failed"
+      results = false;
+//      for ( testStepResult in testCaseResult.getResults() )
+//      {
+//         testStepResult.messages.each() { msg -> log.info msg }
+//      }
+   }
+}
+if(results == true) {
+	log.info "===== FINISHED End   TestSuite =====> " + testSuite.name
+}
+else {
+	log.info "===== FAILED End   TestSuite =====> " + testSuite.name
+}
 </con:tearDownScript></con:testSuite><con:testSuite name="*[FB_14] Authorization and Authentication">
 	<con:settings/>
 	<con:runType>SEQUENTIAL</con:runType>
@@ -24253,7 +24125,7 @@ httpResponse.addHeader("Location",strRespLoc);
 	</con:property>
 	<con:property>
 		<con:name>ServiceEndpoint</con:name>
-		<con:value>https://services.greenbuttondata.org/DataCustodian</con:value>
+		<con:value>http://localhost:8080/DataCustodian</con:value>
 	</con:property>
 	<con:property>
 		<con:name>DataCustodianContext</con:name>
@@ -24413,7 +24285,7 @@ httpResponse.addHeader("Location",strRespLoc);
 	</con:property>
 	<con:property>
 		<con:name>redirect_uri</con:name>
-		<con:value>https://services.greenbuttondata.org/ThirdParty/espi/1_1/OAuthCallBack</con:value>
+		<con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value>
 	</con:property>
 	<con:property>
 		<con:name>scope</con:name>
@@ -24425,7 +24297,7 @@ httpResponse.addHeader("Location",strRespLoc);
 	</con:property>
 	<con:property>
 		<con:name>dataCustodianResourceUri</con:name>
-		<con:value>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource</con:value>
+		<con:value>http://localhost:8080/DataCustodian/espi/1_1/resource</con:value>
 	</con:property>
 	<con:property>
 		<con:name>resourceUri</con:name>
@@ -24433,7 +24305,7 @@ httpResponse.addHeader("Location",strRespLoc);
 	</con:property>
 	<con:property>
 		<con:name>dataCustodianResourceEndpoint</con:name>
-		<con:value>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource</con:value>
+		<con:value>http://localhost:8080/DataCustodian/espi/1_1/resource</con:value>
 	</con:property>
 	<con:property>
 		<con:name>dataCustodianId</con:name>
@@ -24451,7 +24323,7 @@ httpResponse.addHeader("Location",strRespLoc);
 		<con:name>client_access_token</con:name>
 		<con:value>75dd9c46-becf-48b5-9cb5-9c3233d718d0</con:value>
 	</con:property>
-<con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1</con:value></con:property><con:property><con:name>NotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty</con:value></con:property><con:property><con:name>notificationUri</con:name><con:value>espi/1_1</con:value></con:property><con:property><con:name>access_token</con:name><con:value>0ac64e99-b617-4734-8c8d-5fe93e067ded</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>mqa.pge.com</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>apiqa.pge.com</con:value></con:property><con:property><con:name>myTimeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://services.greenbuttondata.org/DataCustodian/RetailCustomer/ScopeSelectionList</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property></con:properties>
+<con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1</con:value></con:property><con:property><con:name>NotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty</con:value></con:property><con:property><con:name>notificationUri</con:name><con:value>espi/1_1</con:value></con:property><con:property><con:name>access_token</con:name><con:value>0ac64e99-b617-4734-8c8d-5fe93e067ded</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>www.google.com</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>www.google.com</con:value></con:property><con:property><con:name>myTimeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/token</con:value></con:property></con:properties>
 <con:wssContainer/>
 <con:oAuth2ProfileContainer/>
 <con:sensitiveInformation/>
