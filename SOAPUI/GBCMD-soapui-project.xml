@@ -4069,7 +4069,7 @@
 			<con:params/>
 			<con:element>data</con:element>
 		</con:representation>
-		<con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="POST ThirdParty Request" mediaType="application/json" postQueryString="false" id="9ba40594-5ba1-490b-b4b8-0547108733e3">
+		<con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="POST ThirdParty Request" mediaType="application/json" postQueryString="false" id="9ba40594-5ba1-490b-b4b8-0547108733e3">
 			<con:settings>
 				<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 	</con:settings>
@@ -17925,77 +17925,22 @@ while(true) {
 			strQryParams = "?response_type=code" + "&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018";  
   			iExpectedRespCode = 401;							
 			break;
-		case 2: 
-			strTestName = "Malformed Authorization Code Request (No redirect_uri field-value pair)";
-			strQryParams = "?response_type=code" + "&client_id=third_party" + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018"; 
-  			//iExpectedRespCode = 302;  
-  			iExpectedRespCode = 0;  				
-			break;
-		case 3:
-			strTestName = "Malformed Authorization Code Request (No scope field-value pair)";
-			strQryParams = "?response_type=code" + "&client_id=third_party" + "&redirect_uri=" + strRedirURI + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018"; 
-  			iExpectedRespCode = 302;	   			
-			break;
-		case 4:
-			strTestName = "Malformed Authorization Code Request (No state field-value pair)";
-			strQryParams = "?response_type=code" + "&client_id=third_party" + "&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope; 
-  			iExpectedRespCode = 302;  				
-			break;
-
-		// permitting multiple field-value pairs on assumption that the target uses first and ignores duplicates and this is ok.
-		case 5:
-			strTestName = "Malformed Authorization Code Request (Multiple response_type field-value pairs)";
-			strQryParams = "?response_type=code" + "&client_id=third_party" + "&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018" + "&response_type=code"; 
-  			//iExpectedRespCode = 302;  				
-  			iExpectedRespCode = 0;  				
-			break;
-		case 6:
-			strTestName = "Malformed Authorization Code Request (Multiple client_id field-value pairs)";
-			strQryParams = "?response_type=code" + "&client_id=third_party" + "&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018" + "&client_id=third_party"; 
-  			//iExpectedRespCode = 302;	  			
-  			iExpectedRespCode = 0;  				
-			break;
-		case 7:
-			strTestName = "Malformed Authorization Code Request (Multiple redirect_uri field-value pairs)";
-			strQryParams = "?response_type=code" + "&client_id=third_party" + "&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018" + "&redirect_uri" + strRedirURI; 
-  			//iExpectedRespCode = 302; 				
-  			iExpectedRespCode = 0;  				
-			break;			
-		case 8:
-			strTestName = "Malformed Authorization Code Request (Multiple scope field-value pairs)";
-			strQryParams = "?response_type=code" + "&client_id=third_party" + "&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018" + "&scope=" + strSelectedScope; 
-  			//iExpectedRespCode = 302;	 			
-  			iExpectedRespCode = 0;  				
-			break;
-		case 9:
-			strTestName = "Malformed Authorization Code Request (Multiple state field-value pairs)";
-			strQryParams = "?response_type=code" + "&client_id=third_party" + "&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018" + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018"; 
-  			//iExpectedRespCode = 302;							
-  			iExpectedRespCode = 0;  				
-			break;
-		//
-			
-		case 10:
-			strTestName = "Malformed Authorization Code Request (Invalid field-value pair)";
-			strQryParams = "?response_type=code&client_id=third_party&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018" + "&Garbage=Gigo";
-  			iExpectedRespCode = 302;				
-			break;
-		case 11:
+		case 2:
 			strTestName = "Malformed Authorization Code Request (Invalid response_type field-value pair)";
 			strQryParams = "?response_type=badresponsetype&client_id=third_party&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018";
   			iExpectedRespCode = 302;	
 			break;
-		case 12:
+		case 3:
 			strTestName = "Authorization Code Request (Invalid client_id field-value pair)";
 			strQryParams = "?response_type=code&client_id=invalid_third_party&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018";
 			iExpectedRespCode = 401;
 			break;
-		case 13:
+		case 4:
 			strTestName = "Authorization Code Request (Invalid redirect_uri field-value pair)";
 			strQryParams = "?response_type=code&client_id=third_party&redirect_uri=" + "https://services.greenbuttondata.org" + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018";
 			iExpectedRespCode = 400;			
 			break;
-		case 14:
+		case 5:
 			strTestName = "Authorization Code Request (Invalid scope field-value pair)";
 			strQryParams = "?response_type=code&client_id=third_party&redirect_uri=" + strRedirURI + "&&scope=" + "FB=????" + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018";
 			iExpectedRespCode = 302;
@@ -18032,36 +17977,8 @@ while(true) {
 	}
 
 
-/*
-	// 0 indicates skip test
-	if(iExpectedRespCode != 0) {
-		log.info("==================================================================================================================");		
-		log.info("testing: " + strTestName);
-		iRespCode = issueGET(strAuthEndpoint + strQryParams,strSessionID);
-		
-		if(iRespCode != iExpectedRespCode) {	// Received Response Code does not mat expected Response Code
-			if(iRespCode != 200) {			// A 200 OK Response Code is acceptable for interoperability although not in compliance with RFC 6749 "The OAuth 2.0 Authorization Framework"
-				log.error("Failed malformed Authorization request: " + strTestName + " expected response code:" + iExpectedRespCode + " but received:" + iRespCode);
-				testRunner.fail("Failed malformed Authorization request: " + strTestName + " expected response code:" + iExpectedRespCode + " but received:" + iRespCode);
-				return;
-			}
-		} else {
-			if (iRespCode == 302) {			// Received Response Code matches expected Response Code
-				if (strRespLoc != null) {
-					if (strRespLoc.indexOf("code=") != -1) {	// A 302 Redirect Response Code with a "code=" parameter is NOT valid 
-						log.error("Failed malformed Authorization request: " + strTestName + " received expected response code: " + iExpectedRespCode + " but response contained code=");
-						testRunner.fail("Failed malformed Authorization request: " + strTestName + " received expected response code: " + iExpectedRespCode + " but response contained code=");
-						return;
-					}
-				}
-			}
-		}
-	} else {
-		log.info("skipping: " + strTestName);
-	}
-*/
 	iTestID++;
-	if(iTestID > 14){
+	if(iTestID > 5){
 		break;
 	}
 }
@@ -18078,7 +17995,7 @@ if(context["driver"] != null){
 	context["driver"].quit();
 	context["driver"] = null;	
 }
-</con:tearDownScript><con:properties><con:property><con:name>extracted_scope_sel_uri</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value>CDE30AFCC648E8B9A964F5F74DAE96B1</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD002 [NEG] Authorization Code Request (Retail Customer Passes Authentication and DENIES access)" searchProperties="true" id="bccca4c3-2b7b-4359-8ca2-2159ecd05c3e"><con:description/><con:settings/><con:testStep type="groovy" name="Verify DC scope selection URI present"><con:settings/><con:config><script>def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
+</con:tearDownScript><con:properties><con:property><con:name>extracted_scope_sel_uri</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value>3331A4C18A6D1414B03DB1EB079A7427</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD002 [NEG] Authorization Code Request (Retail Customer Passes Authentication and DENIES access)" searchProperties="true" id="bccca4c3-2b7b-4359-8ca2-2159ecd05c3e"><con:description/><con:settings/><con:testStep type="groovy" name="Verify DC scope selection URI present"><con:settings/><con:config><script>def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
 
 if((authCase.getPropertyValue("dataCustodianScopeSelectionScreenURI")==null)||
 (authCase.getPropertyValue("dataCustodianScopeSelectionScreenURI")=="")){
@@ -18255,62 +18172,53 @@ while(true) {
 
 	switch(iTestID) {
 		case 0:
-			strTestName = "Access Token Request Authorization Header Rejection";
+			strTestName = "Access Token Request Authorization No Authorization Header";
 			strQryParams = "?grant_type=authorization_code" + "&code=" + strOAuthCodeReceivedValue + "&redirect_uri=" + strRedirURI;
-			strToken = "bad value";				
+			strToken = "";				
 			iExpectedRespCode = 401;
 			break;
 		case 1:
+			strTestName = "Access Token Request Authorization Invalid Authorization Header";
+			strQryParams = "?grant_type=authorization_code" + "&code=" + strOAuthCodeReceivedValue + "&redirect_uri=" + strRedirURI;
+			strToken = "bad value";				
+			iExpectedRespCode = 401;
+			break;			
+		case 2:
 			strTestName = "Malformed Authorization Code Grant Access Token Request (No grant_type field-value pair)";
 			strQryParams = "?code=" + strOAuthCodeReceivedValue + "&redirect_uri=" + strRedirURI;				
 			iExpectedRespCode = 400;
 			break;	
-		case 2:
+		case 3:
 			strTestName = "Malformed Authorization Code Grant Access Token Request (No code field-value pair)";
 			strQryParams = "?grant_type=authorization_code" + "&redirect_uri=" + strRedirURI;				
 			iExpectedRespCode = 400;
 			break;
-		case 3:
+		case 4:
 			strTestName = "Malformed Authorization Code Grant Access Token Request (No redirect_uri field-value pair)";
 			strQryParams = "?grant_type=authorization_code" + "&code=" + strOAuthCodeReceivedValue;				
 			iExpectedRespCode = 400;
 			break;
-		case 4:
-			strTestName = "Malformed Authorization Code Grant Access Token Request (Multiple grant_type field-value pairs)";
-			strQryParams = "?grant_type=authorization_code" + "&code=" + strOAuthCodeReceivedValue + "&redirect_uri=" + strRedirURI + "&grant_type=authorization_code";				
-			iExpectedRespCode = 400;
-			break;
 		case 5:
-			strTestName = "Malformed Authorization Code Grant Access Token Request (Multiple code field-value pairs)";
-			strQryParams = "?grant_type=authorization_code" + "&code=" + strOAuthCodeReceivedValue + "&redirect_uri=" + strRedirURI + "&code=" + strOAuthCodeReceivedValue;				
-			iExpectedRespCode = 400;
-			break;
-		case 6:
-			strTestName = "Malformed Authorization Code Grant Access Token Request (Multiple redirect_uri field-value pairs)";
-			strQryParams = "?grant_type=authorization_code" + "&code=" + strOAuthCodeReceivedValue + "&redirect_uri=" + strRedirURI + "&redirect_uri=" + strRedirURI;				
-			iExpectedRespCode = 400;
-			break;
-		case 7:
 			strTestName = "Malformed Authorization Code Grant Access Token Request (Contains  HTTP BASIC Authorization header and client_id field-value pair)";
 			strQryParams = "?grant_type=authorization_code" + "&code=" + strOAuthCodeReceivedValue + "&redirect_uri=" + strRedirURI + "?client_id=third_party";				
 			iExpectedRespCode = 400;
 			break;
-		case 8:
+		case 6:
 			strTestName = "Invalid Authorization Code Grant Access Token Request (redirect_uri field-value pair doess not match the redirect_uri field-value pair in the Authorization Code Request)";
 			strQryParams = "?grant_type=authorization_code" + "&code=" + strOAuthCodeReceivedValue + "&redirect_uri=https://services.greenbuttondata.org";				
 			iExpectedRespCode = 400;
 			break;
-		case 9:
+		case 7:
 			strTestName = "Invalid Authorization Code Grant Access Token Request (code field-value pair contains an authorization code issued to another client)";
 			strQryParams = "?grant_type=authorization_code" + "&code=" + strOAuthCodeReceivedValue + "&redirect_uri=" + strRedirURI;			
 			iExpectedRespCode = 400;
 			break;
-		case 10:
+		case 8:
 			strTestName = "Invalid Authorization Code Grant Access Token Request (code field-value pair contains an invalid authorization code)";
 			strQryParams = "?grant_type=authorization_code" + "&code=badauthorizationcode" + "&redirect_uri=" + strRedirURI;				
 			iExpectedRespCode = 400;
 			break;
-		case 11:
+		case 9:
 			def ui = com.eviware.soapui.support.UISupport;
 			result = ui.getDialogs().showInfoMessage("The following test will take 6 minutes to complete. SoapUI may appear inactive. Please click OK now and please be patient...", "");
 			Thread.sleep(360000);
@@ -18318,11 +18226,6 @@ while(true) {
 			strQryParams = "?grant_type=authorization_code" + "&code=" + strOAuthCodeReceivedValue + "&redirect_uri=" + strRedirURI;				
 			iExpectedRespCode = 400;
 			break;
-		case 12:
-			strTestName = "Invalid Authorization Code Grant Access Token Request (Application Information record grant_type field-value pair contains client_credentials)";
-			strQryParams = "?grant_type=authorization_code" + "&code=" + strOAuthCodeReceivedValue + "&redirect_uri=" + strRedirURI;				
-			iExpectedRespCode = 400;
-			break;	
 		default:
 			break;
 	}
@@ -18343,7 +18246,7 @@ while(true) {
 	}	
 
 	iTestID++;
-	if(iTestID > 12){
+	if(iTestID > 9){
 		break;
 	}
 }	
@@ -18359,12 +18262,12 @@ if(context["driver"] != null){
 	context["driver"].quit();
 	context["driver"] = null;	
 }
-</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>BNjutO</con:value></con:property><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"06430590-2897-422a-9316-95fccb60e96d","token_type":"bearer","refresh_token":"1d8e2070-73ee-40f8-9549-dad626ead16a","expires_in":31535999,"scope":"FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13","resourceURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5","authorizationURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5"}
+</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>AvFhi1</con:value></con:property><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"06430590-2897-422a-9316-95fccb60e96d","token_type":"bearer","refresh_token":"1d8e2070-73ee-40f8-9549-dad626ead16a","expires_in":31535999,"scope":"FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13","resourceURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5","authorizationURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5"}
 </con:value></con:property><con:property><con:name>access_token</con:name><con:value>06430590-2897-422a-9316-95fccb60e96d</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>1d8e2070-73ee-40f8-9549-dad626ead16a</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD004 [POS] Successful Access Token Request" searchProperties="true" id="e85a65a3-3c40-4d23-9720-1830d5cb4b6f"><con:description/><con:settings/><con:testStep type="groovy" name="Ask User To expire Authorization"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
 
 String strDialog = "If the Data Custodian supports changing the default authroization expiration period please instruct the \
 Data Custodian to set the default period to a short duration at this time (i.e. one or two minutes).\r\n\
-After this experation period has been set please take note of the period used and then please proceed with this test.\r\n\
+After this expiration period has been set please take note of the period used and then please proceed with this test.\r\n\
 Otherwise an option will be presented later where the Data Custodian will be asked to force the authorization about to be created to expire at that time.\r\n\r\n\
 If you do not wish to proceed plase click No.\r\n\
 To proceed now please click Yes.\r\n";
@@ -18595,8 +18498,8 @@ if(context["driver"] != null){
 	context["driver"].quit();
 	context["driver"] = null;	
 }
-</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>UAh6VR</con:value></con:property><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"8157d296-5511-4fb0-b5c1-9d45e77e075e","token_type":"bearer","refresh_token":"b7cca84f-c401-4873-a476-69b266824a34","expires_in":31535999,"scope":"FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13","resourceURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5","authorizationURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5"}
-</con:value></con:property><con:property><con:name>access_token</con:name><con:value>8157d296-5511-4fb0-b5c1-9d45e77e075e</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>b7cca84f-c401-4873-a476-69b266824a34</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD005 [NEG] Invalid Authorization Code Grant Access Token Request (code field-value pair contains a previously used authorization code)" searchProperties="true" id="b15099c2-2c8e-4569-b4ed-8e6be0ff849a"><con:description/><con:settings/><con:testStep type="groovy" name="Issue GET OAuth Token requests"><con:settings/><con:config><script>import java.net.*;
+</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>7nXswz</con:value></con:property><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"32927e1d-cf6f-41be-94d5-7282bf0479a8","token_type":"bearer","refresh_token":"41a7cb84-07ce-4c1f-add3-3f7a818f1a96","expires_in":31535529,"scope":"FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13","resourceURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5","authorizationURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5"}
+</con:value></con:property><con:property><con:name>access_token</con:name><con:value>32927e1d-cf6f-41be-94d5-7282bf0479a8</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>41a7cb84-07ce-4c1f-add3-3f7a818f1a96</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535529</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD005 [NEG] Invalid Authorization Code Grant Access Token Request (code field-value pair contains a previously used authorization code)" searchProperties="true" id="b15099c2-2c8e-4569-b4ed-8e6be0ff849a"><con:description/><con:settings/><con:testStep type="groovy" name="Issue GET OAuth Token requests"><con:settings/><con:config><script>import java.net.*;
 import java.io.*;
 
 int issueGET(String targetURL,String strToken){
@@ -18670,7 +18573,7 @@ if(iRespCode != 400) {
 assert true;
 
 </script></con:config></con:testStep><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>OrBApu</con:value></con:property><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"06430590-2897-422a-9316-95fccb60e96d","token_type":"bearer","refresh_token":"1d8e2070-73ee-40f8-9549-dad626ead16a","expires_in":31535999,"scope":"FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13","resourceURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5","authorizationURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5"}
-</con:value></con:property><con:property><con:name>access_token</con:name><con:value>06430590-2897-422a-9316-95fccb60e96d</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>1d8e2070-73ee-40f8-9549-dad626ead16a</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD006 [NEG] Malformed Client Credentials Grant Access Token Requests" searchProperties="true" id="6124850c-a445-466c-9453-4616b31220d9"><con:settings/><con:testStep type="groovy" name="Issue malformed client credentials access token requests"><con:settings/><con:config><script><![CDATA[import java.net.*;
+</con:value></con:property><con:property><con:name>access_token</con:name><con:value>06430590-2897-422a-9316-95fccb60e96d</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>1d8e2070-73ee-40f8-9549-dad626ead16a</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD006 [NEG] Malformed Client Credentials Grant Access Token Requests" searchProperties="true" id="6124850c-a445-466c-9453-4616b31220d9"><con:settings/><con:testStep type="groovy" name="Issue malformed client credentials access token requests"><con:settings/><con:config><script>import java.net.*;
 import java.io.*;
 
 int issueGET(String targetURL,String strToken){
@@ -18738,13 +18641,13 @@ log.info ("authorizationServerTokenEndpoint: " + strAuthorizationServerTokenEndp
 log.info ("scope: " + strScope);
 
 // Sample good Access Token Client Credentials Request query parameter
-//String strQryParams = "?grant_type=client_credentials" + "&scope=FB=34_35";
+//String strQryParams = "?grant_type=client_credentials" + "&amp;scope=FB=34_35";
 
 int iTestID= 0;
 while(true) {
 	// loop through different malformation tests
 	String strTestName = "";
-	String strQryParams = "?grant_type=client_credentials" + "&scope=FB=34_35";
+	String strQryParams = "?grant_type=client_credentials" + "&amp;scope=FB=34_35";
 	String strToken = "dGhpcmRfcGFydHk6c2VjcmV0";
 	 
 	int iRespCode = 0;
@@ -18757,32 +18660,14 @@ while(true) {
 			iExpectedRespCode = 400;
 			break;
 		case 1:
-			strTestName = "Malformed Client Credentials Grant Access Token Request (No scope= field-value pair)";
-			strQryParams = "?grant_type=client_credentials";			
-			iExpectedRespCode = 400;
-			iExpectedRespCode = 0;
-			break;
-		case 2:
-			strTestName = "Malformed Client Credentials Grant Access Token Request (Multiple grant_type= field-value pairs)";
-			strQryParams = "?grant_type=client_credentials" + "&scope=FB=34_35" + "&grant_type=client_credentials";			
-			iExpectedRespCode = 400;
-//			iExpectedRespCode = 0;			
-			break;
-		case 3:
-			strTestName = "Malformed Client Credentials Grant Access Token Request (Multiple scope= field-value pairs)";
-			strQryParams = "?grant_type=client_credentials" + "&scope=FB=34_35" + "&scope=" + strScope;			
-			iExpectedRespCode = 400;
-//			iExpectedRespCode = 0;				
-			break;
-		case 4:
 			strTestName = "Malformed Client Credentials Grant Access Token Request (contents of scope= field-value pair does not match contents of Application Information structure 'scope' field)";
-			strQryParams = "?grant_type=client_credentials" + "&scope=FB=read/write";			
+			strQryParams = "?grant_type=client_credentials" + "&amp;scope=FB=read/write";			
 			iExpectedRespCode = 400;
 			break;
 //		case 5:
 			// This test case only requires the Application Information be verified 
 //			strTestName = "Invalid Client Credentials Grant Access Token Request (Application Information record grant_type field contains authorization_code, refresh_token)	OAD046";
-//			strQryParams = "?grant_type=client_credentials" + "&scope=" + strScope;			
+//			strQryParams = "?grant_type=client_credentials" + "&amp;scope=" + strScope;			
 //			iExpectedRespCode = 0;
 //			break;	
 		default:
@@ -18806,7 +18691,7 @@ while(true) {
 
 	iTestID++;
 //	if(iTestID > 5){
-	if(iTestID > 4){
+	if(iTestID > 1){
 		break;
 	}
 }	
@@ -18815,7 +18700,7 @@ while(true) {
 
 assert true;
 
-]]></script></con:config></con:testStep><con:testStep type="restrequest" name="GET ApplicationInformation and verify grant_types"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ApplicationInformation and verify grant_types" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+</script></con:config></con:testStep><con:testStep type="restrequest" name="GET ApplicationInformation and verify grant_types"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ApplicationInformation and verify grant_types" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
 					<con:settings>
 						<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 			</con:settings>
@@ -18895,7 +18780,7 @@ testRunner.testCase.setPropertyValue("scope",authCase.getPropertyValue("scope"))
 	<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 	<con:request/>
 	<con:originalUri>http://localhost/DataCustodian/oauth/token</con:originalUri>
-	<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes/></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper;
+	<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper;
 
 String response = messageExchange.response.contentAsString;
 
@@ -18910,31 +18795,31 @@ log.info("scope = " + tokenResponse.scope);
 log.info("resourceURI = " + tokenResponse.resourceURI);
 log.info("authorizationURI = " + tokenResponse.authorizationURI);
 
-if(tokenResponse.access_token==null){
+if(tokenResponse.access_token == null){
 	assert false;
 }
 
-if(tokenResponse.token_type==null){
+if(tokenResponse.token_type == null){
 	assert false;
 }
 
-if(tokenResponse.refresh_token==null){
+if(tokenResponse.refresh_token != null){
 	assert false;
 }
 
-if(tokenResponse.expires_in==null){
+if(tokenResponse.expires_in == null){
 	assert false;
 }
 
-if(tokenResponse.scope==null){
+if(tokenResponse.scope == null){
 	assert false;
 }
 
-if(tokenResponse.resourceURI==null){
+if(tokenResponse.resourceURI != null){
 	assert false;
 }
 
-if(tokenResponse.authorizationURI==null){
+if(tokenResponse.authorizationURI == null){
 	assert false;
 }
 </scriptText></con:configuration></con:assertion><con:credentials>
@@ -19039,31 +18924,16 @@ while(true) {
 			iExpectedRespCode = 400;
 			break;
 		case 2:
-			strTestName = "Malformed Refresh Token Request (Multiple grant_type= field-value pairs)";
-			strQryParams = "?grant_type=refresh_token" + "&refresh_token=" + strRefreshToken + "&scope=" + strScope + "&grant_type=refresh_token";			
-			iExpectedRespCode = 400;
-			break;
-		case 3:
-			strTestName = "Malformed Refresh Token Request (Multiple refresh_token= field-value pairs)";
-			strQryParams = "?grant_type=refresh_token" + "&refresh_token=" + strRefreshToken + "&scope=" + strScope + "&refresh_token=" + strRefreshToken;			
-			iExpectedRespCode = 400;
-			break;
-		case 4:
-			strTestName = "Malformed Refresh Token Request (Multiple scope field-value pairs)";
-			strQryParams = "?grant_type=refresh_token" + "&refresh_token=" + strRefreshToken + "&scope=" + strScope + "&scope=" + strScope;			
-			iExpectedRespCode = 400;
-			break;
-		case 5:
 			strTestName = "Invalid Refresh Token Request (Contents of refresh_token= field-value pair was issued to a different Third Party)";
 			strQryParams = "?grant_type=refresh_token" + "&refresh_token=" + strRefreshToken + "&scope=" + strScope;			
 			iExpectedRespCode = 400;
 			break;
-		case 6:
+		case 3:
 			strTestName = "Invalid Refresh Token Request (Contents of scope= field-value pair does not match 'scope=' used in original access token request)";
 			strQryParams = "?grant_type=refresh_token" + "&refresh_token=" + strRefreshToken + "&scope=Read/Write";			
 			iExpectedRespCode = 400;
 			break;
-		case 7:
+		case 4:
 			strTestName = "Invalid Refresh Token Request (Value found in refresh_token= field-value pair has expired)";
 			strQryParams = "?grant_type=refresh_token" + "&refresh_token=" + strRefreshToken + "&scope=" + strScope;			
 			iExpectedRespCode = 400;
@@ -19088,7 +18958,7 @@ while(true) {
 	}	
 
 	iTestID++;
-	if(iTestID > 7){
+	if(iTestID > 4){
 		break;
 	}
 }	
@@ -19439,7 +19309,7 @@ headers.put("Accept","application/json, application/*+json");
 propTestStep.testRequest.setRequestHeaders(headers);</script></con:config></con:testStep><con:testStep type="httprequest" name="Issue Refresh Token Request"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="Issue Refresh Token Request" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
   &lt;con:entry key="Authorization" value="Basic dGhpcmRfcGFydHk6c2VjcmV0"/>
   &lt;con:entry key="Accept" value="application/json, application/*+json"/>
-&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://localhost:8080/DataCustodian/oauth/token?grant_type=refresh_token&amp;refresh_token=b75002a9-9469-46a6-9b60-b820e51a5359&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://localhost:8080/DataCustodian/oauth/token?grant_type=refresh_token&amp;refresh_token=b44830df-81cd-4188-b119-6baa83c7ef22&amp;scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper;
 
 String response = messageExchange.response.contentAsString;
 
@@ -19474,13 +19344,13 @@ if(tokenResponse.scope==null){
 	assert false;
 }
 
-//if(tokenResponse.resourceURI==null){
-//	assert false;
-//}
+if(tokenResponse.resourceURI==null){
+	assert false;
+}
 
-//if(tokenResponse.authorizationURI==null){
-//	assert false;
-//}
+if(tokenResponse.authorizationURI==null){
+	assert false;
+}
 </scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:properties/></con:testCase><con:properties/>
 </con:testSuite>
 <con:testSuite name="[FUTURE]*[FB_19] Partial Update Data">
@@ -22996,7 +22866,7 @@ Please select "Pass" on SoapUI manual test step now.
 </body>
 </html>
 ]]></con:responseContent></con:response></con:restMockAction></con:restMockService>
-<con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty Authorization Mock Service for NEG tests type B" docroot=""><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value>9C0B4BBAD2FBDAF475058F4996FE725B</con:value></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>BNjutO</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+<con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty Authorization Mock Service for NEG tests type B" docroot=""><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value>9C0B4BBAD2FBDAF475058F4996FE725B</con:value></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>7nXswz</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Examples showing how to match based on path, query param and header
 // Match based on path
 def requestPath = mockRequest.getPath()
