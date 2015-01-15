@@ -7941,7 +7941,7 @@ if(context["driver"] != null){
 	context["driver"].quit();
 	context["driver"] = null;	
 }
-</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>1256fa6e-70d7-4545-bd86-1aef2af149e2</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property><con:property><con:name>token_type</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">f6f5faab-d87a-47d1-943f-841e7954acbe</con:value></con:property><con:property><con:name>expires_in</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">DSU8of</con:value></con:property><con:property><con:name>error</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
+</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>1e49b26d-f78e-4103-ad33-f81bdd334217</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property><con:property><con:name>token_type</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">83b2f713-ea99-4716-ab80-2e35eaaae674</con:value></con:property><con:property><con:name>expires_in</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
@@ -13856,7 +13856,7 @@ drwxr-xr-x  2 bitnami bitnami     4096 Apr  9  2014 listeners
 -rwxr-xr-x  1 bitnami bitnami     1887 Apr  9  2014 testrunner.sh
 -rwxr-xr-x  1 bitnami bitnami     1883 Apr  9  2014 toolrunner.sh
 -rwxr-xr-x  1 bitnami bitnami     1896 Apr  9  2014 wargenerator.sh
-</con:value></con:property><con:property><con:name>cmd</con:name><con:value>ls -al</con:value></con:property><con:property><con:name>path</con:name><con:value>.</con:value></con:property><con:property><con:name>stderr</con:name><con:value>depth=1 C = US, O = DigiCert Inc, CN = DigiCert Secure Server CA verify error:num=20:unable to get local issuer certificate verify return:0 </con:value></con:property><con:property><con:name>returncode</con:name><con:value>124</con:value></con:property><con:property><con:name>timeout</con:name><con:value>0</con:value></con:property></con:properties><con:returnProperties><con:entry>stdout</con:entry><con:entry>stderr</con:entry><con:entry>returncode</con:entry></con:returnProperties><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:properties><con:property><con:name>cmd</con:name><con:value>openssl s_client -tls1_2 -connect services.greenbuttondata.org:443</con:value></con:property><con:property><con:name>path</con:name><con:value>.</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SetupForTest" searchProperties="true"><con:settings/><con:testStep type="groovy" name="setup"><con:settings/><con:config><script>testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
+</con:value></con:property><con:property><con:name>cmd</con:name><con:value>ls -al</con:value></con:property><con:property><con:name>path</con:name><con:value>.</con:value></con:property><con:property><con:name>stderr</con:name><con:value>depth=1 C = US, O = DigiCert Inc, CN = DigiCert Secure Server CA verify error:num=20:unable to get local issuer certificate verify return:0 </con:value></con:property><con:property><con:name>returncode</con:name><con:value>124</con:value></con:property><con:property><con:name>timeout</con:name><con:value>0</con:value></con:property></con:properties><con:returnProperties><con:entry>stdout</con:entry><con:entry>stderr</con:entry><con:entry>returncode</con:entry></con:returnProperties><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:properties><con:property><con:name>cmd</con:name><con:value>openssl s_client -tls1_2 -connect services.greenbuttondata.org:443</con:value></con:property><con:property><con:name>path</con:name><con:value>.</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SetupForTest" searchProperties="true" id="7e6f4176-bacb-4455-91f3-c970b4c7898b"><con:settings/><con:testStep type="groovy" name="setup"><con:settings/><con:config><script>testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
 testRunner.testCase.testSuite.project.testSuites['[FB_01] Common'].testCases['FND001 Initial Test Configuration'].run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 testRunner.testCase.testSuite.project.testSuites['Library'].testCases['UploadTestFile GUI'].run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 assert true;</script></con:config></con:testStep><con:properties/></con:testCase><con:properties>
@@ -41052,7 +41052,8 @@ if(context["driver"] != null){
 	context["driver"].quit();
 	context["driver"] = null;	
 }
-</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>DSU8of</con:value></con:property><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"1256fa6e-70d7-4545-bd86-1aef2af149e2","token_type":"bearer","refresh_token":"f6f5faab-d87a-47d1-943f-841e7954acbe","expires_in":31535999,"scope":"FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13","resourceURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5","authorizationURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5"}</con:value></con:property><con:property><con:name>access_token</con:name><con:value>1256fa6e-70d7-4545-bd86-1aef2af149e2</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>f6f5faab-d87a-47d1-943f-841e7954acbe</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD005 [NEG] Invalid Authorization Code Grant Access Token Request (code field-value pair contains a previously used authorization code)" searchProperties="true" id="b15099c2-2c8e-4569-b4ed-8e6be0ff849a"><con:description/><con:settings/><con:testStep type="groovy" name="Issue GET OAuth Token requests"><con:settings/><con:config><script>import java.net.*;
+</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>DSU8of</con:value></con:property><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"1256fa6e-70d7-4545-bd86-1aef2af149e2","token_type":"bearer","refresh_token":"f6f5faab-d87a-47d1-943f-841e7954acbe","expires_in":31535999,"scope":"FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13","resourceURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5","authorizationURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5"}
+</con:value></con:property><con:property><con:name>access_token</con:name><con:value>1256fa6e-70d7-4545-bd86-1aef2af149e2</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>f6f5faab-d87a-47d1-943f-841e7954acbe</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD005 [NEG] Invalid Authorization Code Grant Access Token Request (code field-value pair contains a previously used authorization code)" searchProperties="true" id="b15099c2-2c8e-4569-b4ed-8e6be0ff849a"><con:description/><con:settings/><con:testStep type="groovy" name="Issue GET OAuth Token requests"><con:settings/><con:config><script>import java.net.*;
 import java.io.*;
 
 int issueGET(String targetURL,String strToken){
@@ -42801,11 +42802,11 @@ return;
 </script></con:config></con:testStep><con:properties/>
 	</con:testCase><con:properties/>
 </con:testSuite>
-<con:testSuite name="*[FB_37] Query Parameters">
+<con:testSuite name="[FB_37] Query Parameters">
 	<con:settings/>
 	<con:runType>SEQUENTIAL</con:runType>
 	
-	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="QRY_001 [POS][A] Query Parameters" searchProperties="true" id="3daee975-e73f-4a02-9e49-15262c473322"><con:description/><con:settings/><con:testStep type="calltestcase" name="Run TestCase Create Authorization" disabled="true"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>00812f7a-b4ce-4782-bf13-f27a979f6d00</con:targetTestCase><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>ef9131d0-d952-4288-95a2-b0087e1336ad</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>cbc9e9c0-7d54-44b8-83ba-a13f86d9e67b</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>error</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property></con:properties><con:returnProperties><con:entry>dataCustodianScopeSelectionScreenURI</con:entry><con:entry>authorizationServerAuthorizationEndpoint</con:entry><con:entry>redirect_uri</con:entry><con:entry>authorizationServerTokenEndpoint</con:entry><con:entry>access_token</con:entry><con:entry>resourceURI</con:entry><con:entry>authorizationURI</con:entry><con:entry>token_type</con:entry><con:entry>refresh_token</con:entry><con:entry>expires_in</con:entry><con:entry>scope</con:entry><con:entry>client_id</con:entry></con:returnProperties><con:runMode>SINGLETON_AND_WAIT</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Extract information from authorization"><con:settings/><con:config><script>import com.eviware.soapui.support.types.StringToStringMap;
+	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="QRY_001 [POS][A] Query Parameters - published-min/max" searchProperties="true" id="3daee975-e73f-4a02-9e49-15262c473322"><con:description/><con:settings/><con:testStep type="calltestcase" name="Run TestCase Create Authorization"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>00812f7a-b4ce-4782-bf13-f27a979f6d00</con:targetTestCase><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>1e49b26d-f78e-4103-ad33-f81bdd334217</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>83b2f713-ea99-4716-ab80-2e35eaaae674</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>error</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property></con:properties><con:returnProperties><con:entry>dataCustodianScopeSelectionScreenURI</con:entry><con:entry>authorizationServerAuthorizationEndpoint</con:entry><con:entry>redirect_uri</con:entry><con:entry>authorizationServerTokenEndpoint</con:entry><con:entry>access_token</con:entry><con:entry>resourceURI</con:entry><con:entry>authorizationURI</con:entry><con:entry>token_type</con:entry><con:entry>refresh_token</con:entry><con:entry>expires_in</con:entry><con:entry>scope</con:entry><con:entry>client_id</con:entry></con:returnProperties><con:runMode>SINGLETON_AND_WAIT</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Extract information from authorization"><con:settings/><con:config><script>import com.eviware.soapui.support.types.StringToStringMap;
 
 def propCreateAuthResults  = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
 
@@ -42817,7 +42818,7 @@ headers.put("Authorization","Bearer " + propCreateAuthResults.getPropertyValue("
 headers.put("Content-Type","Application/atom+xml");
 propTestStep.testRequest.setRequestHeaders(headers);
 </script></con:config></con:testStep><con:testStep type="httprequest" name="GET Resource URI"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Resource URI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
-  &lt;con:entry key="Authorization" value="Bearer ef9131d0-d952-4288-95a2-b0087e1336ad"/>
+  &lt;con:entry key="Authorization" value="Bearer 1e49b26d-f78e-4103-ad33-f81bdd334217"/>
   &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
 &lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema Validation"><con:configuration><scriptText>import javax.xml.XMLConstants;
 import javax.xml.transform.Source;
@@ -42853,12 +42854,26 @@ import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Schema;
 import javax.xml.validation.Validator;
 import com.eviware.soapui.support.XmlHolder;
+import com.eviware.soapui.support.types.StringToStringMap;
 
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
 
-log.info("extracting info from: " + context.ResponseBody);
+
 
 def holder;
+
+// the following code allows us to temporarily bypass openESPI as a reference implementation
+// in order to test the following code, since openESPI currently (1/14/2015) 
+// does not handle published and updated time stamps properly
+// This code will "bypass" the true response from OpenESPI and will use a test data file
+
+// String strFile = groovyUtils.projectPath + "/sampledata/resource.xml";
+// holder = groovyUtils.getXmlHolder(new File(strFile).text);
+
+
+// this code uses the actual retreived response
+
+log.info("extracting info from: " + context.ResponseBody);
 try{
 	holder = groovyUtils.getXmlHolder(context.ResponseBody);
 } catch(org.apache.xmlbeans.XmlException e) {
@@ -42867,9 +42882,13 @@ try{
 	return;
 }
 
+
+holder.declareNamespace( 'espi', 'http://naesb.org/espi');
+holder.declareNamespace( 'atom', 'http://www.w3.org/2005/Atom');
+
 String strCount = "0";
 try{
-strCount = holder.getNodeValue("count(//espi:IntervalBlock)")
+	strCount = holder.getNodeValue("count(//espi:IntervalBlock)")
 } catch(org.apache.xmlbeans.XmlException e) {
 	log.error("Invalid response body: " + e.toString());
 	testRunner.fail("Invalid response body. Cannot query response.");
@@ -42882,29 +42901,425 @@ if(strCount.toInteger()&lt;4){
 	return;	
 }
 
+def entryNodes = holder.getDomNodes("//espi:IntervalBlock/../../atom:published");
+
 List listStarts = [];
 
-def entryNodes = holder.getDomNodes("//espi:IntervalBlock/espi:interval/espi:start");
 for(entryNode in entryNodes) {
-	//def nodeHolder = new XmlHolder(entryNode);
-	String strStart = entryNode.getFirstChild().getNodeValue();
-	int iStart = strStart.toInteger();
-//	log.info "start: " + strStart;
-	listStarts.add(iStart);
+	String strPublished = entryNode.getFirstChild().getNodeValue();
+	Date datePublished =  new Date().parse("yyyy-MM-dd'T'HH:mm:ss'Z'",strPublished);
+//	log.info "published: " + strPublished + " date: " + datePublished.format("yyyy-MM-dd'T'HH:mm:ss'Z'");
+	listStarts.add(datePublished);
 }
 
 listStarts.sort();
 
+String strMin = listStarts.getAt(1).format("yyyy-MM-dd'T'HH:mm:ss'Z'");
+String strMax = listStarts.getAt(listStarts.size-2).format("yyyy-MM-dd'T'HH:mm:ss'Z'");
+
+if(strMin.equals(strMax)){
+	log.error("Cannot conduct test as the resource response does not contain a testable range of IntervalBlock published dates.");
+	testRunner.fail("Cannot conduct test as the resource response does not contain a testable range of IntervalBlock published dates.");
+	return;
+}
+
+/*
 log.info("size:" + listStarts.size);
-log.info("start:" + listStarts.getAt(0));
-log.info("start+1:" + listStarts.getAt(1));
-log.info("end:" + listStarts.getAt(listStarts.size-1));
-log.info("end-1:" + listStarts.getAt(listStarts.size-2));
+log.info("start:" + listStarts.getAt(0).format("yyyy-MM-dd'T'HH:mm:ss'Z'"));
+log.info("start+1:" + strMin);
+log.info("end:" + listStarts.getAt(listStarts.size-1).format("yyyy-MM-dd'T'HH:mm:ss'Z'"));
+log.info("end-1:" + strMax);
+*/
 
 context.expectedCount = listStarts.size - 2;
 
+def propCreateAuthResults  = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
+
+propTestStep = context.testCase.getTestStepByName("GET Filtered Resource URI");
+def headers = new StringToStringMap();
+
+String strEndpoint = propCreateAuthResults.getPropertyValue("resourceURI");
+strEndpoint = strEndpoint + "?published-min=" + strMin + "&amp;published-max=" + strMax;
+
+propTestStep.setPropertyValue("Endpoint",strEndpoint);
+headers.put("Authorization","Bearer " + propCreateAuthResults.getPropertyValue("access_token"));
+headers.put("Content-Type","Application/atom+xml");
+propTestStep.testRequest.setRequestHeaders(headers);
 
 
+
+return
+
+/*
+ * TMP: code used to get intervalBlock Time stamps
+ * for reference only
+ * 
+def entryNodes = holder.getDomNodes("//espi:IntervalBlock/espi:interval/espi:start");
+for(entryNode in entryNodes) {
+	String strStart = entryNode.getFirstChild().getNodeValue();
+	def holderParent = new XmlHolder(entryNode.getParentNode());
+	holderParent.declareNamespace( 'espi', 'http://naesb.org/espi');
+	
+	String strDuration = holderParent.getDomNode("//espi:duration").getFirstChild().getNodeValue();
+	long lDuration = strDuration.toInteger();
+	
+	long lEnd = strStart.toInteger() + lDuration;
+	Date dateEnd = new Date( ((long)lEnd) * 1000 )
+	
+	//log.info "start: " + strStart + "Date: " + dateStart.format("yyyy-MM-dd HH:mm:ss.S");
+	log.info "end Date: " + dateEnd.format("yyyy-MM-dd HH:mm:ss");
+}
+*/
+
+
+</script></con:config></con:testStep><con:testStep type="httprequest" name="GET Filtered Resource URI"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Filtered Resource URI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Authorization" value="Bearer a1562e34-5e09-44b2-a933-981b9a427b66"/>
+  &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5?published-min=2012-03-03T00:00:00Z&amp;published-max=2012-03-14T00:00:00Z</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema Validation"><con:configuration><scriptText>import javax.xml.XMLConstants;
+import javax.xml.transform.Source;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.SchemaFactory;
+import javax.xml.validation.Schema;
+import javax.xml.validation.Validator;
+
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+
+String strSchemaFile1 = groovyUtils.projectPath + "/etc/atom.xsd";
+String strSchemaFile2 = groovyUtils.projectPath + "/etc/espiDerived.xsd";
+
+String response = messageExchange.response.contentAsString;
+
+context.ResponseBody = response;
+
+log.info("validating: " + response);
+
+StreamSource[] schemaDocuments = new StreamSource[2];
+schemaDocuments[0] = new StreamSource(strSchemaFile1);
+schemaDocuments[1] = new StreamSource(strSchemaFile2);
+Source instanceDocument = new StreamSource(new StringReader(response));
+
+SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+Schema s = sf.newSchema(schemaDocuments);
+Validator v = s.newValidator();
+v.validate(instanceDocument);</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="groovy" name="Verify Filtered Set of Interval Blocks"><con:settings/><con:config><script>import groovy.io.FileType;
+import javax.xml.XMLConstants;
+import javax.xml.transform.Source;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.SchemaFactory;
+import javax.xml.validation.Schema;
+import javax.xml.validation.Validator;
+import com.eviware.soapui.support.XmlHolder;
+import com.eviware.soapui.support.types.StringToStringMap;
+
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
+
+
+
+def holder;
+
+// the following code allows us to temporarily bypass openESPI as a reference implementation
+// in order to test the following code, since openESPI currently (1/14/2015) 
+// does not handle published and updated time stamps properly
+// This code will "bypass" the true response from OpenESPI and will use a test data file
+
+// String strFile = groovyUtils.projectPath + "/sampledata/resource_filteredMinMax.xml";
+// holder = groovyUtils.getXmlHolder(new File(strFile).text);
+
+
+// this code uses the actual retreived response
+
+log.info("extracting info from: " + context.ResponseBody);
+try{
+	holder = groovyUtils.getXmlHolder(context.ResponseBody);
+} catch(org.apache.xmlbeans.XmlException e) {
+	log.error("Invalid response body: " + e.toString());
+	testRunner.fail("Invalid response body.");
+	return;
+}
+
+holder.declareNamespace( 'espi', 'http://naesb.org/espi');
+holder.declareNamespace( 'atom', 'http://www.w3.org/2005/Atom');
+
+String strCount = "0";
+try{
+	strCount = holder.getNodeValue("count(//espi:IntervalBlock)")
+} catch(org.apache.xmlbeans.XmlException e) {
+	log.error("Invalid response body: " + e.toString());
+	testRunner.fail("Invalid response body. Cannot query response.");
+	return;
+}
+
+if(strCount.toInteger()&lt;1){
+	log.error("Resource must contain at least 1 interval block");
+	testRunner.fail("Resource must contain at least 1 interval block");
+	return;	
+}
+
+if(strCount.toInteger()!=context.expectedCount){
+	log.error("Filtered response does not contain the expected  number of IntervalBlocks. Expected:" + context.expectedCount + " Actual:" + strCount);
+	testRunner.fail("Filtered response does not contain the expected  number of IntervalBlocks. Expected:" + context.expectedCount + " Actual:" + strCount);
+}
+
+return
+</script></con:config></con:testStep><con:setupScript>testRunner.testCase.setPropertyValue("testsPerformed","");
+
+def mapFBsTested = [:];
+context.mapFBsTested = mapFBsTested;
+</con:setupScript><con:properties><con:property><con:name>extracted_scope_sel_uri</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>testsPerformed</con:name><con:value/></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="QRY_002 [POS][A] Query Parameters - updated-min/max" searchProperties="true" id="d4faef9f-ddb4-4d5a-b65e-e7c7000aa5e8"><con:description/><con:settings/><con:testStep type="calltestcase" name="Run TestCase Create Authorization"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>00812f7a-b4ce-4782-bf13-f27a979f6d00</con:targetTestCase><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>1e49b26d-f78e-4103-ad33-f81bdd334217</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>83b2f713-ea99-4716-ab80-2e35eaaae674</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>error</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property></con:properties><con:returnProperties><con:entry>dataCustodianScopeSelectionScreenURI</con:entry><con:entry>authorizationServerAuthorizationEndpoint</con:entry><con:entry>redirect_uri</con:entry><con:entry>authorizationServerTokenEndpoint</con:entry><con:entry>access_token</con:entry><con:entry>resourceURI</con:entry><con:entry>authorizationURI</con:entry><con:entry>token_type</con:entry><con:entry>refresh_token</con:entry><con:entry>expires_in</con:entry><con:entry>scope</con:entry><con:entry>client_id</con:entry></con:returnProperties><con:runMode>SINGLETON_AND_WAIT</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Extract information from authorization"><con:settings/><con:config><script>import com.eviware.soapui.support.types.StringToStringMap;
+
+def propCreateAuthResults  = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
+
+propTestStep = context.testCase.getTestStepByName("GET Resource URI");
+def headers = new StringToStringMap();
+
+propTestStep.setPropertyValue("Endpoint",propCreateAuthResults.getPropertyValue("resourceURI"));
+headers.put("Authorization","Bearer " + propCreateAuthResults.getPropertyValue("access_token"));
+headers.put("Content-Type","Application/atom+xml");
+propTestStep.testRequest.setRequestHeaders(headers);
+</script></con:config></con:testStep><con:testStep type="httprequest" name="GET Resource URI"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Resource URI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Authorization" value="Bearer 1e49b26d-f78e-4103-ad33-f81bdd334217"/>
+  &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema Validation"><con:configuration><scriptText>import javax.xml.XMLConstants;
+import javax.xml.transform.Source;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.SchemaFactory;
+import javax.xml.validation.Schema;
+import javax.xml.validation.Validator;
+
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+
+String strSchemaFile1 = groovyUtils.projectPath + "/etc/atom.xsd";
+String strSchemaFile2 = groovyUtils.projectPath + "/etc/espiDerived.xsd";
+
+String response = messageExchange.response.contentAsString;
+
+context.ResponseBody = response;
+
+log.info("validating: " + response);
+
+StreamSource[] schemaDocuments = new StreamSource[2];
+schemaDocuments[0] = new StreamSource(strSchemaFile1);
+schemaDocuments[1] = new StreamSource(strSchemaFile2);
+Source instanceDocument = new StreamSource(new StringReader(response));
+
+SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+Schema s = sf.newSchema(schemaDocuments);
+Validator v = s.newValidator();
+v.validate(instanceDocument);</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="groovy" name="Filter Set of Interval Blocks"><con:settings/><con:config><script>import groovy.io.FileType;
+import javax.xml.XMLConstants;
+import javax.xml.transform.Source;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.SchemaFactory;
+import javax.xml.validation.Schema;
+import javax.xml.validation.Validator;
+import com.eviware.soapui.support.XmlHolder;
+import com.eviware.soapui.support.types.StringToStringMap;
+
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
+
+
+
+def holder;
+
+// the following code allows us to temporarily bypass openESPI as a reference implementation
+// in order to test the following code, since openESPI currently (1/14/2015) 
+// does not handle published and updated time stamps properly
+// This code will "bypass" the true response from OpenESPI and will use a test data file
+
+//String strFile = groovyUtils.projectPath + "/sampledata/resource.xml";
+//holder = groovyUtils.getXmlHolder(new File(strFile).text);
+
+
+// this code uses the actual retreived response
+
+log.info("extracting info from: " + context.ResponseBody);
+try{
+	holder = groovyUtils.getXmlHolder(context.ResponseBody);
+} catch(org.apache.xmlbeans.XmlException e) {
+	log.error("Invalid response body: " + e.toString());
+	testRunner.fail("Invalid response body.");
+	return;
+}
+
+
+holder.declareNamespace( 'espi', 'http://naesb.org/espi');
+holder.declareNamespace( 'atom', 'http://www.w3.org/2005/Atom');
+
+String strCount = "0";
+try{
+	strCount = holder.getNodeValue("count(//espi:IntervalBlock)")
+} catch(org.apache.xmlbeans.XmlException e) {
+	log.error("Invalid response body: " + e.toString());
+	testRunner.fail("Invalid response body. Cannot query response.");
+	return;
+}
+
+if(strCount.toInteger()&lt;4){
+	log.error("Resource must contain at least 3 interval blocks");
+	testRunner.fail("Resource must contain at least 3 interval blocks");
+	return;	
+}
+
+def entryNodes = holder.getDomNodes("//espi:IntervalBlock/../../atom:updated");
+
+List listStarts = [];
+
+for(entryNode in entryNodes) {
+	String strPublished = entryNode.getFirstChild().getNodeValue();
+	Date datePublished =  new Date().parse("yyyy-MM-dd'T'HH:mm:ss'Z'",strPublished);
+//	log.info "published: " + strPublished + " date: " + datePublished.format("yyyy-MM-dd'T'HH:mm:ss'Z'");
+	listStarts.add(datePublished);
+}
+
+listStarts.sort();
+
+String strMin = listStarts.getAt(1).format("yyyy-MM-dd'T'HH:mm:ss'Z'");
+String strMax = listStarts.getAt(listStarts.size-2).format("yyyy-MM-dd'T'HH:mm:ss'Z'");
+
+if(strMin.equals(strMax)){
+	log.error("Cannot conduct test as the resource response does not contain a testable range of IntervalBlock updated dates.");
+	testRunner.fail("Cannot conduct test as the resource response does not contain a testable range of IntervalBlock updated dates.");
+	return;
+}
+
+/*
+log.info("size:" + listStarts.size);
+log.info("start:" + listStarts.getAt(0).format("yyyy-MM-dd'T'HH:mm:ss'Z'"));
+log.info("start+1:" + strMin);
+log.info("end:" + listStarts.getAt(listStarts.size-1).format("yyyy-MM-dd'T'HH:mm:ss'Z'"));
+log.info("end-1:" + strMax);
+*/
+
+context.expectedCount = listStarts.size - 2;
+
+def propCreateAuthResults  = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
+
+propTestStep = context.testCase.getTestStepByName("GET Filtered Resource URI");
+def headers = new StringToStringMap();
+
+String strEndpoint = propCreateAuthResults.getPropertyValue("resourceURI");
+strEndpoint = strEndpoint + "?updated-min=" + strMin + "&amp;updated-max=" + strMax;
+
+propTestStep.setPropertyValue("Endpoint",strEndpoint);
+headers.put("Authorization","Bearer " + propCreateAuthResults.getPropertyValue("access_token"));
+headers.put("Content-Type","Application/atom+xml");
+propTestStep.testRequest.setRequestHeaders(headers);
+
+
+
+return
+
+/*
+ * TMP: code used to get intervalBlock Time stamps
+ * for reference only
+ * 
+def entryNodes = holder.getDomNodes("//espi:IntervalBlock/espi:interval/espi:start");
+for(entryNode in entryNodes) {
+	String strStart = entryNode.getFirstChild().getNodeValue();
+	def holderParent = new XmlHolder(entryNode.getParentNode());
+	holderParent.declareNamespace( 'espi', 'http://naesb.org/espi');
+	
+	String strDuration = holderParent.getDomNode("//espi:duration").getFirstChild().getNodeValue();
+	long lDuration = strDuration.toInteger();
+	
+	long lEnd = strStart.toInteger() + lDuration;
+	Date dateEnd = new Date( ((long)lEnd) * 1000 )
+	
+	//log.info "start: " + strStart + "Date: " + dateStart.format("yyyy-MM-dd HH:mm:ss.S");
+	log.info "end Date: " + dateEnd.format("yyyy-MM-dd HH:mm:ss");
+}
+*/
+
+
+</script></con:config></con:testStep><con:testStep type="httprequest" name="GET Filtered Resource URI"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Filtered Resource URI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Authorization" value="Bearer a1562e34-5e09-44b2-a933-981b9a427b66"/>
+  &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5?updated-min=2012-03-02T00:00:00Z&amp;updated-max=2012-03-14T00:00:00Z</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema Validation"><con:configuration><scriptText>import javax.xml.XMLConstants;
+import javax.xml.transform.Source;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.SchemaFactory;
+import javax.xml.validation.Schema;
+import javax.xml.validation.Validator;
+
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+
+String strSchemaFile1 = groovyUtils.projectPath + "/etc/atom.xsd";
+String strSchemaFile2 = groovyUtils.projectPath + "/etc/espiDerived.xsd";
+
+String response = messageExchange.response.contentAsString;
+
+context.ResponseBody = response;
+
+log.info("validating: " + response);
+
+StreamSource[] schemaDocuments = new StreamSource[2];
+schemaDocuments[0] = new StreamSource(strSchemaFile1);
+schemaDocuments[1] = new StreamSource(strSchemaFile2);
+Source instanceDocument = new StreamSource(new StringReader(response));
+
+SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+Schema s = sf.newSchema(schemaDocuments);
+Validator v = s.newValidator();
+v.validate(instanceDocument);</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="groovy" name="Verify Filtered Set of Interval Blocks"><con:settings/><con:config><script>import groovy.io.FileType;
+import javax.xml.XMLConstants;
+import javax.xml.transform.Source;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.SchemaFactory;
+import javax.xml.validation.Schema;
+import javax.xml.validation.Validator;
+import com.eviware.soapui.support.XmlHolder;
+import com.eviware.soapui.support.types.StringToStringMap;
+
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
+
+
+
+def holder;
+
+// the following code allows us to temporarily bypass openESPI as a reference implementation
+// in order to test the following code, since openESPI currently (1/14/2015) 
+// does not handle published and updated time stamps properly
+// This code will "bypass" the true response from OpenESPI and will use a test data file
+
+// String strFile = groovyUtils.projectPath + "/sampledata/resource_filteredMinMax.xml";
+// holder = groovyUtils.getXmlHolder(new File(strFile).text);
+
+
+// this code uses the actual retreived response
+
+log.info("extracting info from: " + context.ResponseBody);
+try{
+	holder = groovyUtils.getXmlHolder(context.ResponseBody);
+} catch(org.apache.xmlbeans.XmlException e) {
+	log.error("Invalid response body: " + e.toString());
+	testRunner.fail("Invalid response body.");
+	return;
+}
+
+holder.declareNamespace( 'espi', 'http://naesb.org/espi');
+holder.declareNamespace( 'atom', 'http://www.w3.org/2005/Atom');
+
+String strCount = "0";
+try{
+	strCount = holder.getNodeValue("count(//espi:IntervalBlock)")
+} catch(org.apache.xmlbeans.XmlException e) {
+	log.error("Invalid response body: " + e.toString());
+	testRunner.fail("Invalid response body. Cannot query response.");
+	return;
+}
+
+if(strCount.toInteger()&lt;1){
+	log.error("Resource must contain at least 1 interval block");
+	testRunner.fail("Resource must contain at least 1 interval block");
+	return;	
+}
+
+if(strCount.toInteger()!=context.expectedCount){
+	log.error("Filtered response does not contain the expected  number of IntervalBlocks. Expected:" + context.expectedCount + " Actual:" + strCount);
+	testRunner.fail("Filtered response does not contain the expected  number of IntervalBlocks. Expected:" + context.expectedCount + " Actual:" + strCount);
+}
+
+return
 </script></con:config></con:testStep><con:setupScript>testRunner.testCase.setPropertyValue("testsPerformed","");
 
 def mapFBsTested = [:];
@@ -44688,7 +45103,7 @@ requestContext.mockService.setPropertyValue("rxNotificationBody",strBody);
 
 
 </con:dispatchPath><con:response name="Response 1" httpResponseStatus="200"><con:settings/><con:script/><con:responseContent/></con:response></con:restMockAction></con:restMockService>
-<con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty Authorization Mock Service" docroot=""><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value>9C0B4BBAD2FBDAF475058F4996FE725B</con:value></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>error</con:name><con:value>error=access_denied&amp;error_description=User%20denied%20access&amp;state=ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+<con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty Authorization Mock Service" docroot=""><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"1e49b26d-f78e-4103-ad33-f81bdd334217","token_type":"bearer","refresh_token":"83b2f713-ea99-4716-ab80-2e35eaaae674","expires_in":31535999,"scope":"FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13","resourceURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5","authorizationURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5"}</con:value></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value>9C0B4BBAD2FBDAF475058F4996FE725B</con:value></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>error</con:name><con:value/></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Examples showing how to match based on path, query param and header
 // Match based on path
 def requestPath = mockRequest.getPath()
@@ -45867,7 +46282,7 @@ httpResponse.addHeader("Location",strRespLoc);
 		<con:name>client_access_token</con:name>
 		<con:value>75dd9c46-becf-48b5-9cb5-9c3233d718d0</con:value>
 	</con:property>
-<con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1</con:value></con:property><con:property><con:name>NotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty</con:value></con:property><con:property><con:name>notificationUri</con:name><con:value>espi/1_1</con:value></con:property><con:property><con:name>access_token</con:name><con:value>1256fa6e-70d7-4545-bd86-1aef2af149e2</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>localhost:8080</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>localhost:8080</con:value></con:property><con:property><con:name>myTimeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>certScopes</con:name><con:value>1_4_5_6_15</con:value></con:property></con:properties>
+<con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1</con:value></con:property><con:property><con:name>NotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty</con:value></con:property><con:property><con:name>notificationUri</con:name><con:value>espi/1_1</con:value></con:property><con:property><con:name>access_token</con:name><con:value>1e49b26d-f78e-4103-ad33-f81bdd334217</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>localhost:8080</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>localhost:8080</con:value></con:property><con:property><con:name>myTimeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>certScopes</con:name><con:value>1_4_5_6_15</con:value></con:property></con:properties>
 <con:wssContainer/>
 <con:oAuth2ProfileContainer/>
 <con:sensitiveInformation/>
