@@ -2554,7 +2554,7 @@
 				<con:params/>
 				<con:element>html</con:element>
 			</con:representation>
-			<con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+			<con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/xml;charset=utf-8</con:mediaType><con:status>500</con:status><con:params/><con:element xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">soapenv:Envelope</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/atom+xml;charset=iso-8859-1</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
 				<con:settings>
 					<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 		</con:settings>
@@ -4577,11 +4577,11 @@ testRunner.fail("could not curl up file");
 	project.setPropertyValue("DBprepopulateScriptName",config.DBprepopulateScriptName);
 	
 	// urls
-	project.setPropertyValue("BaseURL",config.BaseURL);
-	project.setPropertyValue("ServiceEndpoint",config.ServiceEndpoint);
-	project.setPropertyValue("DataCustodianContext",config.DataCustodianContext);
-	project.setPropertyValue("ThirdPartyContext",config.ThirdPartyContext);
-	project.setPropertyValue("thirdPartyNotificationEndpoint",config.thirdPartyNotificationEndpoint);
+	project.setPropertyValue("BaseURL","");
+	project.setPropertyValue("ServiceEndpoint","");
+	project.setPropertyValue("DataCustodianContext","");
+	project.setPropertyValue("ThirdPartyContext","");
+	project.setPropertyValue("thirdPartyNotificationEndpoint","");
 
 
 	project.setPropertyValue("authorizationServerUri", "");
@@ -4595,7 +4595,6 @@ testRunner.fail("could not curl up file");
 	project.setPropertyValue("scope",target.scope);
 	project.setPropertyValue("certScopes",target.certDataScopeFBs);
 
-	
 	
 	// lets check the DC uri
 	uri = project.getPropertyValue("dataCustodianResourceEndpoint");
@@ -4616,28 +4615,6 @@ testRunner.fail("could not curl up file");
 		// cant be a resource
 		log.info ("Uri not well formed: " + uri);					
 	}
-
-	// lets check the TP uri
-	uri = project.getPropertyValue("thirdPartyNotificationEndpoint");
-	log.info "TP URI: " + uri;
-	uritemp = uri;
-	i = uritemp.indexOf("espi/1_1");
-	if(i>0) {
-		// lets shorten it by stripping off up to resource
-		uritemp = uritemp.substring(0,i-1);
-		log.info "NotificationEndpoint " + uritemp;
-		project.setPropertyValue("NotificationEndpoint",uritemp);
-		uritemp = uri;
-		uritemp = uritemp.substring(uritemp.indexOf("espi/1_1"), uritemp.length());
-		log.info "notificationUri: " + uritemp;
-		project.setPropertyValue("notificationUri",uritemp);
-		
-	}  else {
-		// cant be a resource
-		log.info ("Uri not well formed: " + uri);					
-	}
-	
-	
 
 	
 	// oauth authorize endpoint testing
@@ -7941,7 +7918,7 @@ if(context["driver"] != null){
 	context["driver"].quit();
 	context["driver"] = null;	
 }
-</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>a5ba119f-06bd-4b54-90e5-f54a1515dc51</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property><con:property><con:name>token_type</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">578f62b7-b1d3-497f-a725-e875393f5735</con:value></con:property><con:property><con:name>expires_in</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>old_access_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
+</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://sharemydataqa.pge.com/myAuthorization/?clientId=2957&amp;verified=true</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://apiqa.pge.com/GreenButtonConnect/datacustodian/oauth/v2/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://services.greenbuttondata.org/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://apiqa.pge.com/GreenButtonConnect/datacustodian/oauth/v2/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>a5ba119f-06bd-4b54-90e5-f54a1515dc51</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>espi/1_1/resource</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>token_type</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>refresh_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>expires_in</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>323935374B6579</con:value></con:property><con:property><con:name>old_access_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
@@ -7996,7 +7973,7 @@ cmd = testRunner.testCase.getPropertyValue("cmd");
 td = testRunner.testCase.getPropertyValue("path");
 RunCommand(td,cmd);
 </script></con:config></con:testStep><con:properties><con:property><con:name>stdout</con:name><con:value>issuer= /C=US/O=Google Inc/CN=Google Internet Authority G2
-</con:value></con:property><con:property><con:name>cmd</con:name><con:value>openssl x509 -issuer -noout -in /home/bitnami/git/energyos/test/OpenESPI-GreenButtonCMDTest/SOAPUI/etc/getcert.pem</con:value></con:property><con:property><con:name>path</con:name><con:value>.</con:value></con:property><con:property><con:name>stderr</con:name><con:value>139705535661728:error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure:s23_clnt.c:770:
+</con:value></con:property><con:property><con:name>cmd</con:name><con:value>echo Q | openssl s_client -connect apiqa.pge.com:443</con:value></con:property><con:property><con:name>path</con:name><con:value>.</con:value></con:property><con:property><con:name>stderr</con:name><con:value>139705535661728:error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure:s23_clnt.c:770:
 </con:value></con:property><con:property><con:name>returncode</con:name><con:value>1</con:value></con:property><con:property><con:name>timeout</con:name><con:value>2</con:value></con:property></con:properties></con:testCase><con:properties/>
 </con:testSuite>
 <con:testSuite name="OpenEspiIntegrationTests">
@@ -16757,31 +16734,7 @@ Source instanceDocument = new StreamSource(new StringReader(response));
 SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 Schema s = sf.newSchema(schemaDocuments);
 Validator v = s.newValidator();
-v.validate(instanceDocument);</scriptText></con:configuration></con:assertion><con:assertion type="XPath Match" name="ApplicationInformation must contains fields"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
-declare namespace espi='http://naesb.org/espi';
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianId and
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianApplicationStatus and
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:thirdPartyNotifyUri and
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:authorizationServerAuthorizationEndpoint and
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:authorizationServerTokenEndpoint and
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianBulkRequestURI and
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianResourceEndpoint and
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:thirdPartyScopeSelectionScreenURI and
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:thirdPartyUserPortalScreenURI and
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:client_secret and
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:client_name and
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:client_uri and
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:client_id and
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:software_id and
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:software_version and
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:client_id_issued_at and
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:client_secret_expires_at and
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:token_endpoint_auth_method and
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:scope,grant_types and
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:response_types and
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:registration_client_uri and
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:registration_access_token and
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianScopeSelectionScreenURI</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="dataCustodianApplicationStatus must contain a value of 1,2,3 or 4"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
+v.validate(instanceDocument);</scriptText></con:configuration></con:assertion><con:assertion type="XPath Match" name="dataCustodianApplicationStatus must contain a value of 1,2,3 or 4"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
 declare namespace espi='http://naesb.org/espi';
 /ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianApplicationStatus=1 or
 /ns3:entry/ns3:content/espi:ApplicationInformation/espi:dataCustodianApplicationStatus=2 or
@@ -46342,19 +46295,19 @@ httpResponse.addHeader("Location",strRespLoc);
 <con:properties>
 	<con:property>
 		<con:name>BaseURL</con:name>
-		<con:value>http://localhost:8080</con:value>
+		<con:value/>
 	</con:property>
 	<con:property>
 		<con:name>ServiceEndpoint</con:name>
-		<con:value>http://localhost:8080/DataCustodian</con:value>
+		<con:value>https://apiqa.pge.com/GreenButtonConnect</con:value>
 	</con:property>
 	<con:property>
 		<con:name>DataCustodianContext</con:name>
-		<con:value>DataCustodian</con:value>
+		<con:value/>
 	</con:property>
 	<con:property>
 		<con:name>ThirdPartyContext</con:name>
-		<con:value>ThirdParty</con:value>
+		<con:value/>
 	</con:property>
 	<con:property>
 		<con:name>linkPrefixForReplace</con:name>
@@ -46418,7 +46371,7 @@ httpResponse.addHeader("Location",strRespLoc);
 	</con:property>
 	<con:property>
 		<con:name>applicationInformationId</con:name>
-		<con:value>2</con:value>
+		<con:value>65244200-4509-499a-bae3-f0059101f60f</con:value>
 	</con:property>
 	<con:property>
 		<con:name>authorizationId</con:name>
@@ -46502,11 +46455,11 @@ httpResponse.addHeader("Location",strRespLoc);
 	</con:property>
 	<con:property>
 		<con:name>client_id</con:name>
-		<con:value>third_party</con:value>
+		<con:value>323935374B6579</con:value>
 	</con:property>
 	<con:property>
 		<con:name>redirect_uri</con:name>
-		<con:value>http://localhost:8080/ThirdParty/espi/1_1/OAuthCallBack</con:value>
+		<con:value>https://services.greenbuttondata.org/ThirdParty/espi/1_1/OAuthCallBack</con:value>
 	</con:property>
 	<con:property>
 		<con:name>scope</con:name>
@@ -46518,7 +46471,7 @@ httpResponse.addHeader("Location",strRespLoc);
 	</con:property>
 	<con:property>
 		<con:name>dataCustodianResourceUri</con:name>
-		<con:value>http://localhost:8080/DataCustodian/espi/1_1/resource</con:value>
+		<con:value>https://apiqa.pge.com/GreenButtonConnect/espi/1_1/resource</con:value>
 	</con:property>
 	<con:property>
 		<con:name>resourceUri</con:name>
@@ -46526,11 +46479,11 @@ httpResponse.addHeader("Location",strRespLoc);
 	</con:property>
 	<con:property>
 		<con:name>dataCustodianResourceEndpoint</con:name>
-		<con:value>http://localhost:8080/DataCustodian/espi/1_1/resource</con:value>
+		<con:value>https://apiqa.pge.com/GreenButtonConnect/espi/1_1/resource</con:value>
 	</con:property>
 	<con:property>
 		<con:name>dataCustodianId</con:name>
-		<con:value>data_custodian</con:value>
+		<con:value>PGE</con:value>
 	</con:property>
 	<con:property>
 		<con:name>federalEIN</con:name>
@@ -46538,13 +46491,13 @@ httpResponse.addHeader("Location",strRespLoc);
 	</con:property>
 	<con:property>
 		<con:name>registration_access_token</con:name>
-		<con:value>d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c</con:value>
+		<con:value>a1ab65e8-7c14-462c-8f82-05d55d59579b</con:value>
 	</con:property>
 	<con:property>
 		<con:name>client_access_token</con:name>
-		<con:value>75dd9c46-becf-48b5-9cb5-9c3233d718d0</con:value>
+		<con:value>379b7af4-1136-49b4-9607-f141718916a1</con:value>
 	</con:property>
-<con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1</con:value></con:property><con:property><con:name>NotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty</con:value></con:property><con:property><con:name>notificationUri</con:name><con:value>espi/1_1</con:value></con:property><con:property><con:name>access_token</con:name><con:value>a5ba119f-06bd-4b54-90e5-f54a1515dc51</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>resourceServerUri</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>localhost:8080</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>localhost:8080</con:value></con:property><con:property><con:name>myTimeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>certScopes</con:name><con:value>FB=1_4_5_6_15</con:value></con:property></con:properties>
+<con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value/></con:property><con:property><con:name>NotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty</con:value></con:property><con:property><con:name>notificationUri</con:name><con:value>espi/1_1</con:value></con:property><con:property><con:name>access_token</con:name><con:value>a5ba119f-06bd-4b54-90e5-f54a1515dc51</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://apiqa.pge.com/GreenButtonConnect</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://apiqa.pge.com/GreenButtonConnect/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>apiqa.pge.com</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>apiqa.pge.com</con:value></con:property><con:property><con:name>myTimeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://sharemydataqa.pge.com/myAuthorization/?clientId=2957&amp;verified=true</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://apiqa.pge.com/GreenButtonConnect/datacustodian/oauth/v2/authorize</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://apiqa.pge.com/GreenButtonConnect/datacustodian/oauth/v2/token</con:value></con:property><con:property><con:name>certScopes</con:name><con:value>FB=1_4_5_6_15</con:value></con:property></con:properties>
 <con:wssContainer/>
 <con:oAuth2ProfileContainer/>
 <con:sensitiveInformation/>
