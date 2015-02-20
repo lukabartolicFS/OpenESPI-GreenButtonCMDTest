@@ -7833,16 +7833,31 @@ import java.io.*;
 
 String parseEndpointFromURI(String strURI) throws Exception {
     URL aURL = new URL(strURI);
-    return aURL.getProtocol() + "://" +  aURL.getHost() + ":" + aURL.getPort();
+
+    if(aURL.getPort().equals(-1))
+    {
+	    return aURL.getProtocol() + "://" +  aURL.getHost() ;
+    }
+	else
+	{
+	    return aURL.getProtocol() + "://" +  aURL.getHost() + ":" + aURL.getPort();
+	}
 }
+
 
 String parseResource(String strURI) throws Exception {
     URL aURL = new URL(strURI);
     return aURL.getPath();
 }
 
-String strEndpoint = parseEndpointFromURI(context.ScopeSelURI);
-String strResource = parseResource(context.ScopeSelURI);
+def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
+def ScopeSelURI = authCase.getPropertyValue("dataCustodianScopeSelectionScreenURI");
+
+String strEndpoint = parseEndpointFromURI(ScopeSelURI);
+String strResource = parseResource(ScopeSelURI);
+log.info "dataCustodianScopeSelectionScreenURI:" + ScopeSelURI;
+log.info "Endpoint: " + strEndpoint;
+log.info "Resource: " + strResource;
 
 def clientId = testRunner.testCase.getPropertyValue("client_id" );
 
@@ -7850,7 +7865,12 @@ DriverHelper driver = new DriverHelper(strEndpoint,strResource,"",log);
 
 context["driver"] = driver;
 
-driver.get(context.ScopeSelURI + "?ThirdPartyID=" + clientId);</script></con:config></con:testStep><con:testStep type="groovy" name="Wait for Authorization to Complete and End Browser session" id="b113e147-1128-47b8-ad30-8e704a9a4446"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
+//log.info strEndpoint + strResource + "?ThirdPartyID=" + clientId;
+
+driver.get(ScopeSelURI);
+
+//driver.get(strEndpoint + strResource + "?ThirdPartyID=" + clientId);
+//driver.get(context.ScopeSelURI + "?ThirdPartyID=" + clientId);</script></con:config></con:testStep><con:testStep type="groovy" name="Wait for Authorization to Complete and End Browser session" id="b113e147-1128-47b8-ad30-8e704a9a4446"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
 
 result = ui.getDialogs().showInfoMessage("Perform logon and authorization and hit OK when done", "");
 
@@ -7918,7 +7938,7 @@ if(context["driver"] != null){
 	context["driver"].quit();
 	context["driver"] = null;	
 }
-</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://sharemydataqa.pge.com/myAuthorization/?clientId=2957&amp;verified=true</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://apiqa.pge.com/GreenButtonConnect/datacustodian/oauth/v2/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://services.greenbuttondata.org/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://apiqa.pge.com/GreenButtonConnect/datacustodian/oauth/v2/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>a5ba119f-06bd-4b54-90e5-f54a1515dc51</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>espi/1_1/resource</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>token_type</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>refresh_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>expires_in</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>323935374B6579</con:value></con:property><con:property><con:name>old_access_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
+</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://services.greenbuttondata.org/DataCustodian/RetailCustomer/ScopeSelectionList</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://services.greenbuttondata.org/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://services.greenbuttondata.org/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://services.greenbuttondata.org/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>a5ba119f-06bd-4b54-90e5-f54a1515dc51</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>espi/1_1/resource</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>token_type</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>refresh_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>expires_in</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>old_access_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
@@ -13716,28 +13736,7 @@ return;
 	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Resources" searchProperties="true">
 		<con:settings/>
 		
-		<con:testStep type="restrequest" name="Client Credentials - POST ThirdPartyRegistration Request"><con:settings/><con:config service="ESPI Resources" resourcePath="/oauth/v2/token" methodName="Client Credentials" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Client Credentials - POST ThirdPartyRegistration Request" mediaType="application/json" postQueryString="false" id="c2d8f4db-dd26-4546-a99e-770d3221f363">
-	<con:settings>
-		<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-</con:settings>
-<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-<con:request/>
-<con:originalUri>http://localhost/DataCustodian/oauth/token</con:originalUri>
-<con:credentials>
-	<con:username>REGISTRATION_third_party</con:username>
-	<con:password>secret</con:password>
-	<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
-	<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
-	<con:authType>Global HTTP Settings</con:authType>
-</con:credentials>
-<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-<con:jmsPropertyConfig/>
-<con:parameters>
-  <con:entry key="scope" value=""/>
-  <con:entry key="grant_type" value="client_credentials"/>
-</con:parameters>
-<con:parameterOrder><con:entry>grant_type</con:entry><con:entry>scope</con:entry></con:parameterOrder>
-</con:restRequest></con:config></con:testStep><con:testStep type="httprequest" name="GetPGEClientAccessTokens"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" name="GetPGEClientAccessTokens" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:endpoint>$(#Project#ServiceEndpoint)</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:properties/>
+		<con:testStep type="httprequest" name="GetPGEClientAccessTokens"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" name="GetPGEClientAccessTokens" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:endpoint>$(#Project#ServiceEndpoint)</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:properties/>
 	</con:testCase>
 	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestSSL" searchProperties="true"><con:settings/><con:testStep type="groovy" name="testssl"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
 def tc= testRunner.testCase.testSuite.project.testSuites['Library'].testCases['RunCommand'];
@@ -41264,70 +41263,7 @@ declare namespace espi='http://naesb.org/espi';
 			</con:parameterOrder>
 		</con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>grant_types</con:name><con:value>refresh_token</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD007 [POS] Valid JSON structure returned during Data Custodian Client Credentials Grant Access Token Request processing" searchProperties="true" id="a8ca9692-6570-4cdb-ab51-31f9fcb43659"><con:settings/><con:testStep type="groovy" name="Transfer authorization properties"><con:settings/><con:config><script>def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
 
-testRunner.testCase.setPropertyValue("scope",authCase.getPropertyValue("scope"));</script></con:config></con:testStep><con:testStep type="restrequest" name="Client Credentials - POST ThirdParty Request"><con:settings/><con:config service="ESPI Resources" resourcePath="/oauth/v2/token" methodName="Client Credentials" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Client Credentials - POST ThirdParty Request" mediaType="application/json" postQueryString="false" id="9ba40594-5ba1-490b-b4b8-0547108733e3">
-			<con:settings>
-				<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-	</con:settings>
-	<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
-	<con:request/>
-	<con:originalUri>http://localhost/DataCustodian/oauth/token</con:originalUri>
-	<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper;
-
-String response = messageExchange.response.contentAsString;
-
-def slurper = new JsonSlurper();
-def tokenResponse = slurper.parseText(response);
-
-log.info("access_token = " + tokenResponse.access_token);
-log.info("token_type = " + tokenResponse.token_type);
-log.info("refresh_token = " + tokenResponse.refresh_token);
-log.info("expires_in = " + tokenResponse.expires_in);
-log.info("scope = " + tokenResponse.scope);
-log.info("resourceURI = " + tokenResponse.resourceURI);
-log.info("authorizationURI = " + tokenResponse.authorizationURI);
-
-if(tokenResponse.access_token == null){
-	assert false;
-}
-
-if(tokenResponse.token_type == null){
-	assert false;
-}
-
-if(tokenResponse.refresh_token != null){
-	assert false;
-}
-
-if(tokenResponse.expires_in == null){
-	assert false;
-}
-
-if(tokenResponse.scope == null){
-	assert false;
-}
-
-if(tokenResponse.resourceURI != null){
-	assert false;
-}
-
-if(tokenResponse.authorizationURI == null){
-	assert false;
-}
-</scriptText></con:configuration></con:assertion><con:credentials>
-		<con:username>third_party_admin</con:username>
-		<con:password>secret</con:password>
-		<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
-		<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
-		<con:authType>Global HTTP Settings</con:authType>
-	</con:credentials>
-	<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-	<con:jmsPropertyConfig/>
-	<con:parameters>
-  <con:entry key="scope" value="FB=34_35"/>
-  <con:entry key="grant_type" value="client_credentials"/>
-</con:parameters>
-	<con:parameterOrder><con:entry>grant_type</con:entry><con:entry>scope</con:entry></con:parameterOrder>
-</con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD008 [NEG] Malformed Refresh Token Requests" searchProperties="true" id="ded1c582-6be2-4ca4-b85a-9dbfc56183b3"><con:settings/><con:testStep type="groovy" name="Issue malformed refresh token requests"><con:settings/><con:config><script><![CDATA[import java.net.*;
+testRunner.testCase.setPropertyValue("scope",authCase.getPropertyValue("scope"));</script></con:config></con:testStep><con:properties><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD008 [NEG] Malformed Refresh Token Requests" searchProperties="true" id="ded1c582-6be2-4ca4-b85a-9dbfc56183b3"><con:settings/><con:testStep type="groovy" name="Issue malformed refresh token requests"><con:settings/><con:config><script><![CDATA[import java.net.*;
 import java.io.*;
 
 int issueGET(String targetURL,String strToken){
@@ -46249,7 +46185,7 @@ httpResponse.addHeader("Location",strRespLoc);
 	</con:property>
 	<con:property>
 		<con:name>ServiceEndpoint</con:name>
-		<con:value>https://apiqa.pge.com/GreenButtonConnect</con:value>
+		<con:value>https://services.greenbuttondata.org/DataCustodian</con:value>
 	</con:property>
 	<con:property>
 		<con:name>DataCustodianContext</con:name>
@@ -46321,11 +46257,11 @@ httpResponse.addHeader("Location",strRespLoc);
 	</con:property>
 	<con:property>
 		<con:name>applicationInformationId</con:name>
-		<con:value>65244200-4509-499a-bae3-f0059101f60f</con:value>
+		<con:value>2</con:value>
 	</con:property>
 	<con:property>
 		<con:name>authorizationId</con:name>
-		<con:value>2957</con:value>
+		<con:value>4</con:value>
 	</con:property>
 	<con:property>
 		<con:name>bulkId</con:name>
@@ -46405,7 +46341,7 @@ httpResponse.addHeader("Location",strRespLoc);
 	</con:property>
 	<con:property>
 		<con:name>client_id</con:name>
-		<con:value>323935374B6579</con:value>
+		<con:value>third_party</con:value>
 	</con:property>
 	<con:property>
 		<con:name>redirect_uri</con:name>
@@ -46421,7 +46357,7 @@ httpResponse.addHeader("Location",strRespLoc);
 	</con:property>
 	<con:property>
 		<con:name>dataCustodianResourceUri</con:name>
-		<con:value>https://apiqa.pge.com/GreenButtonConnect/espi/1_1/resource</con:value>
+		<con:value>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource</con:value>
 	</con:property>
 	<con:property>
 		<con:name>resourceUri</con:name>
@@ -46429,11 +46365,11 @@ httpResponse.addHeader("Location",strRespLoc);
 	</con:property>
 	<con:property>
 		<con:name>dataCustodianResourceEndpoint</con:name>
-		<con:value>https://apiqa.pge.com/GreenButtonConnect/espi/1_1/resource</con:value>
+		<con:value>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource</con:value>
 	</con:property>
 	<con:property>
 		<con:name>dataCustodianId</con:name>
-		<con:value>PGE</con:value>
+		<con:value>data_custodian</con:value>
 	</con:property>
 	<con:property>
 		<con:name>federalEIN</con:name>
@@ -46441,13 +46377,13 @@ httpResponse.addHeader("Location",strRespLoc);
 	</con:property>
 	<con:property>
 		<con:name>registration_access_token</con:name>
-		<con:value>a1ab65e8-7c14-462c-8f82-05d55d59579b</con:value>
+		<con:value>d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c</con:value>
 	</con:property>
 	<con:property>
 		<con:name>client_access_token</con:name>
-		<con:value>b8f6847a-321b-4a8d-a74e-4477a0e73975</con:value>
+		<con:value>75dd9c46-becf-48b5-9cb5-9c3233d718d0</con:value>
 	</con:property>
-<con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value/></con:property><con:property><con:name>NotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty</con:value></con:property><con:property><con:name>notificationUri</con:name><con:value>espi/1_1</con:value></con:property><con:property><con:name>access_token</con:name><con:value>a5ba119f-06bd-4b54-90e5-f54a1515dc51</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://apiqa.pge.com/GreenButtonConnect</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://apiqa.pge.com/GreenButtonConnect/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>apiqa.pge.com</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>apiqa.pge.com</con:value></con:property><con:property><con:name>myTimeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://sharemydataqa.pge.com/myAuthorization/?clientId=2957&amp;verified=true</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://apiqa.pge.com/GreenButtonConnect/datacustodian/oauth/v2/authorize</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://apiqa.pge.com/GreenButtonConnect/datacustodian/oauth/v2/token</con:value></con:property><con:property><con:name>certScopes</con:name><con:value>FB=1_4_5</con:value></con:property><con:property><con:name>client_secret</con:name><con:value>32393537536563726574</con:value></con:property></con:properties>
+<con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value/></con:property><con:property><con:name>NotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty</con:value></con:property><con:property><con:name>notificationUri</con:name><con:value>espi/1_1</con:value></con:property><con:property><con:name>access_token</con:name><con:value>a5ba119f-06bd-4b54-90e5-f54a1515dc51</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://services.greenbuttondata.org/DataCustodian/</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://services.greenbuttondata.org/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>services.greenbuttondata.org</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>services.greenbuttondata.org</con:value></con:property><con:property><con:name>myTimeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://services.greenbuttondata.org/DataCustodian/RetailCustomer/ScopeSelectionList</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://services.greenbuttondata.org/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://services.greenbuttondata.org/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>certScopes</con:name><con:value>FB=1_4_5</con:value></con:property><con:property><con:name>client_secret</con:name><con:value>secret</con:value></con:property></con:properties>
 <con:wssContainer/>
 <con:oAuth2ProfileContainer/>
 <con:sensitiveInformation/>
