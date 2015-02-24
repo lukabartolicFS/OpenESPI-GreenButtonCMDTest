@@ -40233,7 +40233,15 @@ import java.io.*;
 
 String parseEndpointFromURI(String strURI) throws Exception {
     URL aURL = new URL(strURI);
-    return aURL.getProtocol() + "://" +  aURL.getHost() + ":" + aURL.getPort();
+
+    if(aURL.getPort().equals(-1))
+    {
+	    return aURL.getProtocol() + "://" +  aURL.getHost() ;
+    }
+	else
+	{
+	    return aURL.getProtocol() + "://" +  aURL.getHost() + ":" + aURL.getPort();
+	}
 }
 
 String parseResource(String strURI) throws Exception {
@@ -45328,6 +45336,16 @@ import java.io.*;
 String parseEndpointFromURI(String strURI) throws Exception {
 
     URL aURL = new URL(strURI);
+
+
+    if(aURL.getPort().equals(-1))
+    {
+	    return aURL.getProtocol() + "://" +  aURL.getHost() ;
+    }
+	else
+	{
+	    return aURL.getProtocol() + "://" +  aURL.getHost() + ":" + aURL.getPort();
+	}    
 /*
     log.info("protocol = " + aURL.getProtocol()); //http
     log.info("authority = " + aURL.getAuthority()); //example.com:80
@@ -45338,6 +45356,8 @@ String parseEndpointFromURI(String strURI) throws Exception {
     log.info("filename = " + aURL.getFile()); ///docs/books/tutorial/index.html?name=networking
     log.info("ref = " + aURL.getRef()); //DOWNLOADING
 */
+
+
     return aURL.getProtocol() + "://" +  aURL.getHost() + ":" + aURL.getPort();
 }
 
@@ -45697,17 +45717,16 @@ import java.io.*;
 String parseEndpointFromURI(String strURI) throws Exception {
 
     URL aURL = new URL(strURI);
-/*
-    log.info("protocol = " + aURL.getProtocol()); //http
-    log.info("authority = " + aURL.getAuthority()); //example.com:80
-    log.info("host = " + aURL.getHost()); //example.com
-    log.info("port = " + aURL.getPort()); //80
-    log.info("path = " + aURL.getPath()); //  /docs/books/tutorial/index.html
-    log.info("query = " + aURL.getQuery()); //name=networking
-    log.info("filename = " + aURL.getFile()); ///docs/books/tutorial/index.html?name=networking
-    log.info("ref = " + aURL.getRef()); //DOWNLOADING
-*/
-    return aURL.getProtocol() + "://" +  aURL.getHost() + ":" + aURL.getPort();
+    
+    if(aURL.getPort().equals(-1))
+    {
+	    return aURL.getProtocol() + "://" +  aURL.getHost() ;
+    }
+	else
+	{
+	    return aURL.getProtocol() + "://" +  aURL.getHost() + ":" + aURL.getPort();
+	}   
+
 }
 
 String parseResource(String strURI) throws Exception {
