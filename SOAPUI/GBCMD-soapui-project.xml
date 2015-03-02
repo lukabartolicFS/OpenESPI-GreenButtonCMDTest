@@ -7827,7 +7827,17 @@ if((testRunner.testCase.getPropertyValue("dataCustodianScopeSelectionScreenURI")
 	return;		
 }
 
-context.ScopeSelURI = testRunner.testCase.getPropertyValue("dataCustodianScopeSelectionScreenURI");</script></con:config></con:testStep><con:testStep type="groovy" name="Start Mock Service" id="b5180cc9-a09b-47cf-b76f-42ed235424c3"><con:settings/><con:config><script>context.mockService = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Authorization Mock Service");  context.mockService.setPropertyValue("tokenResponse",""); context.mockService.setPropertyValue("authorizationServerAuthorizationEndpoint",testRunner.testCase.getPropertyValue("authorizationServerAuthorizationEndpoint")); context.mockService.setPropertyValue("redirect_uri",testRunner.testCase.getPropertyValue("redirect_uri")); context.mockService.setPropertyValue("authorizationServerTokenEndpoint",testRunner.testCase.getPropertyValue("authorizationServerTokenEndpoint"));  def runner = context.mockService.start(); context.mockRunner = runner;  return;</script></con:config></con:testStep><con:testStep type="groovy" name="Script will bring up browser to DC Scope selection screen" id="1afd759c-0ac6-4184-99ad-d9656769face"><con:settings/><con:config><script>import org.greenbutton.cmd.utils.DriverHelper;
+context.ScopeSelURI = testRunner.testCase.getPropertyValue("dataCustodianScopeSelectionScreenURI");</script></con:config></con:testStep><con:testStep type="groovy" name="Start Mock Service" id="b5180cc9-a09b-47cf-b76f-42ed235424c3"><con:settings/><con:config><script>context.mockService = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Authorization Mock Service");  
+context.mockService.setPropertyValue("tokenResponse",""); 
+context.mockService.setPropertyValue("authorizationServerAuthorizationEndpoint",testRunner.testCase.getPropertyValue("authorizationServerAuthorizationEndpoint")); 
+context.mockService.setPropertyValue("redirect_uri",testRunner.testCase.getPropertyValue("redirect_uri")); 
+context.mockService.setPropertyValue("authorizationServerTokenEndpoint",testRunner.testCase.getPropertyValue("authorizationServerTokenEndpoint"));
+context.mockService.setPropertyValue("client_id",testRunner.testCase.getPropertyValue("client_id"));
+context.mockService.setPropertyValue("client_secret",testRunner.testCase.getPropertyValue("client_secret"));
+
+def runner = context.mockService.start(); 
+context.mockRunner = runner;  
+return;</script></con:config></con:testStep><con:testStep type="groovy" name="Script will bring up browser to DC Scope selection screen" id="1afd759c-0ac6-4184-99ad-d9656769face"><con:settings/><con:config><script>import org.greenbutton.cmd.utils.DriverHelper;
 import java.net.*;
 import java.io.*;
 
@@ -45344,7 +45354,6 @@ import static groovyx.net.http.ContentType.TEXT;
 import java.net.*;
 import java.io.*;
 
-
 String parseEndpointFromURI(String strURI) throws Exception {
 
     URL aURL = new URL(strURI);
@@ -45391,8 +45400,6 @@ public class ResourceTester {
 		_strResponseBody = null;
 		
 	  	def http = new HTTPBuilder();
-
-	  	log.info("before calling post");
 
 		http.request( strBaseEndpoint, POST, TEXT ) { req ->
 			uri.path = href
@@ -45444,7 +45451,16 @@ String strAuthorizationServerTokenEndpoint = requestContext.mockService.getPrope
 String strHost = parseEndpointFromURI(strAuthorizationServerTokenEndpoint);
 String strResource = parseResource(strAuthorizationServerTokenEndpoint);
 
-String strGetResponseBody = resourceTester.doPOST(strHost,strResource,"dGhpcmRfcGFydHk6c2VjcmV0",params);
+String strAuthentication = requestContext.mockService.getPropertyValue("client_id") + ":" + requestContext.mockService.getPropertyValue("client_secret");
+
+// Encode byte array into Base 64
+String token = strAuthentication.bytes.encodeBase64().toString();
+
+log.info("Original Authentication: " + strAuthentication);
+log.info("Base 64 Encoded Authentication: " + token);
+
+//String strGetResponseBody = resourceTester.doPOST(strHost,strResource,"dGhpcmRfcGFydHk6c2VjcmV0",params);
+String strGetResponseBody = resourceTester.doPOST(strHost,strResource,token,params);
 
 if(strGetResponseBody==null) {
 	log.error("POST request failed.");
