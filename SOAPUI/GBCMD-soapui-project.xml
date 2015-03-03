@@ -16639,9 +16639,6 @@ authCase.setPropertyValue("authorizationServerTokenEndpoint",project.getProperty
 authCase.setPropertyValue("OAuthCodeReceivedValue",project.getPropertyValue("OAuthCodeReceivedValue"));
 authCase.setPropertyValue("client_id",project.getPropertyValue("client_id"));
 authCase.setPropertyValue("client_secret",project.getPropertyValue("client_secret"));
-
-log.info "(Parse ApplicationInformation - project) client_secret:  " + project.getPropertyValue("client_secret");
-log.info "(Parse ApplicationInformation - authCase) client_secret: " + authCase.getPropertyValue("client_secret");
 </script></con:config></con:testStep><con:properties/></con:testCase><con:properties/><con:setupScript>log.info "===== Start TestSuite =====> " + testSuite.name</con:setupScript><con:tearDownScript>def results = true;
 
 log.info "===== SUMMARY   TestSuite =====> " + testSuite.name
