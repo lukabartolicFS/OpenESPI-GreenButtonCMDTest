@@ -7949,7 +7949,7 @@ if(context["driver"] != null){
 	context["driver"].quit();
 	context["driver"] = null;	
 }
-</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>f3893b28-6b39-4b85-b985-284150b1f661</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/7</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/7</con:value></con:property><con:property><con:name>token_type</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">06c0175d-63ff-486f-b85f-c1f727b497d3</con:value></con:property><con:property><con:name>expires_in</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">31532751</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>old_access_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_secret</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
+</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>f3893b28-6b39-4b85-b985-284150b1f661</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>espi/1_1/resource</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>token_type</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>refresh_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>expires_in</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>old_access_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">secret</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
@@ -16521,56 +16521,58 @@ declare namespace espi='http://naesb.org/espi';
 declare namespace espi='http://naesb.org/espi';
 /ns3:entry/ns3:content/espi:ApplicationInformation/espi:redirect_uri</con:sourcePath><con:targetType>redirect_uri</con:targetType><con:targetStep>#Project#</con:targetStep><con:targetPath xsi:nil="true"/></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" entitize="false" transferToAll="false" transferChildNodes="false" useXQuery="false" ignoreEmpty="false"><con:name>client_secret</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>GET ApplicationInformation by Id</con:sourceStep><con:sourcePath>declare namespace ns3='http://www.w3.org/2005/Atom';
 declare namespace espi='http://naesb.org/espi';
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:client_secret</con:sourcePath><con:targetType>client_secret</con:targetType><con:targetStep>#Project#</con:targetStep></con:transfers></con:config></con:testStep><con:testStep type="groovy" name="Parse ApplicationInformation"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:client_secret</con:sourcePath><con:targetType>client_secret</con:targetType><con:targetStep>#Project#</con:targetStep></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true"><con:name>thirdPartyNotifyUri</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>GET ApplicationInformation by Id</con:sourceStep><con:sourcePath>declare namespace ns3='http://www.w3.org/2005/Atom';
+declare namespace espi='http://naesb.org/espi';
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:thirdPartyNotifyUri</con:sourcePath><con:targetType>thirdPartyNotificationEndpoint</con:targetType><con:targetStep>#Project#</con:targetStep></con:transfers></con:config></con:testStep><con:testStep type="groovy" name="Parse ApplicationInformation"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmdcert.conf").toURL())
 def uri;	// lets check the DC uri
 
 
 uri = project.getPropertyValue("dataCustodianResourceEndpoint");
-log.info "DC URI: " + uri;
+log.info "DC Resource Endpoint URI: " + uri;
 uritemp = uri;
 i = uritemp.indexOf("espi/1_1/resource");
 if(i>0) {
 	// lets shorten it by stripping off up to resource
 	uritemp = uritemp.substring(0,i-1);
-	log.info "ServiceEndpoint " + uritemp;
+	log.info "DC ServiceEndpoint " + uritemp;
 	project.setPropertyValue("ServiceEndpoint",uritemp);
 	uritemp = uri;
 	uritemp = uritemp.substring(uritemp.indexOf("espi/1_1/resource"), uritemp.length());
-	log.info "resourceUri: " + uritemp;
+	log.info "DC resourceUri: " + uritemp;
 	project.setPropertyValue("resourceUri",uritemp);
 	
 }  else {
 	// cant be a resource
-	log.info ("Uri not well formed: " + uri);					
+	log.info ("DC Resource Endpoint Uri not well formed: " + uri);					
 }
 
-// lets check the TP uri
+// lets check the TP Notification uri
 uri = project.getPropertyValue("thirdPartyNotificationEndpoint");
 if(uri != null)
 {
-	log.info "TP URI: " + uri;
+	log.info "TP Notification URI: " + uri;
 	uritemp = uri;
 	i = uritemp.indexOf("espi/1_1");
 	if(i>0) {
 		// lets shorten it by stripping off up to resource
 		uritemp = uritemp.substring(0,i-1);
-		log.info "NotificationEndpoint " + uritemp;
+		log.info "TP NotificationEndpoint " + uritemp;
 		project.setPropertyValue("NotificationEndpoint",uritemp);
 		uritemp = uri;
 		uritemp = uritemp.substring(uritemp.indexOf("espi/1_1"), uritemp.length());
-		log.info "notificationUri: " + uritemp;
+		log.info "TP notificationUri: " + uritemp;
 		project.setPropertyValue("notificationUri",uritemp);
 		
 	}  else {
 		// cant be a resource
-		log.info ("Uri not well formed: " + uri);					
+		log.info ("TP Notification Endpoint Uri not well formed: " + uri);					
 	}
 }
 else
 {
-	testRunner.fail("Missing thirdPartyNotificationEndpoint");	
+	testRunner.fail("Missing TP thirdPartyNotificationEndpoint");	
 }
 
 
@@ -16584,17 +16586,17 @@ if(uritemp != null)
 		// lets shorten it by stripping off up to resource
 		uritemp = uritemp.substring(j+2,i);
 		project.setPropertyValue("resourceServer",uritemp);
-		log.info ("resourceServer: " + uritemp);					
+		log.info ("DC resourceServer: " + uritemp);					
 	}  else {
 		// cant be a resource
 		project.setPropertyValue("resourceServer","");
-		log.info ("Uri not well formed: " + uriuritemp);					
+		log.info ("DC resourceServer Uri not well formed: " + uriuritemp);					
 	}
 
 }
 else
 {
-	testRunner.fail("Missing resourceServerUri");	
+	testRunner.fail("Missing DC resourceServerUri");	
 
 }
 	
@@ -16607,17 +16609,17 @@ if(uritemp != null)
 		// lets shorten it by stripping off up to resource
 		uritemp = uritemp.substring(j+2,i);
 		project.setPropertyValue("authorizationServer",uritemp);
-		log.info ("authorizationServer: " + uritemp);					
+		log.info ("DC authorizationServer: " + uritemp);					
 	}  else {
 		// cant be a resource
-		log.info ("Uri not well formed: " + uri);					
+		log.info ("DC authorizationServer Uri not well formed: " + uri);					
 		project.setPropertyValue("authorizationServer","");
 	}
 
 }
 else
 {
-	testRunner.fail("Missing authorizationServerUri");	
+	testRunner.fail("Missing DC authorizationServerUri");	
 //	log.info "Missing authorizationServerUri";	
 }
 
@@ -46434,7 +46436,7 @@ httpResponse.addHeader("Location",strRespLoc);
 		<con:name>client_access_token</con:name>
 		<con:value>75dd9c46-becf-48b5-9cb5-9c3233d718d0</con:value>
 	</con:property>
-<con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value/></con:property><con:property><con:name>NotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty</con:value></con:property><con:property><con:name>notificationUri</con:name><con:value>espi/1_1</con:value></con:property><con:property><con:name>access_token</con:name><con:value>f3893b28-6b39-4b85-b985-284150b1f661</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>localhost:8080</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>localhost:8080</con:value></con:property><con:property><con:name>myTimeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>certScopes</con:name><con:value>FB=1_4_5_6_15</con:value></con:property><con:property><con:name>client_secret</con:name><con:value>secret</con:value></con:property></con:properties>
+<con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/Notification</con:value></con:property><con:property><con:name>NotificationEndpoint</con:name><con:value>http://localhost:8081/ThirdParty</con:value></con:property><con:property><con:name>notificationUri</con:name><con:value>espi/1_1/Notification</con:value></con:property><con:property><con:name>access_token</con:name><con:value>f3893b28-6b39-4b85-b985-284150b1f661</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>localhost:8080</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>localhost:8080</con:value></con:property><con:property><con:name>myTimeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>certScopes</con:name><con:value>FB=1_4_5_6_15</con:value></con:property><con:property><con:name>client_secret</con:name><con:value>secret</con:value></con:property></con:properties>
 <con:wssContainer/>
 <con:oAuth2ProfileContainer/>
 <con:sensitiveInformation/>
