@@ -16840,8 +16840,6 @@ strCertScopes = strCertScopes.replace("FB=","");
 
 List listFBsToTest = strCertScopes.tokenize("_");
 
-log.info "strFBsToTest: " + listFBsToTest;
-
 String strFBsNotTested = "";
 
 int iCntRemaining = 0;
