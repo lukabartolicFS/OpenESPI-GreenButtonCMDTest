@@ -49,7 +49,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
 implied.  See the License for the specific language governing 
 permissions and limitations under the License.
 -->
-<feed xmlns="http://www.w3.org/2005/Atom" xmlns:espi="http://naesb.org/espi" xsi:schemaLocation="http://naesb.org/espi espiDerived.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:espi="http://naesb.org/espi" xsi:schemaLocation="http://naesb.org/espi espiDerived.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<id>urn:uuid:15B0A4ED-CCF4-4521-A0A1-9FF650EC8A6B</id>
 	<title>Green Button Subscription Feed</title>
 	<updated>2012-10-24T00:00:00Z</updated>
@@ -70,8 +70,8 @@ permissions and limitations under the License.
 				</ServiceCategory>
 			</UsagePoint>
 		</content>
-		<published>2012-10-24T00:00:00Z</published>
-		<updated>2012-10-24T00:00:00Z</updated>
+		<published>2012-10-24T04:00:00Z</published>
+		<updated>2012-10-24T04:00:00Z</updated>
 	</entry>
 	<entry>
 		<id>urn:uuid:54C62EBE-2DB6-4D4F-B6BF-1973A079C841</id>
@@ -86,8 +86,8 @@ permissions and limitations under the License.
 				<tzOffset>-18000</tzOffset>
 			</LocalTimeParameters>
 		</content>
-		<published>2012-10-24T00:00:00Z</published>
-		<updated>2012-10-24T00:00:00Z</updated>
+		<published>2012-10-24T04:00:00Z</published>
+		<updated>2012-10-24T04:00:00Z</updated>
 	</entry>
 	<entry>
 		<id>urn:uuid:F77FBF34-A09E-4EBC-9606-FF1A59A17CAE</id>
@@ -99,8 +99,8 @@ permissions and limitations under the License.
 		<content>
 			<MeterReading xmlns="http://naesb.org/espi"/>
 		</content>
-		<published>2012-10-24T00:00:00Z</published>
-		<updated>2012-10-24T00:00:00Z</updated>
+		<published>2012-10-24T04:00:00Z</published>
+		<updated>2012-10-24T04:00:00Z</updated>
 	</entry>
 	<entry>
 		<id>urn:uuid:3430B025-65D5-493A-BEC2-053603C91CD7</id>
@@ -130,8 +130,8 @@ permissions and limitations under the License.
 				</argument>
 			</ReadingType>
 		</content>
-		<published>2012-10-24T00:00:00Z</published>
-		<updated>2012-10-24T00:00:00Z</updated>
+		<published>2012-10-24T04:00:00Z</published>
+		<updated>2012-10-24T04:00:00Z</updated>
 	</entry>
 	<entry>
 		<id>urn:uuid:FE9A61BB-6913-42D4-88BE-9634A218EF53</id>
@@ -1017,8 +1017,8 @@ permissions and limitations under the License.
 				</IntervalReading>
 			</IntervalBlock>
 		</content>
-		<published>2012-10-24T00:00:00Z</published>
-		<updated>2012-10-24T00:00:00Z</updated>
+		<published>2012-03-02T05:00:00Z</published>
+		<updated>2012-03-02T05:00:00Z</updated>
 	</entry>
 	<entry>
 		<id>urn:uuid:0E49B341-CABD-445B-8F88-7ACF791B1863</id>
@@ -1898,8 +1898,8 @@ permissions and limitations under the License.
 				</IntervalReading>
 			</IntervalBlock>
 		</content>
-		<published>2012-10-24T00:00:00Z</published>
-		<updated>2012-10-24T00:00:00Z</updated>
+		<published>2012-03-03T05:00:00Z</published>
+		<updated>2012-03-03T05:00:00Z</updated>
 	</entry>
 	<entry>
 		<id>urn:uuid:1A1A106F-7108-4532-A5A6-FD48F7DA3B8D</id>
@@ -2779,8 +2779,8 @@ permissions and limitations under the License.
 				</IntervalReading>
 			</IntervalBlock>
 		</content>
-		<published>2012-10-24T00:00:00Z</published>
-		<updated>2012-10-24T00:00:00Z</updated>
+		<published>2012-03-04T05:00:00Z</published>
+		<updated>2012-03-04T05:00:00Z</updated>
 	</entry>
 	<entry>
 		<id>urn:uuid:45745604-814D-49A1-8D4B-856D5D44B7AF</id>
@@ -3660,8 +3660,8 @@ permissions and limitations under the License.
 				</IntervalReading>
 			</IntervalBlock>
 		</content>
-		<published>2012-10-24T00:00:00Z</published>
-		<updated>2012-10-24T00:00:00Z</updated>
+		<published>2012-03-05T05:00:00Z</published>
+		<updated>2012-03-05T05:00:00Z</updated>
 	</entry>
 	<entry>
 		<id>urn:uuid:298F995F-849A-4DEE-B339-988B2CD4BA5F</id>
@@ -4541,8 +4541,8 @@ permissions and limitations under the License.
 				</IntervalReading>
 			</IntervalBlock>
 		</content>
-		<published>2012-10-24T00:00:00Z</published>
-		<updated>2012-10-24T00:00:00Z</updated>
+		<published>2012-03-06T05:00:00Z</published>
+		<updated>2012-03-06T05:00:00Z</updated>
 	</entry>
 	<entry>
 		<id>urn:uuid:9648B7CE-8A3F-4545-A8D9-3997062E1419</id>
@@ -5422,8 +5422,8 @@ permissions and limitations under the License.
 				</IntervalReading>
 			</IntervalBlock>
 		</content>
-		<published>2012-10-24T00:00:00Z</published>
-		<updated>2012-10-24T00:00:00Z</updated>
+		<published>2012-03-07T05:00:00Z</published>
+		<updated>2012-03-07T05:00:00Z</updated>
 	</entry>
 	<entry>
 		<id>urn:uuid:E92DB70E-9D88-4B25-9D87-0C0B466DFC80</id>
@@ -6303,8 +6303,8 @@ permissions and limitations under the License.
 				</IntervalReading>
 			</IntervalBlock>
 		</content>
-		<published>2012-10-24T00:00:00Z</published>
-		<updated>2012-10-24T00:00:00Z</updated>
+		<published>2012-03-08T05:00:00Z</published>
+		<updated>2012-03-08T05:00:00Z</updated>
 	</entry>
 	<entry>
 		<id>urn:uuid:4EF81BB0-052B-4A32-B428-2318FBF77847</id>
@@ -7184,8 +7184,8 @@ permissions and limitations under the License.
 				</IntervalReading>
 			</IntervalBlock>
 		</content>
-		<published>2012-10-24T00:00:00Z</published>
-		<updated>2012-10-24T00:00:00Z</updated>
+		<published>2012-03-09T05:00:00Z</published>
+		<updated>2012-03-09T05:00:00Z</updated>
 	</entry>
 	<entry>
 		<id>urn:uuid:E12148F9-6C29-4972-B157-2EDB7616C84F</id>
@@ -8065,8 +8065,8 @@ permissions and limitations under the License.
 				</IntervalReading>
 			</IntervalBlock>
 		</content>
-		<published>2012-10-24T00:00:00Z</published>
-		<updated>2012-10-24T00:00:00Z</updated>
+		<published>2012-03-10T05:00:00Z</published>
+		<updated>2012-03-10T05:00:00Z</updated>
 	</entry>
 	<entry>
 		<id>urn:uuid:312B86F5-60A6-435A-AA83-25CE1B2C4A86</id>
@@ -8946,8 +8946,8 @@ permissions and limitations under the License.
 				</IntervalReading>
 			</IntervalBlock>
 		</content>
-		<published>2012-10-24T00:00:00Z</published>
-		<updated>2012-10-24T00:00:00Z</updated>
+		<published>2012-03-11T05:00:00Z</published>
+		<updated>2012-03-11T05:00:00Z</updated>
 	</entry>
 	<entry>
 		<id>urn:uuid:339EFCC4-BA4D-49D5-8E1B-734961E74E5E</id>
@@ -9791,8 +9791,8 @@ permissions and limitations under the License.
 				</IntervalReading>
 			</IntervalBlock>
 		</content>
-		<published>2012-10-24T00:00:00Z</published>
-		<updated>2012-10-24T00:00:00Z</updated>
+		<published>2012-03-12T04:00:00Z</published>
+		<updated>2012-03-12T04:00:00Z</updated>
 	</entry>
 	<entry>
 		<id>urn:uuid:D517CDBA-0245-4E70-AE09-D57A4D129639</id>
@@ -10672,8 +10672,8 @@ permissions and limitations under the License.
 				</IntervalReading>
 			</IntervalBlock>
 		</content>
-		<published>2012-10-24T00:00:00Z</published>
-		<updated>2012-10-24T00:00:00Z</updated>
+		<published>2012-03-13T04:00:00Z</published>
+		<updated>2012-03-13T04:00:00Z</updated>
 	</entry>
 	<entry>
 		<id>urn:uuid:AF977275-B88A-4889-A3F6-7F026EE6B1D9</id>
@@ -11553,8 +11553,8 @@ permissions and limitations under the License.
 				</IntervalReading>
 			</IntervalBlock>
 		</content>
-		<published>2012-10-24T00:00:00Z</published>
-		<updated>2012-10-24T00:00:00Z</updated>
+		<published>2012-03-14T04:00:00Z</published>
+		<updated>2012-03-14T04:00:00Z</updated>
 	</entry>
 	<entry>
 		<id>urn:uuid:8E8A6957-5C81-4BD9-BA4C-33615E0BA0AD</id>
@@ -12434,8 +12434,8 @@ permissions and limitations under the License.
 				</IntervalReading>
 			</IntervalBlock>
 		</content>
-		<published>2012-10-24T00:00:00Z</published>
-		<updated>2012-10-24T00:00:00Z</updated>
+		<published>2012-03-15T04:00:00Z</published>
+		<updated>2012-03-15T04:00:00Z</updated>
 	</entry>
 	<entry>
 		<id>urn:uuid:621D4BDF-FE3D-418B-8C98-276D941D3D45</id>
@@ -12467,8 +12467,8 @@ permissions and limitations under the License.
 				<statusTimeStamp>1331784000</statusTimeStamp>
 			</ElectricPowerUsageSummary>
 		</content>
-		<published>2012-10-24T00:00:00Z</published>
-		<updated>2012-10-24T00:00:00Z</updated>
+		<published>2012-04-12T04:00:00Z</published>
+		<updated>2012-04-12T04:00:00Z</updated>
 	</entry>
 	<entry>
 		<id>urn:uuid:DEB0A337-C1B5-4658-99BA-4688E253A99B</id>
@@ -12496,7 +12496,7 @@ permissions and limitations under the License.
 				<tempOvervoltage>13</tempOvervoltage>
 			</ElectricPowerQualitySummary>
 		</content>
-		<published>2012-10-24T00:00:00Z</published>
-		<updated>2012-10-24T00:00:00Z</updated>
+		<published>2012-04-12T04:00:00Z</published>
+		<updated>2012-04-12T04:00:00Z</updated>
 	</entry>
 </feed>
