@@ -12,8 +12,7 @@ This project will hold test scripts and tools for Green Button Connect My Data
 ##Install Firefox version 31##
 Note newer versions of FireFox do not have a compatible "selenium" driver yet (as of 12/31/2014):
 
-    wget ftp://ftp.mozilla.org/pub/mozilla.org/firefox/releases/31.0/linux
-    x86_64/en-US/firefox-31.0.tar.bz2
+    wget ftp://ftp.mozilla.org/pub/mozilla.org/firefox/releases/31.0/linux-x86_64/en-US/firefox-31.0.tar.bz2
     tar -xjvf firefox-31.0.tar.bz2
     sudo mv firefox /opt/firefox31.0
     sudo ln -sf /opt/firefox31.0/firefox /usr/bin/firefox
