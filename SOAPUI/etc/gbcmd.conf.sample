@@ -49,19 +49,4 @@ opensslCmd="openssl"
 timeoutCmd="timeout"
 DBprepopulateScriptName="prepopulatesql_dc.sql"
 
-// security test parameters
-securityTimeout="2"
-HomePageURLEndpoint="https://services.greenbuttondata.org"
-DataCustodianHostName="127.0.0.1"
-DataCustodianSSLPort="8081"
-ThirdPartyHostName="127.0.0.1"
-ThirdPartySSLPort="8081"
-openSSLCommand="/usr/local/ssl/bin/openssl"
-cmdTimeout="timeout.sh -t"
-cygwinHome=""
 
-// oauth authorize endpoint variables
-client_id="third_party"
-redirect_uri="http://localhost:8080/ThirdParty/espi/1_1/OAuthCallBack"
-scope="FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13"
-state="abcdef12345"
