@@ -9,11 +9,7 @@ DBprepopulateScriptName="prepopulatesql_dc.sql"
 openSSLCommand="/usr/local/ssl/bin/openssl"
 cmdTimeout="timeout.sh -t"
 securityTimeout="2"
+mockPort="8081"
+proxyOutPort="8080"
 
-// Certification Input Configuration from testee
-BaseURL="http://localhost:8080"
-ServiceEndpoint="http://localhost:8080/DataCustodian"
-DataCustodianContext="DataCustodian"
-ThirdPartyContext="ThirdParty"
-thirdPartyNotificationEndpoint="http://localhost:8081/ThirdParty/espi/1_1" 
 
