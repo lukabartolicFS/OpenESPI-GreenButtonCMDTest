@@ -4607,10 +4607,10 @@ testRunner.fail("could not curl up file");
 	service = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Authorization Mock Service");
 	service.setPropertyValue("mockPort",config.mockPort);
 	service.setPropertyValue("proxyOutPort",config.proxyOutPort);
-	service = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Authorization Mock Service for NEG tests type A");
+	service = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty NEG A tests Authorization Mock Service");
 	service.setPropertyValue("mockPort",config.mockPort);
 	service.setPropertyValue("proxyOutPort",config.proxyOutPort);
-	service = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Authorization Mock Service for NEG tests type B");
+	service = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty NEG B tests Authorization Mock Service");
 	service.setPropertyValue("mockPort",config.mockPort);
 	service.setPropertyValue("proxyOutPort",config.proxyOutPort);
 
@@ -40303,29 +40303,7 @@ else {
 	<con:settings/>
 	<con:runType>SEQUENTIAL</con:runType>
 	
-	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD001 [NEG] Malformed Authorization Code Requests" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" id="fe96e0e8-b157-4d38-b230-984f1e4d61c2"><con:description/><con:settings/><con:testStep type="groovy" name="AddParametersToTestCase" id="6f0be77c-1b57-4b12-a850-c341cc02b7d7" disabled="true"><con:settings/><con:config><script>def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
-
-testRunner.testCase.setPropertyValue("mockPort", authCase.getPropertyValue("mockPort"));
-testRunner.testCase.setPropertyValue("proxyOutPort", authCase.getPropertyValue("proxyOutPort"));
-testRunner.testCase.setPropertyValue("authorizationServerAuthorizationEndpoint", authCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
-testRunner.testCase.setPropertyValue("redirect_uri", authCase.getPropertyValue("redirect_uri"));
-testRunner.testCase.setPropertyValue("authorizationServerTokenEndpoint", authCase.getPropertyValue("authorizationServerTokenEndpoint"));
-
-</script></con:config></con:testStep><con:testStep type="groovy" name="Verify DC scope selection URI present" id="33bfd061-d9ec-41c8-ade4-3f25d0555864" disabled="true"><con:settings/><con:config><script>def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
-
-
-
-if((authCase.getPropertyValue("dataCustodianScopeSelectionScreenURI")==null)||
-(authCase.getPropertyValue("dataCustodianScopeSelectionScreenURI")=="")){
-	log.error("No scope selection URI present in ApplicationInformation");
-	testRunner.fail("No scope selection URI present in ApplicationInformation");
-	return;		
-}
-
-def clientId =authCase.getPropertyValue("client_id");
-context.ScopeSelURI = authCase.getPropertyValue("dataCustodianScopeSelectionScreenURI");
-
-log.info "Scope selection URI: " + context.ScopeSelURI ;</script></con:config></con:testStep><con:testStep type="groovy" name="OAD001 [NEG] Start Mock Service" id="046723f4-4c1b-43a6-b4f5-18e9a1995ee9"><con:settings/><con:config><script>//	Create addressability to global variables
+	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD001 [NEG] Malformed Authorization Code Requests" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" id="fe96e0e8-b157-4d38-b230-984f1e4d61c2"><con:description/><con:settings/><con:testStep type="groovy" name="OAD001 [NEG] Start Mock Service" id="046723f4-4c1b-43a6-b4f5-18e9a1995ee9"><con:settings/><con:config><script>//	Create addressability to global variables
 def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
 context.mockService =  testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty NEG A tests Authorization Mock Service");
 
@@ -40498,32 +40476,10 @@ field of this dialog box.
 </con:description><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult/></con:config></con:testStep><con:testStep type="groovy" name="Extract sessionID" id="f544e23c-56c9-4226-955f-13bdf22c51f0"><con:settings/><con:config><script>
 testRunner.testCase.setPropertyValue("browserSession",testRunner.testCase.getTestStepByName("Perform Login").getPropertyValue("Result"));
  
-</script></con:config></con:testStep><con:testStep type="groovy" name="OAD001 [NEG] Perform logon" id="6656e72e-9b8c-445d-a005-7c3c9c3c8e36" disabled="true"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
+</script></con:config></con:testStep><con:testStep type="groovy" name="OAD001 [NEG] Perform TP Scope Selection" id="fb5fc53b-b795-408b-8cc4-dc82abb95021"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
 
-result = ui.getDialogs().showInfoMessage("Perform logon and click OK when Scope Selection Screen appears", "");
-
-context["driver"].quit();</script></con:config></con:testStep><con:testStep type="groovy" name="OAD001 [NEG] Wait for Mock Service to receive first redirect" id="33c9e486-5e38-4599-a0f1-a226d37f9689" disabled="true"><con:settings/><con:config><script>
-
-int cnt=20;
-
-while(cnt>0){
-	log.info("Script waiting for first browser TP redirect");
-	if(context.mockService.getPropertyValue("GotFirstRedirect").equals("TRUE")){
-		assert true;
-		return;
-	}
-	Thread.sleep(1000);
-	cnt--;
-}
-
-log.error("No authorization received");
-testRunner.fail("Never received first redirection to the Third Party");
-</script></con:config></con:testStep><con:testStep type="manualTestStep" name="Perform TP Scope Selection" id="8bbb61cb-81d8-46ad-94a9-f7450a08e151"><con:description>Please select a scope on the Third Party Scope
-selection screen and press submit.</con:description><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:testStep><con:testStep type="groovy" name="OAD001 [NEG] Perform TP Scope Selection" id="ffbe4451-c44e-4772-9e5b-6ad133330e46" disabled="true"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
-
-result = ui.getDialogs().showInfoMessage("Select a scope on the Third Party Scope selection screen and press SUBMIT then click on OK", "");
-
-context["driver"].quit();</script></con:config></con:testStep><con:testStep type="groovy" name="OAD001 [NEG] Wait for Mock Service to receive TP scope sel POST" id="0dee7420-3702-444b-b3c2-e5e2fb7959e6"><con:settings/><con:config><script>
+result = ui.getDialogs().showInfoMessage("Select Scope and click OK when done", "");
+</script></con:config></con:testStep><con:testStep type="groovy" name="OAD001 [NEG] Wait for Mock Service to receive TP scope sel POST" id="0dee7420-3702-444b-b3c2-e5e2fb7959e6"><con:settings/><con:config><script>
 int cnt=20;
 
 while(cnt>0){
@@ -40776,7 +40732,7 @@ while(true) {
 }
 
 assert true;]]></script></con:config></con:testStep><con:testStep type="groovy" name="End Browser session" id="26465757-1ba7-4608-8601-cbec5492e117"><con:settings/><con:config><script>context["driver"].quit();
-context["driver"] = null;</script></con:config></con:testStep><con:testStep type="groovy" name="OAD002 [NEG] Stop Mock Service" id="40ff42e1-7a63-4149-9c17-76a84053e99d"><con:settings/><con:config><script>context.mockRunner.stop();
+context["driver"] = null;</script></con:config></con:testStep><con:testStep type="groovy" name="OAD001 [NEG] Stop Mock Service" id="40ff42e1-7a63-4149-9c17-76a84053e99d"><con:settings/><con:config><script>context.mockRunner.stop();
 context.mockRunner = null;
 return;</script></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>if(context.mockRunner != null){
 	context.mockRunner.stop();
@@ -40789,7 +40745,7 @@ if(context["driver"] != null){
 }
 
 log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();
-</con:tearDownScript><con:properties><con:property><con:name>extracted_scope_sel_uri</con:name><con:value/></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">C6084430DE7606489AF27FBC1A544EE6</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD002 [NEG] Authorization Code Request (Retail Customer Passes Authentication and DENIES access)" searchProperties="true" id="bccca4c3-2b7b-4359-8ca2-2159ecd05c3e"><con:description/><con:settings/><con:testStep type="groovy" name="OAD002 [NEG] Start Mock Service" id="d08db03c-02df-4bec-be6d-8eb8cd7f4cda"><con:settings/><con:config><script>//	Create addressability to global variables
+</con:tearDownScript><con:properties><con:property><con:name>extracted_scope_sel_uri</con:name><con:value/></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">F4A20F0907FB5A5EAE30239030A5EFA6</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD002 [NEG] Authorization Code Request (Retail Customer Passes Authentication and DENIES access)" searchProperties="true" id="bccca4c3-2b7b-4359-8ca2-2159ecd05c3e"><con:description/><con:settings/><con:testStep type="groovy" name="OAD002 [NEG] Start Mock Service" id="d08db03c-02df-4bec-be6d-8eb8cd7f4cda"><con:settings/><con:config><script>//	Create addressability to global variables
 def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
 
 context.mockService = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Authorization Mock Service");
@@ -40945,7 +40901,7 @@ context["driver"] = driver;
 driver.get(strScopeSelURI);
 </script></con:config></con:testStep><con:testStep type="groovy" name="OAD002 [NEG] Wait for Authorization to Complete and End Browser session" id="335fbfd7-b948-47bd-adb8-e20bad342944"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
 
-result = ui.getDialogs().showInfoMessage("Perform logon and authorization and hit OK when done", "");
+result = ui.getDialogs().showInfoMessage("Perform logon, select scope and DENY authorization request. Click OK when done", "");
 
 context["driver"].quit();</script></con:config></con:testStep><con:testStep type="groovy" name="End Browser session" id="4d820d57-da11-46f5-9b74-2c9a58cd91f1"><con:settings/><con:config><script>context["driver"].quit();
 context["driver"] = null;</script></con:config></con:testStep><con:testStep type="groovy" name="OAD002 [NEG] Stop Mock Service" id="62cbdcbe-2f49-470b-b76b-16fc7ec0d150"><con:settings/><con:config><script>context.mockRunner.stop();
@@ -45943,7 +45899,7 @@ requestContext.mockService.setPropertyValue("rxNotificationBody",strBody);
 
 
 </con:dispatchPath><con:response name="Response 1" httpResponseStatus="200" id="31e9433f-70db-4381-8f38-75ff01ad0a7e"><con:settings/><con:script/><con:responseContent/></con:response></con:restMockAction></con:restMockService>
-<con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty Authorization Mock Service" docroot="" id="3a34ffc3-4858-4237-a55a-0cc1f8544c4a"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value>error=access_denied&amp;error_description=User%20denied%20access&amp;state=ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>client_secret</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="a19f663e-daf5-4eab-bc7c-0fb638c2496d"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+<con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty Authorization Mock Service" docroot="" id="3a34ffc3-4858-4237-a55a-0cc1f8544c4a"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value>error=access_denied&amp;error_description=User%20denied%20access&amp;state=ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>client_secret</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="a19f663e-daf5-4eab-bc7c-0fb638c2496d"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Examples showing how to match based on path, query param and header
 // Match based on path
 def requestPath = mockRequest.getPath()
@@ -46405,12 +46361,11 @@ requestContext.list = strFormSelections;</con:script><con:responseContent><![CDA
 <html>
 <body>
 <br><br>
-<p>Please right click on the page and select "Page Info" from the conext menu.</p>
-<br><br>
-<p>Choose the Security tab click the view cookies button and copy the session cookie for the Data Custodian path.</p>
-<br><br>
-<p>Paste this session cookie into the "Result" field of this dialog box.</p>
-<br><br>
+<p>Right click on the page and select <strong>"<i>View Page Info</>"</strong> from the menu.</p>
+<p>Click the <strong>"<i>Details</>"</strong> button that appears in the new window.&nbsp; Click the <strong>"<i>View Cookies</>"</strong> button that appears in the new window.&nbsp;
+In the next window, highlight the information found after the <strong>"<i>Content:</>"</strong> label (the session cookie for the Data Custodian session) and copy the highlighted data.&nbsp;
+Click the <strong>"<i>Close</>"</strong> button on the <strong>"<i>Cookies</>"</strong> window.  Close the <strong>"<i>Website Identity</>"</strong> window.</p>
+<p>Return to the SoapUI dialog box and paste the copied data (i.e., session cookie) into the <strong>"<i>Result</>"</strong> field and click the <strong>"<i>OK</>"</strong> button.</p>
 <p>After this step is complete:</p>
 <br><br>
 <p>Please select a scope for testing and submit.</p>
@@ -46720,7 +46675,7 @@ requestContext.mockService.setPropertyValue("GotScopeSelPOST","TRUE");
 </con:script><con:responseContent><![CDATA[<!DOCTYPE html>
 <html>
 <body>
-Please select "Pass" on SoapUI manual test step now.
+Please select <strong>"<i>OK</>"</strong> on SoapUI dialog box.
 <br><br>
 </body>
 </html>
@@ -46985,7 +46940,7 @@ httpResponse.addHeader("Location",strRespLoc);
 
 </con:script><con:responseContent/></con:response></con:restMockAction></con:restMockService>
 <con:properties>
-	<con:property><con:name>access_token</con:name><con:value>0cb37282-7b0a-4c84-9160-9366fc910d0e</con:value></con:property><con:property><con:name>applicationInformationId</con:name><con:value>2</con:value></con:property><con:property><con:name>authorizationId</con:name><con:value>4</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>localhost:8443</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value/></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property>
+	<con:property><con:name>access_token</con:name><con:value>0cb37282-7b0a-4c84-9160-9366fc910d0e</con:value></con:property><con:property><con:name>applicationInformationId</con:name><con:value>2</con:value></con:property><con:property><con:name>authorizationId</con:name><con:value>4</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>localhost:8443</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value>https://localhost:8443/DataCustodian/</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property>
 		<con:name>BaseURL</con:name>
 		<con:value/>
 	</con:property>
@@ -47039,7 +46994,7 @@ httpResponse.addHeader("Location",strRespLoc);
 	
 	
 	
-<con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property><con:property><con:name>ServiceEndpoint</con:name><con:value>http://localhost:8080/DataCustodian</con:value></con:property><con:property><con:name>subscriptionId</con:name><con:value>5</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>TestFile2</con:name><con:value>Gas.xml</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>ThirdPartyContext</con:name><con:value/></con:property><con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value/></con:property><con:property><con:name>third_party_access_token</con:name><con:value>75dd9c46-becf-48b5-9cb5-9c3233d718d0</con:value></con:property><con:property><con:name>timeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>upload_access_token</con:name><con:value>809caf03-612e-4e89-94b1-6f86d83b1ef8</con:value></con:property><con:property><con:name>usagePointDescription1</con:name><con:value>Front Electric Meter</con:value></con:property><con:property><con:name>usagePointDescription2</con:name><con:value>Gas</con:value></con:property><con:property><con:name>usagePointId</con:name><con:value>1</con:value></con:property><con:property><con:name>usagePointUUID1</con:name><con:value>48C2A019-5598-4E16-B0F9-49E4FF27F5FB</con:value></con:property><con:property><con:name>usagePointUUID2</con:name><con:value>642EABA-8E42-4D1A-A375-AF54993C007B</con:value></con:property><con:property><con:name>userAccessToken1</con:name><con:value>130c1f1d-7777-44a2-87de-a23adca597c9</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>bc3e03c0-711f-4719-bd33-9026d08fac5a</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>client_id</con:name><con:value/></con:property><con:property><con:name>redirect_uri</con:name><con:value/></con:property><con:property><con:name>state</con:name><con:value/></con:property><con:property><con:name>resourceServerProxy</con:name><con:value>https://localhost:8080//DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>authorizationServerProxy</con:name><con:value>https://localhost:8080//DataCustodian/</con:value></con:property><con:property><con:name>client_secret</con:name><con:value/></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property></con:properties>
+<con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property><con:property><con:name>ServiceEndpoint</con:name><con:value>http://localhost:8080/DataCustodian</con:value></con:property><con:property><con:name>subscriptionId</con:name><con:value>5</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>TestFile2</con:name><con:value>Gas.xml</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>ThirdPartyContext</con:name><con:value/></con:property><con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/Notification</con:value></con:property><con:property><con:name>third_party_access_token</con:name><con:value>75dd9c46-becf-48b5-9cb5-9c3233d718d0</con:value></con:property><con:property><con:name>timeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>upload_access_token</con:name><con:value>809caf03-612e-4e89-94b1-6f86d83b1ef8</con:value></con:property><con:property><con:name>usagePointDescription1</con:name><con:value>Front Electric Meter</con:value></con:property><con:property><con:name>usagePointDescription2</con:name><con:value>Gas</con:value></con:property><con:property><con:name>usagePointId</con:name><con:value>1</con:value></con:property><con:property><con:name>usagePointUUID1</con:name><con:value>48C2A019-5598-4E16-B0F9-49E4FF27F5FB</con:value></con:property><con:property><con:name>usagePointUUID2</con:name><con:value>642EABA-8E42-4D1A-A375-AF54993C007B</con:value></con:property><con:property><con:name>userAccessToken1</con:name><con:value>130c1f1d-7777-44a2-87de-a23adca597c9</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>bc3e03c0-711f-4719-bd33-9026d08fac5a</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>state</con:name><con:value/></con:property><con:property><con:name>resourceServerProxy</con:name><con:value>https://localhost:8080//DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>authorizationServerProxy</con:name><con:value>https://localhost:8080//DataCustodian/</con:value></con:property><con:property><con:name>client_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property></con:properties>
 <con:wssContainer/>
 <con:oAuth2ProfileContainer/>
 <con:sensitiveInformation/>
