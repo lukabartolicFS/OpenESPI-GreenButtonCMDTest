@@ -7843,35 +7843,148 @@ if(testRunner.testCase.getTestStepByName("Choose whether or not to perform an Au
 	testRunner.gotoStepByName( "Done");
 }
 */
-</script></con:config></con:testStep><con:testStep type="groovy" name="Verify DC scope section URI present" id="33e94086-1434-4b24-b323-e6ef7614e927"><con:settings/><con:config><script>
-if((testRunner.testCase.getPropertyValue("dataCustodianScopeSelectionScreenURI")==null)||
-(testRunner.testCase.getPropertyValue("dataCustodianScopeSelectionScreenURI")=="")){
-	log.error("No scope selection URI present in ApplicationInformation");
-	testRunner.fail("No scope selection URI present in ApplicationInformation");
-	return;		
-}
+</script></con:config></con:testStep><con:testStep type="groovy" name="Start Mock Service" id="b5180cc9-a09b-47cf-b76f-42ed235424c3"><con:settings/><con:config><script>//	Create addressability to global variables
+def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
 
-context.ScopeSelURI = testRunner.testCase.getPropertyValue("dataCustodianScopeSelectionScreenURI");</script></con:config></con:testStep><con:testStep type="groovy" name="Start Mock Service" id="b5180cc9-a09b-47cf-b76f-42ed235424c3"><con:settings/><con:config><script>context.mockService = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Authorization Mock Service");
+context.mockService = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Authorization Mock Service");
+
+//   ****************************************************************************************************************************
+//   *
+//   *    Verify all mock service global variables are valid
+//   *
+//   ****************************************************************************************************************************
+
+// Verify mockPort variable is valid
+if (authCase.getPropertyValue("mockPort") == "" || authCase.getPropertyValue("mockPort") == null) {
+
+	log.info("Create Authorization and extract all information Start Mock Service -- mockPort variable is blank or null -- " + authCase.getPropertyValue("mockPort"));
+	log.error("Create Authorization and extract all information Start Mock Service -- mockPort variable is blank or null -- " + authCase.getPropertyValue("mockPort"));
+	testRunner.fail("Create Authorization and extract all information Start Mock Service -- mockPort variable is blank or null -- " + authCase.getPropertyValue("mockPort"));
+	return;
+	
+	} else {
+		log.info("Create Authorization and extract all information Start Mock Service -- mockPort variable: " + authCase.getPropertyValue("mockPort"));
+	}
+
+// Verify proxyOutPort variable is valid
+if (authCase.getPropertyValue("proxyOutPort") == "" || authCase.getPropertyValue("proxyOutPort") == null) {
+
+	log.info("Create Authorization and extract all information Start Mock Service -- proxyOutPort variable is blank or null -- " + authCase.getPropertyValue("proxyOutPort"));
+	log.error("Create Authorization and extract all information Start Mock Service -- proxyOutPort variable is blank or null -- " + authCase.getPropertyValue("proxyOutPort"));
+	testRunner.fail("Create Authorization and extract all information Start Mock Service -- proxyOutPort variable is blank or null -- " + authCase.getPropertyValue("proxyOutPort"));
+	return;
+	
+	} else {
+		log.info("Create Authorization and extract all information Start Mock Service -- proxyOutPort variable: " + authCase.getPropertyValue("proxyOutPort"));
+	}
+
+// Verify OAuth Authorization Endpoint variable is valid
+if (authCase.getPropertyValue("authorizationServerAuthorizationEndpoint") == "" || authCase.getPropertyValue("authorizationServerAuthorizationEndpoint") == null) {
+
+	log.info("Create Authorization and extract all information Start Mock Service -- OAuth Authorization Endpoint variable is blank or null -- " + authCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
+	log.error("Create Authorization and extract all information Start Mock Service -- OAuth Authorization Endpoint variable is blank or null -- " + authCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
+	testRunner.fail("Create Authorization and extract all information Start Mock Service -- OAuth Authorization Endpoint variable is blank or null -- " + authCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
+	return;
+	
+	} else {
+		log.info("Create Authorization and extract all information Start Mock Service -- OAuth Authorization Endpoint variable: " + authCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
+	}
+
+// Verify OAuth Authorization Redirect URI variable is valid
+if (authCase.getPropertyValue("redirect_uri") == "" || authCase.getPropertyValue("redirect_uri") == null) {
+
+	log.info("Create Authorization and extract all information Start Mock Service -- OAuth Authorization Redirect URI variable is blank or null -- " + authCase.getPropertyValue("redirect_uri"));
+	log.error("Create Authorization and extract all information Start Mock Service -- OAuth Authorization Redirect URI Endpoint variable is blank or null -- " + authCase.getPropertyValue("redirect_uri"));
+	testRunner.fail("Create Authorization and extract all information Start Mock Service -- OAuth Authorization Redirect URI variable is blank or null -- " + authCase.getPropertyValue("redirect_uri"));
+	return;
+	
+	} else {
+		log.info("Create Authorization and extract all information Start Mock Service -- OAuth Authorization Redirect URI variable: " + authCase.getPropertyValue("redirect_uri"));
+	}
+
+// Verify OAuth Authorization Token Endpoint variable is valid
+if (authCase.getPropertyValue("authorizationServerTokenEndpoint") == "" || authCase.getPropertyValue("authorizationServerTokenEndpoint") == null) {
+
+	log.info("Create Authorization and extract all information Start Mock Service -- OAuth Authorization Token Endpoint variable is blank or null -- " + authCase.getPropertyValue("authorizationServerTokenEndpoint"));
+	log.error("Create Authorization and extract all information Start Mock Service -- OAuth Authorization Token Endpoint variable is blank or null -- " + authCase.getPropertyValue("authorizationServerTokenEndpoint"));
+	testRunner.fail("Create Authorization and extract all information Start Mock Service -- OAuth Authorization Token Endpoint variable is blank or null -- " + authCase.getPropertyValue("authorizationServerTokenEndpoint"));
+	return;
+	
+	} else {
+		log.info("Create Authorization and extract all information Start Mock Service -- OAuth Authorization Token Endpoint variable: " + authCase.getPropertyValue("authorizationServerTokenEndpoint"));
+	}
+
+// Verify Client ID variable is valid
+if (authCase.getPropertyValue("client_id") == "" || authCase.getPropertyValue("client_id") == null) {
+
+	log.info("Create Authorization and extract all information Start Mock Service -- Client ID variable is blank or null -- " + authCase.getPropertyValue("client_id"));
+	log.error("Create Authorization and extract all information Start Mock Service -- Client ID variable is blank or null -- " + authCase.getPropertyValue("client_id"));
+	testRunner.fail("Create Authorization and extract all information Start Mock Service -- Client ID variable is blank or null -- " + authCase.getPropertyValue("client_id"));
+	return;
+	
+	} else {
+		log.info("Create Authorization and extract all information Start Mock Service -- Client ID variable: " + authCase.getPropertyValue("client_id"));
+	}
+
+// Verify Client Secret variable is valid
+if (authCase.getPropertyValue("client_secret") == "" || authCase.getPropertyValue("client_secret") == null) {
+
+	log.info("Create Authorization and extract all information Start Mock Service -- Client Secret variable is blank or null -- " + authCase.getPropertyValue("client_secret"));
+	log.error("Create Authorization and extract all information Start Mock Service -- Client Secret variable is blank or null -- " + authCase.getPropertyValue("client_secret"));
+	testRunner.fail("Create Authorization and extract all information Start Mock Service -- Client Secret variable is blank or null -- " + authCase.getPropertyValue("client_secret"));
+	return;
+	
+	} else {
+		log.info("Create Authorization and extract all information Start Mock Service -- Client Secret variable: " + authCase.getPropertyValue("client_secret"));
+	}
+
+// Verify Data Custodian Scope Selection Screen URI is valid
+if (authCase.getPropertyValue("dataCustodianScopeSelectionScreenURI") == "" || authCase.getPropertyValue("dataCustodianScopeSelectionScreenURI") == null) {
+
+	log.info("Create Authorization and extract all information Start Mock Service -- Data Custodian Scope Selection Screen URI variable is blank or null -- " + authCase.getPropertyValue("dataCustodianScopeSelectionScreenURI"));
+	log.error("Create Authorization and extract all information Start Mock Service -- Data Custodian Scope Selection Screen URI variable is blank or null -- " + authCase.getPropertyValue("dataCustodianScopeSelectionScreenURI"));
+	testRunner.fail("Create Authorization and extract all information Start Mock Service -- Data Custodian Scope Selection Screen URI variable is blank or null -- " + authCase.getPropertyValue("dataCustodianScopeSelectionScreenURI"));
+	return;
+	
+	} else {
+		log.info("Create Authorization and extract all information Start Mock Service -- Data Custodian Scope Selection Screen URI variable: " + authCase.getPropertyValue("dataCustodianScopeSelectionScreenURI"));
+	}
+
+//   ****************************************************************************************************************************
+//   *
+//   *    Initialize mock service variables
+//   *
+//   ****************************************************************************************************************************
 
 context.mockService.setPropertyValue("tokenResponse",""); 
-context.mockService.setPropertyValue("authorizationServerAuthorizationEndpoint",testRunner.testCase.getPropertyValue("authorizationServerAuthorizationEndpoint")); 
-context.mockService.setPropertyValue("redirect_uri",testRunner.testCase.getPropertyValue("redirect_uri")); 
-context.mockService.setPropertyValue("authorizationServerTokenEndpoint",testRunner.testCase.getPropertyValue("authorizationServerTokenEndpoint"));
-context.mockService.setPropertyValue("client_id",testRunner.testCase.getPropertyValue("client_id"));
+context.mockService.setPropertyValue("authorizationServerAuthorizationEndpoint",authCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
+context.mockService.setPropertyValue("redirect_uri",authCase.getPropertyValue("redirect_uri"));
+context.mockService.setPropertyValue("authorizationServerTokenEndpoint",authCase.getPropertyValue("authorizationServerTokenEndpoint"));
+context.mockService.setPropertyValue("client_id",authCase.getPropertyValue("client_id"));
+context.mockService.setPropertyValue("client_secret",authCase.getPropertyValue("client_secret"));
+context.mockService.setPropertyValue("dataCustodianScopeSelectionScreenURI",authCase.getPropertyValue("dataCustodianScopeSelectionScreenURI"));
 
-context.mockService.setPort(context.testRunner.testCase.getPropertyValue("mockPort").toInteger());
+context.mockService.setPort(authCase.getPropertyValue("mockPort").toInteger());
 def runner = context.mockService.start(); 
 context.mockRunner = runner;  
 return;</script></con:config></con:testStep><con:testStep type="groovy" name="Script will bring up browser to DC Scope selection screen" id="1afd759c-0ac6-4184-99ad-d9656769face"><con:settings/><con:config><script>import org.greenbutton.cmd.utils.DriverHelper;
-import java.net.*;
-import java.io.*;
+//import java.net.*;
+//import java.io.*;
 
-String parseEndpointFromURI(String strURI) throws Exception {
+//	Create addressability to global variables
+def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
+
+//String parseEndpointFromURI(String strURI) throws Exception {
+String parseBaseUrlFromURI(String strURI) throws Exception {	
     URL aURL = new URL(strURI);
 
     if(aURL.getPort().equals(-1)) {
+	    log.info("Create Authorization and extract all information Script will bring up browser to DC Scope selection screen -- aURL.getPort(): " + aURL.getPort());
+	    log.info("Create Authorization and extract all information Script will bring up browser to DC Scope selection screen -- strBaseUrl: " + aURL.getProtocol() + "://" +  aURL.getHost());
 	    return aURL.getProtocol() + "://" +  aURL.getHost() ;
     } else {
+	    log.info("Create Authorization and extract all information Script will bring up browser to DC Scope selection screen -- aURL.getPort(): " + aURL.getPort());
+	    log.info("Create Authorization and extract all information Script will bring up browser to DC Scope selection screen -- strBaseUrl: " + aURL.getProtocol() + "://" +  aURL.getHost() + ":" + aURL.getPort());
 	    return aURL.getProtocol() + "://" +  aURL.getHost() + ":" + aURL.getPort();
     }
 }
@@ -7879,22 +7992,27 @@ String parseEndpointFromURI(String strURI) throws Exception {
 
 String parseResource(String strURI) throws Exception {
     URL aURL = new URL(strURI);
+
+    log.info("Create Authorization and extract all information Script will bring up browser to DC Scope selection screen -- strResource: " + aURL.getPath());
     return aURL.getPath();
 }
 
-def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
-def ScopeSelURI = authCase.getPropertyValue("dataCustodianScopeSelectionScreenURI");
+//def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
+def strScopeSelURI = authCase.getPropertyValue("dataCustodianScopeSelectionScreenURI");
 
-String strEndpoint = parseEndpointFromURI(ScopeSelURI);
-String strResource = parseResource(ScopeSelURI);
+//String strEndpoint = parseEndpointFromURI(ScopeSelURI);
+String strEndpoint = parseBaseUrlFromURI(strScopeSelURI);
+String strResource = parseResource(strScopeSelURI);
 //log.info "Configured Endpoint: " + strEndpoint;
 //log.info "Configured Resource: " + strResource;
+
+log.info "Create Authorization and extract all information Script will bring up browser to DC Scope selection screen -- Scope select URI: " + strScopeSelURI;
 
 DriverHelper driver = new DriverHelper(strEndpoint,strResource,"",log);
 
 context["driver"] = driver;
 
-driver.get(ScopeSelURI);
+driver.get(strScopeSelURI);
 </script></con:config></con:testStep><con:testStep type="groovy" name="Wait for Authorization to Complete and End Browser session" id="b113e147-1128-47b8-ad30-8e704a9a4446"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
 
 result = ui.getDialogs().showInfoMessage("Perform logon and authorization and hit OK when done", "");
@@ -7965,7 +8083,7 @@ if(context["driver"] != null){
 	context["driver"].quit();
 	context["driver"] = null;	
 }
-</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>0cb37282-7b0a-4c84-9160-9366fc910d0e</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>espi/1_1/resource</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>token_type</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>refresh_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>expires_in</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>old_access_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">secret</con:value></con:property><con:property><con:name>authorizationServerProxy</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8080//DataCustodian/</con:value></con:property><con:property><con:name>resourceServerProxy</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8080//DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand" id="06648a84-6352-4b25-b179-693e52d162cc"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
+</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>e8aecd23-2208-4f12-998d-f3e084f431d4</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>espi/1_1/resource</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>token_type</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>refresh_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>expires_in</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">uGEeEw</con:value></con:property><con:property><con:name>error</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>old_access_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">secret</con:value></con:property><con:property><con:name>authorizationServerProxy</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8080//DataCustodian/</con:value></con:property><con:property><con:name>resourceServerProxy</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8080//DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand" id="06648a84-6352-4b25-b179-693e52d162cc"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
 
@@ -16933,7 +17051,7 @@ if(result==false) {
 }
 
 log.info result;
-</script></con:config></con:testStep><con:testStep type="calltestcase" name="Run TestCase Create Authorization" id="61dcca52-4fb1-41aa-8b29-60e0be6004d0"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>00812f7a-b4ce-4782-bf13-f27a979f6d00</con:targetTestCase><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>0cb37282-7b0a-4c84-9160-9366fc910d0e</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>d42ea1ed-a14e-4902-8ee2-e0fb7176a452</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>error</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>old_access_token</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>client_secret</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>authorizationServerProxy</con:name></con:property><con:property><con:name>resourceServerProxy</con:name></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property></con:properties><con:returnProperties><con:entry>dataCustodianScopeSelectionScreenURI</con:entry><con:entry>authorizationServerAuthorizationEndpoint</con:entry><con:entry>redirect_uri</con:entry><con:entry>authorizationServerTokenEndpoint</con:entry><con:entry>access_token</con:entry><con:entry>resourceURI</con:entry><con:entry>authorizationURI</con:entry><con:entry>token_type</con:entry><con:entry>refresh_token</con:entry><con:entry>expires_in</con:entry><con:entry>scope</con:entry><con:entry>client_id</con:entry><con:entry>mockPort</con:entry><con:entry>proxyOutPort</con:entry></con:returnProperties><con:runMode>SINGLETON_AND_WAIT</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Extract information from authorization" id="5639abcf-7a15-47fb-8c1e-1158091388f6"><con:settings/><con:config><script>import com.eviware.soapui.support.types.StringToStringMap;
+</script></con:config></con:testStep><con:testStep type="calltestcase" name="Run TestCase Create Authorization" id="61dcca52-4fb1-41aa-8b29-60e0be6004d0"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>00812f7a-b4ce-4782-bf13-f27a979f6d00</con:targetTestCase><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>e8aecd23-2208-4f12-998d-f3e084f431d4</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>d1539bd3-d22b-4025-a530-8424407e40c0</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>error</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>old_access_token</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>client_secret</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>authorizationServerProxy</con:name></con:property><con:property><con:name>resourceServerProxy</con:name></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property></con:properties><con:returnProperties><con:entry>dataCustodianScopeSelectionScreenURI</con:entry><con:entry>authorizationServerAuthorizationEndpoint</con:entry><con:entry>redirect_uri</con:entry><con:entry>authorizationServerTokenEndpoint</con:entry><con:entry>access_token</con:entry><con:entry>resourceURI</con:entry><con:entry>authorizationURI</con:entry><con:entry>token_type</con:entry><con:entry>refresh_token</con:entry><con:entry>expires_in</con:entry><con:entry>scope</con:entry><con:entry>client_id</con:entry><con:entry>mockPort</con:entry><con:entry>proxyOutPort</con:entry></con:returnProperties><con:runMode>SINGLETON_AND_WAIT</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Extract information from authorization" id="5639abcf-7a15-47fb-8c1e-1158091388f6"><con:settings/><con:config><script>import com.eviware.soapui.support.types.StringToStringMap;
 
 def propCreateAuthResults  = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
 
@@ -16953,7 +17071,7 @@ headers.put("Authorization","Bearer " + testRunner.testCase.testSuite.project.ge
 headers.put("Content-Type","Application/atom+xml");
 propTestStep.testRequest.setRequestHeaders(headers);
  </script></con:config></con:testStep><con:testStep type="httprequest" name="GET Resource URI" id="385eca90-b9e6-4646-a4d3-7ff3576f1042"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Resource URI" id="4c065077-eff3-4431-8201-a501b8acd7a6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
-  &lt;con:entry key="Authorization" value="Bearer 0cb37282-7b0a-4c84-9160-9366fc910d0e"/>
+  &lt;con:entry key="Authorization" value="Bearer e8aecd23-2208-4f12-998d-f3e084f431d4"/>
   &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
 &lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="10ded9d8-6ec9-476d-8438-75d0c7c8cdba"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema Validation" id="fe6a24dc-9d74-4915-8ff5-b7de94296d82"><con:configuration><scriptText>import javax.xml.XMLConstants;
 import javax.xml.transform.Source;
@@ -40303,7 +40421,7 @@ else {
 	<con:settings/>
 	<con:runType>SEQUENTIAL</con:runType>
 	
-	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD001 [NEG] Malformed Authorization Code Requests" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" id="fe96e0e8-b157-4d38-b230-984f1e4d61c2"><con:description/><con:settings/><con:testStep type="groovy" name="OAD001 [NEG] Start Mock Service" id="046723f4-4c1b-43a6-b4f5-18e9a1995ee9"><con:settings/><con:config><script>//	Create addressability to global variables
+	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD001 [NEG] Malformed Authorization Code Requests" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" id="fe96e0e8-b157-4d38-b230-984f1e4d61c2"><con:description/><con:settings/><con:testStep type="groovy" name="Start Mock Service" id="046723f4-4c1b-43a6-b4f5-18e9a1995ee9"><con:settings/><con:config><script>//	Create addressability to global variables
 def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
 context.mockService =  testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty NEG A tests Authorization Mock Service");
 
@@ -40337,16 +40455,16 @@ if (authCase.getPropertyValue("proxyOutPort") == "" || authCase.getPropertyValue
 		log.info("OAD001 [NEG] Start Mock Service -- proxyOutPort variable: " + authCase.getPropertyValue("proxyOutPort"));
 	}
 
-// Verify Oauth Authorization Endpoint variable is valid
+// Verify OAuth Authorization Endpoint variable is valid
 if (authCase.getPropertyValue("authorizationServerAuthorizationEndpoint") == "" || authCase.getPropertyValue("authorizationServerAuthorizationEndpoint") == null) {
 
-	log.info("OAD001 [NEG] Start Mock Service -- Oauth Authorization Endpoint variable is blank or null -- " + authCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
-	log.error("OAD001 [NEG] Start Mock Service -- Oauth Authorization Endpoint variable is blank or null -- " + authCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
-	testRunner.fail("OAD001 [NEG] Start Mock Service -- Oauth Authorization Endpoint variable is blank or null -- " + authCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
+	log.info("OAD001 [NEG] Start Mock Service -- OAuth Authorization Endpoint variable is blank or null -- " + authCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
+	log.error("OAD001 [NEG] Start Mock Service -- OAuth Authorization Endpoint variable is blank or null -- " + authCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
+	testRunner.fail("OAD001 [NEG] Start Mock Service -- OAuth Authorization Endpoint variable is blank or null -- " + authCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
 	return;
 	
 	} else {
-		log.info("OAD001 [NEG] Start Mock Service -- Oauth Authorization Endpoint variable: " + authCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
+		log.info("OAD001 [NEG] Start Mock Service -- OAuth Authorization Endpoint variable: " + authCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
 	}
 
 // Verify OAuth Authorization Redirect URI variable is valid
@@ -40385,6 +40503,18 @@ if (authCase.getPropertyValue("client_id") == "" || authCase.getPropertyValue("c
 		log.info("OAD001 [NEG] Start Mock Service -- Client ID variable: " + authCase.getPropertyValue("client_id"));
 	}
 
+// Verify Client Secret variable is valid
+if (authCase.getPropertyValue("client_secret") == "" || authCase.getPropertyValue("client_secret") == null) {
+
+	log.info("OAD001 [NEG] Start Mock Service -- Client Secret variable is blank or null -- " + authCase.getPropertyValue("client_secret"));
+	log.error("OAD001 [NEG] Start Mock Service -- Client Secret variable is blank or null -- " + authCase.getPropertyValue("client_secret"));
+	testRunner.fail("OAD001 [NEG] Start Mock Service -- Client Secret variable is blank or null -- " + authCase.getPropertyValue("client_secret"));
+	return;
+	
+	} else {
+		log.info("OAD001 [NEG] Start Mock Service -- Client Secret variable: " + authCase.getPropertyValue("client_secret"));
+	}
+
 // Verify Data Custodian Scope Selection Screen URI is valid
 if (authCase.getPropertyValue("dataCustodianScopeSelectionScreenURI") == "" || authCase.getPropertyValue("dataCustodianScopeSelectionScreenURI") == null) {
 
@@ -40410,12 +40540,13 @@ context.mockService.setPropertyValue("authorizationServerAuthorizationEndpoint",
 context.mockService.setPropertyValue("redirect_uri",authCase.getPropertyValue("redirect_uri"));
 context.mockService.setPropertyValue("authorizationServerTokenEndpoint",authCase.getPropertyValue("authorizationServerTokenEndpoint"));
 context.mockService.setPropertyValue("client_id",authCase.getPropertyValue("client_id"));
+context.mockService.setPropertyValue("client_secret",authCase.getPropertyValue("client_secret"));
 context.mockService.setPropertyValue("dataCustodianScopeSelectionScreenURI",authCase.getPropertyValue("dataCustodianScopeSelectionScreenURI"));
 
 context.mockService.setPort(authCase.getPropertyValue("mockPort").toInteger());
 def runner = context.mockService.start();
 context.mockRunner = runner;
-return;</script></con:config></con:testStep><con:testStep type="groovy" name="OAD001 [NEG] Script will bring up browser to DC Scope selection screen" id="5194f820-0727-4f66-ac03-11b76824f66f"><con:settings/><con:config><script>import org.greenbutton.cmd.utils.DriverHelper;
+return;</script></con:config></con:testStep><con:testStep type="groovy" name="Script will bring up browser to DC Scope selection screen" id="5194f820-0727-4f66-ac03-11b76824f66f"><con:settings/><con:config><script>import org.greenbutton.cmd.utils.DriverHelper;
 
 //	Create addressability to global variables
 def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
@@ -40476,10 +40607,10 @@ field of this dialog box.
 </con:description><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult/></con:config></con:testStep><con:testStep type="groovy" name="Extract sessionID" id="f544e23c-56c9-4226-955f-13bdf22c51f0"><con:settings/><con:config><script>
 testRunner.testCase.setPropertyValue("browserSession",testRunner.testCase.getTestStepByName("Perform Login").getPropertyValue("Result"));
  
-</script></con:config></con:testStep><con:testStep type="groovy" name="OAD001 [NEG] Perform TP Scope Selection" id="fb5fc53b-b795-408b-8cc4-dc82abb95021"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
+</script></con:config></con:testStep><con:testStep type="groovy" name="Perform TP Scope Selection" id="fb5fc53b-b795-408b-8cc4-dc82abb95021"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
 
 result = ui.getDialogs().showInfoMessage("Select Scope and click OK when done", "");
-</script></con:config></con:testStep><con:testStep type="groovy" name="OAD001 [NEG] Wait for Mock Service to receive TP scope sel POST" id="0dee7420-3702-444b-b3c2-e5e2fb7959e6"><con:settings/><con:config><script>
+</script></con:config></con:testStep><con:testStep type="groovy" name="Wait for Mock Service to receive TP scope sel POST" id="0dee7420-3702-444b-b3c2-e5e2fb7959e6"><con:settings/><con:config><script>
 int cnt=20;
 
 while(cnt>0){
@@ -40495,6 +40626,9 @@ while(cnt>0){
 log.error("No scope sel POST received");
 testRunner.fail("No scope sel POST received.");
 </script></con:config></con:testStep><con:testStep type="groovy" name="Issue malformed oauth/authorize GETs" id="a3b8d371-3592-413d-90bc-5cb2b998798a"><con:settings/><con:config><script><![CDATA[import java.net.HttpUrlConnection.*;
+
+//	Create addressability to global variables
+def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
 
 public class codeLocation {
 	
@@ -40575,7 +40709,7 @@ int issueGET(String targetURL,String strSessionID){
 
 //   ****************************************************************************************************************************
 //   *
-//   *    Verify all mock service global variables are valid
+//   *    Verify Browser Session variable is valid
 //   *
 //   ****************************************************************************************************************************
 
@@ -40591,62 +40725,32 @@ if (testRunner.testCase.getPropertyValue("browserSession") == "" || testRunner.t
 		log.info("OAD001 [NEG] Issue malformed oauth/authorize GETs -- Browser Session variable: " + testRunner.testCase.getPropertyValue("browserSession"));
 	}
 
-// Verify Oauth Authorization Endpoint variable is valid
-if (testRunner.testCase.getPropertyValue("authorizationServerAuthorizationEndpoint") == "" || testRunner.testCase.getPropertyValue("authorizationServerAuthorizationEndpoint") == null) {
-
-	log.info("OAD001 [NEG] Issue malformed oauth/authorize GETs -- Oauth Authorization Endpoint variable is blank or null -- " + testRunner.testCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
-	log.error("OAD001 [NEG] Issue malformed oauth/authorize GETs -- Oauth Authorization Endpoint variable is blank or null -- " + testRunner.testCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
-	testRunner.fail("OAD001 [NEG] Issue malformed oauth/authorize GETs -- Oauth Authorization Endpoint variable is blank or null -- " + testRunner.testCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
-	return;
-	
-	} else {
-		log.info("OAD001 [NEG] Issue malformed oauth/authorize GETs -- Oauth Authorization Endpoint variable: " + testRunner.testCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
-	}
-
-
-// Verify Scope Selection variable is valid
-if (context.mockService.getPropertyValue("SelectedScope").replace("scope=","") == "" || context.mockService.getPropertyValue("SelectedScope").replace("scope=","") == null) {
-
-	log.info("OAD001 [NEG] Issue malformed oauth/authorize GETs -- Scope Selection variable is blank or null -- " + context.mockService.getPropertyValue("SelectedScope").replace("scope=",""));
-	log.error("OAD001 [NEG] Issue malformed oauth/authorize GETs -- Scope Selection Endpoint variable is blank or null -- " + context.mockService.getPropertyValue("SelectedScope").replace("scope=",""));
-	testRunner.fail("OAD001 [NEG] Issue malformed oauth/authorize GETs -- Scope Selection variable is blank or null -- " + context.mockService.getPropertyValue("SelectedScope").replace("scope=",""));
-	return;
-	
-	} else {
-		log.info("OAD001 [NEG] Issue malformed oauth/authorize GETs -- Scope Selection variable: " + context.mockService.getPropertyValue("SelectedScope").replace("scope=",""));
-	}
-
-
-// Verify OAuth Authorization Redirect URI variable is valid
-if (testRunner.testCase.getPropertyValue("redirect_uri") == "" || testRunner.testCase.getPropertyValue("redirect_uri") == null) {
-
-	log.info("OAD001 [NEG] Issue malformed oauth/authorize GETs -- OAuth Authorization Redirect URI variable is blank or null -- " + testRunner.testCase.getPropertyValue("redirect_uri"));
-	log.error("OAD001 [NEG] Issue malformed oauth/authorize GETs -- OAuth Authorization Redirect URI variable is blank or null -- " + testRunner.testCase.getPropertyValue("redirect_uri"));
-	testRunner.fail("OAD001 [NEG] Issue malformed oauth/authorize GETs -- OAuth Authorization Redirect URI variable is blank or null -- " + testRunner.testCase.getPropertyValue("redirect_uri"));
-	return;
-	
-	} else {
-		log.info("OAD001 [NEG] Issue malformed oauth/authorize GETs -- OAuth Authorization Redirect URI variable: " + testRunner.testCase.getPropertyValue("redirect_uri"));
-	}
-
 //   ****************************************************************************************************************************
 //   *
-//   *    Initialize mock service variables
+//   *    Initialize test step variables
 //   *
 //   ****************************************************************************************************************************
 
 String strSessionID = testRunner.testCase.getPropertyValue("browserSession");
-String strAuthEndpoint = testRunner.testCase.getPropertyValue("authorizationServerAuthorizationEndpoint");
 String strSelectedScope = context.mockService.getPropertyValue("SelectedScope").replace("scope=","");
-String strRedirURI =  testRunner.testCase.getPropertyValue("redirect_uri");
-
+String strRedirURI = authCase.getPropertyValue("redirect_uri");
+String strClientId = authCase.getPropertyValue("client_id");
 String strRespLocation;
 
-log.info "AuthEndpoint: " + strAuthEndpoint;
+// Convert Authorization Token Endpoint to use stunnel proxy
+String strAuthEndpoint = "";
+URL aURL = new URL(authCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
+
+log.info("OAD001 [NEG] Issue malformed oauth/authorize GETs -- aURL: " + aURL);
+log.info("OAD001 [NEG] Issue malformed oauth/authorize GETs -- aURL.getPort(): " + aURL.getPort());
+log.info("OAD001 [NEG] Issue malformed oauth/authorize GETs -- strAuthEndpoint: " + "http://" +  aURL.getHost() + ":" + authCase.getPropertyValue("proxyOutPort") + aURL.getPath());
+strAuthEndpoint = "http://" +  aURL.getHost() + ":" + authCase.getPropertyValue("proxyOutPort") + aURL.getPath();
+log.info("OAD001 [NEG] Issue malformed oauth/authorize GETs -- strAuthEndpoint: " + strAuthEndpoint);
+
+log.info("OAD001 [NEG] Issue malformed oauth/authorize GETs -- strRedirURI: " + strRedirURI);
 
 // Sample Authorization Code Grant request valid query string:
 //strQryParams = "?response_type=code" + "&client_id=third_party" + "&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018"; 
-
 
 int iTestID= 0;
 while(true) {
@@ -40665,7 +40769,7 @@ while(true) {
 	switch(iTestID) {
 		case 0:
 			strTestName = "Malformed Authorization Code Request (No response_type field-value pair)";
-			strQryParams = "?client_id=third_party" + "&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018"; 
+			strQryParams = "?client_id=" + strClientId + "&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018"; 
   			iExpectedRespCode = 302;	
 			break;
 		case 1:
@@ -40675,7 +40779,7 @@ while(true) {
 			break;
 		case 2:
 			strTestName = "Malformed Authorization Code Request (Invalid response_type field-value pair)";
-			strQryParams = "?response_type=badresponsetype&client_id=third_party&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018";
+			strQryParams = "?response_type=badresponsetype&client_id=" + strClientId + "&redirect_uri=" + strRedirURI + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018";
   			iExpectedRespCode = 302;	
 			break;
 		case 3:
@@ -40685,12 +40789,12 @@ while(true) {
 			break;
 		case 4:
 			strTestName = "Authorization Code Request (Invalid redirect_uri field-value pair)";
-			strQryParams = "?response_type=code&client_id=third_party&redirect_uri=" + "https://services.greenbuttondata.org" + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018";
+			strQryParams = "?response_type=code&client_id=" + strClientId + "&redirect_uri=" + "https://services.greenbuttondata.org" + "&scope=" + strSelectedScope + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018";
 			iExpectedRespCode = 400;			
 			break;
 		case 5:
 			strTestName = "Authorization Code Request (Invalid scope field-value pair)";
-			strQryParams = "?response_type=code&client_id=third_party&redirect_uri=" + strRedirURI + "&&scope=" + "FB=????" + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018";
+			strQryParams = "?response_type=code&client_id=" + strClientId + "&redirect_uri=" + strRedirURI + "&&scope=" + "FB=????" + "&state=ee148ec2-9892-466e-a013-4dedf1eb3018";
 			iExpectedRespCode = 302;
 			break;
 		default:
@@ -40701,7 +40805,8 @@ while(true) {
 	// 0 indicates skip test
 	if(iExpectedRespCode != 0) {
 		log.info("==================================================================================================================");		
-		log.info("testing: " + strTestName);
+		log.info("Testing: " + strTestName);
+		log.info("Expected Response Code: " + iExpectedRespCode);
 		iRespCode = issueGET(strAuthEndpoint + strQryParams,strSessionID);
 
 		// if we get 302 and authorization code, this is a failure
@@ -40732,7 +40837,7 @@ while(true) {
 }
 
 assert true;]]></script></con:config></con:testStep><con:testStep type="groovy" name="End Browser session" id="26465757-1ba7-4608-8601-cbec5492e117"><con:settings/><con:config><script>context["driver"].quit();
-context["driver"] = null;</script></con:config></con:testStep><con:testStep type="groovy" name="OAD001 [NEG] Stop Mock Service" id="40ff42e1-7a63-4149-9c17-76a84053e99d"><con:settings/><con:config><script>context.mockRunner.stop();
+context["driver"] = null;</script></con:config></con:testStep><con:testStep type="groovy" name="Stop Mock Service" id="40ff42e1-7a63-4149-9c17-76a84053e99d"><con:settings/><con:config><script>context.mockRunner.stop();
 context.mockRunner = null;
 return;</script></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>if(context.mockRunner != null){
 	context.mockRunner.stop();
@@ -40745,7 +40850,7 @@ if(context["driver"] != null){
 }
 
 log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();
-</con:tearDownScript><con:properties><con:property><con:name>extracted_scope_sel_uri</con:name><con:value/></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">F4A20F0907FB5A5EAE30239030A5EFA6</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD002 [NEG] Authorization Code Request (Retail Customer Passes Authentication and DENIES access)" searchProperties="true" id="bccca4c3-2b7b-4359-8ca2-2159ecd05c3e"><con:description/><con:settings/><con:testStep type="groovy" name="OAD002 [NEG] Start Mock Service" id="d08db03c-02df-4bec-be6d-8eb8cd7f4cda"><con:settings/><con:config><script>//	Create addressability to global variables
+</con:tearDownScript><con:properties><con:property><con:name>extracted_scope_sel_uri</con:name><con:value/></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">9B674384FAB86924A25C5747A913D68A</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD002 [NEG] Authorization Code Request (Retail Customer Passes Authentication and DENIES access)" searchProperties="true" id="bccca4c3-2b7b-4359-8ca2-2159ecd05c3e"><con:description/><con:settings/><con:testStep type="groovy" name="Start Mock Service" id="d08db03c-02df-4bec-be6d-8eb8cd7f4cda"><con:settings/><con:config><script>//	Create addressability to global variables
 def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
 
 context.mockService = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Authorization Mock Service");
@@ -40858,7 +40963,7 @@ context.mockService.setPort(authCase.getPropertyValue("mockPort").toInteger());
 def runner = context.mockService.start();
 context.mockRunner = runner;
 
-return;</script></con:config></con:testStep><con:testStep type="groovy" name="OAD002 [NEG] Script will bring up browser to DC Scope selection screen" id="1ecf4a9c-55f0-45f8-a0f6-bfc4bd189ecf"><con:settings/><con:config><script>import org.greenbutton.cmd.utils.DriverHelper;
+return;</script></con:config></con:testStep><con:testStep type="groovy" name="Script will bring up browser to DC Scope selection screen" id="1ecf4a9c-55f0-45f8-a0f6-bfc4bd189ecf"><con:settings/><con:config><script>import org.greenbutton.cmd.utils.DriverHelper;
 
 //	Create addressability to global variables
 def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
@@ -40899,12 +41004,12 @@ DriverHelper driver = new DriverHelper(strBaseUrl,strResource,"",log);
 context["driver"] = driver;
 
 driver.get(strScopeSelURI);
-</script></con:config></con:testStep><con:testStep type="groovy" name="OAD002 [NEG] Wait for Authorization to Complete and End Browser session" id="335fbfd7-b948-47bd-adb8-e20bad342944"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
+</script></con:config></con:testStep><con:testStep type="groovy" name="Wait for Authorization to Complete and End Browser session" id="335fbfd7-b948-47bd-adb8-e20bad342944"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
 
 result = ui.getDialogs().showInfoMessage("Perform logon, select scope and DENY authorization request. Click OK when done", "");
 
 context["driver"].quit();</script></con:config></con:testStep><con:testStep type="groovy" name="End Browser session" id="4d820d57-da11-46f5-9b74-2c9a58cd91f1"><con:settings/><con:config><script>context["driver"].quit();
-context["driver"] = null;</script></con:config></con:testStep><con:testStep type="groovy" name="OAD002 [NEG] Stop Mock Service" id="62cbdcbe-2f49-470b-b76b-16fc7ec0d150"><con:settings/><con:config><script>context.mockRunner.stop();
+context["driver"] = null;</script></con:config></con:testStep><con:testStep type="groovy" name="Stop Mock Service" id="62cbdcbe-2f49-470b-b76b-16fc7ec0d150"><con:settings/><con:config><script>context.mockRunner.stop();
 context.mockRunner = null;
 return;</script></con:config></con:testStep><con:testStep type="groovy" name="Check access denied" id="774ad163-ad8a-44d7-895d-c6c96d1f6f1a"><con:settings/><con:config><script>
 String strError =  context.mockService.getPropertyValue("error");
@@ -40927,23 +41032,7 @@ if(context["driver"] != null){
 }
 log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();
 </con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>LAaB0X</con:value></con:property><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"275ff15a-8902-445e-b4fd-f12fd00f9092","token_type":"bearer","refresh_token":"1b0b86ee-3508-4349-afff-0d87c1d004c9","expires_in":31535999,"scope":"FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13","resourceURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5","authorizationURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5"}
-</con:value></con:property><con:property><con:name>access_token</con:name><con:value>275ff15a-8902-445e-b4fd-f12fd00f9092</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>1b0b86ee-3508-4349-afff-0d87c1d004c9</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD003 [NEG] Access Token Request Authorization Header and malformation Access Token Authorization Code Request Rejection" searchProperties="true" id="5e670f61-7366-4e72-9bf3-92c57e462f1f"><con:description/><con:settings/><con:testStep type="groovy" name="AddParametersToTestCase" id="018fa68f-15bc-43fa-93ea-0dfaae088a6b" disabled="true"><con:settings/><con:config><script>def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
-
-testRunner.testCase.setPropertyValue("mockPort", authCase.getPropertyValue("mockPort"));
-testRunner.testCase.setPropertyValue("proxyOutPort", authCase.getPropertyValue("proxyOutPort"));
-</script></con:config></con:testStep><con:testStep type="groovy" name="Verify DC scope selection URI present" id="f6b79309-7b43-414d-9ebf-fc463ee482ae" disabled="true"><con:settings/><con:config><script>def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
-
-if((authCase.getPropertyValue("dataCustodianScopeSelectionScreenURI")==null)||
-(authCase.getPropertyValue("dataCustodianScopeSelectionScreenURI")=="")){
-	log.error("No scope selection URI present in ApplicationInformation");
-	testRunner.fail("No scope selection URI present in ApplicationInformation");
-	return;		
-}
-
-def clientId =authCase.getPropertyValue("client_id");
-context.ScopeSelURI = authCase.getPropertyValue("dataCustodianScopeSelectionScreenURI");
-
-log.info "Scope selection URI: " + context.ScopeSelURI ;</script></con:config></con:testStep><con:testStep type="groovy" name="Start Mock Service" id="84ca8b4a-d62e-4996-bffa-45f1bd02e2d5"><con:settings/><con:config><script>//	Create addressability to global variables
+</con:value></con:property><con:property><con:name>access_token</con:name><con:value>275ff15a-8902-445e-b4fd-f12fd00f9092</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>1b0b86ee-3508-4349-afff-0d87c1d004c9</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD003 [NEG] Access Token Request Authorization Header and malformation Access Token Authorization Code Request Rejection" searchProperties="true" id="5e670f61-7366-4e72-9bf3-92c57e462f1f"><con:description/><con:settings/><con:testStep type="groovy" name="Start Mock Service" id="84ca8b4a-d62e-4996-bffa-45f1bd02e2d5"><con:settings/><con:config><script>//	Create addressability to global variables
 def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
 
 context.mockService = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty NEG B tests Authorization Mock Service");
@@ -40978,16 +41067,16 @@ if (authCase.getPropertyValue("proxyOutPort") == "" || authCase.getPropertyValue
 		log.info("OAD003 [NEG] Start Mock Service -- proxyOutPort variable: " + authCase.getPropertyValue("proxyOutPort"));
 	}
 
-// Verify Oauth Authorization Endpoint variable is valid
+// Verify OAuth Authorization Endpoint variable is valid
 if (authCase.getPropertyValue("authorizationServerAuthorizationEndpoint") == "" || authCase.getPropertyValue("authorizationServerAuthorizationEndpoint") == null) {
 
-	log.info("OAD003 [NEG] Start Mock Service -- Oauth Authorization Endpoint variable is blank or null -- " + authCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
-	log.error("OAD003 [NEG] Start Mock Service -- Oauth Authorization Endpoint variable is blank or null -- " + authCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
-	testRunner.fail("OAD003 [NEG] Start Mock Service -- Oauth Authorization Endpoint variable is blank or null -- " + authCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
+	log.info("OAD003 [NEG] Start Mock Service -- OAuth Authorization Endpoint variable is blank or null -- " + authCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
+	log.error("OAD003 [NEG] Start Mock Service -- OAuth Authorization Endpoint variable is blank or null -- " + authCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
+	testRunner.fail("OAD003 [NEG] Start Mock Service -- OAauth Authorization Endpoint variable is blank or null -- " + authCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
 	return;
 	
 	} else {
-		log.info("OAD003 [NEG] Start Mock Service -- Oauth Authorization Endpoint variable: " + authCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
+		log.info("OAD003 [NEG] Start Mock Service -- OAuth Authorization Endpoint variable: " + authCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
 	}
 
 // Verify OAuth Authorization Redirect URI variable is valid
@@ -41026,6 +41115,18 @@ if (authCase.getPropertyValue("client_id") == "" || authCase.getPropertyValue("c
 		log.info("OAD003 [NEG] Start Mock Service -- Client ID variable: " + authCase.getPropertyValue("client_id"));
 	}
 
+// Verify Client Secret variable is valid
+if (authCase.getPropertyValue("client_secret") == "" || authCase.getPropertyValue("client_secret") == null) {
+
+	log.info("OAD003 [NEG] Start Mock Service -- Client Secret variable is blank or null -- " + authCase.getPropertyValue("client_secret"));
+	log.error("OAD003 [NEG] Start Mock Service -- Client Secret variable is blank or null -- " + authCase.getPropertyValue("client_secret"));
+	testRunner.fail("OAD003 [NEG] Start Mock Service -- Client Secret variable is blank or null -- " + authCase.getPropertyValue("client_secret"));
+	return;
+	
+	} else {
+		log.info("OAD003 [NEG] Start Mock Service -- Client Secret variable: " + authCase.getPropertyValue("client_secret"));
+	}
+
 // Verify Data Custodian Scope Selection Screen URI is valid
 if (authCase.getPropertyValue("dataCustodianScopeSelectionScreenURI") == "" || authCase.getPropertyValue("dataCustodianScopeSelectionScreenURI") == null) {
 
@@ -41050,6 +41151,7 @@ context.mockService.setPropertyValue("authorizationServerAuthorizationEndpoint",
 context.mockService.setPropertyValue("redirect_uri",authCase.getPropertyValue("redirect_uri"));
 context.mockService.setPropertyValue("authorizationServerTokenEndpoint",authCase.getPropertyValue("authorizationServerTokenEndpoint"));
 context.mockService.setPropertyValue("client_id",authCase.getPropertyValue("client_id"));
+context.mockService.setPropertyValue("client_secret",authCase.getPropertyValue("client_secret"));
 context.mockService.setPropertyValue("dataCustodianScopeSelectionScreenURI",authCase.getPropertyValue("dataCustodianScopeSelectionScreenURI"));
 
 context.mockService.setPort(authCase.getPropertyValue("mockPort").toInteger());
@@ -41094,6 +41196,9 @@ context["driver"] = null;</script></con:config></con:testStep><con:testStep type
 context.mockRunner = null;
 return;</script></con:config></con:testStep><con:testStep type="groovy" name="Issue Malformed GET OAuth Token requests" id="e3246a57-8c49-4ed5-b6f4-ce549c91b88c"><con:settings/><con:config><script><![CDATA[import java.net.*;
 import java.io.*;
+
+//	Create addressability to global variables
+def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
 
 int issueGET(String targetURL,String strToken){
 
@@ -41144,19 +41249,43 @@ int issueGET(String targetURL,String strToken){
 }
 
 String strOAuthCodeReceivedValue = context.mockService.getPropertyValue("OAuthCodeReceivedValue");
-testRunner.testCase.setPropertyValue("OAuthCodeReceivedValue",strOAuthCodeReceivedValue);
-String strRedirURI = testRunner.testCase.getPropertyValue("redirect_uri");
-String strAuthorizationServerTokenEndpoint = testRunner.testCase.getPropertyValue("authorizationServerTokenEndpoint");
+String strRedirURI = authCase.getPropertyValue("redirect_uri");
+String strClientId = authCase.getPropertyValue("client_id");
+
+// Save Received Authorization Code for later tests
+authCase.setPropertyValue("OAuthCodeReceivedValue",strOAuthCodeReceivedValue);
+log.info("OAD003 [NEG] Access Token Request malformed Access Token Request Rejection -- 'Issue Malformed GET OAuth Token Request' strOAuthCodeReceivedValue: " + strOAuthCodeReceivedValue);
+log.info("OAD003 [NEG] Access Token Request malformed Access Token Request Rejection -- 'Issue Malformed GET OAuth Token Request' Saved strOAuthCodeReceivedValue: " + authCase.getPropertyValue("OAuthCodeReceivedValue"));
+
+// Convert Authorization Token Endpoint to use stunnel proxy
+String strAuthorizationServerTokenEndpoint = "";
+URL aURL = new URL(authCase.getPropertyValue("authorizationServerTokenEndpoint"));
+
+log.info("OAD003 [NEG] Access Token Request malformed Access Token Request Rejection -- 'Issue Malformed GET OAuth Token Request' aURL: " + aURL);
+log.info("OAD003 [NEG] Access Token Request malformed Access Token Request Rejection -- 'Issue Malformed GET OAuth Token Request' aURL.getPort(): " + aURL.getPort());
+log.info("OAD003 [NEG] Access Token Request malformed Access Token Request Rejection -- 'Issue Malformed GET OAuth Token Request' strAuthorizationServerTokenEndpoint: " + "http://" +  aURL.getHost() + ":" + authCase.getPropertyValue("proxyOutPort") + aURL.getPath());
+strAuthorizationServerTokenEndpoint = "http://" +  aURL.getHost() + ":" + authCase.getPropertyValue("proxyOutPort") + aURL.getPath();
+
+log.info("OAD003 [NEG] Access Token Request malformed Access Token Request Rejection -- 'Issue Malformed GET OAuth Token Request' strRedirURI: " + strRedirURI);
+log.info("OAD003 [NEG] Access Token Request malformed Access Token Request Rejection -- 'Issue Malformed GET OAuth Token Request' strAuthorizationServerTokenEndpoint: " + strAuthorizationServerTokenEndpoint);
+log.info("OAD003 [NEG] Access Token Request malformed Access Token Request Rejection -- 'Issue Malformed GET OAuth Token Request' client_id: " + strClientId);
+log.info("OAD003 [NEG] Access Token Request malformed Access Token Request Rejection -- 'Issue Malformed GET OAuth Token Request' client_secret: " + authCase.getPropertyValue("client_secret"));
+
+String strAuthentication = authCase.getPropertyValue("client_id") + ":" + authCase.getPropertyValue("client_secret");
+
+// Encode byte array into Base 64
+String token = strAuthentication.bytes.encodeBase64().toString();
 
 // Sample valid Access Token Authorization Code Request query parameters
 //strQryParams = "?grant_type=authorization_code" + "&code=" + strOAuthCodeReceivedValue + "&redirect_uri=" + strRedirURI;
 
-int iTestID= 0;
+int iTestID = 0;
+
 while(true) {
 	// loop through different malformation tests
 	String strTestName = "";
-	String strQryParams = "?grant_type=authorization_code" + "&code=" + strOAuthCodeReceivedValue + "&redirect_uri=" + strRedirURI;
-	String strToken = "dGhpcmRfcGFydHk6c2VjcmV0";
+	String strQryParams = "";
+	String strToken = token;
 	 
 	int iRespCode = 0;
 	int iExpectedRespCode = 0;
@@ -41191,7 +41320,7 @@ while(true) {
 			break;
 		case 5:
 			strTestName = "Malformed Authorization Code Grant Access Token Request (Contains  HTTP BASIC Authorization header and client_id field-value pair)";
-			strQryParams = "?grant_type=authorization_code" + "&code=" + strOAuthCodeReceivedValue + "&redirect_uri=" + strRedirURI + "?client_id=third_party";				
+			strQryParams = "?grant_type=authorization_code" + "&code=" + strOAuthCodeReceivedValue + "&redirect_uri=" + strRedirURI + "?client_id=" + strClientId;				
 			iExpectedRespCode = 400;
 			break;
 		case 6:
@@ -41224,8 +41353,9 @@ while(true) {
 	// 0 indicates skip test
 	if(iExpectedRespCode != 0) {
 		log.info("==================================================================================================================");
-		log.info("testing: " + strTestName);
-		iRespCode = iRespCode = issueGET(strAuthorizationServerTokenEndpoint + strQryParams,strToken);
+		log.info("Testing: " + strTestName);
+		log.info("Expected Response Code: " + iExpectedRespCode);
+		iRespCode = issueGET(strAuthorizationServerTokenEndpoint + strQryParams,strToken);
 		
 		if(iRespCode != iExpectedRespCode) {
 			log.error("Failed malformed token request: " + strTestName + " expected response code:" + iExpectedRespCode + " but received:" + iRespCode);
@@ -41253,13 +41383,12 @@ if(context["driver"] != null){
 	context["driver"].quit();
 	context["driver"] = null;	
 }
-log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>fJvUIy</con:value></con:property><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"06430590-2897-422a-9316-95fccb60e96d","token_type":"bearer","refresh_token":"1d8e2070-73ee-40f8-9549-dad626ead16a","expires_in":31535999,"scope":"FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13","resourceURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5","authorizationURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5"}
-</con:value></con:property><con:property><con:name>access_token</con:name><con:value>06430590-2897-422a-9316-95fccb60e96d</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>1d8e2070-73ee-40f8-9549-dad626ead16a</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD004 [NEG] Invalid Authorization Code Grant Access Token Request (code field-value pair contains a previously used authorization code)" searchProperties="true" id="b15099c2-2c8e-4569-b4ed-8e6be0ff849a"><con:description/><con:settings/><con:testStep type="groovy" name="AddParametersToTestCase" id="c9329c66-b300-46f1-b44e-3e97b93691ab" disabled="true"><con:settings/><con:config><script>def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
-
-testRunner.testCase.setPropertyValue("mockPort", authCase.getPropertyValue("mockPort"));
-testRunner.testCase.setPropertyValue("proxyOutPort", authCase.getPropertyValue("proxyOutPort"));
-</script></con:config></con:testStep><con:testStep type="groovy" name="Issue GET OAuth Token requests" id="51d52d0a-0580-4f35-a5c9-a52fb5bf3d83"><con:settings/><con:config><script>import java.net.*;
+log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>quexi</con:value></con:property><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"06430590-2897-422a-9316-95fccb60e96d","token_type":"bearer","refresh_token":"1d8e2070-73ee-40f8-9549-dad626ead16a","expires_in":31535999,"scope":"FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13","resourceURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5","authorizationURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5"}
+</con:value></con:property><con:property><con:name>access_token</con:name><con:value>06430590-2897-422a-9316-95fccb60e96d</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>1d8e2070-73ee-40f8-9549-dad626ead16a</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD004 [NEG] Invalid Authorization Code Grant Access Token Request (code field-value pair contains a previously used authorization code)" searchProperties="true" id="b15099c2-2c8e-4569-b4ed-8e6be0ff849a"><con:description/><con:settings/><con:testStep type="groovy" name="Issue GET OAuth Token requests" id="51d52d0a-0580-4f35-a5c9-a52fb5bf3d83"><con:settings/><con:config><script>import java.net.*;
 import java.io.*;
+
+//	Create addressability to global variables
+def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
 
 int issueGET(String targetURL,String strToken){
 
@@ -41309,18 +41438,34 @@ int issueGET(String targetURL,String strToken){
 	}	
 }
 
-def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
-
-
 String strOAuthCodeReceivedValue = authCase.getPropertyValue("OAuthCodeReceivedValue");
 String strRedirURI = authCase.getPropertyValue("redirect_uri");
-String strAuthorizationServerTokenEndpoint = authCase.getPropertyValue("authorizationServerTokenEndpoint");
 
+// Convert Authorization Token Endpoint to use stunnel proxy
+String strAuthorizationServerTokenEndpoint = "";
+URL aURL = new URL(authCase.getPropertyValue("authorizationServerTokenEndpoint"));
+
+log.info("OAD004 [NEG] Invalid Authorization Code Grant Access Token Request -- aURL: " + aURL);
+log.info("OAD004 [NEG] Invalid Authorization Code Grant Access Token Request -- aURL.getPort(): " + aURL.getPort());
+log.info("OAD004 [NEG] Invalid Authorization Code Grant Access Token Request -- strAuthorizationServerTokenEndpoint: " + "http://" +  aURL.getHost() + ":" + authCase.getPropertyValue("proxyOutPort") + aURL.getPath());
+strAuthorizationServerTokenEndpoint = "http://" +  aURL.getHost() + ":" + authCase.getPropertyValue("proxyOutPort") + aURL.getPath();
+
+log.info("OAD004 [NEG] Invalid Authorization Code Grant Access Token Request -- strRedirURI: " + strRedirURI);
+log.info("OAD004 [NEG] Invalid Authorization Code Grant Access Token Request -- strOAuthCodeReceivedValue: " + strOAuthCodeReceivedValue);
+
+String strAuthentication = authCase.getPropertyValue("client_id") + ":" + authCase.getPropertyValue("client_secret");
+
+// Encode byte array into Base 64
+String token = strAuthentication.bytes.encodeBase64().toString();
 
 String strQryParams = "?redirect_uri=" + strRedirURI + "&amp;code=" + strOAuthCodeReceivedValue + "&amp;grant_type=authorization_code";
-String strToken = "dGhpcmRfcGFydHk6c2VjcmV0";
+String strToken = token;
 
-int iRespCode = iRespCode = issueGET(strAuthorizationServerTokenEndpoint + strQryParams,strToken);
+log.info("OAD004 [NEG] Invalid Authorization Code Grant Access Token Request -- strToken: " + strToken);
+log.info("OAD004 [NEG] Invalid Authorization Code Grant Access Token Request -- strQryParams: " + strQryParams);
+
+int iRespCode = issueGET(strAuthorizationServerTokenEndpoint + strQryParams,strToken);
+
 
 if(iRespCode != 400) {
 	log.error("Token request expected result code 400 but received:" + iRespCode);
@@ -41332,11 +41477,7 @@ if(iRespCode != 400) {
 assert true;
 
 </script></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>OrBApu</con:value></con:property><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"06430590-2897-422a-9316-95fccb60e96d","token_type":"bearer","refresh_token":"1d8e2070-73ee-40f8-9549-dad626ead16a","expires_in":31535999,"scope":"FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13","resourceURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5","authorizationURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5"}
-</con:value></con:property><con:property><con:name>access_token</con:name><con:value>06430590-2897-422a-9316-95fccb60e96d</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>1d8e2070-73ee-40f8-9549-dad626ead16a</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD005 [POS] Successful Access Token Request" searchProperties="true" id="e85a65a3-3c40-4d23-9720-1830d5cb4b6f"><con:description/><con:settings/><con:testStep type="groovy" name="AddParametersToTestCase" id="75ff8bd6-b050-4c78-8ba5-f56832d646fa" disabled="true"><con:settings/><con:config><script>def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
-
-testRunner.testCase.setPropertyValue("mockPort", authCase.getPropertyValue("mockPort"));
-testRunner.testCase.setPropertyValue("proxyOutPort", authCase.getPropertyValue("proxyOutPort"));
-</script></con:config></con:testStep><con:testStep type="groovy" name="Ask User To expire Authorization" id="f2811d3d-f416-498d-8151-7e44d5c6d40b"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
+</con:value></con:property><con:property><con:name>access_token</con:name><con:value>06430590-2897-422a-9316-95fccb60e96d</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>1d8e2070-73ee-40f8-9549-dad626ead16a</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>31535999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD005 [POS] Successful Access Token Request" searchProperties="true" id="e85a65a3-3c40-4d23-9720-1830d5cb4b6f"><con:description/><con:settings/><con:testStep type="groovy" name="Ask User To expire Authorization" id="f2811d3d-f416-498d-8151-7e44d5c6d40b"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
 
 String strDialog = "If the Data Custodian supports changing the default authorization expiration period please instruct the \
 Data Custodian to set the default period to a short duration at this time (i.e. one or two minutes).\r\n\
@@ -41353,19 +41494,7 @@ if(result==false) {
 	return;	
 }
 
-assert true;</script></con:config></con:testStep><con:testStep type="groovy" name="Verify DC scope selection URI present" id="2f777561-8a10-4108-ac65-59729c439d4f" disabled="true"><con:settings/><con:config><script>def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
-
-if((authCase.getPropertyValue("dataCustodianScopeSelectionScreenURI")==null)||
-(authCase.getPropertyValue("dataCustodianScopeSelectionScreenURI")=="")){
-	log.error("No scope selection URI present in ApplicationInformation");
-	testRunner.fail("No scope selection URI present in ApplicationInformation");
-	return;		
-}
-
-def clientId =authCase.getPropertyValue("client_id");
-context.ScopeSelURI = authCase.getPropertyValue("dataCustodianScopeSelectionScreenURI");
-
-log.info "Scope selection URI: " + context.ScopeSelURI ;</script></con:config></con:testStep><con:testStep type="groovy" name="Start Mock Service" id="f0cc43a0-62df-45b2-b96f-5d7f7f01c4c5"><con:settings/><con:config><script>//	Create addressability to global variables
+assert true;</script></con:config></con:testStep><con:testStep type="groovy" name="Start Mock Service" id="f0cc43a0-62df-45b2-b96f-5d7f7f01c4c5"><con:settings/><con:config><script>//	Create addressability to global variables
 def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
 
 context.mockService = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty NEG B tests Authorization Mock Service");
@@ -41529,6 +41658,8 @@ import java.io.*;
 import groovy.json.JsonSlurper;
 import com.eviware.soapui.support.types.StringToStringMap;
 
+//	Create addressability to global variables
+def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
 
 int issueGET(String targetURL,String strToken){
 
@@ -41586,15 +41717,29 @@ int issueGET(String targetURL,String strToken){
 
 
 String strOAuthCodeReceivedValue = context.mockService.getPropertyValue("OAuthCodeReceivedValue");
-testRunner.testCase.setPropertyValue("OAuthCodeReceivedValue",strOAuthCodeReceivedValue);
-
-String strAuthorizationServerTokenEndpoint = testRunner.testCase.getPropertyValue("authorizationServerTokenEndpoint");
 String strRedirURI = testRunner.testCase.getPropertyValue("redirect_uri");
+
+// Convert Authorization Token Endpoint to use stunnel proxy
+String strAuthorizationServerTokenEndpoint = "";
+URL aURL = new URL(authCase.getPropertyValue("authorizationServerTokenEndpoint"));
+
+log.info("OAD005 [POS] Successful GET Authorization Code -- aURL: " + aURL);
+log.info("OAD005 [POS] Successful GET Authorization Code -- aURL.getPort(): " + aURL.getPort());
+log.info("OAD005 [POS] Successful GET Authorization Code -- strAuthorizationServerTokenEndpoint: " + "http://" +  aURL.getHost() + ":" + authCase.getPropertyValue("proxyOutPort") + aURL.getPath());
+strAuthorizationServerTokenEndpoint = "http://" +  aURL.getHost() + ":" + authCase.getPropertyValue("proxyOutPort") + aURL.getPath();
+
+log.info("OAD005 [POS] Successful GET Authorization Code -- strRedirURI: " + strRedirURI);
+log.info("OAD005 [POS] Successful GET Authorization Code -- strOAuthCodeReceivedValue: " + strOAuthCodeReceivedValue);
+
+String strAuthentication = authCase.getPropertyValue("client_id") + ":" + authCase.getPropertyValue("client_secret");
+
+// Encode byte array into Base 64
+String token = strAuthentication.bytes.encodeBase64().toString();
+
 String strQryParams = "?redirect_uri=" + strRedirURI + "&amp;code=" + strOAuthCodeReceivedValue + "&amp;grant_type=authorization_code";
-String strToken = "dGhpcmRfcGFydHk6c2VjcmV0";
+String strToken = token;
 
-
-iRespCode = iRespCode = issueGET(strAuthorizationServerTokenEndpoint + strQryParams,strToken);
+iRespCode = issueGET(strAuthorizationServerTokenEndpoint + strQryParams,strToken);
 		
 if(iRespCode != 200) {
 	log.error("Failed GET Token request: response code:" + iRespCode);
@@ -41666,8 +41811,6 @@ testRunner.testCase.setPropertyValue("scope",tokenResponse.scope);
 testRunner.testCase.setPropertyValue("resourceURI",tokenResponse.resourceURI);
 testRunner.testCase.setPropertyValue("authorizationURI",tokenResponse.authorizationURI);
 
-
-
 assert true;
 
 </script></con:config></con:testStep><con:testStep type="groovy" name="Transfer properties to library: Create Authorization and extract all information" id="e3bec1ec-b7dc-4c99-b8d7-a96a80e1f5d2"><con:settings/><con:config><script>
@@ -41701,8 +41844,7 @@ if(context["driver"] != null){
 	context["driver"] = null;	
 }
 
-log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>fJvUIy</con:value></con:property><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"039121fb-af73-4669-b972-4b4f9fd2281a","token_type":"bearer","refresh_token":"d7ba0b90-70ea-41a1-82dc-3e9b6e8361c8","expires_in":119,"scope":"FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13","resourceURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5","authorizationURI":"http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5"}
-</con:value></con:property><con:property><con:name>access_token</con:name><con:value>039121fb-af73-4669-b972-4b4f9fd2281a</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>d7ba0b90-70ea-41a1-82dc-3e9b6e8361c8</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>119</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD006 [NEG] Invalid Access Token Requests for ApplicationInformation" searchProperties="true" id="12b61b3f-7940-4953-8d46-715534e8ee86"><con:settings/><con:testStep type="groovy" name="AddParametersToTestCase" id="afa7060f-15a2-4751-ad20-1b989b0df398" disabled="true"><con:settings/><con:config><script>def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
+log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>8TmRz3</con:value></con:property><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>access_token</con:name><con:value>039121fb-af73-4669-b972-4b4f9fd2281a</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>d7ba0b90-70ea-41a1-82dc-3e9b6e8361c8</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>119</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD006 [NEG] Invalid Access Token Requests for ApplicationInformation" searchProperties="true" id="12b61b3f-7940-4953-8d46-715534e8ee86"><con:settings/><con:testStep type="groovy" name="AddParametersToTestCase" id="afa7060f-15a2-4751-ad20-1b989b0df398" disabled="true"><con:settings/><con:config><script>def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
 
 testRunner.testCase.setPropertyValue("mockPort", authCase.getPropertyValue("mockPort"));
 testRunner.testCase.setPropertyValue("proxyOutPort", authCase.getPropertyValue("proxyOutPort"));
@@ -45899,7 +46041,7 @@ requestContext.mockService.setPropertyValue("rxNotificationBody",strBody);
 
 
 </con:dispatchPath><con:response name="Response 1" httpResponseStatus="200" id="31e9433f-70db-4381-8f38-75ff01ad0a7e"><con:settings/><con:script/><con:responseContent/></con:response></con:restMockAction></con:restMockService>
-<con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty Authorization Mock Service" docroot="" id="3a34ffc3-4858-4237-a55a-0cc1f8544c4a"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value>error=access_denied&amp;error_description=User%20denied%20access&amp;state=ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>client_secret</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="a19f663e-daf5-4eab-bc7c-0fb638c2496d"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+<con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty Authorization Mock Service" docroot="" id="3a34ffc3-4858-4237-a55a-0cc1f8544c4a"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value>error=access_denied&amp;error_description=User%20denied%20access&amp;state=ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>client_secret</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="a19f663e-daf5-4eab-bc7c-0fb638c2496d"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Examples showing how to match based on path, query param and header
 // Match based on path
 def requestPath = mockRequest.getPath()
@@ -45939,10 +46081,10 @@ if( acceptEncodingHeadeList.contains("gzip,deflate") )
 }
 
 */
-</con:dispatchPath><con:response name="Response 1" httpResponseStatus="200" mediaType="text/html" id="0cc4faef-5812-4914-9bea-637ccc66bf8e"><con:settings/><con:script>
+</con:dispatchPath><con:response name="Scope Selection GET Response" httpResponseStatus="200" mediaType="text/html" id="0cc4faef-5812-4914-9bea-637ccc66bf8e"><con:settings/><con:script>
 String strQry = mockRequest.getHttpRequest().getQueryString(); 
 
-log.info("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/RetailCustomer/ScopeSelection -- Response 1' TP GET ScopeSelection: " + strQry);
+log.info("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection GET REsponse' TP GET ScopeSelection: " + strQry);
 
 requestContext.mockService.setPropertyValue("DataCustodianAuthorizeQry",strQry);
 
@@ -45955,7 +46097,7 @@ for(Object object : listScopes) {
 	String strScope = (String) object;
 	if(strScope.contains("scope=")){
 		strFormSelections += '&lt;input type="radio" name="scope" value="' + idx + '">' + strScope + '&lt;br>';
-		log.info("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/RetailCustomer/ScopeSelection -- Response 1' scope: " + strScope);
+		log.info("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection GET REsponse' scope: " + strScope);
 	}
 	idx++;
 }
@@ -46012,7 +46154,7 @@ if( acceptEncodingHeadeList.contains("gzip,deflate") )
 }
 
 */
-</con:dispatchPath><con:response name="Respond with 302" httpResponseStatus="302" mediaType="text/xml" id="71d6e2e7-1902-41cb-9b50-fce8089d3cc2"><con:settings/><con:script>import groovyx.net.http.HTTPBuilder;
+</con:dispatchPath><con:response name="OAuthCallBack GET 302 Response" httpResponseStatus="302" mediaType="text/xml" id="71d6e2e7-1902-41cb-9b50-fce8089d3cc2"><con:settings/><con:script>import groovyx.net.http.HTTPBuilder;
 import static groovyx.net.http.Method.POST;
 import static groovyx.net.http.ContentType.TEXT;
 import java.net.*;
@@ -46024,8 +46166,8 @@ String parseEndpointFromURI(String strURI) throws Exception {
 
     // return with proxy port
 
-    log.info("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- Respond with 302' parseEndpointFromURI");
-    log.info("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- Respond with 302' http://" + aURL.getHost() + ":" + requestContext.mockService.getPropertyValue("proxyOutPort"));
+    log.info("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- OAuthCallBack GET 302 Response' parseEndpointFromURI routine");
+    log.info("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- OAuthCallBack GET 302 Response' returned Endpoint: http://" + aURL.getHost() + ":" + requestContext.mockService.getPropertyValue("proxyOutPort"));
     return "http://" +  aURL.getHost() + ":" + requestContext.mockService.getPropertyValue("proxyOutPort");
 /*
     if(aURL.getPort().equals(-1))
@@ -46070,8 +46212,8 @@ public class ResourceTester {
 		
 	  	def http = new HTTPBuilder();
 
-		log.info("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- Respond with 302' OAuthCallBack 302 Response -- doPOST");
-		log.info("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- Respond with 302' Request URL: " + strBaseEndpoint);
+		log.info("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- OAuthCallBack GET 302 Response' doPOST");
+		log.info("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- OAuthCallBack GET 302 Response' Request URL: " + strBaseEndpoint);
 
 		http.request( strBaseEndpoint, POST, TEXT ) { req ->
 			uri.path = href
@@ -46084,7 +46226,7 @@ public class ResourceTester {
 			}		
 						
 			response.failure = { resp ->
-				log.error("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- POST Failed: " + resp.statusLine);
+				log.error("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- OAuthCallBack GET 302 Response' POST Failed: " + resp.statusLine);
 				return null;
 			}  
 		}
@@ -46096,7 +46238,7 @@ requestContext.mockService.setPropertyValue("error","");
 String strQry = mockRequest.getHttpRequest().getQueryString(); 
 
 if(strQry.contains("error=")){
-	log.info("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- Respond with 302' Received OAuthCallback with error:" + strQry);
+	log.info("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- OAuthCallBack GET 302 Response' Received OAuthCallback with error:" + strQry);
 	requestContext.mockService.setPropertyValue("error",strQry);
  	return;
 } else
@@ -46114,7 +46256,7 @@ else {
 	strCode = strQry.substring(strQry.indexOf("code=")+"code=".length());
 }
 
-log.info("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- Respond with 302' Received OAuthCallback with code:" + strCode);
+log.info("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- OAuthCallBack GET 302 Response' Received OAuthCallback with code:" + strCode);
 
 ResourceTester resourceTester = new ResourceTester(log);
 
@@ -46123,26 +46265,27 @@ String strAuthorizationServerTokenEndpoint = requestContext.mockService.getPrope
 String strHost = parseEndpointFromURI(strAuthorizationServerTokenEndpoint);
 String strResource = parseResource(strAuthorizationServerTokenEndpoint);
 
-log.info "ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- Respond with 302' strHost: " + strHost;
-log.info "ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- Respond with 302' strResource: " + strResource;
+log.info "ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- OAuthCallBack GET 302 Response' strAuthorizationServerTokenEndpoint: " + strAuthorizationServerTokenEndpoint;
+log.info "ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- OAuthCallBack GET 302 Response' strHost: " + strHost;
+log.info "ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- OAuthCallBack GET 302 Response strResource: " + strResource;
 
 String strAuthentication = requestContext.mockService.project.getPropertyValue("client_id") + ":" + requestContext.mockService.project.getPropertyValue("client_secret");
 
 // Encode byte array into Base 64
 String token = strAuthentication.bytes.encodeBase64().toString();
 
-log.info("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- Respond with 302' Original Authentication: " + strAuthentication);
-log.info("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- Respond with 302' Base 64 Encoded Authentication: " + token);
+log.info("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- OAuthCallBack GET 302 Response' Original Authentication: " + strAuthentication);
+log.info("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- OAuthCallBack GET 302 Response' Base 64 Encoded Authentication: " + token);
 
 //String strGetResponseBody = resourceTester.doPOST(strHost,strResource,"dGhpcmRfcGFydHk6c2VjcmV0",params);
 String strGetResponseBody = resourceTester.doPOST(strHost,strResource,token,params);
 
 if(strGetResponseBody==null) {
-	log.error("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- Respond with 302' POST request failed.");
+	log.error("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- OAuthCallBack GET 302 Response' POST request failed.");
 	return;	
 }
 
-log.info("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- Respond with 302' OAuth token response:" + strGetResponseBody);
+log.info("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- OAuthCallBack GET 302 Response' OAuth token response:" + strGetResponseBody);
 requestContext.mockService.setPropertyValue("tokenResponse",strGetResponseBody);
 
 </con:script><con:responseContent/><con:header><con:name>Location</con:name><con:value>${#Project#NotificationEndpoint}/RetailCustomer/1/AuthorizationList</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/ThirdParty/RetailCustomer/1/AuthorizationList" method="GET" resourcePath="/ThirdParty/RetailCustomer/1/AuthorizationList" id="607a9769-f06b-47e1-8466-e6fe048b926c"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
@@ -46185,10 +46328,10 @@ if( acceptEncodingHeadeList.contains("gzip,deflate") )
 }
 
 */
-</con:dispatchPath><con:response name="Response 1" httpResponseStatus="200" mediaType="text/xml" id="1335bf88-2994-493d-a6b5-c2d852f1f588"><con:settings/><con:script>log.info("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/RetailCustomer/1/AuthorizationList -- Response 1' received RetailCustomer/1/AuthorizationList");</con:script><con:responseContent><![CDATA[<html>
+</con:dispatchPath><con:response name="AuthorizationList GET Response" httpResponseStatus="200" mediaType="text/xml" id="1335bf88-2994-493d-a6b5-c2d852f1f588"><con:settings/><con:script>log.info("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/RetailCustomer/1/AuthorizationList -- AuthorizationList GET Response' received RetailCustomer/1/AuthorizationList");</con:script><con:responseContent><![CDATA[<html>
 <body>
-<p>Test complete. Please do not close this browser window.</p>
-<p>If the manual DataCustodian steps were successful, in SoapUI Please mark the manual step as complete with "Pass" otherwise "Fail".</p>
+<p>Test complete. <strong>Do not close this browser window</strong>strong>.</p>
+<p>Click "OK" in the SoapUI dialog box.</p>
 </body>
 </html>]]></con:responseContent></con:response></con:restMockAction><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="POST" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="6b40be58-fe2a-4781-9c10-38e09a74bbba"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Examples showing how to match based on path, query param and header
@@ -46230,11 +46373,10 @@ if( acceptEncodingHeadeList.contains("gzip,deflate") )
 }
 
 */
-</con:dispatchPath><con:response name="Scope Selection Response" httpResponseStatus="302" id="033a6e3e-81cb-40ae-8181-87a144904f4a"><con:settings/><con:script>
-log.info("ThirdParty Authorization Mock Service -- 'REST /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection Response' TP POST Scope Selection");
-String strBody = "";
-strBody = mockRequest.requestContent;
-log.info "ThirdParty Authorization Mock Service -- 'REST /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection Response' Scope Selection Request: " + strBody;
+</con:dispatchPath><con:response name="Scope Selection POST Response" httpResponseStatus="302" id="033a6e3e-81cb-40ae-8181-87a144904f4a"><con:settings/><con:script>
+log.info("ThirdParty Authorization Mock Service -- 'POST /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection POST Response' TP POST Scope Selection");
+
+String strBody = mockRequest.requestContent;
 
 /*
 String strBody = "";
@@ -46249,8 +46391,14 @@ try {
 }
 */
 
-if(strBody==""){
+if(strBody == "" ){
+
+	log.info("ThirdParty Authorization Mock Service -- 'POST /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection POST Response' Scope Selection Request did not receive a Response");
+	log.error("ThirdParty Authorization Mock Service -- 'POST /ThirdParty/RetailCustomer/ScopeSelection --  Scope Selection POST Response' Scope Selection Request did not receive a Response");
+	testRunner.fail("ThirdParty Authorization Mock Service -- 'POST /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection POST Response' Scope Selection Request did not receive a Response");
 	return;
+} else {
+	log.info("ThirdParty Authorization Mock Service -- 'POST /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection POST Response' Scope Selection POST Response: " + strBody);
 }
 
 int iSelScopeIdx = strBody.replace("scope=","").toInteger();
@@ -46271,7 +46419,7 @@ strRespLoc += "&amp;response_type=code";
 strRespLoc += "&amp;" + strSelectedScope;
 strRespLoc += "&amp;state=ee148ec2-9892-466e-a013-4dedf1eb3018";
 
-log.info("ThirdParty Authorization Mock Service -- 'REST /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection Response' POST TP Scope selection returning 302 redirect to: " + strRespLoc);
+log.info("ThirdParty Authorization Mock Service -- 'POST /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection POST Response' POST TP Scope selection returning 302 redirect to: " + strRespLoc);
 
 def httpResponse = mockRequest.httpResponse
 httpResponse.addHeader("Location",strRespLoc);
@@ -46279,7 +46427,7 @@ httpResponse.addHeader("Location",strRespLoc);
 
 
 </con:script><con:responseContent/></con:response></con:restMockAction></con:restMockService>
-<con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty NEG A tests Authorization Mock Service" docroot="" id="cdc5ffa6-a930-460a-b724-42e8e7d73f4f"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="fbe0856f-dd44-4b04-8b84-d08a490ece57"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+<con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty NEG A tests Authorization Mock Service" docroot="" id="cdc5ffa6-a930-460a-b724-42e8e7d73f4f"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>client_secret</con:name><con:value>secret</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="fbe0856f-dd44-4b04-8b84-d08a490ece57"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Examples showing how to match based on path, query param and header
 // Match based on path
 def requestPath = mockRequest.getPath()
@@ -46319,10 +46467,10 @@ if( acceptEncodingHeadeList.contains("gzip,deflate") )
 }
 
 */
-</con:dispatchPath><con:response name="Response 1" httpResponseStatus="200" mediaType="text/html" id="1bbaff48-d407-4c97-9d7a-f4bc1aaba5d4"><con:settings/><con:script>
+</con:dispatchPath><con:response name="Scope Selection GET Response" httpResponseStatus="200" mediaType="text/html" id="1bbaff48-d407-4c97-9d7a-f4bc1aaba5d4"><con:settings/><con:script>
 String strQry = mockRequest.getHttpRequest().getQueryString(); 
 
-log.info("ThirdParty NEG A tests Authorization Mock Service -- 'GET /ThirdParty/RetailCustomer/ScopeSelection -- Response 1' TP GET ScopeSelection: " + strQry);
+log.info("ThirdParty NEG A tests Authorization Mock Service -- 'GET /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection GET REsponse' TP GET ScopeSelection: " + strQry);
 
 requestContext.mockService.setPropertyValue("DataCustodianAuthorizeQry",strQry);
 
@@ -46352,7 +46500,7 @@ for(Object object : listScopes) {
 	String strScope = (String) object;
 	if(strScope.contains("scope=")){
 		strFormSelections += '&lt;input type="radio" name="scope" value="' + idx + '">' + strScope + '&lt;br>';
-		log.info("ThirdParty NEG A tests Authorization Mock Service -- 'GET /ThirdParty/RetailCustomer/ScopeSelection -- Response 1' scope: " + strScope);
+		log.info("ThirdParty NEG A tests Authorization Mock Service -- 'GET /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection GET REsponse' scope: " + strScope);
 	}
 	idx++;
 }
@@ -46417,7 +46565,7 @@ if( acceptEncodingHeadeList.contains("gzip,deflate") )
 }
 
 */
-</con:dispatchPath><con:response name="Respond with 302" httpResponseStatus="302" mediaType="text/xml" id="f9acf164-391e-402d-b747-f9d0771b83b1"><con:settings/><con:script>import groovyx.net.http.HTTPBuilder;
+</con:dispatchPath><con:response name="OAuthCallBack GET 302 Response" httpResponseStatus="302" mediaType="text/xml" id="f9acf164-391e-402d-b747-f9d0771b83b1"><con:settings/><con:script>import groovyx.net.http.HTTPBuilder;
 import static groovyx.net.http.Method.POST;
 import static groovyx.net.http.ContentType.TEXT;
 import java.net.*;
@@ -46429,8 +46577,8 @@ String parseEndpointFromURI(String strURI) throws Exception {
 
     // return with proxy port
 
-    log.info("ThirdParty NEG A tests Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- Respond with 302' parseEndpointFromURI");
-    log.info("ThirdParty NEG A tests Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- Respond with 302' http://" + aURL.getHost() + ":" + requestContext.mockService.getPropertyValue("proxyOutPort"));
+    log.info("ThirdParty NEG A tests Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- OAuthCallBack GET 302 Response' parseEndpointFromURI routine");
+    log.info("ThirdParty NEG A tests Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- OAuthCallBack GET 302 Response' returned Endpoint: http://" + aURL.getHost() + ":" + requestContext.mockService.getPropertyValue("proxyOutPort"));
     return "http://" +  aURL.getHost() + ":" + requestContext.mockService.getPropertyValue("proxyOutPort");
     
 /*    
@@ -46464,8 +46612,8 @@ public class ResourceTester {
 		
 	  	def http = new HTTPBuilder();
 
-		log.info("ThirdParty NEG A tests Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- Respond with 302' OAuthCallBack 302 Response -- doPOST");
-		log.info("ThirdParty NEG A tests Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- Respond with 302' Request URL: " + strBaseEndpoint);
+		log.info("ThirdParty NEG A tests Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- OAuthCallBack GET 302 Response' doPOST");
+		log.info("ThirdParty NEG A tests Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- OAuthCallBack GET 302 Response' Request URL: " + strBaseEndpoint);
 
 		http.request( strBaseEndpoint, POST, TEXT ) { req ->
 			uri.path = href
@@ -46478,7 +46626,7 @@ public class ResourceTester {
 			}		
 										
 			response.failure = { resp ->
-				log.error("ThirdParty NEG A tests Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- POST Failed: " + resp.statusLine);
+				log.error("ThirdParty NEG A tests Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- OAuthCallBack GET 302 Response' POST Failed: " + resp.statusLine);
 				return null;
 			}  
 		}
@@ -46573,10 +46721,10 @@ if( acceptEncodingHeadeList.contains("gzip,deflate") )
 }
 
 */
-</con:dispatchPath><con:response name="Response 1" httpResponseStatus="200" mediaType="text/xml" id="83d6eb23-d59c-4184-b87e-35eb644f7675"><con:settings/><con:script>log.info("ThirdParty NEG A tests Authorization Mock Service -- 'GET /ThirdParty/RetailCustomer/1/AuthorizationList -- Response 1' received RetailCustomer/1/AuthorizationList");</con:script><con:responseContent><![CDATA[<html>
+</con:dispatchPath><con:response name="AuthorizationList GET Response" httpResponseStatus="200" mediaType="text/xml" id="83d6eb23-d59c-4184-b87e-35eb644f7675"><con:settings/><con:script>log.info("ThirdParty NEG A tests Authorization Mock Service -- 'GET /ThirdParty/RetailCustomer/1/AuthorizationList -- AuthorizationList GET Response' received RetailCustomer/1/AuthorizationList");</con:script><con:responseContent><![CDATA[<html>
 <body>
 <p>Test complete. Please do not close this browser window.</p>
-<p>If the manual DataCustodian steps were successful, in SoapUI Please mark the manual step as complete with "Pass" otherwise "Fail".</p>
+<p>Please select "OK" on SoapUI dialog box.</p>
 </body>
 </html>]]></con:responseContent></con:response></con:restMockAction><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="POST" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="ee746322-bfd5-4ebd-abb1-190383b40cfc"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Examples showing how to match based on path, query param and header
@@ -46618,23 +46766,14 @@ if( acceptEncodingHeadeList.contains("gzip,deflate") )
 }
 
 */
-</con:dispatchPath><con:response name="Response 1" httpResponseStatus="200" mediaType="text/html" id="01b8024b-577d-448c-abb7-08b0575762f1"><con:settings/><con:script>
-import groovyx.net.http.Method
-import groovyx.net.http.ContentType
-import groovyx.net.http.HTTPBuilder
-import groovyx.net.http.HttpResponseDecorator
-import groovy.util.logging.Log
-import org.apache.http.client.RedirectStrategy
+</con:dispatchPath><con:response name="Scope Selection POST Response" httpResponseStatus="200" mediaType="text/html" id="01b8024b-577d-448c-abb7-08b0575762f1"><con:settings/><con:script>
+log.info("ThirdParty NEG A tests Authorization Mock Service -- 'POST /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection POST Response' TP POST Scope Selection");
 
-import java.net.HttpUrlConnection.*;
-
-log.info("ThirdParty NEG A tests Authorization Mock Service -- 'REST /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection Response' TP POST Scope Selection");
-
-String strBody = "";
-strBody = mockRequest.requestContent;
-log.info "ThirdParty NEG A tests Authorization Mock Service -- 'REST /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection Response' Scope Selection Request: " + strBody;
+String strBody = mockRequest.requestContent;
 
 /*
+String strBody = "";
+
 try {
 	while ((line = mockRequest.getRequest().getReader().readLine()) != null){
 		strBody = strBody + line;
@@ -46644,8 +46783,15 @@ try {
 	log.error("exception:"+e)
 }
 */
-if(strBody==""){
+
+if(strBody == "" ){
+
+	log.info("ThirdParty NEG A tests Authorization Mock Service -- 'POST /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection POST Response' Scope Selection Request did not receive a Response");
+	log.error("ThirdParty NEG A tests Authorization Mock Service -- 'POST /ThirdParty/RetailCustomer/ScopeSelection --  Scope Selection POST Response' Scope Selection Request did not receive a Response");
+	testRunner.fail("ThirdParty NEG A tests Authorization Mock Service -- 'POST /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection POST Response' Scope Selection Request did not receive a Response");
 	return;
+} else {
+	log.info("ThirdParty NEG A tests Authorization Mock Service -- 'POST /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection POST Response' Scope Selection POST Response: " + strBody);
 }
 
 int iSelScopeIdx = strBody.replace("scope=","").toInteger();
@@ -46666,7 +46812,7 @@ strRespLoc += "&amp;response_type=code";
 strRespLoc += "&amp;" + strSelectedScope;
 strRespLoc += "&amp;state=ee148ec2-9892-466e-a013-4dedf1eb3018";
 
-log.info("ThirdParty NEG A tests Authorization Mock Service -- 'REST /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection Response' POST TP Scope selection returning 302 redirect to: " + strRespLoc);
+log.info("ThirdParty NEG A tests Authorization Mock Service -- 'POST /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection POST Response' POST TP Scope selection returning 302 redirect to: " + strRespLoc);
 
 String strSessionID = requestContext.mockService.getPropertyValue("browserSession");
 
@@ -46680,7 +46826,7 @@ Please select <strong>"<i>OK</>"</strong> on SoapUI dialog box.
 </body>
 </html>
 ]]></con:responseContent></con:response></con:restMockAction></con:restMockService>
-<con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty NEG B tests Authorization Mock Service" docroot="" id="f53ba382-c35f-4ef1-901a-f07c7855c1b3"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value>9C0B4BBAD2FBDAF475058F4996FE725B</con:value></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>fJvUIy</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="80ce918e-62e8-4eb0-881e-fe7226c68892"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+<con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty NEG B tests Authorization Mock Service" docroot="" id="f53ba382-c35f-4ef1-901a-f07c7855c1b3"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value>9C0B4BBAD2FBDAF475058F4996FE725B</con:value></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>6J143S</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>client_secret</con:name><con:value>secret</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="80ce918e-62e8-4eb0-881e-fe7226c68892"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Examples showing how to match based on path, query param and header
 // Match based on path
 def requestPath = mockRequest.getPath()
@@ -46720,10 +46866,10 @@ if( acceptEncodingHeadeList.contains("gzip,deflate") )
 }
 
 */
-</con:dispatchPath><con:response name="Response 1" httpResponseStatus="200" mediaType="text/html" id="24302bdb-1ba4-40b2-9240-ae08c5c7d9d9"><con:settings/><con:script>
+</con:dispatchPath><con:response name="Scope Selection GET Response" httpResponseStatus="200" mediaType="text/html" id="24302bdb-1ba4-40b2-9240-ae08c5c7d9d9"><con:settings/><con:script>
 String strQry = mockRequest.getHttpRequest().getQueryString(); 
 
-log.info("ThirdParty NEG B tests Authorization Mock Service -- 'GET /ThirdParty/RetailCustomer/ScopeSelection -- Response 1' TP GET ScopeSelection: " + strQry);
+log.info("ThirdParty NEG B tests Authorization Mock Service -- 'GET /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection GET Response' TP GET ScopeSelection: " + strQry);
 
 requestContext.mockService.setPropertyValue("DataCustodianAuthorizeQry",strQry);
 
@@ -46736,7 +46882,7 @@ for(Object object : listScopes) {
 	String strScope = (String) object;
 	if(strScope.contains("scope=")){
 		strFormSelections += '&lt;input type="radio" name="scope" value="' + idx + '">' + strScope + '&lt;br>';
-		log.info("ThirdParty NEG B tests Authorization Mock Service -- 'GET /ThirdParty/RetailCustomer/ScopeSelection -- Response 1' scope: " + strScope);
+		log.info("ThirdParty NEG B tests Authorization Mock Service -- 'GET /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection GET Response' scope: " + strScope);
 	}
 	idx++;
 }
@@ -46793,7 +46939,8 @@ if( acceptEncodingHeadeList.contains("gzip,deflate") )
 }
 
 */
-</con:dispatchPath><con:response name="Respond with 302" httpResponseStatus="302" mediaType="text/xml" id="92745898-0af2-4c21-9aa8-53e4bb5d7d21"><con:settings/><con:script>String strQry = mockRequest.getHttpRequest().getQueryString(); 
+</con:dispatchPath><con:response name="OAuthCallBack GET 302 Response" httpResponseStatus="302" mediaType="text/xml" id="92745898-0af2-4c21-9aa8-53e4bb5d7d21"><con:settings/><con:script>
+String strQry = mockRequest.getHttpRequest().getQueryString(); 
 String strCode = "";
 
 int iPos = strQry.indexOf("&amp;");
@@ -46804,8 +46951,12 @@ else {
 	strCode = strQry.substring(strQry.indexOf("code=")+"code=".length());
 }
 
-log.info("ThirdParty NEG B tests Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- Respond with 302' Received OAuthCallback with code:" + strCode);
+log.info("ThirdParty NEG B tests Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- OAuthCallBack GET 302 Response' Received OAuthCallback with code: " + strCode);
 requestContext.mockService.setPropertyValue("OAuthCodeReceivedValue",strCode);
+//project.setPropertyValue("OAuthCodeReceivedValue",strCode);
+
+log.info("ThirdParty NEG B tests Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- OAuthCallBack GET 302 Response' requestContext.mockService.setPropertyValue('OAuthCodeReceivedValue'): " + requestContext.mockService.getPropertyValue("OAuthCodeReceivedValue"));
+//log.info("ThirdParty NEG B tests Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- OAuthCallBack GET 302 Response' project.setPropertyValue('OAuthCodeReceivedValue'): " + project.getPropertyValue("OAuthCodeReceivedValue"));
 
 </con:script><con:responseContent/><con:header><con:name>Location</con:name><con:value>${#Project#NotificationEndpoint}/RetailCustomer/1/AuthorizationList</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/ThirdParty/RetailCustomer/1/AuthorizationList" method="GET" resourcePath="/ThirdParty/RetailCustomer/1/AuthorizationList" id="7f7cece6-5ca0-4c88-92fd-88635f7496da"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Examples showing how to match based on path, query param and header
@@ -46847,10 +46998,10 @@ if( acceptEncodingHeadeList.contains("gzip,deflate") )
 }
 
 */
-</con:dispatchPath><con:response name="Response 1" httpResponseStatus="200" mediaType="text/xml" id="f14e6c12-9cad-4f29-818d-2c3a7fd83047"><con:settings/><con:script>log.info("ThirdParty NEG B tests Authorization Mock Service -- 'GET /ThirdParty/RetailCustomer/1/AuthorizationList -- Response 1' received RetailCustomer/1/AuthorizationList");</con:script><con:responseContent><![CDATA[<html>
+</con:dispatchPath><con:response name="AuthorizationList GET Response" httpResponseStatus="200" mediaType="text/xml" id="f14e6c12-9cad-4f29-818d-2c3a7fd83047"><con:settings/><con:script>log.info("ThirdParty NEG B tests Authorization Mock Service -- 'GET /ThirdParty/RetailCustomer/1/AuthorizationList -- AuthorizationList GET Response' received RetailCustomer/1/AuthorizationList");</con:script><con:responseContent><![CDATA[<html>
 <body>
 <p>Test complete. Please do not close this browser window.</p>
-<p>If the manual DataCustodian steps were successful, in SoapUI Please mark the manual step as complete with "Pass" otherwise "Fail".</p>
+<p>Please select "OK" on SoapUI dialog box.</p>
 </body>
 </html>]]></con:responseContent></con:response></con:restMockAction><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="POST" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="4ba4c7ce-a621-4ed1-bf05-bd71d7fe9c6f"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Examples showing how to match based on path, query param and header
@@ -46892,14 +47043,14 @@ if( acceptEncodingHeadeList.contains("gzip,deflate") )
 }
 
 */
-</con:dispatchPath><con:response name="Response 1" httpResponseStatus="302" id="a27eb21d-5cef-4b5a-afb0-c6758e0e8065"><con:settings/><con:script>
-log.info("ThirdParty NEG B tests Authorization Mock Service -- 'REST /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection Response' TP POST Scope Selection");
+</con:dispatchPath><con:response name="Scope Selection POST Response" httpResponseStatus="302" id="a27eb21d-5cef-4b5a-afb0-c6758e0e8065"><con:settings/><con:script>
+log.info("ThirdParty NEG B tests Authorization Mock Service -- 'POST /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection POST Response' TP POST Scope Selection");
 
-String strBody = "";
-strBody = mockRequest.requestContent;
-log.info "ThirdParty NEG B tests Authorization Mock Service -- 'REST /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection Response' Scope Selection Request: " + strBody;
+String strBody = mockRequest.requestContent;
 
 /*
+String strBody = "";
+
 try {
 	while ((line = mockRequest.getRequest().getReader().readLine()) != null){
 		strBody = strBody + line;
@@ -46909,8 +47060,15 @@ try {
 	log.error("exception:"+e)
 }
 */
-if(strBody==""){
+
+if(strBody == "" ){
+
+	log.info("ThirdParty NEG B tests Authorization Mock Service -- 'POST /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection POST Response' Scope Selection Request did not receive a Response");
+	log.error("ThirdParty NEG B tests Authorization Mock Service -- 'POST /ThirdParty/RetailCustomer/ScopeSelection --  Scope Selection POST Response' Scope Selection Request did not receive a Response");
+	testRunner.fail("ThirdParty NEG B tests Authorization Mock Service -- 'POST /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection POST Response' Scope Selection Request did not receive a Response");
 	return;
+} else {
+	log.info("ThirdParty NEG B tests Authorization Mock Service -- 'POST /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection POST Response' Scope Selection POST Response: " + strBody);
 }
 
 int iSelScopeIdx = strBody.replace("scope=","").toInteger();
@@ -46931,7 +47089,7 @@ strRespLoc += "&amp;response_type=code";
 strRespLoc += "&amp;" + strSelectedScope;
 strRespLoc += "&amp;state=ee148ec2-9892-466e-a013-4dedf1eb3018";
 
-log.info("ThirdParty NEG B tests Authorization Mock Service -- 'REST /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection Response' POST TP Scope selection returning 302 redirect to: " + strRespLoc);
+log.info("ThirdParty NEG B tests Authorization Mock Service -- 'POST /ThirdParty/RetailCustomer/ScopeSelection -- Scope Selection POST Response' POST TP Scope selection returning 302 redirect to: " + strRespLoc);
 
 def httpResponse = mockRequest.httpResponse
 httpResponse.addHeader("Location",strRespLoc);
@@ -46940,7 +47098,7 @@ httpResponse.addHeader("Location",strRespLoc);
 
 </con:script><con:responseContent/></con:response></con:restMockAction></con:restMockService>
 <con:properties>
-	<con:property><con:name>access_token</con:name><con:value>0cb37282-7b0a-4c84-9160-9366fc910d0e</con:value></con:property><con:property><con:name>applicationInformationId</con:name><con:value>2</con:value></con:property><con:property><con:name>authorizationId</con:name><con:value>4</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>localhost:8443</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value>https://localhost:8443/DataCustodian/</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property>
+	<con:property><con:name>access_token</con:name><con:value>e8aecd23-2208-4f12-998d-f3e084f431d4</con:value></con:property><con:property><con:name>applicationInformationId</con:name><con:value>2</con:value></con:property><con:property><con:name>authorizationId</con:name><con:value>4</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>localhost:8443</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value>https://localhost:8443/DataCustodian/</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property>
 		<con:name>BaseURL</con:name>
 		<con:value/>
 	</con:property>
