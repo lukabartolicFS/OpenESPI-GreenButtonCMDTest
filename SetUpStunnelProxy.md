@@ -23,38 +23,59 @@ TBD
 TBD
 
 ## Configure
+Construct two stunnel .conf files for client role and server role
 
+The server role allows stunnel to accept https connections to the server and route them over http to the test harness (SOAPUI).
+
+The client role allows test harness to originate messages to a remote client -- typically the data custodian under test.
+
+Both configurations need a local cert and key to use in TLS messaging. Additionally, there needs to be a client certificate and hash for each remote client supported.
 
 ###/etc/stunnel/tpclient.conf
-This causes Stunnel to listen on http:/localhost:8080 and route to htts://localhost:8443
+This causes Stunnel to listen on http:/localhost:8080 and route to htts://localhost:8443 -- remote client = localhost, remote client port = 8443
 
-    cert=/etc/stunnel/openespi.pem
-    key=/etc/stunnel/openespi_private_key.pem
-    ;cert=/etc/stunnel/tc-server-bio-ssl_naked.pem
-    client=yes
-    pid = /tpclient.pid
-    debug=7
-    output=/etc/stunnel/stunnel.log
-    
-    [tpclient]
-    accept=8080
-    connect=localhost:8443
-    ciphers=AES128-SHA
+	# this is my local certificate
+	cert=/etc/stunnel/openespi.pem
+	key=/etc/stunnel/openespi_private_key.pem
+	
+	#this is a client
+	client=yes
+	pid = /tpclient.pid
+	debug=7
+
+	# log file
+	output=/etc/stunnel/stunnel.log
+	
+	[tpclient]
+	accept=localhost:8080
+	connect=<remote client>:<remote client port>
+	ciphers=AES128-SHA
 
 ###/etc/stunnel/tpserver.conf
-This causes Stunnel to listen on https://localhost:8444 and route to http:/localhost:8081
+This causes Stunnel to listen on https://localhost:8444 and route to http:/localhost:8081 -- remote client = localhost, remote client port = 8444
 
-    cert=/etc/stunnel/tc-server-bio-ssl.pem
-    key=/etc/stunnel/tc-server-bio-ssl_private_key.pem
-    client=no
-    pid = /tpserver.pid
-    debug=7
-    output=/etc/stunnel/stunnel.log
-    
-    [tpserver]
-    accept=8444
-    connect=localhost:8081
-    ciphers=AES128-SHA
+	# this is my local certificate
+	cert=/etc/stunnel/openespi.pem
+	key=/etc/stunnel/openespi_private_key.pem
+	
+	# CApath points to directories where each remote client certificate 
+	#  and its hash are located
+	CApath=/etc/stunnel/
+	
+	# this is a server
+	client=no
+	pid = /etc/stunnel/tpserver.pid
+	debug=7
+	#verify = 0 does not verify certificate, just checks it gets one
+	verify=0
+	
+	#log file
+	output=/etc/stunnel/stunnel.log
+	
+	[tpserver]
+	accept=<remote client>:<remote client port>
+	connect=localhost:8081
+	ciphers=AES128-SHA
 
 ###Configure /etc/default/stunnel4
 
@@ -71,7 +92,7 @@ sudo /etc/init.d/stunnel4 restart
 
 ## Test Stunnel proxy
 
-Test sending message to https:localhost:8444 and through to SOAPUI mock server on localhost:8081
+Test sending message to https://localhost:8444 and through to SOAPUI mock server on localhost:8081
 
 Run mock server on SOAPUI
 At terminal prompt:
@@ -83,13 +104,12 @@ When connection is established type:
     GET /
 
 
-Test sending message to htt://localhost:8080 and routing to DataCustodian on https://localhost:8443
+Test sending message to http://localhost:8080 and routing to DataCustodian on https://localhost:8443
 
 Run DataCustodian with bio-ssl server on port 8443:
 
     curl -v --header "Content-Type:application/xml" --header "Authorization: Bearer 688b026c-665f-4994-9139-6b21b13fbeee" -X GET  "http://localhost:8080/DataCustodian/espi/1_1/resource/UsagePoint"
     
-
 
 ##Create new self-signed certificate in SOAPUI project 
 ###Create new key for SOAPUI
