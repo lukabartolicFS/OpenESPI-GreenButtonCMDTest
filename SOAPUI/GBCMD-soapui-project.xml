@@ -4095,11 +4095,11 @@
 	<con:settings>
 		<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 </con:settings>
-<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+<con:endpoint>${#Project#authorizationServerTokenEndpoint}</con:endpoint>
 <con:request/>
 <con:originalUri>http://localhost/DataCustodian/oauth/token</con:originalUri>
 <con:credentials>
-	<con:username>upload_admin</con:username>
+	<con:username>upload</con:username>
 	<con:password>secret</con:password>
 	<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
 	<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
@@ -4117,7 +4117,7 @@
 	<con:settings>
 		<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 </con:settings>
-<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+<con:endpoint>${#Project#authorizationServerTokenEndpoint}</con:endpoint>
 <con:request/>
 <con:originalUri>http://localhost/DataCustodian/oauth/token</con:originalUri>
 <con:credentials>
@@ -4125,7 +4125,7 @@
 	<con:password>secret</con:password>
 	<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
 	<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
-	<con:authType>Global HTTP Settings</con:authType>
+	<con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType>
 </con:credentials>
 <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
 <con:jmsPropertyConfig/>
@@ -4140,15 +4140,15 @@
 	<con:settings>
 		<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 </con:settings>
-<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
+<con:endpoint>${#Project#authorizationServerTokenEndpoint}</con:endpoint>
 <con:request/>
 <con:originalUri>http://localhost/DataCustodian/oauth/token</con:originalUri>
 <con:credentials>
-	<con:username>data_custodian_admin</con:username>
+	<con:username>data_custodian</con:username>
 	<con:password>secret</con:password>
 	<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
 	<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
-	<con:authType>Global HTTP Settings</con:authType>
+	<con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType>
 </con:credentials>
 <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
 <con:jmsPropertyConfig/>
@@ -4158,7 +4158,28 @@
 </con:parameters>
 <con:parameterOrder><con:entry>grant_type</con:entry><con:entry>scope</con:entry></con:parameterOrder>
 </con:request>
-</con:method>
+<con:request name="POST ThirdParty Request - admin" mediaType="application/json" postQueryString="false" id="9ba40594-5ba1-490b-b4b8-0547108733e3">
+			<con:settings>
+				<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+	</con:settings>
+	<con:endpoint>${#Project#authorizationServerTokenEndpoint}</con:endpoint>
+	<con:request/>
+	<con:originalUri>http://localhost/DataCustodian/oauth/token</con:originalUri>
+	<con:credentials>
+		<con:username>${#Project#client_id}_admin</con:username>
+		<con:password>${#Project#client_secret}</con:password>
+		<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+		<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+		<con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType>
+	</con:credentials>
+	<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+	<con:jmsPropertyConfig/>
+	<con:parameters>
+  <con:entry key="scope" value="FB=34_35"/>
+  <con:entry key="grant_type" value="client_credentials"/>
+</con:parameters>
+	<con:parameterOrder><con:entry>grant_type</con:entry><con:entry>scope</con:entry></con:parameterOrder>
+</con:request></con:method>
 <con:method name="Refresh Token" method="POST" id="45646350-ae2a-4030-862c-2234cc78521b"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400</con:status><con:params/><con:element xmlns:tok="http://localhost/DataCustodian/oauth/token">tok:Fault</con:element></con:representation><con:request name="POST RefreshToken Request" mediaType="application/json" postQueryString="false" id="e94a5330-fafe-41eb-bcc4-bc7a1306f770"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/DataCustodian/oauth/token</con:originalUri><con:credentials><con:username>third_party_admin</con:username><con:password>secret</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
   <con:entry key="scope" value="${#Project#Scope}"/>
   <con:entry key="grant_type" value="refresh_token"/>
