@@ -37,10 +37,10 @@ usagePointUUID2="642EABA-8E42-4D1A-A375-AF54993C007B"
 usagePointDescription2="Gas"
 
 // access tokens
-upload_access_token="809caf03-612e-4e89-94b1-6f86d83b1ef8"
-data_custodian_access_token="688b026c-665f-4994-9139-6b21b13fbeee"
-third_party_access_token="75dd9c46-becf-48b5-9cb5-9c3233d718d0"
-registration_third_party_access_token="d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c"
+upload_access_token="b4f05e98-0d4a-4477-be85-c30c1a8e5677"
+data_custodian_access_token="9ae38e20-2b90-4218-b679-769277d022ff"
+third_party_access_token="ae3db544-c091-443d-8df1-30558965cb43"
+registration_third_party_access_token="5be1358f-2d21-46cb-bc09-8404bbb23fb0"
 
 // external program system commands
 mysqlCmdDC="mysql --user=root --password=password"
