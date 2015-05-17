@@ -4725,6 +4725,17 @@ if( logArea !=null )
 testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
 testRunner.testCase.testSuite.project.testSuites['Library'].testCases['UploadTestFile GUI'].run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 testRunner.testCase.testSuite.project.testSuites['[FB_01] Common'].testCases['FND001 Initial Test Configuration'].run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
+assert true;</script></con:config></con:testStep><con:testStep type="groovy" name="Setup OpenESPI for Regression test" id="5d98a302-739b-4fdf-9d28-1ad5c21d4aa4"><con:settings/><con:config><script>// Load gbcmd.conf configuration file
+log.info("Loading gbcmd.conf configuration file!");
+testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['LoadConfig']);
+
+// Reset Database
+log.info("Resetting Data Custodian and Third Party database files!");
+testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
+
+// Load customer files
+log.info("Loading sample customer files!");
+testRunner.testCase.testSuite.project.testSuites['Library'].testCases['UploadTestFile GUI'].run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 assert true;</script></con:config></con:testStep><con:properties>
 		<con:property>
 			<con:name>uploadFile</con:name>
@@ -7021,26 +7032,40 @@ public class ResourceTester {
 				headers.Accept = 'application/atom+xml'
 				
 				response.success = { resp, reader ->
-					//assert resp.statusLine.statusCode == 200
-					//log.info "Got response: ${resp.statusLine}"
-					//log.info "Content-Type: ${resp.headers.'Content-Type'}"
-					//log.info reader.text
-					strBody = reader.text;	
-					//log.info("body: " + strBody);	
+					log.info "resourceTests (doGET) -- Response Status: ${resp.statusLine}"
+					log.info "resourceTests (doGET) -- Content-Type: ${resp.headers.'Content-Type'}"
+					log.info "resourceTests (doGET) -- Content-Encoding: ${resp.headers.'Content-Encoding'}"
+					
+					strBody = reader.getText();	
 					_strResponseBody = strBody; 		
+					log.info "resourceTests (doGET) -- strBody: " + strBody;
 				}						
 				response.failure = { resp ->
+					log.info "resourceTests (doGET) -- Get Failed with Status: ${resp.statusLine}";
+					log.info "resourceTests (doGET) -- bShouldPass: " + bShouldPass;
 					strResult = "GET Failed: " + resp.statusLine;
 					bFailure = true;
 				}  
 			}
 		} catch ( HttpResponseException ex ) {
 		    // default failure handler throws an exception:
+		    log.info "resourceTests (doGET) -- GET HttpResponseException Error: ${ex.statusCode}"
 		    strResult ="GET Unexpected response error: ${ex.statusCode}"
 		    _strError = strResult;
 		    bFailure = true;
 		    return true;
+
+		} catch (IOException io) {
+		    if (strBody == "") {
+		        log.info "resourceTests (doGET) -- GET IOException Error (strBody): " + strBody;
+		        log.info "resourceTests (doGET) -- GET IOException Error: " + io;
+		        strResult = "GET IOException error: " + io;
+		        _strError = strResult;
+		        bFailure = true;
+		        return true;
+		    }	    
 		} catch (Exception e) {
+		    log.info "resourceTests (doGET) -- GET Exception Error: " + e;
 		    strResult ="GET Unexpected error"
 		    _strError = strResult;
 		    bFailure = true;
@@ -7064,7 +7089,7 @@ public class ResourceTester {
 					bFailure = CompareNodes(feedSrc,feedResult,log);			
 		
 					if(bFailure) {
-						_strError = "GET content veification failure" + _strError;
+						_strError = "GET content verification failure" + _strError;
 						return true;
 					} else {
 						_docResponse = docResult;
@@ -7112,7 +7137,6 @@ public class ResourceTester {
 				def res = http.request(Method.POST) { req ->
 				    uri.path = href
 				    headers.Authorization = 'Bearer ' + token
-				   // send("application/xml", strContent)
 				    send("application/atom+xml", strContent)
 				 
 				    response.success = { resp, object ->
@@ -7125,19 +7149,21 @@ public class ResourceTester {
 				    }			 
 				}
 			      		
-			} catch ( HttpResponseException ex ) {
+  			} catch (HttpResponseException ex) {
 			    
 			    // default failure handler throws an exception:
-			    strResult = "POST Unexpected response error: ${ex.statusCode}"
-			    _strError = strResult;
-			    bFailure = true;
-			    return true;
-			}			
-		} catch (IOException e) {			
-			//e.printStackTrace();
-			_strError = "POST Error reading file: " + strInputFile;
-			bFailure = true;
-			return true;
+                   log.info "resourceTests (doPOST) -- POST httpResponseException Error: ${ex.statusCode}";			    
+  			    strResult = "POST Unexpected response error: ${ex.statusCode}";
+  			    _strError = strResult;
+  			    bFailure = true;
+  			    return true;
+  			}
+
+		} catch (IOException ioe) {			
+		    log.info("resourceTests (doPOST) -- POST IOException Error reading file: " + strInputFile);
+		    _strError = "POST Error reading file: " + strInputFile;
+		    bFailure = true;
+		    return true;
 		}
 	
 	
@@ -7178,7 +7204,6 @@ public class ResourceTester {
 				def res = http.request(Method.PUT) { req ->
 				    uri.path = href
 				    headers.Authorization = 'Bearer ' + token
-				    //send("application/xml", strContent)	
 				    send("application/atom+xml", strContent)
 				 
 				    response.success = { resp, object ->
@@ -7843,15 +7868,15 @@ public boolean TestType1ROOT(Object testRunner,Object context,String strInputFil
 	<con:properties>
 		<con:property>
 			<con:name>resourceTestFileName</con:name>
-			<con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+			<con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">entry_IntervalBlock_4.xml</con:value>
 		</con:property>
 		<con:property>
 			<con:name>testType</con:name>
-			<con:value>GetSaveResponse</con:value>
+			<con:value>GetROOTAndLinks</con:value>
 		</con:property>
 		<con:property>
 			<con:name>default_access_token</con:name>
-			<con:value>688b026c-665f-4994-9139-6b21b13fbeee</con:value>
+			<con:value>2a85f4bd-30db-4b7d-8f41-b046b0566cb3</con:value>
 		</con:property>
 		<con:property>
 			<con:name>testShouldPass</con:name>
@@ -7859,11 +7884,11 @@ public boolean TestType1ROOT(Object testRunner,Object context,String strInputFil
 		</con:property>
 		<con:property>
 			<con:name>resourceOutputFileName</con:name>
-			<con:value>test_subscription.xml</con:value>
+			<con:value>test_get_block2.xml</con:value>
 		</con:property>
 		<con:property>
 			<con:name>resource</con:name>
-			<con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value>
+			<con:value>espi/1_1/resource/IntervalBlock</con:value>
 		</con:property>
 		<con:property>
 			<con:name>testFailed</con:name>
@@ -9020,8 +9045,7 @@ class XMLHelper {
 		</con:testStep>
 		<con:testStep type="groovy" name="testType3_SequentialUploads" id="b4aa6820-99e8-4287-a68e-8533aa56a998">
 			<con:settings/>
-			<con:config>
-				<script>import org.xml.sax.SAXException;
+			<con:config><script>import org.xml.sax.SAXException;
 					import org.w3c.dom.*;
 					import javax.xml.parsers.*;
 					import javax.xml.xpath.*;
@@ -9134,7 +9158,7 @@ strExpr = "/ns3:feed/ns3:entry";
 XPathExpression expr = xpath.compile(strExpr);
 NodeList nlNodes = (NodeList) expr.evaluate(docResponse,XPathConstants.NODESET);
 
-log.info("Retreived " + nlNodes.getLength() + " Entries");
+log.info("Retrieved " + nlNodes.getLength() + " Entries");
 if(nlNodes.getLength()!=2)
 {
 log.error("Response did not contain the correct number of Entries.");
@@ -9144,7 +9168,7 @@ strExpr = "/ns3:feed/ns3:entry/ns3:content/espi:IntervalBlock";
 expr = xpath.compile(strExpr);
 nlNodes = (NodeList) expr.evaluate(docResponse,XPathConstants.NODESET);
 
-log.info("Retreived " + nlNodes.getLength() + " IntervalBlocks");	
+log.info("Retrieved " + nlNodes.getLength() + " IntervalBlocks");	
 if(nlNodes.getLength()!=2)
 {
 log.error("Response did not contain the correct number of IntervalBlocks.");
@@ -9154,7 +9178,7 @@ strExpr = "/ns3:feed/ns3:entry/ns3:content/espi:IntervalBlock/espi:IntervalReadi
 expr = xpath.compile(strExpr);
 nlNodes = (NodeList) expr.evaluate(docResponse,XPathConstants.NODESET);
 
-log.info("Retreived " + nlNodes.getLength() + " IntervalReadings");
+log.info("Retrieved " + nlNodes.getLength() + " IntervalReadings");
 if(nlNodes.getLength()!=20160)
 {
 log.error("Response did not contain the correct number of IntervalReadings.");
@@ -9196,7 +9220,7 @@ strExpr = "/ns3:feed/ns3:entry";
 XPathExpression expr = xpath.compile(strExpr);
 NodeList nlNodes = (NodeList) expr.evaluate(docResponse,XPathConstants.NODESET);
 
-log.info("Retreived " + nlNodes.getLength() + " Entries");
+log.info("Retrieved " + nlNodes.getLength() + " Entries");
 if(nlNodes.getLength()!=4)
 {
 log.error("Response did not contain the correct number of Entries.");
@@ -9206,7 +9230,7 @@ strExpr = "/ns3:feed/ns3:entry/ns3:content/espi:IntervalBlock";
 expr = xpath.compile(strExpr);
 nlNodes = (NodeList) expr.evaluate(docResponse,XPathConstants.NODESET);
 
-log.info("Retreived " + nlNodes.getLength() + " IntervalBlocks");
+log.info("Retrieved " + nlNodes.getLength() + " IntervalBlocks");
 if(nlNodes.getLength()!=4)
 {
 log.error("Response did not contain the correct number of IntervalBlocks.");
@@ -9216,7 +9240,7 @@ strExpr = "/ns3:feed/ns3:entry/ns3:content/espi:IntervalBlock/espi:IntervalReadi
 expr = xpath.compile(strExpr);
 nlNodes = (NodeList) expr.evaluate(docResponse,XPathConstants.NODESET);
 
-log.info("Retreived " + nlNodes.getLength() + " IntervalReadings");
+log.info("Retrieved " + nlNodes.getLength() + " IntervalReadings");
 if(nlNodes.getLength()!=40320)
 {
 log.error("Response did not contain the correct number of IntervalReadings.");
@@ -9239,8 +9263,7 @@ return;
 }
 
 return;
-</script>
-</con:config>
+</script></con:config>
 </con:testStep>
 <con:testStep type="groovy" name="testType2_embeddedLinkTests" id="1dd738e2-f7ea-409c-a4f9-4d11c45239cc">
 	<con:settings/>
@@ -16659,7 +16682,78 @@ return;
 			</con:config>
 		</con:testStep>
 		<con:properties/>
-	</con:testCase><con:properties/>
+	</con:testCase><con:testCase id="0efd2e12-e718-41f8-92e4-90ff9def4ceb" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="HTTPBuilder GZIP IOException Test" searchProperties="true"><con:settings/><con:testStep type="groovy" name="HttpBuilder GZIP IOException Test" id="e25a0cc8-f9bd-49be-8887-781ecd4ad898"><con:settings/><con:config><script>import java.net.*;
+import java.io.*;
+import groovyx.net.http.HTTPBuilder
+import groovyx.net.http.HttpResponseException;
+import static groovyx.net.http.Method.GET
+import static groovyx.net.http.ContentType.TEXT
+import groovyx.net.http.Method;
+
+
+
+
+boolean bFailure = false;
+String strResult = "";
+String strBody = "";
+String strBaseEndpoint = "http://localhost:8080/DataCustodian";
+//String href = "/espi/1_1/resource/IntervalBlock";
+String href = "/espi/1_1/resource/MeterReading/1";
+String _strError="";
+
+def http = new HTTPBuilder();
+
+
+try {
+	http.request( strBaseEndpoint, GET, TEXT ) { req ->
+		uri.path = strBaseEndpoint+href
+		headers.Authorization = 'Bearer 2a85f4bd-30db-4b7d-8f41-b046b0566cb3' ;
+//  		headers.'Accept-Encoding' = 'deflate';
+		headers.Accept = 'application/atom+xml'
+
+		response.success = { resp, reader ->
+			//assert resp.statusLine.statusCode == 200
+			log.info "response.success -- Got response: ${resp.statusLine}"
+			log.info "response.success -- Content-Type: ${resp.headers.'Content-Type'}"
+			log.info "response.success -- Content-Encoding: ${resp.headers.'Content-Encoding'}"
+//			log.info "response.success -- strBody: " + reader.getText();
+			strBody = reader.getText();        
+
+			}                                                                                              
+
+			response.failure = { resp ->
+				strResult = "GET Failed: " + resp.statusLine;
+				bFailure = true;
+			}  
+	}
+
+} catch ( HttpResponseException ex ) {
+		// default failure handler throws an exception:
+		log.info "HttpResponse Exception";
+		strResult ="GET Unexpected response error: ${ex.statusCode}"
+		_strError = strResult;
+		bFailure = true;
+		return true;
+
+} catch (IOException io) {
+		log.info "IO Exception!: ${io.statusLine}";
+		return true;
+
+} catch (SocketException se) {
+		log.info "Socket Exception!: ${se.statusLine}";
+		bFailure = true;
+		return true;
+	
+} catch (Exception e) {
+		log.info "The body in the catch is: " + strBody;
+		log.info "Unexpected Exception" + e;
+		strResult ="GET Unexpected error"
+		_strError = strResult;
+		bFailure = true;
+		return true;                                    
+
+}
+</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/>
 </con:testSuite>
 <con:testSuite name="[FB_01] Common" id="705bf39e-206c-4ee4-90a5-0483778c0cb0"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[TR_CPYRT001] Verify the implementer has purchased the NAESB ESPI standard" searchProperties="true" id="171f69e0-c8a5-4aaa-88ed-edf5513db70f"><con:settings/><con:testStep type="groovy" name="Verify Purchase" id="6366c389-4459-419d-af48-56b5a11b49e4"><con:settings/><con:config><script>def procedure;
 
@@ -47346,7 +47440,7 @@ httpResponse.addHeader("Location",strRespLoc);
 	
 	<con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property>
 	
-	<con:property><con:name>data_custodian_access_token</con:name><con:value>688b026c-665f-4994-9139-6b21b13fbeee</con:value></con:property><con:property><con:name>DBprepopulateScriptName</con:name><con:value>prepopulatesql_dc.sql</con:value></con:property><con:property><con:name>electricPowerQualitySummaryId</con:name><con:value>1</con:value></con:property><con:property><con:name>electricPowerUsageSummaryId</con:name><con:value>1</con:value></con:property><con:property><con:name>federalEIN</con:name><con:value>123456</con:value></con:property>
+	<con:property><con:name>data_custodian_access_token</con:name><con:value>2a85f4bd-30db-4b7d-8f41-b046b0566cb3</con:value></con:property><con:property><con:name>DBprepopulateScriptName</con:name><con:value>prepopulatesql_dc.sql</con:value></con:property><con:property><con:name>electricPowerQualitySummaryId</con:name><con:value>1</con:value></con:property><con:property><con:name>electricPowerUsageSummaryId</con:name><con:value>1</con:value></con:property><con:property><con:name>federalEIN</con:name><con:value>123456</con:value></con:property>
 	
 	
 	
@@ -47361,7 +47455,7 @@ httpResponse.addHeader("Location",strRespLoc);
 	
 	
 	
-	<con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value>d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>localhost:8443</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceUri</con:name><con:value>espi/1_1/resource</con:value></con:property>
+	<con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value>d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>c66b0854-ea1f-4e24-afb7-afab9e0f6c5e</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>localhost:8443</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceUri</con:name><con:value>espi/1_1/resource</con:value></con:property>
 	
 	
 	
@@ -47373,7 +47467,7 @@ httpResponse.addHeader("Location",strRespLoc);
 	
 	
 	
-<con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property><con:property><con:name>ServiceEndpoint</con:name><con:value>http://localhost:8080/DataCustodian</con:value></con:property><con:property><con:name>subscriptionId</con:name><con:value>5</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>TestFile2</con:name><con:value>Gas.xml</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>ThirdPartyContext</con:name><con:value>ThirdParty</con:value></con:property><con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/Notification</con:value></con:property><con:property><con:name>third_party_access_token</con:name><con:value>75dd9c46-becf-48b5-9cb5-9c3233d718d0</con:value></con:property><con:property><con:name>timeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>upload_access_token</con:name><con:value>809caf03-612e-4e89-94b1-6f86d83b1ef8</con:value></con:property><con:property><con:name>usagePointDescription1</con:name><con:value>Front Electric Meter</con:value></con:property><con:property><con:name>usagePointDescription2</con:name><con:value>Gas</con:value></con:property><con:property><con:name>usagePointId</con:name><con:value>1</con:value></con:property><con:property><con:name>usagePointUUID1</con:name><con:value>48C2A019-5598-4E16-B0F9-49E4FF27F5FB</con:value></con:property><con:property><con:name>usagePointUUID2</con:name><con:value>642EABA-8E42-4D1A-A375-AF54993C007B</con:value></con:property><con:property><con:name>userAccessToken1</con:name><con:value>e636db71-21f8-4c44-ae95-cdc429815f8d</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>0514e676-0fc6-41a5-b080-6c3527540e5c</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>state</con:name><con:value/></con:property><con:property><con:name>client_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value>https://localhost:8443/DataCustodian/</con:value></con:property></con:properties>
+<con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property><con:property><con:name>ServiceEndpoint</con:name><con:value>http://localhost:8080/DataCustodian</con:value></con:property><con:property><con:name>subscriptionId</con:name><con:value>5</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>TestFile2</con:name><con:value>Gas.xml</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>ThirdPartyContext</con:name><con:value>ThirdParty</con:value></con:property><con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/Notification</con:value></con:property><con:property><con:name>third_party_access_token</con:name><con:value>53520584-d640-4812-a721-8a1afa459ff7</con:value></con:property><con:property><con:name>timeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>upload_access_token</con:name><con:value>03909715-b0ca-4797-9a9a-601fff1d2848</con:value></con:property><con:property><con:name>usagePointDescription1</con:name><con:value>Front Electric Meter</con:value></con:property><con:property><con:name>usagePointDescription2</con:name><con:value>Gas</con:value></con:property><con:property><con:name>usagePointId</con:name><con:value>1</con:value></con:property><con:property><con:name>usagePointUUID1</con:name><con:value>48C2A019-5598-4E16-B0F9-49E4FF27F5FB</con:value></con:property><con:property><con:name>usagePointUUID2</con:name><con:value>642EABA-8E42-4D1A-A375-AF54993C007B</con:value></con:property><con:property><con:name>userAccessToken1</con:name><con:value>e636db71-21f8-4c44-ae95-cdc429815f8d</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>0514e676-0fc6-41a5-b080-6c3527540e5c</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>state</con:name><con:value/></con:property><con:property><con:name>client_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value>https://localhost:8443/DataCustodian/</con:value></con:property></con:properties>
 <con:wssContainer/>
 <con:oAuth2ProfileContainer/>
 <con:sensitiveInformation/>
