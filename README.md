@@ -10,9 +10,11 @@ This project will hold test scripts and tools for Green Button Connect My Data
 [Configuration](#configuration)
 
 
-<h1 id="install">Installation</h1> 
+<h1 id="install">Installation and Initial Test Setup</h1> 
 
 [Top](#top)
+
+## Install Test Harness
 
 - Install Firefox version 31 (jar files are compatible with this version only at this time)
 - [Install SOAPUI](http://sourceforge.net/projects/soapui/files/soapui/5.0.0/SoapUI-x64-5.0.0.sh/download)
@@ -40,9 +42,23 @@ Note newer versions of FireFox do not have a compatible "selenium" driver yet (a
 1.	For the given unit under test use lftp to ensure sftp credentials work and are applied. For example: lftp sftp://user:password@host  -e "dir /; bye"
 
 ###Documentation on the WebDriver API 
-This link provides documentation of the WebDriver API for running selenium steps from within a programming language.
-http://docs.seleniumhq.org/docs/03_webdriver.jsp#selenium-webdriver-api-commands-and-operations 
+This link provides documentation of the WebDriver API for running selenium steps from within a programming language. [WebDriver API Pages](http://docs.seleniumhq.org/docs/03_webdriver.jsp#selenium-webdriver-api-commands-and-operations) 
 
+### Install the test suite SOAPUI project
+Clone [SOAPUI Project](https://github.com/energyos/OpenESPI-GreenButtonCMDTest.git) into a local directory.
+
+Open project in SOAPUI.
+
+## Initial Checkout Regression Test
+1. To test the installation, you need to have the OpenESPI Suite running. See [Github development with OpenESPI](http://www.greenbuttondata.org/espi/developmentEnvironment/).
+
+1. Install the development environment and run the default application which will be on localhost:8080.
+
+1. In the test project directory, run the bash script %Test Project Directory%OpenESPI-GreenButtonCMDTest\SOAPUI\etc\toRegression.sh. This script will copy default configuration files and populate the MySql database for the regression test.
+
+1. In the SOAPUI project, run the script GBCMD/Library/GeneralScripts/LoadConfig. This will load the default test configuration environment that matches the OpenESPI default configuration.
+
+1. Run the Regression Test Suite: OpenESPIIntegrationTests. This suite will exercise all tests of functionality of the OpenESPI suite and will validate your installation and configurations.
 
 <h1 id="data">Test Data Files</h1>
 
