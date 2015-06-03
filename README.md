@@ -3,12 +3,49 @@ OpenESPI-GreenButtonCMDTest
 ===========================
 This project will hold test scripts and tools for Green Button Connect My Data
 
+[Virtual Machine Setup](#virtual)
+
 [Requirements for Installing the Test Suite](#install)
 
 [Sample Data](#data)
 
 [Configuration](#configuration)
 
+<h1 id="virtual">Virtual Machine</h1> 
+
+[Top](#top)
+
+##Download the VM and VMware Player
+
+- You will need to download and install VMware Player (Windows/Linux) or Fusion (Mac) to run the virtual machine on your PC.
+
+- VM Ware Player for Linux and Windows: [http://www.vmware.com/products/player/overview.html](http://www.vmware.com/products/player/overview.html)
+
+- VM Ware Fusion for Mac OSx: [http://www.vmware.com/products/fusion/overview.html](http://www.vmware.com/products/fusion/overview.html)
+
+- Next, download the virtual machine: http://openespi.s3-website-us-east-1.amazonaws.com/virtualmachines/OpenESPI-Greenbutton-javaVM.zip
+
+##VM Configuration Instructions
+
+1. NOTE: The Virtual Machine is downloaded as a compressed file. On Windows 7, we have noticed that WinZip is required to de-compress the VM folder!
+2. When asked if VM was "copied" or "moved", select "copied" 
+3. login as bitnami (the default but will say "Authorized User" in menu) with password: password
+4. setup github keys
+	1. If you have already configured your keys:
+		1. from a local VM terminal:
+			1. copy your keys to the /home/bitnami/.ssh
+			2. **sudo chmod 600 id_rsa** (assumes private key is id_rsa) to set permissions on private key
+			3. **ssh –T git@github.com** (to test keys and verify you connect to git securely)
+		2. If you have not made keys, Follow procedure defined at [Github](github.com) (start at step Next: Set Up SSH Keys)
+		3. Note: You might want to save these keys for use on other computers/platforms if desired
+		4. Use Firefox and go to: [https://github.com/](github.com)
+		5. login to GitHub using your github.com credentials **{gitUserName : pw}**
+		6. navigate to the https://github.com/energyos/OpenESPI repository
+		7. On GitHub, fork the master branch of the OpenESPI repository
+		8. Configure your local git repository: from a local VM Terminal, do git commands to configure the git workspace
+        	1. **git config --global user.name "Firstname Lastname"**
+        	2. **git config --global user.email "your_email@youremail.com"**
+        	3. **git config --global github.user {gitUserName}**
 
 <h1 id="install">Installation and Initial Test Setup</h1> 
 
