@@ -90,19 +90,32 @@ Open project in SOAPUI.
 
 
 [Top](#top)
+## Initial Checkout Regression Test
+1. To test the installation, you need to have the OpenESPI Suite running. See [Github development with OpenESPI](http://www.greenbuttondata.org/espi/developmentEnvironment/).
+
+1. Install the development environment and run the default application which will be on localhost:8080.
+
+1. In the test project directory, run the bash script **%Test Project Directory%OpenESPI-GreenButtonCMDTest\SOAPUI\etc\toRegression.sh**. This script will copy default configuration files and populate the MySql database for the regression test.
+
+1. In the SOAPUI project, run the script **GBCMD/Library/GeneralScripts/LoadConfig**. This will load the default test configuration environment that matches the OpenESPI default configuration.
+
+1. Run the Regression Test Suite: **OpenESPIIntegrationTests**. This suite will exercise all tests of functionality of the OpenESPI suite and will validate your installation and configurations.
+
+
 ## Configuration for "testing" out of the box"
 After installing the software, and assuming you have the OpenESPI suite running, these instructions will describe how to configure the test suite to run a regression test.
 
 ### populate the mysql database
 Depending on your test configuration, there are a set of batch scripts that can be used to prepopulate the database:
 
-1. toRegression.sh -- this script will populate the "out of the box" test configuration that matches the OpenESPI source tree.
-2. toRegressionSecure.sh -- this script will populate the database with secure versions of the settings allowing TLS messaging.
+1. **toRegression.sh** -- this script will populate the "out of the box" test configuration that matches the OpenESPI source tree.
+2. **toRegressionSecure.sh** -- this script will populate the database with secure versions of the settings allowing TLS messaging.
 
 There are other versions for specific purposes. Use these scripts to initialize the database ready to test.
 
 Then, with the database populated, run a regression test by:
-1. Load the configuration file with the SOAPUI project GBCMD/Library/GeneralScripts/Test Steps/LoadConfig
+
+1. Load the configuration file with the SOAPUI project **GBCMD/Library/GeneralScripts/Test Steps/LoadConfig**
 2. Open the test suite OpenESPIIntegrationTests and run this test suite. It should complete in about 5 minutes with no errors.
 
 ### the gbcmd.conf file
@@ -159,14 +172,6 @@ Depending on the location and nature of your test target, you will need a site-s
 	timeoutCmd="timeout"
 	DBprepopulateScriptName="prepopulatesql_dc.sql"
 
-The same must be done for the files:
-	
-- gbcmdcert.conf
-- gbcmdcert\_target.conf
-- prepopulatesql\_applicationinformation\_dc.sql
-- prepopulatesql\_applicationinformation_tp.sql
- 
-They each have either a sample file or files with different port numbers in their names.
 
 ### How to change and load the settings
 The most common fields to change are:
@@ -177,16 +182,6 @@ The most common fields to change are:
 
 To load these settings into the SOAPUI project use the Library script "LoadConfig".
 
-## Initial Checkout Regression Test
-1. To test the installation, you need to have the OpenESPI Suite running. See [Github development with OpenESPI](http://www.greenbuttondata.org/espi/developmentEnvironment/).
-
-1. Install the development environment and run the default application which will be on localhost:8080.
-
-1. In the test project directory, run the bash script %Test Project Directory%OpenESPI-GreenButtonCMDTest\SOAPUI\etc\toRegression.sh. This script will copy default configuration files and populate the MySql database for the regression test.
-
-1. In the SOAPUI project, run the script GBCMD/Library/GeneralScripts/LoadConfig. This will load the default test configuration environment that matches the OpenESPI default configuration.
-
-1. Run the Regression Test Suite: OpenESPIIntegrationTests. This suite will exercise all tests of functionality of the OpenESPI suite and will validate your installation and configurations.
 
 <h1 id="data">Test Data Files</h1>
 
