@@ -41,12 +41,17 @@ upload_access_token="03909715-b0ca-4797-9a9a-601fff1d2848"
 data_custodian_access_token="2a85f4bd-30db-4b7d-8f41-b046b0566cb3"
 third_party_access_token="53520584-d640-4812-a721-8a1afa459ff7"
 registration_third_party_access_token="c66b0854-ea1f-4e24-afb7-afab9e0f6c5e"
+registration_access_token_client_id="REGISTRATION_surface_tp"
+registration_access_token_secret="secret"
+client_access_token_client_id="surface_tp_admin"
+client_access_token_secret="secret"
+client_id="third_party"
+client_secret="secret"
 
 // external program system commands
 mysqlCmdDC="mysql --user=root --password=password"
 mysqlCmdTP="mysql --user=root --password=password"
 opensslCmd="openssl"
 timeoutCmd="timeout"
-DBprepopulateScriptName="prepopulatesql_dc.sql"
 
 
