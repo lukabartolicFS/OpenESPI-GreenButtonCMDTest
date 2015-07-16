@@ -1,5 +1,13 @@
 FileName="gbcmdcert.conf"
 
+// stunnel proxy
+stunnelConfigDirectory="C:\\Program Files (x86)\\stunnel"
+stunnelStartCmd="stunnel"
+stunnelStopCmd="stunnel -reload"
+stunnelReceiveAddress="surface:8444"
+
+
+
 // configuration of test harness (not from testee)
 opensslCmd="openssl"
 timeoutCmd="timeout"
