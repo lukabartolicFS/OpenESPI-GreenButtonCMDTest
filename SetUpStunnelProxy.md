@@ -12,8 +12,13 @@ https://www.openssl.org/docs/apps/s_client.html
 ## Install 
 
 ### Install Ubuntu
+1. Download and install software
 
     sudo apt-get install stunnel4
+
+1. Enable stunnel.conf to be written by anyone
+
+1. Create [certificate file](#Create new key for SOAPUI) for use by stunnel for this server 
 
 ### Install MAC
 TBD
@@ -21,75 +26,83 @@ TBD
 
 ### Install Windows
 
+1. Install software
 https://www.stunnel.org/downloads.html (stunnel-5.17-installer.exe)
 
+1. Place the stunnel program directory in the path environmental variable
+
+1. Enable stunnel.conf to be written by anyone
+
 ## Configure
-Construct two stunnel .conf files for client role and server role
+The configuration for stunnel is in the stunnel.conf file. There are some basic settings and specific ones for client (the remote target) and server (the SOAPUI mock server) roles.
 
 The server role allows stunnel to accept https connections to the server and route them over http to the test harness (SOAPUI).
 
 The client role allows test harness to originate messages to a remote client -- typically the data custodian under test.
 
-Both configurations need a local cert and key to use in TLS messaging. Additionally, there needs to be a client certificate and hash for each remote client supported.
+Both configurations need a local cert and key to use in TLS messaging. 
 
-###/etc/stunnel/tpclient.conf
-This causes Stunnel to listen on http:/localhost:8080 and route to htts://localhost:8443 -- remote client = localhost, remote client port = 8443
+Additionally, there needs to be a client certificate and hash for each remote client supported.
 
-	# this is my local certificate
-	cert=/etc/stunnel/openespi.pem
-	key=/etc/stunnel/openespi_private_key.pem
-	
-	#this is a client
-	client=yes
-	pid = /tpclient.pid
-	debug=7
+### stunnel.conf file
+In the stunnel directory, ensure that the file stunnel.conf exists and has all user permissions to write.
 
-	# log file
-	output=/etc/stunnel/stunnel.log
-	
-	[tpclient]
-	accept=localhost:8080
-	connect=<remote client>:<remote client port>
-	ciphers=AES128-SHA
+The stunnel.conf file is created automatically by the library script:
 
-###/etc/stunnel/tpserver.conf
-This causes Stunnel to listen on https://localhost:8444 and route to http:/localhost:8081 -- remote client = localhost, remote client port = 8444
+	/GBCMD/Library/GeneralScripts/GenerateStunnelConf
 
-	# this is my local certificate
-	cert=/etc/stunnel/openespi.pem
-	key=/etc/stunnel/openespi_private_key.pem
-	
-	# CApath points to directories where each remote client certificate 
-	#  and its hash are located
-	CApath=/etc/stunnel/
-	
-	# this is a server
-	client=no
-	pid = /etc/stunnel/tpserver.pid
-	debug=7
-	#verify = 0 does not verify certificate, just checks it gets one
-	verify=0
-	
-	#log file
-	output=/etc/stunnel/stunnel.log
-	
-	[tpserver]
-	accept=<remote client>:<remote client port>
-	connect=localhost:8081
-	ciphers=AES128-SHA
+Note this script should be run after running 
+	/GBCMD/Library/GeneralScripts/LoadConfigCert
 
-###Configure /etc/default/stunnel4
+Here is a sample file generated in Linux:
 
-    ENABLED=1
-    FILES="/etc/stunnel/*.conf"
-    OPTIONS=""
+    ; **************************************************************************
+    ; * Service defaults may also be specified in individual service sections  *
+    ; **************************************************************************
     
+    ; **************************************************************************
+    ; * Logging*
+    ; **************************************************************************
+    
+    debug = 7
+    output = /home/bitnami/git/energyos/test/OpenESPI-GreenButtonCMDTest/SOAPUI\stunnel.log
+    ; Enable support for the insecure SSLv3 protocol
+    
+    
+    ; **************************************************************************
+    ; * Service definitions (at least one service has to be defined)   *
+    ; **************************************************************************
+    
+    
+    [tpclient]
+    accept=8080
+    connect=localhost:8443
+    ciphers=AES128-SHA
+    CAfile = ca-certs.pem
+    client = yes
+    cert=stunnel.pem
+    verify=0
+    ;CAfile=apitst_file.pem
+    ;cert=apitst_client.pem
+    ;key=apitst_private_key.pem
+    
+    [tpserver]
+    accept=localhost:8444
+    connect=localhost:8081
+    cert=stunnel.pem
+    verify=0
+    client=no
+    ciphers=AES128-SHA
 
-
-## Start and Stop Stunnel
+## Start and Stop Stunnel Linux
 sudo /etc/init.d/stunnel4 stop
 sudo /etc/init.d/stunnel4 start
 sudo /etc/init.d/stunnel4 restart
+
+## Start and Stop Stunnel Windows
+stunnel -exit
+stunnel
+stunnel -reload
 
 ## Test Stunnel proxy
 
@@ -144,22 +157,14 @@ Extract certificate
 
 	openssl pkcs12 -in openespi.pfx -nokeys -clcerts -out openespi.pem
 
-Test server access for DataCustodian
-
-	openssl s_client -connect 127.0.01:8443 -cert openespi.pem -key openespi_private_key.pem
-
-Generate jks keystore
-
-    keytool -importkeystore -srckeystore openespi.pfx -srcstoretype pkcs12 -destkeystore openespi.jks -deststoretype JKS
-    
-Add key to java keystore
-
-    sudo keytool -import -file ~/git/energyos/test/OpenESPI-GreenButtonCMDTest/SOAPUI/etc/openespi.pem -alias openespi -storepass energyos
-
-###verify that key and certificate match:
+###verify that key and certificate match (produce same checksums):
 
     openssl x509 -noout -modulus -in openespi.pem | openssl md5
     openssl rsa -noout -modulus -in openespi_private_key.pem | openssl md5
+
+###combine keys into stunnel.pem file:
+
+    cat openespi_private_key.pem openespi.pem > stunnel.pem
     
 ## Enable openssl to use self signed certificate
  /etc/ssl/certs
