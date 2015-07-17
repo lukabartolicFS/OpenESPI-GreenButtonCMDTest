@@ -4,7 +4,7 @@ SET SESSION sql_mode='NO_AUTO_VALUE_ON_ZERO';
 SET sql_mode = 'PIPES_AS_CONCAT';
 
 SET @dcbaseurl = 'https://openespivm:8443';
-SET @tpbaseurl = 'https://surface:8444';
+SET @tpbaseurl = 'https://localhost:8444';
 SET @aiIndex = '4';
 SET @clientId = 'surface_tp';
 
