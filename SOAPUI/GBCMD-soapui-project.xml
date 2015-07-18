@@ -2898,7 +2898,7 @@
       <ns3:updated>2014-01-02T10:00:00Z</ns3:updated>
    </ns3:entry>]]></con:request>
 <con:credentials>
-	<con:authType>Global HTTP Settings</con:authType>
+	<con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
 </con:credentials>
 <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
 <con:jmsPropertyConfig/>
@@ -4324,7 +4324,9 @@
 </con:request>
 </con:method>
 </con:resource>
-<con:resource name="Notification" path="/${#Project#notificationUri}/Notification" id="dfa96174-babd-4335-8a1e-e4385957e571"><con:settings/><con:parameters/><con:method name="Method 1" method="GET" id="616d1f56-583e-4f1f-abce-65c1665ff146"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/json" id="d4a226cc-3f5e-48a4-9144-d504d9aaca29"><con:settings/><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method><con:method name="POST" method="POST" id="25fe65e9-ec90-4ac2-b2f2-1af16ac738f2"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>text/html; charset=iso-8859-1</con:mediaType><con:status>200</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>text/xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>404</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>404</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/json" postQueryString="false" id="9fd739be-76cf-45b5-ab37-f1156140e1ef"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8081</con:endpoint><con:request/><con:originalUri>http://localhost/DataCustodian/localhost:8081/ThirdParty/espi/1_1/Notification</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:inferredSchema>&lt;?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="Notification" path="/${#Project#notificationUri}" id="dfa96174-babd-4335-8a1e-e4385957e571"><con:settings/><con:parameters/><con:method name="Method 1" method="GET" id="616d1f56-583e-4f1f-abce-65c1665ff146"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/json" id="d4a226cc-3f5e-48a4-9144-d504d9aaca29"><con:settings/><con:endpoint>${#Project#ServiceEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method><con:method name="POST" method="POST" id="25fe65e9-ec90-4ac2-b2f2-1af16ac738f2"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>text/html; charset=iso-8859-1</con:mediaType><con:status>200</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>text/xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>404</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>404</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>404</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>404</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>404</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/xml" postQueryString="false" id="9fd739be-76cf-45b5-ab37-f1156140e1ef"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8081/ThirdParty</con:endpoint><con:request>&lt;BatchList>
+&lt;resources>http://localhost:8080/DataCustodian/espi/1_1/resource/ApplicationInformation&lt;/resources>
+&lt;/BatchList></con:request><con:originalUri>http://localhost/DataCustodian/localhost:8081/ThirdParty/espi/1_1/Notification</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:inferredSchema>&lt;?xml version="1.0" encoding="UTF-8"?>
 &lt;xml-fragment/></con:inferredSchema></con:interface>
 <con:testSuite name="Library" id="0275335f-7515-4da0-a729-cce9f7858991">
 	<con:settings/>
@@ -4711,7 +4713,8 @@ if(i>0) {
 	
 }  else {
 	// cant be a resource
-	log.info ("DC Resource Endpoint Uri not well formed: " + uri);					
+	log.info ("DC Resource Endpoint Uri not well formed: " + uri);
+	testRunner.fail("DC Resource Endpoint Uri not well formed: "+ uri);	
 }
 
 // parse out AuthorizationEndpoint 
@@ -8048,11 +8051,11 @@ public boolean TestType1ROOT(Object testRunner,Object context,String strInputFil
 	<con:properties>
 		<con:property>
 			<con:name>resourceTestFileName</con:name>
-			<con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">entry_IntervalBlock_4.xml</con:value>
+			<con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
 		</con:property>
 		<con:property>
 			<con:name>testType</con:name>
-			<con:value>GetROOTAndLinks</con:value>
+			<con:value>GetSaveResponse</con:value>
 		</con:property>
 		<con:property>
 			<con:name>default_access_token</con:name>
@@ -8064,11 +8067,11 @@ public boolean TestType1ROOT(Object testRunner,Object context,String strInputFil
 		</con:property>
 		<con:property>
 			<con:name>resourceOutputFileName</con:name>
-			<con:value>test_get_block2.xml</con:value>
+			<con:value>test_subscription.xml</con:value>
 		</con:property>
 		<con:property>
 			<con:name>resource</con:name>
-			<con:value>espi/1_1/resource/IntervalBlock</con:value>
+			<con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value>
 		</con:property>
 		<con:property>
 			<con:name>testFailed</con:name>
@@ -8345,7 +8348,7 @@ if(context["driver"] != null){
 	context["driver"] = null;	
 }
 
-</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>8b3937d5-a7ca-4f0c-adbc-10f5197b60ab</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/7</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource/Authorization/7</con:value></con:property><con:property><con:name>token_type</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">6e2cc3e8-65f4-40cd-aa8c-82df39fab63a</con:value></con:property><con:property><con:name>expires_in</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">315359999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>old_access_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">secret</con:value></con:property><con:property><con:name>authorizationServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>resourceServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>mockPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8080</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>authorizationServerTokenEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">fa274369-3b96-4380-bed7-4d0a031f1207</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">localhost:8443</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">a71716f4-e8cc-49e3-b765-cca0cabc4af7</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand" id="06648a84-6352-4b25-b179-693e52d162cc"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
+</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>8b3937d5-a7ca-4f0c-adbc-10f5197b60ab</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>espi/1_1/resource</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>token_type</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>refresh_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>expires_in</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>old_access_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">secret</con:value></con:property><con:property><con:name>authorizationServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>resourceServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>mockPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8080</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>authorizationServerTokenEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">17b0d6b4-77a1-4ebf-a2e1-e026b1296e09</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">localhost:8443</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">398b39ab-9c32-48cd-b774-9ab69989e59e</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand" id="06648a84-6352-4b25-b179-693e52d162cc"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
 
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
@@ -8454,7 +8457,414 @@ SSL-Session:
     Verify return code: 10 (certificate has expired)
 ---
 </con:value></con:property><con:property><con:name>cmd</con:name><con:value>echo Q | openssl s_client -connect localhost:8443</con:value></con:property><con:property><con:name>path</con:name><con:value>.</con:value></con:property><con:property><con:name>stderr</con:name><con:value>139779935409824:error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure:s23_clnt.c:770:
-</con:value></con:property><con:property><con:name>returncode</con:name><con:value>1</con:value></con:property><con:property><con:name>timeout</con:name><con:value>2</con:value></con:property></con:properties></con:testCase><con:properties/>
+</con:value></con:property><con:property><con:name>returncode</con:name><con:value>1</con:value></con:property><con:property><con:name>timeout</con:name><con:value>2</con:value></con:property></con:properties></con:testCase><con:testCase id="978db0b7-3ecb-45f4-afd8-d7cb7e0dd584" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GenericResourceGet" searchProperties="true"><con:description>This GET will retrieve a resource via REST GET or SFTP or deferred GET with a 202 response followed by a notification
+</con:description><con:settings/><con:testStep type="groovy" name="GenericResourceGet" id="7f4bdcdd-bd1f-4016-b05d-3176630848b5"><con:settings/><con:config><script><![CDATA[import org.xml.sax.SAXException;
+import org.w3c.dom.*;
+import javax.xml.parsers.*;
+import javax.xml.xpath.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import javax.xml.namespace.NamespaceContext;
+
+import groovyx.net.http.HTTPBuilder
+import groovyx.net.http.HttpResponseException;
+import static groovyx.net.http.Method.GET
+import static groovyx.net.http.ContentType.TEXT
+import static groovyx.net.http.ContentType.XML
+import groovyx.net.http.Method;
+
+import org.xml.sax.InputSource;
+
+import groovy.io.FileType;
+
+def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+def tc= testRunner.testCase.testSuite.project.testSuites['Library'].testCases['RunCommand'];
+
+
+def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
+def mockPort = authCase.getPropertyValue("mockPort");
+
+String url = testRunner.testCase.getPropertyValue("uri");
+String token = testRunner.testCase.getPropertyValue("token");
+log.info "uri : " + url;
+log.info "token : " + token;
+
+
+public Integer doSFTPGET(String url, String token) {
+	def transferDir = groovyUtils.projectPath + "/../transferred";
+	def list = []
+	def dir = new File(transferDir);
+	def aURL = new URL(url);
+	
+	dir.eachFileRecurse (FileType.FILES) { file ->
+		list << file
+	}
+	
+	if(list.size()>0){
+
+		cmdRm = 'rm ' + transferDir +  '/*';
+		
+		if(RunCommand(cmdRm) != true) {
+			log.error("could not clear transfer directory");
+			testRunner.fail("could not clear transfer directory");
+			return;
+		} 
+	}
+	
+	cmdGet = 'sftp ' + aURL.getHost() + ':' + context.strResource + ' ' + transferDir;
+	tc.setPropertyValue("path",transferDir);
+	tc.setPropertyValue("timeout","20");
+	tc.setPropertyValue("cmd", cmdGet);
+	tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
+	strResult = tc.getPropertyValue("stdout");
+	
+	if(RunCommand(cmdGet) != true) {
+		log.error("could not issue sftp get");
+		testRunner.fail("could not issue sftp get");
+		return;
+	}	
+}
+
+public Integer doHTTPGET(String url, String token) {
+		
+
+	def http = new HTTPBuilder();
+	def result = 500;
+	
+	try {
+	
+		http.request( url, GET, TEXT ) { req ->
+	//		uri.path = href
+		     headers.Authorization = 'Bearer ' + token
+			headers.Accept = 'application/atom+xml'
+
+			response.success = { resp, reader ->
+				log.info "Response Status: ${resp.status}"
+				log.info "Response Status: ${resp.statusLine}"
+				log.info "Content-Type: ${resp.headers.'Content-Type'}"
+				log.info "Content-Encoding: ${resp.headers.'Content-Encoding'}"
+				
+				strBody = reader.getText();
+				testRunner.testCase.setPropertyValue("response",strBody);	
+				log.info "resourceTests (GET) -- strBody: " + strBody;
+				result = resp.status;
+				
+			}
+			response.'401' = { resp ->
+	        		println 'access denied'
+				result = resp.status;
+	    		}						
+			response.'403' = { resp ->
+	        		println 'access not authorized'
+				result = resp.status;
+	    		}						
+			response.'202' = { resp ->
+	        		println 'accepted but will provide notification when done'
+				result = resp.status;
+	    		}						
+			response.failure = { resp ->
+				log.info "resourceTests (GET) -- Get Failed with Status: ${resp.statusLine}";
+				log.info "resourceTests (GET) -- bShouldPass: " + bShouldPass;
+				strResult = "GET Failed: " + resp.statusLine;
+				bFailure = true;
+				result = resp.status;
+			}  
+		}
+	} catch ( HttpResponseException ex ) {
+	    // default failure handler throws an exception:
+	    log.info "resourceTests (GET) -- GET HttpResponseException Error: ${ex.statusCode}"
+	    strResult ="GET Unexpected response error: ${ex.statusCode}"
+	    _strError = strResult;
+	    bFailure = true;
+	    return 500;
+	
+	} catch (IOException io) {
+	    if (strBody == "") {
+	        log.info "GET IOException Error (strBody): " + strBody;
+	        log.info "GET IOException Error: " + io;
+	        strResult = "GET IOException error: " + io;
+	        _strError = strResult;
+	        bFailure = true;
+	        return 500;
+	    }	    
+	} catch (Exception e) {
+	    log.info "GET Exception Error: " + e;
+	    strResult ="GET Unexpected error"
+	    _strError = strResult;
+	    bFailure = true;
+	    return 500;			
+	}
+return result;
+}
+
+/////////////////////////////////////////////////////////
+// Main Script
+/////////////////////////////////////////////////////////
+def responseToGet;
+def responses = [];
+def aURL = new URL(url);
+
+/////////////////////////////////////////////////////////
+// start notification mock service to listen for results
+/////////////////////////////////////////////////////////
+context.mockService = testRunner.testCase.testSuite.project.getRestMockServiceByName("BatchListNotification");
+context.mockService.setPort(authCase.getPropertyValue("mockPort").toInteger());
+def runner = context.mockService.start(); 
+context.mockRunner = runner;  
+// clear notification of BatchList result
+context.mockService.setPropertyValue("BatchList","");
+
+if(aURL.protocol()="http"){
+// based on result of initial GET, handle response
+	responseToGet = doHTTPGET(url,token);
+	switch (responseToGet)
+	{
+		case 200:
+			responses << testRunner.testCase.getPropertyValue("response");	
+			break;
+		case 202:
+			// we must wait for notification of BatchList with URLs to retrieve
+			def delayWait = 10;
+			while (delayWait > 0)
+			{
+				delayWait --;
+				sleep (1000);
+				
+				if (context.mockService.getPropertyValue("BatchList").length() > 0)
+				{
+					log.info "Notification Received: " + responseToGet ;
+					break;
+				}
+			}
+	
+			// Check if we have further processing
+			if (context.mockService.getPropertyValue("BatchList").length() == 0)
+			{
+				testRunner.fail("No Notification Received");
+			}
+			else
+			{
+				// process batch list
+				def rootNode = new XmlSlurper().parseText(context.mockService.getPropertyValue("BatchList"));
+	
+				// iterate through resources
+				rootNode.resources.each {resources ->
+					responseToGet = doHTTPGET(resources.text(),token);
+					responses << testRunner.testCase.getPropertyValue("response");	
+				}
+			}
+			break;
+		default:
+			break;
+	}
+}
+else if (aURL.protocol()="sftp"){
+	doSFTPGET(url,token);
+	responses << testRunner.testCase.getPropertyValue("response");	
+}
+else {
+	testRunner.fail("Unknown protocol in URL");
+}
+
+	
+
+/////////////////////////////////////////////////////////
+// stop notification mock service to listen for results
+/////////////////////////////////////////////////////////
+context.mockRunner.stop();
+context.mockRunner = null;
+
+/*
+responses.each { it->
+	log.info "Here is an entry: " + it;
+}
+*/
+
+return true;
+]]></script></con:config></con:testStep><con:properties><con:property><con:name>uri</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/ApplicationInformation</con:value></con:property><con:property><con:name>token</con:name><con:value>2a85f4bd-30db-4b7d-8f41-b046b0566cb3 </con:value></con:property><con:property><con:name>response</con:name><con:value><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="GreenButtonDataStyleSheet.xslt"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<id>urn:uuid:9732abd5-8c8a-49d3-9a2f-e0172b2c1d84</id>
+<title>Green Button Usage Feed</title>
+<updated>2015-07-18T19:59:50Z</updated>
+<link href="https://openespivm:8443/DataCustodian/espi/1_1/resource/ApplicationInformation" rel="self"/>
+<entry xmlns:espi="http://naesb.org/espi" xmlns="http://www.w3.org/2005/Atom">
+    <id>urn:uuid:185c9c3f-5b4a-44a9-8959-3ae79e60a9f5</id>
+    <link href="https://openespivm:8443/DataCustodian/espi/1_1/resource/ApplicationInformation" rel="up"/>
+    <link href="https://openespivm:8443/DataCustodian/espi/1_1/resource/ApplicationInformation/1" rel="self"/>
+    <title>GreenButtonData.org  Data Custodian Admin Application</title>
+    <content>
+        <espi:ApplicationInformation>
+            <espi:dataCustodianId>data_custodian</espi:dataCustodianId>
+            <espi:dataCustodianApplicationStatus>1</espi:dataCustodianApplicationStatus>
+            <espi:thirdPartyApplicationDescription>EnergyOS OpenESPI Example DataCustodian Admin</espi:thirdPartyApplicationDescription>
+            <espi:thirdPartyApplicationStatus>1</espi:thirdPartyApplicationStatus>
+            <espi:thirdPartyApplicationType>1</espi:thirdPartyApplicationType>
+            <espi:thirdPartyApplicationUse>1</espi:thirdPartyApplicationUse>
+            <espi:authorizationServerUri>https://openespivm:8443/DataCustodian/</espi:authorizationServerUri>
+            <espi:authorizationServerAuthorizationEndpoint>https://openespivm:8443/DataCustodian/oauth/authorize</espi:authorizationServerAuthorizationEndpoint>
+            <espi:authorizationServerRegistrationEndpoint>https://openespivm:8443/DataCustodian/espi/1_1/register</espi:authorizationServerRegistrationEndpoint>
+            <espi:authorizationServerTokenEndpoint>https://openespivm:8443/DataCustodian/oauth/token</espi:authorizationServerTokenEndpoint>
+            <espi:dataCustodianBulkRequestURI>https://openespivm:8443/DataCustodian/espi/1_1/resource/Batch/Bulk</espi:dataCustodianBulkRequestURI>
+            <espi:dataCustodianResourceEndpoint>https://openespivm:8443/DataCustodian/espi/1_1/resource</espi:dataCustodianResourceEndpoint>
+            <espi:client_secret>secret</espi:client_secret>
+            <espi:client_name>Green Button DataCustodian Admin</espi:client_name>
+            <espi:client_uri>https://openespivm:8443/DataCustodian</espi:client_uri>
+            <espi:client_id>data_custodian</espi:client_id>
+            <espi:software_id>EnergyOS OpenESPI</espi:software_id>
+            <espi:software_version>1.2</espi:software_version>
+            <espi:client_id_issued_at>1403190000</espi:client_id_issued_at>
+            <espi:client_secret_expires_at>0</espi:client_secret_expires_at>
+            <espi:contacts>john.teeter@energyos.org,martin.burns@nist.gov,donald.coffin@reminetworks.com</espi:contacts>
+            <espi:token_endpoint_auth_method>client_secret_basic</espi:token_endpoint_auth_method>
+            <espi:scope>FB=1_3_4_5_13_14_19_32_33_34_35_36_37_38_41_44_45</espi:scope>
+            <espi:grant_types>client_credentials</espi:grant_types>
+            <espi:response_types>token</espi:response_types>
+            <espi:registration_client_uri>https://openespivm:8443/DataCustodian/espi/1_1/resource/ApplicationInformation/1</espi:registration_client_uri>
+            <espi:dataCustodianScopeSelectionScreenURI>https://openespivm:8443/DataCustodian/RetailCustomer/ScopeSelection/</espi:dataCustodianScopeSelectionScreenURI>
+        </espi:ApplicationInformation>
+    </content>
+    <published>2014-01-02T10:00:00Z</published>
+    <updated>2014-01-02T10:00:00Z</updated>
+</entry>
+
+<entry xmlns:espi="http://naesb.org/espi" xmlns="http://www.w3.org/2005/Atom">
+    <id>urn:uuid:af6e8b03-0299-467e-972a-a883ecdcc575</id>
+    <link href="https://openespivm:8443/DataCustodian/espi/1_1/resource/ApplicationInformation" rel="up"/>
+    <link href="https://openespivm:8443/DataCustodian/espi/1_1/resource/ApplicationInformation/2" rel="self"/>
+    <title>GreenButtonData.org  ThirdParty Application</title>
+    <content>
+        <espi:ApplicationInformation>
+            <espi:dataCustodianId>data_custodian</espi:dataCustodianId>
+            <espi:dataCustodianApplicationStatus>1</espi:dataCustodianApplicationStatus>
+            <espi:thirdPartyApplicationDescription>EnergyOS OpenESPI Example Third Party</espi:thirdPartyApplicationDescription>
+            <espi:thirdPartyApplicationStatus>1</espi:thirdPartyApplicationStatus>
+            <espi:thirdPartyApplicationType>1</espi:thirdPartyApplicationType>
+            <espi:thirdPartyApplicationUse>1</espi:thirdPartyApplicationUse>
+            <espi:authorizationServerUri>https://openespivm:8443/DataCustodian/</espi:authorizationServerUri>
+            <espi:thirdPartyNotifyUri>https://openespivm:8443/ThirdParty/espi/1_1/Notification</espi:thirdPartyNotifyUri>
+            <espi:authorizationServerAuthorizationEndpoint>https://openespivm:8443/DataCustodian/oauth/authorize</espi:authorizationServerAuthorizationEndpoint>
+            <espi:authorizationServerRegistrationEndpoint>https://openespivm:8443/DataCustodian/espi/1_1/register</espi:authorizationServerRegistrationEndpoint>
+            <espi:authorizationServerTokenEndpoint>https://openespivm:8443/DataCustodian/oauth/token</espi:authorizationServerTokenEndpoint>
+            <espi:dataCustodianBulkRequestURI>https://openespivm:8443/DataCustodian/espi/1_1/resource/Batch/Bulk</espi:dataCustodianBulkRequestURI>
+            <espi:dataCustodianResourceEndpoint>https://openespivm:8443/DataCustodian/espi/1_1/resource</espi:dataCustodianResourceEndpoint>
+            <espi:thirdPartyScopeSelectionScreenURI>https://openespivm:8443/ThirdParty/RetailCustomer/ScopeSelection</espi:thirdPartyScopeSelectionScreenURI>
+            <espi:thirdPartyUserPortalScreenURI>https://openespivm:8443/ThirdParty</espi:thirdPartyUserPortalScreenURI>
+            <espi:client_secret>secret</espi:client_secret>
+            <espi:logo_uri>https://openespivm:8443/ThirdParty/resources/ico/favicon.png</espi:logo_uri>
+            <espi:client_name>Green Button Third Party</espi:client_name>
+            <espi:client_uri>https://openespivm:8443/ThirdParty</espi:client_uri>
+            <espi:redirect_uri>https://openespivm:8443/ThirdParty/espi/1_1/OAuthCallBack</espi:redirect_uri>
+            <espi:client_id>third_party</espi:client_id>
+            <espi:software_id>EnergyOS OpenESPI Example Third Party</espi:software_id>
+            <espi:software_version>1.2</espi:software_version>
+            <espi:client_id_issued_at>1403190000</espi:client_id_issued_at>
+            <espi:client_secret_expires_at>0</espi:client_secret_expires_at>
+            <espi:contacts>john.teeter@energyos.org,martin.burns@nist.gov,donald.coffin@reminetworks.com</espi:contacts>
+            <espi:token_endpoint_auth_method>client_secret_basic</espi:token_endpoint_auth_method>
+            <espi:scope>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</espi:scope>
+            <espi:scope>FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</espi:scope>
+            <espi:scope>FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</espi:scope>
+            <espi:grant_types>refresh_token</espi:grant_types>
+            <espi:grant_types>authorization_code</espi:grant_types>
+            <espi:grant_types>client_credentials</espi:grant_types>
+            <espi:response_types>token</espi:response_types>
+            <espi:registration_client_uri>https://openespivm:8443/DataCustodian/espi/1_1/resource/ApplicationInformation/2</espi:registration_client_uri>
+            <espi:registration_access_token>d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c</espi:registration_access_token>
+            <espi:dataCustodianScopeSelectionScreenURI>https://openespivm:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</espi:dataCustodianScopeSelectionScreenURI>
+        </espi:ApplicationInformation>
+    </content>
+    <published>2014-01-02T10:00:00Z</published>
+    <updated>2014-01-02T10:00:00Z</updated>
+</entry>
+
+<entry xmlns:espi="http://naesb.org/espi" xmlns="http://www.w3.org/2005/Atom">
+    <id>urn:uuid:185c9c3f-5b4a-44a9-8959-3ae79e60a9f7</id>
+    <link href="https://openespivm:8443/DataCustodian/espi/1_1/resource/ApplicationInformation" rel="up"/>
+    <link href="https://openespivm:8443/DataCustodian/espi/1_1/resource/ApplicationInformation/3" rel="self"/>
+    <title>GreenButtonData.org  MDM Upload Application</title>
+    <content>
+        <espi:ApplicationInformation>
+            <espi:dataCustodianId>data_custodian</espi:dataCustodianId>
+            <espi:dataCustodianApplicationStatus>1</espi:dataCustodianApplicationStatus>
+            <espi:thirdPartyApplicationDescription>EnergyOS OpenESPI DMD Upload Service</espi:thirdPartyApplicationDescription>
+            <espi:authorizationServerUri>https://openespivm:8443/DataCustodian/</espi:authorizationServerUri>
+            <espi:authorizationServerAuthorizationEndpoint>https://openespivm:8443/DataCustodian/oauth/authorize</espi:authorizationServerAuthorizationEndpoint>
+            <espi:authorizationServerRegistrationEndpoint>https://openespivm:8443/DataCustodian/espi/1_1/register</espi:authorizationServerRegistrationEndpoint>
+            <espi:authorizationServerTokenEndpoint>https://openespivm:8443/DataCustodian/oauth/token</espi:authorizationServerTokenEndpoint>
+            <espi:dataCustodianBulkRequestURI>https://openespivm:8443/DataCustodian/espi/1_1/resource/Batch/Bulk</espi:dataCustodianBulkRequestURI>
+            <espi:dataCustodianResourceEndpoint>https://openespivm:8443/DataCustodian/espi/1_1/resource</espi:dataCustodianResourceEndpoint>
+            <espi:client_secret>secret</espi:client_secret>
+            <espi:client_name>Green Button DMD Upload Service</espi:client_name>
+            <espi:client_id>upload</espi:client_id>
+            <espi:software_id>EnergyOS OpenESPI DMD Upload Service</espi:software_id>
+            <espi:software_version>1.2</espi:software_version>
+            <espi:client_id_issued_at>1403190000</espi:client_id_issued_at>
+            <espi:client_secret_expires_at>0</espi:client_secret_expires_at>
+            <espi:contacts>john.teeter@energyos.org,martin.burns@nist.gov,donald.coffin@reminetworks.com</espi:contacts>
+            <espi:token_endpoint_auth_method>client_secret_basic</espi:token_endpoint_auth_method>
+            <espi:scope>FB=45</espi:scope>
+            <espi:grant_types>client_credentials</espi:grant_types>
+            <espi:response_types>token</espi:response_types>
+            <espi:registration_client_uri>https://openespivm:8443/DataCustodian/espi/1_1/resource/ApplicationInformation/3</espi:registration_client_uri>
+        </espi:ApplicationInformation>
+    </content>
+    <published>2014-01-02T10:00:00Z</published>
+    <updated>2014-01-02T10:00:00Z</updated>
+</entry>
+
+<entry xmlns:espi="http://naesb.org/espi" xmlns="http://www.w3.org/2005/Atom">
+    <id>urn:uuid:af6e8b03-0299-467e-972a-a883ecdcc575</id>
+    <link href="https://openespivm:8443/DataCustodian/espi/1_1/resource/ApplicationInformation" rel="up"/>
+    <link href="https://openespivm:8443/DataCustodian/espi/1_1/resource/ApplicationInformation/4" rel="self"/>
+    <title>GreenButtonData.org  ThirdParty Application</title>
+    <content>
+        <espi:ApplicationInformation>
+            <espi:dataCustodianId>data_custodian</espi:dataCustodianId>
+            <espi:dataCustodianApplicationStatus>1</espi:dataCustodianApplicationStatus>
+            <espi:thirdPartyApplicationDescription>EnergyOS OpenESPI Example Third Party</espi:thirdPartyApplicationDescription>
+            <espi:thirdPartyApplicationStatus>1</espi:thirdPartyApplicationStatus>
+            <espi:thirdPartyApplicationType>1</espi:thirdPartyApplicationType>
+            <espi:thirdPartyApplicationUse>1</espi:thirdPartyApplicationUse>
+            <espi:authorizationServerUri>https://localhost:8443/DataCustodian/</espi:authorizationServerUri>
+            <espi:thirdPartyNotifyUri>https://localhost:8444/ThirdParty/espi/1_1/Notification</espi:thirdPartyNotifyUri>
+            <espi:authorizationServerAuthorizationEndpoint>https://localhost:8443/DataCustodian/oauth/authorize</espi:authorizationServerAuthorizationEndpoint>
+            <espi:authorizationServerRegistrationEndpoint>https://localhost:8443/DataCustodian/espi/1_1/register</espi:authorizationServerRegistrationEndpoint>
+            <espi:authorizationServerTokenEndpoint>https://localhost:8443/DataCustodian/oauth/token</espi:authorizationServerTokenEndpoint>
+            <espi:dataCustodianBulkRequestURI>https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Bulk</espi:dataCustodianBulkRequestURI>
+            <espi:dataCustodianResourceEndpoint>https://localhost:8443/DataCustodian/espi/1_1/resource</espi:dataCustodianResourceEndpoint>
+            <espi:thirdPartyScopeSelectionScreenURI>https://localhost:8444/ThirdParty/RetailCustomer/ScopeSelection</espi:thirdPartyScopeSelectionScreenURI>
+            <espi:thirdPartyUserPortalScreenURI>https://localhost:8444/ThirdParty</espi:thirdPartyUserPortalScreenURI>
+            <espi:client_secret>secret</espi:client_secret>
+            <espi:logo_uri>https://localhost:8444/ThirdParty/resources/ico/favicon.png</espi:logo_uri>
+            <espi:client_name>Green Button Third Party</espi:client_name>
+            <espi:client_uri>https://localhost:8444/ThirdParty</espi:client_uri>
+            <espi:redirect_uri>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</espi:redirect_uri>
+            <espi:client_id>surface_tp</espi:client_id>
+            <espi:software_id>EnergyOS OpenESPI Example Third Party</espi:software_id>
+            <espi:software_version>1.2</espi:software_version>
+            <espi:client_id_issued_at>1403190000</espi:client_id_issued_at>
+            <espi:client_secret_expires_at>0</espi:client_secret_expires_at>
+            <espi:contacts>john.teeter@energyos.org,martin.burns@nist.gov,donald.coffin@reminetworks.com</espi:contacts>
+            <espi:token_endpoint_auth_method>client_secret_basic</espi:token_endpoint_auth_method>
+            <espi:scope>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</espi:scope>
+            <espi:scope>FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</espi:scope>
+            <espi:scope>FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</espi:scope>
+            <espi:grant_types>refresh_token</espi:grant_types>
+            <espi:grant_types>authorization_code</espi:grant_types>
+            <espi:response_types>token</espi:response_types>
+            <espi:registration_client_uri>https://localhost:8443/DataCustodian/espi/1_1/resource/ApplicationInformation/4</espi:registration_client_uri>
+            <espi:registration_access_token>d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c</espi:registration_access_token>
+            <espi:dataCustodianScopeSelectionScreenURI>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</espi:dataCustodianScopeSelectionScreenURI>
+        </espi:ApplicationInformation>
+    </content>
+    <published>2014-01-02T10:00:00Z</published>
+    <updated>2014-01-02T10:00:00Z</updated>
+</entry>
+</feed>]]></con:value></con:property></con:properties></con:testCase><con:properties/>
 </con:testSuite>
 <con:testSuite name="OpenEspiIntegrationTests" id="078c93b9-0aac-4a68-a290-27fec2b4942d">
 	<con:settings/>
@@ -12315,37 +12725,37 @@ driver.quit();
 	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Sim POST Notify SFTP Bulk" searchProperties="true" id="7277e322-f7e7-4d3a-b282-75d7dc56463e">
 		<con:settings/>
 		
-		<con:testStep type="restrequest" name="Sim POST Notify SFTP Bulk" id="ff38b066-1220-4a4a-82d9-0e31c437a63d"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#notificationUri}/Notification" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Sim POST Notify SFTP Bulk" mediaType="application/xml" postQueryString="false" id="4e3ec003-3e58-4bb3-b982-b3dee3a92998"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#NotificationEndpoint}</con:endpoint><con:request>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+		<con:testStep type="restrequest" name="Sim POST Notify SFTP Bulk" id="ff38b066-1220-4a4a-82d9-0e31c437a63d"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#notificationUri}" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Sim POST Notify SFTP Bulk" mediaType="application/xml" postQueryString="false" id="4e3ec003-3e58-4bb3-b982-b3dee3a92998"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#NotificationEndpoint}</con:endpoint><con:request>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 &lt;espi:BatchList xmlns:espi="http://naesb.org/espi">
 &lt;espi:resources>sftp://localhost/home/bitnami/git/OpenESPI-GreenButtonCMDTest/SOAPUI/sampledata/BatchBulk.xml
 &lt;/espi:resources>
 &lt;/espi:BatchList></con:request><con:originalUri>http://localhost/DataCustodian/localhost:8081/ThirdParty/espi/1_1/Notification</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="45f58593-6728-47fd-bfb3-ca49456508e3"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/>
 	</con:testCase>
-	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Sim POST Notify REST Bulk" searchProperties="true" id="840f1422-a75b-44c6-84c7-6d1f45909a85"><con:settings/><con:testStep type="restrequest" name="Sim POST Notify REST Bulk" id="808a6e9e-0a90-45c8-ab81-9f788766e576"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#notificationUri}/Notification" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Sim POST Notify REST Bulk" mediaType="application/xml" postQueryString="false" id="d101ef00-7121-4f56-9760-11fd160b82c0"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#NotificationEndpoint}</con:endpoint><con:request>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Sim POST Notify REST Bulk" searchProperties="true" id="840f1422-a75b-44c6-84c7-6d1f45909a85"><con:settings/><con:testStep type="restrequest" name="Sim POST Notify REST Bulk" id="808a6e9e-0a90-45c8-ab81-9f788766e576"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#notificationUri}" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Sim POST Notify REST Bulk" mediaType="application/xml" postQueryString="false" id="d101ef00-7121-4f56-9760-11fd160b82c0"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#NotificationEndpoint}</con:endpoint><con:request>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 &lt;espi:BatchList xmlns:espi="http://naesb.org/espi">
 &lt;espi:resources>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Bulk/1
 &lt;/espi:resources>
-&lt;/espi:BatchList></con:request><con:originalUri>http://localhost/DataCustodian/localhost:8081/ThirdParty/espi/1_1/Notification</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="98e7f937-82b9-4687-9831-e6a215060cc9"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Sim POST Notify REST ApplicationInformation" searchProperties="true" id="0dff3e4a-0b1e-44c5-b4a9-ecf17f889b5e"><con:settings/><con:testStep type="restrequest" name="POST - Sim notify : REST" id="0aa69610-39ff-402b-b9e1-23a85f3897ce"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#notificationUri}/Notification" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST - Sim notify : REST" mediaType="application/xml" postQueryString="false" id="e55cc426-8a78-4ea6-a96a-575dcc56f05f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#NotificationEndpoint}</con:endpoint><con:request>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+&lt;/espi:BatchList></con:request><con:originalUri>http://localhost/DataCustodian/localhost:8081/ThirdParty/espi/1_1/Notification</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="98e7f937-82b9-4687-9831-e6a215060cc9"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Sim POST Notify REST ApplicationInformation" searchProperties="true" id="0dff3e4a-0b1e-44c5-b4a9-ecf17f889b5e"><con:settings/><con:testStep type="restrequest" name="POST - Sim notify : REST" id="0aa69610-39ff-402b-b9e1-23a85f3897ce"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#notificationUri}" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST - Sim notify : REST" mediaType="application/xml" postQueryString="false" id="e55cc426-8a78-4ea6-a96a-575dcc56f05f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#NotificationEndpoint}</con:endpoint><con:request>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 &lt;espi:BatchList xmlns:espi="http://naesb.org/espi">
 &lt;espi:resources>http://localhost:8080/DataCustodian/espi/1_1/resource/ApplicationInformation/2
 &lt;/espi:resources>
-&lt;/espi:BatchList></con:request><con:originalUri>http://localhost/DataCustodian/localhost:8081/ThirdParty/espi/1_1/Notification</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="42ba2be0-2674-44b7-a48e-1975c0cc2006"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Sim POST Notify SFTP ApplicationInformation" searchProperties="true" id="9218dd46-d405-4273-a60a-ac5a36a7198c"><con:settings/><con:testStep type="restrequest" name="POST - Sim notify : SFTP" id="7b5a4e48-ebaa-4dbf-9f28-0ae65bcf20e3"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#notificationUri}/Notification" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST - Sim notify : SFTP" mediaType="application/xml" postQueryString="false" id="37b2ce51-71dd-4b95-a4f3-b2aa8b03f11e"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#NotificationEndpoint}</con:endpoint><con:request>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+&lt;/espi:BatchList></con:request><con:originalUri>http://localhost/DataCustodian/localhost:8081/ThirdParty/espi/1_1/Notification</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="42ba2be0-2674-44b7-a48e-1975c0cc2006"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Sim POST Notify SFTP ApplicationInformation" searchProperties="true" id="9218dd46-d405-4273-a60a-ac5a36a7198c"><con:settings/><con:testStep type="restrequest" name="POST - Sim notify : SFTP" id="7b5a4e48-ebaa-4dbf-9f28-0ae65bcf20e3"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#notificationUri}" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST - Sim notify : SFTP" mediaType="application/xml" postQueryString="false" id="37b2ce51-71dd-4b95-a4f3-b2aa8b03f11e"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#NotificationEndpoint}</con:endpoint><con:request>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 &lt;espi:BatchList xmlns:espi="http://naesb.org/espi">
 &lt;espi:resources>sftp://localhost/home/bitnami/git/OpenESPI-GreenButtonCMDTest/SOAPUI/sampledata/ApplicationInformation.xml
 &lt;/espi:resources>
-&lt;/espi:BatchList></con:request><con:originalUri>http://localhost/DataCustodian/localhost:8081/ThirdParty/espi/1_1/Notification</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="aae46a5f-c8c9-4fec-bc32-8aabbfdf52c2"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Sim POST Notify REST Authorization" searchProperties="true" id="1a1ae686-efea-474d-a4d0-9b5f869dd6b7"><con:settings/><con:testStep type="restrequest" name="POST - Sim notify : REST" id="c094e61e-1cf4-455e-9b1d-76cc9f789d4e"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#notificationUri}/Notification" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST - Sim notify : REST" mediaType="application/xml" postQueryString="false" id="e0ed9c26-8d9c-47b7-9fe9-fb5b40094b87"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#NotificationEndpoint}</con:endpoint><con:request>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+&lt;/espi:BatchList></con:request><con:originalUri>http://localhost/DataCustodian/localhost:8081/ThirdParty/espi/1_1/Notification</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="aae46a5f-c8c9-4fec-bc32-8aabbfdf52c2"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Sim POST Notify REST Authorization" searchProperties="true" id="1a1ae686-efea-474d-a4d0-9b5f869dd6b7"><con:settings/><con:testStep type="restrequest" name="POST - Sim notify : REST" id="c094e61e-1cf4-455e-9b1d-76cc9f789d4e"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#notificationUri}" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST - Sim notify : REST" mediaType="application/xml" postQueryString="false" id="e0ed9c26-8d9c-47b7-9fe9-fb5b40094b87"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#NotificationEndpoint}</con:endpoint><con:request>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 &lt;espi:BatchList xmlns:espi="http://naesb.org/espi">
 &lt;espi:resources>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization
 &lt;/espi:resources>
-&lt;/espi:BatchList></con:request><con:originalUri>http://localhost/DataCustodian/localhost:8081/ThirdParty/espi/1_1/Notification</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="4bfe7b83-9ae6-49bc-ad97-9ea0f2e246c5"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Sim POST Notify SFTP Authorization" searchProperties="true" id="5958c534-76cb-43df-a24f-8c20cce2aa40"><con:settings/><con:testStep type="restrequest" name="POST - Sim notify : SFTP" id="e3dcad38-dcb9-450d-8d62-f1c5b5ea86e2"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#notificationUri}/Notification" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST - Sim notify : SFTP" mediaType="application/xml" postQueryString="false" id="75277e7f-0225-4472-bcc5-4844d91719e2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#NotificationEndpoint}</con:endpoint><con:request>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+&lt;/espi:BatchList></con:request><con:originalUri>http://localhost/DataCustodian/localhost:8081/ThirdParty/espi/1_1/Notification</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="4bfe7b83-9ae6-49bc-ad97-9ea0f2e246c5"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Sim POST Notify SFTP Authorization" searchProperties="true" id="5958c534-76cb-43df-a24f-8c20cce2aa40"><con:settings/><con:testStep type="restrequest" name="POST - Sim notify : SFTP" id="e3dcad38-dcb9-450d-8d62-f1c5b5ea86e2"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#notificationUri}" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST - Sim notify : SFTP" mediaType="application/xml" postQueryString="false" id="75277e7f-0225-4472-bcc5-4844d91719e2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#NotificationEndpoint}</con:endpoint><con:request>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 &lt;espi:BatchList xmlns:espi="http://naesb.org/espi">
 &lt;espi:resources>sftp://localhost/home/bitnami/git/OpenESPI-GreenButtonCMDTest/SOAPUI/sampledata/Authorizations.xml
 &lt;/espi:resources>
-&lt;/espi:BatchList></con:request><con:originalUri>http://localhost/DataCustodian/localhost:8081/ThirdParty/espi/1_1/Notification</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="915becd8-8d69-46c2-92e8-e7485702acfb"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Sim POST Notify REST Subscription" searchProperties="true" id="6154aac2-4399-41a9-be4c-06c2e58cd59c"><con:settings/><con:testStep type="restrequest" name="POST - Sim notify : REST" id="1321893c-96b3-46f0-84a0-559b699b3ea1"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#notificationUri}/Notification" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST - Sim notify : REST" mediaType="application/xml" postQueryString="false" id="ab5b40f7-ce9e-4b8d-bf54-442eb0ca56a0"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#NotificationEndpoint}</con:endpoint><con:request>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+&lt;/espi:BatchList></con:request><con:originalUri>http://localhost/DataCustodian/localhost:8081/ThirdParty/espi/1_1/Notification</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="915becd8-8d69-46c2-92e8-e7485702acfb"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Sim POST Notify REST Subscription" searchProperties="true" id="6154aac2-4399-41a9-be4c-06c2e58cd59c"><con:settings/><con:testStep type="restrequest" name="POST - Sim notify : REST" id="1321893c-96b3-46f0-84a0-559b699b3ea1"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#notificationUri}" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST - Sim notify : REST" mediaType="application/xml" postQueryString="false" id="ab5b40f7-ce9e-4b8d-bf54-442eb0ca56a0"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#NotificationEndpoint}</con:endpoint><con:request>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 &lt;espi:BatchList xmlns:espi="http://naesb.org/espi">
 &lt;espi:resources>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization
 &lt;/espi:resources>
-&lt;/espi:BatchList></con:request><con:originalUri>http://localhost/DataCustodian/localhost:8081/ThirdParty/espi/1_1/Notification</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="0a0f0a92-7a3f-409a-8813-4c6e4defbe21"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Sim POST Notify SFTP Subscription" searchProperties="true" id="3bed03af-dbdf-4aa0-a059-bdf61bf074de"><con:settings/><con:testStep type="restrequest" name="POST - Sim notify : SFTP" id="aa31beba-d2a9-4728-8870-d66b1f0f39a9"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#notificationUri}/Notification" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST - Sim notify : SFTP" mediaType="application/xml" postQueryString="false" id="e3e203aa-0555-47c7-bd40-a526d93316fa"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#NotificationEndpoint}</con:endpoint><con:request>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+&lt;/espi:BatchList></con:request><con:originalUri>http://localhost/DataCustodian/localhost:8081/ThirdParty/espi/1_1/Notification</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="0a0f0a92-7a3f-409a-8813-4c6e4defbe21"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Sim POST Notify SFTP Subscription" searchProperties="true" id="3bed03af-dbdf-4aa0-a059-bdf61bf074de"><con:settings/><con:testStep type="restrequest" name="POST - Sim notify : SFTP" id="aa31beba-d2a9-4728-8870-d66b1f0f39a9"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#notificationUri}" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST - Sim notify : SFTP" mediaType="application/xml" postQueryString="false" id="e3e203aa-0555-47c7-bd40-a526d93316fa"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#NotificationEndpoint}</con:endpoint><con:request>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 &lt;espi:BatchList xmlns:espi="http://naesb.org/espi">
 &lt;espi:resources>sftp://localhost/home/bitnami/git/OpenESPI-GreenButtonCMDTest/SOAPUI/sampledata/Authorizations.xml
 &lt;/espi:resources>
@@ -12426,7 +12836,10 @@ drwxr-xr-x  2 bitnami bitnami     4096 Apr  9  2014 listeners
 testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
 testRunner.testCase.testSuite.project.testSuites['Library'].testCases['UploadTestFile GUI'].run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 testRunner.testCase.testSuite.project.testSuites['[FB_01] Common'].testCases['FND001 Initial Test Configuration'].run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
-assert true;</script></con:config></con:testStep><con:properties/></con:testCase><con:properties>
+assert true;</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="b5a5d827-23bd-4b87-a1c7-c3c4f9babc41" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestNotify" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="SendNotification" id="a71df42c-e37c-438f-b0bb-038ba3d1ec92"><con:settings/><con:config service="ESPI Resources" methodName="POST" resourcePath="/${#Project#notificationUri}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="SendNotification" id="fd941070-d72a-453b-a912-697b177120e0" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://localhost:8444/ThirdParty</con:endpoint><con:request><![CDATA[<BatchList>
+<resources>http://localhost:8080/DataCustodian/espi/1_1/resource/ApplicationInformation</resources>
+<resources>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization</resources>
+</BatchList>]]></con:request><con:originalUri>http://localhost/DataCustodian/espi/1_1/Notification/Notification</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>notification</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/Notification</con:value></con:property></con:properties></con:testCase><con:properties>
 		<con:property>
 			<con:name>sessionid</con:name>
 			<con:value>null</con:value>
@@ -44670,8 +45083,7 @@ else {
 	log.info "===== FAILED End   TestSuite =====> " + testSuite.name
 }
 </con:tearDownScript></con:testSuite>
-<con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty Notification REST MockService 1" docroot="" id="44aa183e-c020-4e6b-8402-539544493841"><con:settings/><con:startScript>context.mockService.setPropertyValue("rxNotificationBody","");</con:startScript><con:properties><con:property><con:name>rxNotificationBody</con:name><con:value/></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property></con:properties><con:onRequestScript/><con:restMockAction name="/ThirdParty/espi/1_1/Notification" method="POST" resourcePath="/ThirdParty/espi/1_1/Notification" id="6b6053c9-2c1a-4384-9b10-782eb51bbd4c"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>
-if(requestContext.mockService.getPropertyValue("rxNotificationBody")!= "") {
+<con:restMockService port="8081" path="/" host="ubuntu" name="ThirdParty Notification REST MockService 1" docroot="" id="44aa183e-c020-4e6b-8402-539544493841"><con:settings/><con:startScript>context.mockService.setPropertyValue("rxNotificationBody","");</con:startScript><con:properties><con:property><con:name>rxNotificationBody</con:name><con:value><![CDATA[<BatchList><resources>http://localhost:8080/DataCustodian/espi/1_1/resource/ApplicationInformation</resources><resources>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization</resources></BatchList>]]></con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property></con:properties><con:onRequestScript/><con:restMockAction name="/ThirdParty/espi/1_1/Notification" method="POST" resourcePath="/ThirdParty/espi/1_1/Notification" id="6b6053c9-2c1a-4384-9b10-782eb51bbd4c"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>if(requestContext.mockService.getPropertyValue("rxNotificationBody")!= "") {
 	log.info("Discarding addtional notifications");
 	return;	
 }
@@ -44686,9 +45098,17 @@ if(mockRequest.httpRequest.method != "POST") {
 
 
 try {
-	while ((line = mockRequest.getRequest().getReader().readLine()) != null){
+	str = mockRequest.getRequestContent();
+	log.info str;
+
+	str.eachLine {line->
+		log.info "Line: " + line;
 		strBody = strBody + line;
 	}
+
+//	while ((line = mockRequest.getRequest().getReader().readLine()) != null){
+//		strBody = strBody + line;
+//	}
 
 	log.info("RX Notification POST Body:" + strBody);
        
@@ -45822,7 +46242,14 @@ httpResponse.addHeader("Location",strRespLoc);
 
 
 </con:script><con:responseContent/></con:response></con:restMockAction></con:restMockService>
-<con:properties>
+<con:restMockService id="d3128334-cd5f-4524-9c93-39bbc43838cf" port="8081" path="/" host="openespivm" name="BatchListNotification" docroot=""><con:settings/><con:properties><con:property><con:name>BatchList</con:name><con:value/></con:property></con:properties><con:restMockAction name="/ThirdParty/espi/1_1/Notification" method="POST" resourcePath="/ThirdParty/espi/1_1/Notification" id="c8109651-384d-4374-8e42-2054b7258aab"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>// Store batch list in project for use by foreground script
+def project = requestContext.mockService.mockRunner.getMockService().getProject()
+
+def requestBody = mockRequest.getRequestContent()
+log.info "Notification POST Request body: " + requestBody
+//project.setPropertyValue("BatchList",requestBody);
+requestContext.mockService.setPropertyValue("BatchList",requestBody);
+</con:dispatchPath><con:response name="Response 1" id="80857bf2-7556-45dc-8c55-7bdcead30356" httpResponseStatus="200"><con:settings/><con:responseContent/></con:response></con:restMockAction></con:restMockService><con:properties>
 
 	<con:property><con:name>access_token</con:name><con:value>8b3937d5-a7ca-4f0c-adbc-10f5197b60ab</con:value></con:property><con:property><con:name>applicationInformationId</con:name><con:value>4</con:value></con:property><con:property><con:name>authorizationId</con:name><con:value>6</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>localhost:8443</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property>
 
@@ -45839,7 +46266,7 @@ httpResponse.addHeader("Location",strRespLoc);
 	
 	
 	
-	<con:property><con:name>bulkId</con:name><con:value>1</con:value></con:property><con:property><con:name>certScopes</con:name><con:value>FB=1_4_5_15</con:value></con:property><con:property><con:name>client_access_token</con:name><con:value>fa274369-3b96-4380-bed7-4d0a031f1207</con:value></con:property>
+	<con:property><con:name>bulkId</con:name><con:value>1</con:value></con:property><con:property><con:name>certScopes</con:name><con:value>FB=1_4_5_15</con:value></con:property><con:property><con:name>client_access_token</con:name><con:value>17b0d6b4-77a1-4ebf-a2e1-e026b1296e09</con:value></con:property>
 	
 	
 	
@@ -45867,7 +46294,7 @@ httpResponse.addHeader("Location",strRespLoc);
 	
 	
 	
-	<con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value>a71716f4-e8cc-49e3-b765-cca0cabc4af7</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>c66b0854-ea1f-4e24-afb7-afab9e0f6c5e</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>localhost:8443</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceUri</con:name><con:value>espi/1_1/resource</con:value></con:property>
+	<con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value>398b39ab-9c32-48cd-b774-9ab69989e59e</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>c66b0854-ea1f-4e24-afb7-afab9e0f6c5e</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>localhost:8443</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceUri</con:name><con:value>espi/1_1/resource</con:value></con:property>
 	
 	
 	
@@ -45879,7 +46306,10 @@ httpResponse.addHeader("Location",strRespLoc);
 	
 	
 	
-<con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property><con:property><con:name>AuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>ServiceEndpoint</con:name><con:value>http://localhost:8080/DataCustodian</con:value></con:property><con:property><con:name>subscriptionId</con:name><con:value>5</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>TestFile2</con:name><con:value>Gas.xml</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>ThirdPartyContext</con:name><con:value/></con:property><con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/Notification</con:value></con:property><con:property><con:name>third_party_access_token</con:name><con:value>53520584-d640-4812-a721-8a1afa459ff7</con:value></con:property><con:property><con:name>timeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>upload_access_token</con:name><con:value>03909715-b0ca-4797-9a9a-601fff1d2848</con:value></con:property><con:property><con:name>usagePointDescription1</con:name><con:value>Front Electric Meter</con:value></con:property><con:property><con:name>usagePointDescription2</con:name><con:value>Gas</con:value></con:property><con:property><con:name>usagePointId</con:name><con:value>1</con:value></con:property><con:property><con:name>usagePointUUID1</con:name><con:value>48C2A019-5598-4E16-B0F9-49E4FF27F5FB</con:value></con:property><con:property><con:name>usagePointUUID2</con:name><con:value>642EABA-8E42-4D1A-A375-AF54993C007B</con:value></con:property><con:property><con:name>userAccessToken1</con:name><con:value>e636db71-21f8-4c44-ae95-cdc429815f8d</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>0514e676-0fc6-41a5-b080-6c3527540e5c</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>state</con:name><con:value/></con:property><con:property><con:name>client_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value>https://localhost:8443/DataCustodian/</con:value></con:property><con:property><con:name>registration_access_token_client_id</con:name><con:value>REGISTRATION_surface_tp</con:value></con:property><con:property><con:name>client_access_token_client_id</con:name><con:value>surface_tp_admin</con:value></con:property><con:property><con:name>client_access_token_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>registration_access_token_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>stunnelConfigDirectory</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stunnelStartCmd</con:name><con:value>stunnel start</con:value></con:property><con:property><con:name>stunnelStopCmd</con:name><con:value>stunnel stop</con:value></con:property><con:property><con:name>stunnelReceiveAddress</con:name><con:value>localhost:8444</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property></con:properties>
+<con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property><con:property><con:name>AuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>ServiceEndpoint</con:name><con:value>http://localhost:8080/DataCustodian</con:value></con:property><con:property><con:name>subscriptionId</con:name><con:value>5</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>TestFile2</con:name><con:value>Gas.xml</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>ThirdPartyContext</con:name><con:value/></con:property><con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/Notification</con:value></con:property><con:property><con:name>third_party_access_token</con:name><con:value>53520584-d640-4812-a721-8a1afa459ff7</con:value></con:property><con:property><con:name>timeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>upload_access_token</con:name><con:value>03909715-b0ca-4797-9a9a-601fff1d2848</con:value></con:property><con:property><con:name>usagePointDescription1</con:name><con:value>Front Electric Meter</con:value></con:property><con:property><con:name>usagePointDescription2</con:name><con:value>Gas</con:value></con:property><con:property><con:name>usagePointId</con:name><con:value>1</con:value></con:property><con:property><con:name>usagePointUUID1</con:name><con:value>48C2A019-5598-4E16-B0F9-49E4FF27F5FB</con:value></con:property><con:property><con:name>usagePointUUID2</con:name><con:value>642EABA-8E42-4D1A-A375-AF54993C007B</con:value></con:property><con:property><con:name>userAccessToken1</con:name><con:value>8030d53b-c38f-4ceb-ad39-927a1f446ec6</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>d2c0e815-6331-4430-864c-275d6ad7f114</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>state</con:name><con:value/></con:property><con:property><con:name>client_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value>https://localhost:8443/DataCustodian/</con:value></con:property><con:property><con:name>registration_access_token_client_id</con:name><con:value>REGISTRATION_surface_tp</con:value></con:property><con:property><con:name>client_access_token_client_id</con:name><con:value>surface_tp_admin</con:value></con:property><con:property><con:name>client_access_token_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>registration_access_token_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>stunnelConfigDirectory</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stunnelStartCmd</con:name><con:value>stunnel start</con:value></con:property><con:property><con:name>stunnelStopCmd</con:name><con:value>stunnel stop</con:value></con:property><con:property><con:name>stunnelReceiveAddress</con:name><con:value>localhost:8444</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property><con:property><con:name>BatchList</con:name><con:value><![CDATA[<BatchList>
+<resources>http://localhost:8080/DataCustodian/espi/1_1/resource/ApplicationInformation</resources>
+<resources>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization</resources>
+</BatchList>]]></con:value></con:property><con:property><con:name>responseArray</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property></con:properties>
 <con:wssContainer/>
 <con:oAuth2ProfileContainer/>
 <con:sensitiveInformation/>
