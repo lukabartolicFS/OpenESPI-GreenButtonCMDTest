@@ -8617,7 +8617,7 @@ context.mockRunner = runner;
 // clear notification of BatchList result
 context.mockService.setPropertyValue("BatchList","");
 
-if(aURL.protocol()="http"){
+if(aURL.getProtocol()=="http"){
 // based on result of initial GET, handle response
 	responseToGet = doHTTPGET(url,token);
 	switch (responseToGet)
@@ -8661,7 +8661,7 @@ if(aURL.protocol()="http"){
 			break;
 	}
 }
-else if (aURL.protocol()="sftp"){
+else if (aURL.getProtocol()=="sftp"){
 	doSFTPGET(url,token);
 	responses << testRunner.testCase.getPropertyValue("response");	
 }
@@ -8687,9 +8687,9 @@ return true;
 ]]></script></con:config></con:testStep><con:properties><con:property><con:name>uri</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/ApplicationInformation</con:value></con:property><con:property><con:name>token</con:name><con:value>2a85f4bd-30db-4b7d-8f41-b046b0566cb3 </con:value></con:property><con:property><con:name>response</con:name><con:value><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="GreenButtonDataStyleSheet.xslt"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-<id>urn:uuid:9732abd5-8c8a-49d3-9a2f-e0172b2c1d84</id>
+<id>urn:uuid:b8bca0e8-44bf-4bc3-b939-3187939b5fb1</id>
 <title>Green Button Usage Feed</title>
-<updated>2015-07-18T19:59:50Z</updated>
+<updated>2015-07-18T20:22:41Z</updated>
 <link href="https://openespivm:8443/DataCustodian/espi/1_1/resource/ApplicationInformation" rel="self"/>
 <entry xmlns:espi="http://naesb.org/espi" xmlns="http://www.w3.org/2005/Atom">
     <id>urn:uuid:185c9c3f-5b4a-44a9-8959-3ae79e60a9f5</id>
@@ -12839,7 +12839,18 @@ testRunner.testCase.testSuite.project.testSuites['[FB_01] Common'].testCases['FN
 assert true;</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="b5a5d827-23bd-4b87-a1c7-c3c4f9babc41" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestNotify" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="SendNotification" id="a71df42c-e37c-438f-b0bb-038ba3d1ec92"><con:settings/><con:config service="ESPI Resources" methodName="POST" resourcePath="/${#Project#notificationUri}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="SendNotification" id="fd941070-d72a-453b-a912-697b177120e0" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://localhost:8444/ThirdParty</con:endpoint><con:request><![CDATA[<BatchList>
 <resources>http://localhost:8080/DataCustodian/espi/1_1/resource/ApplicationInformation</resources>
 <resources>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization</resources>
-</BatchList>]]></con:request><con:originalUri>http://localhost/DataCustodian/espi/1_1/Notification/Notification</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>notification</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/Notification</con:value></con:property></con:properties></con:testCase><con:properties>
+</BatchList>]]></con:request><con:originalUri>http://localhost/DataCustodian/espi/1_1/Notification/Notification</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="TestGenericGet" id="8f98f818-2a9e-4849-b1fb-1cf9f7706cb2"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+def tc= testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GenericResourceGet'];
+
+tc.setPropertyValue("uri","http://localhost:8080/DataCustodian/espi/1_1/resource/ApplicationInformation");
+tc.setPropertyValue("token","2a85f4bd-30db-4b7d-8f41-b046b0566cb3 ");
+tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
+strResult = tc.getPropertyValue("response");
+
+log.info strResult;
+return true;</script></con:config></con:testStep><con:properties><con:property><con:name>notification</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/Notification</con:value></con:property></con:properties></con:testCase><con:properties>
 		<con:property>
 			<con:name>sessionid</con:name>
 			<con:value>null</con:value>
