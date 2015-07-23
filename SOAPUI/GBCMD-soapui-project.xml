@@ -8369,16 +8369,25 @@ public boolean RunCommand(String path,String cmd)
 	log.info("path: " + path);
 	log.info("exec: " + cmd);
 	log.info("os  : " + System.properties['os.name']);
+	testRunner.testCase.setPropertyValue("stderr", "");
+	testRunner.testCase.setPropertyValue("returncode", "-1");
+	testRunner.testCase.setPropertyValue("stdout", "");
 
-
-	if (System.properties['os.name'].toLowerCase().contains('windows')) {
-		doCmd = ["cmd", "/c",cmd].execute(null, new File(path));
-	} else {
-		doCmd = ["bash", "-c",cmd].execute(null, new File(path));
+	
+	try {
+		
+		if (System.properties['os.name'].toLowerCase().contains('windows')) {
+			doCmd = ["cmd", "/c",cmd].execute(null, new File(path));
+		} else {
+			doCmd = ["bash", "-c",cmd].execute(null, new File(path));
+		}
+	
+		doCmd.waitFor()
+	
+		} catch (Exception e) {
+			testRunner.fail( e.getMessage());
+			return false;
 	}
-
-	doCmd.waitFor()
-
 
 	if(doCmd.exitValue()!=0)
 	{
@@ -8390,6 +8399,7 @@ public boolean RunCommand(String path,String cmd)
 		log.error "stderr: " + testRunner.testCase.getPropertyValue("stderr");
 		log.error "stdout: " + testRunner.testCase.getPropertyValue("stdout");
 		
+		testRunner.fail( e.getMessage());
 		return false;
 	}
 
@@ -8402,10 +8412,9 @@ public boolean RunCommand(String path,String cmd)
 // run the command
 cmd = testRunner.testCase.getPropertyValue("cmd");
 td = testRunner.testCase.getPropertyValue("path");
-RunCommand(td,cmd);
+return (RunCommand(td,cmd));
 </script></con:config></con:testStep><con:properties><con:property><con:name>stdout</con:name><con:value>issuer= /C=Unknown/ST=Unknown/L=Unknown/O=Unknown/OU=Unknown/CN=localhost
-</con:value></con:property><con:property><con:name>cmd</con:name><con:value>openssl x509 -issuer -noout -in /home/bitnami/git/energyos/test/OpenESPI-GreenButtonCMDTest/SOAPUI/etc/getcert.pem</con:value></con:property><con:property><con:name>path</con:name><con:value>.</con:value></con:property><con:property><con:name>stderr</con:name><con:value>140409411483296:error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure:s23_clnt.c:770:
-</con:value></con:property><con:property><con:name>returncode</con:name><con:value>1</con:value></con:property><con:property><con:name>timeout</con:name><con:value>2</con:value></con:property></con:properties></con:testCase><con:testCase id="978db0b7-3ecb-45f4-afd8-d7cb7e0dd584" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GenericResourceGet" searchProperties="true"><con:description>This GET will retrieve a resource via REST GET or SFTP or deferred GET with a 202 response followed by a notification
+</con:value></con:property><con:property><con:name>cmd</con:name><con:value>openssl x509 -issuer -noout -in /home/bitnami/git/energyos/test/OpenESPI-GreenButtonCMDTest/SOAPUI/etc/getcert.pem</con:value></con:property><con:property><con:name>path</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stderr</con:name><con:value/></con:property><con:property><con:name>returncode</con:name><con:value>-1</con:value></con:property><con:property><con:name>timeout</con:name><con:value>2</con:value></con:property></con:properties></con:testCase><con:testCase id="978db0b7-3ecb-45f4-afd8-d7cb7e0dd584" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GenericResourceGet" searchProperties="true"><con:description>This GET will retrieve a resource via REST GET or SFTP or deferred GET with a 202 response followed by a notification
 </con:description><con:settings/><con:testStep type="groovy" name="GenericResourceGet" id="7f4bdcdd-bd1f-4016-b05d-3176630848b5"><con:settings/><con:config><script><![CDATA[import org.xml.sax.SAXException;
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
@@ -16357,7 +16366,7 @@ else {
 	<con:settings/>
 	<con:runType>SEQUENTIAL</con:runType>
 	
-<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC001 Use of HTTPS" searchProperties="true" id="f7eef33d-5d99-4f2c-83c0-504725b1b0d8"><con:description>Verify the Data Custodian under test response HTTP header contains field indicating establishment of a secure session.</con:description><con:settings/><con:testStep type="restrequest" name="Use of HTTPS" id="f34f632e-31d3-4085-a7da-0cac6d222372"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET and verify ApplicationInformation URLs Use https" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC001 Use of HTTPS" searchProperties="true" id="f7eef33d-5d99-4f2c-83c0-504725b1b0d8"><con:description>Verify the Data Custodian under test response HTTP header contains field indicating establishment of a secure session.</con:description><con:settings/><con:testStep type="restrequest" name="Use of HTTPS" id="f34f632e-31d3-4085-a7da-0cac6d222372"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Use of HTTPS" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
 					<con:settings>
 						<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 			</con:settings>
@@ -16456,17 +16465,18 @@ if( TestUrl(holder.getNodeValue("//espi:dataCustodianScopeSelectionScreenURI")) 
 	<con:settings/>
 	<con:config><script>def project = testRunner.testCase.testSuite.project
 def tc= testRunner.testCase.testSuite.project.testSuites['Library'].testCases['RunCommand'];
+def ts = tc.getTestStepByName("runCommand");
 
 def authorizationServer = project.getPropertyValue( "authorizationServer" );
 def resourceServer = project.getPropertyValue( "resourceServer" );
 def opensslCmd = project.getPropertyValue("opensslCmd");
 def String strResult ;
 
-sslport="443";
-tc.setPropertyValue("path",".");
+tc.setPropertyValue("path",project.getPropertyValue( "stunnelConfigDirectory"));
 tc.setPropertyValue("timeout","2");
 
-tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -connect " + authorizationServer);
+// check the authorization server
+tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -verify 10 -showcerts -cert openespi.pem -key openespi_private_key.pem -connect " + authorizationServer);
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("stdout");
 
@@ -16478,9 +16488,10 @@ if(strResult.contains("Protocol  : TLSv1.2")){
 }
 
 // check the resource server
-tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -connect " + resourceServer);
+tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -verify 10 -showcerts -cert openespi.pem -key openespi_private_key.pem -connect " + resourceServer);
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("stdout");
+
 
 if(strResult.contains("Protocol  : TLSv1.2")){
 	log.info("TLS 1.2 implemented");
@@ -16517,13 +16528,13 @@ def resourceServer = project.getPropertyValue( "resourceServer" );
 
 def opensslCmd = project.getPropertyValue("opensslCmd");
 sslport="443";
-tc.setPropertyValue("path",".");
+tc.setPropertyValue("path",project.getPropertyValue( "stunnelConfigDirectory"));
 tc.setPropertyValue("timeout","2");
 
 // for authorizationServer
 log.info "Testing authorizationServer";
 // see if tls 1.2 is negotiated
-tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -tls1 -tls1_1 -tls1_2 -connect " + authorizationServer);
+tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -tls1 -tls1_1 -tls1_2 -cert openespi.pem -key openespi_private_key.pem -connect " + authorizationServer);
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("stdout");
 
@@ -16535,7 +16546,7 @@ if( (strResult.contains("Protocol  : TLSv1.2")) && (!strResult.contains("Cipher 
 
 
 // next see if tls 1.1 is negotiated
-tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -tls1 -tls1_1 -connect " + authorizationServer );
+tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -tls1 -tls1_1 -cert openespi.pem -key openespi_private_key.pem -connect " + authorizationServer );
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("stdout");
 
@@ -16546,7 +16557,7 @@ if( (strResult.contains("Protocol  : TLSv1.1")) && (!strResult.contains("Cipher 
 }
 
 // next see if tls 1.0 is negotiated
-tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -tls1 -connect " + authorizationServer);
+tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -tls1 -cert openespi.pem -key openespi_private_key.pem -connect " + authorizationServer);
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("stdout");
 
@@ -16561,7 +16572,7 @@ if( (strResult.contains("Protocol  : TLSv1")) && (!strResult.contains("Cipher   
 log.info "Testing resourceServer";
 
 // see if tls 1.2 is negotiated
-tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -tls1 -tls1_1 -tls1_2 -connect " + resourceServer);
+tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -cert openespi.pem -key openespi_private_key.pem -tls1 -tls1_1 -tls1_2 -connect " + resourceServer);
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("stdout");
 
@@ -16573,7 +16584,7 @@ if( (strResult.contains("Protocol  : TLSv1.2")) && (!strResult.contains("Cipher 
 
 
 // next see if tls 1.1 is negotiated
-tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -tls1 -tls1_1 -connect " + resourceServer);
+tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -cert openespi.pem -key openespi_private_key.pem -tls1 -tls1_1 -connect " + resourceServer);
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("stdout");
 
@@ -16584,7 +16595,7 @@ if( (strResult.contains("Protocol  : TLSv1.1")) && (!strResult.contains("Cipher 
 }
 
 // next see if tls 1.0 is negotiated
-tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -tls1 -connect " + resourceServer);
+tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -cert openespi.pem -key openespi_private_key.pem -tls1 -connect " + resourceServer);
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("stdout");
 
@@ -16614,7 +16625,7 @@ sslport="443";
 log.info "Testing authorizationServer";
 
 tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -cipher NULL-SHA -connect " + authorizationServer);
-tc.setPropertyValue("path",".");
+tc.setPropertyValue("path",project.getPropertyValue( "stunnelConfigDirectory"));
 tc.setPropertyValue("timeout","2");
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 
@@ -16633,8 +16644,7 @@ if( strResult.contains("Cipher    : NULL-SHA")) {
 // for resourceServer
 log.info "Testing resourceServer";
 
-tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -cipher NULL-SHA -connect " + resourceServer);
-tc.setPropertyValue("path",".");
+tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -cipher NULL-SHA -cert openespi.pem -key openespi_private_key.pem -connect " + resourceServer);
 tc.setPropertyValue("timeout","2");
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 
@@ -16668,8 +16678,8 @@ sslport="443";
 // for authorizationServer
 log.info "Testing authorizationServer";
 
-tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -cipher AES128-SHA -connect " + authorizationServer);
-tc.setPropertyValue("path",".");
+tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -cipher AES128-SHA -cert openespi.pem -key openespi_private_key.pem -connect " + authorizationServer);
+tc.setPropertyValue("path",project.getPropertyValue( "stunnelConfigDirectory"));
 tc.setPropertyValue("timeout","2");
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 
@@ -16688,8 +16698,7 @@ if( strResult.contains("Cipher is AES128-SHA")) {
 // for resourceServer
 log.info "Testing resourceServer";
 
-tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -cipher AES128-SHA -connect " + resourceServer);
-tc.setPropertyValue("path",".");
+tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -cipher AES128-SHA -cert openespi.pem -key openespi_private_key.pem -connect " + resourceServer);
 tc.setPropertyValue("timeout","2");
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 
@@ -16736,7 +16745,7 @@ def authorizationServer = project.getPropertyValue( "authorizationServer" );
 def resourceServer = project.getPropertyValue( "resourceServer" );
 
 def opensslCmd = project.getPropertyValue("opensslCmd");
-tc.setPropertyValue("path",".");
+tc.setPropertyValue("path",project.getPropertyValue( "stunnelConfigDirectory"));
 tc.setPropertyValue("timeout","2");
 
 
@@ -16745,7 +16754,7 @@ tc.setPropertyValue("timeout","2");
 //////////////////////////////////////
 log.info "Testing authorizationServer";
 // check that the key is 2048 bits
-tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -connect " + authorizationServer);
+tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -cert openespi.pem -key openespi_private_key.pem -connect " + authorizationServer);
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("stdout");
 
@@ -16758,7 +16767,7 @@ if(strResult.contains("Server public key is 2048 bit")){
 
 // verify certificate is unexpired
 // fetch the certificate
-tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -connect " + authorizationServer + "| sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > " + projectPath + "/etc/getcert.pem");
+tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -cert openespi.pem -key openespi_private_key.pem -connect " + authorizationServer + "| sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > " + projectPath + "/etc/getcert.pem");
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("stdout");
 		
@@ -16822,7 +16831,7 @@ try{
 //////////////////////////////////////
 log.info "Testing resourceServer";
 // check that the key is 2048 bits
-tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -connect " + resourceServer);
+tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -cert openespi.pem -key openespi_private_key.pem -connect " + resourceServer);
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("stdout");
 
@@ -16835,7 +16844,7 @@ if(strResult.contains("Server public key is 2048 bit")){
 
 // verify certificate is unexpired
 // fetch the certificate
-tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -connect " + resourceServer + "| sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > " + projectPath + "/etc/getcert.pem");
+tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -cert openespi.pem -key openespi_private_key.pem -connect " + resourceServer + "| sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > " + projectPath + "/etc/getcert.pem");
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("stdout");
 		
@@ -16923,7 +16932,7 @@ def resourceServer = project.getPropertyValue( "resourceServer" );
 
 def opensslCmd = project.getPropertyValue("opensslCmd");
 sslport="443";
-tc.setPropertyValue("path",".");
+tc.setPropertyValue("path",project.getPropertyValue( "stunnelConfigDirectory"));
 tc.setPropertyValue("timeout","2");
 
 
@@ -16933,7 +16942,7 @@ tc.setPropertyValue("timeout","2");
 log.info "Testing authorizationServer";
 
 // check for connection
-tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -tls1_2  -connect " + resourceServer);
+tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -tls1_2  -cert openespi.pem -key openespi_private_key.pem -connect " + resourceServer);
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("stdout");
 
@@ -16945,7 +16954,7 @@ if( (strResult.contains("Protocol  : TLSv1.2")) &amp;&amp; (!strResult.contains(
 
 
 // fetch the certificate
-tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -tls1_2 -connect " + authorizationServer + "| sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > " + projectPath + "/etc/getcert.pem");
+tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -tls1_2 -cert openespi.pem -key openespi_private_key.pem -connect " + authorizationServer + "| sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > " + projectPath + "/etc/getcert.pem");
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("stdout");
 
@@ -16982,7 +16991,7 @@ if(result)
 log.info "Testing resourceServer";
 
 // check for connection
-tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -tls1_2  -connect " + resourceServer);
+tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -tls1_2  -cert openespi.pem -key openespi_private_key.pem -connect " + resourceServer);
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("stdout");
 
@@ -16994,7 +17003,7 @@ if( (strResult.contains("Protocol  : TLSv1.2")) &amp;&amp; (!strResult.contains(
 
 
 // fetch the certificate
-tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -tls1_2  -connect " + resourceServer + "| sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > " + projectPath + "/etc/getcert.pem");
+tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -tls1_2  -cert openespi.pem -key openespi_private_key.pem -connect " + resourceServer + "| sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > " + projectPath + "/etc/getcert.pem");
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("stdout");
 
@@ -17168,9 +17177,9 @@ if(result)
 
 </script></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties><con:property><con:name>response</con:name><con:value><![CDATA[<?xml-stylesheet type="text/xsl" href="GreenButtonDataStyleSheet.xslt"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <id>urn:uuid:bbaf0147-083d-4a45-955a-7a9699c0e479</id>
+   <id>urn:uuid:a6563b20-a56d-4933-b4dd-18c9aabda34d</id>
    <title>Green Button Usage Feed</title>
-   <updated>2015-07-22T12:33:05Z</updated>
+   <updated>2015-07-23T12:04:23Z</updated>
    <link href="https://openespivm:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/7" rel="self"/>
    <entry xmlns:espi="http://naesb.org/espi">
       <id>urn:uuid:48c2a019-5598-4e16-b0f9-49e4ff27f5fb</id>
@@ -28394,9 +28403,9 @@ if(result)
 
 </script></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties><con:property><con:name>response</con:name><con:value><![CDATA[<?xml-stylesheet type="text/xsl" href="GreenButtonDataStyleSheet.xslt"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <id>urn:uuid:3052693d-3e8e-4d47-8268-525ae8c0fbd4</id>
+   <id>urn:uuid:800f97dd-ac80-40f4-9fd5-22d6c9f3d26e</id>
    <title>Green Button Usage Feed</title>
-   <updated>2015-07-22T12:33:15Z</updated>
+   <updated>2015-07-23T12:04:36Z</updated>
    <link href="https://openespivm:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/7" rel="self"/>
    <entry xmlns:espi="http://naesb.org/espi">
       <id>urn:uuid:48c2a019-5598-4e16-b0f9-49e4ff27f5fb</id>
