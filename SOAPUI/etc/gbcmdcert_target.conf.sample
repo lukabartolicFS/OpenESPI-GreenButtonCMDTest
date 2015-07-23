@@ -5,6 +5,7 @@ federalEIN="123456"
 
 
 dataCustodianResourceEndpoint="http://localhost:8080/DataCustodian/espi/1_1/resource"
+authorizationServerTokenEndpoint="http://localhost:8080/DataCustodian/oauth/token"
 
 // for retrieval of information for this third party, provide the IDs to use
 // 	resourceUri: 
