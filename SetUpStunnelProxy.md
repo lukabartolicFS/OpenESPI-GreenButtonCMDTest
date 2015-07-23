@@ -1,13 +1,18 @@
-# SOAPUI Secure Messaging with Stunnel Proxy
+# OpenESPI-GreenButtonCMDTest Secure Messaging with Stunnel Proxy and OpenSSL
+In order to manage secure messaging independent of the test software, the test project has been designed to rely on the Stunnel open source OpenSSL proxy for secure messaging.
 
-##Help
+This page describes the installation and configuration of secure messaging for the project. Stunnel has to be downloaded and installed. OpenSSL comes with most operating systems and on Windows requires cygwin.
+
+##Help on Stunnel and OpenSSL
 
 Stunnel manpage:
 https://www.stunnel.org/static/stunnel.html
 
-
 OpenSSL s_client manpage:
 https://www.openssl.org/docs/apps/s_client.html 
+
+Cygwin installation:
+https://cygwin.com/install.html 
 
 ## Install 
 
@@ -117,16 +122,33 @@ When connection is established type:
 
     GET /
 
-
 Test sending message to http://localhost:8080 and routing to DataCustodian on https://localhost:8443
 
 Run DataCustodian with bio-ssl server on port 8443:
 
     curl -v --header "Content-Type:application/xml" --header "Authorization: Bearer 688b026c-665f-4994-9139-6b21b13fbeee" -X GET  "http://localhost:8080/DataCustodian/espi/1_1/resource/UsagePoint"
     
+# Create/Install Certificate for Test Harness as Client
+The OpenESPI-GreenButtonCMDTest project requires a valid certificate to be used in communications with remote targets.
 
-##Create new self-signed certificate in SOAPUI project 
-###Create new key for SOAPUI
+In a development test environment, self-signed certificates can be used. However, in an actual test, the target is required to reject self-signed certificates.
+
+## Obtain Certificate from CA
+In order to have messaging accepted by a test target, a certificate must be installed of sufficient quality:
+
+Both the Data Custodian and the Third Party shall maintain unexpired, unrevoked RSA certificates with a public key length of at least 2048 bits. These certificates must be issued by a Certificate Authority (CA) that has been successfully audited according to the criteria of ETSI or WebTrust.
+
+The certificate and private key must be placed in the "stunnelConfigDirectory" identified in the test harness configuration file gbcmdcert.conf. 
+
+It must have the names openespi.pem and openespi_private_key.pem.
+
+
+##Create new self-signed certificate 
+###Create new key 
+
+Use the keytool program to generate the RSA certificate. Accept all defauls except the request for first and last name to which you answer server name or "localhost".
+
+Create the key in the Stunnel configuration directory
 
     keytool -genkey -alias openespi -keystore openespi.pfx -storepass energyos -validity 365 -keyalg RSA -keysize 2048 -storetype pkcs12
 
@@ -148,12 +170,12 @@ Run DataCustodian with bio-ssl server on port 8443:
     Is CN=localhost, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown correct?
       [no]:  yes
     
-  
-To extract private key:
+ 
+###To extract private key:
 
     openssl pkcs12 -in openespi.pfx -nocerts -out openespi_private_key.pem -nodes
 
-Extract certificate
+###Extract certificate
 
 	openssl pkcs12 -in openespi.pfx -nokeys -clcerts -out openespi.pem
 
@@ -166,17 +188,13 @@ Extract certificate
 
     cat openespi_private_key.pem openespi.pem > stunnel.pem
     
-## Enable openssl to use self signed certificate
- /etc/ssl/certs
-Create hash (this produced de1c6683)
+### Enable openssl to use self signed certificate
 
-    openssl x509 -hash -noout -in openespi.pem
+	cd /etc/ssl/certs
+	sudo ln -s {pathto}openespi.pem `openssl x509 -hash -noout -in {pathto}openespi.pem`.0
 
-Create symbolic link
-	sudo ln -s ~/git/energyos/openespi/test/OpenESPI-GreenButtonCMDTest/SOAPUI/etc/openespi.pem /etc/ssl/certs/openespi.pem
-
-    sudo ln -s ~/git/energyos/openespi/test/OpenESPI-GreenButtonCMDTest/SOAPUI/etc/openespi.pem /etc/ssl/certs/de1c6683.0
 
 Test that it worked
 
-    openssl verify -CApath /etc/ssl/certs/java/cacerts  ~/git/energyos/test/OpenESPI-GreenButtonCMDTest/SOAPUI/etc/openespi.pem
+ 	openssl verify -CApath /etc/ssl/certs {pathto}openespi.pem
+
