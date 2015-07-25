@@ -6,9 +6,8 @@ stunnelStartCmd="stunnel start"
 stunnelStopCmd="stunnel stop"
 stunnelReceiveAddress="localhost:8444"
 
-
-
 // configuration of test harness (not from testee)
+CApathDirectory="/etc/ssl/certs"
 opensslCmd="openssl"
 timeoutCmd="timeout"
 securityTimeout="2"
