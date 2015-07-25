@@ -5,7 +5,10 @@ Note: this document is extremely draft
 In order to configure test harness for a particular Data Custodian:
 1. gbcmd_target.conf file must be produced
 2. the certificates for the resource server and authorization server must be retrieved
-3.	the stunnel proxy must have routing to the target
+3. The certificates must be placed in /etc/ssl/certs with hashes
+4. the stunnel proxy must have routing to the target
+
+
 # gbcmd_target.conf file #
 
 
@@ -14,7 +17,9 @@ In order to configure test harness for a particular Data Custodian:
     // Certification Input Configuration from testee
     federalEIN="123456"
         
-    dataCustodianResourceEndpoint="http://localhost:8080/DataCustodian/espi/1_1/resource"
+    dataCustodianResourceEndpoint="https://localhost:8443/DataCustodian/espi/1_1/resource"
+	authorizationServerTokenEndpoint="https://localhost:8443/DataCustodian/oauth/token"
+
     
     // for retrieval of information for this third party, provide the IDs to use
     // 	resourceUri: 
@@ -48,9 +53,23 @@ In order to configure test harness for a particular Data Custodian:
     optionalOfflineAuthorizationID="5"
     optionalOfflineAccess_token="57673811-5a25-4412-89e1-e15043f9703f"
     
-## the certificates for the resource server and authorization server must be retrieved ##
-cd /path/to/trusted/certs/ 
-HASHVALUE=/usr/bin/openssl x509 -noout -hash -in "trustedcert.pem" 
-ln -s "trustedcert.pem" ${HASHVALUE}.0
+# Retrieve Target Certificates
+The certificates for the resource server and authorization server must be retrieved and installed on the test client.
 
-## the stunnel proxy must have routing to the target ##
+For this step, run from the stunnelConfigDirectory directory and install certificates in the CApathDirectory. These paths are in the gbcmdcer.conf file. 
+
+## fetch certificates and install 
+host ($1) and port ($2) as arguments to retrieve certificate. Perform this once for each remote target server to be used.
+
+	cd {stunnelConfigDirectory}
+	sudo echo Q | openssl s_client -showcerts -connect $1:$2 -CApath /etc/ssl/certs -cert openespi.pem -key openespi_private_key.pem  | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > ~/Desktop/$1.pem
+	
+	sudo cp ~/Desktop/$1.pem {CApathDirectory}/$1.pem
+	cd /etc/ssl/certs
+	sudo ln -s $1.pem `openssl x509 -hash -noout -in $1.pem`.0
+	
+
+## test that the certificates can be verified
+From the stunnelConfigDirectory directory test each server:
+
+	echo Q | openssl s_client -verify 10 -showcerts -CApath {CApathDirectory} -cert openespi.pem -key openespi_private_key.pem -connect $1:$2  

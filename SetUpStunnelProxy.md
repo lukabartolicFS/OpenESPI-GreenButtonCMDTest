@@ -188,7 +188,7 @@ Create the key in the Stunnel configuration directory
 
     cat openespi_private_key.pem openespi.pem > stunnel.pem
     
-### Enable openssl to use self signed certificate
+### Enable openssl and Data Custodian to use tester self signed certificate
 
 	cd /etc/ssl/certs
 	sudo ln -s {pathto}openespi.pem `openssl x509 -hash -noout -in {pathto}openespi.pem`.0
