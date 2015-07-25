@@ -8369,7 +8369,7 @@ public boolean RunCommand(String path,String cmd)
 	log.info("exec: " + cmd);
 	log.info("os  : " + System.properties['os.name']);
 	testRunner.testCase.setPropertyValue("stderr", "");
-	testRunner.testCase.setPropertyValue("returncode", "-1");
+	testRunner.testCase.setPropertyValue("returncode", "0");
 	testRunner.testCase.setPropertyValue("stdout", "");
 
 	
@@ -8412,8 +8412,80 @@ public boolean RunCommand(String path,String cmd)
 cmd = testRunner.testCase.getPropertyValue("cmd");
 td = testRunner.testCase.getPropertyValue("path");
 return (RunCommand(td,cmd));
-</script></con:config></con:testStep><con:properties><con:property><con:name>stdout</con:name><con:value>issuer= /C=US/O=Symantec Corporation/OU=Symantec Trust Network/CN=Symantec Class 3 Secure Server CA - G4
-</con:value></con:property><con:property><con:name>cmd</con:name><con:value>openssl x509 -issuer -noout -in /home/bitnami/git/energyos/test/OpenESPI-GreenButtonCMDTest/SOAPUI/etc/getcert.pem</con:value></con:property><con:property><con:name>path</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stderr</con:name><con:value/></con:property><con:property><con:name>returncode</con:name><con:value>-1</con:value></con:property><con:property><con:name>timeout</con:name><con:value>2</con:value></con:property></con:properties></con:testCase><con:testCase id="978db0b7-3ecb-45f4-afd8-d7cb7e0dd584" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GenericResourceGet" searchProperties="true"><con:description>This GET will retrieve a resource via REST GET or SFTP or deferred GET with a 202 response followed by a notification
+</script></con:config></con:testStep><con:properties><con:property><con:name>stdout</con:name><con:value>CONNECTED(00000003)
+---
+Certificate chain
+ 0 s:/C=US/ST=California/L=Rosemead/O=Southern California Edison/OU=IT/CN=energydatasharest.sce.com
+   i:/C=US/O=Symantec Corporation/OU=Symantec Trust Network/CN=Symantec Class 3 Secure Server CA - G4
+-----BEGIN CERTIFICATE-----
+MIIFCDCCA/CgAwIBAgIQGXDP1SFJ3tf6NyHeqMRs1zANBgkqhkiG9w0BAQsFADB+
+MQswCQYDVQQGEwJVUzEdMBsGA1UEChMUU3ltYW50ZWMgQ29ycG9yYXRpb24xHzAd
+BgNVBAsTFlN5bWFudGVjIFRydXN0IE5ldHdvcmsxLzAtBgNVBAMTJlN5bWFudGVj
+IENsYXNzIDMgU2VjdXJlIFNlcnZlciBDQSAtIEc0MB4XDTE0MDgxNDAwMDAwMFoX
+DTE3MDgxMzIzNTk1OVowgYsxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9y
+bmlhMREwDwYDVQQHDAhSb3NlbWVhZDEjMCEGA1UECgwaU291dGhlcm4gQ2FsaWZv
+cm5pYSBFZGlzb24xCzAJBgNVBAsMAklUMSIwIAYDVQQDDBllbmVyZ3lkYXRhc2hh
+cmVzdC5zY2UuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtXJs
+ncfkFE1Rw05q09JwwtBbwCtm9mtAoD+it8ME/QyPLeNYTUDnLkxoy0ulXvzpH7wH
+a/YV6z92bDlZfkT1guMxUl87EJgVwoPR2NlEiCzMTF+Ty7Jka3YkMQYn23HG4aty
+tzbtjpTvFT/Bp2AzxqzIs/5G1O3onTFUB9+9G38Kwk+0tLLwD2ZA67jh4c8yP3oF
+cK+rjOrjaBSL3D92cNh6fo80d+lOT8ZgUU7QeD/AjcKjILipkYjMdVsScPRDxNXq
+UPfZ+TmG2pPMG9Gj5Goh/O84FO6F+2HbpEuElk/G/EWf5DvYlpejhD8641gKHuT0
+czRwB/DT+25LnpPHGQIDAQABo4IBcjCCAW4wJAYDVR0RBB0wG4IZZW5lcmd5ZGF0
+YXNoYXJlc3Quc2NlLmNvbTAJBgNVHRMEAjAAMA4GA1UdDwEB/wQEAwIFoDAdBgNV
+HSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwZQYDVR0gBF4wXDBaBgpghkgBhvhF
+AQc2MEwwIwYIKwYBBQUHAgEWF2h0dHBzOi8vZC5zeW1jYi5jb20vY3BzMCUGCCsG
+AQUFBwICMBkaF2h0dHBzOi8vZC5zeW1jYi5jb20vcnBhMB8GA1UdIwQYMBaAFF9g
+z2GQVd+EQxSKYCqy9Xr0QxjvMCsGA1UdHwQkMCIwIKAeoByGGmh0dHA6Ly9zcy5z
+eW1jYi5jb20vc3MuY3JsMFcGCCsGAQUFBwEBBEswSTAfBggrBgEFBQcwAYYTaHR0
+cDovL3NzLnN5bWNkLmNvbTAmBggrBgEFBQcwAoYaaHR0cDovL3NzLnN5bWNiLmNv
+bS9zcy5jcnQwDQYJKoZIhvcNAQELBQADggEBAG9UeC/4vbybldN+7qOg/maD79DG
+xX6A0vu4c/ovZrTyooYzZGneGX3WKUe40aalnM05d1sdNxwClBloG1//ZmejLIVo
+0pTvhW5szOKtLT2kWsCRXSKPeBbchC3VhqR6Q5QQaTT5P00Cvrzis+lFxPxY5z6D
+scIrW0/whNdNJcdfEwHDXDtnc5e3o5C2MS8qfVgg72gzs8mp8Of1s32UTjj9HVsG
+ZslXzhnmDarhbJU+uO7oqVa2zatkaHvjXGdYwl97cWcrLxbK7QmgWNr2RcJUSx5V
+QjC4vdditMGSgtRPq8cCzPNnPripi4UI1rlTFl45CYrTeuFUsnx/NRTY0oY=
+-----END CERTIFICATE-----
+---
+Server certificate
+subject=/C=US/ST=California/L=Rosemead/O=Southern California Edison/OU=IT/CN=energydatasharest.sce.com
+issuer=/C=US/O=Symantec Corporation/OU=Symantec Trust Network/CN=Symantec Class 3 Secure Server CA - G4
+---
+No client certificate CA names sent
+---
+SSL handshake has read 1442 bytes and written 1497 bytes
+---
+New, TLSv1/SSLv3, Cipher is AES256-GCM-SHA384
+Server public key is 2048 bit
+Secure Renegotiation IS supported
+Compression: NONE
+Expansion: NONE
+SSL-Session:
+    Protocol  : TLSv1.2
+    Cipher    : AES256-GCM-SHA384
+    Session-ID: 038ECACB3877AED6F18F1B58E60640833764343B7C748B260A633B19ACB30AF2
+    Session-ID-ctx: 
+    Master-Key: 06FD7CA4E7E4DDAA4B1466A3DFD49C2D86A98FD3FB50B0CEBA8A39B5BD60FBA53D240AEAAB458C7FD864A8B3AEB75E0A
+    Key-Arg   : None
+    PSK identity: None
+    PSK identity hint: None
+    SRP username: None
+    Start Time: 1437847097
+    Timeout   : 300 (sec)
+    Verify return code: 0 (ok)
+---
+</con:value></con:property><con:property><con:name>cmd</con:name><con:value>echo Q | openssl s_client -CApath /etc/ssl/certs -verify 10 -showcerts -cert openespi.pem -key openespi_private_key.pem -connect energydatasharest.sce.com:443</con:value></con:property><con:property><con:name>path</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stderr</con:name><con:value>verify depth is 10
+depth=3 C = US, O = "VeriSign, Inc.", OU = Class 3 Public Primary Certification Authority
+verify return:1
+depth=2 C = US, O = "VeriSign, Inc.", OU = VeriSign Trust Network, OU = "(c) 2006 VeriSign, Inc. - For authorized use only", CN = VeriSign Class 3 Public Primary Certification Authority - G5
+verify return:1
+depth=1 C = US, O = Symantec Corporation, OU = Symantec Trust Network, CN = Symantec Class 3 Secure Server CA - G4
+verify return:1
+depth=0 C = US, ST = California, L = Rosemead, O = Southern California Edison, OU = IT, CN = energydatasharest.sce.com
+verify return:1
+140711068030624:error:14094412:SSL routines:SSL3_READ_BYTES:sslv3 alert bad certificate:s3_pkt.c:1262:SSL alert number 42
+140711068030624:error:140790E5:SSL routines:SSL23_WRITE:ssl handshake failure:s23_lib.c:177:
+</con:value></con:property><con:property><con:name>returncode</con:name><con:value>1</con:value></con:property><con:property><con:name>timeout</con:name><con:value>2</con:value></con:property></con:properties></con:testCase><con:testCase id="978db0b7-3ecb-45f4-afd8-d7cb7e0dd584" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GenericResourceGet" searchProperties="true"><con:description>This GET will retrieve a resource via REST GET or SFTP or deferred GET with a 202 response followed by a notification
 </con:description><con:settings/><con:testStep type="groovy" name="GenericResourceGet" id="7f4bdcdd-bd1f-4016-b05d-3176630848b5"><con:settings/><con:config><script><![CDATA[import org.xml.sax.SAXException;
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
@@ -16475,6 +16547,7 @@ def authorizationServer = project.getPropertyValue( "authorizationServer" );
 def resourceServer = project.getPropertyValue( "resourceServer" );
 def opensslCmd = project.getPropertyValue("opensslCmd");
 def String strResult ;
+def String returnCode;
 
 tc.setPropertyValue("path",project.getPropertyValue( "stunnelConfigDirectory"));
 tc.setPropertyValue("timeout","2");
@@ -16483,8 +16556,9 @@ tc.setPropertyValue("timeout","2");
 tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -CApath " + project.getPropertyValue("CApathDirectory") + " -verify 10 -showcerts -cert openespi.pem -key openespi_private_key.pem -connect " + authorizationServer);
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("stdout");
+returnCode = tc.getPropertyValue("returncode");
 
-if(strResult.contains("Protocol  : TLSv1.2")){
+if(strResult.contains("Protocol  : TLSv1.2") &amp;&amp; (returnCode.equals("0"))){
 	log.info("TLS 1.2 implemented");
 	assert true;
 } else {
@@ -16495,9 +16569,10 @@ if(strResult.contains("Protocol  : TLSv1.2")){
 tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -CApath " + project.getPropertyValue("CApathDirectory") + " -verify 10 -showcerts -cert openespi.pem -key openespi_private_key.pem -connect " + resourceServer);
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("stdout");
+returnCode = tc.getPropertyValue("returncode");
 
 
-if(strResult.contains("Protocol  : TLSv1.2")){
+if(strResult.contains("Protocol  : TLSv1.2") &amp;&amp; (returnCode.equals("0"))){
 	log.info("TLS 1.2 implemented");
 	assert true;
 } else {
