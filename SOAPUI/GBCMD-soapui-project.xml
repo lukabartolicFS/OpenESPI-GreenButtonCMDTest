@@ -4589,6 +4589,8 @@ project.setPropertyValue("stunnelConfigDirectory",config.stunnelConfigDirectory)
 project.setPropertyValue("stunnelStartCmd",config.stunnelStartCmd);
 project.setPropertyValue("stunnelStopCmd",config.stunnelStopCmd);
 project.setPropertyValue("stunnelReceiveAddress",config.stunnelReceiveAddress);
+project.setPropertyValue("CApathDirectory",config.CApathDirectory);
+
 	
 // urls
 project.setPropertyValue("BaseURL","");
@@ -4823,8 +4825,6 @@ if (System.properties['os.name'].toLowerCase().contains('windows')) {
 }
 
 
-
-
 /*
 tc.setPropertyValue("path",project.getPropertyValue("stunnelConfigDirectory"));
 tc.setPropertyValue("timeout","0");
@@ -4841,6 +4841,7 @@ confFile.write("");
 confFile.append "; **************************************************************************" + crlf;
 confFile.append "; * Service defaults may also be specified in individual service sections  *" + crlf;
 confFile.append "; **************************************************************************" + crlf;
+confFile.append "CApath = " + new File(project.getPropertyValue("CApathDirectory")) + crlf;
 confFile.append "" + crlf;
 
 confFile.append "; **************************************************************************" + crlf;
@@ -4848,7 +4849,7 @@ confFile.append "; * Logging                                                    
 confFile.append "; **************************************************************************" + crlf;
 confFile.append "" + crlf;
 confFile.append "debug = 7" + crlf;
-confFile.append "output = " + projectPath + "\\stunnel.log" + crlf;
+confFile.append "output = " + new File(projectPath,"stunnel.log") + crlf;
 confFile.append "" + crlf;
 confFile.append "" + crlf;
 
@@ -4859,24 +4860,26 @@ confFile.append "" + crlf;
 confFile.append "" + crlf;
 
 // Implement resource server
+confFile.append "; **************************************************************************" + crlf;
+confFile.append "; * Resource Server                                                        *" + crlf;
+confFile.append "; **************************************************************************" + crlf;
 confFile.append "[resourceServer]" + crlf;
 confFile.append "accept="+proxyOutPort + crlf;
 
 confFile.append "connect=" + resourceServer + crlf;
 
 confFile.append "ciphers=AES128-SHA" + crlf;
-confFile.append "CAfile = ca-certs.pem" + crlf;
 confFile.append "client = yes" + crlf;
 confFile.append "cert=stunnel.pem" + crlf;
 confFile.append "verify=0" + crlf;
-confFile.append ";CAfile=apitst_file.pem" + crlf;
-confFile.append ";cert=apitst_client.pem" + crlf;
-confFile.append ";key=apitst_private_key.pem" + crlf;
 confFile.append "" + crlf;
 
 if(authorizationServer!=resourceServer)
 {
 	// Implement authorization server
+	confFile.append "; **************************************************************************" + crlf;
+	confFile.append "; * Authorization Server                                                   *" + crlf;
+	confFile.append "; **************************************************************************" + crlf;
 	confFile.append "[authorizationServer]" + crlf;
 	confFile.append "accept="+proxyOutPort1 + crlf;
 	
@@ -8413,8 +8416,61 @@ public boolean RunCommand(String path,String cmd)
 cmd = testRunner.testCase.getPropertyValue("cmd");
 td = testRunner.testCase.getPropertyValue("path");
 return (RunCommand(td,cmd));
-</script></con:config></con:testStep><con:properties><con:property><con:name>stdout</con:name><con:value>issuer= /C=Unknown/ST=Unknown/L=Unknown/O=Unknown/OU=Unknown/CN=localhost
-</con:value></con:property><con:property><con:name>cmd</con:name><con:value>openssl x509 -issuer -noout -in /home/bitnami/git/energyos/test/OpenESPI-GreenButtonCMDTest/SOAPUI/etc/getcert.pem</con:value></con:property><con:property><con:name>path</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stderr</con:name><con:value/></con:property><con:property><con:name>returncode</con:name><con:value>-1</con:value></con:property><con:property><con:name>timeout</con:name><con:value>2</con:value></con:property></con:properties></con:testCase><con:testCase id="978db0b7-3ecb-45f4-afd8-d7cb7e0dd584" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GenericResourceGet" searchProperties="true"><con:description>This GET will retrieve a resource via REST GET or SFTP or deferred GET with a 202 response followed by a notification
+</script></con:config></con:testStep><con:properties><con:property><con:name>stdout</con:name><con:value>CONNECTED(00000003)
+---
+Certificate chain
+ 0 s:/C=Unknown/ST=Unknown/L=Unknown/O=Unknown/OU=Unknown/CN=localhost
+   i:/C=Unknown/ST=Unknown/L=Unknown/O=Unknown/OU=Unknown/CN=localhost
+-----BEGIN CERTIFICATE-----
+MIIDezCCAmOgAwIBAgIELFbdbTANBgkqhkiG9w0BAQsFADBuMRAwDgYDVQQGEwdV
+bmtub3duMRAwDgYDVQQIEwdVbmtub3duMRAwDgYDVQQHEwdVbmtub3duMRAwDgYD
+VQQKEwdVbmtub3duMRAwDgYDVQQLEwdVbmtub3duMRIwEAYDVQQDEwlsb2NhbGhv
+c3QwHhcNMTUwNDIwMTE1MTMzWhcNMTYwNDE5MTE1MTMzWjBuMRAwDgYDVQQGEwdV
+bmtub3duMRAwDgYDVQQIEwdVbmtub3duMRAwDgYDVQQHEwdVbmtub3duMRAwDgYD
+VQQKEwdVbmtub3duMRAwDgYDVQQLEwdVbmtub3duMRIwEAYDVQQDEwlsb2NhbGhv
+c3QwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDJsC933tmj5VHcKE6T
+OYGLSoZOFsmVx8YMHh6re6pfKfrFUdS5mY+SQraZIl9//iiRWT9pZXMB3Rs08I3z
+lkU9Wj7wCLt/SZ1QSHbsVw1qzZo+2Gj7FW1lwjB/Y7/ecO0yhntdssycV9C9xS30
+vmb5atZcydMHml0P4rV6pKbIyTDFyTIJqR2vuQ4/4uM3xoJl05j/W5q9zDvzzxax
++6dqskhf3Bsrlk7aj6cs9aUA+DZ8WaDGGaRVxz/4/oSkXwxX8ydgsP4+uoPid9Xw
+ngtyZ+fnakKa5J3Ro4K/b9tA4sTr2xVuISVNiFyvC73aYaYLzeH0VIyT4K0VZZ3q
+lVr3AgMBAAGjITAfMB0GA1UdDgQWBBRuXLWzPf0j8siGHUDpcDMZezwJXjANBgkq
+hkiG9w0BAQsFAAOCAQEALnQ70Lch0PAnjVDJTJPwYUIoP22VFmr+lNnsVkB60z9w
++pbfhS8ILXwPV6e6nXZvWawjvfCeGE5xQ46JATvlKbbCcUMuB9vdRfKTtEIJkpB6
+vTpirm6Q3GmtbdyAc4jNwshJkgMftGp3F40C6cemxeIcUqgd/VdxwRvjOaM/dOdc
+sJ+2xYv3k2eHwhpdG8ozOJKl+TB8fcym0uyVzkCjN7HuAuDea4geX7F/X03/lPMS
+3Zuk6j0Qs24yytCLl4pw1jweCKOusgCZOD8OOBS2bY9cosl9Ek0GstTJS1SRe872
+N6PMXZ+QkNBYIo6Efc55V/vl14ApQknELhIHDiWEVA==
+-----END CERTIFICATE-----
+---
+Server certificate
+subject=/C=Unknown/ST=Unknown/L=Unknown/O=Unknown/OU=Unknown/CN=localhost
+issuer=/C=Unknown/ST=Unknown/L=Unknown/O=Unknown/OU=Unknown/CN=localhost
+---
+No client certificate CA names sent
+---
+SSL handshake has read 1471 bytes and written 513 bytes
+---
+New, TLSv1/SSLv3, Cipher is ECDHE-RSA-AES256-SHA
+Server public key is 2048 bit
+Secure Renegotiation IS supported
+Compression: NONE
+Expansion: NONE
+SSL-Session:
+    Protocol  : TLSv1.2
+    Cipher    : ECDHE-RSA-AES256-SHA
+    Session-ID: 55B3A0BA85974524AE171BC973815D65CEFE9D29783C9AD6B4247F9E9CBC9815
+    Session-ID-ctx: 
+    Master-Key: 8E3BFF7C984FFFD6379D6D2941ECEE1A648387A60196B29EC789BCC1849F354E8953BE17ED77E0373303A2BB8AD0C501
+    Key-Arg   : None
+    PSK identity: None
+    PSK identity hint: None
+    SRP username: None
+    Start Time: 1437835450
+    Timeout   : 300 (sec)
+    Verify return code: 18 (self signed certificate)
+---
+</con:value></con:property><con:property><con:name>cmd</con:name><con:value>echo Q | openssl s_client -verify 10 -showcerts -cert openespi.pem -key openespi_private_key.pem -connect localhost:8443</con:value></con:property><con:property><con:name>path</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stderr</con:name><con:value/></con:property><con:property><con:name>returncode</con:name><con:value>-1</con:value></con:property><con:property><con:name>timeout</con:name><con:value>2</con:value></con:property></con:properties></con:testCase><con:testCase id="978db0b7-3ecb-45f4-afd8-d7cb7e0dd584" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GenericResourceGet" searchProperties="true"><con:description>This GET will retrieve a resource via REST GET or SFTP or deferred GET with a 202 response followed by a notification
 </con:description><con:settings/><con:testStep type="groovy" name="GenericResourceGet" id="7f4bdcdd-bd1f-4016-b05d-3176630848b5"><con:settings/><con:config><script><![CDATA[import org.xml.sax.SAXException;
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
@@ -12807,7 +12863,12 @@ tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("response");
 
 log.info strResult;
-return true;</script></con:config></con:testStep><con:properties><con:property><con:name>notification</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/Notification</con:value></con:property></con:properties></con:testCase><con:properties>
+return true;</script></con:config></con:testStep><con:testStep type="groovy" name="TestSFTP Parse" id="e2b2597c-7752-44dc-9822-d5c6c4161849"><con:settings/><con:config><script>def aUri = new URI("sftp://user@services.greenbuttondata.org/DataCustodian");
+
+
+log.info "Protocol: " + aUri.getScheme();
+log.info "Host: " + aUri.getHost();
+log.info "User: " + aUri.getUserInfo();</script></con:config></con:testStep><con:properties><con:property><con:name>notification</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/Notification</con:value></con:property></con:properties></con:testCase><con:properties>
 		<con:property>
 			<con:name>sessionid</con:name>
 			<con:value>null</con:value>
@@ -46301,7 +46362,7 @@ requestContext.mockService.setPropertyValue("BatchList",requestBody);
 	
 	
 	
-	<con:property><con:name>bulkId</con:name><con:value>1</con:value></con:property><con:property><con:name>certScopes</con:name><con:value>FB=1_4_5_15</con:value></con:property><con:property><con:name>client_access_token</con:name><con:value>88d67c62-bffe-4f19-a116-afa29648d6d5</con:value></con:property>
+	<con:property><con:name>bulkId</con:name><con:value>1</con:value></con:property><con:property><con:name>certScopes</con:name><con:value>FB=1_4_5_15</con:value></con:property><con:property><con:name>client_access_token</con:name><con:value/></con:property>
 	
 	
 	
@@ -46329,7 +46390,7 @@ requestContext.mockService.setPropertyValue("BatchList",requestBody);
 	
 	
 	
-	<con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value>391431e5-41c8-40e5-8ebe-036465722dae</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>c66b0854-ea1f-4e24-afb7-afab9e0f6c5e</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>localhost:8443</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceUri</con:name><con:value>espi/1_1/resource</con:value></con:property>
+	<con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value/></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>c66b0854-ea1f-4e24-afb7-afab9e0f6c5e</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>localhost:8443</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceUri</con:name><con:value>espi/1_1/resource</con:value></con:property>
 	
 	
 	
@@ -46341,10 +46402,10 @@ requestContext.mockService.setPropertyValue("BatchList",requestBody);
 	
 	
 	
-<con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property><con:property><con:name>AuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>ServiceEndpoint</con:name><con:value>http://localhost:8080/DataCustodian</con:value></con:property><con:property><con:name>subscriptionId</con:name><con:value>5</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>TestFile2</con:name><con:value>Gas.xml</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>ThirdPartyContext</con:name><con:value/></con:property><con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/Notification</con:value></con:property><con:property><con:name>third_party_access_token</con:name><con:value>53520584-d640-4812-a721-8a1afa459ff7</con:value></con:property><con:property><con:name>timeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>upload_access_token</con:name><con:value>03909715-b0ca-4797-9a9a-601fff1d2848</con:value></con:property><con:property><con:name>usagePointDescription1</con:name><con:value>Front Electric Meter</con:value></con:property><con:property><con:name>usagePointDescription2</con:name><con:value>Gas</con:value></con:property><con:property><con:name>usagePointId</con:name><con:value>1</con:value></con:property><con:property><con:name>usagePointUUID1</con:name><con:value>48C2A019-5598-4E16-B0F9-49E4FF27F5FB</con:value></con:property><con:property><con:name>usagePointUUID2</con:name><con:value>642EABA-8E42-4D1A-A375-AF54993C007B</con:value></con:property><con:property><con:name>userAccessToken1</con:name><con:value>8030d53b-c38f-4ceb-ad39-927a1f446ec6</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>d2c0e815-6331-4430-864c-275d6ad7f114</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>state</con:name><con:value/></con:property><con:property><con:name>client_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value>https://localhost:8443/DataCustodian/</con:value></con:property><con:property><con:name>registration_access_token_client_id</con:name><con:value>REGISTRATION_surface_tp</con:value></con:property><con:property><con:name>client_access_token_client_id</con:name><con:value>surface_tp_admin</con:value></con:property><con:property><con:name>client_access_token_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>registration_access_token_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>stunnelConfigDirectory</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stunnelStartCmd</con:name><con:value>stunnel start</con:value></con:property><con:property><con:name>stunnelStopCmd</con:name><con:value>stunnel stop</con:value></con:property><con:property><con:name>stunnelReceiveAddress</con:name><con:value>localhost:8444</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property><con:property><con:name>BatchList</con:name><con:value><![CDATA[<BatchList>
+<con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property><con:property><con:name>AuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>ServiceEndpoint</con:name><con:value>http://localhost:8080/DataCustodian</con:value></con:property><con:property><con:name>subscriptionId</con:name><con:value>5</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>TestFile2</con:name><con:value>Gas.xml</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>ThirdPartyContext</con:name><con:value/></con:property><con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value/></con:property><con:property><con:name>third_party_access_token</con:name><con:value>53520584-d640-4812-a721-8a1afa459ff7</con:value></con:property><con:property><con:name>timeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>upload_access_token</con:name><con:value>03909715-b0ca-4797-9a9a-601fff1d2848</con:value></con:property><con:property><con:name>usagePointDescription1</con:name><con:value>Front Electric Meter</con:value></con:property><con:property><con:name>usagePointDescription2</con:name><con:value>Gas</con:value></con:property><con:property><con:name>usagePointId</con:name><con:value>1</con:value></con:property><con:property><con:name>usagePointUUID1</con:name><con:value>48C2A019-5598-4E16-B0F9-49E4FF27F5FB</con:value></con:property><con:property><con:name>usagePointUUID2</con:name><con:value>642EABA-8E42-4D1A-A375-AF54993C007B</con:value></con:property><con:property><con:name>userAccessToken1</con:name><con:value>8030d53b-c38f-4ceb-ad39-927a1f446ec6</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>d2c0e815-6331-4430-864c-275d6ad7f114</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>client_id</con:name><con:value/></con:property><con:property><con:name>redirect_uri</con:name><con:value/></con:property><con:property><con:name>state</con:name><con:value/></con:property><con:property><con:name>client_secret</con:name><con:value/></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value>https://localhost:8443/DataCustodian/</con:value></con:property><con:property><con:name>registration_access_token_client_id</con:name><con:value>REGISTRATION_surface_tp</con:value></con:property><con:property><con:name>client_access_token_client_id</con:name><con:value>surface_tp_admin</con:value></con:property><con:property><con:name>client_access_token_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>registration_access_token_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>stunnelConfigDirectory</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stunnelStartCmd</con:name><con:value>stunnel start</con:value></con:property><con:property><con:name>stunnelStopCmd</con:name><con:value>stunnel stop</con:value></con:property><con:property><con:name>stunnelReceiveAddress</con:name><con:value>localhost:8444</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property><con:property><con:name>BatchList</con:name><con:value><![CDATA[<BatchList>
 <resources>http://localhost:8080/DataCustodian/espi/1_1/resource/ApplicationInformation</resources>
 <resources>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization</resources>
-</BatchList>]]></con:value></con:property><con:property><con:name>responseArray</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property></con:properties>
+</BatchList>]]></con:value></con:property><con:property><con:name>responseArray</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>CApathDirectory</con:name><con:value>/etc/ssl/certs</con:value></con:property></con:properties>
 <con:wssContainer/>
 <con:oAuth2ProfileContainer/>
 <con:sensitiveInformation/>
