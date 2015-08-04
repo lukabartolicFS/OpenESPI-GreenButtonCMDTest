@@ -5,3 +5,4 @@ cp gbcmdcert_secure.conf gbcmdcert.conf
 cp gbcmdcert_target_secure.conf gbcmdcert_target.conf
 cp gbcmd_secure.conf gbcmd.conf
 ./initializedatabases.sh
+
