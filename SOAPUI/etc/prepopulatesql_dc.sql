@@ -5,6 +5,7 @@ USE `datacustodian`;
 source prepopulatesql_users_dc.sql
 source prepopulatesql_applicationinformation_dc.sql
 source prepopulatesql_tokenstore.sql
+source prepopulatesql_newthirdparty.sql
 
 SET FOREIGN_KEY_CHECKS=1;
 
