@@ -70,6 +70,8 @@ host ($1) and port ($2) as arguments to retrieve certificate. Perform this once 
 	
 
 ## test that the certificates can be verified
-From the stunnelConfigDirectory directory test each server:
+From the stunnelConfigDirectory directory test each server - look for Verify return code:0 (ok):
 
 	echo Q | openssl s_client -verify 10 -showcerts -CApath {CApathDirectory} -cert openespi.pem -key openespi_private_key.pem -connect $1:$2  
+
+Note: If there are any errors listed in the exchange (even if the verify is ok) you may need to check intermediate certificates in the chain from the "-showcerts" parameter. If so, you may need to acquire these certificates from DigiCert, Verisign or appropriate source and add them to the certs directory.
