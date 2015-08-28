@@ -22,6 +22,7 @@ INSERT INTO application_information_scopes (application_information_id, scope) V
 /* Add application_information_grant_types */ 
 INSERT INTO application_information_grant_types (application_information_id, grantTypes) VALUES (@aiIndex, 'AUTHORIZATION_CODE');
 INSERT INTO application_information_grant_types (application_information_id, grantTypes) VALUES (@aiIndex, 'REFRESH_TOKEN');
+INSERT INTO application_information_grant_types (application_information_id, grantTypes) VALUES (@aiIndex, 'CLIENT_CREDENTIALS');
 
 USE `tokenstore`;
 
