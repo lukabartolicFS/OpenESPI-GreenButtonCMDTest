@@ -8347,7 +8347,7 @@ if(context["driver"] != null){
 	context["driver"] = null;	
 }
 
-</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>82241c75-74a4-42c5-af2e-de978a42dd5f</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>espi/1_1/resource</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>token_type</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>refresh_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>expires_in</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>old_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">82241c75-74a4-42c5-af2e-de978a42dd5f</con:value></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">secret</con:value></con:property><con:property><con:name>authorizationServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>resourceServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>mockPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8080</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>authorizationServerTokenEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">a7559060-6158-4335-bbb6-f8a9227946ad</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">localhost:8443</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">459df316-ecad-4475-9c0f-9c7a83f200c0</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand" id="06648a84-6352-4b25-b179-693e52d162cc"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
+</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>326bf68d-b49e-45b7-8296-46d80ada302d</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/7</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource/Authorization/7</con:value></con:property><con:property><con:name>token_type</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">ea230a64-0076-459c-a134-8949ccff3c0e</con:value></con:property><con:property><con:name>expires_in</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">315359999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>old_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">82241c75-74a4-42c5-af2e-de978a42dd5f</con:value></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">secret</con:value></con:property><con:property><con:name>authorizationServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>resourceServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>mockPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8080</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>authorizationServerTokenEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">cf71c607-1afd-4d99-9b6e-cf39df1e76ea</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">localhost:8443</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">29dfcfbe-cf19-4e96-a2b0-37bd85ef6782</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand" id="06648a84-6352-4b25-b179-693e52d162cc"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
 
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
@@ -8412,8 +8412,11 @@ public boolean RunCommand(String path,String cmd)
 cmd = testRunner.testCase.getPropertyValue("cmd");
 td = testRunner.testCase.getPropertyValue("path");
 return (RunCommand(td,cmd));
-</script></con:config></con:testStep><con:properties><con:property><con:name>stdout</con:name><con:value>issuer= /C=Unknown/ST=Unknown/L=Unknown/O=Unknown/OU=Unknown/CN=localhost
-</con:value></con:property><con:property><con:name>cmd</con:name><con:value>openssl x509 -issuer -noout -in /home/bitnami/git/energyos/test/OpenESPI-GreenButtonCMDTest/SOAPUI/etc/getcert.pem</con:value></con:property><con:property><con:name>path</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stderr</con:name><con:value/></con:property><con:property><con:name>returncode</con:name><con:value>0</con:value></con:property><con:property><con:name>timeout</con:name><con:value>2</con:value></con:property></con:properties></con:testCase><con:testCase id="978db0b7-3ecb-45f4-afd8-d7cb7e0dd584" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GenericResourceGet" searchProperties="true"><con:description>This GET will retrieve a resource via REST GET or SFTP or deferred GET with a 202 response followed by a notification
+</script></con:config></con:testStep><con:properties><con:property><con:name>stdout</con:name><con:value/></con:property><con:property><con:name>cmd</con:name><con:value>openssl x509 -issuer -noout -in /home/bitnami/git/energyos/test/OpenESPI-GreenButtonCMDTest/SOAPUI/etc/getcert.pem</con:value></con:property><con:property><con:name>path</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stderr</con:name><con:value>Error opening Certificate /home/bitnami/git/energyos/test/OpenESPI-GreenButtonCMDTest/SOAPUI/etc/getcert.pem
+140523028547232:error:02001002:system library:fopen:No such file or directory:bss_file.c:398:fopen('/home/bitnami/git/energyos/test/OpenESPI-GreenButtonCMDTest/SOAPUI/etc/getcert.pem','r')
+140523028547232:error:20074002:BIO routines:FILE_CTRL:system lib:bss_file.c:400:
+unable to load certificate
+</con:value></con:property><con:property><con:name>returncode</con:name><con:value>1</con:value></con:property><con:property><con:name>timeout</con:name><con:value>2</con:value></con:property><con:property><con:name>uri</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/7</con:value></con:property><con:property><con:name>token</con:name><con:value>326bf68d-b49e-45b7-8296-46d80ada302d</con:value></con:property></con:properties></con:testCase><con:testCase id="978db0b7-3ecb-45f4-afd8-d7cb7e0dd584" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GenericResourceGet" searchProperties="true"><con:description>This GET will retrieve a resource via REST GET or SFTP or deferred GET with a 202 response followed by a notification
 </con:description><con:settings/><con:testStep type="groovy" name="GenericResourceGet" id="7f4bdcdd-bd1f-4016-b05d-3176630848b5"><con:settings/><con:config><script><![CDATA[import org.xml.sax.SAXException;
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
@@ -8489,7 +8492,7 @@ public Integer doHTTPGET(String url, String token) {
 
 	def http = new HTTPBuilder();
 	def result = 500;
-	
+
 	try {
 	
 		http.request( url, GET, TEXT ) { req ->
@@ -8538,14 +8541,11 @@ public Integer doHTTPGET(String url, String token) {
 	    return 500;
 	
 	} catch (IOException io) {
-	    if (strBody == "") {
-	        log.info "GET IOException Error (strBody): " + strBody;
 	        log.info "GET IOException Error: " + io;
 	        strResult = "GET IOException error: " + io;
 	        _strError = strResult;
 	        bFailure = true;
 	        return 500;
-	    }	    
 	} catch (Exception e) {
 	    log.info "GET Exception Error: " + e;
 	    strResult ="GET Unexpected error"
@@ -8573,7 +8573,9 @@ context.mockRunner = runner;
 // clear notification of BatchList result
 context.mockService.setPropertyValue("BatchList","");
 
-if(aURL.getProtocol()=="http"){
+log.info "Prototocl: " +aURL.getProtocol()
+
+if( (aURL.getProtocol()=="http") || (aURL.getProtocol()=="https")){
 // based on result of initial GET, handle response
 	responseToGet = doHTTPGET(url,token);
 	switch (responseToGet)
@@ -8640,187 +8642,7 @@ responses.each { it->
 */
 
 return true;
-]]></script></con:config></con:testStep><con:properties><con:property><con:name>uri</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/ApplicationInformation</con:value></con:property><con:property><con:name>token</con:name><con:value>2a85f4bd-30db-4b7d-8f41-b046b0566cb3 </con:value></con:property><con:property><con:name>response</con:name><con:value><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="GreenButtonDataStyleSheet.xslt"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-<id>urn:uuid:b8bca0e8-44bf-4bc3-b939-3187939b5fb1</id>
-<title>Green Button Usage Feed</title>
-<updated>2015-07-18T20:22:41Z</updated>
-<link href="https://openespivm:8443/DataCustodian/espi/1_1/resource/ApplicationInformation" rel="self"/>
-<entry xmlns:espi="http://naesb.org/espi" xmlns="http://www.w3.org/2005/Atom">
-    <id>urn:uuid:185c9c3f-5b4a-44a9-8959-3ae79e60a9f5</id>
-    <link href="https://openespivm:8443/DataCustodian/espi/1_1/resource/ApplicationInformation" rel="up"/>
-    <link href="https://openespivm:8443/DataCustodian/espi/1_1/resource/ApplicationInformation/1" rel="self"/>
-    <title>GreenButtonData.org  Data Custodian Admin Application</title>
-    <content>
-        <espi:ApplicationInformation>
-            <espi:dataCustodianId>data_custodian</espi:dataCustodianId>
-            <espi:dataCustodianApplicationStatus>1</espi:dataCustodianApplicationStatus>
-            <espi:thirdPartyApplicationDescription>EnergyOS OpenESPI Example DataCustodian Admin</espi:thirdPartyApplicationDescription>
-            <espi:thirdPartyApplicationStatus>1</espi:thirdPartyApplicationStatus>
-            <espi:thirdPartyApplicationType>1</espi:thirdPartyApplicationType>
-            <espi:thirdPartyApplicationUse>1</espi:thirdPartyApplicationUse>
-            <espi:authorizationServerUri>https://openespivm:8443/DataCustodian/</espi:authorizationServerUri>
-            <espi:authorizationServerAuthorizationEndpoint>https://openespivm:8443/DataCustodian/oauth/authorize</espi:authorizationServerAuthorizationEndpoint>
-            <espi:authorizationServerRegistrationEndpoint>https://openespivm:8443/DataCustodian/espi/1_1/register</espi:authorizationServerRegistrationEndpoint>
-            <espi:authorizationServerTokenEndpoint>https://openespivm:8443/DataCustodian/oauth/token</espi:authorizationServerTokenEndpoint>
-            <espi:dataCustodianBulkRequestURI>https://openespivm:8443/DataCustodian/espi/1_1/resource/Batch/Bulk</espi:dataCustodianBulkRequestURI>
-            <espi:dataCustodianResourceEndpoint>https://openespivm:8443/DataCustodian/espi/1_1/resource</espi:dataCustodianResourceEndpoint>
-            <espi:client_secret>secret</espi:client_secret>
-            <espi:client_name>Green Button DataCustodian Admin</espi:client_name>
-            <espi:client_uri>https://openespivm:8443/DataCustodian</espi:client_uri>
-            <espi:client_id>data_custodian</espi:client_id>
-            <espi:software_id>EnergyOS OpenESPI</espi:software_id>
-            <espi:software_version>1.2</espi:software_version>
-            <espi:client_id_issued_at>1403190000</espi:client_id_issued_at>
-            <espi:client_secret_expires_at>0</espi:client_secret_expires_at>
-            <espi:contacts>john.teeter@energyos.org,martin.burns@nist.gov,donald.coffin@reminetworks.com</espi:contacts>
-            <espi:token_endpoint_auth_method>client_secret_basic</espi:token_endpoint_auth_method>
-            <espi:scope>FB=1_3_4_5_13_14_19_32_33_34_35_36_37_38_41_44_45</espi:scope>
-            <espi:grant_types>client_credentials</espi:grant_types>
-            <espi:response_types>token</espi:response_types>
-            <espi:registration_client_uri>https://openespivm:8443/DataCustodian/espi/1_1/resource/ApplicationInformation/1</espi:registration_client_uri>
-            <espi:dataCustodianScopeSelectionScreenURI>https://openespivm:8443/DataCustodian/RetailCustomer/ScopeSelection/</espi:dataCustodianScopeSelectionScreenURI>
-        </espi:ApplicationInformation>
-    </content>
-    <published>2014-01-02T10:00:00Z</published>
-    <updated>2014-01-02T10:00:00Z</updated>
-</entry>
-
-<entry xmlns:espi="http://naesb.org/espi" xmlns="http://www.w3.org/2005/Atom">
-    <id>urn:uuid:af6e8b03-0299-467e-972a-a883ecdcc575</id>
-    <link href="https://openespivm:8443/DataCustodian/espi/1_1/resource/ApplicationInformation" rel="up"/>
-    <link href="https://openespivm:8443/DataCustodian/espi/1_1/resource/ApplicationInformation/2" rel="self"/>
-    <title>GreenButtonData.org  ThirdParty Application</title>
-    <content>
-        <espi:ApplicationInformation>
-            <espi:dataCustodianId>data_custodian</espi:dataCustodianId>
-            <espi:dataCustodianApplicationStatus>1</espi:dataCustodianApplicationStatus>
-            <espi:thirdPartyApplicationDescription>EnergyOS OpenESPI Example Third Party</espi:thirdPartyApplicationDescription>
-            <espi:thirdPartyApplicationStatus>1</espi:thirdPartyApplicationStatus>
-            <espi:thirdPartyApplicationType>1</espi:thirdPartyApplicationType>
-            <espi:thirdPartyApplicationUse>1</espi:thirdPartyApplicationUse>
-            <espi:authorizationServerUri>https://openespivm:8443/DataCustodian/</espi:authorizationServerUri>
-            <espi:thirdPartyNotifyUri>https://openespivm:8443/ThirdParty/espi/1_1/Notification</espi:thirdPartyNotifyUri>
-            <espi:authorizationServerAuthorizationEndpoint>https://openespivm:8443/DataCustodian/oauth/authorize</espi:authorizationServerAuthorizationEndpoint>
-            <espi:authorizationServerRegistrationEndpoint>https://openespivm:8443/DataCustodian/espi/1_1/register</espi:authorizationServerRegistrationEndpoint>
-            <espi:authorizationServerTokenEndpoint>https://openespivm:8443/DataCustodian/oauth/token</espi:authorizationServerTokenEndpoint>
-            <espi:dataCustodianBulkRequestURI>https://openespivm:8443/DataCustodian/espi/1_1/resource/Batch/Bulk</espi:dataCustodianBulkRequestURI>
-            <espi:dataCustodianResourceEndpoint>https://openespivm:8443/DataCustodian/espi/1_1/resource</espi:dataCustodianResourceEndpoint>
-            <espi:thirdPartyScopeSelectionScreenURI>https://openespivm:8443/ThirdParty/RetailCustomer/ScopeSelection</espi:thirdPartyScopeSelectionScreenURI>
-            <espi:thirdPartyUserPortalScreenURI>https://openespivm:8443/ThirdParty</espi:thirdPartyUserPortalScreenURI>
-            <espi:client_secret>secret</espi:client_secret>
-            <espi:logo_uri>https://openespivm:8443/ThirdParty/resources/ico/favicon.png</espi:logo_uri>
-            <espi:client_name>Green Button Third Party</espi:client_name>
-            <espi:client_uri>https://openespivm:8443/ThirdParty</espi:client_uri>
-            <espi:redirect_uri>https://openespivm:8443/ThirdParty/espi/1_1/OAuthCallBack</espi:redirect_uri>
-            <espi:client_id>third_party</espi:client_id>
-            <espi:software_id>EnergyOS OpenESPI Example Third Party</espi:software_id>
-            <espi:software_version>1.2</espi:software_version>
-            <espi:client_id_issued_at>1403190000</espi:client_id_issued_at>
-            <espi:client_secret_expires_at>0</espi:client_secret_expires_at>
-            <espi:contacts>john.teeter@energyos.org,martin.burns@nist.gov,donald.coffin@reminetworks.com</espi:contacts>
-            <espi:token_endpoint_auth_method>client_secret_basic</espi:token_endpoint_auth_method>
-            <espi:scope>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</espi:scope>
-            <espi:scope>FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</espi:scope>
-            <espi:scope>FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</espi:scope>
-            <espi:grant_types>refresh_token</espi:grant_types>
-            <espi:grant_types>authorization_code</espi:grant_types>
-            <espi:grant_types>client_credentials</espi:grant_types>
-            <espi:response_types>token</espi:response_types>
-            <espi:registration_client_uri>https://openespivm:8443/DataCustodian/espi/1_1/resource/ApplicationInformation/2</espi:registration_client_uri>
-            <espi:registration_access_token>d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c</espi:registration_access_token>
-            <espi:dataCustodianScopeSelectionScreenURI>https://openespivm:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</espi:dataCustodianScopeSelectionScreenURI>
-        </espi:ApplicationInformation>
-    </content>
-    <published>2014-01-02T10:00:00Z</published>
-    <updated>2014-01-02T10:00:00Z</updated>
-</entry>
-
-<entry xmlns:espi="http://naesb.org/espi" xmlns="http://www.w3.org/2005/Atom">
-    <id>urn:uuid:185c9c3f-5b4a-44a9-8959-3ae79e60a9f7</id>
-    <link href="https://openespivm:8443/DataCustodian/espi/1_1/resource/ApplicationInformation" rel="up"/>
-    <link href="https://openespivm:8443/DataCustodian/espi/1_1/resource/ApplicationInformation/3" rel="self"/>
-    <title>GreenButtonData.org  MDM Upload Application</title>
-    <content>
-        <espi:ApplicationInformation>
-            <espi:dataCustodianId>data_custodian</espi:dataCustodianId>
-            <espi:dataCustodianApplicationStatus>1</espi:dataCustodianApplicationStatus>
-            <espi:thirdPartyApplicationDescription>EnergyOS OpenESPI DMD Upload Service</espi:thirdPartyApplicationDescription>
-            <espi:authorizationServerUri>https://openespivm:8443/DataCustodian/</espi:authorizationServerUri>
-            <espi:authorizationServerAuthorizationEndpoint>https://openespivm:8443/DataCustodian/oauth/authorize</espi:authorizationServerAuthorizationEndpoint>
-            <espi:authorizationServerRegistrationEndpoint>https://openespivm:8443/DataCustodian/espi/1_1/register</espi:authorizationServerRegistrationEndpoint>
-            <espi:authorizationServerTokenEndpoint>https://openespivm:8443/DataCustodian/oauth/token</espi:authorizationServerTokenEndpoint>
-            <espi:dataCustodianBulkRequestURI>https://openespivm:8443/DataCustodian/espi/1_1/resource/Batch/Bulk</espi:dataCustodianBulkRequestURI>
-            <espi:dataCustodianResourceEndpoint>https://openespivm:8443/DataCustodian/espi/1_1/resource</espi:dataCustodianResourceEndpoint>
-            <espi:client_secret>secret</espi:client_secret>
-            <espi:client_name>Green Button DMD Upload Service</espi:client_name>
-            <espi:client_id>upload</espi:client_id>
-            <espi:software_id>EnergyOS OpenESPI DMD Upload Service</espi:software_id>
-            <espi:software_version>1.2</espi:software_version>
-            <espi:client_id_issued_at>1403190000</espi:client_id_issued_at>
-            <espi:client_secret_expires_at>0</espi:client_secret_expires_at>
-            <espi:contacts>john.teeter@energyos.org,martin.burns@nist.gov,donald.coffin@reminetworks.com</espi:contacts>
-            <espi:token_endpoint_auth_method>client_secret_basic</espi:token_endpoint_auth_method>
-            <espi:scope>FB=45</espi:scope>
-            <espi:grant_types>client_credentials</espi:grant_types>
-            <espi:response_types>token</espi:response_types>
-            <espi:registration_client_uri>https://openespivm:8443/DataCustodian/espi/1_1/resource/ApplicationInformation/3</espi:registration_client_uri>
-        </espi:ApplicationInformation>
-    </content>
-    <published>2014-01-02T10:00:00Z</published>
-    <updated>2014-01-02T10:00:00Z</updated>
-</entry>
-
-<entry xmlns:espi="http://naesb.org/espi" xmlns="http://www.w3.org/2005/Atom">
-    <id>urn:uuid:af6e8b03-0299-467e-972a-a883ecdcc575</id>
-    <link href="https://openespivm:8443/DataCustodian/espi/1_1/resource/ApplicationInformation" rel="up"/>
-    <link href="https://openespivm:8443/DataCustodian/espi/1_1/resource/ApplicationInformation/4" rel="self"/>
-    <title>GreenButtonData.org  ThirdParty Application</title>
-    <content>
-        <espi:ApplicationInformation>
-            <espi:dataCustodianId>data_custodian</espi:dataCustodianId>
-            <espi:dataCustodianApplicationStatus>1</espi:dataCustodianApplicationStatus>
-            <espi:thirdPartyApplicationDescription>EnergyOS OpenESPI Example Third Party</espi:thirdPartyApplicationDescription>
-            <espi:thirdPartyApplicationStatus>1</espi:thirdPartyApplicationStatus>
-            <espi:thirdPartyApplicationType>1</espi:thirdPartyApplicationType>
-            <espi:thirdPartyApplicationUse>1</espi:thirdPartyApplicationUse>
-            <espi:authorizationServerUri>https://localhost:8443/DataCustodian/</espi:authorizationServerUri>
-            <espi:thirdPartyNotifyUri>https://localhost:8444/ThirdParty/espi/1_1/Notification</espi:thirdPartyNotifyUri>
-            <espi:authorizationServerAuthorizationEndpoint>https://localhost:8443/DataCustodian/oauth/authorize</espi:authorizationServerAuthorizationEndpoint>
-            <espi:authorizationServerRegistrationEndpoint>https://localhost:8443/DataCustodian/espi/1_1/register</espi:authorizationServerRegistrationEndpoint>
-            <espi:authorizationServerTokenEndpoint>https://localhost:8443/DataCustodian/oauth/token</espi:authorizationServerTokenEndpoint>
-            <espi:dataCustodianBulkRequestURI>https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Bulk</espi:dataCustodianBulkRequestURI>
-            <espi:dataCustodianResourceEndpoint>https://localhost:8443/DataCustodian/espi/1_1/resource</espi:dataCustodianResourceEndpoint>
-            <espi:thirdPartyScopeSelectionScreenURI>https://localhost:8444/ThirdParty/RetailCustomer/ScopeSelection</espi:thirdPartyScopeSelectionScreenURI>
-            <espi:thirdPartyUserPortalScreenURI>https://localhost:8444/ThirdParty</espi:thirdPartyUserPortalScreenURI>
-            <espi:client_secret>secret</espi:client_secret>
-            <espi:logo_uri>https://localhost:8444/ThirdParty/resources/ico/favicon.png</espi:logo_uri>
-            <espi:client_name>Green Button Third Party</espi:client_name>
-            <espi:client_uri>https://localhost:8444/ThirdParty</espi:client_uri>
-            <espi:redirect_uri>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</espi:redirect_uri>
-            <espi:client_id>surface_tp</espi:client_id>
-            <espi:software_id>EnergyOS OpenESPI Example Third Party</espi:software_id>
-            <espi:software_version>1.2</espi:software_version>
-            <espi:client_id_issued_at>1403190000</espi:client_id_issued_at>
-            <espi:client_secret_expires_at>0</espi:client_secret_expires_at>
-            <espi:contacts>john.teeter@energyos.org,martin.burns@nist.gov,donald.coffin@reminetworks.com</espi:contacts>
-            <espi:token_endpoint_auth_method>client_secret_basic</espi:token_endpoint_auth_method>
-            <espi:scope>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</espi:scope>
-            <espi:scope>FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</espi:scope>
-            <espi:scope>FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</espi:scope>
-            <espi:grant_types>refresh_token</espi:grant_types>
-            <espi:grant_types>authorization_code</espi:grant_types>
-            <espi:response_types>token</espi:response_types>
-            <espi:registration_client_uri>https://localhost:8443/DataCustodian/espi/1_1/resource/ApplicationInformation/4</espi:registration_client_uri>
-            <espi:registration_access_token>d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c</espi:registration_access_token>
-            <espi:dataCustodianScopeSelectionScreenURI>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</espi:dataCustodianScopeSelectionScreenURI>
-        </espi:ApplicationInformation>
-    </content>
-    <published>2014-01-02T10:00:00Z</published>
-    <updated>2014-01-02T10:00:00Z</updated>
-</entry>
-</feed>]]></con:value></con:property></con:properties></con:testCase><con:properties/>
+]]></script></con:config></con:testStep><con:properties><con:property><con:name>uri</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/7</con:value></con:property><con:property><con:name>token</con:name><con:value>326bf68d-b49e-45b7-8296-46d80ada302d</con:value></con:property><con:property><con:name>response</con:name><con:value><![CDATA[ <entry xmlns:espi="http://naesb.org/espi" xmlns="http://www.w3.org/2005/Atom">     <id>urn:uuid:af6e8b03-0299-467e-972a-a883ecdcc575</id>     <link href="https://openespivm:8443/DataCustodian/espi/1_1/resource/ApplicationInformation" rel="up"/>     <link href="https://openespivm:8443/DataCustodian/espi/1_1/resource/ApplicationInformation/4" rel="self"/>     <title>GreenButtonData.org  ThirdParty Application</title>     <content>         <espi:ApplicationInformation>             <espi:dataCustodianId>data_custodian</espi:dataCustodianId>             <espi:dataCustodianApplicationStatus>1</espi:dataCustodianApplicationStatus>             <espi:thirdPartyApplicationDescription>EnergyOS OpenESPI Example Third Party</espi:thirdPartyApplicationDescription>             <espi:thirdPartyApplicationStatus>1</espi:thirdPartyApplicationStatus>             <espi:thirdPartyApplicationType>1</espi:thirdPartyApplicationType>             <espi:thirdPartyApplicationUse>1</espi:thirdPartyApplicationUse>             <espi:authorizationServerUri>https://localhost:8443/DataCustodian/</espi:authorizationServerUri>             <espi:thirdPartyNotifyUri>https://localhost:8444/ThirdParty/espi/1_1/Notification</espi:thirdPartyNotifyUri>             <espi:authorizationServerAuthorizationEndpoint>https://localhost:8443/DataCustodian/oauth/authorize</espi:authorizationServerAuthorizationEndpoint>             <espi:authorizationServerRegistrationEndpoint>https://localhost:8443/DataCustodian/espi/1_1/register</espi:authorizationServerRegistrationEndpoint>             <espi:authorizationServerTokenEndpoint>https://localhost:8443/DataCustodian/oauth/token</espi:authorizationServerTokenEndpoint>             <espi:dataCustodianBulkRequestURI>https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Bulk</espi:dataCustodianBulkRequestURI>             <espi:dataCustodianResourceEndpoint>https://localhost:8443/DataCustodian/espi/1_1/resource</espi:dataCustodianResourceEndpoint>             <espi:thirdPartyScopeSelectionScreenURI>https://localhost:8444/ThirdParty/RetailCustomer/ScopeSelection</espi:thirdPartyScopeSelectionScreenURI>             <espi:thirdPartyUserPortalScreenURI>https://localhost:8444/ThirdParty</espi:thirdPartyUserPortalScreenURI>             <espi:client_secret>secret</espi:client_secret>             <espi:logo_uri>https://localhost:8444/ThirdParty/resources/ico/favicon.png</espi:logo_uri>             <espi:client_name>Green Button Third Party</espi:client_name>             <espi:client_uri>https://localhost:8444/ThirdParty</espi:client_uri>             <espi:redirect_uri>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</espi:redirect_uri>             <espi:client_id>surface_tp</espi:client_id>             <espi:software_id>EnergyOS OpenESPI Example Third Party</espi:software_id>             <espi:software_version>1.2</espi:software_version>             <espi:client_id_issued_at>1403190000</espi:client_id_issued_at>             <espi:client_secret_expires_at>0</espi:client_secret_expires_at>             <espi:contacts>john.teeter@energyos.org,martin.burns@nist.gov,donald.coffin@reminetworks.com</espi:contacts>             <espi:token_endpoint_auth_method>client_secret_basic</espi:token_endpoint_auth_method>             <espi:scope>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</espi:scope>             <espi:scope>FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</espi:scope>             <espi:scope>FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</espi:scope>             <espi:grant_types>refresh_token</espi:grant_types>             <espi:grant_types>authorization_code</espi:grant_types>             <espi:grant_types>client_credentials</espi:grant_types>             <espi:response_types>token</espi:response_types>             <espi:registration_client_uri>https://localhost:8443/DataCustodian/espi/1_1/resource/ApplicationInformation/4</espi:registration_client_uri>             <espi:registration_access_token>d89bb056-0f02-4d47-9fd2-ec6a19ba8d0c</espi:registration_access_token>             <espi:dataCustodianScopeSelectionScreenURI>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</espi:dataCustodianScopeSelectionScreenURI>         </espi:ApplicationInformation>     </content>     <published>2014-01-02T10:00:00Z</published>     <updated>2014-01-02T10:00:00Z</updated> </entry> ]]></con:value></con:property></con:properties></con:testCase><con:properties/>
 </con:testSuite>
 <con:testSuite name="OpenEspiIntegrationTests" id="078c93b9-0aac-4a68-a290-27fec2b4942d">
 	<con:settings/>
@@ -12744,7 +12566,20 @@ driver.quit();
   <con:entry key="grant_type" value="client_credentials"/>
 </con:parameters>
 	<con:parameterOrder><con:entry>grant_type</con:entry><con:entry>scope</con:entry></con:parameterOrder>
-</con:restRequest></con:config></con:testStep><con:properties/>
+</con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="RunGenericResourceGet" id="46502172-3de4-4bae-b3fe-3d9e0e7679cc"><con:settings/><con:config><script>import com.eviware.soapui.support.types.StringToStringMap;
+def project = testRunner.testCase.testSuite.project
+def auth  = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
+def tc= testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GenericResourceGet'];
+
+
+
+
+tc.setPropertyValue("uri", auth.getPropertyValue("resourceURI"));
+tc.setPropertyValue("token",  auth.getPropertyValue("access_token"));
+tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
+strResult = tc.getPropertyValue("response");
+//returnCode = tc.getPropertyValue("returncode");
+</script></con:config></con:testStep><con:properties/>
 	</con:testCase>
 	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestSSL" searchProperties="true" id="974785bd-d7aa-45d7-b757-58e974068e18"><con:settings/><con:testStep type="groovy" name="testssl" id="19a91516-7ed6-4e21-a5f2-c82f5a230a8f"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
 def tc= testRunner.testCase.testSuite.project.testSuites['Library'].testCases['RunCommand'];
@@ -12788,7 +12623,7 @@ drwxr-xr-x  2 bitnami bitnami     4096 Apr  9  2014 listeners
 -rwxr-xr-x  1 bitnami bitnami     1887 Apr  9  2014 testrunner.sh
 -rwxr-xr-x  1 bitnami bitnami     1883 Apr  9  2014 toolrunner.sh
 -rwxr-xr-x  1 bitnami bitnami     1896 Apr  9  2014 wargenerator.sh
-</con:value></con:property><con:property><con:name>cmd</con:name><con:value>ls -al</con:value></con:property><con:property><con:name>path</con:name><con:value>.</con:value></con:property><con:property><con:name>stderr</con:name><con:value>depth=1 C = US, O = DigiCert Inc, CN = DigiCert Secure Server CA verify error:num=20:unable to get local issuer certificate verify return:0 </con:value></con:property><con:property><con:name>returncode</con:name><con:value>124</con:value></con:property><con:property><con:name>timeout</con:name><con:value>0</con:value></con:property></con:properties><con:returnProperties><con:entry>stdout</con:entry><con:entry>stderr</con:entry><con:entry>returncode</con:entry></con:returnProperties><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:properties><con:property><con:name>cmd</con:name><con:value>openssl s_client -tls1_2 -connect services.greenbuttondata.org:443</con:value></con:property><con:property><con:name>path</con:name><con:value>.</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SetupForTest" searchProperties="true" id="7e6f4176-bacb-4455-91f3-c970b4c7898b"><con:settings/><con:testStep type="groovy" name="setup" id="67e36b32-f28c-4a42-a4b2-ef9f061757cf"><con:settings/><con:config><script>testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['LoadConfig']);
+</con:value></con:property><con:property><con:name>cmd</con:name><con:value>ls -al</con:value></con:property><con:property><con:name>path</con:name><con:value>.</con:value></con:property><con:property><con:name>stderr</con:name><con:value>depth=1 C = US, O = DigiCert Inc, CN = DigiCert Secure Server CA verify error:num=20:unable to get local issuer certificate verify return:0 </con:value></con:property><con:property><con:name>returncode</con:name><con:value>124</con:value></con:property><con:property><con:name>timeout</con:name><con:value>0</con:value></con:property><con:property><con:name>uri</con:name></con:property><con:property><con:name>token</con:name></con:property></con:properties><con:returnProperties><con:entry>stdout</con:entry><con:entry>stderr</con:entry><con:entry>returncode</con:entry></con:returnProperties><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:properties><con:property><con:name>cmd</con:name><con:value>openssl s_client -tls1_2 -connect services.greenbuttondata.org:443</con:value></con:property><con:property><con:name>path</con:name><con:value>.</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SetupForTest" searchProperties="true" id="7e6f4176-bacb-4455-91f3-c970b4c7898b"><con:settings/><con:testStep type="groovy" name="setup" id="67e36b32-f28c-4a42-a4b2-ef9f061757cf"><con:settings/><con:config><script>testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['LoadConfig']);
 testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
 testRunner.testCase.testSuite.project.testSuites['Library'].testCases['UploadTestFile GUI'].run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 testRunner.testCase.testSuite.project.testSuites['[FB_01] Common'].testCases['FND001 Initial Test Configuration'].run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
@@ -16128,7 +15963,7 @@ headers.put("Authorization","Bearer " + testRunner.testCase.testSuite.project.ge
 headers.put("Content-Type","Application/atom+xml");
 propTestStep.testRequest.setRequestHeaders(headers);
  </script></con:config></con:testStep><con:testStep type="httprequest" name="GET Resource URI" id="385eca90-b9e6-4646-a4d3-7ff3576f1042"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Resource URI" id="4c065077-eff3-4431-8201-a501b8acd7a6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
-  &lt;con:entry key="Authorization" value="Bearer 9e784668-2ca2-4bb9-a3a8-3d3865e6fedc"/>
+  &lt;con:entry key="Authorization" value="Bearer 326bf68d-b49e-45b7-8296-46d80ada302d"/>
   &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
 &lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/7</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="10ded9d8-6ec9-476d-8438-75d0c7c8cdba"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema Validation" id="fe6a24dc-9d74-4915-8ff5-b7de94296d82"><con:configuration><scriptText>import javax.xml.XMLConstants;
 import javax.xml.transform.Source;
@@ -16246,7 +16081,7 @@ if(bFailure){
 }
 
 </script></con:config></con:testStep><con:testStep type="httprequest" name="GET Authorization URI" id="d5d39f3b-710c-4076-a698-9bccfdadbb49"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Authorization URI" id="81e49c44-9f6d-48d9-b15b-26d827d5f235" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
-  &lt;con:entry key="Authorization" value="Bearer 46685ba1-6726-4eb2-a319-4ee62f23c728"/>
+  &lt;con:entry key="Authorization" value="Bearer cf71c607-1afd-4d99-9b6e-cf39df1e76ea"/>
   &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
 &lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://localhost:8443/DataCustodian/espi/1_1/resource/Authorization/7</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="88efefb2-ecd7-4037-9d72-45735d67aa2f"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema validation" id="1c62b622-4dea-4211-9334-0fad55ab55ab"><con:configuration><scriptText>import javax.xml.XMLConstants;
 import javax.xml.transform.Source;
@@ -45163,7 +44998,7 @@ requestContext.mockService.setPropertyValue("rxNotificationBody",strBody);
 
 
 </con:dispatchPath><con:response name="Response 1" httpResponseStatus="200" id="31e9433f-70db-4381-8f38-75ff01ad0a7e"><con:settings/><con:script/><con:responseContent/></con:response></con:restMockAction></con:restMockService>
-<con:restMockService port="8081" path="/" host="openespivm" name="ThirdParty Authorization Mock Service" docroot="" id="3a34ffc3-4858-4237-a55a-0cc1f8544c4a"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value>error=access_denied&amp;error_description=User%20denied%20access&amp;state=ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">secret</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>state</con:name><con:value>ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="a19f663e-daf5-4eab-bc7c-0fb638c2496d"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+<con:restMockService port="8081" path="/" host="openespivm" name="ThirdParty Authorization Mock Service" docroot="" id="3a34ffc3-4858-4237-a55a-0cc1f8544c4a"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"326bf68d-b49e-45b7-8296-46d80ada302d","token_type":"bearer","refresh_token":"ea230a64-0076-459c-a134-8949ccff3c0e","expires_in":315359999,"scope":"FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13","resourceURI":"https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/7","authorizationURI":"https://localhost:8443/DataCustodian/espi/1_1/resource/Authorization/7"}</con:value></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value/></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">secret</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>state</con:name><con:value>ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="a19f663e-daf5-4eab-bc7c-0fb638c2496d"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Examples showing how to match based on path, query param and header
 // Match based on path
 def requestPath = mockRequest.getPath()
@@ -46293,7 +46128,7 @@ log.info "Notification POST Request body: " + requestBody
 requestContext.mockService.setPropertyValue("BatchList",requestBody);
 </con:dispatchPath><con:response name="Response 1" id="80857bf2-7556-45dc-8c55-7bdcead30356" httpResponseStatus="200"><con:settings/><con:responseContent/></con:response></con:restMockAction></con:restMockService><con:properties>
 
-	<con:property><con:name>access_token</con:name><con:value>82241c75-74a4-42c5-af2e-de978a42dd5f</con:value></con:property><con:property><con:name>applicationInformationId</con:name><con:value>4</con:value></con:property><con:property><con:name>authorizationId</con:name><con:value>6</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>localhost:8443</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property>
+	<con:property><con:name>access_token</con:name><con:value>326bf68d-b49e-45b7-8296-46d80ada302d</con:value></con:property><con:property><con:name>applicationInformationId</con:name><con:value>4</con:value></con:property><con:property><con:name>authorizationId</con:name><con:value>6</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>localhost:8443</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property>
 
 		<con:name>BaseURL</con:name>
 		<con:value/>
@@ -46308,7 +46143,7 @@ requestContext.mockService.setPropertyValue("BatchList",requestBody);
 	
 	
 	
-	<con:property><con:name>bulkId</con:name><con:value>1</con:value></con:property><con:property><con:name>certScopes</con:name><con:value>FB=1_4_5_15</con:value></con:property><con:property><con:name>client_access_token</con:name><con:value>a7559060-6158-4335-bbb6-f8a9227946ad</con:value></con:property>
+	<con:property><con:name>bulkId</con:name><con:value>1</con:value></con:property><con:property><con:name>certScopes</con:name><con:value>FB=1_4_5_15</con:value></con:property><con:property><con:name>client_access_token</con:name><con:value>cf71c607-1afd-4d99-9b6e-cf39df1e76ea</con:value></con:property>
 	
 	
 	
@@ -46336,7 +46171,7 @@ requestContext.mockService.setPropertyValue("BatchList",requestBody);
 	
 	
 	
-	<con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value>459df316-ecad-4475-9c0f-9c7a83f200c0</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>c66b0854-ea1f-4e24-afb7-afab9e0f6c5e</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>localhost:8443</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceUri</con:name><con:value>espi/1_1/resource</con:value></con:property>
+	<con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value>29dfcfbe-cf19-4e96-a2b0-37bd85ef6782</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>c66b0854-ea1f-4e24-afb7-afab9e0f6c5e</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>localhost:8443</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceUri</con:name><con:value>espi/1_1/resource</con:value></con:property>
 	
 	
 	
