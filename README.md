@@ -66,8 +66,8 @@ Note newer versions of FireFox do not have a compatible "selenium" driver yet (a
     sudo mv firefox /opt/firefox31.0
     sudo ln -sf /opt/firefox31.0/firefox /usr/bin/firefox
 
-###Install SOAPUI 5.0
-- [Download](http://sourceforge.net/projects/soapui/files/soapui/5.0.0/SoapUI-x64-5.0.0.sh/download)
+###Install SOAPUI 5.1.3
+- [Download](http://sourceforge.net/projects/soapui/files/soapui/5.0.0/SoapUI-x64-5.1.3.sh/download)
 - Install depending on your operating system
 
 
