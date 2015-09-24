@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project activeEnvironment="Default" name="GBCMD" resourceRoot="${projectDir}" soapui-version="5.1.3" abortOnError="false" runType="SEQUENTIAL" defaultScriptLanguage="Groovy" id="0340468f-59e9-4a5d-9ddc-5ac6d40258ac" xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project activeEnvironment="Default" name="GBCMD" resourceRoot="${projectDir}" soapui-version="5.2.0" abortOnError="false" runType="SEQUENTIAL" defaultScriptLanguage="Groovy" id="0340468f-59e9-4a5d-9ddc-5ac6d40258ac" xmlns:con="http://eviware.com/soapui/config">
 	<con:settings/>
 	<con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="ESPI Resources" type="rest" id="67592114-eb87-42a5-87f1-4c996a14c5da" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 		<con:settings/>
@@ -15794,7 +15794,7 @@ declare namespace espi='http://naesb.org/espi';
 declare namespace espi='http://naesb.org/espi';
 (/ns3:entry/ns3:content/espi:ApplicationInformation/espi:grant_types='authorization_code') or
 (/ns3:entry/ns3:content/espi:ApplicationInformation/espi:grant_types='refresh_token') or 
-(/ns3:entry/ns3:content/espi:ApplicationInformation/espi:grant_types='client_credentials')</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="response_types must be 'code'" disabled="true" id="af6b6165-1df4-4ad2-b1ec-8a77a6952467"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
+(/ns3:entry/ns3:content/espi:ApplicationInformation/espi:grant_types='client_credentials')</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="response_types must be 'code'" id="af6b6165-1df4-4ad2-b1ec-8a77a6952467"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
 declare namespace espi='http://naesb.org/espi';
 /ns3:entry/ns3:content/espi:ApplicationInformation/espi:response_types='code'</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials>
 				<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
