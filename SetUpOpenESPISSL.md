@@ -4,9 +4,12 @@
 
 run this command from ~/Spring/sts-bundle/vfabric-tc-server-developer-2.9.6.RELEASE directory
 
-accept all defaults except CN=localhost
+accept all defaults except CN=localhost - where localhost is the network name of your vm
 
     ./tcruntime-instance.sh create openespissl -t bio-ssl --interactive
+	cd openespissl/conf
+
+The next commands get run in this directory.
 
 ##Export private key and certificate from TC Server keystore:
 Note use catalina.properties file bio-ssl.ssl.keystore.password key value when asked
@@ -23,19 +26,21 @@ Note use catalina.properties file bio-ssl.ssl.keystore.password key value when a
 
 ## Enable openssl and java to use self signed certificate
 Create link for client certificate to /etc/ssl/certs
-	sudo ln -s ./tc-server-bio-ssl.pem tc-server-bio-ssl.pem
 
-Create hash (this produced 48720f44)
+	sudo ln -s {path to}/tc-server-bio-ssl.pem /etc/ssl/certs/tc-server-bio-ssl.pem
+
+Create hash {hash}
 
     openssl x509 -hash -noout -in tc-server-bio-ssl.pem
 
 Create symbolic link to certificate with name as hash
 
-    sudo ln -s tc-server-bio-ssl.pem 48720f44.0
+    sudo ln -s {path to}/tc-server-bio-ssl.pem /etc/ssl/certs/{hash}.0
 
 Test that it worked
 
-    openssl verify -CApath . tc-server-bio-ssl.pem
+    cd /etc/ssl/certs/
+	openssl verify -CApath . tc-server-bio-ssl.pem
 
 Add to java keystore
 
