@@ -100,20 +100,25 @@ Here is a sample file generated in Linux:
     ciphers=AES128-SHA
 
 ## Start and Stop Stunnel Linux
-sudo /etc/init.d/stunnel4 stop
-sudo /etc/init.d/stunnel4 start
-sudo /etc/init.d/stunnel4 restart
+
+
+	sudo /etc/init.d/stunnel4 stop
+	sudo /etc/init.d/stunnel4 start
+	sudo /etc/init.d/stunnel4 restart
 
 ## Start and Stop Stunnel Windows
-stunnel -exit
-stunnel
-stunnel -reload
+
+
+	stunnel -exit
+	stunnel
+	stunnel -reload
 
 ## Test Stunnel proxy
 
 Test sending message to https://localhost:8444 and through to SOAPUI mock server on localhost:8081
 
 Run mock server on SOAPUI
+
 At terminal prompt:
 
     openssl s_client -cert ./tc-server-bio-ssl.pem -key tc-server-bio-ssl_private_key.pem -CAfile tc-server-bio-ssl.pem -state -connect localhost:8444
@@ -148,7 +153,7 @@ It must have the names openespi.pem and openespi_private_key.pem.
 
 Use the keytool program to generate the RSA certificate. Accept all defauls except the request for first and last name to which you answer server name or "localhost".
 
-Create the key in the Stunnel configuration directory
+Create the key in the Stunnel configuration directory (note this will set the password for the keystore to 'energyos')
 
     keytool -genkey -alias openespi -keystore openespi.pfx -storepass energyos -validity 365 -keyalg RSA -keysize 2048 -storetype pkcs12
 
