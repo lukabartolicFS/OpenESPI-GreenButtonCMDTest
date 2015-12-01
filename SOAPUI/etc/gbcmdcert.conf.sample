@@ -15,4 +15,5 @@ mockPort="8081"
 proxyOutPort="8080"
 proxyOutPort1="8080"
 
+genericGetServiceMockPort="8086"
 
