@@ -4762,7 +4762,18 @@ project.setPropertyValue("redirect_uri","");
 project.setPropertyValue("state","");
 </script></con:config>
 	</con:testStep>
-	<con:testStep type="groovy" name="SaveScriptLog" id="6d596211-d837-4092-bacb-15bac8c4d1b2"><con:settings/><con:config><script>
+	<con:testStep type="groovy" name="SaveScriptLog" id="6d596211-d837-4092-bacb-15bac8c4d1b2"><con:settings/><con:config><script><![CDATA[import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.transform.stream.StreamResult;
+
+public class testInfo{
+	String name;
+	Boolean bPass = false;
+	Boolean bFail = false;
+	Boolean bEnd = false;
+	def childTests = [:];
+}
+
 //The below groovy script step is to capture the soapUI log area.
 // "soapUI log" can be replaced with http log, jetty log, script log, error log etc based on the need.
 def logArea = com.eviware.soapui.SoapUI.logMonitor.getLogArea( "script log" );
@@ -4770,23 +4781,189 @@ def logArea = com.eviware.soapui.SoapUI.logMonitor.getLogArea( "script log" );
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context) 
 def projectPath = groovyUtils.projectPath 
 
+String firstLine;
+String lastLine;
+
 def logFile = new File(projectPath + "/soapUI-Logs-to-file.txt")
 //This is the first line in the soapUI log file.
 logFile.write("soapUI Logs In a file.\r\n")
 
+def tests = [:];
+
 if( logArea !=null )
 {
+	
  def model = logArea.model;
+
+ def currSuiteInfo = new testInfo(); 
+ def currTestInfo = new testInfo();
+
+ 
  if( model.size > 0 ) {
+
+	firstLine = model.getElementAt(0);
+	lastLine = model.getElementAt(model.size-1);
+ 	
     for( c in 0..(model.size-1) ){         
-           logFile.append(model.getElementAt( c ));
-		logFile.append("\n")   ;
-      
+    		String strResultCheck = "";
+    		String line = model.getElementAt( c );
+          logFile.append(line);
+		logFile.append("\n");
+
+
+		strResultCheck = "===== Start TestSuite =====> ";
+		if(line.contains(strResultCheck)) {
+			String name = line.substring(line.indexOf(strResultCheck) + strResultCheck.length());
+			currSuiteInfo.name = name;			
+		}
+
+		strResultCheck = "===== Start TestCase  =====> ";
+		if(line.contains(strResultCheck)) {
+			String name = line.substring(line.indexOf(strResultCheck) + strResultCheck.length());
+			currTestInfo.name = name;
+		}
+
+		strResultCheck = "===== FINISHED TestCase  =====> ";
+		if(line.contains(strResultCheck)) {
+			String name = line.substring(line.indexOf(strResultCheck) + strResultCheck.length());	
+			if(currTestInfo.name == name) {
+				currTestInfo.bEnd = true;
+				currTestInfo.bPass = true;
+				currSuiteInfo.childTests.put(name,currTestInfo);
+				currTestInfo = new testInfo();
+				
+			} else {
+				//ERROR
+			}					
+		}
+
+		strResultCheck = "===== FAILED TestCase  =====> ";
+		if(line.contains(strResultCheck)) {
+			String name = line.substring(line.indexOf(strResultCheck) + strResultCheck.length());	
+			if(currTestInfo.name == name) {
+				currTestInfo.bEnd = true;
+				currTestInfo.bFail = true;
+				currSuiteInfo.childTests.put(name,currTestInfo);
+				currTestInfo = new testInfo();
+				
+			} else {
+				//ERROR
+			}					
+		}
+
+/*		strResultCheck = "===== SUMMARY   TestSuite =====> ";
+		if(line.contains(strResultCheck)) {
+			String name = line.substring(line.indexOf(strResultCheck) + strResultCheck.length());
+			if(currSuiteInfo.name == name) {
+				currSuiteInfo.bPass = true;
+			} else {
+				//ERROR
+			}
+		}*/
+
+		strResultCheck = "===== FAILED End   TestSuite =====> ";
+		if(line.contains(strResultCheck)) {
+			String name = line.substring(line.indexOf(strResultCheck) + strResultCheck.length());
+			if(currSuiteInfo.name == name) {
+				currSuiteInfo.bFail = true;
+				currSuiteInfo.bEnd = true;
+				tests.put(name,currSuiteInfo);
+				currSuiteInfo = new testInfo(); 
+			} else {
+				//ERROR
+			}
+		}
+
+		strResultCheck = "===== FINISHED End   TestSuite =====> ";
+		if(line.contains(strResultCheck)) {
+			String name = line.substring(line.indexOf(strResultCheck) + strResultCheck.length());
+			if(currSuiteInfo.name == name) {
+				currSuiteInfo.bPass = true;
+				currSuiteInfo.bEnd = true;
+				tests.put(name,currSuiteInfo);
+				currSuiteInfo = new testInfo(); 
+			} else {
+				//ERROR
+			}
+		}
+
     }
  }
 }
 
-</script></con:config></con:testStep><con:testStep type="groovy" name="Setup openespi for CMD test" id="50a960e6-4df5-4cfc-899e-25e7ee497e03"><con:settings/><con:config><script>testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['LoadConfig']);
+String startDate = firstLine[0..27];
+String endDate = lastLine[0..27];
+
+def target = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmdcert_target.conf").toURL())
+Map flattened = target.flatten();
+
+def logSummaryFile = new File(projectPath + "/soapUI-Logs-to-fileSummary.xml")
+
+logSummaryFile.append("");
+
+logSummaryFile.append('<?xml version="1.0" encoding="UTF-8"?>\n');
+logSummaryFile.append('<?xml-stylesheet type="text/xsl" href="GBCmdResultsSummary.xslt"?>\n');
+logSummaryFile.append("<testSummary>\n");
+logSummaryFile.append('	<testDate startTime="' + startDate + '" endTime="' + endDate + '"/>\n');
+logSummaryFile.append("	<testConfiguration>\n");
+logSummaryFile.append("		<testConfigurationFile>" + groovyUtils.projectPath + "/etc/gbcmdcert_target.conf" + "</testConfigurationFile>\n");
+logSummaryFile.append("		<parameters>\n");
+
+flattened.each {targetEntry ->
+	log.info("[$targetEntry.key]=$targetEntry.value");
+	logSummaryFile.append('			<parameter name="' + targetEntry.key + '">' + targetEntry.value + '</parameter>\n');
+}
+
+logSummaryFile.append("		</parameters>\n");
+logSummaryFile.append("	</testConfiguration>\n");
+logSummaryFile.append("	<testResults>\n");
+
+tests.each { entrySuite ->
+	if(entrySuite.value.bPass) {
+		log.info("TestSuite PASS:$entrySuite.key");
+		logSummaryFile.append('		<testSuite name="' + entrySuite.key + '" result="PASS">\n');
+	}
+	if(entrySuite.value.bFail) {
+		log.info("TestSuite FAIL:$entrySuite.key");
+		logSummaryFile.append('		<testSuite name="' + entrySuite.key + '" result="FAIL">\n');
+	}
+
+	entrySuite.value.childTests.each { entryCase -> 
+		if(entryCase.value.bPass) {
+			log.info("TestCase PASS: $entryCase.key");
+			logSummaryFile.append('			<testCase name="' + entryCase.key + '" result="PASS"/>\n');
+		}
+		if(entryCase.value.bFail) {
+			log.info("TestCase FAIL: $entryCase.key");
+			logSummaryFile.append('			<testCase name="' + entryCase.key + '" result="FAIL"/>\n');
+		}
+	}
+
+	logSummaryFile.append('		</testSuite>\n');
+}
+
+logSummaryFile.append("	</testResults>\n");
+logSummaryFile.append("</testSummary>\n");
+
+
+logSummaryFile = null;
+
+def xslt= new File(projectPath + "/GBCmdResultsSummary.xslt").getText()
+
+def transformer = TransformerFactory.newInstance().newTransformer(new StreamSource(new StringReader(xslt)))
+
+// Load xml
+def xml= new File(projectPath + "/soapUI-Logs-to-fileSummary.xml").getText()
+
+// Set output file
+def html = new FileOutputStream(projectPath + "/soapUI-Logs-to-fileSummary.html");
+// Perform transformation
+transformer.transform(new StreamSource(new StringReader(xml)), new StreamResult(html))
+
+
+//com.eviware.soapui.SoapUI.logMonitor.getLogArea("script log").clear()
+
+return;]]></script></con:config></con:testStep><con:testStep type="groovy" name="Setup openespi for CMD test" id="50a960e6-4df5-4cfc-899e-25e7ee497e03"><con:settings/><con:config><script>testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['LoadConfig']);
 testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
 testRunner.testCase.testSuite.project.testSuites['Library'].testCases['UploadTestFile GUI'].run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 testRunner.testCase.testSuite.project.testSuites['[FB_03] Core Green Button Connect My Data'].testCases['FND001 [POS] Initial Test Configuration'].run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
@@ -8351,7 +8528,7 @@ if(context["driver"] != null){
 	context["driver"] = null;	
 }
 
-</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>fed2dea9-4567-40d2-94e7-94e7a65ee072</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/7</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource/Authorization/7</con:value></con:property><con:property><con:name>token_type</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">60961870-d4f7-492d-a973-aeef649f5392</con:value></con:property><con:property><con:name>expires_in</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">315359999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>old_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">82241c75-74a4-42c5-af2e-de978a42dd5f</con:value></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">secret</con:value></con:property><con:property><con:name>authorizationServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>resourceServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>mockPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8080</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>authorizationServerTokenEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">0feb857a-a6fb-48e8-b100-e1b0a9338fbb</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">localhost:8443</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">444fbd85-14eb-4cfc-9a3a-7a3ff418b431</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand" id="06648a84-6352-4b25-b179-693e52d162cc"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
+</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>fed2dea9-4567-40d2-94e7-94e7a65ee072</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/7</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource/Authorization/7</con:value></con:property><con:property><con:name>token_type</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">60961870-d4f7-492d-a973-aeef649f5392</con:value></con:property><con:property><con:name>expires_in</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">312945135</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>old_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">82241c75-74a4-42c5-af2e-de978a42dd5f</con:value></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">secret</con:value></con:property><con:property><con:name>authorizationServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>resourceServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>mockPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8080</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>authorizationServerTokenEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">0feb857a-a6fb-48e8-b100-e1b0a9338fbb</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">localhost:8443</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">444fbd85-14eb-4cfc-9a3a-7a3ff418b431</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand" id="06648a84-6352-4b25-b179-693e52d162cc"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
 
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
@@ -45041,7 +45218,7 @@ requestContext.mockService.setPropertyValue("rxNotificationBody",strBody);
 
 
 </con:dispatchPath><con:response name="Response 1" httpResponseStatus="200" id="31e9433f-70db-4381-8f38-75ff01ad0a7e"><con:settings/><con:script/><con:responseContent/></con:response></con:restMockAction></con:restMockService>
-<con:restMockService port="8081" path="/" host="openespivm" name="ThirdParty Authorization Mock Service" docroot="" id="3a34ffc3-4858-4237-a55a-0cc1f8544c4a"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"fed2dea9-4567-40d2-94e7-94e7a65ee072","token_type":"bearer","refresh_token":"60961870-d4f7-492d-a973-aeef649f5392","expires_in":315359999,"scope":"FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13","resourceURI":"https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/7","authorizationURI":"https://localhost:8443/DataCustodian/espi/1_1/resource/Authorization/7"}</con:value></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value/></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">secret</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>state</con:name><con:value>ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="a19f663e-daf5-4eab-bc7c-0fb638c2496d"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+<con:restMockService port="8081" path="/" host="openespivm" name="ThirdParty Authorization Mock Service" docroot="" id="3a34ffc3-4858-4237-a55a-0cc1f8544c4a"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"fed2dea9-4567-40d2-94e7-94e7a65ee072","token_type":"bearer","refresh_token":"60961870-d4f7-492d-a973-aeef649f5392","expires_in":312945135,"scope":"FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13","resourceURI":"https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/7","authorizationURI":"https://localhost:8443/DataCustodian/espi/1_1/resource/Authorization/7"}</con:value></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value/></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">secret</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>state</con:name><con:value>ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="a19f663e-daf5-4eab-bc7c-0fb638c2496d"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Examples showing how to match based on path, query param and header
 // Match based on path
 def requestPath = mockRequest.getPath()
