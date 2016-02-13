@@ -4972,10 +4972,6 @@ return;]]></script></con:config></con:testStep><con:testStep type="groovy" name=
 log.info("Loading gbcmd.conf configuration file!");
 testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['LoadConfig']);
 
-// Load gbcmdcert.conf configuration file, start genericGetMockService, and clear Script Log file
-//log.info("Loading gbcmdcert.conf configuration file, starting genericGetMockService, and clearing Script Log file!");
-//testRunner.testCase.testSuite.project.testSuites['[PrepareForCMDTest]'].testCases['PrepareForCMDTest'];
-
 // Reset Database
 log.info("Resetting Data Custodian and Third Party database files!");
 testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['resetDBDC']);
