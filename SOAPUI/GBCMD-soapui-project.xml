@@ -8566,7 +8566,7 @@ if(context["driver"] != null){
 	context["driver"] = null;	
 }
 
-</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>b9759c79-54fd-48d8-89f1-95443e10cf74</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/7</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource/Authorization/7</con:value></con:property><con:property><con:name>token_type</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">ab63dbdf-9992-4b48-8963-2eabd581dd31</con:value></con:property><con:property><con:name>expires_in</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">315359999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">lSlwuQ</con:value></con:property><con:property><con:name>error</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>old_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">d9f36b31-e037-444c-b0a3-5a253e657334</con:value></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">secret</con:value></con:property><con:property><con:name>authorizationServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>resourceServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>mockPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8080</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>authorizationServerTokenEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">fa480479-f5ba-4e0a-824a-26fd64a0040f</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">localhost:8443</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">593f1989-15bf-4c7c-be48-bf3a3c6f6ca7</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand" id="06648a84-6352-4b25-b179-693e52d162cc"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
+</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>d9f36b31-e037-444c-b0a3-5a253e657334</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>espi/1_1/resource</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>token_type</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>refresh_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>expires_in</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>old_access_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">secret</con:value></con:property><con:property><con:name>authorizationServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>resourceServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>mockPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8080</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>authorizationServerTokenEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">a73ff1a2-8722-4861-ae01-56f6a27fd004</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">localhost:8443</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">ca1db289-d533-42ef-bdc7-fe406d05054a</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand" id="06648a84-6352-4b25-b179-693e52d162cc"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
 
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
@@ -16586,19 +16586,22 @@ tc.setPropertyValue("path",project.getPropertyValue( "stunnelConfigDirectory"));
 tc.setPropertyValue("timeout","2");
 
 // check the authorization server
+log.info "Testing authorizationServer: " + authorizationServer;
 tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -CApath " + project.getPropertyValue("CApathDirectory") + " -verify 10 -showcerts -cert stunnel.pem -connect " + authorizationServer);
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("stdout");
 returnCode = tc.getPropertyValue("returncode");
 
 if(strResult.contains("Protocol  : TLSv1.2") &amp;&amp; (returnCode.equals("0"))){
-	log.info("TLS 1.2 implemented");
+	log.info("Authorization Server: " + authorizationServer + " implemented TLS 1.2 as required");
 	assert true;
 } else {
-	testRunner.fail( "TLS 1.2 not implemented" );
+	log.info "Authorization Server: " + authorizationServer + " did not implement TLS 1.2 as required";
+	testRunner.fail("Authorization Server: " + authorizationServer + " did not implement TLS 1.2 as required");
 }
 
 // check the resource server
+log.info "Testing resourceServer: " + resourceServer;
 tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -CApath " + project.getPropertyValue("CApathDirectory") + " -verify 10 -showcerts -cert stunnel.pem -connect " + resourceServer);
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("stdout");
@@ -16606,10 +16609,11 @@ returnCode = tc.getPropertyValue("returncode");
 
 
 if(strResult.contains("Protocol  : TLSv1.2") &amp;&amp; (returnCode.equals("0"))){
-	log.info("TLS 1.2 implemented");
+	log.info("Resource Server: " + resourceServer + " implemented TLS 1.2 as required");
 	assert true;
 } else {
-	testRunner.fail( "TLS 1.2 not implemented" );
+	log.info "Resource Server: " + resourceServer + " did not implement TLS 1.2 as required";
+	testRunner.fail("Resource Server: " + resourceServer + " did not implement TLS 1.2 as required");
 }
 
 
@@ -16644,16 +16648,17 @@ tc.setPropertyValue("path",project.getPropertyValue( "stunnelConfigDirectory"));
 tc.setPropertyValue("timeout","2");
 
 // for authorizationServer
-log.info "Testing authorizationServer";
+log.info "===== Testing authorizationServer: " + authorizationServer + " =====";
 // see if tls 1.2 is negotiated
 tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -tls1 -tls1_1 -tls1_2 -cert stunnel.pem -connect " + authorizationServer);
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("stdout");
 
 if( (strResult.contains("Protocol  : TLSv1.2")) && (!strResult.contains("Cipher    : 0000"))){
-	log.info("TLS 1.2 negotiated");
+	log.info("Authorization Server: " + authorizationServer + " successfully supports TLS 1.2 as required");
 } else {
-	testRunner.fail( "TLS 1.2 not negotiated" );
+	log.info "Authorization Server: " + authorizationServer + " failed to support TLS 1.2 as required";
+	testRunner.fail("Authorization Server: " + authorizationServer + " failed to support TLS 1.2 as required");
 }
 
 
@@ -16663,9 +16668,10 @@ tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("stdout");
 
 if( (strResult.contains("Protocol  : TLSv1.1")) && (!strResult.contains("Cipher    : 0000"))){
-	log.info("TLS 1.1 negotiated");
+	log.info("Authorization Server: " + authorizationServer + " successfully supports TLS 1.1 as required");
 } else {
-	testRunner.fail( "TLS 1.1 not negotiated" );
+	log.info "Authorization Server: " + authorizationServer + " failed to support TLS 1.1 as required"
+	testRunner.fail("Authorization Server: " + authorizationServer + " failed to support TLS 1.1 as required");
 }
 
 // next see if tls 1.0 is negotiated
@@ -16674,14 +16680,15 @@ tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("stdout");
 
 if( (strResult.contains("Protocol  : TLSv1")) && (!strResult.contains("Cipher    : 0000"))){
-	log.info("TLS 1 negotiated");
+	log.info("Authorization Server: " + authorizationServer + " successfully supports TLS 1 as required");
 } else {
-	testRunner.fail( "TLS 1 not negotiated" );
+	log.info "Authorization Server: " + authorizationServer + " failed to support TLS 1 as required";
+	testRunner.fail("Authorization Server: " + authorizationServer + " failed to support TLS 1 as required");
 }
 
 
 // for resourceServer
-log.info "Testing resourceServer";
+log.info "===== Testing resourceServer: " + resourceServer + " =====";
 
 // see if tls 1.2 is negotiated
 tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -cert stunnel.pem -tls1 -tls1_1 -tls1_2 -connect " + resourceServer);
@@ -16689,9 +16696,10 @@ tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("stdout");
 
 if( (strResult.contains("Protocol  : TLSv1.2")) && (!strResult.contains("Cipher    : 0000"))){
-	log.info("TLS 1.2 negotiated");
+	log.info("Resource Server: " + resourceServer + " successfully supports TLS 1.2 as required");
 } else {
-	testRunner.fail( "TLS 1.2 not negotiated" );
+	log.info "Resource Server: " + resourceServer + " failed to support TLS 1.2 as required";
+	testRunner.fail("Resource Server: " + resourceServer + " failed to support TLS 1.2 as required");
 }
 
 
@@ -16701,9 +16709,10 @@ tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("stdout");
 
 if( (strResult.contains("Protocol  : TLSv1.1")) && (!strResult.contains("Cipher    : 0000"))){
-	log.info("TLS 1.1 negotiated");
+	log.info("Resource Server: " + resourceServer + " successfully supports TLS 1.1 as required");
 } else {
-	testRunner.fail( "TLS 1.1 not negotiated" );
+	log.info "Resource Server: " + resourceServer + " failed to support TLS 1.1 as required";
+	testRunner.fail("Resource Server: " + resourceServer + " failed to support TLS 1.1 as required");
 }
 
 // next see if tls 1.0 is negotiated
@@ -16712,9 +16721,10 @@ tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("stdout");
 
 if( (strResult.contains("Protocol  : TLSv1")) && (!strResult.contains("Cipher    : 0000"))){
-	log.info("TLS 1 negotiated");
+	log.info("Resource Server: " + resourceServer + " successfully supports TLS 1 as required");
 } else {
-	testRunner.fail( "TLS 1 not negotiated" );
+	log.info "Resource Server: " + resourceServer + " failed to support TLS 1 as required"
+	testRunner.fail("Resource Server: " + resourceServer + " failed to support TLS 1 as required");
 }
 
 
@@ -16734,7 +16744,7 @@ sslport="443";
 
 
 // for authorizationServer
-log.info "Testing authorizationServer";
+log.info "===== Testing authorizationServer: " + authorizationServer + " =====";
 
 tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -cipher NULL-SHA -connect " + authorizationServer);
 tc.setPropertyValue("path",project.getPropertyValue( "stunnelConfigDirectory"));
@@ -16746,15 +16756,16 @@ strResult = tc.getPropertyValue("stdout");
 
 if( strResult.contains("Cipher    : NULL-SHA")) {
 
-	testRunner.fail( "NULL-SHA accepted" );
+	log.info "Authorization Server: " + authorizationServer + " failed to rejected NULL-SHA cipher as required";
+	testRunner.fail("Authorization Server: " + authorizationServer + " failed to rejected NULL-SHA cipher as required");
 
 } else {
-	log.info("NULL-SHA rejected");
+	log.info("Authorization Server: " + authorizationServer + " properly rejected NULL-SHA cipher as required");
 }
 
 
 // for resourceServer
-log.info "Testing resourceServer";
+log.info "===== Testing resourceServer: " + resourceServer + " =====";
 
 tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -cipher NULL-SHA -cert stunnel.pem -connect " + resourceServer);
 tc.setPropertyValue("timeout","2");
@@ -16765,10 +16776,11 @@ strResult = tc.getPropertyValue("stdout");
 
 if( strResult.contains("Cipher    : NULL-SHA")) {
 
-	testRunner.fail( "NULL-SHA accepted" );
+	log.info "Resource Server: " + resourceServer + " failed to rejected NULL-SHA cipher as required";
+	testRunner.fail("Resource Server: " + resourceServer + " failed to rejected NULL-SHA cipher as required");
 
 } else {
-	log.info("NULL-SHA rejected");
+	log.info("Resource Server: " + resourceServer + " properly rejected the NULL-SHA cipher as required");
 }
 
 
@@ -16788,7 +16800,7 @@ def opensslCmd = project.getPropertyValue("opensslCmd");
 sslport="443";
 
 // for authorizationServer
-log.info "Testing authorizationServer";
+log.info "===== Testing authorizationServer: " + authorizationServer + " =====";
 
 tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -cipher AES128-SHA -cert stunnel.pem -connect " + authorizationServer);
 tc.setPropertyValue("path",project.getPropertyValue( "stunnelConfigDirectory"));
@@ -16800,15 +16812,16 @@ strResult = tc.getPropertyValue("stdout");
 
 if( strResult.contains("Cipher is AES128-SHA")) {
 
-	log.info("AES128-SHA accepted");
+	log.info("Authorization Server: " + authorizationServer + " properly accepted the required AES128-SHA cipher");
 
 } else {
-	testRunner.fail( "AES128-SHA rejected" );
+	log.info "Authorization Server: " + authorizationServer + " failed to accept the required AES128-SHA cipher";
+	testRunner.fail("Authorization Server: " + authorizationServer + " failed to accept the required AES128-SHA cipher");
 }
 
 
 // for resourceServer
-log.info "Testing resourceServer";
+log.info "===== Testing resourceServer: " + resourceServer + " =====";
 
 tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -cipher AES128-SHA -cert stunnel.pem -connect " + resourceServer);
 tc.setPropertyValue("timeout","2");
@@ -16819,10 +16832,11 @@ strResult = tc.getPropertyValue("stdout");
 
 if( strResult.contains("Cipher is AES128-SHA")) {
 
-	log.info("AES128-SHA accepted");
+	log.info("Resource Server: " + resourceServer + " properly accepted the required AES128-SHA cipher");
 
 } else {
-	testRunner.fail( "AES128-SHA rejected" );
+	log.info "Resource Server: " + resourceServer + " failed to accept the required AES128-SHA cipher"
+	testRunner.fail("Resource Server: " + resourceServer + " failed to accept the required AES128-SHA cipher");
 }
 
 
@@ -16864,17 +16878,17 @@ tc.setPropertyValue("timeout","2");
 //////////////////////////////////////
 // for authorizationServer
 //////////////////////////////////////
-log.info "Testing authorizationServer";
+log.info "===== Testing authorizationServer: " + authorizationServer + " =====";
 // check that the key is 2048 bits
 tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -cert stunnel.pem -connect " + authorizationServer);
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("stdout");
 
 if(strResult.contains("Server public key is 2048 bit")){
-	log.info("Server public key is 2048 bit");
+	log.info("Authorization Server: " + authorizationServer + " uses a 2048 bit public key as required");
 } else {
-	testRunner.fail( "Server public key is not 2048 bit" );
-	return;
+	log.info "Authorization Server: " + authorizationServer + " does not use a 2048 bit public key as required";
+	testRunner.fail("Authorization Server: " + authorizationServer + " does not use a 2048 bit public key as required");
 }
 
 // verify certificate is unexpired
@@ -16901,18 +16915,17 @@ now = new Date();
 datetimeStr = now.toString();
 
 if(now.after(dNB) &amp;&amp; now.before(dNA)) {
-	log.info("Certificate has not expired");
+	log.info("Authorization Server: " + authorizationServer + " uses an active Certificate");
 } else {
-	testRunner.fail("Certificate has expired");
+	log.info "Authorization Server: " + authorizationServer + " uses an expired Certificate";
+	testRunner.fail("Authorization Server: " + authorizationServer + " uses an expired Certificate");
 
 	try{
 		File file = new File(projectPath+"/etc/getcert.pem");
 		file.delete();
 	} catch(Exception e) {
-		log.error("Error deleing temp file:" + e.getMessage());
+		log.error("Error deleting /etc/getcert.pem file:" + e.getMessage());
 	}	
-	
-	return;
 }
 
 // check if RSA
@@ -16923,9 +16936,10 @@ strResult = tc.getPropertyValue("stdout");
 
 
 if(strResult.contains("Public Key Algorithm: rsaEncryption")){
-	log.info("Public Key Algorithm: rsaEncryption");
+	log.info("Authorization Server: " + authorizationServer + " Public Key uses the required rsa Encryption algorithm");
 } else {
-	testRunner.fail("Certificate does not use rsaEncryption");
+	log.info "Authorization Server: " + authorizationServer + " Public Key does not use the required rsa Encryption algorithm";
+	testRunner.fail("Authorization Server: " + authorizationServer + " Public Key does not use the required rsa Encryption algorithm");
 }
 
 
@@ -16933,7 +16947,7 @@ try{
 	File file = new File(projectPath+ "/etc/getcert.pem");
 	file.delete();
 } catch(Exception e) {
-	log.error("Error deleing temp file:" + e.getMessage());
+	log.error("Error deleting /etc/getcert.pem file:" + e.getMessage());
 }	
 
 
@@ -16941,17 +16955,17 @@ try{
 //////////////////////////////////////
 // for resourceServer
 //////////////////////////////////////
-log.info "Testing resourceServer";
+log.info "===== Testing resourceServer: " + resourceServer + " =====";
 // check that the key is 2048 bits
 tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -cert stunnel.pem -connect " + resourceServer);
 tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 strResult = tc.getPropertyValue("stdout");
 
 if(strResult.contains("Server public key is 2048 bit")){
-	log.info("Server public key is 2048 bit");
+	log.info("Resource Server: " + resourceServer + " uses a 2048 bit public key as required");
 } else {
-	testRunner.fail( "Server public key is not 2048 bit" );
-	return;
+	log.info "Resource Server: " + resourceServer + " does not use a 2048 bit public key as required";
+	testRunner.fail("Resource Server: " + resourceServer + " does not use a 2048 bit public key as required");
 }
 
 // verify certificate is unexpired
@@ -16976,18 +16990,17 @@ dNA = df.parse(strNotAfter + " GMT");
 
 
 if(now.after(dNB) &amp;&amp; now.before(dNA)) {
-	log.info("Certificate has not expired");
+	log.info("Resource Server: " + resourceServer + " uses an active Certificate");
 } else {
-	testRunner.fail("Certificate has expired");
+	log.info "Resource Server: " + resourceServer + " uses an expired Certificate";
+	testRunner.fail("Resource Server: " + resourceServer + " uses an expired Certificate");
 
 	try{
 		File file = new File(projectPath+ "/etc/getcert.pem");
 		file.delete();
 	} catch(Exception e) {
-		log.error("Error deleing temp file:" + e.getMessage());
+		log.error("Error deleting /etc/getcert.pem file:" + e.getMessage());
 	}	
-	
-	return;
 }
 
 // check if RSA
@@ -16998,9 +17011,10 @@ strResult = tc.getPropertyValue("stdout");
 
 
 if(strResult.contains("Public Key Algorithm: rsaEncryption")){
-	log.info("Public Key Algorithm: rsaEncryption");
+	log.info("Resource Server: " + resourceServer + " Public Key uses the required rsa Encryption algorithm");
 } else {
-	testRunner.fail("Certificate does not use rsaEncryption");
+	log.info "Resource Server: " + resourceServer + " Public Key does not use the required rsa Encryption algoritm";
+	testRunner.fail("Resource Server: " + resourceServer + " Public Key does not use the required rsa Encryption algorithm");
 }
 
 
@@ -17008,7 +17022,7 @@ try{
 	File file = new File(projectPath+ "/etc/getcert.pem");
 	file.delete();
 } catch(Exception e) {
-	log.error("Error deleing temp file:" + e.getMessage());
+	log.error("Error deleting /etc/getcert.pem file:" + e.getMessage());
 }	
 
 
@@ -17051,7 +17065,7 @@ tc.setPropertyValue("timeout","2");
 //////////////////////////////////////
 // for authorizationServer
 //////////////////////////////////////
-log.info "Testing authorizationServer";
+log.info "===== Testing Authorization Server: " + authorizationServer + " =====";
 
 // check for connection
 tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -tls1_2  -cert stunnel.pem -connect " + resourceServer);
@@ -17061,7 +17075,8 @@ strResult = tc.getPropertyValue("stdout");
 // check that connection occurred
 if( (strResult.contains("Protocol  : TLSv1.2")) &amp;&amp; (!strResult.contains("Cipher    : 0000"))){
 } else {
-	testRunner.fail( "TLS 1.2 negotiation failed" );
+	log.info "Authorization Server: " + authorizationServer + " failed TLS 1.2 negotiation";
+	testRunner.fail("Authorization Server: " + authorizationServer + " failed TLS 1.2 negotiation");
 }
 
 
@@ -17081,26 +17096,26 @@ try{
 	File file = new File(projectPath+ "/etc/getcert.pem");
 	file.delete();
 } catch(Exception e) {
-	log.error("Error deleing temp file:" + e.getMessage());
+	log.error("Error deleting /etc/getcert.pem file:" + e.getMessage());
 }	
 
 // Ask testee to verify (manual procedure)
-result = ui.getDialogs().confirm("Verify that this certificate issuer is \nrecognized by ETSI or WebTrust:\n\n" +strResult, "\n");
+result = ui.getDialogs().confirm("Verify Authorization Server: " + authorizationServer + " certificate issuer is \nrecognized by ETSI or WebTrust:\n\n" +strResult, "\n");
 log.info (result)
 
 if(result)
 {
-	log.info "Certificate was issued by CA recognized by ETSI or WebTrust";
+	log.info "Authorization Server: " + authorizationServer + " Certificate was issued by a CA recognized by ETSI or WebTrust";
 } else {
-	testRunner.fail( "Certificate not issued by CA recognized by ETSI or WebTrust");
-	return;
+	log.info "Authorization Server: " + authorizationServer + " Certificate was not issued by a CA recognized by ETSI or WebTrust";
+	testRunner.fail("Authorization Server: " + authorizationServer + " Certificate was not issued by a CA recognized by ETSI or WebTrust");
 }
 
 
 //////////////////////////////////////
 // for resourceServer
 //////////////////////////////////////
-log.info "Testing resourceServer";
+log.info "===== Testing Resource Server: " + resourceServer + " =====";
 
 // check for connection
 tc.setPropertyValue("cmd", "echo Q | " + opensslCmd + " " + "s_client -tls1_2  -cert stunnel.pem -connect " + resourceServer);
@@ -17110,7 +17125,8 @@ strResult = tc.getPropertyValue("stdout");
 // check that connection occurred
 if( (strResult.contains("Protocol  : TLSv1.2")) &amp;&amp; (!strResult.contains("Cipher    : 0000"))){
 } else {
-	testRunner.fail( "TLS 1.2 negotiation failed" );
+	log.info "Resource Server: " + resourceServer + " failed TLS 1.2 negotiation";
+	testRunner.fail("Resource Server: " + resourceServer + " failed TLS 1.2 negotiation");
 }
 
 
@@ -17130,25 +17146,25 @@ try{
 	File file = new File(projectPath+ "/etc/getcert.pem");
 	file.delete();
 } catch(Exception e) {
-	log.error("Error deleing temp file:" + e.getMessage());
+	log.error("Error deleting /etc/getcert.pem file:" + e.getMessage());
 }	
 
 
 // Ask testee to verify (manual procedure)
-result = ui.getDialogs().confirm("Verify that this certificate issuer is \nrecognized by ETSI or WebTrust:\n\n" +strResult, "\n");
+result = ui.getDialogs().confirm("Verify Resource Server: " + resourceServer + " certificate issuer is \nrecognized by ETSI or WebTrust:\n\n" +strResult, "\n");
 log.info (result)
 
 if(result)
 {
-	log.info "Certificate was issued by CA recognized by ETSI or WebTrust";
+	log.info "Resource Server: " + resourceServer + " Certificate was issued by a CA recognized by ETSI or WebTrust";
 } else {
-	testRunner.fail( "Certificate not issued by CA recognized by ETSI or WebTrust");
-	return;
+	log.info "Resource Server: " + resourceServer + " Certificate was not issued by a CA recognized by ETSI or WebTrust";
+	testRunner.fail("Resource Server: " + resourceServer + " Certificate was not issued by a CA recognized by ETSI or WebTrust");
 }
 
 
 assert true;
-</script></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC010 Tokens and IDs have no PII" searchProperties="true" id="f2657555-c565-40fd-8bea-689fe45e254d"><con:description>Test software or manual inspection shall verify that Tokens and IDs communicated by the Data Custodian are opaque and if based on actual Customer information that they are randomized using a secure method to protect privacy.</con:description><con:settings/><con:testStep type="calltestcase" name="Run TestCase Create Authorization" id="8c6b97c0-cf20-479d-ba98-2fcab2405b3a"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>00812f7a-b4ce-4782-bf13-f27a979f6d00</con:targetTestCase><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>b9d8669b-5f96-4b36-ba00-a0f1198f125c</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>espi/1_1/resource</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>token_type</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>refresh_token</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>expires_in</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>error</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>old_access_token</con:name></con:property><con:property><con:name>client_secret</con:name></con:property><con:property><con:name>authorizationServerProxy</con:name></con:property><con:property><con:name>resourceServerProxy</con:name></con:property><con:property><con:name>mockPort</con:name></con:property><con:property><con:name>proxyOutPort</con:name></con:property><con:property><con:name>authorizationServerAuthorizationEndpointProxy</con:name></con:property><con:property><con:name>authorizationServerTokenEndpointProxy</con:name></con:property><con:property><con:name>client_access_token</con:name></con:property><con:property><con:name>resourceServer</con:name></con:property><con:property><con:name>registration_access_token</con:name></con:property></con:properties><con:returnProperties><con:entry>dataCustodianScopeSelectionScreenURI</con:entry><con:entry>authorizationServerAuthorizationEndpoint</con:entry><con:entry>redirect_uri</con:entry><con:entry>authorizationServerTokenEndpoint</con:entry><con:entry>access_token</con:entry><con:entry>resourceURI</con:entry><con:entry>authorizationURI</con:entry><con:entry>token_type</con:entry><con:entry>refresh_token</con:entry><con:entry>expires_in</con:entry><con:entry>scope</con:entry><con:entry>client_id</con:entry></con:returnProperties><con:runMode>SINGLETON_AND_WAIT</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Extract information from authorization" id="cbae16f1-0185-4e95-8000-a9437dc12e4d"><con:settings/><con:config><script>import com.eviware.soapui.support.types.StringToStringMap;
+</script></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC010 Tokens and IDs have no PII" searchProperties="true" id="f2657555-c565-40fd-8bea-689fe45e254d"><con:description>Test software or manual inspection shall verify that Tokens and IDs communicated by the Data Custodian are opaque and if based on actual Customer information that they are randomized using a secure method to protect privacy.</con:description><con:settings/><con:testStep type="calltestcase" name="Run TestCase Create Authorization" id="8c6b97c0-cf20-479d-ba98-2fcab2405b3a"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>00812f7a-b4ce-4782-bf13-f27a979f6d00</con:targetTestCase><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>d9f36b31-e037-444c-b0a3-5a253e657334</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>espi/1_1/resource</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>token_type</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>refresh_token</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>expires_in</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>error</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>old_access_token</con:name></con:property><con:property><con:name>client_secret</con:name></con:property><con:property><con:name>authorizationServerProxy</con:name></con:property><con:property><con:name>resourceServerProxy</con:name></con:property><con:property><con:name>mockPort</con:name></con:property><con:property><con:name>proxyOutPort</con:name></con:property><con:property><con:name>authorizationServerAuthorizationEndpointProxy</con:name></con:property><con:property><con:name>authorizationServerTokenEndpointProxy</con:name></con:property><con:property><con:name>client_access_token</con:name></con:property><con:property><con:name>resourceServer</con:name></con:property><con:property><con:name>registration_access_token</con:name></con:property></con:properties><con:returnProperties><con:entry>dataCustodianScopeSelectionScreenURI</con:entry><con:entry>authorizationServerAuthorizationEndpoint</con:entry><con:entry>redirect_uri</con:entry><con:entry>authorizationServerTokenEndpoint</con:entry><con:entry>access_token</con:entry><con:entry>resourceURI</con:entry><con:entry>authorizationURI</con:entry><con:entry>token_type</con:entry><con:entry>refresh_token</con:entry><con:entry>expires_in</con:entry><con:entry>scope</con:entry><con:entry>client_id</con:entry></con:returnProperties><con:runMode>SINGLETON_AND_WAIT</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Extract information from authorization" id="cbae16f1-0185-4e95-8000-a9437dc12e4d"><con:settings/><con:config><script>import com.eviware.soapui.support.types.StringToStringMap;
 
 def propCreateAuthResults  = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
 
@@ -17168,7 +17184,7 @@ headers.put("Authorization","Bearer " + testRunner.testCase.testSuite.project.ge
 headers.put("Content-Type","Application/atom+xml");
 propTestStep.testRequest.setRequestHeaders(headers);
  </script></con:config></con:testStep><con:testStep type="httprequest" name="GET Resource URI" id="56836459-4a00-438e-9e49-473f4079e441"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Resource URI" id="78e4f188-7880-4f9a-89cc-aabcc1efe6c3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
-  &lt;con:entry key="Authorization" value="Bearer b9d8669b-5f96-4b36-ba00-a0f1198f125c"/>
+  &lt;con:entry key="Authorization" value="Bearer d9f36b31-e037-444c-b0a3-5a253e657334"/>
   &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
 &lt;/xml-fragment></con:setting></con:settings><con:endpoint>espi/1_1/resource</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="abf9a02f-0549-44e3-b1ae-a2d99f0e05b1"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema Validation" id="3978bfd5-0e54-4aa4-93a1-0499147f36c1"><con:configuration><scriptText>import javax.xml.XMLConstants;
 import javax.xml.transform.Source;
@@ -28404,7 +28420,7 @@ headers.put("Authorization","Bearer " + testRunner.testCase.testSuite.project.ge
 headers.put("Content-Type","Application/atom+xml");
 propTestStep.testRequest.setRequestHeaders(headers);
  </script></con:config></con:testStep><con:testStep type="httprequest" name="GET Resource URI" id="c9886d39-ce8e-4beb-b1ed-2fb87757a2b6"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Resource URI" id="59862797-37c5-4509-8f7f-17b6ccd7152c" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
-  &lt;con:entry key="Authorization" value="Bearer b9d8669b-5f96-4b36-ba00-a0f1198f125c"/>
+  &lt;con:entry key="Authorization" value="Bearer d9f36b31-e037-444c-b0a3-5a253e657334"/>
   &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
 &lt;/xml-fragment></con:setting></con:settings><con:endpoint>espi/1_1/resource</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="d36c1625-da09-4e8a-a2d8-1e7301df8e38"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema Validation" id="fab40464-9fbb-4e83-834c-e397764bcdd4"><con:configuration><scriptText>import javax.xml.XMLConstants;
 import javax.xml.transform.Source;
@@ -39612,17 +39628,37 @@ if(result)
    </entry>
 </feed>]]></con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC012 FIPS 140-2 support" searchProperties="true" id="853b39c2-bc6c-4ca1-a415-7a6cbd53db05"><con:description>Manual inspection of supporting documentation shall confirm that the Data Custodian implementation utilizes software libraries which are FIPS 140-2 level 1 or higher and listed on the CMVP website.</con:description><con:settings/><con:testStep type="groovy" name="FIPS 140-2 support" id="9c38a12a-f932-47ef-8f17-7090c5aabd82"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
 
+def project = testRunner.testCase.testSuite.project
+def authorizationServer = project.getPropertyValue( "authorizationServer" );
+def resourceServer = project.getPropertyValue( "resourceServer" );
+
 // Ask testee to verify (manual procedure)
-result = ui.getDialogs().confirm("Verify that the software used for TLS has been validated against FIPS 140-2", "\n");
-log.info (result)
+log.info("Testing Authorization Server: " + authorizationServer);
+result = ui.getDialogs().confirm("Verify Authorization Server: " + authorizationServer + " TLS software has been validated against FIPS 140-2", "\n");
+//log.info (result)
 
 
 if(result)
 {
-	log.info "FIPS 140-2 Supported";
+	log.info "Authorization Server: " + authorizationServer + " TLS software supports FIPS 140-2";
 } else {
-	testRunner.fail( "FIPS 140-2 Not Supported");
-	return;
+	log.info "Authorization Server: " + authorizationServer + " TLS software does not support FIPS 140-2";
+	testRunner.fail("Authorization Server: " + authorizationServer + " TLS software does not support FIPS 140-2");
+}
+
+
+// Ask testee to verify (manual procedure)
+log.info("Testing Resource Server: " + resourceServer);
+result = ui.getDialogs().confirm("Verify Resource Server: " + authorizationServer + " TLS software has been validated against FIPS 140-2", "\n");
+//log.info (result)
+
+
+if(result)
+{
+	log.info "Resource Server: " + resourceServer + " TLS software supports FIPS 140-2";
+} else {
+	log.info "Resource Server: " + resourceServer + " TLS software does not support FIPS 140-2";
+	testRunner.fail("Resource Server: " + resourceServer + " TLS software does not support FIPS 140-2");
 }
 </script></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties/></con:testCase><con:properties/>
 <con:setupScript>log.info "===== Start TestSuite =====> " + testSuite.name</con:setupScript><con:tearDownScript>def results = true;
@@ -41096,7 +41132,8 @@ if(context["driver"] != null){
 	context["driver"] = null;	
 }
 
-log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>8TmRz3</con:value></con:property><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"d9f36b31-e037-444c-b0a3-5a253e657334","token_type":"bearer","refresh_token":"ab63dbdf-9992-4b48-8963-2eabd581dd31","expires_in":315359999,"scope":"FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13","resourceURI":"https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/7","authorizationURI":"https://localhost:8443/DataCustodian/espi/1_1/resource/Authorization/7"}</con:value></con:property><con:property><con:name>access_token</con:name><con:value>039121fb-af73-4669-b972-4b4f9fd2281a</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>d7ba0b90-70ea-41a1-82dc-3e9b6e8361c8</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>119</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD006 [NEG] Invalid Access Token Requests for ApplicationInformation" searchProperties="true" id="12b61b3f-7940-4953-8d46-715534e8ee86"><con:settings/><con:testStep type="restrequest" name="GET ApplicationInformation with incorrect Access Token &quot;client_access_token&quot;" id="462ea7ae-1c68-4eef-8f9c-94930aad47e5"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ApplicationInformation with incorrect Access Token &quot;client_access_token&quot;" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>8TmRz3</con:value></con:property><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"d9f36b31-e037-444c-b0a3-5a253e657334","token_type":"bearer","refresh_token":"ab63dbdf-9992-4b48-8963-2eabd581dd31","expires_in":315359999,"scope":"FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13","resourceURI":"https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/7","authorizationURI":"https://localhost:8443/DataCustodian/espi/1_1/resource/Authorization/7"}
+</con:value></con:property><con:property><con:name>access_token</con:name><con:value>039121fb-af73-4669-b972-4b4f9fd2281a</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>d7ba0b90-70ea-41a1-82dc-3e9b6e8361c8</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>119</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD006 [NEG] Invalid Access Token Requests for ApplicationInformation" searchProperties="true" id="12b61b3f-7940-4953-8d46-715534e8ee86"><con:settings/><con:testStep type="restrequest" name="GET ApplicationInformation with incorrect Access Token &quot;client_access_token&quot;" id="462ea7ae-1c68-4eef-8f9c-94930aad47e5"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ApplicationInformation with incorrect Access Token &quot;client_access_token&quot;" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
 
 					<con:settings>
 						<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
@@ -47174,7 +47211,7 @@ if( requestBody.contains("some data") )
 	
 	
 	
-	<con:property><con:name>bulkId</con:name><con:value>1</con:value></con:property><con:property><con:name>certScopes</con:name><con:value>FB=1_4_5_15</con:value></con:property><con:property><con:name>client_access_token</con:name><con:value>fa480479-f5ba-4e0a-824a-26fd64a0040f</con:value></con:property>
+	<con:property><con:name>bulkId</con:name><con:value>1</con:value></con:property><con:property><con:name>certScopes</con:name><con:value>FB=1_4_5_15</con:value></con:property><con:property><con:name>client_access_token</con:name><con:value>a73ff1a2-8722-4861-ae01-56f6a27fd004</con:value></con:property>
 	
 	
 	
@@ -47202,7 +47239,7 @@ if( requestBody.contains("some data") )
 	
 	
 	
-	<con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value>593f1989-15bf-4c7c-be48-bf3a3c6f6ca7</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>c66b0854-ea1f-4e24-afb7-afab9e0f6c5e</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>localhost:8443</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceUri</con:name><con:value>espi/1_1/resource</con:value></con:property>
+	<con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value>ca1db289-d533-42ef-bdc7-fe406d05054a</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>c66b0854-ea1f-4e24-afb7-afab9e0f6c5e</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>localhost:8443</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceUri</con:name><con:value>espi/1_1/resource</con:value></con:property>
 	
 	
 	
