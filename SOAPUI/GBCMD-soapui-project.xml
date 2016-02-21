@@ -45369,7 +45369,7 @@ else {
 	log.info "===== FAILED End   TestSuite =====> " + testSuite.name
 }
 </con:tearDownScript></con:testSuite><con:restMockService port="8081" path="/" host="openespivm" name="ThirdParty Notification REST MockService 1" docroot="" id="44aa183e-c020-4e6b-8402-539544493841"><con:settings/><con:startScript>context.mockService.setPropertyValue("rxNotificationBody","");</con:startScript><con:properties><con:property><con:name>rxNotificationBody</con:name><con:value/></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property></con:properties><con:onRequestScript/><con:restMockAction name="/ThirdParty/espi/1_1/Notification" method="POST" resourcePath="/ThirdParty/espi/1_1/Notification" id="6b6053c9-2c1a-4384-9b10-782eb51bbd4c"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>if(requestContext.mockService.getPropertyValue("rxNotificationBody")!= "") {
-	log.info("Discarding addtional notifications");
+	log.info("ThirdParty Notification REST MockService 1 -- Notification POST Response -- Discarding additional notifications");
 	return;	
 }
 
@@ -45377,7 +45377,7 @@ String strBody = "";
 requestContext.mockService.setPropertyValue("rxNotificationBody",strBody);
 
 if(mockRequest.httpRequest.method != "POST") {
-	log.info("Message other than POST received. Discarding");
+	log.info("ThirdParty Notification REST MockService 1 -- Notification POST Response -- Message other than POST received. Discarding");
 	return;
 }
 
@@ -45387,7 +45387,7 @@ try {
 	log.info str;
 
 	str.eachLine {line->
-		log.info "Line: " + line;
+		log.info "ThirdParty Notification REST MockService 1 -- Notification POST Response -- Line: " + line;
 		strBody = strBody + line;
 	}
 
@@ -45395,17 +45395,18 @@ try {
 //		strBody = strBody + line;
 //	}
 
-	log.info("RX Notification POST Body:" + strBody);
+	log.info("ThirdParty Notification REST MockService 1 -- Notification POST Response -- RX Notification POST Body:" + strBody);
        
-  } catch (Exception e) { 
-	log.error("exception:"+e)
+  } catch (Exception e) {
+  	log.info("ThirdParty Notification REST MockService 1 -- Notification POST Response -- Exception: " + e); 
+	log.error("ThirdParty Notification REST MockService 1 -- Notification POST Response -- Exception: " + e)
 }
 
 requestContext.mockService.setPropertyValue("rxNotificationBody",strBody);
 
 
 
-</con:dispatchPath><con:response name="Response 1" httpResponseStatus="200" id="31e9433f-70db-4381-8f38-75ff01ad0a7e"><con:settings/><con:script/><con:responseContent/></con:response></con:restMockAction></con:restMockService>
+</con:dispatchPath><con:response name="Notification POST Response" httpResponseStatus="200" id="31e9433f-70db-4381-8f38-75ff01ad0a7e"><con:settings/><con:script/><con:responseContent/></con:response></con:restMockAction></con:restMockService>
 <con:restMockService port="8081" path="/" host="openespivm" name="ThirdParty Authorization Mock Service" docroot="" id="3a34ffc3-4858-4237-a55a-0cc1f8544c4a"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value>error=access_denied&amp;error_description=User%20denied%20access&amp;state=ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">secret</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>state</con:name><con:value>ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="a19f663e-daf5-4eab-bc7c-0fb638c2496d"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Examples showing how to match based on path, query param and header
 // Match based on path
