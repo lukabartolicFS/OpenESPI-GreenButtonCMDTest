@@ -8566,7 +8566,7 @@ if(context["driver"] != null){
 	context["driver"] = null;	
 }
 
-</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>d9f36b31-e037-444c-b0a3-5a253e657334</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>espi/1_1/resource</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>token_type</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>refresh_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>expires_in</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>old_access_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">secret</con:value></con:property><con:property><con:name>authorizationServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>resourceServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>mockPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8080</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>authorizationServerTokenEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">0cc1b0dd-fe2c-4b4c-bc41-0e0ac6488c04</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">localhost:8443</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">7878494f-b7cb-41bc-a67d-91148287e2ca</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand" id="06648a84-6352-4b25-b179-693e52d162cc"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
+</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>d9f36b31-e037-444c-b0a3-5a253e657334</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>espi/1_1/resource</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>token_type</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>refresh_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>expires_in</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>old_access_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">secret</con:value></con:property><con:property><con:name>authorizationServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>resourceServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>mockPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8080</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>authorizationServerTokenEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8cd85f7f-b9e7-4069-9923-029acf7e3893</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">localhost:8443</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">df26df72-f09d-418a-9046-e8e21f0a4981</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand" id="06648a84-6352-4b25-b179-693e52d162cc"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
 
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
@@ -42386,7 +42386,7 @@ else {
 <con:testSuite name="[FB_35] REST for Bulk" id="902b2534-ffb3-4f52-ad3b-e15e9874bd3d">
 	<con:settings/>
 	<con:runType>SEQUENTIAL</con:runType>
-	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RBK_001 [POS] REST for BULK notification - authorized GET access" searchProperties="true" id="cc94e3e8-ec2d-4d2b-b464-92c12ef24449">
+	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RBK001 [POS] REST for BULK notification - authorized GET access" searchProperties="true" id="cc94e3e8-ec2d-4d2b-b464-92c12ef24449">
 		<con:settings/>
 		<con:testStep type="restrequest" name="GET Authorization Feed" id="dc9b4f80-c933-472e-9573-db6b6bc60403"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/Authorization" methodName="GET Authorization Feed" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET Authorization Feed" mediaType="application/json" id="78372758-3493-4c0e-925a-ffff58d1cb41">
 				<con:settings>
@@ -42414,18 +42414,31 @@ service.setPropertyValue("rxNotificationBody","");
 def runner = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Notification REST MockService 1").start();
 context.mockRunner = runner;
 
-return;</script></con:config></con:testStep><con:testStep type="manualTestStep" name="Have DataCustodian Issue a Notification message with Batch/Bulk information" id="8751efac-f80f-4cc3-836f-591093aa6a0e"><con:description>From the DataCustodian under test please manually initiate a Notification of Batch/Bulk.
-After the notification is issued please indicate "Pass" on this test step "test status" and click OK.
-</con:description><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult>Pass</con:expectedResult></con:config></con:testStep><con:testStep type="groovy" name="Stop Mock Service" id="05af9309-ea0c-45a6-8fd2-ca30afe7e725"><con:settings/><con:config><script>context.mockRunner.stop();
+return;</script></con:config></con:testStep><con:testStep type="groovy" name="Request DataCustodian to Issue a Notification message with Batch/Bulk information" id="d49f682e-b375-44c1-aed9-91d8a59558c9"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
+
+String strDialog = "Request Data Custodian to manually initiate a Notification that contains Batch/Bulk information.\r\n\
+\r\n\
+If you do not wish to proceed please click No.\r\n\
+After the Notification has been issued please click Yes.\r\n";
+
+result = ui.getDialogs().confirm(strDialog, "Continue Tests");
+
+if(result==false) {
+	log.error("RBK001 [POS] REST for BULK notification - authorized GET access (Request DataCustodian to issue Notification message with Batch/Bulk information) Testing terminated by user.");
+	testRunner.fail("RBK001 [POS] REST for BULK notification - authorized GET access (Request DataCustodian to issue Notification message with Batch/Bulk information) Testing terminated by user.");
+	return;	
+}
+
+assert true;</script></con:config></con:testStep><con:testStep type="groovy" name="Stop Mock Service" id="05af9309-ea0c-45a6-8fd2-ca30afe7e725"><con:settings/><con:config><script>context.mockRunner.stop();
 return;</script></con:config></con:testStep><con:testStep type="groovy" name="Validate notification" id="b434360f-a30a-4f31-ba44-5d61211fe1e9"><con:settings/><con:config><script>def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context );
 def service = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Notification REST MockService 1");
 
 String strNotificationBody =  service.getPropertyValue("rxNotificationBody");
-log.info("notification Body:" + strNotificationBody);
+log.info("RBK001 [POS] REST for BULK notification - authorized GET access (Validate notification) notification Body:" + strNotificationBody);
 
 if(!strNotificationBody) {
-	log.error("No notification received or empty notification body.");
-	testRunner.fail("No notification received or empty notification body.");
+	log.error("RBK001 [POS] REST for BULK notification - authorized GET access (Validate notification) No notification received or empty notification body.");
+	testRunner.fail("RBK001 [POS] REST for BULK notification - authorized GET access (Validate notification) No notification received or empty notification body.");
 	return;	
 }
 
@@ -42433,18 +42446,18 @@ def holder;
 try{
 	holder = groovyUtils.getXmlHolder(strNotificationBody);
 } catch(org.apache.xmlbeans.XmlException e) {
-	log.error("Invalid notification body:" + e.toString());
-	testRunner.fail("Invalid notification body.");
+	log.error("RBK001 [POS] REST for BULK notification - authorized GET access (Validate notification) Invalid notification body:" + e.toString());
+	testRunner.fail("RBK001 [POS] REST for BULK notification - authorized GET access (Validate notification) Invalid notification body.");
 	return;
 }
 
 
 String strNotificationURI = holder.getNodeValue("//espi:BatchList/espi:resources")
-log.info("notification URI:" + strNotificationURI);
+log.info("RBK001 [POS] REST for BULK notification - authorized GET access (Validate notification) notification URI:" + strNotificationURI);
 
 if(!strNotificationURI) {
-	log.error("Invalid URI supplied in the notification.");
-	testRunner.fail("Invalid URI supplied in the notification.");
+	log.error("RBK001 [POS] REST for BULK notification - authorized GET access (Validate notification) Invalid URI supplied in the notification.");
+	testRunner.fail("RBK001 [POS] REST for BULK notification - authorized GET access (Validate notification) Invalid URI supplied in the notification.");
 	return;	
 }
 
@@ -42475,14 +42488,14 @@ if(strNotificationURI.startsWith("http://")){
 	context.strHost = strHost;
 	context.strResource = strResource;
 	
-	log.error("notification must be for a REST resource.");
-	testRunner.fail("notification must be for a REST resource.");	
+	log.error("RBK001 [POS] REST for BULK notification - authorized GET access (Validate notification) notification must be for a REST resource.");
+	testRunner.fail("RBK001 [POS] REST for BULK notification - authorized GET access (Validate notification) notification must be for a REST resource.");	
 	return;	
 	
 	
 } else {
-	log.error("Invalid URI supplied in the notification.");
-	testRunner.fail("Invalid URI supplied in the notification.");
+	log.error("RBK001 [POS] REST for BULK notification - authorized GET access (Validate notification) Invalid URI supplied in the notification.");
+	testRunner.fail("RBK001 [POS] REST for BULK notification - authorized GET access (Validate notification) Invalid URI supplied in the notification.");
 	return;	
 }
 </script></con:config></con:testStep><con:testStep type="groovy" name="Issue GET" id="4b1064b1-2de9-4cfd-8139-7ea0d0dc9dad"><con:settings/><con:config><script>import groovyx.net.http.HTTPBuilder
@@ -42513,7 +42526,7 @@ public class ResourceTester {
 			}		
 										
 			response.failure = { resp ->
-				log.error("GET Failed: " + resp.statusLine);
+				log.error("RBK001 [POS] REST for BULK notification - authorized GET access (Issue GET) GET Failed: " + resp.statusLine);
 				return null;
 			}  
 		}
@@ -42528,8 +42541,8 @@ ResourceTester resourceTester = new ResourceTester(log);
 String strGetResponseBody = resourceTester.doGET(context.strHost,context.strResource,access_token);
 
 if(strGetResponseBody==null) {
-	log.error("GET request failed.");
-	testRunner.fail("GET request failed.");
+	log.error("RBK001 [POS] REST for BULK notification - authorized GET access (Issue GET) GET request failed.");
+	testRunner.fail("RBK001 [POS] REST for BULK notification - authorized GET access (Issue GET) GET request failed.");
 	return;	
 }
 
@@ -42545,14 +42558,14 @@ import javax.xml.validation.Validator;
 
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 
-log.info("validating: " + context.ResponseBody);
+log.info("RBK001 [POS] REST for BULK notification - authorized GET access (Validate response against schema) validating: " + context.ResponseBody);
 
 def holder;
 try{
 	holder = groovyUtils.getXmlHolder(context.ResponseBody);
 } catch(org.apache.xmlbeans.XmlException e) {
-	log.error("Invalid response body: " + e.toString());
-	testRunner.fail("Invalid response body.");
+	log.error("RBK001 [POS] REST for BULK notification - authorized GET access (Validate response against schema) Invalid response body: " + e.toString());
+	testRunner.fail("RBK001 [POS] REST for BULK notification - authorized GET access (Validate response against schema) Invalid response body.");
 	return;
 }
 
@@ -42568,12 +42581,12 @@ Validator v = s.newValidator();
 try {
 	v.validate(instanceDocument);
 } catch(org.xml.sax.SAXParseException e) {
-	log.error("Response failed schema validation: " + e.toString());
-	testRunner.fail("Response failed schema validation. See script log for details.");
+	log.error("RBK001 [POS] REST for BULK notification - authorized GET access (Validate response against schema) Response failed schema validation: " + e.toString());
+	testRunner.fail("RBK001 [POS] REST for BULK notification - authorized GET access (Validate response against schema) Response failed schema validation. See script log for details.");
 	return;
 }
 
-</script></con:config></con:testStep><con:testStep type="groovy" name="Validate data received" id="7e0363bc-cc80-474a-86bc-040ad2040226"><con:settings/><con:config><script>import groovy.io.FileType;
+</script></con:config></con:testStep><con:testStep type="groovy" name="Validate received data" id="7e0363bc-cc80-474a-86bc-040ad2040226"><con:settings/><con:config><script>import groovy.io.FileType;
 import javax.xml.XMLConstants;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
@@ -42589,8 +42602,8 @@ def Authorizations;
 try{
 	Authorizations = groovyUtils.getXmlHolder(testRunner.testCase.testSteps["GET Authorization Feed"].testRequest.response.responseContent);
 } catch(org.apache.xmlbeans.XmlException e) {
-	log.error("could not obtain Authorizations XML " + e.toString());
-	testRunner.fail("One or more response files failed validation. See script log for details.");
+	log.error("RBK001 [POS] REST for BULK notification - authorized GET access (Validate received data) Could not obtain Authorizations XML " + e.toString());
+	testRunner.fail("RBK001 [POS] REST for BULK notification - authorized GET access (Validate received data) One or more response files failed validation. See script log for details.");
 	return;
 }
 
@@ -42600,7 +42613,7 @@ Authorizations.declareNamespace( 'atom', 'http://www.w3.org/2005/Atom');
 def nodesAuthResource = Authorizations.getDomNodes("//atom:entry");
 
 
-log.info("Validating data: " + context.ResponseBody);
+log.info("RBK001 [POS] REST for BULK notification - authorized GET access (Validate received data) Validating data: " + context.ResponseBody);
 
 boolean bFailed = false;
 
@@ -42608,7 +42621,7 @@ def holder;
 try{
 	holder = groovyUtils.getXmlHolder(context.ResponseBody);
 } catch(org.apache.xmlbeans.XmlException e) {
-	log.error("Invalid response body: " + e.toString());
+	log.error("RBK001 [POS] REST for BULK notification - authorized GET access (Validate received data) Invalid response body: " + e.toString());
 	bFailed = true;
 }
 
@@ -42619,7 +42632,7 @@ String strCount = "0";
 try{
 	strCount = holder.getNodeValue("count(//atom:entry)")
 } catch(org.apache.xmlbeans.XmlException e) {
-	log.error("Invalid response body. Cannot query response: " +  e.toString());
+	log.error("RBK001 [POS] REST for BULK notification - authorized GET access (Validate received data) Invalid response body. Cannot query response: " +  e.toString());
 	bFailed = true;
 }
 
@@ -42634,11 +42647,11 @@ for(entryNode in entryNodes) {
 	nodeHolder.declareNamespace( 'atom', 'http://www.w3.org/2005/Atom');
 	
 	if(nodeHolder.getDomNodes("//atom:content/espi:ReadingType").length>0) {
-		log.info("Skipping ReadingType entry");
+		log.info("RBK001 [POS] REST for BULK notification - authorized GET access (Validate received data) Skipping ReadingType entry");
 	} else if(nodeHolder.getDomNodes("//atom:content/espi:LocalTimeParameters").length>0) {
-		log.info("Skipping LocalTimeParameters entry");
+		log.info("RBK001 [POS] REST for BULK notification - authorized GET access (Validate received data) Skipping LocalTimeParameters entry");
 	} else if(nodeHolder.getDomNodes("//atom:content/espi:Authorization").length>0) {
-		log.info("processing entry:"+ nodeHolder.getDomNode("//atom:content/*").getNodeName());
+		log.info("RBK001 [POS] REST for BULK notification - authorized GET access (Validate received data) Processing entry:"+ nodeHolder.getDomNode("//atom:content/*").getNodeName());
 		String strEntrySelfLink = nodeHolder.getDomNode("//atom:link[@rel='self']/@href").getNodeValue();
 
 		boolean bMatchFound = false;
@@ -42656,22 +42669,22 @@ for(entryNode in entryNodes) {
 		}
 
 		if(!bMatchFound){
-			log.error("No matching authorization for: " + strEntrySelfLink);
+			log.error("RBK001 [POS] REST for BULK notification - authorized GET access (Validate received data) No matching authorization for: " + strEntrySelfLink);
 			bFailedAuthCheck = true;
 		}
 		
 	} else if(nodeHolder.getDomNodes("//atom:content/espi:ApplicationInformation").length>0) {
-		log.info("processing entry:"+ nodeHolder.getDomNode("//atom:content/*").getNodeName());
+		log.info("RBK001 [POS] REST for BULK notification - authorized GET access (Validate received data) Processing entry:"+ nodeHolder.getDomNode("//atom:content/*").getNodeName());
 		String strEntrySelfLink = nodeHolder.getDomNode("//atom:link[@rel='self']/@href").getNodeValue();
 
 		String strAppInfoURI = testRunner.testCase.testSuite.project.getPropertyValue("ServiceEndpoint") + "/" + testRunner.testCase.testSuite.project.getPropertyValue("resourceUri") + "/ApplicationInformation/" + testRunner.testCase.testSuite.project.getPropertyValue("applicationInformationId");
 		if(!strEntrySelfLink.equals(strAppInfoURI)){
-			log.error("Self link does not match AppplicationInformation URI. Self link=" + strEntrySelfLink);
+			log.error("RBK001 [POS] REST for BULK notification - authorized GET access (Validate received data) Self link does not match AppplicationInformation URI. Self link=" + strEntrySelfLink);
 			bFailed = true;
 		}
 		
 	} else {
-		log.info("processing entry:"+ nodeHolder.getDomNode("//atom:content/*").getNodeName());
+		log.info("RBK001 [POS] REST for BULK notification - authorized GET access (Validate received data) Processing entry:"+ nodeHolder.getDomNode("//atom:content/*").getNodeName());
 		String strEntrySelfLink = nodeHolder.getDomNode("//atom:link[@rel='self']/@href").getNodeValue();
 
 		boolean bMatchFound = false;
@@ -42690,7 +42703,7 @@ for(entryNode in entryNodes) {
 		}
 
 		if(!bMatchFound){
-			log.error("No matching authorization for: " + strEntrySelfLink);
+			log.error("RBK001 [POS] REST for BULK notification - authorized GET access (Validate received data) No matching authorization for: " + strEntrySelfLink);
 			bFailedAuthCheck = true;
 		}
 	}
@@ -42698,7 +42711,7 @@ for(entryNode in entryNodes) {
 
 if(bFailedAuthCheck) { 
 	bFailed = true;
-	log.error("The list of authorizations follows:");
+	log.error("RBK001 [POS] REST for BULK notification - authorized GET access (Validate received data) The list of authorizations follows:");
 	for(nodeAuthResource in nodesAuthResource){
 		
 		def nodeAuthHolder = new XmlHolder(nodeAuthResource);
@@ -42706,16 +42719,16 @@ if(bFailedAuthCheck) {
 		nodeAuthHolder.declareNamespace( 'atom', 'http://www.w3.org/2005/Atom');
 	
 		String strAuthResourceURI =  nodeAuthHolder.getDomNode("//espi:resourceURI").getFirstChild().getNodeValue();
-		log.error("check Auth ResURI:" + strAuthResourceURI);
+		log.error("RBK001 [POS] REST for BULK notification - authorized GET access (Validate received data) Check Auth ResURI:" + strAuthResourceURI);
 	}
 }
 
 if(bFailed) {
-	testRunner.fail("One or more response files failed validation. See script log for details.");
+	testRunner.fail("RBK001 [POS] REST for BULK notification - authorized GET access (Validate received data) One or more response files failed validation. See script log for details.");
 }
 
 if(iEntryCnt==0) {
-	testRunner.fail("Batch/bulk feed must contain at least one entry but the response contains none.");
+	testRunner.fail("RBK001 [POS] REST for BULK notification - authorized GET access (Validate received data) Batch/bulk feed must contain at least one entry but the response contains none.");
 }
 
 return;
@@ -42729,17 +42742,30 @@ service.setPropertyValue("rxNotificationBody","");
 def runner = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Notification REST MockService 1").start();
 context.mockRunner = runner;
 
-return;</script></con:config></con:testStep><con:testStep type="manualTestStep" name="Have DataCustodian Issue a Notification message with Batch/Bulk information" id="3795637b-2882-4ba2-b2b0-016bd498f803"><con:description>From the DataCustodian under test please manually initiate a Notification of Batch/Bulk.
-After the notification is issued please indicate "Pass" on this test step "test status" and click OK.
-</con:description><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult>Pass</con:expectedResult></con:config></con:testStep><con:testStep type="groovy" name="Stop Mock Service" id="98839fcf-70e0-43d0-9205-01640cdb83eb"><con:settings/><con:config><script>context.mockRunner.stop();
+return;</script></con:config></con:testStep><con:testStep type="groovy" name="Request DataCustodian to Issue a Notification message with Batch/Bulk information" id="1843d72d-adc4-42fc-ad36-31258f1881b1"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
+
+String strDialog = "Request Data Custodian to manually initiate a Notification that contains Batch/Bulk information.\r\n\
+\r\n\
+If you do not wish to proceed please click No.\r\n\
+After the Notification has been issued please click Yes.\r\n";
+
+result = ui.getDialogs().confirm(strDialog, "Continue Tests");
+
+if(result==false) {
+	log.error("RBK001 [POS] REST for BULK notification - authorized GET access (Request DataCustodian to issue Notification message with Batch/Bulk information) Testing terminated by user.");
+	testRunner.fail("RBK001 [POS] REST for BULK notification - authorized GET access (Request DataCustodian to issue Notification message with Batch/Bulk information) Testing terminated by user.");
+	return;	
+}
+
+assert true;</script></con:config></con:testStep><con:testStep type="groovy" name="Stop Mock Service" id="98839fcf-70e0-43d0-9205-01640cdb83eb"><con:settings/><con:config><script>context.mockRunner.stop();
 return;</script></con:config></con:testStep><con:testStep type="groovy" name="Validate notification" id="30404ab7-cc97-47e3-9bdb-45b1ddc9ad8c"><con:settings/><con:config><script>def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context );
 def service = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Notification REST MockService 1");
 
 String strNotificationBody =  service.getPropertyValue("rxNotificationBody");
 
 if(!strNotificationBody) {
-	log.error("No notification received or empty notification body.");
-	testRunner.fail("No notification received or empty notification body.");
+	log.error("RBK002 [NEG] REST for BULK notification - Forbidden GET access (Validate notification) No notification received or empty notification body.");
+	testRunner.fail("RBK002 [NEG] REST for BULK notification - Forbidden GET access (Validate notification) No notification received or empty notification body.");
 	return;	
 }
 
@@ -42747,18 +42773,18 @@ def holder;
 try{
 	holder = groovyUtils.getXmlHolder(strNotificationBody);
 } catch(org.apache.xmlbeans.XmlException e) {
-	log.error("Invalid notification body:" + e.toString());
-	testRunner.fail("Invalid notification body.");
+	log.error("RBK002 [NEG] REST for BULK notification - Forbidden GET access (Validate notification) Invalid notification body:" + e.toString());
+	testRunner.fail("RBK002 [NEG] REST for BULK notification - Forbidden GET access (Validate notification) Invalid notification body.");
 	return;
 }
 
 
 String strNotificationURI = holder.getNodeValue("//espi:BatchList/espi:resources")
-log.info("notification URI:" + strNotificationURI);
+log.info("RBK002 [NEG] REST for BULK notification - Forbidden GET access (Validate notification) Notification URI:" + strNotificationURI);
 
 if(!strNotificationURI) {
-	log.error("Invalid URI supplied in the notification.");
-	testRunner.fail("Invalid URI supplied in the notification.");
+	log.error("RBK002 [NEG] REST for BULK notification - Forbidden GET access (Validate notification) Invalid URI supplied in the notification.");
+	testRunner.fail("RBK002 [NEG] REST for BULK notification - Forbidden GET access (Validate notification) Invalid URI supplied in the notification.");
 	return;	
 }
 
@@ -42789,14 +42815,14 @@ if(strNotificationURI.startsWith("http://")){
 	context.strHost = strHost;
 	context.strResource = strResource;
 	
-	log.error("notification must be for a REST resource.");
-	testRunner.fail("notification must be for a REST resource.");	
+	log.error("RBK002 [NEG] REST for BULK notification - Forbidden GET access (Validate notification) Notification must be for a REST resource.");
+	testRunner.fail("RBK002 [NEG] REST for BULK notification - Forbidden GET access (Validate notification) Notification must be for a REST resource.");	
 	return;	
 	
 	
 } else {
-	log.error("Invalid URI supplied in the notification.");
-	testRunner.fail("Invalid URI supplied in the notification.");
+	log.error("RBK002 [NEG] REST for BULK notification - Forbidden GET access (Validate notification) Invalid URI supplied in the notification.");
+	testRunner.fail("RBK002 [NEG] REST for BULK notification - Forbidden GET access (Validate notification) Invalid URI supplied in the notification.");
 	return;	
 }
 </script></con:config></con:testStep><con:testStep type="groovy" name="Issue GET" id="1d7ae045-0c64-4b1a-a73e-c58beecc19d2"><con:settings/><con:config><script>import groovyx.net.http.HTTPBuilder
@@ -42841,8 +42867,8 @@ ResourceTester resourceTester = new ResourceTester(log);
 access_token = testRunner.testCase.testSuite.project.getPropertyValue("access_token");
 iResp = resourceTester.doGET(context.strHost,context.strResource,access_token);
 if(iResp!=403) {
-	log.error("GET request did not return 403 for access_token.");
-	testRunner.fail("GET request did not return 403 for access_token.");
+	log.error("RBK002 [NEG] REST for BULK notification - Forbidden GET access (Issue GET) GET request did not return 403 for access_token.");
+	testRunner.fail("RBK002 [NEG] REST for BULK notification - Forbidden GET access (Issue GET) GET request did not return 403 for access_token.");
 	return;	
 }
 
@@ -42850,15 +42876,15 @@ if(iResp!=403) {
 access_token = testRunner.testCase.testSuite.project.getPropertyValue("registration_access_token");
 iResp = resourceTester.doGET(context.strHost,context.strResource,access_token);
 if(iResp!=403) {
-	log.error("GET request did not return 403 for registration_access_token.");
-	testRunner.fail("GET request did not return 403 for registration_access_token.");
+	log.error("RBK002 [NEG] REST for BULK notification - Forbidden GET access (Issue GET) GET request did not return 403 for registration_access_token.");
+	testRunner.fail("RBK002 [NEG] REST for BULK notification - Forbidden GET access (Issue GET) GET request did not return 403 for registration_access_token.");
 	return;	
 }
 
 iResp = resourceTester.doGET(context.strHost,context.strResource,"");
 if(iResp!=403) {
-	log.error("GET request did not return 403 for empty access token.");
-	testRunner.fail("GET request did not return 403 for empty access token.");
+	log.error("RBK002 [NEG] REST for BULK notification - Forbidden GET access (Issue GET) GET request did not return 403 for empty access token.");
+	testRunner.fail("RBK002 [NEG] REST for BULK notification - Forbidden GET access (Issue GET) GET request did not return 403 for empty access token.");
 	return;	
 }
 
@@ -43453,9 +43479,7 @@ service.setPropertyValue("rxNotificationBody","");
 def runner = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Notification REST MockService 1").start();
 context.mockRunner = runner;
 
-return;</script></con:config></con:testStep><con:testStep type="groovy" name="Request DataCustodian to issue Notification message with ApplicationInformation Information" id="cc4851f3-ddd2-4685-9ea5-5c08d3c2e79e"><con:settings/><con:config><script>
-
-def ui = com.eviware.soapui.support.UISupport;
+return;</script></con:config></con:testStep><con:testStep type="groovy" name="Request DataCustodian to issue Notification message with ApplicationInformation Information" id="cc4851f3-ddd2-4685-9ea5-5c08d3c2e79e"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
 
 String strDialog = "Request Data Custodian to manually initiate a Notification that contains ApplicationInformation information.\r\n\
 \r\n\
@@ -43475,11 +43499,11 @@ return;</script></con:config></con:testStep><con:testStep type="groovy" name="Va
 def service = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Notification REST MockService 1");
 
 String strNotificationBody =  service.getPropertyValue("rxNotificationBody");
-log.info("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate notificatiion and dispatch GET or SFTP step) notification Body: " + strNotificationBody);
+log.info("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate notification and dispatch GET or SFTP step) Notification Body: " + strNotificationBody);
 
 if(!strNotificationBody) {
-	log.error("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate notificatiion and dispatch GET or SFTP step) No notification received or received an empty notification body.");
-	testRunner.fail("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate notificatiion and dispatch GET or SFTP step) No notification received or received an empty notification body.");
+	log.error("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate notification and dispatch GET or SFTP step) No notification received or received an empty notification body.");
+	testRunner.fail("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate notification and dispatch GET or SFTP step) No notification received or received an empty notification body.");
 	return;	
 }
 
@@ -43487,8 +43511,8 @@ def holder;
 try{
 	holder = groovyUtils.getXmlHolder(strNotificationBody);
 } catch(org.apache.xmlbeans.XmlException e) {
-	log.error("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate notificatiion and dispatch GET or SFTP step) Invalid notification body: " + e.toString());
-	testRunner.fail("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate notificatiion and dispatch GET or SFTP step) Invalid notification body.");
+	log.error("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate notification and dispatch GET or SFTP step) Invalid notification body: " + e.toString());
+	testRunner.fail("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate notification and dispatch GET or SFTP step) Invalid notification body.");
 	return;
 }
 
@@ -43738,7 +43762,6 @@ list.each {
 	try{
 		holder = groovyUtils.getXmlHolder(new File(it.path).text);
 	} catch(org.apache.xmlbeans.XmlException e) {
-		log.info("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate retrieved files against schema) Invalid response body: " + e.toString());
 		log.error("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate retrieved files against schema) Invalid response body: " + e.toString());
 		bFailed = true;
 	}
@@ -43747,13 +43770,11 @@ list.each {
 	try{
 		strCount = holder.getNodeValue("count(//espi:ApplicationInformation)")
 	} catch(org.apache.xmlbeans.XmlException e) {
-		log.info("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate retrieved files against schema) Invalid response body. Cannot query response: " + e.toString());
 		log.error("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate retrieved files against schema) Invalid response body. Cannot query response: " +  e.toString());
 		bFailed = true;
 	}
 
 	if(strCount.toInteger()&lt;1){
-		log.info("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate retrieved files against schema) Response does not contain at least one ApplicationInformation entry.");
 		log.error("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate retrieved files against schema) Response does not contain at least one ApplicationInformation entry.");
 		bFailed = true;
 	}
@@ -43767,14 +43788,12 @@ list.each {
 	try {
 		v.validate(instanceDocument);
 	} catch(org.xml.sax.SAXParseException e) {
-		log.info("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate retrieved files against schema) SAXParseException occurred: " + e.toString());
 		log.error ("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate retrieved files against schema) SAXParseException occurred: " + e.toString());
 		bFailed = true;
 	}
 }
 
 if(bFailed) {
-	log.info("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate retrieved files against schema) One or more response files failed validation.  See script log for details.");
 	testRunner.fail("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate retrieved files against schema) One or more response files failed validation. See script log for details.");
 }
 
@@ -43812,11 +43831,11 @@ return;</script></con:config></con:testStep><con:testStep type="groovy" name="Va
 def service = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Notification REST MockService 1");
 
 String strNotificationBody =  service.getPropertyValue("rxNotificationBody");
-log.info("notification Body:" + strNotificationBody);
+log.info("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Validate notification and dispatch GET or SFTP step) Notification Body:" + strNotificationBody);
 
 if(!strNotificationBody) {
-	log.error("No notification received or empty notification body.");
-	testRunner.fail("No notification received or empty notification body.");
+	log.error("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Validate notification and dispatch GET or SFTP step) No notification received or empty notification body.");
+	testRunner.fail("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Validate notification and dispatch GET or SFTP step) No notification received or empty notification body.");
 	return;	
 }
 
@@ -43824,18 +43843,18 @@ def holder;
 try{
 	holder = groovyUtils.getXmlHolder(strNotificationBody);
 } catch(org.apache.xmlbeans.XmlException e) {
-	log.error("Invalid notification body:" + e.toString());
-	testRunner.fail("Invalid notification body.");
+	log.error("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Validate notification and dispatch GET or SFTP step) Invalid notification body:" + e.toString());
+	testRunner.fail("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Validate notification and dispatch GET or SFTP step) Invalid notification body.");
 	return;
 }
 
 
 String strNotificationURI = holder.getNodeValue("//espi:BatchList/espi:resources")
-log.info("notification URI:" + strNotificationURI);
+log.info("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Validate notification and dispatch GET or SFTP step) Notification URI:" + strNotificationURI);
 
 if(!strNotificationURI) {
-	log.error("Invalid URI supplied in the notification.");
-	testRunner.fail("Invalid URI supplied in the notification.");
+	log.error("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Validate notification and dispatch GET or SFTP step) Invalid URI supplied in the notification.");
+	testRunner.fail("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Validate notification and dispatch GET or SFTP step) Invalid URI supplied in the notification.");
 	return;	
 }
 
@@ -43869,8 +43888,8 @@ if(strNotificationURI.startsWith("http://")){
 	testRunner.gotoStepByName("Issue SFTP get");
 	
 } else {
-	log.error("Invalid URI supplied in the notification.");
-	testRunner.fail("Invalid URI supplied in the notification.");
+	log.error("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Validate notification and dispatch GET or SFTP step) Invalid URI supplied in the notification.");
+	testRunner.fail("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Validate notification and dispatch GET or SFTP step) Invalid URI supplied in the notification.");
 	return;	
 }
 </script></con:config></con:testStep><con:testStep type="groovy" name="Issue GET" id="0d37ec79-5f25-49df-8326-6f662ded7500"><con:settings/><con:config><script>import groovyx.net.http.HTTPBuilder
@@ -43901,7 +43920,7 @@ public class ResourceTester {
 			}		
 										
 			response.failure = { resp ->
-				log.error("GET Failed: " + resp.statusLine);
+				log.error("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Issue GET) GET Failed: " + resp.statusLine);
 				return null;
 			}  
 		}
@@ -43916,8 +43935,8 @@ ResourceTester resourceTester = new ResourceTester(log);
 String strGetResponseBody = resourceTester.doGET(context.strHost,context.strResource,access_token);
 
 if(strGetResponseBody==null) {
-	log.error("GET request failed.");
-	testRunner.fail("GET request failed.");
+	log.error("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Issue GET) GET request failed.");
+	testRunner.fail("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Issue GET) GET request failed.");
 	return;	
 }
 
@@ -43933,14 +43952,14 @@ import javax.xml.validation.Validator;
 
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 
-log.info("validating: " + context.ResponseBody);
+log.info("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Validate REST GET response resource type and against schema) Validating: " + context.ResponseBody);
 
 def holder;
 try{
 	holder = groovyUtils.getXmlHolder(context.ResponseBody);
 } catch(org.apache.xmlbeans.XmlException e) {
-	log.error("Invalid response body: " + e.toString());
-	testRunner.fail("Invalid response body.");
+	log.error("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Validate REST GET response resource type and against schema) Invalid response body: " + e.toString());
+	testRunner.fail("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Validate REST GET response resource type and against schema) Invalid response body.");
 	return;
 }
 
@@ -43948,14 +43967,14 @@ String strCount = "0";
 try{
 strCount = holder.getNodeValue("count(//espi:Authorization)")
 } catch(org.apache.xmlbeans.XmlException e) {
-	log.error("Invalid response body: " + e.toString());
-	testRunner.fail("Invalid response body. Cannot query response.");
+	log.error("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Validate REST GET response resource type and against schema) Invalid response body: " + e.toString());
+	testRunner.fail("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Validate REST GET response resource type and against schema) Invalid response body. Cannot query response.");
 	return;
 }
 
 if(strCount.toInteger()&lt;1){
-	log.error("Response does not contain at least one Authorization entry.");
-	testRunner.fail("Response does not contain at least one Authorization entry.");
+	log.error("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Validate REST GET response resource type and against schema) Response does not contain at least one Authorization entry.");
+	testRunner.fail("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Validate REST GET response resource type and against schema) Response does not contain at least one Authorization entry.");
 	return;	
 }
 
@@ -43970,12 +43989,12 @@ Validator v = s.newValidator();
 try {
 	v.validate(instanceDocument);
 } catch(org.xml.sax.SAXParseException e) {
-	log.error("Response failed schema validation: " + e.toString());
-	testRunner.fail("Response failed schema validation. See script log for details.");
+	log.error("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Validate REST GET response resource type and against schema) Response failed schema validation: " + e.toString());
+	testRunner.fail("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Validate REST GET response resource type and against schema) Response failed schema validation. See script log for details.");
 	return;
 }
 
-testRunner.gotoStepByName("Done: placeholder");
+testRunner.gotoStepByName("Done");
 </script></con:config></con:testStep><con:testStep type="groovy" name="Issue SFTP get" id="dd5dad54-5de3-4137-81f8-26e59ea1800a"><con:settings/><con:config><script>import groovy.io.FileType;
 
 def project = testRunner.testCase.testSuite.project
@@ -43986,8 +44005,8 @@ public boolean RunCommand(String cmd)
 {
 	def doCmd;
 
-	log.info("exec: " + cmd);
-	log.info("os  : " + System.properties['os.name']);
+	log.info("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Issue SFTP get) exec: " + cmd);
+	log.info("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Issue SFTP get) os  : " + System.properties['os.name']);
 	
 	if (System.properties['os.name'].toLowerCase().contains('windows')) {
 		doCmd = ["cmd", "/c",cmd].execute();
@@ -43999,9 +44018,9 @@ public boolean RunCommand(String cmd)
 	
 	if(doCmd.exitValue()!=0) {
 		
-		log.error "return code: ${ doCmd.exitValue()}"
-		log.error "stderr: ${doCmd.err.text}"
-		log.error "stdout: ${doCmd.in.text}"
+		log.error "PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Issue SFTP get) return code: ${ doCmd.exitValue()}"
+		log.error "PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Issue SFTP get) stderr: ${doCmd.err.text}"
+		log.error "PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Issue SFTP get) stdout: ${doCmd.in.text}"
 	
 		return false;
 	}
@@ -44021,8 +44040,8 @@ if(list.size()>0){
 	cmdRm = 'rm ' + transferDir +  '/*';
 	
 	if(RunCommand(cmdRm) != true) {
-		log.error("could not clear transfer directory");
-		testRunner.fail("could not clear transfer directory");
+		log.error("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Issue SFTP get) Could not clear transfer directory" + transferDir);
+		testRunner.fail("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Issue SFTP get) Could not clear transfer directory" + transferDir);
 		return;
 	} 
 }
@@ -44030,8 +44049,8 @@ if(list.size()>0){
 cmdGet = 'sftp ' + context.strHost + ':' + context.strResource + ' ' + transferDir;
 
 if(RunCommand(cmdGet) != true) {
-	log.error("could not issue sftp get");
-	testRunner.fail("could not issue sftp get");
+	log.error("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Issue SFTP get) Could not issue SFTP GET");
+	testRunner.fail("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Issue SFTP get) Could not issue SFTP GET");
 	return;
 }
 
@@ -44057,13 +44076,13 @@ dir.eachFileRecurse (FileType.FILES) { file ->
 
 boolean bFailed = false;
 list.each {
-	log.info "Validating:" + it.path;
+	log.info "PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Validate retrieved files against schema) Validating:" + it.path;
 
 	def holder;
 	try{
 		holder = groovyUtils.getXmlHolder(new File(it.path).text);
 	} catch(org.apache.xmlbeans.XmlException e) {
-		log.error("Invalid response body: " + e.toString());
+		log.error("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Validate retrieved files against schema) Invalid response body: " + e.toString());
 		bFailed = true;
 	}
 	
@@ -44071,12 +44090,12 @@ list.each {
 	try{
 		strCount = holder.getNodeValue("count(//espi:Authorization)")
 	} catch(org.apache.xmlbeans.XmlException e) {
-		log.error("Invalid response body. Cannot query response: " +  e.toString());
+		log.error("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Validate retrieved files against schema) Invalid response body. Cannot query response: " +  e.toString());
 		bFailed = true;
 	}
 
 	if(strCount.toInteger()&lt;1){
-		log.error("Response does not contain at least one Authorization entry.");
+		log.error("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Validate retrieved files against schema) Response does not contain at least one Authorization entry.");
 		bFailed = true;
 	}
 	
@@ -44089,17 +44108,17 @@ list.each {
 	try {
 		v.validate(instanceDocument);
 	} catch(org.xml.sax.SAXParseException e) {
-		log.error e.toString();
+	log.error("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Validate retrieved files against schema) Response failed schema validation: " + e.toString());
 		bFailed = true;
 	}
 }
 
 if(bFailed) {
-	testRunner.fail("One or more response files failed validation. See script log for details.");
+	testRunner.fail("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Validate retrieved files against schema) One or more response files failed validation. See script log for details.");
 }
 
 return;
-</script></con:config></con:testStep><con:testStep type="groovy" name="Done: placeholder" id="90591cc7-1350-4c9d-8d4a-5831827c38a5"><con:settings/><con:config><script/></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties/>
+</script></con:config></con:testStep><con:testStep type="groovy" name="Done" id="90591cc7-1350-4c9d-8d4a-5831827c38a5"><con:settings/><con:config><script/></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties/>
 	</con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="PSH003 [POS] Notification Push/POST to ThirdParty of Subscription" searchProperties="true" id="cc71647f-cc55-4914-bde1-6adfa59d0e44">
 		<con:settings/>
 		<con:testStep type="groovy" name="Start Mock Service" id="96fac0e2-e0ef-4ac0-a9dd-2f3099c1576d"><con:settings/><con:config><script>def service = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Notification REST MockService 1");
@@ -44131,11 +44150,11 @@ return;</script></con:config></con:testStep><con:testStep type="groovy" name="Va
 def service = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Notification REST MockService 1");
 
 String strNotificationBody =  service.getPropertyValue("rxNotificationBody");
-log.info("notification Body:" + strNotificationBody);
+log.info("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Validate notification and dispatch GET or SFTP step) Notification Body:" + strNotificationBody);
 
 if(!strNotificationBody) {
-	log.error("No notification received or empty notification body.");
-	testRunner.fail("No notification received or empty notification body.");
+	log.error("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Validate notification and dispatch GET or SFTP step) No notification received or empty notification body.");
+	testRunner.fail("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Validate notification and dispatch GET or SFTP step) No notification received or empty notification body.");
 	return;	
 }
 
@@ -44143,18 +44162,18 @@ def holder;
 try{
 	holder = groovyUtils.getXmlHolder(strNotificationBody);
 } catch(org.apache.xmlbeans.XmlException e) {
-	log.error("Invalid notification body:" + e.toString());
-	testRunner.fail("Invalid notification body.");
+	log.error("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Validate notification and dispatch GET or SFTP step) Invalid notification body:" + e.toString());
+	testRunner.fail("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Validate notification and dispatch GET or SFTP step) Invalid notification body.");
 	return;
 }
 
 
 String strNotificationURI = holder.getNodeValue("//espi:BatchList/espi:resources")
-log.info("notification URI:" + strNotificationURI);
+log.info("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Validate notification and dispatch GET or SFTP step) Notification URI:" + strNotificationURI);
 
 if(!strNotificationURI) {
-	log.error("Invalid URI supplied in the notification.");
-	testRunner.fail("Invalid URI supplied in the notification.");
+	log.error("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Validate notification and dispatch GET or SFTP step) Invalid URI supplied in the notification.");
+	testRunner.fail("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Validate notification and dispatch GET or SFTP step) Invalid URI supplied in the notification.");
 	return;	
 }
 
@@ -44188,8 +44207,8 @@ if(strNotificationURI.startsWith("http://")){
 	testRunner.gotoStepByName("Issue SFTP get");
 	
 } else {
-	log.error("Invalid URI supplied in the notification.");
-	testRunner.fail("Invalid URI supplied in the notification.");
+	log.error("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Validate notification and dispatch GET or SFTP step) Invalid URI supplied in the notification.");
+	testRunner.fail("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Validate notification and dispatch GET or SFTP step) Invalid URI supplied in the notification.");
 	return;	
 }
 </script></con:config></con:testStep><con:testStep type="groovy" name="Issue GET" id="d1280df2-c655-491b-b2d2-e31bd484b223"><con:settings/><con:config><script>import groovyx.net.http.HTTPBuilder
@@ -44220,7 +44239,7 @@ public class ResourceTester {
 			}		
 										
 			response.failure = { resp ->
-				log.error("GET Failed: " + resp.statusLine);
+				log.error("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Issue GET) GET Failed: " + resp.statusLine);
 				return null;
 			}  
 		}
@@ -44252,14 +44271,14 @@ import javax.xml.validation.Validator;
 
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 
-log.info("validating: " + context.ResponseBody);
+log.info("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Validate REST GET response resource type and against schema) Validating: " + context.ResponseBody);
 
 def holder;
 try{
 	holder = groovyUtils.getXmlHolder(context.ResponseBody);
 } catch(org.apache.xmlbeans.XmlException e) {
-	log.error("Invalid response body: " + e.toString());
-	testRunner.fail("Invalid response body.");
+	log.error("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Validate REST GET response resource type and against schema) Invalid response body: " + e.toString());
+	testRunner.fail("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Validate REST GET response resource type and against schema) Invalid response body.");
 	return;
 }
 
@@ -44267,14 +44286,14 @@ String strCount = "0";
 try{
 strCount = holder.getNodeValue("count(//espi:Subscription)")
 } catch(org.apache.xmlbeans.XmlException e) {
-	log.error("Invalid response body: " + e.toString());
-	testRunner.fail("Invalid response body. Cannot query response.");
+	log.error("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Validate REST GET response resource type and against schema) Invalid response body: " + e.toString());
+	testRunner.fail("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Validate REST GET response resource type and against schema) Invalid response body. Cannot query response.");
 	return;
 }
 
 if(strCount.toInteger()&lt;1){
-	log.error("Response does not contain at least one Subscription entry.");
-	testRunner.fail("Response does not contain at least one Subscription entry.");
+	log.error("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Validate REST GET response resource type and against schema) Response does not contain at least one Subscription entry.");
+	testRunner.fail("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Validate REST GET response resource type and against schema) Response does not contain at least one Subscription entry.");
 	return;	
 }
 
@@ -44289,12 +44308,12 @@ Validator v = s.newValidator();
 try {
 	v.validate(instanceDocument);
 } catch(org.xml.sax.SAXParseException e) {
-	log.error("Response failed schema validation: " + e.toString());
-	testRunner.fail("Response failed schema validation. See script log for details.");
+	log.error("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Validate REST GET response resource type and against schema) Response failed schema validation: " + e.toString());
+	testRunner.fail("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Validate REST GET response resource type and against schema) Response failed schema validation. See script log for details.");
 	return;
 }
 
-testRunner.gotoStepByName("Done: placeholder");
+testRunner.gotoStepByName("Done");
 </script></con:config></con:testStep><con:testStep type="groovy" name="Issue SFTP get" id="a38ec702-d14d-41fb-992d-374b2079c67d"><con:settings/><con:config><script>import groovy.io.FileType;
 
 def project = testRunner.testCase.testSuite.project
@@ -44305,8 +44324,8 @@ public boolean RunCommand(String cmd)
 {
 	def doCmd;
 
-	log.info("exec: " + cmd);
-	log.info("os  : " + System.properties['os.name']);
+	log.info("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Issue SFTP get) exec: " + cmd);
+	log.info("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Issue SFTP get) os  : " + System.properties['os.name']);
 	
 	if (System.properties['os.name'].toLowerCase().contains('windows')) {
 		doCmd = ["cmd", "/c",cmd].execute();
@@ -44318,9 +44337,9 @@ public boolean RunCommand(String cmd)
 	
 	if(doCmd.exitValue()!=0) {
 		
-		log.error "return code: ${ doCmd.exitValue()}"
-		log.error "stderr: ${doCmd.err.text}"
-		log.error "stdout: ${doCmd.in.text}"
+		log.error "PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Issue SFTP get) return code: ${ doCmd.exitValue()}"
+		log.error "PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Issue SFTP get) stderr: ${doCmd.err.text}"
+		log.error "PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Issue SFTP get) stdout: ${doCmd.in.text}"
 	
 		return false;
 	}
@@ -44340,8 +44359,8 @@ if(list.size()>0){
 	cmdRm = 'rm ' + transferDir +  '/*';
 	
 	if(RunCommand(cmdRm) != true) {
-		log.error("could not clear transfer directory");
-		testRunner.fail("could not clear transfer directory");
+		log.error("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Issue SFTP get) Could not clear transfer directory" + transferDir);
+		testRunner.fail("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Issue SFTP get) Could not clear transfer directory" + transferDir);
 		return;
 	} 
 }
@@ -44349,8 +44368,8 @@ if(list.size()>0){
 cmdGet = 'sftp ' + context.strHost + ':' + context.strResource + ' ' + transferDir;
 
 if(RunCommand(cmdGet) != true) {
-	log.error("could not issue sftp get");
-	testRunner.fail("could not issue sftp get");
+	log.error("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Issue SFTP get) Could not issue SFTP GET");
+	testRunner.fail("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Issue SFTP get) Could not issue SFTP GET");
 	return;
 }
 
@@ -44376,13 +44395,13 @@ dir.eachFileRecurse (FileType.FILES) { file ->
 
 boolean bFailed = false;
 list.each {
-	log.info "Validating:" + it.path;
+	log.info "PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Validate retrieved files against schema) Validating:" + it.path;
 
 	def holder;
 	try{
 		holder = groovyUtils.getXmlHolder(new File(it.path).text);
 	} catch(org.apache.xmlbeans.XmlException e) {
-		log.error("Invalid response body: " + e.toString());
+		log.error("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Validate retrieved files against schema) Invalid response body: " + e.toString());
 		bFailed = true;
 	}
 	
@@ -44390,12 +44409,12 @@ list.each {
 	try{
 		strCount = holder.getNodeValue("count(//espi:Subscription)")
 	} catch(org.apache.xmlbeans.XmlException e) {
-		log.error("Invalid response body. Cannot query response: " +  e.toString());
+		log.error("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Validate retrieved files against schema) Invalid response body. Cannot query response: " +  e.toString());
 		bFailed = true;
 	}
 
 	if(strCount.toInteger()&lt;1){
-		log.error("Response does not contain at least one Subscription entry.");
+		log.error("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Validate retrieved files against schema) Response does not contain at least one Subscription entry.");
 		bFailed = true;
 	}
 	
@@ -44408,17 +44427,16 @@ list.each {
 	try {
 		v.validate(instanceDocument);
 	} catch(org.xml.sax.SAXParseException e) {
-		log.error e.toString();
-		bFailed = true;
+	log.error("PSH003 [POS] Notification Push/POST to ThirdParty of Authorization -- (Validate retrieved files against schema) Response failed schema validation: " + e.toString());		bFailed = true;
 	}
 }
 
 if(bFailed) {
-	testRunner.fail("One or more response files failed validation. See script log for details.");
+	testRunner.fail("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Validate retrieved files against schema) One or more response files failed validation. See script log for details.");
 }
 
 return;
-</script></con:config></con:testStep><con:testStep type="groovy" name="Done: placeholder" id="b612481f-981a-46ca-abee-6e35c51782d2"><con:settings/><con:config><script/></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties/>
+</script></con:config></con:testStep><con:testStep type="groovy" name="Done" id="b612481f-981a-46ca-abee-6e35c51782d2"><con:settings/><con:config><script/></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties/>
 	</con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="PSH004 [NEG] DataCustodian detection of Notification Push/POST failure" searchProperties="true" id="175be4f5-d948-42c4-82f4-151664467366">
 		<con:settings/>
 		<con:testStep type="groovy" name="Request DataCustodian to issue Notification message" id="bf3f772d-e742-4727-93f9-8da1b5d46154"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
@@ -47285,7 +47303,7 @@ if( requestBody.contains("some data") )
 	
 	
 	
-	<con:property><con:name>bulkId</con:name><con:value>1</con:value></con:property><con:property><con:name>certScopes</con:name><con:value>FB=1_4_5_15</con:value></con:property><con:property><con:name>client_access_token</con:name><con:value>0cc1b0dd-fe2c-4b4c-bc41-0e0ac6488c04</con:value></con:property>
+	<con:property><con:name>bulkId</con:name><con:value>1</con:value></con:property><con:property><con:name>certScopes</con:name><con:value>FB=1_4_5_15</con:value></con:property><con:property><con:name>client_access_token</con:name><con:value>8cd85f7f-b9e7-4069-9923-029acf7e3893</con:value></con:property>
 	
 	
 	
@@ -47313,7 +47331,7 @@ if( requestBody.contains("some data") )
 	
 	
 	
-	<con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value>7878494f-b7cb-41bc-a67d-91148287e2ca</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>c66b0854-ea1f-4e24-afb7-afab9e0f6c5e</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>localhost:8443</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceUri</con:name><con:value>espi/1_1/resource</con:value></con:property>
+	<con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value>df26df72-f09d-418a-9046-e8e21f0a4981</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>c66b0854-ea1f-4e24-afb7-afab9e0f6c5e</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>localhost:8443</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceUri</con:name><con:value>espi/1_1/resource</con:value></con:property>
 	
 	
 	
