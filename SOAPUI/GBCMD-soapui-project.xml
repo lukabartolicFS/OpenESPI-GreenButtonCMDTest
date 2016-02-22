@@ -8566,7 +8566,7 @@ if(context["driver"] != null){
 	context["driver"] = null;	
 }
 
-</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>d9f36b31-e037-444c-b0a3-5a253e657334</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>espi/1_1/resource</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>token_type</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>refresh_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>expires_in</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>old_access_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">secret</con:value></con:property><con:property><con:name>authorizationServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>resourceServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>mockPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8080</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>authorizationServerTokenEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">a73ff1a2-8722-4861-ae01-56f6a27fd004</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">localhost:8443</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">ca1db289-d533-42ef-bdc7-fe406d05054a</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand" id="06648a84-6352-4b25-b179-693e52d162cc"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
+</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>d9f36b31-e037-444c-b0a3-5a253e657334</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>espi/1_1/resource</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>token_type</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>refresh_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>expires_in</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>old_access_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">secret</con:value></con:property><con:property><con:name>authorizationServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>resourceServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>mockPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8080</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>authorizationServerTokenEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">0cc1b0dd-fe2c-4b4c-bc41-0e0ac6488c04</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">localhost:8443</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">7878494f-b7cb-41bc-a67d-91148287e2ca</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand" id="06648a84-6352-4b25-b179-693e52d162cc"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
 
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
@@ -40763,14 +40763,14 @@ String strDialog = "If the Data Custodian supports changing the default authoriz
 Data Custodian to set the default period to a short duration at this time (i.e. one or two minutes).\r\n\
 After this expiration period has been set please take note of the period used and then please proceed with this test.\r\n\
 Otherwise an option will be presented later where the Data Custodian will be asked to force the authorization about to be created to expire at that time.\r\n\r\n\
-If you do not wish to proceed plase click No.\r\n\
+If you do not wish to proceed please click No.\r\n\
 To proceed now please click Yes.\r\n";
 
 result = ui.getDialogs().confirm(strDialog, "Continue Tests");
 
 if(result==false) {
-	log.error("Testing terminated by user.");
-	testRunner.fail("Testing terminated by user.");
+	log.error("[FB_14] Authorization and Authentication -- (OAD005 [POS] Successful Access Token Request) Testing terminated by user.");
+	testRunner.fail("[FB_14] Authorization and Authentication -- (OAD005 [POS] Successful Access Token Request) Testing terminated by user.");
 	return;	
 }
 
@@ -43453,18 +43453,33 @@ service.setPropertyValue("rxNotificationBody","");
 def runner = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Notification REST MockService 1").start();
 context.mockRunner = runner;
 
-return;</script></con:config></con:testStep><con:testStep type="manualTestStep" name="Have DataCustodian Issue a Notification message with ApplicationInformation information" id="6d894bb1-a06f-4c0f-8256-285d197e340c"><con:description>From the DataCustodian under test please manually initiate a Notification of ApplicationInformation.
-After the notification is issued please indicate "Pass" on this test step "test status" and click OK.
-</con:description><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult>Pass</con:expectedResult></con:config></con:testStep><con:testStep type="groovy" name="Stop Mock Service" id="668ef150-7aad-4d43-8629-f7a8be0356d9"><con:settings/><con:config><script>context.mockRunner.stop();
+return;</script></con:config></con:testStep><con:testStep type="groovy" name="Request DataCustodian to issue Notification message with ApplicationInformation Information" id="cc4851f3-ddd2-4685-9ea5-5c08d3c2e79e"><con:settings/><con:config><script>
+
+def ui = com.eviware.soapui.support.UISupport;
+
+String strDialog = "Request Data Custodian to manually initiate a Notification that contains ApplicationInformation information.\r\n\
+\r\n\
+If you do not wish to proceed please click No.\r\n\
+After the Notification has been issued please click Yes.\r\n";
+
+result = ui.getDialogs().confirm(strDialog, "Continue Tests");
+
+if(result==false) {
+	log.error("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Request DataCustodian to issue Notification message with ApplicationInformation information) Testing terminated by user.");
+	testRunner.fail("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Request DataCustodian to issue Notification message with ApplicationInformation information) Testing terminated by user.");
+	return;	
+}
+
+assert true;</script></con:config></con:testStep><con:testStep type="groovy" name="Stop Mock Service" id="668ef150-7aad-4d43-8629-f7a8be0356d9"><con:settings/><con:config><script>context.mockRunner.stop();
 return;</script></con:config></con:testStep><con:testStep type="groovy" name="Validate notification and dispatch GET or SFTP step" id="acbacd7e-5f06-4670-aba1-49ecdbf19def"><con:settings/><con:config><script>def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context );
 def service = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Notification REST MockService 1");
 
 String strNotificationBody =  service.getPropertyValue("rxNotificationBody");
-log.info("notification Body:" + strNotificationBody);
+log.info("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate notificatiion and dispatch GET or SFTP step) notification Body: " + strNotificationBody);
 
 if(!strNotificationBody) {
-	log.error("No notification received or empty notification body.");
-	testRunner.fail("No notification received or empty notification body.");
+	log.error("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate notificatiion and dispatch GET or SFTP step) No notification received or received an empty notification body.");
+	testRunner.fail("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate notificatiion and dispatch GET or SFTP step) No notification received or received an empty notification body.");
 	return;	
 }
 
@@ -43472,8 +43487,8 @@ def holder;
 try{
 	holder = groovyUtils.getXmlHolder(strNotificationBody);
 } catch(org.apache.xmlbeans.XmlException e) {
-	log.error("Invalid notification body:" + e.toString());
-	testRunner.fail("Invalid notification body.");
+	log.error("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate notificatiion and dispatch GET or SFTP step) Invalid notification body: " + e.toString());
+	testRunner.fail("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate notificatiion and dispatch GET or SFTP step) Invalid notification body.");
 	return;
 }
 
@@ -43549,7 +43564,7 @@ public class ResourceTester {
 			}		
 										
 			response.failure = { resp ->
-				log.error("GET Failed: " + resp.statusLine);
+				log.error("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (issue GET) GET Failed: " + resp.statusLine);
 				return null;
 			}  
 		}
@@ -43564,8 +43579,9 @@ ResourceTester resourceTester = new ResourceTester(log);
 String strGetResponseBody = resourceTester.doGET(context.strHost,context.strResource,access_token);
 
 if(strGetResponseBody==null) {
-	log.error("GET request failed.");
-	testRunner.fail("GET request failed.");
+	log.info ("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (issue GET) GET request failed.");
+	log.error("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (issue GET) GET request failed.");
+	testRunner.fail("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (issue GET) GET request failed.");
 	return;	
 }
 
@@ -43581,14 +43597,15 @@ import javax.xml.validation.Validator;
 
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 
-log.info("validating: " + context.ResponseBody);
+log.info("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate REST GET response resource type and against schema) validating: " + context.ResponseBody);
 
 def holder;
 try{
 	holder = groovyUtils.getXmlHolder(context.ResponseBody);
 } catch(org.apache.xmlbeans.XmlException e) {
-	log.error("Invalid response body: " + e.toString());
-	testRunner.fail("Invalid response body.");
+	log.info ("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate REST GET response resource type and against schema) Invalid response body: " + e.toString());
+	log.error("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate REST GET response resource type and against schema) Invalid response body: " + e.toString());
+	testRunner.fail("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate REST GET response resource type and against schema) Invalid response body.");
 	return;
 }
 
@@ -43596,14 +43613,16 @@ String strCount = "0";
 try{
 strCount = holder.getNodeValue("count(//espi:ApplicationInformation)")
 } catch(org.apache.xmlbeans.XmlException e) {
-	log.error("Invalid response body: " + e.toString());
-	testRunner.fail("Invalid response body. Cannot query response.");
+	log.info ("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate REST GET response resource type and against schema) Invalid response body: " + e.toString());
+	log.error("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate REST GET response resource type and against schema) Invalid response body: " + e.toString());
+	testRunner.fail("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate REST GET response resource type and against schema) Invalid response body. Cannot query response.");
 	return;
 }
 
 if(strCount.toInteger()&lt;1){
-	log.error("Response does not contain at least one AppplicationInformation entry.");
-	testRunner.fail("Response does not contain at least one AppplicationInformation entry.");
+	log.info ("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate REST GET response resource type and against schema) Response does not contain at least one ApplicationInformation entry.");
+	log.error("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate REST GET response resource type and against schema) Response does not contain at least one ApplicationInformation entry.");
+	testRunner.fail("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate REST GET response resource type and against schema) Response does not contain at least one ApplicationInformation entry.");
 	return;	
 }
 
@@ -43618,12 +43637,13 @@ Validator v = s.newValidator();
 try {
 	v.validate(instanceDocument);
 } catch(org.xml.sax.SAXParseException e) {
-	log.error("Response failed schema validation: " + e.toString());
-	testRunner.fail("Response failed schema validation. See script log for details.");
+	log.info("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate REST GET response resource type and against schema) Response failed schema validation: " + e.toString());
+	log.error("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate REST GET response resource type and against schema) Response failed schema validation: " + e.toString());
+	testRunner.fail("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate REST GET response resource type and against schema) Response failed schema validation. See script log for details.");
 	return;
 }
 
-testRunner.gotoStepByName("Done: placeholder");
+testRunner.gotoStepByName("Done");
 </script></con:config></con:testStep><con:testStep type="groovy" name="Issue SFTP get" id="16a0300b-bda7-4ed2-bfc6-d99abda1d82a"><con:settings/><con:config><script>import groovy.io.FileType;
 
 def project = testRunner.testCase.testSuite.project
@@ -43634,8 +43654,8 @@ public boolean RunCommand(String cmd)
 {
 	def doCmd;
 
-	log.info("exec: " + cmd);
-	log.info("os  : " + System.properties['os.name']);
+	log.info("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Issue SFTP GET) exec: " + cmd);
+	log.info("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Issue SFTP GET) os  : " + System.properties['os.name']);
 	
 	if (System.properties['os.name'].toLowerCase().contains('windows')) {
 		doCmd = ["cmd", "/c",cmd].execute();
@@ -43646,10 +43666,15 @@ public boolean RunCommand(String cmd)
 	doCmd.waitFor();
 	
 	if(doCmd.exitValue()!=0) {
-		
-		log.error "return code: ${ doCmd.exitValue()}"
-		log.error "stderr: ${doCmd.err.text}"
-		log.error "stdout: ${doCmd.in.text}"
+				
+		log.info "PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Issue SFTP GET) return code: ${ doCmd.exitValue()}"
+		log.error "PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Issue SFTP GET) return code: ${ doCmd.exitValue()}"
+
+		log.info "PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Issue SFTP GET) stderr: ${doCmd.err.text}"
+		log.error "PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Issue SFTP GET) stderr: ${doCmd.err.text}"
+
+		log.info "PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Issue SFTP GET) stdout: ${doCmd.in.text}"
+		log.error "PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Issue SFTP GET) stdout: ${doCmd.in.text}"
 	
 		return false;
 	}
@@ -43669,8 +43694,9 @@ if(list.size()>0){
 	cmdRm = 'rm ' + transferDir +  '/*';
 	
 	if(RunCommand(cmdRm) != true) {
-		log.error("could not clear transfer directory");
-		testRunner.fail("could not clear transfer directory");
+		log.info({PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Issue SFTP GET) could not clear transfer directory " + transferDir);
+		log.error("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Issue SFTP GET) could not clear transfer directory " + transferDir);
+		testRunner.fail("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Issue SFTP GET) could not clear transfer directory " + transferDir);
 		return;
 	} 
 }
@@ -43678,8 +43704,9 @@ if(list.size()>0){
 cmdGet = 'sftp ' + context.strHost + ':' + context.strResource + ' ' + transferDir;
 
 if(RunCommand(cmdGet) != true) {
-	log.error("could not issue sftp get");
-	testRunner.fail("could not issue sftp get");
+	log.info("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Issue SFTP GET) could not issue SFTP GET");
+	log.error("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Issue SFTP GET) could not issue SFTP GET");
+	testRunner.fail("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Issue SFTP GET) could not issue SFTP GET");
 	return;
 }
 
@@ -43705,13 +43732,14 @@ dir.eachFileRecurse (FileType.FILES) { file ->
 
 boolean bFailed = false;
 list.each {
-	log.info "Validating:" + it.path;
+	log.info "PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate retrieved files against schema) Validating:" + it.path;
 
 	def holder;
 	try{
 		holder = groovyUtils.getXmlHolder(new File(it.path).text);
 	} catch(org.apache.xmlbeans.XmlException e) {
-		log.error("Invalid response body: " + e.toString());
+		log.info("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate retrieved files against schema) Invalid response body: " + e.toString());
+		log.error("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate retrieved files against schema) Invalid response body: " + e.toString());
 		bFailed = true;
 	}
 	
@@ -43719,12 +43747,14 @@ list.each {
 	try{
 		strCount = holder.getNodeValue("count(//espi:ApplicationInformation)")
 	} catch(org.apache.xmlbeans.XmlException e) {
-		log.error("Invalid response body. Cannot query response: " +  e.toString());
+		log.info("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate retrieved files against schema) Invalid response body. Cannot query response: " + e.toString());
+		log.error("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate retrieved files against schema) Invalid response body. Cannot query response: " +  e.toString());
 		bFailed = true;
 	}
 
 	if(strCount.toInteger()&lt;1){
-		log.error("Response does not contain at least one AppplicationInformation entry.");
+		log.info("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate retrieved files against schema) Response does not contain at least one ApplicationInformation entry.");
+		log.error("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate retrieved files against schema) Response does not contain at least one ApplicationInformation entry.");
 		bFailed = true;
 	}
 	
@@ -43737,17 +43767,19 @@ list.each {
 	try {
 		v.validate(instanceDocument);
 	} catch(org.xml.sax.SAXParseException e) {
-		log.error e.toString();
+		log.info("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate retrieved files against schema) SAXParseException occurred: " + e.toString());
+		log.error ("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate retrieved files against schema) SAXParseException occurred: " + e.toString());
 		bFailed = true;
 	}
 }
 
 if(bFailed) {
-	testRunner.fail("One or more response files failed validation. See script log for details.");
+	log.info("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate retrieved files against schema) One or more response files failed validation.  See script log for details.");
+	testRunner.fail("PSH001 [POS] Notification Push/POST to ThirdParty of ApplicationInformation -- (Validate retrieved files against schema) One or more response files failed validation. See script log for details.");
 }
 
 return;
-</script></con:config></con:testStep><con:testStep type="groovy" name="Done: placeholder" id="5fb9ba1a-ba6b-4c03-872b-3b459ee23ddc"><con:settings/><con:config><script/></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties/>
+</script></con:config></con:testStep><con:testStep type="groovy" name="Done" id="5fb9ba1a-ba6b-4c03-872b-3b459ee23ddc"><con:settings/><con:config><script/></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties/>
 	</con:testCase>
 	<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="PSH002 [POS] Notification Push/POST to ThirdParty of Authorization" searchProperties="true" id="2f1a77ef-80d6-49ed-9cca-b62f1ba05f02">
 		<con:settings/>
@@ -43758,9 +43790,24 @@ service.setPropertyValue("rxNotificationBody","");
 def runner = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Notification REST MockService 1").start();
 context.mockRunner = runner;
 
-return;</script></con:config></con:testStep><con:testStep type="manualTestStep" name="Have DataCustodian Issue a Notification message with Authorization information" id="50b85b84-2299-4bca-a6b0-448b89c9c394"><con:description>From the DataCustodian under test please manually initiate a Notification of Authorization.
-After the notification is issued please indicate "Pass" on this test step "test status" and click OK.
-</con:description><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult>Pass</con:expectedResult></con:config></con:testStep><con:testStep type="groovy" name="Stop Mock Service" id="79e3684e-53f1-4fd5-8a56-c9dc78d25f07"><con:settings/><con:config><script>context.mockRunner.stop();
+return;</script></con:config></con:testStep><con:testStep type="groovy" name="Request DataCustodian to issue Notification message with Authorization Information" id="4026626f-c83c-49f3-8538-a9b905dd5b28"><con:settings/><con:config><script>
+
+def ui = com.eviware.soapui.support.UISupport;
+
+String strDialog = "Request Data Custodian to manually initiate a Notification that contains Authorization information.\r\n\
+\r\n\
+If you do not wish to proceed please click No.\r\n\
+After the Notification has been issued please click Yes.\r\n";
+
+result = ui.getDialogs().confirm(strDialog, "Continue Tests");
+
+if(result==false) {
+	log.error("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Request DataCustodian to issue Notification message with Authorization information) Testing terminated by user.");
+	testRunner.fail("PSH002 [POS] Notification Push/POST to ThirdParty of Authorization -- (Request DataCustodian to issue Notification message with Authorization information) Testing terminated by user.");
+	return;	
+}
+
+assert true;</script></con:config></con:testStep><con:testStep type="groovy" name="Stop Mock Service" id="79e3684e-53f1-4fd5-8a56-c9dc78d25f07"><con:settings/><con:config><script>context.mockRunner.stop();
 return;</script></con:config></con:testStep><con:testStep type="groovy" name="Validate notification and dispatch GET or SFTP step" id="a48dc8fb-9e71-4634-8d26-2e035ff3c1f6"><con:settings/><con:config><script>def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context );
 def service = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Notification REST MockService 1");
 
@@ -44062,9 +44109,24 @@ service.setPropertyValue("rxNotificationBody","");
 def runner = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Notification REST MockService 1").start();
 context.mockRunner = runner;
 
-return;</script></con:config></con:testStep><con:testStep type="manualTestStep" name="Have DataCustodian Issue a Notification message with Subscription information" id="208ca64a-0407-487f-9175-4232ffbc0eca"><con:description>From the DataCustodian under test please manually initiate a Notification of Subscription.
-After the notification is issued please indicate "Pass" on this test step "test status" and click OK.
-</con:description><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult>Pass</con:expectedResult></con:config></con:testStep><con:testStep type="groovy" name="Stop Mock Service" id="d1ec108d-f5fc-4fe3-8b46-7760f765df70"><con:settings/><con:config><script>context.mockRunner.stop();
+return;</script></con:config></con:testStep><con:testStep type="groovy" name="Request DataCustodian to issue Notification message with Subscription Information" id="b4655dc6-de32-4751-93ea-ff5d374b7982"><con:settings/><con:config><script>
+
+def ui = com.eviware.soapui.support.UISupport;
+
+String strDialog = "Request Data Custodian to manually initiate a Notification that contains Subscription information.\r\n\
+\r\n\
+If you do not wish to proceed please click No.\r\n\
+After the Notification has been issued please click Yes.\r\n";
+
+result = ui.getDialogs().confirm(strDialog, "Continue Tests");
+
+if(result==false) {
+	log.error("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Request DataCustodian to issue Notification message with Subscription information) Testing terminated by user.");
+	testRunner.fail("PSH003 [POS] Notification Push/POST to ThirdParty of Subscription -- (Request DataCustodian to issue Notification message with Subscription information) Testing terminated by user.");
+	return;	
+}
+
+assert true;</script></con:config></con:testStep><con:testStep type="groovy" name="Stop Mock Service" id="d1ec108d-f5fc-4fe3-8b46-7760f765df70"><con:settings/><con:config><script>context.mockRunner.stop();
 return;</script></con:config></con:testStep><con:testStep type="groovy" name="Validate notification and dispatch GET or SFTP step" id="e6f199fb-fcef-40a4-9415-74fc8b1adcaa"><con:settings/><con:config><script>def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context );
 def service = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Notification REST MockService 1");
 
@@ -44359,11 +44421,23 @@ return;
 </script></con:config></con:testStep><con:testStep type="groovy" name="Done: placeholder" id="b612481f-981a-46ca-abee-6e35c51782d2"><con:settings/><con:config><script/></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties/>
 	</con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="PSH004 [NEG] DataCustodian detection of Notification Push/POST failure" searchProperties="true" id="175be4f5-d948-42c4-82f4-151664467366">
 		<con:settings/>
-		<con:testStep type="manualTestStep" name="Have DataCustodian Issue a Notification message with Authorization information" id="af5101f0-d4da-41ef-8c48-1cb67052aa07"><con:description>From the DataCustodian under test please manually initiate a Notification
-The Data Custodian should detect failure to notify the Third Party.
-Please detemine if the DataCustodian detected the failure to notify the Third Party.
-If the Data Custodian detected the failure please mark this test as "Pass" otherwise mark it as "Fail"
-</con:description><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult>Pass</con:expectedResult></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties/>
+		<con:testStep type="groovy" name="Request DataCustodian to issue Notification message" id="bf3f772d-e742-4727-93f9-8da1b5d46154"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
+
+String strDialog = "Request Data Custodian to manually initiate a Notification.\r\n\
+Determine if the Data Custodian detected the Notification failed.\r\n\
+\r\n\
+If the Data Custodian detected the failure, Click Yes.\r\n\
+If the Data Custodian failed to detect the failure, Click No.\r\n";
+
+result = ui.getDialogs().confirm(strDialog, "Continue Tests");
+
+if(result==false) {
+	log.error("PSH004 [POS] DataCustodian detection of Notification Push/POST failure -- (Request DataCustodian to issue Notification message) Data Custodian failed to detect the Notification failed.");
+	testRunner.fail("PSH004 [POS] DataCustodian detection of Notification Push/POST failure -- (Request DataCustodian to issue Notification message) Data Custodian failed to detect the Notification failed.");
+	return;	
+}
+
+assert true;</script></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties/>
 	</con:testCase><con:properties/>
 <con:setupScript>log.info "===== Start TestSuite =====> " + testSuite.name</con:setupScript><con:tearDownScript>def results = true;
 
@@ -45369,7 +45443,7 @@ else {
 	log.info "===== FAILED End   TestSuite =====> " + testSuite.name
 }
 </con:tearDownScript></con:testSuite><con:restMockService port="8081" path="/" host="openespivm" name="ThirdParty Notification REST MockService 1" docroot="" id="44aa183e-c020-4e6b-8402-539544493841"><con:settings/><con:startScript>context.mockService.setPropertyValue("rxNotificationBody","");</con:startScript><con:properties><con:property><con:name>rxNotificationBody</con:name><con:value/></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property></con:properties><con:onRequestScript/><con:restMockAction name="/ThirdParty/espi/1_1/Notification" method="POST" resourcePath="/ThirdParty/espi/1_1/Notification" id="6b6053c9-2c1a-4384-9b10-782eb51bbd4c"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>if(requestContext.mockService.getPropertyValue("rxNotificationBody")!= "") {
-	log.info("ThirdParty Notification REST MockService 1 -- Notification POST Response -- Discarding additional notifications");
+	log.info("ThirdParty Notification REST MockService 1 (/ThirdParty/espi/1_1/Notification) Discarding additional notifications");
 	return;	
 }
 
@@ -45377,17 +45451,17 @@ String strBody = "";
 requestContext.mockService.setPropertyValue("rxNotificationBody",strBody);
 
 if(mockRequest.httpRequest.method != "POST") {
-	log.info("ThirdParty Notification REST MockService 1 -- Notification POST Response -- Message other than POST received. Discarding");
+	log.info("ThirdParty Notification REST MockService 1 (/ThirdParty/espi/1_1/Notification) Message other than POST received. Discarding");
 	return;
 }
 
 
 try {
 	str = mockRequest.getRequestContent();
-	log.info str;
+	log.info("ThirdParty Notification REST MockService 1 (/ThirdParty/espi/1_1/Notification) GetRequestContent: " + str);
 
 	str.eachLine {line->
-		log.info "ThirdParty Notification REST MockService 1 -- Notification POST Response -- Line: " + line;
+		log.info "ThirdParty Notification REST MockService 1 (/ThirdParty/espi/1_1/Notification)  Line: " + line;
 		strBody = strBody + line;
 	}
 
@@ -45395,18 +45469,17 @@ try {
 //		strBody = strBody + line;
 //	}
 
-	log.info("ThirdParty Notification REST MockService 1 -- Notification POST Response -- RX Notification POST Body:" + strBody);
+	log.info("ThirdParty Notification REST MockService 1 (/ThirdParty/espi/1_1/Notification)  RX Notification POST Body:" + strBody);
        
   } catch (Exception e) {
-  	log.info("ThirdParty Notification REST MockService 1 -- Notification POST Response -- Exception: " + e); 
-	log.error("ThirdParty Notification REST MockService 1 -- Notification POST Response -- Exception: " + e)
+	log.error("ThirdParty Notification REST MockService 1 (/ThirdParty/espi/1_1/Notification)  Exception: " + e)
 }
 
 requestContext.mockService.setPropertyValue("rxNotificationBody",strBody);
 
 
 
-</con:dispatchPath><con:response name="Notification POST Response" httpResponseStatus="200" id="31e9433f-70db-4381-8f38-75ff01ad0a7e"><con:settings/><con:script/><con:responseContent/></con:response></con:restMockAction></con:restMockService>
+</con:dispatchPath><con:response name="ThirdParty Notification REST Mock Service 1 /ThirdParty/espi/1_1/Notification POST Response" httpResponseStatus="200" id="31e9433f-70db-4381-8f38-75ff01ad0a7e"><con:settings/><con:script/><con:responseContent/></con:response></con:restMockAction></con:restMockService>
 <con:restMockService port="8081" path="/" host="openespivm" name="ThirdParty Authorization Mock Service" docroot="" id="3a34ffc3-4858-4237-a55a-0cc1f8544c4a"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value>error=access_denied&amp;error_description=User%20denied%20access&amp;state=ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">secret</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>state</con:name><con:value>ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="a19f663e-daf5-4eab-bc7c-0fb638c2496d"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Examples showing how to match based on path, query param and header
 // Match based on path
@@ -46528,14 +46601,14 @@ httpResponse.addHeader("Location",strRespLoc);
 
 
 </con:script><con:responseContent/></con:response></con:restMockAction></con:restMockService>
-<con:restMockService id="d3128334-cd5f-4524-9c93-39bbc43838cf" port="8081" path="/" host="openespivm" name="BatchListNotification" docroot=""><con:settings/><con:startScript/><con:properties><con:property><con:name>BatchList</con:name><con:value/></con:property></con:properties><con:restMockAction name="/ThirdParty/espi/1_1/Notification" method="POST" resourcePath="/ThirdParty/espi/1_1/Notification" id="c8109651-384d-4374-8e42-2054b7258aab"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>// Store batch list in project for use by foreground script
+<con:restMockService id="d3128334-cd5f-4524-9c93-39bbc43838cf" port="8081" path="/" host="openespivm" name="BatchListNotification" docroot=""><con:settings/><con:startScript/><con:properties><con:property><con:name>BatchList</con:name><con:value/></con:property></con:properties><con:restMockAction name="/ThirdParty/espi/1_1/Notification" method="POST" resourcePath="/ThirdParty/espi/1_1/Notification" id="c8109651-384d-4374-8e42-2054b7258aab"><con:settings/><con:defaultResponse>/ThirdParty/espi/1_1/Notification POST Response</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>// Store batch list in project for use by foreground script
 def project = requestContext.mockService.mockRunner.getMockService().getProject()
 
 def requestBody = mockRequest.getRequestContent()
-log.info "BatchListNotification RX: POST Request body: " + requestBody
+log.info "BatchListNotification (/ThirdParty/espi/1_1/Notification) RX: POST Request body: " + requestBody
 //project.setPropertyValue("BatchList",requestBody);
 requestContext.mockService.setPropertyValue("BatchList",requestBody);
-</con:dispatchPath><con:response name="Response 1" id="80857bf2-7556-45dc-8c55-7bdcead30356" httpResponseStatus="200"><con:settings/><con:responseContent/></con:response></con:restMockAction></con:restMockService><con:restMockService id="d62e7b55-3326-4548-8946-7bb2de29e18b" port="8081" path="/" host="openespivm" name="REST MockService for STunnel" docroot=""><con:settings/><con:properties/><con:restMockAction name="/" method="GET" resourcePath="/" id="fc1cb170-728b-46d7-8b01-0dd2f47aaf2c"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+</con:dispatchPath><con:response name="/ThirdParty/espi/1_1/Notification POST Response" id="80857bf2-7556-45dc-8c55-7bdcead30356" httpResponseStatus="200"><con:settings/><con:responseContent/></con:response></con:restMockAction></con:restMockService><con:restMockService id="d62e7b55-3326-4548-8946-7bb2de29e18b" port="8081" path="/" host="openespivm" name="REST MockService for STunnel" docroot=""><con:settings/><con:properties/><con:restMockAction name="/" method="GET" resourcePath="/" id="fc1cb170-728b-46d7-8b01-0dd2f47aaf2c"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Script dispatcher is used to select a response based on the incoming request.
 // Here are few examples showing how to match based on path, query param, header and body
 
@@ -46587,7 +46660,7 @@ if( requestBody.contains("some data") )
     return "Response N"
 }
 */
-</con:dispatchPath><con:response name="Response 1" id="18cf4855-6e08-4d92-bb98-63fd380bf203" httpResponseStatus="200"><con:settings/><con:responseContent>hello</con:responseContent></con:response></con:restMockAction></con:restMockService><con:restMockService id="b81a8110-eb04-4156-80aa-668f474abd72" port="8085" path="/" host="openespivm" name="DC Simulator for Unit Testing - Delayed Response/HTTP" docroot=""><con:settings/><con:startScript>context.toggleResponse = true;</con:startScript><con:properties/><con:afterRequestScript>
+</con:dispatchPath><con:response name="REST Mock Service for STunnel GET Response" id="18cf4855-6e08-4d92-bb98-63fd380bf203" httpResponseStatus="200"><con:settings/><con:responseContent>hello</con:responseContent></con:response></con:restMockAction></con:restMockService><con:restMockService id="b81a8110-eb04-4156-80aa-668f474abd72" port="8085" path="/" host="openespivm" name="DC Simulator for Unit Testing - Delayed Response/HTTP" docroot=""><con:settings/><con:startScript>context.toggleResponse = true;</con:startScript><con:properties/><con:afterRequestScript>
 import groovyx.net.http.HTTPBuilder
 import groovyx.net.http.HttpResponseException;
 import groovyx.net.http.Method;
@@ -46656,7 +46729,7 @@ if(!context.toggleResponse)
 	requestContext.proxiedResponse = "";
 	mockResponse.setResponseHttpStatus(202);
 }
-]]></con:script><con:responseContent>${proxiedResponse}</con:responseContent></con:response></con:restMockAction></con:restMockService><con:restMockService id="0c0fb58e-0abc-41e7-8840-6cae5b9e2f8c" port="8086" path="/" host="openespivm" name="GenericGetService" docroot=""><con:settings/><con:properties><con:property><con:name>notificationRxTimeoutSecs</con:name><con:value>10</con:value></con:property><con:property><con:name>stunnelProxyPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8086</con:value></con:property></con:properties><con:restMockAction name="/" method="GET" resourcePath="/" id="070d92b9-4da0-41cd-9722-5ad774588790"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath><![CDATA[
+]]></con:script><con:responseContent>${proxiedResponse}</con:responseContent></con:response></con:restMockAction></con:restMockService><con:restMockService id="0c0fb58e-0abc-41e7-8840-6cae5b9e2f8c" port="8086" path="/" host="openespivm" name="GenericGetService" docroot=""><con:settings/><con:properties><con:property><con:name>notificationRxTimeoutSecs</con:name><con:value>10</con:value></con:property><con:property><con:name>stunnelProxyPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8086</con:value></con:property></con:properties><con:restMockAction name="/" method="GET" resourcePath="/" id="070d92b9-4da0-41cd-9722-5ad774588790"><con:settings/><con:defaultResponse>GenericGetService Response</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath><![CDATA[
 
 import groovyx.net.http.HTTPBuilder
 import groovyx.net.http.HttpResponseException;
@@ -46672,8 +46745,8 @@ public boolean RunCommand(String cmd)
 {
 	def doCmd;
 
-	log.info("exec: " + cmd);
-	log.info("os  : " + System.properties['os.name']);
+	log.info("GenericGetService Mock Server (GET /) exec: " + cmd);
+	log.info("GenericGetService Mock Server (GET /) os  : " + System.properties['os.name']);
 	
 	if (System.properties['os.name'].toLowerCase().contains('windows')) {
 		doCmd = ["cmd", "/c",cmd].execute();
@@ -46685,9 +46758,9 @@ public boolean RunCommand(String cmd)
 	
 	if(doCmd.exitValue()!=0) {
 		
-		log.error "return code: ${ doCmd.exitValue()}"
-		log.error "stderr: ${doCmd.err.text}"
-		log.error "stdout: ${doCmd.in.text}"
+		log.error "GenericGetService Mock Server (GET /) return code: ${ doCmd.exitValue()}"
+		log.error "GenericGetService Mock Server (GET /) stderr: ${doCmd.err.text}"
+		log.error "GenericGetService Mock Server (GET /) stdout: ${doCmd.in.text}"
 	
 		return false;
 	}
@@ -46706,7 +46779,7 @@ public Integer doSFTPGET(String url,def groovyUtils) {
 	def host = aURI?.getHost();
 	def path = aURI?.getPath();
 	
-	log.info "GenericGetService sftp: uname:" + username + " host:" + host + " path:" + path;
+	log.info "GenericGetService Mock Server (GET /) SFTP: uname:" + username + " host:" + host + " path:" + path;
 	
 	dir.eachFileRecurse (FileType.FILES) { file ->
 		list << file
@@ -46717,8 +46790,8 @@ public Integer doSFTPGET(String url,def groovyUtils) {
 		cmdRm = 'rm ' + transferDir +  '/*';
 		
 		if(RunCommand(cmdRm) != true) {
-			log.error("could not clear transfer directory");
-			testRunner.fail("could not clear transfer directory");
+			log.error("GenericGetService Mock Server (GET /) Could not clear transfer directory" + transferDir);
+			testRunner.fail("GenericGetService Mock Server (GET /) Could not clear transfer directory" + transferDir);
 			return 0;
 		} 
 	}
@@ -46726,14 +46799,14 @@ public Integer doSFTPGET(String url,def groovyUtils) {
 	cmdGet = "sftp " + username + "@" + host + ":" + path + " " + transferDir + "/test.xml"
 	
 	if(RunCommand(cmdGet) != true) {
-		log.error("could not issue sftp get");
-		testRunner.fail("could not issue sftp get");
+		log.error("GenericGetService Mock Server (GET /) Could not issue SFTP GET");
+		testRunner.fail("GenericGetService Mock Server (GET /) Could not issue SFTP GET");
 		return 0;
 	}	
 
 	String strResp = new File(groovyUtils.projectPath + "/../transferred/test.xml").getText();
 
-	log.info "GenericGetService received sftp file:" +  strResp;
+	log.info "GenericGetService Mock Server (GET /) received SFTP file:" +  strResp;
 
 	context.strResponseBody = strResp;
 	
@@ -46754,59 +46827,59 @@ public Integer doHTTPGET(String url, String token,Object context) {
 			headers.Accept = 'application/atom+xml'
 			
 			response.success = { resp, reader ->
-				log.info "GenericGetService - doHTTPGET -- Response Status: ${resp.status}"
-				log.info "GenericGetService - doHTTPGET -- Response Status: ${resp.statusLine}"
-				log.info "GenericGetService - doHTTPGET -- Content-Type: ${resp.headers.'Content-Type'}"
-				log.info "GenericGetService - doHTTPGET -- Content-Encoding: ${resp.headers.'Content-Encoding'}"
+				log.info "GenericGetService Mock Server (GET /) - doHTTPGET -- Response Status: ${resp.status}"
+				log.info "GenericGetService Mock Server (GET /) - doHTTPGET -- Response Status: ${resp.statusLine}"
+				log.info "GenericGetService Mock Server (GET /) - doHTTPGET -- Content-Type: ${resp.headers.'Content-Type'}"
+				log.info "GenericGetService Mock Server (GET /) - doHTTPGET -- Content-Encoding: ${resp.headers.'Content-Encoding'}"
 				
 				context.strResponseBody =  reader.getText();
 
-				log.info "GenericGetService - doHTTPGET -- Response Body: " + context.strResponseBody;
+				log.info "GenericGetService Mock Server (GET /) - doHTTPGET -- Response Body: " + context.strResponseBody;
 				
 				result = resp.status;
 				
 			}
 			response.'401' = { resp ->
 	        		//println 'access denied'
-	        		log.info "GenericGetService - doHTTPGET: access denied"
+	        		log.info "GenericGetService Mock Server (GET /) - doHTTPGET: access denied"
 				result = resp.status;
 	    		}						
 			response.'403' = { resp ->
 	        		//println 'access not authorized'
-	        		log.info "GenericGetService - doHTTPGET: access not authorized"
+	        		log.info "GenericGetService Mock Server (GET /) - doHTTPGET: access not authorized"
 	        		//context.strResponseBody =  reader.getText();
 				result = resp.status;
 	    		}						
 			response.'202' = { resp ->
 	        		//println 'accepted but will provide notification when done'
-	        		log.info "GenericGetService - doHTTPGET: accepted but will provide notification when done"
+	        		log.info "GenericGetService Mock Server (GET /) - doHTTPGET: accepted but will provide notification when done"
 				result = resp.status;
 	    		}						
 			response.failure = { resp ->
-				log.info "GenericGetService - doHTTPGET: GET Failed with Status: ${resp.statusLine}";
+				log.info "GenericGetService Mock Server (GET /) - doHTTPGET: GET Failed with Status: ${resp.statusLine}";
 				//log.info "doHTTPGET (GET) -- bShouldPass: " + bShouldPass;
-				strResult = "GenericGetService - doHTTPGET: GET Failed: " + resp.statusLine;
+				strResult = "GenericGetService Mock Server (GET /) - doHTTPGET: GET Failed: " + resp.statusLine;
 				bFailure = true;
 				result = resp.status;
 			}  
 		}
 	} catch ( HttpResponseException ex ) {
 	    // default failure handler throws an exception:
-	    log.info "GenericGetService - doHTTPGET: GET HttpResponseException Error: ${ex.statusCode}"
-	    strResult ="GenericGetService - doHTTPGET: GET Unexpected response error: ${ex.statusCode}"
+	    log.info "GenericGetService Mock Server (GET /) - doHTTPGET: GET HttpResponseException Error: ${ex.statusCode}"
+	    strResult ="GenericGetService Mock Server (GET /) - doHTTPGET: GET Unexpected response error: ${ex.statusCode}"
 	    _strError = strResult;
 	    bFailure = true;
 	    return 500;
 	
 	} catch (IOException io) {
-	        log.info "GenericGetService - doHTTPGET: GET IOException Error: " + io;
-	        strResult = "GenericGetService - doHTTPGET: GET IOException error: " + io;
+	        log.info "GenericGetService Mock Server (GET /) - doHTTPGET: GET IOException Error: " + io;
+	        strResult = "GenericGetService Mock Server (GET /) - doHTTPGET: GET IOException error: " + io;
 	        _strError = strResult;
 	        bFailure = true;
 	        return 500;
 	} catch (Exception e) {
-	    log.info "GenericGetService - doHTTPGET: GET Exception Error: " + e;
-	    strResult ="GenericGetService - doHTTPGET: GET Unexpected error"
+	    log.info "GenericGetService Mock Server (GET /) - doHTTPGET: GET Exception Error: " + e;
+	    strResult ="GenericGetService Mock Server (GET /) - doHTTPGET: GET Unexpected error"
 	    _strError = strResult;
 	    bFailure = true;
 	    return 500;			
@@ -46829,27 +46902,27 @@ def requestPath = mockRequest.getPath();
 
 context.strResponseBody = null;
 
-log.info "GenericGetService - Main Script -- RX Path: "+ requestPath;
-log.info "GenericGetService - Main Script -- RX Accept-Encoding: " + mockRequest.getRequestHeaders().get("Accept-Encoding");
+log.info "GenericGetService Mock Server (GET /) - Main Script -- RX Path: "+ requestPath;
+log.info "GenericGetService Mock Server (GET /) - Main Script -- RX Accept-Encoding: " + mockRequest.getRequestHeaders().get("Accept-Encoding");
 
 String token = "";
 
 if (mockRequest.getRequestHeaders().get("Authorization") != null) {
 	token = mockRequest.getRequestHeaders().get("Authorization");
-	log.info "GenericGetService - Main Script -- token: " + token;
+	log.info "GenericGetService Mock Server (GET /) - Main Script -- token: " + token;
 
 	// Remove brackets "[" "]" surrounding returned token
 	token = token.replace("[","");
 	token = token.replace("]","");
 
-	log.info "GenericGetService - Main Script -- Use Authorization:'" + token + "'";
+	log.info "GenericGetService Mock Server (GET /) - Main Script -- Use Authorization:'" + token + "'";
 	
 } else {
 
-	log.info "GenericGetService - Main Script -- No Authorization Header";
+	log.info "GenericGetService Mock Server (GET /) - Main Script -- No Authorization Header";
 }
 
-log.info "GenericGetService - Main Script -- token: " + token;
+log.info "GenericGetService Mock Server (GET /) - Main Script -- token: " + token;
 
 // TODO - where to specify actual DC address??
 
@@ -46867,27 +46940,27 @@ def notificationRunner = notificationService.start();
 // clear notification of BatchList result
 notificationService.setPropertyValue("BatchList","");
 
-log.info "GenericGetService - Start Notification Mock Service -- Protocol: " + aURL.getProtocol()
+log.info "GenericGetService Mock Server (GET /) - Start Notification Mock Service -- Protocol: " + aURL.getProtocol()
 
 if( (aURL.getProtocol()=="http") || (aURL.getProtocol()=="https")){
 // based on result of initial GET, handle response
 
-	log.info "GenericGetService - Start Notification Mock Service -- URL: " + url
-	log.info "GenericGetService - Start Notification Mock Service -- token: " + token
-	log.info "GenericGetService - Start Notification Mock Service -- context: " + context
+	log.info "GenericGetService Mock Server (GET /) - Start Notification Mock Service -- URL: " + url
+	log.info "GenericGetService Mock Server (GET /) - Start Notification Mock Service -- token: " + token
+	log.info "GenericGetService Mock Server (GET /) - Start Notification Mock Service -- context: " + context
 	
 	responseToGet = doHTTPGET(url,token,context);
 
 	switch (responseToGet)
 	{
 		case 200:
-			log.info "GenericGetService - Start Notification Mock Service -- immediate response";
+			log.info "GenericGetService Mock Server (GET /) - Start Notification Mock Service -- immediate response";
 			responses << context.strResponseBody;	
 			break;
 		case 202:
 			def delayWait = context.mockService.getPropertyValue("notificationRxTimeoutSecs").toInteger();
 			
-			log.info "GenericGetService - Start Notification Mock Service -- Response is delayed... wait + " + delayWait + "(secs) for notification";
+			log.info "GenericGetService Mock Server (GET /) - Start Notification Mock Service -- Response is delayed... wait + " + delayWait + "(secs) for notification";
 			// we must wait for notification of BatchList with URLs to retrieve
 			
 			while (delayWait > 0)
@@ -46897,7 +46970,7 @@ if( (aURL.getProtocol()=="http") || (aURL.getProtocol()=="https")){
 				
 				if (notificationService.getPropertyValue("BatchList").length() > 0)
 				{
-					log.info "GenericGetService - Start Notification Mock Service -- Notification Received: " + responseToGet ;
+					log.info "GenericGetService Mock Server (GET /) - Start Notification Mock Service -- Notification Received: " + responseToGet ;
 					break;
 				}
 			}
@@ -46905,7 +46978,7 @@ if( (aURL.getProtocol()=="http") || (aURL.getProtocol()=="https")){
 			// Check if we have further processing
 			if (notificationService.getPropertyValue("BatchList").length() == 0)
 			{
-				log.error("GenericGetService - Start Notification Mock Service -- did not receive notification");
+				log.error("GenericGetService Mock Server (GET /) - Start Notification Mock Service -- did not receive notification");
 				//testRunner.fail("GenericGetService No Notification Received");
 			}
 			else
@@ -46918,7 +46991,7 @@ if( (aURL.getProtocol()=="http") || (aURL.getProtocol()=="https")){
 				// iterate through resources
 				rootNode.children().each {
 					
-					log.info "GenericGetService - Start Notification Mock Service -- GET resource:" + it.text();
+					log.info "GenericGetService Mock Server (GET /) - Start Notification Mock Service -- GET resource:" + it.text();
 
 					URI aURI = new URI(it.text());
 
@@ -46933,18 +47006,18 @@ if( (aURL.getProtocol()=="http") || (aURL.getProtocol()=="https")){
 								responses << context.strResponseBody;	
 								break;
 							default:
-								log.error("GenericGetService - Start Notification Mock Service -- did not receive 200 response");
+								log.error("GenericGetService Mock Server (GET /) - Start Notification Mock Service -- did not receive 200 response");
 								break;
 						}
 					} else if(aURI.getScheme()=="sftp") {
 						if(doSFTPGET(it.text(),groovyUtils)==1) {
 							responses << context.strResponseBody;		
 						} else { 
-							log.error("GenericGetService - Start Notification Mock Service -- did not receive sftp response");				
+							log.error("GenericGetService Mock Server (GET /) - Start Notification Mock Service -- did not receive SFTP response");				
 						}
 					} else
 					{
-						log.error("GenericGetService - Start Notification Mock Service: unknown protocol specified in batch notification.");	
+						log.error("GenericGetService Mock Server (GET /) - Start Notification Mock Service: unknown protocol specified in batch notification.");	
 					}
 				}
 			}
@@ -46960,11 +47033,11 @@ if( (aURL.getProtocol()=="http") || (aURL.getProtocol()=="https")){
 else if (aURL.getProtocol()=="sftp"){
 	//doSFTPGET(url,token);
 	//responses << testRunner.testCase.getPropertyValue("response");	
-	log.error("GenericGetService - Start Notification Mock Service: sftp not allowed in request URL");	
+	log.error("GenericGetService Mock Server (GET /) - Start Notification Mock Service: SFTP not allowed in request URL");	
 }
 else {
 	//testRunner.fail("GenericGetService Unknown protocol in URL");
-	log.error("GenericGetService - Start Notification Mock Service: Unknown protocol in URL");	
+	log.error("GenericGetService Mock Server (GET /) - Start Notification Mock Service: Unknown protocol in URL");	
 }
 
 	
@@ -46978,14 +47051,14 @@ notificationRunner = null;
 requestContext.proxiedResponse = "";
 
 responses.each { it->
-	log.info "GenericGetService - Stop Notification Mock Service -- response: " + it;
+	log.info "GenericGetService Mock Server (GET /) - Stop Notification Mock Service -- response: " + it;
 	requestContext.proxiedResponse = requestContext.proxiedResponse + it;
 }
 
 context.responseCode = 200;
 
 return 
-]]></con:dispatchPath><con:response name="Response 1" id="79bee9b3-4989-409b-8389-1bb5f4cf90d3" httpResponseStatus="200"><con:settings/><con:script>mockResponse.setResponseHttpStatus(context.responseCode);</con:script><con:responseContent>${proxiedResponse}</con:responseContent></con:response></con:restMockAction></con:restMockService><con:restMockService id="be1ca609-7ac8-4800-9d34-770c90a6e5a7" port="8085" path="/" host="openespivm" name="DC Simulator for Unit Testing - Immediate Response" docroot=""><con:settings/><con:properties/><con:restMockAction name="/" method="GET" resourcePath="/" id="095ce477-10b3-46d3-b050-13b86093009b"><con:settings/><con:defaultResponse>Response 200</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+]]></con:dispatchPath><con:response name="GenericGetService Response" id="79bee9b3-4989-409b-8389-1bb5f4cf90d3" httpResponseStatus="200"><con:settings/><con:script>mockResponse.setResponseHttpStatus(context.responseCode);</con:script><con:responseContent>${proxiedResponse}</con:responseContent></con:response></con:restMockAction></con:restMockService><con:restMockService id="be1ca609-7ac8-4800-9d34-770c90a6e5a7" port="8085" path="/" host="openespivm" name="DC Simulator for Unit Testing - Immediate Response" docroot=""><con:settings/><con:properties/><con:restMockAction name="/" method="GET" resourcePath="/" id="095ce477-10b3-46d3-b050-13b86093009b"><con:settings/><con:defaultResponse>Response 200</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Script dispatcher is used to select a response based on the incoming request.
 // Here are few examples showing how to match based on path, query param, header and body
 
@@ -47212,7 +47285,7 @@ if( requestBody.contains("some data") )
 	
 	
 	
-	<con:property><con:name>bulkId</con:name><con:value>1</con:value></con:property><con:property><con:name>certScopes</con:name><con:value>FB=1_4_5_15</con:value></con:property><con:property><con:name>client_access_token</con:name><con:value>a73ff1a2-8722-4861-ae01-56f6a27fd004</con:value></con:property>
+	<con:property><con:name>bulkId</con:name><con:value>1</con:value></con:property><con:property><con:name>certScopes</con:name><con:value>FB=1_4_5_15</con:value></con:property><con:property><con:name>client_access_token</con:name><con:value>0cc1b0dd-fe2c-4b4c-bc41-0e0ac6488c04</con:value></con:property>
 	
 	
 	
@@ -47240,7 +47313,7 @@ if( requestBody.contains("some data") )
 	
 	
 	
-	<con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value>ca1db289-d533-42ef-bdc7-fe406d05054a</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>c66b0854-ea1f-4e24-afb7-afab9e0f6c5e</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>localhost:8443</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceUri</con:name><con:value>espi/1_1/resource</con:value></con:property>
+	<con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value>7878494f-b7cb-41bc-a67d-91148287e2ca</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>c66b0854-ea1f-4e24-afb7-afab9e0f6c5e</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>localhost:8443</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceUri</con:name><con:value>espi/1_1/resource</con:value></con:property>
 	
 	
 	
