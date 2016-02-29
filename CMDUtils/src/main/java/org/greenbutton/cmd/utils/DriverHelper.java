@@ -56,6 +56,11 @@ public class DriverHelper {
 		return _driver.manage().getCookies();
 	}
 
+	public Cookie getCookieNamed(String name)
+	{
+		return _driver.manage().getCookieNamed(name);
+	}
+
 	private void CaptureAction() throws Exception
 	{
  		//log.info("Stack:" + Thread.currentThread().getStackTrace());
