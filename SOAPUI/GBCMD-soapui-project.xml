@@ -2554,7 +2554,7 @@
 				<con:params/>
 				<con:element>html</con:element>
 			</con:representation>
-			<con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/xml;charset=utf-8</con:mediaType><con:status>500</con:status><con:params/><con:element xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">soapenv:Envelope</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/atom+xml;charset=iso-8859-1</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/xml</con:mediaType><con:status>403 401</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>text/html; charset=iso-8859-1</con:mediaType><con:status>200</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+			<con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/xml;charset=utf-8</con:mediaType><con:status>500</con:status><con:params/><con:element xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">soapenv:Envelope</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/atom+xml;charset=iso-8859-1</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/xml</con:mediaType><con:status>403 401</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:atom="http://www.w3.org/2005/Atom">atom:entry</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>text/html; charset=iso-8859-1</con:mediaType><con:status>200</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
 				<con:settings>
 					<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
 		</con:settings>
@@ -8596,7 +8596,7 @@ if(context["driver"] != null){
 	context["driver"] = null;	
 }
 
-</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>f28d296c-34b9-4ea8-ae06-cd9ed4968ea7</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/7</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource/Authorization/7</con:value></con:property><con:property><con:name>token_type</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">efa5f34d-dd3d-4ab2-a277-46449ed26024</con:value></con:property><con:property><con:name>expires_in</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">315359999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">LigblE</con:value></con:property><con:property><con:name>error</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>old_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">86ca86f7-ba16-4675-90da-4a00ceef7b2b</con:value></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">secret</con:value></con:property><con:property><con:name>authorizationServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>resourceServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>mockPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8080</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>authorizationServerTokenEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">13c0fb30-9a9c-4274-b5ba-eec2dc748899</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">localhost:8443</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">28b7ac80-15ec-4030-a3c7-308ef081f678</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand" id="06648a84-6352-4b25-b179-693e52d162cc"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
+</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>3330df6b-c8a0-4cf8-a438-dc8bec726164</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>espi/1_1/resource</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>token_type</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>refresh_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>expires_in</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>old_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">3330df6b-c8a0-4cf8-a438-dc8bec726164</con:value></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">secret</con:value></con:property><con:property><con:name>authorizationServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>resourceServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>mockPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8080</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>authorizationServerTokenEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">2c2c5ae5-a8a9-4fa0-b38c-c141e49b95c8</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">localhost:8443</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">be575aad-2623-4f00-ac89-842f82dba84c</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand" id="06648a84-6352-4b25-b179-693e52d162cc"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
 
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
@@ -15686,7 +15686,7 @@ testRunner.fail("Failed to verify purchase of standard");
 			<con:endpoint>${#Project#ServiceEndpoint}</con:endpoint>
 			<con:request/>
 			<con:originalUri>http://localhost/DataCustodian/espi/1_1/resource/ApplicationInformation/1</con:originalUri>
-			<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="50e43d76-9d7f-479a-8aa7-5e4ad89b071e"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XPath Match" id="70841fb0-3621-4ef3-85ef-0a876e4cb1ee" name="XPath Match"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';</path><content>True</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials>
+			<con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="50e43d76-9d7f-479a-8aa7-5e4ad89b071e"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Simple Contains" id="e9540c03-7cc0-4f01-a3bb-61b31494904c" name="Contains"><con:configuration><token>(?s).*&lt;link href="https://cert.greenbuttonalliance.org/certificate/${#Project#GBACertLink}" rel="related"/>*.</token><ignoreCase>true</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials>
 				<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
 				<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
 				<con:authType>Global HTTP Settings</con:authType>
@@ -16105,7 +16105,8 @@ declare namespace espi='http://naesb.org/espi';
 (/ns3:entry/ns3:content/espi:ApplicationInformation/espi:grant_types='refresh_token') or 
 (/ns3:entry/ns3:content/espi:ApplicationInformation/espi:grant_types='client_credentials')</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="response_types must be 'code'" id="af6b6165-1df4-4ad2-b1ec-8a77a6952467"><con:configuration><path>declare namespace ns3='http://www.w3.org/2005/Atom';
 declare namespace espi='http://naesb.org/espi';
-/ns3:entry/ns3:content/espi:ApplicationInformation/espi:response_types='code'</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials>
+/ns3:entry/ns3:content/espi:ApplicationInformation/espi:response_types='code'</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="cf258239-1df4-489e-b54b-80dfc1667fbd" name="Response must contain GBACert Link" disabled="true"><con:configuration><path>declare namespace atom='http://www.w3.org/2005/Atom';
+*//atom:link[@rel='related' and starts-with(@href,'https://cert.greenbuttonalliance.org/certificate/')]</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials>
 				<con:selectedAuthProfile>Basic</con:selectedAuthProfile>
 				<con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
 				<con:authType>Global HTTP Settings</con:authType>
@@ -17280,25 +17281,29 @@ holder.namespaces["espi"] = "http://naesb.org/espi";
 
 // check id
 countIds = holder["count(//atom:id)"].toInteger();
-log.info "IDs:" + countIds;
-if (countIds > 10) 
-	countIds = 10;
+
+if (countIds > 30) 
+	countIds = 30;
 ids = "";
 for( item in holder.getNodeValues( "//atom:id" ))
 {
 	ids = ids + item + "\n";
-	//   log.info "Item : [$item]"
+	countIds = countIds - 1;
+
+	if(countIds == 0) {
+		break;
+	}
 }
 
 // Ask testee to verify (manual procedure)
-result = ui.getDialogs().confirm("Verify that these IDs do not contain account or other personal identifiers \n\n"+ ids.toString(), "\n");
+result = ui.getDialogs().confirm("Verify IDs do not contain account or other personal identifiers \n\n"+ ids.toString(), "\n");
 log.info (result)
 
 if(result)
 {
-	log.info "ids do not contain PII";
+	log.info "IDs do not contain PII";
 } else {
-	testRunner.fail( "ids not verified to exclude PII");
+	testRunner.fail( "IDs contain PII");
 	return;
 }
 
@@ -17307,48 +17312,60 @@ if(result)
 // check url
 countLinks = holder["count(//atom:link)"].toInteger();
 log.info "Links: " + countLinks;
-if (countLinks > 10) 
-	countLinks = 10;
+if (countLinks > 30) 
+	countLinks = 30;
 links = "";
+
 for( item in holder.getNodeValues( "//atom:link/@href" ))
 {
 	links = links + item + "\n";
-	//   log.info "Item : [$item]"
+
+	countLinks = countLinks - 1;
+
+	if(countLinks == 0) {
+		break;
+	}
 }
 
 // Ask testee to verify (manual procedure)
-result = ui.getDialogs().confirm("Verify that these IDs do not contain account or other personal identifiers \n\n"+ links.toString(), "\n");
+result = ui.getDialogs().confirm("Verify Link IDs do not contain account or other personal identifiers \n\n"+ links.toString(), "\n");
 log.info (result)
 
 if(result)
 {
-	log.info "links do not contain PII";
+	log.info "Link IDs do not contain PII";
 } else {
-	testRunner.fail( "links not verified to exclude PII");
+	testRunner.fail( "Link IDs contain PII");
 	return;
 }
 
 // check title
 countTitles = holder["count(//atom:title)"].toInteger();
 log.info "Titles: " + countTitles;
-if (countTitles > 10) countTitles = 10;
+if (countTitles > 30) countTitles = 30;
 titles = "";
 for( item in holder.getNodeValues( "//atom:title" ))
 {
-	if(item != null)
+	if(item != null) {
 		titles = titles + item + "\n";
-	//   log.info "Item : [$item]"
+
+		countTitles = countTitles - 1;
+
+		if(countTitles == 0) {
+			break;
+		}
+	}
 }
 
 // Ask testee to verify (manual procedure)
-result = ui.getDialogs().confirm("Verify that these titles do not contain account or other personal identifiers \n\n"+ titles.toString(), "\n");
+result = ui.getDialogs().confirm("Verify Titles do not contain account or other personal identifiers \n\n"+ titles.toString(), "\n");
 log.info (result)
 
 if(result)
 {
-	log.info "titles do not contain PII";
+	log.info "Titles do not contain PII";
 } else {
-	testRunner.fail( "titles not verified to exclude PII");
+	testRunner.fail( "Titles contain PII");
 	return;
 }
 
@@ -28536,14 +28553,14 @@ holder.namespaces["espi"] = "http://naesb.org/espi";
 // check access token
 // Ask testee to verify (manual procedure)
 tokens = "access token: " + testRunner.testCase.testSuite.project.getPropertyValue("access_token") + "\n" + "registration access token: " + testRunner.testCase.testSuite.project.getPropertyValue("registration_access_token")+ "\n"  + "client access token: " + testRunner.testCase.testSuite.project.getPropertyValue("client_access_token");
-result = ui.getDialogs().confirm("Verify that these tokens are at least 48 bits \n(12 characters hex, 8 characters base 64) \n\n" + tokens, "\n");
+result = ui.getDialogs().confirm("Verify tokens contain at least 48 bits \n(12 characters hex, 8 characters base 64) \n\n" + tokens, "\n");
 log.info (result)
 
 if(result)
 {
-	log.info "tokens > 48 bits";
+	log.info "Tokens contain at least 48 bits";
 } else {
-	testRunner.fail( "tokens are not > 48 bits");
+	testRunner.fail( "Tokens do not contain at least 48 bits");
 	return;
 }
 
@@ -28558,17 +28575,22 @@ for( item in holder.getNodeValues( "//atom:id" ))
 {
 	ids = ids + item + "\n";
 	//   log.info "Item : [$item]"
+
+	countIds = countIds -1
+	if(countIds == 0) {
+		break;
+	}
 }
 
 // Ask testee to verify (manual procedure)
-result = ui.getDialogs().confirm("Verify that these IDs are at least 48 bits \n(12 characters hex, 8 characters base 64) \n\n"+ ids.toString(), "\n");
+result = ui.getDialogs().confirm("Verify IDs contain at least 48 bits \n(12 characters hex, 8 characters base 64) \n\n"+ ids.toString(), "\n");
 log.info (result)
 
 if(result)
 {
-	log.info "ids do not contain PII";
+	log.info "IDs contain at least 48 bits";
 } else {
-	testRunner.fail( "ids not verified to exclude PII");
+	testRunner.fail( "IDs do not contain at least 48 bits");
 	return;
 }
 
@@ -28584,17 +28606,22 @@ for( item in holder.getNodeValues( "//atom:link/@href" ))
 {
 	links = links + item + "\n";
 	//   log.info "Item : [$item]"
+
+	countLinks = countLinks -1
+	if(countLinks == 0) {
+		break;
+	}
 }
 
 // Ask testee to verify (manual procedure)
-result = ui.getDialogs().confirm("Assert that these links contain identifiers that are at least 48 bits \n(12 characters hex, 8 characters base 64) \n\n"+ links.toString(), "\n");
+result = ui.getDialogs().confirm("Verify Link identifiers contain at least 48 bits \n(12 characters hex, 8 characters base 64) \n\n"+ links.toString(), "\n");
 log.info (result)
 
 if(result)
 {
-	log.info "links contain identifiers that are at least 48 bits";
+	log.info "Link identifiers contain at least 48 bits";
 } else {
-	testRunner.fail( "links contain identifiers that are not at least 48 bits");
+	testRunner.fail( "Link identifiers do not contain at least 48 bits");
 	return;
 }
 
@@ -39947,28 +39974,14 @@ log.info "[FB_14] Authorization and Authentication (OAD001 [NEG] Malformed Autho
 context["driver"] = driver;
 
 driver.get(strScopeSelURI);
-</script></con:config></con:testStep><con:testStep type="manualTestStep" name="Perform Login" id="821ab4d0-3ae0-49e2-a069-c393dd5bd8c2"><con:description>Login to the Data Custodian under 
-test and wait for the Third Party Scope
-Selection Screen.
+</script></con:config></con:testStep><con:testStep type="groovy" name="Perform Login and Capture sessionID" id="5bec0ccb-74e7-4798-b02b-7e5e19895582"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
 
-When this screen appears, right click
-on the page and select "Page Info" from
-the menu.
+result = ui.prompt("Give Keyboard Control to the test applicant to Login to the Data Custodian.\n\nWhen the Third Party Scope Selection Screen appears take back Keyboard Control, and follow instructions on the screen.\n\nPaste the session cookie in the 'Results' field below and click OK","Result");
 
-Click the "Details" button and then the
-"View Cookies" button on the next window.
-On the next window that appears, copy 
-the session cookie for the Data Custodian 
-path (labeled "Content:").
-
-Paste the session cookie in the "Result"
-field of this dialog box.
-</con:description><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult/></con:config></con:testStep><con:testStep type="groovy" name="Extract sessionID" id="f544e23c-56c9-4226-955f-13bdf22c51f0"><con:settings/><con:config><script>
-testRunner.testCase.setPropertyValue("browserSession",testRunner.testCase.getTestStepByName("Perform Login").getPropertyValue("Result"));
- 
+testRunner.testCase.setPropertyValue("browserSession",result);
 </script></con:config></con:testStep><con:testStep type="groovy" name="Perform TP Scope Selection" id="fb5fc53b-b795-408b-8cc4-dc82abb95021"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
 
-result = ui.getDialogs().showInfoMessage("Select Scope and click OK when done", "");
+result = ui.getDialogs().showInfoMessage("Give Keyboard Control to the test applicant and ask them to select Scope and click SUBMIT.\n\nWhen they have finished take back Keyboard Control and click OK", "");
 </script></con:config></con:testStep><con:testStep type="groovy" name="Wait for Mock Service to receive TP scope sel POST" id="0dee7420-3702-444b-b3c2-e5e2fb7959e6"><con:settings/><con:config><script>
 int cnt=20;
 
@@ -40208,7 +40221,7 @@ if(context["driver"] != null){
 }
 
 log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();
-</con:tearDownScript><con:properties><con:property><con:name>extracted_scope_sel_uri</con:name><con:value/></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8CB51FFD4208207B649394AD10937B7D</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD002 [NEG] Authorization Code Request (Retail Customer Passes Authentication and DENIES access)" searchProperties="true" id="bccca4c3-2b7b-4359-8ca2-2159ecd05c3e"><con:description/><con:settings/><con:testStep type="groovy" name="Start Mock Service" id="d08db03c-02df-4bec-be6d-8eb8cd7f4cda"><con:settings/><con:config><script>//	Create addressability to global variables
+</con:tearDownScript><con:properties><con:property><con:name>extracted_scope_sel_uri</con:name><con:value/></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD002 [NEG] Authorization Code Request (Retail Customer Passes Authentication and DENIES access)" searchProperties="true" id="bccca4c3-2b7b-4359-8ca2-2159ecd05c3e"><con:description/><con:settings/><con:testStep type="groovy" name="Start Mock Service" id="d08db03c-02df-4bec-be6d-8eb8cd7f4cda"><con:settings/><con:config><script>//	Create addressability to global variables
 def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
 
 context.mockService = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Authorization Mock Service");
@@ -40376,7 +40389,7 @@ context["driver"] = driver;
 driver.get(strScopeSelURI);
 </script></con:config></con:testStep><con:testStep type="groovy" name="Wait for Authorization to Complete and End Browser session" id="335fbfd7-b948-47bd-adb8-e20bad342944"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
 
-result = ui.getDialogs().showInfoMessage("Perform logon, select scope and DENY authorization request. Click OK when done.", "");
+result = ui.getDialogs().showInfoMessage("Give Keyboard Control to the test applicant.\n\nAsk them to 'Login to the Data Custodian', 'Select a scope option', and 'DENY the authorization request'.\n\nWhen they are done, take back Keyboard Control and click OK.", "");
 
 context["driver"].quit();</script></con:config></con:testStep><con:testStep type="groovy" name="End Browser session" id="4d820d57-da11-46f5-9b74-2c9a58cd91f1"><con:settings/><con:config><script>context["driver"].quit();
 context["driver"] = null;</script></con:config></con:testStep><con:testStep type="groovy" name="Stop Mock Service" id="62cbdcbe-2f49-470b-b76b-16fc7ec0d150"><con:settings/><con:config><script>context.mockRunner.stop();
@@ -40559,7 +40572,7 @@ context["driver"] = driver;
 
 driver.get(strScopeSelURI);</script></con:config></con:testStep><con:testStep type="groovy" name="Wait for Authorization to Complete and End Browser session" id="c959593c-f4f7-4741-adf3-914104b45561"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
 
-result = ui.getDialogs().showInfoMessage("Perform logon, select scope and APPROVE authorization request. Click OK when done.", "");
+result = ui.getDialogs().showInfoMessage("Give Keyboard Control to the test applicant.\n\nAsk them to 'Login to the Data Custodian', 'Select a scope option', and 'APPROVE the authorization request'.\n\nWhen they are done, take back Keyboard Control and click OK.", "");
 
 context["driver"].quit();</script></con:config></con:testStep><con:testStep type="groovy" name="End Browser session" id="b94ec9cd-0ad7-4cba-805f-375979bc058b"><con:settings/><con:config><script>context["driver"].quit();
 context["driver"] = null;</script></con:config></con:testStep><con:testStep type="groovy" name="Stop Mock Service" id="98c0f85c-4381-4eea-97f6-bc62cc9b9ced"><con:settings/><con:config><script>context.mockRunner.stop();
@@ -41032,7 +41045,7 @@ context["driver"] = driver;
 
 driver.get(strScopeSelURI);</script></con:config></con:testStep><con:testStep type="groovy" name="Wait for Authorization to Complete and End Browser session" id="ed4146e3-f783-4c9b-bee7-ef0245827d1b"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
 
-result = ui.getDialogs().showInfoMessage("Perform logon, select scope and APPROVE authorization request. Click OK when done.", "");
+result = ui.getDialogs().showInfoMessage("Give Keyboard Control to the test applicant.\n\nAsk them to 'Login to the Data Custodian', 'Select a scope option', and 'APPROVE the authorization request'.\n\nWhen they are done, take back Keyboard Control and click OK.", "");
 
 context["driver"].quit();</script></con:config></con:testStep><con:testStep type="groovy" name="End Browser session" id="3680cc6f-388e-4274-bac8-6321c1b3eb11"><con:settings/><con:config><script>context["driver"].quit();
 context["driver"] = null;</script></con:config></con:testStep><con:testStep type="groovy" name="Stop Mock Service" id="d8107c28-154b-4432-a46b-1ae2ebc3b6b9"><con:settings/><con:config><script>context.mockRunner.stop();
@@ -41224,7 +41237,7 @@ if(context["driver"] != null){
 	context["driver"] = null;	
 }
 
-log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>8TmRz3</con:value></con:property><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"86ca86f7-ba16-4675-90da-4a00ceef7b2b","token_type":"bearer","refresh_token":"efa5f34d-dd3d-4ab2-a277-46449ed26024","expires_in":315359999,"scope":"FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13","resourceURI":"https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/7","authorizationURI":"https://localhost:8443/DataCustodian/espi/1_1/resource/Authorization/7"}</con:value></con:property><con:property><con:name>access_token</con:name><con:value>039121fb-af73-4669-b972-4b4f9fd2281a</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>d7ba0b90-70ea-41a1-82dc-3e9b6e8361c8</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>119</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD006 [NEG] Invalid Access Token Requests for ApplicationInformation" searchProperties="true" id="12b61b3f-7940-4953-8d46-715534e8ee86"><con:settings/><con:testStep type="restrequest" name="GET ApplicationInformation with incorrect Access Token &quot;client_access_token&quot;" id="462ea7ae-1c68-4eef-8f9c-94930aad47e5"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ApplicationInformation with incorrect Access Token &quot;client_access_token&quot;" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
+log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>8TmRz3</con:value></con:property><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"3330df6b-c8a0-4cf8-a438-dc8bec726164","token_type":"bearer","refresh_token":"f53ad1b8-b1fe-4b1b-acd7-86af2f7dad82","expires_in":315359999,"scope":"FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13","resourceURI":"https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/7","authorizationURI":"https://localhost:8443/DataCustodian/espi/1_1/resource/Authorization/7"}</con:value></con:property><con:property><con:name>access_token</con:name><con:value>039121fb-af73-4669-b972-4b4f9fd2281a</con:value></con:property><con:property><con:name>token_type</con:name><con:value>bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value>d7ba0b90-70ea-41a1-82dc-3e9b6e8361c8</con:value></con:property><con:property><con:name>expires_in</con:name><con:value>119</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/5</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://localhost:8080/DataCustodian/espi/1_1/resource/Authorization/5</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD006 [NEG] Invalid Access Token Requests for ApplicationInformation" searchProperties="true" id="12b61b3f-7940-4953-8d46-715534e8ee86"><con:settings/><con:testStep type="restrequest" name="GET ApplicationInformation with incorrect Access Token &quot;client_access_token&quot;" id="462ea7ae-1c68-4eef-8f9c-94930aad47e5"><con:settings/><con:config service="ESPI Resources" resourcePath="/${#Project#resourceUri}/ApplicationInformation/{applicationInformationId}" methodName="GET ApplicationInformation by Id" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET ApplicationInformation with incorrect Access Token &quot;client_access_token&quot;" mediaType="application/json" id="0d460b8f-6180-470f-8743-6566120cacb6">
 
 					<con:settings>
 						<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
@@ -41472,7 +41485,7 @@ log.info("TestStep Endpoint: " + propTestStep.getPropertyValue("Endpoint"));
 headers.put("Authorization","Bearer " + testRunner.testCase.testSuite.project.getPropertyValue("registration_access_token"));
 headers.put("Content-Type","Application/atom+xml");
 propTestStep.testRequest.setRequestHeaders(headers);</script></con:config></con:testStep><con:testStep type="httprequest" name="GET Resource URI with invalid token - registration_access_token" id="1f7a25f2-5942-442e-8cd4-d794bf02dbcb"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Resource URI with invalid token - registration_access_token" id="7e0ce768-b7c3-4761-89a3-3ef6c6b514bd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
-  &lt;con:entry key="Authorization" value="Bearer 28b7ac80-15ec-4030-a3c7-308ef081f678"/>
+  &lt;con:entry key="Authorization" value="Bearer "/>
   &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
 &lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://localhost:8086/DataCustodian/espi/1_1/resource/Batch/Subscription/7</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="b7d6602d-3abf-4ef6-9551-432d1d99748b"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="groovy" name="Extract information from authorization for client access token" id="c354976a-44ca-4f45-b9fc-dc570dd167b7"><con:settings/><con:config><script>import com.eviware.soapui.support.types.StringToStringMap;
 
@@ -41892,7 +41905,7 @@ headers.put("Accept","application/json, application/*+json");
 propTestStep.testRequest.setRequestHeaders(headers);</script></con:config></con:testStep><con:testStep type="httprequest" name="Issue Refresh Token Request" id="1262fb12-8637-4f01-9ddb-1c30c90bacca"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="Issue Refresh Token Request" id="ac1c3c99-f244-4c0b-80f1-9a625c9dc566" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
   &lt;con:entry key="Authorization" value="Basic c3VyZmFjZV90cDpzZWNyZXQ="/>
   &lt;con:entry key="Accept" value="application/json, application/*+json"/>
-&lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://localhost:8443/DataCustodian/oauth/token?grant_type=refresh_token&amp;refresh_token=efa5f34d-dd3d-4ab2-a277-46449ed26024&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="fe43d96e-8045-4ffa-b07c-0b6cf3bf04a2"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Script Assertion" id="74425cd7-ff3f-4642-8f4d-c7905142c2a2"><con:configuration><scriptText>import groovy.json.JsonSlurper;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://localhost:8443/DataCustodian/oauth/token?grant_type=refresh_token&amp;refresh_token=f53ad1b8-b1fe-4b1b-acd7-86af2f7dad82&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="fe43d96e-8045-4ffa-b07c-0b6cf3bf04a2"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Script Assertion" id="74425cd7-ff3f-4642-8f4d-c7905142c2a2"><con:configuration><scriptText>import groovy.json.JsonSlurper;
 
 String response = messageExchange.response.contentAsString;
 
@@ -42246,7 +42259,7 @@ declare namespace espi='http://naesb.org/espi';
 testRunner.testCase.setPropertyValue("scope",authCase.getPropertyValue("scope"));</script></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="OAD016 [NEG] Invalid Access Token Request (Access Token contained in the Authorization Header has expired)" searchProperties="true" id="7e5de04b-965c-47be-a2b7-b4ee577ba4fd"><con:settings/><con:testStep type="groovy" name="Ask User To expire Authorization" id="6dc016a5-0479-44bc-8bb9-5a093696fd4f"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
 
 String strDialog = "If the previously created authorization has been set to expire please wait for the expiration period before continuing.\r\n\
-Otherwise please instruct the Data Custodian to cause the authorization to expire now and continue this test after this has been performed.\r\n\
+Otherwise please instruct the test applicant to cause the authorization to expire now and continue testing after this has been performed.\r\n\
 \r\n\
 If you do not wish to proceed click No.\r\n\
 To proceed click Yes.\r\n";
@@ -42338,7 +42351,7 @@ log.info("TestStep Endpoint: " + propTestStep.getPropertyValue("Endpoint"));
 headers.put("Authorization","Bearer " + propCreateAuthResults.getPropertyValue("access_token"));
 headers.put("Content-Type","Application/atom+xml");
 propTestStep.testRequest.setRequestHeaders(headers);</script></con:config></con:testStep><con:testStep type="httprequest" name="GET Resource URI" id="7833b236-0569-4845-a351-1e6e154ee057"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Resource URI" id="91e703ef-4710-480e-bfad-da8a2bc3cf6a" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
-  &lt;con:entry key="Authorization" value="Bearer f28d296c-34b9-4ea8-ae06-cd9ed4968ea7"/>
+  &lt;con:entry key="Authorization" value="Bearer a63459e6-05f7-45b7-8a33-bce7df2c2061"/>
   &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
 &lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://localhost:8086/DataCustodian/espi/1_1/resource/Batch/Subscription/7</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="797c5efb-fa4e-482e-b8ea-e9dc2e9e94f4"><con:configuration><codes>401</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property></con:properties></con:testCase><con:properties/>
 <con:setupScript>log.info "===== Start TestSuite =====> " + testSuite.name</con:setupScript><con:tearDownScript>def results = true;
@@ -47249,7 +47262,7 @@ strContent = mockRequest.requestContent;
 log.info("ThirdParty NEG A tests Authorization Mock Service (GET /Diagnostic Response) Request Content: " + strContent);
 
 </con:script><con:responseContent/></con:response></con:restMockAction></con:restMockService>
-<con:restMockService port="8081" path="/" host="openespivm" name="ThirdParty NEG B tests Authorization Mock Service" docroot="" id="f53ba382-c35f-4ef1-901a-f07c7855c1b3"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value>9C0B4BBAD2FBDAF475058F4996FE725B</con:value></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>LigblE</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>client_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>state</con:name><con:value>ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="80ce918e-62e8-4eb0-881e-fe7226c68892"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+<con:restMockService port="8081" path="/" host="openespivm" name="ThirdParty NEG B tests Authorization Mock Service" docroot="" id="f53ba382-c35f-4ef1-901a-f07c7855c1b3"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value>9C0B4BBAD2FBDAF475058F4996FE725B</con:value></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>NBYzW5</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>client_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>state</con:name><con:value>ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="80ce918e-62e8-4eb0-881e-fe7226c68892"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Examples showing how to match based on path, query param and header
 // Match based on path
 def requestPath = mockRequest.getPath()
@@ -48128,7 +48141,9 @@ if( (aURL.getProtocol()=="http") || (aURL.getProtocol()=="https")){
 
 			log.info("GenericGetService (GET /) -- doHTTPGet default: ResponseBody: " + requestContext.proxiedResponse);
 			log.info("GenericGetService (GET /) -- doHTTPGet default: responseCode: " + context.responseCode);
+			
 			// Terminate BatchListNotification Mock Service
+			log.info("GenericGetService (GET /) -- doHTTPGet default: Stopping BatchListNotification Mock Service");
 			notificationRunner.stop();
 			notificationRunner = null;
 			return;
@@ -48375,7 +48390,7 @@ if( requestBody.contains("some data") )
 */
 </con:dispatchPath><con:response name="Response 1 - 202" id="552f9a94-4650-43b2-b2a0-f0aa02f07719" httpResponseStatus="202"><con:settings/><con:responseContent/></con:response></con:restMockAction></con:restMockService><con:properties>
 
-	<con:property><con:name>access_token</con:name><con:value>86ca86f7-ba16-4675-90da-4a00ceef7b2b</con:value></con:property><con:property><con:name>applicationInformationId</con:name><con:value>4</con:value></con:property><con:property><con:name>authorizationId</con:name><con:value>6</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>localhost:8443</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property>
+	<con:property><con:name>access_token</con:name><con:value>3330df6b-c8a0-4cf8-a438-dc8bec726164</con:value></con:property><con:property><con:name>applicationInformationId</con:name><con:value>4</con:value></con:property><con:property><con:name>authorizationId</con:name><con:value>6</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>localhost:8443</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property>
 
 		<con:name>BaseURL</con:name>
 		<con:value/>
@@ -48390,7 +48405,7 @@ if( requestBody.contains("some data") )
 	
 	
 	
-	<con:property><con:name>bulkId</con:name><con:value>1</con:value></con:property><con:property><con:name>certScopes</con:name><con:value>FB=1_4_5_15</con:value></con:property><con:property><con:name>client_access_token</con:name><con:value>13c0fb30-9a9c-4274-b5ba-eec2dc748899</con:value></con:property>
+	<con:property><con:name>bulkId</con:name><con:value>1</con:value></con:property><con:property><con:name>certScopes</con:name><con:value>FB=1_4_5_15</con:value></con:property><con:property><con:name>client_access_token</con:name><con:value>2c2c5ae5-a8a9-4fa0-b38c-c141e49b95c8</con:value></con:property>
 	
 	
 	
@@ -48418,7 +48433,7 @@ if( requestBody.contains("some data") )
 	
 	
 	
-	<con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value>28b7ac80-15ec-4030-a3c7-308ef081f678</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>c66b0854-ea1f-4e24-afb7-afab9e0f6c5e</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>localhost:8443</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceUri</con:name><con:value>espi/1_1/resource</con:value></con:property>
+	<con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value>be575aad-2623-4f00-ac89-842f82dba84c</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>c66b0854-ea1f-4e24-afb7-afab9e0f6c5e</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>localhost:8443</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceUri</con:name><con:value>espi/1_1/resource</con:value></con:property>
 	
 	
 	
