@@ -1,5 +1,11 @@
 FileName="gbcmdcert.conf"
 
+// NAESB Purchased Standards Website
+NAESBPurchasedStandardsURI="https://www.naesb.org//pdf2/copyright.pdf"
+
+// NIST FIPS 140-2 Certificate Website
+NISTFIPSCertScreen="http://csrc.nist.gov/groups/STM/cmvp/documents/140-1/140val-all.htm"
+
 // stunnel proxy
 stunnelConfigDirectory="/etc/stunnel"
 stunnelStartCmd="stunnel start"

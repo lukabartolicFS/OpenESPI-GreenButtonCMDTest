@@ -3,13 +3,7 @@ FileName="gbcmdcert_target.conf"
 // Certification Input Configuration from testee
 GBACertId="776198e6-59ec-5d25-950a-b34a25b93d67"
 
-// NAESB Purchased Standards Website
-NAESBPurchasedStandardsURI="https://www.naesb.org//pdf2/copyright.pdf"
-
-// NIST FIPS 140-2 Certificate Website
-NISTFIPSCertScreen="http://csrc.nist.gov/groups/STM/cmvp/documents/140-1/140val-all.htm"
-
-// Test Applicant's TLS Library to be verified as FIPS 140-2 Compliant
+// Test Applicant's TLS Libraries to be verified as FIPS 140-2 Compliant
 productionAuthorizationServerTLSLibrary="Apple Inc."
 productionAuthorizationServerTLSLibCert="2411"
 productionResourceServerTLSLibrary="Symantec Corporation"
@@ -17,7 +11,7 @@ productionResourceServerTLSLibCert="1937"
 productionSFTPServerTLSLibrary="Symantec Corporation"
 productionSFTPServerTLSLibCert="1937"
 
-// Production Servers
+// Certification Applicant's Production Server domains to be verified as TLS Certificate Compliant
 productionAuthorizationServerDomain="https://localhost:8443"
 productionResourceServerDomain="https://localhost:8443"
 productionSFTPServerDomain="https://localhost:8443"
