@@ -1,47 +1,70 @@
-# Configuring test harness for a new target: #
-Note: this document is extremely draft
+# Adding Green Button Data Custodian Connect My Data Application to Test Harness: #
 
 ## Overview ##
-In order to configure test harness for a particular Data Custodian:
-1. gbcmd_target.conf file must be produced
-2. the certificates for the resource server and authorization server must be retrieved
-3. The certificates must be placed in /etc/ssl/certs with hashes
-4. the stunnel proxy must have routing to the target
+The following task must be completed in order to add a Data Custodian to the Green Button Data Custodian Connect My Data test harness:
+
+1. Create a unique gbcmd_target.conf file for the Data Custodian.
+2. The SSL Certificates for the Data Custodian's test and production Resource, Authorization, and SFTP servers must be retrieved.  (SSL certificates for the authorization and SFTP servers are required only if the Data Custodian uses a separate authorization server and/or SFTP server).
+3. All retrieved Data Custodian SSL Certificates must be placed in the /etc/ssl/certs directory.
+4. Hash links must be generated for all retrieved Data Custodian SSL Certificates and placed in the /etc/ssl/certs directory.
+4. A routing configuration file must be created for the stunnel proxy server (this is automatically accomplished by a test harness script executed during the testing process).
 
 
-# gbcmd_target.conf file #
-
+# Example gbcmd_target.conf file #
 
     FileName="gbcmdcert_target.conf"
-    
-    // Certification Input Configuration from testee
-    federalEIN="123456"
-        
-    dataCustodianResourceEndpoint="https://localhost:8443/DataCustodian/espi/1_1/resource"
-	authorizationServerTokenEndpoint="https://localhost:8443/DataCustodian/oauth/token"
 
+    // Test Target's GBA Certification ID assigned by GBA when Connect My Data Certification Application
+    // is received
+    GBACertId="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     
-    // for retrieval of information for this third party, provide the IDs to use
-    // 	resourceUri: 
+    // Test Target's Resource, Authorization, and SFTP Server TLS Library provider's name and NIST FIPS 140-2 
+    // Certificate ID Resource Server information is required, Authorization and SFTP Server information is 
+    // only required if test target uses a separate Authorization Server and/or SFTP Server.  If test target
+    // does not use separate Authorization or SFTP Servers, they values should be "".
+    productionAuthorizationServerTLSLibrary="Apple Inc."
+    productionAuthorizationServerTLSLibCert="2411"
+    productionResourceServerTLSLibrary="Symantec Corporation"
+    productionResourceServerTLSLibCert="1937"
+    productionSFTPServerTLSLibrary="Symantec Corporation"
+    productionSFTPServerTLSLibCert="1937"
+    
+    // Test target's Test and Production Resource, Authorization, and SFTP Server domains (i.e. host URI and
+    // port value). Resource Server information is required, Authorization and SFTP Server information is only
+    // required if test target uses a separate Authorization Server and/or SFTP Server.  If test target does
+    // not use separate Authorization or SFTP Servers, they values should be "".    
+    productionAuthorizationServerDomain="https://localhost:8443"
+    productionResourceServerDomain="https://localhost:8443"
+    productionSFTPServerDomain="https://localhost:8443"
+    testAuthorizationServerDomain="https://localhost:8443"
+    testResourceServerDomain="https://localhost:8443"
+    testSFTPServerDomain="https://localhost:8443"
+        
+    // Test target's Resource and OAuth 2.0 Token Endpoints
+    dataCustodianResourceEndpoint="https://localhost:8443/DataCustodian/espi/1_1/resource"
+    authorizationServerTokenEndpoint="https://localhost:8443/DataCustodian/oauth/token"
+    
+    // Test target's assigned Connect My Data test harness ApplicationtInformation and Authorization retrieval
+    // URI ID values
+    // 	  resourceUri: 
     //		{dataCustodianResourceEndpoint}/ApplicationInformation/{applicationInformationId}
-    // 	authorizationUri: 
+    // 	  authorizationUri: 
     //		{dataCustodianResourceEndpoint}/Authorization/{authorizationId}
     applicationInformationId="2"
     authorizationId="4"
     
-    // client id
+    // Test target's assigned Connect My Data test harness client_id and secret
     client_id=""
     client_secret=""
     
-    // registration_access_token
-    // either provide access token, or, id and secret
+    // Test targets's assigned Connect My Data test harness registration_access_token or Registration client_id
+    // and secret
     registration_access_token=""
     registration_access_token_client_id="REGISTRATION_surface_tp"
     registration_access_token_secret="secret"
     
     
-    // client_access_token
-    // either provide access token, or, id and secret
+    // Test target's assigned Connect My Data test harness client_access_token or Admin client_id and secret
     client_access_token=""
     client_access_token_client_id="surface_tp_admin"
     client_access_token_secret="secret"
@@ -53,25 +76,31 @@ In order to configure test harness for a particular Data Custodian:
     optionalOfflineAuthorizationID="5"
     optionalOfflineAccess_token="57673811-5a25-4412-89e1-e15043f9703f"
     
-# Retrieve Target Certificates
-The certificates for the resource server and authorization server must be retrieved and installed on the test client.
+# Retrieve Target SSL Certificates
+The SSL Certificates for the test target's resource, authorization, and SFTP servers must be retrieved and
+installed on the Connect My Data test harness.
 
-For this step, run from the stunnelConfigDirectory directory and install certificates in the CApathDirectory. These paths are in the gbcmdcer.conf file. 
+## Retrieve and install SSL Certificates 
+The following command line entries need to be performed for all test target production and test Resource, 
+Authorization, and SFTP servers.  Elements shown in brackets "{}" indicate contents of the 
+gbcmdcert_target.conf file.  
 
-## fetch certificates and install 
-host ($1) and port ($2) as arguments to retrieve certificate. Perform this once for each remote target server to be used.
-
-	cd {stunnelConfigDirectory}
-	sudo echo Q | openssl s_client -showcerts -connect $1:$2 -CApath /etc/ssl/certs -cert openespi.pem -key openespi_private_key.pem  | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > ~/Desktop/$1.pem
+	cd /etc/stunnel
+	sudo echo Q | openssl s_client -showcerts -connect {testAuthorizationServerDomain} | {testResourceServerDomain} | {testSFTPServerDomain} | {productionAuthorizationServerDomain} | {productionResourceServerDomain} | {productionSFTPServerDomain} -CApath /etc/ssl/certs -cert greenbuttonalliance_org_SSL_Cert.crt -key greenbuttonalliance_private_key.pem  | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > ~/Desktop/{testAuthorizationServerDomain} | {testResourceServerDomain} | {testSFTPServerDomain} | {productionAuthorizationServerDomain} | {productionResourceServerDomain} | {productionSFTPServerDomain}.pem
 	
-	sudo cp ~/Desktop/$1.pem {CApathDirectory}/$1.pem
+	sudo cp ~/Desktop/{testAuthorizationServerDomain} | {testResourceServerDomain} | {testSFTPServerDomain} | {productionAuthorizationServerDomain} | {productionResourceServerDomain} | {productionSFTPServerDomain}.pem /etc/ssl/certs/{testAuthorizationServerDomain} | {testResourceServerDomain} | {testSFTPServerDomain} | {productionAuthorizationServerDomain} | {productionResourceServerDomain} | {productionSFTPServerDomain}.pem
 	cd /etc/ssl/certs
-	sudo ln -s $1.pem `openssl x509 -hash -noout -in $1.pem`.0
+	sudo ln -s {testAuthorizationServerDomain} | {testResourceServerDomain} | {testSFTPServerDomain} | {productionAuthorizationServerDomain} | {productionResourceServerDomain} | {productionSFTPServerDomain}.pem `openssl x509 -hash -noout -in {testAuthorizationServerDomain} | {testResourceServerDomain} | {testSFTPServerDomain} | {productionAuthorizationServerDomain} | {productionResourceServerDomain} | {productionSFTPServerDomain}.pem`.0
 	
 
-## test that the certificates can be verified
-From the stunnelConfigDirectory directory test each server - look for Verify return code:0 (ok):
+## Test the retrieved SSL Certificate can be verified
+The following command line entries need to be performed for all retrieved and installed SSL Certificates.  Elements
+shown in brackets "{}" indicate contents of the gbcmdcert_target.conf file.  Verify the test ends with a value of
+return code:0 (ok):
 
-	echo Q | openssl s_client -verify 10 -showcerts -CApath {CApathDirectory} -cert openespi.pem -key openespi_private_key.pem -connect $1:$2  
+	cd /etc/stunnel
+	echo Q | openssl s_client -verify 10 -showcerts -CApath /etc/ssl/certs -cert greenbuttonalliance_org_SSL_Cert.crt -key greenbuttonalliance_private_key.pem -connect {testAuthorizationServerDomain} | {testResourceServerDomain} | {testSFTPServerDomain} | {productionAuthorizationServerDomain} | {productionResourceServerDomain} | {productionSFTPServerDomain}  
 
-Note: If there are any errors listed in the exchange (even if the verify is ok) you may need to check intermediate certificates in the chain from the "-showcerts" parameter. If so, you may need to acquire these certificates from DigiCert, Verisign or appropriate source and add them to the certs directory.
+Note: If there are any errors listed in the exchange (even if the verify is ok) you may need to check intermediate
+certificates in the chain from the "-showcerts" parameter. If so, you may need to acquire these certificates from
+DigiCert, Verisign or appropriate source and add them to the /etc/ssl/certs directory.
