@@ -1,9 +1,13 @@
 FileName="gbcmdcert_target.conf"
 
-// Certification Input Configuration from testee
-GBACertId="776198e6-59ec-5d25-950a-b34a25b93d67"
+// Test Target's GBA Certification ID assigned by GBA when Connect My Data Certification Application
+// is received
+GBACertId="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 
-// Test Applicant's TLS Libraries to be verified as FIPS 140-2 Compliant
+// Test Target's Resource, Authorization, and SFTP Server TLS Library provider's name and NIST FIPS 140-2 
+// Certificate ID Resource Server information is required, Authorization and SFTP Server information is 
+// only required if test target uses a separate Authorization Server and/or SFTP Server.  If test target
+// does not use separate Authorization or SFTP Servers, they values should be "".
 productionAuthorizationServerTLSLibrary="Apple Inc."
 productionAuthorizationServerTLSLibCert="2411"
 productionResourceServerTLSLibrary="Symantec Corporation"
@@ -11,15 +15,23 @@ productionResourceServerTLSLibCert="1937"
 productionSFTPServerTLSLibrary="Symantec Corporation"
 productionSFTPServerTLSLibCert="1937"
 
-// Certification Applicant's Production Server domains to be verified as TLS Certificate Compliant
+// Test target's Test and Production Resource, Authorization, and SFTP Server domains (i.e. host URI and
+// port value). Resource Server information is required, Authorization and SFTP Server information is only
+// required if test target uses a separate Authorization Server and/or SFTP Server.  If test target does
+// not use separate Authorization or SFTP Servers, they values should be "". 
 productionAuthorizationServerDomain="https://localhost:8443"
 productionResourceServerDomain="https://localhost:8443"
 productionSFTPServerDomain="https://localhost:8443"
+testAuthorizationServerDomain="https://localhost:8443"
+testResourceServerDomain="https://localhost:8443"
+testSFTPServerDomain="https://localhost:8443"
 
+// Test target's Resource and OAuth 2.0 Token Endpoints
 dataCustodianResourceEndpoint="http://localhost:8080/DataCustodian/espi/1_1/resource"
 authorizationServerTokenEndpoint="http://localhost:8080/DataCustodian/oauth/token"
 
-// for retrieval of information for this third party, provide the IDs to use
+// Test target's assigned Connect My Data test harness ApplicationtInformation and Authorization retrieval
+// URI ID values
 // 	resourceUri: 
 //		{dataCustodianResourceEndpoint}/ApplicationInformation/{applicationInformationId}
 // 	authorizationUri: 
@@ -27,18 +39,18 @@ authorizationServerTokenEndpoint="http://localhost:8080/DataCustodian/oauth/toke
 applicationInformationId="2"
 authorizationId="4"
 
-// client id
+// Test target's assigned Connect My Data test harness client_id and secret
 client_id=""
 client_secret=""
 
-// registration_access_token
-// either provide access token, or, id and secret
+// Test targets's assigned Connect My Data test harness registration_access_token or Registration client_id
+// and secret
 registration_access_token=""
 registration_access_token_client_id="REGISTRATION_surface_tp"
 registration_access_token_secret="secret"
 
 
-// client_access_token
+// Test target's assigned Connect My Data test harness client_access_token or Admin client_id and secret
 // either provide access token, or, id and secret
 client_access_token=""
 client_access_token_client_id="surface_tp_admin"
