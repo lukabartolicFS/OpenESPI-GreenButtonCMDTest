@@ -1,7 +1,7 @@
-# Adding Green Button Data Custodian Connect My Data Application to Test Harness: #
+# Adding Green Button Data Custodian Connect My Data Applications to Green Button Data Custodian Connect My Data Test Harness: #
 
 ## Overview ##
-The following task must be completed in order to add a Data Custodian to the Green Button Data Custodian Connect My Data test harness:
+The following tasks are required to add a Test Target Data Custodian Application to the Green Button Data Custodian Connect My Data test harness:
 
 1. Create a unique gbcmd_target.conf file for the Data Custodian.
 2. The SSL Certificates for the Data Custodian's test and production Resource, Authorization, and SFTP servers must be retrieved.  (SSL certificates for the authorization and SFTP servers are required only if the Data Custodian uses a separate authorization server and/or SFTP server).
@@ -92,6 +92,7 @@ gbcmdcert_target.conf file.
 	cd /etc/ssl/certs
 	sudo ln -s {testAuthorizationServerDomain} | {testResourceServerDomain} | {testSFTPServerDomain} | {productionAuthorizationServerDomain} | {productionResourceServerDomain} | {productionSFTPServerDomain}.pem `openssl x509 -hash -noout -in {testAuthorizationServerDomain} | {testResourceServerDomain} | {testSFTPServerDomain} | {productionAuthorizationServerDomain} | {productionResourceServerDomain} | {productionSFTPServerDomain}.pem`.0
 	
+Note: The above commands add Test Target SSL Certificates to the Green Button Alliance Data Custodian AWS EC2 test harness image. If running your own Green Button Data Custodian Connect My Data configured test harness, replace **"-cert greenbuttonalliance_org_SSL_Cert.crt -key greenbuttonalliance_private_key.pem"** with **"-cert {your SSL Certificate} -key {SSL Certificate's Private Key}"** in the above commands.
 
 ## Test the retrieved SSL Certificate can be verified
 The following command line entries need to be performed for all retrieved and installed SSL Certificates.  Elements
@@ -104,3 +105,5 @@ return code:0 (ok):
 Note: If there are any errors listed in the exchange (even if the verify is ok) you may need to check intermediate
 certificates in the chain from the "-showcerts" parameter. If so, you may need to acquire these certificates from
 DigiCert, Verisign or appropriate source and add them to the /etc/ssl/certs directory.
+
+Note: The above command tests Test Target SSL Certificates added to the Green Button Alliance Data Custodian Connect My Data AWS EC2 test harness image. If running your own Green Button Data Custodian Connect My Data configured test harness, replace **"-cert greenbuttonalliance_org_SSL_Cert.crt -key greenbuttonalliance_private_key.pem"** with **"-cert {your SSL Certificate} -key {SSL Certificate's Private Key}"** in the above command.
