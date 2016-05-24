@@ -4927,79 +4927,82 @@ if( logArea !=null )
  }
 }
 
-String startDate = firstLine[0..27];
-String endDate = lastLine[0..27];
+if(firstLine == null) {
+	log.info("[Library] SaveScriptLog Script -- No Script to Save");
+} else {
 
-def target = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmdcert_target.conf").toURL())
-Map flattened = target.flatten();
+	String startDate = firstLine[0..27];
+	String endDate = lastLine[0..27];	
 
-def logSummaryFile = new File(projectPath + "/soapUI-Logs-to-fileSummary.xml")
-pw = new PrintWriter(logSummaryFile);
-pw.close();
+	def target = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmdcert_target.conf").toURL())
+	Map flattened = target.flatten();
 
-logSummaryFile.append("");
+	def logSummaryFile = new File(projectPath + "/soapUI-Logs-to-fileSummary.xml")
+	pw = new PrintWriter(logSummaryFile);
+	pw.close();
 
-logSummaryFile.append('<?xml version="1.0" encoding="UTF-8"?>\n');
-logSummaryFile.append('<?xml-stylesheet type="text/xsl" href="GBCmdResultsSummary.xslt"?>\n');
-logSummaryFile.append("<testSummary>\n");
-logSummaryFile.append('	<testDate startTime="' + startDate + '" endTime="' + endDate + '"/>\n');
-logSummaryFile.append("	<testConfiguration>\n");
-logSummaryFile.append("		<testConfigurationFile>" + groovyUtils.projectPath + "/etc/gbcmdcert_target.conf" + "</testConfigurationFile>\n");
-logSummaryFile.append("		<parameters>\n");
+	logSummaryFile.append("");
 
-flattened.each {targetEntry ->
-	log.info("[$targetEntry.key]=$targetEntry.value");
-	logSummaryFile.append('			<parameter name="' + targetEntry.key + '">' + targetEntry.value + '</parameter>\n');
-}
+	logSummaryFile.append('<?xml version="1.0" encoding="UTF-8"?>\n');
+	logSummaryFile.append('<?xml-stylesheet type="text/xsl" href="GBCmdResultsSummary.xslt"?>\n');
+	logSummaryFile.append("<testSummary>\n");
+	logSummaryFile.append('	<testDate startTime="' + startDate + '" endTime="' + endDate + '"/>\n');
+	logSummaryFile.append("	<testConfiguration>\n");
+	logSummaryFile.append("		<testConfigurationFile>" + groovyUtils.projectPath + "/etc/gbcmdcert_target.conf" + "</testConfigurationFile>\n");
+	logSummaryFile.append("		<parameters>\n");
 
-logSummaryFile.append("		</parameters>\n");
-logSummaryFile.append("	</testConfiguration>\n");
-logSummaryFile.append("	<testResults>\n");
-
-tests.each { entrySuite ->
-	if(entrySuite.value.bPass) {
-		log.info("TestSuite PASS:$entrySuite.key");
-		logSummaryFile.append('		<testSuite name="' + entrySuite.key + '" result="PASS">\n');
-	}
-	if(entrySuite.value.bFail) {
-		log.info("TestSuite FAIL:$entrySuite.key");
-		logSummaryFile.append('		<testSuite name="' + entrySuite.key + '" result="FAIL">\n');
+	flattened.each {targetEntry ->
+		log.info("[$targetEntry.key]=$targetEntry.value");
+		logSummaryFile.append('			<parameter name="' + targetEntry.key + '">' + targetEntry.value + '</parameter>\n');
 	}
 
-	entrySuite.value.childTests.each { entryCase -> 
-		if(entryCase.value.bPass) {
-			log.info("TestCase PASS: $entryCase.key");
-			logSummaryFile.append('			<testCase name="' + entryCase.key + '" result="PASS"/>\n');
+	logSummaryFile.append("		</parameters>\n");
+	logSummaryFile.append("	</testConfiguration>\n");
+	logSummaryFile.append("	<testResults>\n");
+
+	tests.each { entrySuite ->
+		if(entrySuite.value.bPass) {
+			log.info("TestSuite PASS:$entrySuite.key");
+			logSummaryFile.append('		<testSuite name="' + entrySuite.key + '" result="PASS">\n');
 		}
-		if(entryCase.value.bFail) {
-			log.info("TestCase FAIL: $entryCase.key");
-			logSummaryFile.append('			<testCase name="' + entryCase.key + '" result="FAIL"/>\n');
+		if(entrySuite.value.bFail) {
+			log.info("TestSuite FAIL:$entrySuite.key");
+			logSummaryFile.append('		<testSuite name="' + entrySuite.key + '" result="FAIL">\n');
 		}
+
+		entrySuite.value.childTests.each { entryCase -> 
+			if(entryCase.value.bPass) {
+				log.info("TestCase PASS: $entryCase.key");
+				logSummaryFile.append('			<testCase name="' + entryCase.key + '" result="PASS"/>\n');
+			}
+			if(entryCase.value.bFail) {
+				log.info("TestCase FAIL: $entryCase.key");
+				logSummaryFile.append('			<testCase name="' + entryCase.key + '" result="FAIL"/>\n');
+			}
+		}
+
+		logSummaryFile.append('		</testSuite>\n');
 	}
 
-	logSummaryFile.append('		</testSuite>\n');
+	logSummaryFile.append("	</testResults>\n");
+	logSummaryFile.append("</testSummary>\n");
+
+	logSummaryFile = null;
+
+	def xslt= new File(projectPath + "/GBCmdResultsSummary.xslt").getText()
+
+	def transformer = TransformerFactory.newInstance().newTransformer(new StreamSource(new StringReader(xslt)))
+
+	// Load xml
+	def xml= new File(projectPath + "/soapUI-Logs-to-fileSummary.xml").getText()
+
+	// Set output file
+	def html = new FileOutputStream(projectPath + "/soapUI-Logs-to-fileSummary.html");
+	// Perform transformation
+	transformer.transform(new StreamSource(new StringReader(xml)), new StreamResult(html))
+
+	//com.eviware.soapui.SoapUI.logMonitor.getLogArea("script log").clear()
 }
-
-logSummaryFile.append("	</testResults>\n");
-logSummaryFile.append("</testSummary>\n");
-
-
-logSummaryFile = null;
-
-def xslt= new File(projectPath + "/GBCmdResultsSummary.xslt").getText()
-
-def transformer = TransformerFactory.newInstance().newTransformer(new StreamSource(new StringReader(xslt)))
-
-// Load xml
-def xml= new File(projectPath + "/soapUI-Logs-to-fileSummary.xml").getText()
-
-// Set output file
-def html = new FileOutputStream(projectPath + "/soapUI-Logs-to-fileSummary.html");
-// Perform transformation
-transformer.transform(new StreamSource(new StringReader(xml)), new StreamResult(html))
-
-
-//com.eviware.soapui.SoapUI.logMonitor.getLogArea("script log").clear()
 
 return;]]></script></con:config></con:testStep><con:testStep type="groovy" name="Setup OpenESPI for CMD test" id="50a960e6-4df5-4cfc-899e-25e7ee497e03"><con:settings/><con:config><script>// Load gbcmd.conf configuration file
 log.info("Loading gbcmd.conf configuration file!");
@@ -5050,7 +5053,7 @@ testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library
 log.info("Loading sample customer files!");
 testRunner.testCase.testSuite.project.testSuites['Library'].testCases['UploadTestFile GUI'].run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
 assert true;</script></con:config></con:testStep><con:testStep type="groovy" name="GenerateStunnelConf" id="5aa18e02-b2ad-401b-a012-830ea94c4436"><con:settings/><con:config><script>//Below two lines of groovy script is to get the project directory, we will be saving the soapUI log contents on a file in that directory.
-def ui = com.eviware.soapui.support.UISupport;
+//def ui = com.eviware.soapui.support.UISupport;
 
 def project = testRunner.testCase.testSuite.project
 def tc= testRunner.testCase.testSuite.project.testSuites['Library'].testCases['RunCommand'];
@@ -5062,7 +5065,6 @@ def resourceServer = project.getPropertyValue( "resourceServer" );
 def mockPort = project.getPropertyValue("mockPort");
 def proxyOutPort = project.getPropertyValue("proxyOutPort");
 def proxyOutPort1 = project.getPropertyValue("proxyOutPort1");
-
 
 
 log.info "Stunnel Directory: " + project.getPropertyValue("stunnelConfigDirectory");
@@ -5159,8 +5161,31 @@ confFile.append "ciphers=AES128-SHA" + crlf;
 //confFile.close();
 
 // Ask testee to verify (manual procedure)
-result = ui.getDialogs().showInfoMessage("Stop and restart Stunnel or otherwise reload \n Stunnel configuration and then click OK ", "\n");
-log.info (result);
+//result = ui.getDialogs().showInfoMessage("Stop and restart Stunnel or otherwise reload \n Stunnel configuration and then click OK ", "\n");
+//log.info (result);
+
+// Stop and restart Stunnel
+tc.setPropertyValue("cmd",project.getPropertyValue("stunnelStopCmd"));
+tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
+sleep 3000;
+
+if(tc.getPropertyValue("returncode") > 0) {
+	log.error("Stunnel Stop cmd Failed! -- return code: " + tc.getPropertyValue("returncode"));
+	log.error("Stunnel Stop cmd Error: " + tc.getPropertyValue("stderr"));
+	testRunner.fail("Stunnel Stop cmd Failed! -- return code: " + tc.getPropertyValue("returncode"));
+	return;
+}
+
+tc.setPropertyValue("cmd",project.getPropertyValue("stunnelStartCmd"));
+tc.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
+sleep 3000;
+
+if(tc.getPropertyValue("returncode") > 0) {
+	log.error("Stunnel Start cmd Failed! -- return code: " + tc.getPropertyValue("returncode"));
+	log.error("Stunnel Start cmd Error: " + tc.getPropertyValue("stderr"));
+	testRunner.fail("Stunnel Start cmd Failed! -- return code: " + tc.getPropertyValue("returncode"));
+	return;
+}
 
 /*
 // reload new configuration
@@ -8652,7 +8677,7 @@ public boolean RunCommand(String path,String cmd)
 	}
 
 	if(doCmd.exitValue()!=0)
-	{
+	{	
 		testRunner.testCase.setPropertyValue("stderr", doCmd.err.text);
 		testRunner.testCase.setPropertyValue("returncode", doCmd.exitValue().toString());
 		testRunner.testCase.setPropertyValue("stdout", doCmd.in.text);
@@ -8675,33 +8700,44 @@ public boolean RunCommand(String path,String cmd)
 cmd = testRunner.testCase.getPropertyValue("cmd");
 td = testRunner.testCase.getPropertyValue("path");
 return (RunCommand(td,cmd));
-</script></con:config></con:testStep><con:properties><con:property><con:name>stdout</con:name><con:value>CONNECTED(00000003)
----
-no peer certificate available
----
-No client certificate CA names sent
----
-SSL handshake has read 5 bytes and written 7 bytes
----
-New, (NONE), Cipher is (NONE)
-Secure Renegotiation IS NOT supported
-Compression: NONE
-Expansion: NONE
-SSL-Session:
-    Protocol  : TLSv1.2
-    Cipher    : 0000
-    Session-ID: 
-    Session-ID-ctx: 
-    Master-Key: 
-    Key-Arg   : None
-    PSK identity: None
-    PSK identity hint: None
-    SRP username: None
-    Start Time: 1463720651
-    Timeout   : 7200 (sec)
-    Verify return code: 0 (ok)
----
-</con:value></con:property><con:property><con:name>cmd</con:name><con:value>echo Q | openssl s_client -tls1_2  -cert stunnel.pem -connect services.greenbuttondata.org:443</con:value></con:property><con:property><con:name>path</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stderr</con:name><con:value>140612113413792:error:1408F10B:SSL routines:SSL3_GET_RECORD:wrong version number:s3_pkt.c:339:
+</script></con:config></con:testStep><con:properties><con:property><con:name>stdout</con:name><con:value/></con:property><con:property><con:name>cmd</con:name><con:value>stunnel4 /etc/stunnel/stunnel.conf stop</con:value></con:property><con:property><con:name>path</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stderr</con:name><con:value>Clients allowed=2000
+stunnel 4.53 on x86_64-pc-linux-gnu platform
+Compiled with OpenSSL 1.0.1e 11 Feb 2013
+Running  with OpenSSL 1.0.1f 6 Jan 2014
+Update OpenSSL shared libraries or rebuild stunnel
+Threading:PTHREAD SSL:+ENGINE+OCSP Auth:LIBWRAP Sockets:POLL+IPv6
+Reading configuration from file /etc/stunnel/stunnel.conf
+Compression not enabled
+Snagged 64 random bytes from /home/bitnami/.rnd
+Wrote 1024 new random bytes to /home/bitnami/.rnd
+PRNG seeded successfully
+Initializing service section [resourceServer]
+Insecure file permissions on /etc/stunnel/stunnel.pem
+Certificate: /etc/stunnel/stunnel.pem
+Certificate loaded
+Key file: /etc/stunnel/stunnel.pem
+Private key loaded
+Verify directory set to /etc/ssl/certs
+Added /etc/ssl/certs revocation lookup directory
+SSL options set: 0x00000004
+Initializing service section [tpserver]
+Insecure file permissions on /etc/stunnel/stunnel.pem
+Certificate: /etc/stunnel/stunnel.pem
+Certificate loaded
+Key file: /etc/stunnel/stunnel.pem
+Private key loaded
+Verify directory set to /etc/ssl/certs
+Added /etc/ssl/certs revocation lookup directory
+Could not load DH parameters from /etc/stunnel/stunnel.pem
+Using hardcoded DH parameters
+DH initialized with 2048-bit key
+ECDH initialized with curve prime256v1
+SSL options set: 0x00000004
+Configuration successful
+Error binding service [resourceServer] to 0.0.0.0:8080
+bind: Address already in use (98)
+Service [resourceServer] closed (FD=12)
+str_stats: 20 block(s), 2127 data byte(s), 1160 control byte(s)
 </con:value></con:property><con:property><con:name>returncode</con:name><con:value>1</con:value></con:property><con:property><con:name>timeout</con:name><con:value>2</con:value></con:property><con:property><con:name>uri</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/7</con:value></con:property><con:property><con:name>token</con:name><con:value>326bf68d-b49e-45b7-8296-46d80ada302d</con:value></con:property></con:properties></con:testCase><con:testCase id="978db0b7-3ecb-45f4-afd8-d7cb7e0dd584" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GenericResourceGet" searchProperties="true"><con:description>This GET will retrieve a resource via REST GET or SFTP or deferred GET with a 202 response followed by a notification
 </con:description><con:settings/><con:testStep type="groovy" name="GenericResourceGet" id="7f4bdcdd-bd1f-4016-b05d-3176630848b5"><con:settings/><con:config><script><![CDATA[import org.xml.sax.SAXException;
 import org.w3c.dom.*;
@@ -13857,7 +13893,7 @@ strResult = tc.getPropertyValue("response");
 </con:testStep>
 <con:properties/>
 </con:testCase>
-<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_xx] OAuth 2.0 [RFC6749] Compliance" searchProperties="true" id="9ec4c3ed-91e5-4b79-9273-3c9dec741e34">
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="[FB_14] OAuth 2.0 [RFC6749] Compliance" searchProperties="true" id="9ec4c3ed-91e5-4b79-9273-3c9dec741e34">
 	<con:settings/>
 	<con:testStep type="groovy" name="[NEG] OAuth Authorize Endpoint -- Reject malformed request (no response_type parameter)" id="9a252ac3-f0d3-418b-ba6c-a5c443d4229b">
 		<con:settings/>
@@ -15696,6 +15732,9 @@ try {
 <con:testSuite id="cb8785d5-6cd3-45d7-8366-c921d6bd07fb" name="[PrepareForCMDTest]"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="b332048a-1ae4-43da-a873-7dc3b96713ef" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="PrepareForCMDTest" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Load Configuration from gbcmdcert.conf" id="a2c9a014-e1ff-420a-895f-c441145b3b75"><con:settings/><con:config><script>// load configuration
 result=testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['LoadConfigCert']);
 
+</script></con:config></con:testStep><con:testStep type="groovy" name="Generate Stunnel Conf File" id="3fabdae2-84c9-408c-a812-ec8330396428"><con:settings/><con:config><script>// Generate Stunnel Configuration File and Restart Stunnel proxy server
+result=testRunner.runTestStep(testRunner.testCase.testSuite.project.testSuites['Library'].testCases['GeneralScripts'].testSteps['GenerateStunnelConf']);
+
 </script></con:config></con:testStep><con:testStep type="groovy" name="Start Generice Get Service" id="9b4421b8-6e90-4338-b14e-15bea9bf9ab4"><con:settings/><con:config><script>def runner = testRunner.testCase.testSuite.project.getRestMockServiceByName("GenericGetService").start();
 return;</script></con:config></con:testStep><con:testStep type="groovy" name="ClearLogs" id="0cc1676a-e15c-40b8-a127-649c10bc5f77"><con:settings/><con:config><script>com.eviware.soapui.SoapUI.logMonitor.getLogArea("script log").clear()</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite>
 <con:testSuite id="c85b105c-03a4-469f-9026-eb04b60fb046" name="[FinalizeCMDTest]"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="f342bb56-efdb-4a98-b131-0257bfeba1de" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FinalizeCMDTest" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Stop GenericGetService" id="02c9b42e-2bcf-4abc-929f-30a8cdfd3cd2"><con:settings/><con:config><script>testRunner.testCase.testSuite.project.getRestMockServiceByName("GenericGetService").getMockRunner().stop();
@@ -17359,15 +17398,15 @@ if( (strResult.contains("Protocol  : TLSv1.2")) &amp;&amp; (!strResult.contains(
 	}	
 
 	// Ask testee to verify (manual procedure)
-	result = ui.getDialogs().confirm("Verify Authorization Server: " + authorizationServer + " certificate issuer is recognized by ETSI or WebTrust:\n\n" + strResult, "\n");
+	result = ui.getDialogs().confirm("Verify Authorization Server: " + authorizationServer + " certificate issuer is recognized by WebTrust:\n\n" + strResult, "\n");
 	log.info (result)
 
 	if(result)
 	{
-		log.info "Authorization Server: " + authorizationServer + " Certificate was issued by a CA recognized by ETSI or WebTrust";
+		log.info "Authorization Server: " + authorizationServer + " Certificate was issued by a CA recognized by WebTrust";
 	} else {
-		log.info "Authorization Server: " + authorizationServer + " Certificate was not issued by a CA recognized by ETSI or WebTrust";
-		testRunner.fail("Authorization Server: " + authorizationServer + " Certificate was not issued by a CA recognized by ETSI or WebTrust");
+		log.info "Authorization Server: " + authorizationServer + " Certificate was not issued by a CA recognized by WebTrust";
+		testRunner.fail("Authorization Server: " + authorizationServer + " Certificate was not issued by a CA recognized by WebTrust");
 	}
 } else {
 	log.info "Authorization Server: " + authorizationServer + " failed TLS 1.2 negotiation";
@@ -17410,15 +17449,15 @@ if( (strResult.contains("Protocol  : TLSv1.2")) &amp;&amp; (!strResult.contains(
 	}
 
 	// Ask testee to verify (manual procedure)
-	result = ui.getDialogs().confirm("Verify Resource Server: " + resourceServer + " certificate issuer is recognized by ETSI or WebTrust:\n\n" + strResult, "\n");
+	result = ui.getDialogs().confirm("Verify Resource Server: " + resourceServer + " certificate issuer is recognized by WebTrust:\n\n" + strResult, "\n");
 	log.info (result)
 
 	if(result)
 	{
-		log.info "Resource Server: " + resourceServer + " Certificate was issued by a CA recognized by ETSI or WebTrust";
+		log.info "Resource Server: " + resourceServer + " Certificate was issued by a CA recognized by WebTrust";
 	} else {
-		log.info "Resource Server: " + resourceServer + " Certificate was not issued by a CA recognized by ETSI or WebTrust";
-		testRunner.fail("Resource Server: " + resourceServer + " Certificate was not issued by a CA recognized by ETSI or WebTrust");
+		log.info "Resource Server: " + resourceServer + " Certificate was not issued by a CA recognized by WebTrust";
+		testRunner.fail("Resource Server: " + resourceServer + " Certificate was not issued by a CA recognized by WebTrust");
 	}
 } else {
 	log.info "Resource Server: " + resourceServer + " failed TLS 1.2 negotiation";
@@ -48751,7 +48790,7 @@ if( requestBody.contains("some data") )
 	
 	
 	
-<con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property><con:property><con:name>AuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>ServiceEndpoint</con:name><con:value>http://localhost:8086/DataCustodian</con:value></con:property><con:property><con:name>subscriptionId</con:name><con:value>5</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>TestFile2</con:name><con:value>Gas.xml</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>ThirdPartyContext</con:name><con:value/></con:property><con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value/></con:property><con:property><con:name>third_party_access_token</con:name><con:value>53520584-d640-4812-a721-8a1afa459ff7</con:value></con:property><con:property><con:name>timeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>upload_access_token</con:name><con:value>03909715-b0ca-4797-9a9a-601fff1d2848</con:value></con:property><con:property><con:name>usagePointDescription1</con:name><con:value>Front Electric Meter</con:value></con:property><con:property><con:name>usagePointDescription2</con:name><con:value>Gas</con:value></con:property><con:property><con:name>usagePointId</con:name><con:value>1</con:value></con:property><con:property><con:name>usagePointUUID1</con:name><con:value>48C2A019-5598-4E16-B0F9-49E4FF27F5FB</con:value></con:property><con:property><con:name>usagePointUUID2</con:name><con:value>642EABA-8E42-4D1A-A375-AF54993C007B</con:value></con:property><con:property><con:name>userAccessToken1</con:name><con:value>8030d53b-c38f-4ceb-ad39-927a1f446ec6</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>d2c0e815-6331-4430-864c-275d6ad7f114</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value/></con:property><con:property><con:name>state</con:name><con:value/></con:property><con:property><con:name>client_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value>https://localhost:8443/DataCustodian/</con:value></con:property><con:property><con:name>registration_access_token_client_id</con:name><con:value>REGISTRATION_surface_tp</con:value></con:property><con:property><con:name>client_access_token_client_id</con:name><con:value>surface_tp_admin</con:value></con:property><con:property><con:name>client_access_token_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>registration_access_token_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>stunnelConfigDirectory</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stunnelStartCmd</con:name><con:value>stunnel start</con:value></con:property><con:property><con:name>stunnelStopCmd</con:name><con:value>stunnel stop</con:value></con:property><con:property><con:name>stunnelReceiveAddress</con:name><con:value>localhost:8444</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property><con:property><con:name>BatchList</con:name><con:value/></con:property><con:property><con:name>responseArray</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>CApathDirectory</con:name><con:value>/etc/ssl/certs</con:value></con:property><con:property><con:name>GBACertId</con:name><con:value>776198e6-59ec-5d25-950a-b34a25b93d67</con:value></con:property><con:property><con:name>TLSLibrary</con:name><con:value>Apple Inc.</con:value></con:property><con:property><con:name>TLSLibCert</con:name><con:value>2411</con:value></con:property><con:property><con:name>NISTFIPSCertScreen</con:name><con:value>http://csrc.nist.gov/groups/STM/cmvp/documents/140-1/140val-all.htm</con:value></con:property><con:property><con:name>productionAuthorizationServerDomain</con:name><con:value>https://services.greenbuttondata.org</con:value></con:property><con:property><con:name>productionResourceServerDomain</con:name><con:value>https://services.greenbuttondata.org</con:value></con:property><con:property><con:name>productionAuthorizationServerTLSLibrary</con:name><con:value>Apple Inc.</con:value></con:property><con:property><con:name>productionAuthorizationServerTLSLibCert</con:name><con:value>2411</con:value></con:property><con:property><con:name>productionResourceServerTLSLibrary</con:name><con:value>Symantec Corporation</con:value></con:property><con:property><con:name>productionResourceServerTLSLibCert</con:name><con:value>1937</con:value></con:property><con:property><con:name>NAESBPurchasedStandards</con:name><con:value>https://www.naesb.org//pdf2/copyright.pdf</con:value></con:property><con:property><con:name>NAESBPurchasedStandardsURI</con:name><con:value>https://www.naesb.org//pdf2/copyright.pdf</con:value></con:property><con:property><con:name>productionSFTPServerDomain</con:name><con:value>https://services.greenbuttondata.org</con:value></con:property><con:property><con:name>productionSFTPServerTLSLibrary</con:name><con:value>Symantec Corporation</con:value></con:property><con:property><con:name>productionSFTPServerTLSLibCert</con:name><con:value>1937</con:value></con:property></con:properties>
+<con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property><con:property><con:name>AuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>ServiceEndpoint</con:name><con:value>http://localhost:8086/DataCustodian</con:value></con:property><con:property><con:name>subscriptionId</con:name><con:value>5</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>TestFile2</con:name><con:value>Gas.xml</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>ThirdPartyContext</con:name><con:value/></con:property><con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value/></con:property><con:property><con:name>third_party_access_token</con:name><con:value>53520584-d640-4812-a721-8a1afa459ff7</con:value></con:property><con:property><con:name>timeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>upload_access_token</con:name><con:value>03909715-b0ca-4797-9a9a-601fff1d2848</con:value></con:property><con:property><con:name>usagePointDescription1</con:name><con:value>Front Electric Meter</con:value></con:property><con:property><con:name>usagePointDescription2</con:name><con:value>Gas</con:value></con:property><con:property><con:name>usagePointId</con:name><con:value>1</con:value></con:property><con:property><con:name>usagePointUUID1</con:name><con:value>48C2A019-5598-4E16-B0F9-49E4FF27F5FB</con:value></con:property><con:property><con:name>usagePointUUID2</con:name><con:value>642EABA-8E42-4D1A-A375-AF54993C007B</con:value></con:property><con:property><con:name>userAccessToken1</con:name><con:value>8030d53b-c38f-4ceb-ad39-927a1f446ec6</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>d2c0e815-6331-4430-864c-275d6ad7f114</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value/></con:property><con:property><con:name>state</con:name><con:value/></con:property><con:property><con:name>client_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value>https://localhost:8443/DataCustodian/</con:value></con:property><con:property><con:name>registration_access_token_client_id</con:name><con:value>REGISTRATION_surface_tp</con:value></con:property><con:property><con:name>client_access_token_client_id</con:name><con:value>surface_tp_admin</con:value></con:property><con:property><con:name>client_access_token_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>registration_access_token_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>stunnelConfigDirectory</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stunnelStartCmd</con:name><con:value>stunnel4 /etc/stunnel/stunnel.conf start</con:value></con:property><con:property><con:name>stunnelStopCmd</con:name><con:value>stunnel4 /etc/stunnel/stunnel.conf stop</con:value></con:property><con:property><con:name>stunnelReceiveAddress</con:name><con:value>localhost:8444</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property><con:property><con:name>BatchList</con:name><con:value/></con:property><con:property><con:name>responseArray</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>CApathDirectory</con:name><con:value>/etc/ssl/certs</con:value></con:property><con:property><con:name>GBACertId</con:name><con:value>776198e6-59ec-5d25-950a-b34a25b93d67</con:value></con:property><con:property><con:name>TLSLibrary</con:name><con:value>Apple Inc.</con:value></con:property><con:property><con:name>TLSLibCert</con:name><con:value>2411</con:value></con:property><con:property><con:name>NISTFIPSCertScreen</con:name><con:value>http://csrc.nist.gov/groups/STM/cmvp/documents/140-1/140val-all.htm</con:value></con:property><con:property><con:name>productionAuthorizationServerDomain</con:name><con:value>https://services.greenbuttondata.org</con:value></con:property><con:property><con:name>productionResourceServerDomain</con:name><con:value>https://services.greenbuttondata.org</con:value></con:property><con:property><con:name>productionAuthorizationServerTLSLibrary</con:name><con:value>Apple Inc.</con:value></con:property><con:property><con:name>productionAuthorizationServerTLSLibCert</con:name><con:value>2411</con:value></con:property><con:property><con:name>productionResourceServerTLSLibrary</con:name><con:value>Symantec Corporation</con:value></con:property><con:property><con:name>productionResourceServerTLSLibCert</con:name><con:value>1937</con:value></con:property><con:property><con:name>NAESBPurchasedStandards</con:name><con:value>https://www.naesb.org//pdf2/copyright.pdf</con:value></con:property><con:property><con:name>NAESBPurchasedStandardsURI</con:name><con:value>https://www.naesb.org//pdf2/copyright.pdf</con:value></con:property><con:property><con:name>productionSFTPServerDomain</con:name><con:value>https://services.greenbuttondata.org</con:value></con:property><con:property><con:name>productionSFTPServerTLSLibrary</con:name><con:value>Symantec Corporation</con:value></con:property><con:property><con:name>productionSFTPServerTLSLibCert</con:name><con:value>1937</con:value></con:property></con:properties>
 <con:wssContainer/>
 <con:oAuth2ProfileContainer/>
 <con:sensitiveInformation/>
