@@ -1,0 +1,6 @@
+cp prepopulatesql_applicationinformation_dc_services_greenbuttondata_org80.sql prepopulatesql_applicationinformation_dc.sql
+cp prepopulatesql_tokenstore_services_greenbuttondata_org80.sql prepopulatesql_tokenstore.sql
+cp gbcmdcert_secure.conf gbcmdcert.conf
+cp gbcmdcert_target_services.conf gbcmdcert_target.conf
+cp gbcmd_secure.conf gbcmd.conf
+
