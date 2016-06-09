@@ -19,7 +19,7 @@ timeoutCmd="timeout"
 securityTimeout="2"
 mockPort="8081"
 proxyOutPort="8080"
-proxyOutPort1="8080"
+proxyOutPort1="8082"
 
 genericGetServiceMockPort="8086"
 
