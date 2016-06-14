@@ -5120,7 +5120,7 @@ confFile.append "; *************************************************************
 confFile.append "; * Resource Server                                                        *" + crlf;
 confFile.append "; **************************************************************************" + crlf;
 confFile.append "[resourceServer]" + crlf;
-confFile.append "accept="+proxyOutPort + crlf;
+confFile.append "accept=localhost:"+proxyOutPort + crlf;
 
 confFile.append "connect=" + resourceServer + crlf;
 
@@ -5137,7 +5137,7 @@ if(authorizationServer!=resourceServer)
 	confFile.append "; * Authorization Server                                                   *" + crlf;
 	confFile.append "; **************************************************************************" + crlf;
 	confFile.append "[authorizationServer]" + crlf;
-	confFile.append "accept="+proxyOutPort1 + crlf;
+	confFile.append "accept=localhost:"+proxyOutPort1 + crlf;
 	
 	confFile.append "connect=" + authorizationServer + crlf;
 	
