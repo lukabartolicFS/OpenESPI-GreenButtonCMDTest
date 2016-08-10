@@ -8720,12 +8720,8 @@ public boolean RunCommand(String path,String cmd)
 cmd = testRunner.testCase.getPropertyValue("cmd");
 td = testRunner.testCase.getPropertyValue("path");
 return (RunCommand(td,cmd));
-</script></con:config></con:testStep><con:properties><con:property><con:name>stdout</con:name><con:value>tcp        0      0 127.0.0.1:8080          0.0.0.0:*               LISTEN      819/stunnel4    
-tcp        0      0 127.0.0.1:8082          0.0.0.0:*               LISTEN      819/stunnel4    
-tcp        0      0 127.0.0.1:8444          0.0.0.0:*               LISTEN      819/stunnel4    
-tcp6       0      0 :::8081                 :::*                    LISTEN      32018/java      
-tcp6       0      0 :::8086                 :::*                    LISTEN      32018/java      
-</con:value></con:property><con:property><con:name>cmd</con:name><con:value>sudo netstat -lpn | grep :80*</con:value></con:property><con:property><con:name>path</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stderr</con:name><con:value/></con:property><con:property><con:name>returncode</con:name><con:value>0</con:value></con:property><con:property><con:name>timeout</con:name><con:value>5</con:value></con:property><con:property><con:name>uri</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/7</con:value></con:property><con:property><con:name>token</con:name><con:value>326bf68d-b49e-45b7-8296-46d80ada302d</con:value></con:property></con:properties></con:testCase><con:testCase id="978db0b7-3ecb-45f4-afd8-d7cb7e0dd584" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GenericResourceGet" searchProperties="true"><con:description>This GET will retrieve a resource via REST GET or SFTP or deferred GET with a 202 response followed by a notification
+</script></con:config></con:testStep><con:properties><con:property><con:name>stdout</con:name><con:value>issuer= /C=US/O=Symantec Corporation/OU=Symantec Trust Network/CN=Symantec Class 3 Secure Server CA - G4
+</con:value></con:property><con:property><con:name>cmd</con:name><con:value>openssl x509 -issuer -noout -in /home/ubuntu/Git/energyos/OpenESPI-GreenButtonCMDTest/SOAPUI/etc/getcert.pem</con:value></con:property><con:property><con:name>path</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stderr</con:name><con:value/></con:property><con:property><con:name>returncode</con:name><con:value>0</con:value></con:property><con:property><con:name>timeout</con:name><con:value>2</con:value></con:property><con:property><con:name>uri</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/7</con:value></con:property><con:property><con:name>token</con:name><con:value>326bf68d-b49e-45b7-8296-46d80ada302d</con:value></con:property></con:properties></con:testCase><con:testCase id="978db0b7-3ecb-45f4-afd8-d7cb7e0dd584" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GenericResourceGet" searchProperties="true"><con:description>This GET will retrieve a resource via REST GET or SFTP or deferred GET with a 202 response followed by a notification
 </con:description><con:settings/><con:testStep type="groovy" name="GenericResourceGet" id="7f4bdcdd-bd1f-4016-b05d-3176630848b5"><con:settings/><con:config><script><![CDATA[import org.xml.sax.SAXException;
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
@@ -17139,8 +17135,8 @@ if( TestUrl(holder.getNodeValue("//espi:dataCustodianScopeSelectionScreenURI")) 
 def tc= testRunner.testCase.testSuite.project.testSuites['Library'].testCases['RunCommand'];
 def ts = tc.getTestStepByName("runCommand");
 
-def authorizationServer = project.getPropertyValue( "authorizationServer" );
-def resourceServer = project.getPropertyValue( "resourceServer" );
+def authorizationServer = project.getPropertyValue( "authorizationServerIP" ) + ":443";
+def resourceServer = project.getPropertyValue( "resourceServerIP" ) + ":443";
 def opensslCmd = project.getPropertyValue("opensslCmd");
 def String strResult ;
 def String returnCode;
@@ -17202,8 +17198,8 @@ if(strResult.contains("Protocol  : TLSv1.2") &amp;&amp; (returnCode.equals("0"))
 def tc= testRunner.testCase.testSuite.project.testSuites['Library'].testCases['RunCommand'];
 def String strResult;
 
-def authorizationServer = project.getPropertyValue( "authorizationServer" );
-def resourceServer = project.getPropertyValue( "resourceServer" );
+def authorizationServer = project.getPropertyValue( "authorizationServerIP" ) + ":443";
+def resourceServer = project.getPropertyValue( "resourceServerIP" ) + ":443";
 
 def opensslCmd = project.getPropertyValue("opensslCmd");
 sslport="443";
@@ -17300,8 +17296,8 @@ return;
 def tc= testRunner.testCase.testSuite.project.testSuites['Library'].testCases['RunCommand'];
 def String strResult;
 
-def authorizationServer = project.getPropertyValue( "authorizationServer" );
-def resourceServer = project.getPropertyValue( "resourceServer" );
+def authorizationServer = project.getPropertyValue( "authorizationServerIP" ) + ":443";
+def resourceServer = project.getPropertyValue( "resourceServerIP" ) + ":443";
 def opensslCmd = project.getPropertyValue("opensslCmd");
 sslport="443";
 
@@ -17356,8 +17352,8 @@ assert true;
 def tc= testRunner.testCase.testSuite.project.testSuites['Library'].testCases['RunCommand'];
 def String strResult;
 
-def authorizationServer = project.getPropertyValue( "authorizationServer" );
-def resourceServer = project.getPropertyValue( "resourceServer" );
+def authorizationServer = project.getPropertyValue( "authorizationServerIP" ) + ":443";
+def resourceServer = project.getPropertyValue( "resourceServerIP" ) + ":443";
 
 def opensslCmd = project.getPropertyValue("opensslCmd");
 sslport="443";
@@ -17430,8 +17426,8 @@ Date now = new Date();
 String datetimeStr = now.toString();
 
 
-def authorizationServer = project.getPropertyValue( "authorizationServer" );
-def resourceServer = project.getPropertyValue( "resourceServer" );
+def authorizationServer = project.getPropertyValue( "authorizationServerIP" ) + ":443";
+def resourceServer = project.getPropertyValue( "resourceServerIP" ) + ":443";
 
 def opensslCmd = project.getPropertyValue("opensslCmd");
 tc.setPropertyValue("path",project.getPropertyValue( "stunnelConfigDirectory"));
@@ -17616,8 +17612,8 @@ Date now = new Date();
 String datetimeStr = now.toString();
 
 
-def authorizationServer = project.getPropertyValue( "authorizationServer" );
-def resourceServer = project.getPropertyValue( "resourceServer" );
+def authorizationServer = project.getPropertyValue( "authorizationServerIP" ) + ":443";
+def resourceServer = project.getPropertyValue( "resourceServerIP" ) + ":443";
 
 def opensslCmd = project.getPropertyValue("opensslCmd");
 sslport="443";
