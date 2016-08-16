@@ -4578,6 +4578,35 @@ testRunner.fail("could not curl up file");
 			<con:config><script>import java.net.*;
 import java.io.*;
 
+
+// Convert URL to proxy version
+public String GetProxiedUrl(String uri, String proxy)
+{
+	def project = testRunner.testCase.testSuite.project;
+	URL aURL = new URL(uri);
+	String urlproxy="";
+
+	// check for valid url -- at least protocol and host
+	if ( (aURL.getProtocol() == null) || (aURL.getHost()==null ))
+	{
+		testRunner.fail("[Library] LoadConfigCert Script -- unparsable url: "+ uri);	
+	}
+	else
+	{
+		//String proxyOutPort = project.getPropertyValue("proxyOutPort");
+		log.info "[Library] LoadConfigCert -- Port = " + aURL.getPort();
+		if (aURL.getQuery() != null) {
+			urlproxy = "http://" +  "localhost" + ":"+proxy + aURL.getPath() + "?"+ aURL.getQuery();
+		}
+		else {
+			urlproxy = "http://" +  "localhost" + ":"+proxy + aURL.getPath();
+		}
+		log.info "[Library] LoadConfigCert -- Converted = " + urlproxy;
+	}
+
+	return urlproxy;
+}
+
 def project = testRunner.testCase.testSuite.project
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def config = new ConfigSlurper().parse(new File(groovyUtils.projectPath + "/etc/gbcmdcert.conf").toURL())
@@ -4640,6 +4669,11 @@ project.setPropertyValue("client_access_token_secret",target.client_access_token
 
 log.info "[Library] LoadConfigCert -- Script client_id= " + target.client_id;
 
+URI uriAuthorizationServerTokenEndpoint = new URI(project.getPropertyValue("authorizationServerTokenEndpoint"));
+hostAuthorizationServerTokenEndpoint = uriAuthorizationServerTokenEndpoint?.getHost();
+URI uriDataCustodianResourceEndpoint = new URI(project.getPropertyValue("dataCustodianResourceEndpoint"));
+hostDataCustodianResourceEndpoint = uriDataCustodianResourceEndpoint?.getHost();
+
 if(target.client_access_token != "") {
 	project.setPropertyValue("client_access_token",target.client_access_token);
 }
@@ -4661,71 +4695,6 @@ else{
 }
 
 
-
-// proxy ports
-project.setPropertyValue("mockPort",config.mockPort);
-project.setPropertyValue("proxyOutPort",config.proxyOutPort);
-project.setPropertyValue("proxyOutPort1",config.proxyOutPort1);
-
-// set proxy ports in mock servers
-def service;
-service = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Notification Mock Service");
-service.setPropertyValue("mockPort",config.mockPort);
-service.setPropertyValue("proxyOutPort",config.proxyOutPort);
-service.setPropertyValue("proxyOutPort1",config.proxyOutPort1);
-
-service = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Authorization Mock Service");
-service.setPropertyValue("mockPort",config.mockPort);
-service.setPropertyValue("proxyOutPort",config.proxyOutPort);
-service.setPropertyValue("proxyOutPort1",config.proxyOutPort1);
-
-service = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty NEG A tests Authorization Mock Service");
-service.setPropertyValue("mockPort",config.mockPort);
-service.setPropertyValue("proxyOutPort",config.proxyOutPort);
-service.setPropertyValue("proxyOutPort1",config.proxyOutPort1);
-
-service = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty NEG B tests Authorization Mock Service");
-service.setPropertyValue("mockPort",config.mockPort);
-service.setPropertyValue("proxyOutPort",config.proxyOutPort);
-service.setPropertyValue("proxyOutPort1",config.proxyOutPort1);
-
-// TODO: Standardize port initialization for "GenericGetService" and "BatchListNotification" Mock services
-//service = testRunner.testCase.testSuite.project.getRestMockServiceByName("GenericGetService");
-
-//service = testRunner.testCase.testSuite.project.getRestMockServiceByName("BatchListNotification");
-
-proxyOutPort = service.getPropertyValue("proxyOutPort");
-proxyOutPort1 = service.getPropertyValue("proxyOutPort1");
-
-
-// Convert URL to proxy version
-public String GetProxiedUrl(String uri, String proxy)
-{
-	def project = testRunner.testCase.testSuite.project;
-	URL aURL = new URL(uri);
-	String urlproxy="";
-
-	// check for valid url -- at least protocol and host
-	if ( (aURL.getProtocol() == null) || (aURL.getHost()==null ))
-	{
-		testRunner.fail("[Library] LoadConfigCert Script -- unparsable url: "+ uri);	
-	}
-	else
-	{
-		//String proxyOutPort = project.getPropertyValue("proxyOutPort");
-		log.info "[Library] LoadConfigCert -- Port = " + aURL.getPort();
-		if (aURL.getQuery() != null) {
-			urlproxy = "http://" +  "localhost" + ":"+proxy + aURL.getPath() + "?"+ aURL.getQuery();
-		}
-		else {
-			urlproxy = "http://" +  "localhost" + ":"+proxy + aURL.getPath();
-		}
-		log.info "[Library] LoadConfigCert -- Converted = " + urlproxy;
-	}
-
-	return urlproxy;
-}
-
 service = testRunner.testCase.testSuite.project.getRestMockServiceByName("GenericGetService");
 service.setPropertyValue("mockPort",config.genericGetServiceMockPort);
 service.setPropertyValue("stunnelProxyPort",config.proxyOutPort);
@@ -4745,16 +4714,14 @@ if(i>0) {
 
 	//uritemp = GetProxiedUrl(uritemp, proxyOutPort);
 	//uritemp = GetProxiedUrl(uritemp, genericGetServiceMockPort);
-	URL aURL = new URL(project.getPropertyValue("dataCustodianResourceEndpoint"));
-	def host = aURL?.getHost();
 	
-	project.setPropertyValue("ServiceEndpoint","http://" + host + ":" + genericGetServiceMockPort);
+	project.setPropertyValue("ServiceEndpoint","http://" + hostDataCustodianResourceEndpoint + ":" + genericGetServiceMockPort);
 	
 	//uritemp = uri;
 	//uritemp = uritemp.substring(uritemp.indexOf("espi/1_1/resource"), uritemp.length());
 	//log.info "[Library] LoadConfigCert -- DC resourceUri: " + uritemp;
-	log.info "[Library] LoadConfigCert -- DC resourceUri: " + aURL?.getPath();
-	project.setPropertyValue("resourceUri",aURL?.getPath().substring(1));
+	log.info "[Library] LoadConfigCert -- DC resourceUri: " + uriDataCustodianResourceEndpoint?.getPath();
+	project.setPropertyValue("resourceUri",uriDataCustodianResourceEndpoint?.getPath().substring(1));
 	
 }  else {
 	// cant be a resource
@@ -4764,44 +4731,86 @@ if(i>0) {
 
 
 // parse out AuthorizationEndpoint
-uri = project.getPropertyValue("authorizationServerTokenEndpoint");
-log.info "[Library] LoadConfigCert -- DC authorizationServerTokenEndpoint URI: " + uri;
-uritemp = uri;
+//uri = project.getPropertyValue("authorizationServerTokenEndpoint");
+//log.info "[Library] LoadConfigCert -- DC authorizationServerTokenEndpoint URI: " + uri;
+//uritemp = uri;
 //uritemp = GetProxiedUrl(uritemp, proxyOutPort1);
-URL aURL = new URL(project.getPropertyValue("authorizationServerTokenEndpoint"));
-def host = aURL?.getHost();
+//URL aURL = new URL(project.getPropertyValue("authorizationServerTokenEndpoint"));
+//def host = aURL?.getHost();
 
-def authorizationServer = project.getPropertyValue( "authorizationServer" );
-def resourceServer = project.getPropertyValue( "resourceServer" );
-if(authorizationServer==resourceServer){
-	project.setPropertyValue("AuthorizationEndpoint","http://" + host + ":" + proxyOutPort + aURL.getPath());
+//def authorizationServer = project.getPropertyValue( "authorizationServer" );
+//def resourceServer = project.getPropertyValue( "resourceServer" );
+
+
+
+def proxyOutPort;
+def proxyOutPort1;
+
+if(hostAuthorizationServerTokenEndpoint==hostDataCustodianResourceEndpoint){
+	proxyOutPort = config.proxyOutPort;
+	proxyOutPort1 = config.proxyOutPort;
 } else {
-	project.setPropertyValue("AuthorizationEndpoint","http://" + host + ":" + proxyOutPort1 + aURL.getPath());
+	proxyOutPort = config.proxyOutPort;
+	proxyOutPort1 = config.proxyOutPort1;
 }
-	
+
+project.setPropertyValue("AuthorizationEndpoint","http://" + hostAuthorizationServerTokenEndpoint + ":" + proxyOutPort1 + uriAuthorizationServerTokenEndpoint.getPath());
+
+// proxy ports
+project.setPropertyValue("mockPort",config.mockPort);
+project.setPropertyValue("proxyOutPort",proxyOutPort);
+project.setPropertyValue("proxyOutPort1",proxyOutPort1);
+
+// set proxy ports in mock servers
+def service;
+service = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Notification Mock Service");
+service.setPropertyValue("mockPort",config.mockPort);
+service.setPropertyValue("proxyOutPort",proxyOutPort);
+service.setPropertyValue("proxyOutPort1",proxyOutPort1);
+
+service = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty Authorization Mock Service");
+service.setPropertyValue("mockPort",config.mockPort);
+service.setPropertyValue("proxyOutPort",proxyOutPort);
+service.setPropertyValue("proxyOutPort1",proxyOutPort1);
+
+service = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty NEG A tests Authorization Mock Service");
+service.setPropertyValue("mockPort",config.mockPort);
+service.setPropertyValue("proxyOutPort",proxyOutPort);
+service.setPropertyValue("proxyOutPort1",proxyOutPort1);
+
+service = testRunner.testCase.testSuite.project.getRestMockServiceByName("ThirdParty NEG B tests Authorization Mock Service");
+service.setPropertyValue("mockPort",config.mockPort);
+service.setPropertyValue("proxyOutPort",proxyOutPort);
+service.setPropertyValue("proxyOutPort1",proxyOutPort1);
+
+// TODO: Standardize port initialization for "GenericGetService" and "BatchListNotification" Mock services
+//service = testRunner.testCase.testSuite.project.getRestMockServiceByName("GenericGetService");
+
+//service = testRunner.testCase.testSuite.project.getRestMockServiceByName("BatchListNotification");
+
+
 
 // capture servers
-aURL = new URL(project.getPropertyValue("dataCustodianResourceEndpoint"));
-if (aURL.getPort() == -1) {
-	resourceServer= aURL.getHost() + ":443";
+
+if (uriDataCustodianResourceEndpoint.getPort() == -1) {
+	resourceServer= uriDataCustodianResourceEndpoint.getHost() + ":443";
 	project.setPropertyValue("resourceServerPort","443");
 }
 else
 {
-	resourceServer= aURL.getHost() + ":" + aURL.getPort();
-	project.setPropertyValue("resourceServerPort",aURL.getPort().toString());
+	resourceServer= uriDataCustodianResourceEndpoint.getHost() + ":" + uriDataCustodianResourceEndpoint.getPort();
+	project.setPropertyValue("resourceServerPort",uriDataCustodianResourceEndpoint.getPort().toString());
 }
 project.setPropertyValue("resourceServer", resourceServer);
 
-aURL = new URL(project.getPropertyValue("authorizationServerTokenEndpoint"));
-if (aURL.getPort() == -1) {
-	authorizationServer = aURL.getHost() + ":443";
+if (uriAuthorizationServerTokenEndpoint.getPort() == -1) {
+	authorizationServer = uriAuthorizationServerTokenEndpoint.getHost() + ":443";
 	project.setPropertyValue("authorizationServerPort","443");
 }
 else
 {
-	authorizationServer = aURL.getHost() + ":" + aURL.getPort();
-	project.setPropertyValue("authorizationServerPort",aURL.getPort().toString());
+	authorizationServer = uriAuthorizationServerTokenEndpoint.getHost() + ":" + uriAuthorizationServerTokenEndpoint.getPort();
+	project.setPropertyValue("authorizationServerPort",uriAuthorizationServerTokenEndpoint.getPort().toString());
 }
 project.setPropertyValue("authorizationServer", authorizationServer);
 
@@ -8654,8 +8663,12 @@ testRunner.testCase.setPropertyValue("token_type",tokenResponse.token_type);
 testRunner.testCase.setPropertyValue("refresh_token",tokenResponse.refresh_token);
 testRunner.testCase.setPropertyValue("expires_in",tokenResponse.expires_in.toString());
 testRunner.testCase.setPropertyValue("scope",tokenResponse.scope);
-testRunner.testCase.setPropertyValue("resourceURI",tokenResponse.resourceURI);
-testRunner.testCase.setPropertyValue("authorizationURI",tokenResponse.authorizationURI);
+
+URI uriResource = new URI(tokenResponse.resourceURI);
+URI uriAuthorization = new URI(tokenResponse.authorizationURI); 
+
+testRunner.testCase.setPropertyValue("resourceURI","http://" + uriResource.host + ":" + testRunner.testCase.getPropertyValue("proxyOutPort") + uriResource.path);
+testRunner.testCase.setPropertyValue("authorizationURI","http://" + uriAuthorization.host + ":" + testRunner.testCase.getPropertyValue("proxyOutPort") + uriAuthorization.path);
 
 
 testRunner.testCase.testSuite.project.setPropertyValue("access_token",testRunner.testCase.getPropertyValue("access_token"));</script></con:config></con:testStep><con:testStep type="groovy" name="Done" id="1506c724-dddb-4676-bd09-aabebed84455"><con:settings/><con:config><script>log.info("General Scripts: Create Authorization and extract all information (Done)");</script></con:config></con:testStep><con:tearDownScript>if(context.mockRunner != null){
@@ -8671,7 +8684,7 @@ if(context["driver"] != null){
 	context["driver"] = null;	
 }
 
-</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://greenbutton.londonhydro.com/RetailCustomer/ScopeSelectionList</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://greenbutton.londonhydro.com/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://ec2-50-112-176-69.us-west-2.compute.amazonaws.com:8081/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://greenbutton.londonhydro.com/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value/></con:property><con:property><con:name>resourceURI</con:name><con:value>espi/1_1/resource</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>token_type</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>refresh_token</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>expires_in</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=daily;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>old_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">e464c03f-434d-45c8-baff-2dba2c8ac7a0</con:value></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Gigt2CaoDyrpVx7</con:value></con:property><con:property><con:name>authorizationServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>resourceServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>mockPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8080</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>authorizationServerTokenEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">5ff6b085-78d5-40e6-802f-b94edcf0b828</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">api.londonhydro.com:443</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">17cd9486-a5d7-42ab-beaa-d2acedd3d2eb</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand" id="06648a84-6352-4b25-b179-693e52d162cc"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
+</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://testgb.mooo.com:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://testgb.mooo.com:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://ec2-50-112-176-69.us-west-2.compute.amazonaws.com:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://testgb.mooo.com:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>62b59639-f8a8-4b38-9706-8d075cef7aef</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://testgb.mooo.com:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/7</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://testgb.mooo.com:8080/DataCustodian/espi/1_1/resource/Authorization/7</con:value></con:property><con:property><con:name>token_type</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">5870d6d1-fc4e-4e4a-97ff-353bbb95ece9</con:value></con:property><con:property><con:name>expires_in</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">315359999</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>old_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">e464c03f-434d-45c8-baff-2dba2c8ac7a0</con:value></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">secret</con:value></con:property><con:property><con:name>authorizationServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>resourceServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>mockPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8080</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>authorizationServerTokenEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">dfcf81e2-5234-4a18-8483-8077e1b7db21</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">testgb.mooo.com:8443</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">c15d4183-8713-4b98-b4b4-823c2d5d95fb</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand" id="06648a84-6352-4b25-b179-693e52d162cc"><con:settings/><con:config><script>def project = testRunner.testCase.testSuite.project
 
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def projectPath = groovyUtils.projectPath
@@ -16836,9 +16849,9 @@ headers.put("Content-Type","Application/atom+xml");
 propTestStep.testRequest.setRequestHeaders(headers);
 
 </script></con:config></con:testStep><con:testStep type="httprequest" name="GET Resource URI" id="385eca90-b9e6-4646-a4d3-7ff3576f1042"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Resource URI" id="4c065077-eff3-4431-8201-a501b8acd7a6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
-  &lt;con:entry key="Authorization" value="Bearer fc9e3f76-2670-4cb7-b842-ae3b9693caad"/>
+  &lt;con:entry key="Authorization" value="Bearer 62b59639-f8a8-4b38-9706-8d075cef7aef"/>
   &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
-&lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/10</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="10ded9d8-6ec9-476d-8438-75d0c7c8cdba"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema Validation" id="fe6a24dc-9d74-4915-8ff5-b7de94296d82"><con:configuration><scriptText>import javax.xml.XMLConstants;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://testgb.mooo.com:8080/DataCustodian/espi/1_1/resource/Batch/Subscription/7</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="10ded9d8-6ec9-476d-8438-75d0c7c8cdba"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema Validation" id="fe6a24dc-9d74-4915-8ff5-b7de94296d82"><con:configuration><scriptText>import javax.xml.XMLConstants;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.SchemaFactory;
@@ -16954,9 +16967,9 @@ if(bFailure){
 }
 
 </script></con:config></con:testStep><con:testStep type="httprequest" name="GET Authorization URI" id="d5d39f3b-710c-4076-a698-9bccfdadbb49"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Authorization URI" id="81e49c44-9f6d-48d9-b15b-26d827d5f235" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
-  &lt;con:entry key="Authorization" value="Bearer 2d921688-02d7-4fb1-8211-6527fad29baa"/>
+  &lt;con:entry key="Authorization" value="Bearer dfcf81e2-5234-4a18-8483-8077e1b7db21"/>
   &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
-&lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://localhost:8443/DataCustodian/espi/1_1/resource/Authorization/10</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="88efefb2-ecd7-4037-9d72-45735d67aa2f"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema validation" id="1c62b622-4dea-4211-9334-0fad55ab55ab"><con:configuration><scriptText>import javax.xml.XMLConstants;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://testgb.mooo.com:8080/DataCustodian/espi/1_1/resource/Authorization/7</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="88efefb2-ecd7-4037-9d72-45735d67aa2f"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema validation" id="1c62b622-4dea-4211-9334-0fad55ab55ab"><con:configuration><scriptText>import javax.xml.XMLConstants;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.SchemaFactory;
@@ -46816,7 +46829,7 @@ if(results == true) {
 else {
 	log.info "===== FAILED End   TestSuite =====> " + testSuite.name
 }
-</con:tearDownScript></con:testSuite><con:testSuite id="777829b5-238f-498b-8fca-fc91f28b2179" name="[FUTURE]*[FB_46] Core RetailCustomer"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:testSuite id="e6e692e4-a3af-493f-879e-e29d98472396" name="[FUTURE]*[FB_47] REST for RetailCustomer Bulk"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:testSuite id="134c0d4e-41b7-43ef-99a7-82910fc15181" name="[FUTURE]*[FB_48] SFTP for RetailCustomer Bulk"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:testSuite id="5f220152-b482-4fe6-a93c-c86983aa59ab" name="[FUTURE]*[FB_49] RetailCustomer Management REST"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:testSuite id="a4cad8a6-a545-43a7-813d-41f895c2ba75" name="[FUTURE]*[FB_50] RetailCustomer Resource Level REST"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:restMockService port="8081" path="/" host="openespivm" name="ThirdParty Notification Mock Service" docroot="" id="44aa183e-c020-4e6b-8402-539544493841"><con:settings/><con:startScript>context.mockService.setPropertyValue("rxNotificationBody","");</con:startScript><con:properties><con:property><con:name>rxNotificationBody</con:name><con:value/></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8082</con:value></con:property></con:properties><con:onRequestScript/><con:restMockAction name="/ThirdParty/espi/1_1/Notification" method="POST" resourcePath="/ThirdParty/espi/1_1/Notification" id="6b6053c9-2c1a-4384-9b10-782eb51bbd4c"><con:settings/><con:defaultResponse>ThirdParty Notification Mock Service/ThirdParty/espi/1_1/Notification POST Response</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>if(requestContext.mockService.getPropertyValue("rxNotificationBody")!= "") {
+</con:tearDownScript></con:testSuite><con:testSuite id="777829b5-238f-498b-8fca-fc91f28b2179" name="[FUTURE]*[FB_46] Core RetailCustomer"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:testSuite id="e6e692e4-a3af-493f-879e-e29d98472396" name="[FUTURE]*[FB_47] REST for RetailCustomer Bulk"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:testSuite id="134c0d4e-41b7-43ef-99a7-82910fc15181" name="[FUTURE]*[FB_48] SFTP for RetailCustomer Bulk"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:testSuite id="5f220152-b482-4fe6-a93c-c86983aa59ab" name="[FUTURE]*[FB_49] RetailCustomer Management REST"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:testSuite id="a4cad8a6-a545-43a7-813d-41f895c2ba75" name="[FUTURE]*[FB_50] RetailCustomer Resource Level REST"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:restMockService port="8081" path="/" host="openespivm" name="ThirdParty Notification Mock Service" docroot="" id="44aa183e-c020-4e6b-8402-539544493841"><con:settings/><con:startScript>context.mockService.setPropertyValue("rxNotificationBody","");</con:startScript><con:properties><con:property><con:name>rxNotificationBody</con:name><con:value/></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property></con:properties><con:onRequestScript/><con:restMockAction name="/ThirdParty/espi/1_1/Notification" method="POST" resourcePath="/ThirdParty/espi/1_1/Notification" id="6b6053c9-2c1a-4384-9b10-782eb51bbd4c"><con:settings/><con:defaultResponse>ThirdParty Notification Mock Service/ThirdParty/espi/1_1/Notification POST Response</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>if(requestContext.mockService.getPropertyValue("rxNotificationBody")!= "") {
 	log.info("ThirdParty Notification Mock Service (/ThirdParty/espi/1_1/Notification) Discarding additional notifications");
 	return;	
 }
@@ -46927,7 +46940,7 @@ strContent = mockRequest.requestContent;
 log.info("ThirdParty Notification Mock Service (GET /Diagnostic Response) Request Content: " + strContent);
 
 </con:script><con:responseContent/></con:response></con:restMockAction></con:restMockService>
-<con:restMockService port="8081" path="/" host="openespivm" name="ThirdParty Authorization Mock Service" docroot="" id="3a34ffc3-4858-4237-a55a-0cc1f8544c4a"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value/></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">secret</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>state</con:name><con:value>ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8082</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="a19f663e-daf5-4eab-bc7c-0fb638c2496d"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+<con:restMockService port="8081" path="/" host="openespivm" name="ThirdParty Authorization Mock Service" docroot="" id="3a34ffc3-4858-4237-a55a-0cc1f8544c4a"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"62b59639-f8a8-4b38-9706-8d075cef7aef","token_type":"bearer","refresh_token":"5870d6d1-fc4e-4e4a-97ff-353bbb95ece9","expires_in":315359999,"scope":"FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13","resourceURI":"https://testgb.mooo.com:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/7","authorizationURI":"https://testgb.mooo.com:8443/DataCustodian/espi/1_1/resource/Authorization/7"}</con:value></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://testgb.mooo.com:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://ec2-50-112-176-69.us-west-2.compute.amazonaws.com:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://testgb.mooo.com:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value/></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">secret</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://testgb.mooo.com:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>state</con:name><con:value>ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="a19f663e-daf5-4eab-bc7c-0fb638c2496d"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Examples showing how to match based on path, query param and header
 // Match based on path
 def requestPath = mockRequest.getPath()
@@ -47044,6 +47057,45 @@ import static groovyx.net.http.Method.POST;
 import static groovyx.net.http.ContentType.TEXT;
 import java.net.*;
 import java.io.*;
+
+public boolean RunCommand(String cmd)
+{
+	String path = "/etc/stunnel";
+	String timeoutCmd = "timeout";
+	
+	def doCmd;
+	def myTimeoutValue= 1000;
+
+	if(myTimeoutValue > 0)
+	{
+		cmd = timeoutCmd + " " + myTimeoutValue + " " + cmd;
+	}
+
+	
+	try {
+		doCmd = ["bash", "-c",cmd].execute(null, new File(path));
+	
+		doCmd.waitFor()
+	
+		} catch (Exception e) {
+			log.error("command timeout");
+			return false;
+	}
+
+	if(doCmd.exitValue()!=0)
+	{	
+		log.error "return code: " +  doCmd.exitValue().toString();
+		log.error "stderr: " + doCmd.err.text;
+		log.error "stdout: " + doCmd.in.text;
+		
+		return false;
+	}
+
+	log.info  "stdout: " + 	doCmd.in.text;
+
+	sleep 1000;
+	return true;
+}
 
 String parseEndpointFromURI(String strURI) throws Exception {
 
@@ -47182,7 +47234,16 @@ log.info("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAu
 log.info("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- OAuthCallBack GET 302 Response' Base 64 Encoded Authentication: " + token);
 
 //String strGetResponseBody = resourceTester.doPOST(strHost,strResource,"dGhpcmRfcGFydHk6c2VjcmV0",params);
+
+RunCommand("sudo rm /etc/hosts");
+RunCommand("sudo ln -s /etc/hosts.forstunnel /etc/hosts");
+
+log.info("Issue POST");
 String strGetResponseBody = resourceTester.doPOST(strHost,strResource,token,params);
+log.info("Issued POST");
+
+RunCommand("sudo rm /etc/hosts");
+RunCommand("sudo ln -s /etc/hosts.original /etc/hosts");
 
 if(strGetResponseBody==null) {
 	log.error("ThirdParty Authorization Mock Service -- 'GET /ThirdParty/espi/1_1/OAuthCallBack -- OAuthCallBack GET 302 Response' POST request failed.");
@@ -47394,7 +47455,7 @@ strContent = mockRequest.requestContent;
 log.info("ThirdParty Authorization Mock Service (GET /Diagnostic Response) Request Content: " + strContent);
 
 </con:script><con:responseContent/></con:response></con:restMockAction></con:restMockService>
-<con:restMockService port="8081" path="/" host="openespivm" name="ThirdParty NEG A tests Authorization Mock Service" docroot="" id="cdc5ffa6-a930-460a-b724-42e8e7d73f4f"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>client_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>state</con:name><con:value>ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8082</con:value></con:property></con:properties><con:onRequestScript/><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="fbe0856f-dd44-4b04-8b84-d08a490ece57"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+<con:restMockService port="8081" path="/" host="openespivm" name="ThirdParty NEG A tests Authorization Mock Service" docroot="" id="cdc5ffa6-a930-460a-b724-42e8e7d73f4f"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>client_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>state</con:name><con:value>ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property></con:properties><con:onRequestScript/><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="fbe0856f-dd44-4b04-8b84-d08a490ece57"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Examples showing how to match based on path, query param and header
 // Match based on path
 def requestPath = mockRequest.getPath()
@@ -47910,7 +47971,7 @@ strContent = mockRequest.requestContent;
 log.info("ThirdParty NEG A tests Authorization Mock Service (GET /Diagnostic Response) Request Content: " + strContent);
 
 </con:script><con:responseContent/></con:response></con:restMockAction></con:restMockService>
-<con:restMockService port="8081" path="/" host="openespivm" name="ThirdParty NEG B tests Authorization Mock Service" docroot="" id="f53ba382-c35f-4ef1-901a-f07c7855c1b3"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value>9C0B4BBAD2FBDAF475058F4996FE725B</con:value></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>YtRpPc</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>client_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>state</con:name><con:value>ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8082</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="80ce918e-62e8-4eb0-881e-fe7226c68892"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+<con:restMockService port="8081" path="/" host="openespivm" name="ThirdParty NEG B tests Authorization Mock Service" docroot="" id="f53ba382-c35f-4ef1-901a-f07c7855c1b3"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://localhost:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value>9C0B4BBAD2FBDAF475058F4996FE725B</con:value></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>YtRpPc</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://localhost:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property><con:property><con:name>client_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>state</con:name><con:value>ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="80ce918e-62e8-4eb0-881e-fe7226c68892"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Examples showing how to match based on path, query param and header
 // Match based on path
 def requestPath = mockRequest.getPath()
@@ -49043,10 +49104,10 @@ if( requestBody.contains("some data") )
 */
 </con:dispatchPath><con:response name="Response 1 - 202" id="552f9a94-4650-43b2-b2a0-f0aa02f07719" httpResponseStatus="202"><con:settings/><con:responseContent/></con:response></con:restMockAction></con:restMockService><con:properties>
 
-	<con:property><con:name>access_token</con:name><con:value/></con:property><con:property><con:name>applicationInformationId</con:name><con:value>1</con:value></con:property><con:property><con:name>authorizationId</con:name><con:value>1</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>testgb.mooo.com:8443</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://greenbutton.londonhydro.com/oauth/authorize</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://testgb.mooo.com:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property>
+	<con:property><con:name>access_token</con:name><con:value>62b59639-f8a8-4b38-9706-8d075cef7aef</con:value></con:property><con:property><con:name>applicationInformationId</con:name><con:value>4</con:value></con:property><con:property><con:name>authorizationId</con:name><con:value>5</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>testgb.mooo.com:8443</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://testgb.mooo.com:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://testgb.mooo.com:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property>
 
 		<con:name>BaseURL</con:name>
-		<con:value>http://localhost:8080</con:value>
+		<con:value/>
 	</con:property>
 	
 	
@@ -49058,18 +49119,18 @@ if( requestBody.contains("some data") )
 	
 	
 	
-	<con:property><con:name>bulkId</con:name><con:value>1</con:value></con:property><con:property><con:name>certScopes</con:name><con:value>FB=1_4_5_15</con:value></con:property><con:property><con:name>client_access_token</con:name><con:value/></con:property>
+	<con:property><con:name>bulkId</con:name><con:value>1</con:value></con:property><con:property><con:name>certScopes</con:name><con:value>FB=1_4_5_15</con:value></con:property><con:property><con:name>client_access_token</con:name><con:value>dfcf81e2-5234-4a18-8483-8077e1b7db21</con:value></con:property>
 	
 	
 	
 	
-	<con:property><con:name>DataCustodianContext</con:name><con:value>DataCustodian</con:value></con:property><con:property><con:name>dataCustodianId</con:name><con:value>LondonHydro</con:value></con:property>
+	<con:property><con:name>DataCustodianContext</con:name><con:value/></con:property><con:property><con:name>dataCustodianId</con:name><con:value>data_custodian</con:value></con:property>
 	
-	<con:property><con:name>dataCustodianResourceEndpoint</con:name><con:value>https://testgb.mooo.com:8443/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>dataCustodianResourceUri</con:name><con:value>https://api.londonhydro.com/espi/1_1/resource</con:value></con:property>
+	<con:property><con:name>dataCustodianResourceEndpoint</con:name><con:value>https://testgb.mooo.com:8443/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>dataCustodianResourceUri</con:name><con:value>https://testgb.mooo.com:8443/DataCustodian/espi/1_1/resource</con:value></con:property>
 	
 	
 	
-	<con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://greenbutton.londonhydro.com/RetailCustomer/ScopeSelectionList</con:value></con:property>
+	<con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://testgb.mooo.com:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=surface_tp</con:value></con:property>
 	
 	<con:property><con:name>data_custodian_access_token</con:name><con:value>2a85f4bd-30db-4b7d-8f41-b046b0566cb3</con:value></con:property><con:property><con:name>DBprepopulateScriptName</con:name><con:value>prepopulatesql_dc.sql</con:value></con:property><con:property><con:name>electricPowerQualitySummaryId</con:name><con:value>1</con:value></con:property><con:property><con:name>electricPowerUsageSummaryId</con:name><con:value>1</con:value></con:property><con:property><con:name>federalEIN</con:name><con:value>123456</con:value></con:property>
 	
@@ -49078,7 +49139,7 @@ if( requestBody.contains("some data") )
 	<con:property><con:name>intervalBlockId</con:name><con:value>1</con:value></con:property><con:property><con:name>linkPrefixForReplace</con:name><con:value>http://localhost:8080/DataCustodian/</con:value></con:property><con:property><con:name>localTimeParametersId</con:name><con:value>1</con:value></con:property><con:property><con:name>meterReadingId</con:name><con:value>1</con:value></con:property>
 	
 	<con:property><con:name>mysqlCmdDC</con:name><con:value>mysql --user=root --password=password</con:value></con:property>
-	<con:property><con:name>mysqlCmdTP</con:name><con:value>mysql --user=root --password=password</con:value></con:property><con:property><con:name>myTimeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>NotificationEndpoint</con:name><con:value>http://ec2-50-112-176-69.us-west-2.compute.amazonaws.com:8081</con:value></con:property><con:property><con:name>notificationUri</con:name><con:value>espi/1_1/Notification</con:value></con:property><con:property><con:name>opensslCmd</con:name><con:value>openssl</con:value></con:property>
+	<con:property><con:name>mysqlCmdTP</con:name><con:value>mysql --user=root --password=password</con:value></con:property><con:property><con:name>myTimeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>NotificationEndpoint</con:name><con:value>http://ec2-50-112-176-69.us-west-2.compute.amazonaws.com:8081/ThirdParty</con:value></con:property><con:property><con:name>notificationUri</con:name><con:value>espi/1_1/Notification</con:value></con:property><con:property><con:name>opensslCmd</con:name><con:value>openssl</con:value></con:property>
 	
 	
 	
@@ -49086,7 +49147,7 @@ if( requestBody.contains("some data") )
 	
 	
 	
-	<con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value>17cd9486-a5d7-42ab-beaa-d2acedd3d2eb</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>c66b0854-ea1f-4e24-afb7-afab9e0f6c5e</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>testgb.mooo.com:8443</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://api.londonhydro.com/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceUri</con:name><con:value>DataCustodian/espi/1_1/resource</con:value></con:property>
+	<con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value>c15d4183-8713-4b98-b4b4-823c2d5d95fb</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>c66b0854-ea1f-4e24-afb7-afab9e0f6c5e</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>testgb.mooo.com:8443</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://testgb.mooo.com:8443/DataCustodian/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceUri</con:name><con:value>DataCustodian/espi/1_1/resource</con:value></con:property>
 	
 	
 	
@@ -49098,7 +49159,7 @@ if( requestBody.contains("some data") )
 	
 	
 	
-<con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property><con:property><con:name>AuthorizationEndpoint</con:name><con:value>http://testgb.mooo.com:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>ServiceEndpoint</con:name><con:value>http://localhost:8080/DataCustodian</con:value></con:property><con:property><con:name>subscriptionId</con:name><con:value>5</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>TestFile2</con:name><con:value>Gas.xml</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>ThirdPartyContext</con:name><con:value>ThirdParty</con:value></con:property><con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value/></con:property><con:property><con:name>third_party_access_token</con:name><con:value>53520584-d640-4812-a721-8a1afa459ff7</con:value></con:property><con:property><con:name>timeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>upload_access_token</con:name><con:value>03909715-b0ca-4797-9a9a-601fff1d2848</con:value></con:property><con:property><con:name>usagePointDescription1</con:name><con:value>Front Electric Meter</con:value></con:property><con:property><con:name>usagePointDescription2</con:name><con:value>Gas</con:value></con:property><con:property><con:name>usagePointId</con:name><con:value>1</con:value></con:property><con:property><con:name>usagePointUUID1</con:name><con:value>48C2A019-5598-4E16-B0F9-49E4FF27F5FB</con:value></con:property><con:property><con:name>usagePointUUID2</con:name><con:value>642EABA-8E42-4D1A-A375-AF54993C007B</con:value></con:property><con:property><con:name>userAccessToken1</con:name><con:value>8030d53b-c38f-4ceb-ad39-927a1f446ec6</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>d2c0e815-6331-4430-864c-275d6ad7f114</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=34_35</con:value></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>state</con:name><con:value/></con:property><con:property><con:name>client_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value>https://greenbutton.londonhydro.com</con:value></con:property><con:property><con:name>registration_access_token_client_id</con:name><con:value>REGISTRATION_surface_tp</con:value></con:property><con:property><con:name>client_access_token_client_id</con:name><con:value>surface_tp_admin</con:value></con:property><con:property><con:name>client_access_token_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>registration_access_token_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>stunnelConfigDirectory</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stunnelStartCmd</con:name><con:value>sudo /etc/init.d/stunnel4 start</con:value></con:property><con:property><con:name>stunnelStopCmd</con:name><con:value>sudo /etc/init.d/stunnel4 stop</con:value></con:property><con:property><con:name>stunnelReceiveAddress</con:name><con:value>localhost:8444</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8082</con:value></con:property><con:property><con:name>BatchList</con:name><con:value/></con:property><con:property><con:name>responseArray</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>CApathDirectory</con:name><con:value>/etc/ssl/certs</con:value></con:property><con:property><con:name>GBACertId</con:name><con:value>776198e6-59ec-5d25-950a-b34a25b93d67</con:value></con:property><con:property><con:name>TLSLibrary</con:name><con:value>Apple Inc.</con:value></con:property><con:property><con:name>TLSLibCert</con:name><con:value>2411</con:value></con:property><con:property><con:name>NISTFIPSCertScreen</con:name><con:value>http://csrc.nist.gov/groups/STM/cmvp/documents/140-1/140val-all.htm</con:value></con:property><con:property><con:name>productionAuthorizationServerDomain</con:name><con:value>https://testgb.mooo.com:8443</con:value></con:property><con:property><con:name>productionResourceServerDomain</con:name><con:value>https://testgb.mooo.com:8443</con:value></con:property><con:property><con:name>productionAuthorizationServerTLSLibrary</con:name><con:value>Apple Inc.</con:value></con:property><con:property><con:name>productionAuthorizationServerTLSLibCert</con:name><con:value>2411</con:value></con:property><con:property><con:name>productionResourceServerTLSLibrary</con:name><con:value>Symantec Corporation</con:value></con:property><con:property><con:name>productionResourceServerTLSLibCert</con:name><con:value>1937</con:value></con:property><con:property><con:name>NAESBPurchasedStandards</con:name><con:value>https://www.naesb.org//pdf2/copyright.pdf</con:value></con:property><con:property><con:name>NAESBPurchasedStandardsURI</con:name><con:value>https://www.naesb.org//pdf2/copyright.pdf</con:value></con:property><con:property><con:name>productionSFTPServerDomain</con:name><con:value>https://testgbmooo.com:8443</con:value></con:property><con:property><con:name>productionSFTPServerTLSLibrary</con:name><con:value>Symantec Corporation</con:value></con:property><con:property><con:name>productionSFTPServerTLSLibCert</con:name><con:value>1937</con:value></con:property><con:property><con:name>stunnelStatusCmd</con:name><con:value>sudo netstat -lpn | grep :80*</con:value></con:property><con:property><con:name>authorizationServerIP</con:name><con:value>73.196.86.7</con:value></con:property><con:property><con:name>resourceServerIP</con:name><con:value>73.196.86.7</con:value></con:property><con:property><con:name>resourceServerPort</con:name><con:value>8443</con:value></con:property><con:property><con:name>authorizationServerPort</con:name><con:value>8443</con:value></con:property></con:properties>
+<con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property><con:property><con:name>AuthorizationEndpoint</con:name><con:value>http://testgb.mooo.com:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>ServiceEndpoint</con:name><con:value>http://testgb.mooo.com:8086</con:value></con:property><con:property><con:name>subscriptionId</con:name><con:value>5</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>TestFile2</con:name><con:value>Gas.xml</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>ThirdPartyContext</con:name><con:value/></con:property><con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value>http://ec2-50-112-176-69.us-west-2.compute.amazonaws.com:8081/ThirdParty/espi/1_1/Notification</con:value></con:property><con:property><con:name>third_party_access_token</con:name><con:value>53520584-d640-4812-a721-8a1afa459ff7</con:value></con:property><con:property><con:name>timeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>upload_access_token</con:name><con:value>03909715-b0ca-4797-9a9a-601fff1d2848</con:value></con:property><con:property><con:name>usagePointDescription1</con:name><con:value>Front Electric Meter</con:value></con:property><con:property><con:name>usagePointDescription2</con:name><con:value>Gas</con:value></con:property><con:property><con:name>usagePointId</con:name><con:value>1</con:value></con:property><con:property><con:name>usagePointUUID1</con:name><con:value>48C2A019-5598-4E16-B0F9-49E4FF27F5FB</con:value></con:property><con:property><con:name>usagePointUUID2</con:name><con:value>642EABA-8E42-4D1A-A375-AF54993C007B</con:value></con:property><con:property><con:name>userAccessToken1</con:name><con:value>8030d53b-c38f-4ceb-ad39-927a1f446ec6</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>d2c0e815-6331-4430-864c-275d6ad7f114</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=34_35</con:value></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://ec2-50-112-176-69.us-west-2.compute.amazonaws.com:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>state</con:name><con:value/></con:property><con:property><con:name>client_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value>https://testgb.mooo.com:8443/DataCustodian/</con:value></con:property><con:property><con:name>registration_access_token_client_id</con:name><con:value>REGISTRATION_surface_tp</con:value></con:property><con:property><con:name>client_access_token_client_id</con:name><con:value>surface_tp_admin</con:value></con:property><con:property><con:name>client_access_token_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>registration_access_token_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>stunnelConfigDirectory</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stunnelStartCmd</con:name><con:value>/etc/init.d/stunnel4 start</con:value></con:property><con:property><con:name>stunnelStopCmd</con:name><con:value>/etc/init.d/stunnel4 stop</con:value></con:property><con:property><con:name>stunnelReceiveAddress</con:name><con:value>localhost:8444</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property><con:property><con:name>BatchList</con:name><con:value/></con:property><con:property><con:name>responseArray</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>CApathDirectory</con:name><con:value>/etc/ssl/certs</con:value></con:property><con:property><con:name>GBACertId</con:name><con:value>776198e6-59ec-5d25-950a-b34a25b93d67</con:value></con:property><con:property><con:name>TLSLibrary</con:name><con:value>Apple Inc.</con:value></con:property><con:property><con:name>TLSLibCert</con:name><con:value>2411</con:value></con:property><con:property><con:name>NISTFIPSCertScreen</con:name><con:value>http://csrc.nist.gov/groups/STM/cmvp/documents/140-1/140val-all.htm</con:value></con:property><con:property><con:name>productionAuthorizationServerDomain</con:name><con:value>https://testgb.mooo.com:8443</con:value></con:property><con:property><con:name>productionResourceServerDomain</con:name><con:value>https://testgb.mooo.com:8443</con:value></con:property><con:property><con:name>productionAuthorizationServerTLSLibrary</con:name><con:value>Apple Inc.</con:value></con:property><con:property><con:name>productionAuthorizationServerTLSLibCert</con:name><con:value>2411</con:value></con:property><con:property><con:name>productionResourceServerTLSLibrary</con:name><con:value>Symantec Corporation</con:value></con:property><con:property><con:name>productionResourceServerTLSLibCert</con:name><con:value>1937</con:value></con:property><con:property><con:name>NAESBPurchasedStandards</con:name><con:value>https://www.naesb.org//pdf2/copyright.pdf</con:value></con:property><con:property><con:name>NAESBPurchasedStandardsURI</con:name><con:value>https://www.naesb.org//pdf2/copyright.pdf</con:value></con:property><con:property><con:name>productionSFTPServerDomain</con:name><con:value>https://testgbmooo.com:8443</con:value></con:property><con:property><con:name>productionSFTPServerTLSLibrary</con:name><con:value>Symantec Corporation</con:value></con:property><con:property><con:name>productionSFTPServerTLSLibCert</con:name><con:value>1937</con:value></con:property><con:property><con:name>stunnelStatusCmd</con:name><con:value>sudo netstat -lpn | grep :80*</con:value></con:property><con:property><con:name>authorizationServerIP</con:name><con:value>73.196.86.7</con:value></con:property><con:property><con:name>resourceServerIP</con:name><con:value>73.196.86.7</con:value></con:property><con:property><con:name>resourceServerPort</con:name><con:value>8443</con:value></con:property><con:property><con:name>authorizationServerPort</con:name><con:value>8443</con:value></con:property></con:properties>
 <con:wssContainer/>
 <con:oAuth2ProfileContainer/>
 <con:sensitiveInformation/>
