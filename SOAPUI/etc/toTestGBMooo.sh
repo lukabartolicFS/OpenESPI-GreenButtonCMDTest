@@ -1,0 +1,6 @@
+cp prepopulatesql_newthirdparty_testgbmooo.sql prepopulatesql_newthirdparty.sql
+cp prepopulatesql_applicationinformation_dc_testgbmooo.sql prepopulatesql_applicationinformation_dc.sql
+cp prepopulatesql_tokenstore_testgbmooo.sql prepopulatesql_tokenstore.sql
+cp gbcmdcert_target_testgbmooo.conf gbcmdcert_target.conf
+cp gbcmd_secure.conf gbcmd.conf
+./initializedatabases.sh
