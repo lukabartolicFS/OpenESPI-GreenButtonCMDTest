@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project activeEnvironment="Default" name="GBCMD" resourceRoot="${projectDir}" soapui-version="5.1.3" abortOnError="false" runType="SEQUENTIAL" defaultScriptLanguage="Groovy" id="0340468f-59e9-4a5d-9ddc-5ac6d40258ac" xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project activeEnvironment="Default" name="GBCMD" resourceRoot="${projectDir}" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" defaultScriptLanguage="Groovy" id="0340468f-59e9-4a5d-9ddc-5ac6d40258ac" xmlns:con="http://eviware.com/soapui/config">
 	<con:settings/>
 	<con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="ESPI Resources" type="rest" id="67592114-eb87-42a5-87f1-4c996a14c5da" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 		<con:settings/>
@@ -6728,7 +6728,8 @@ log.info strResult;
 				driver.findElement(By.name("j_password")).clear();
 				driver.findElement(By.name("j_password")).sendKeys("koala");
 				driver.findElement(By.name("submit")).click();
-				driver.findElement(By.name("scope")).click();
+				//driver.findElement(By.name("scope")).click();
+				driver.findElement(By.xpath("//input[@value='FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13']")).click();
 				driver.findElement(By.name("next")).click();
 				driver.findElement(By.name("scope.FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13")).click();
 				driver.findElement(By.name("authorize")).click(); 
@@ -6763,7 +6764,8 @@ log.info strResult;
 			driver.findElement(By.name("j_password")).clear();
 			driver.findElement(By.name("j_password")).sendKeys("koala");
 			driver.findElement(By.name("submit")).click();
-			driver.findElement(By.name("scope")).click();
+			//driver.findElement(By.name("scope")).click();
+			driver.findElement(By.xpath("//input[@value='FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13']")).click();
 			driver.findElement(By.name("next")).click();
 			driver.findElement(By.name("scope.FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13")).click();
 			driver.findElement(By.name("authorize")).click(); sleep(1000)
@@ -7048,6 +7050,8 @@ log.info strResult;
 				def TestRetailCustomer=project.getPropertyValue("TestRetailCustomer")
 				def TestRetailCustomerPW=project.getPropertyValue("TestRetailCustomerPW")
 				def TestFile=project.getPropertyValue("TestFile")
+				def ScopeString = "FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13"
+				
 				log.info("We are talking to: " + ServiceEndpoint) 
 				log.info("Test File Path: "+ TestFile)
 
@@ -7093,7 +7097,10 @@ log.info strResult;
 				driver.findElement(By.name("j_password")).clear();
 				driver.findElement(By.name("j_password")).sendKeys(TestRetailCustomerPW);
 				driver.findElement(By.name("submit")).click();
-				driver.findElement(By.name("scope")).click();
+				driver.assertContains("Select Scope");
+				driver.assertContains("FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13");				
+				//driver.findElement(By.name("scope")).click();
+				driver.findElement(By.xpath("//input[@value='FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13']")).click();
 				driver.findElement(By.name("next")).click();
 				driver.findElement(By.name("scope.FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13")).click();
 				driver.findElement(By.name("authorize")).click(); 
@@ -10334,8 +10341,9 @@ return;
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				driver.logStep("When I select Scopes");
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-				driver.findElement(By.className("scope")).click();	
-				driver.findElement(By.xpath("(//input[@name='scope'])[1]")).click();	
+				//driver.findElement(By.className("scope")).click();	
+				//driver.findElement(By.xpath("(//input[@name='scope'])[1]")).click();	
+				driver.findElement(By.xpath("//input[@value='FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13']")).click();
 				driver.findElement(By.name("next")).click();	
 
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -10443,8 +10451,8 @@ return;
 				driver.login(ServiceEndpointThirdParty,TestRetailCustomer,TestRetailCustomerPW);
 
 				/*
-				* 	old software behaved differently- it would route the use to the DC page
-				* 	Instread of showwing no authorized usage points
+				* 	old software behaved differently- it would route the user to the DC page
+				* 	Instead of showwing no authorized usage points
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				driver.logStep("When I look at my Usage Points page");
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -10482,13 +10490,14 @@ return;
 				driver.logStep("Then I should see Scope selection screen");
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				driver.assertContains("Select Scope");
-				driver.assertContains("FB=");
+				driver.assertContains("FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13");
 
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				driver.logStep("When I select Scopes");
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-				driver.findElement(By.className("scope")).click();	
-				driver.findElement(By.xpath("(//input[@name='scope'])[2]")).click();	
+				//driver.findElement(By.className("scope")).click();	
+				//driver.findElement(By.xpath("(//input[@name='scope'])[2]")).click();
+				driver.findElement(By.xpath("//input[@value='FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13']")).click();
 				driver.findElement(By.name("next")).click();	
 
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -10637,8 +10646,9 @@ return;
 				///////////////////////////////////////////////////////////
 				driver.logStep("When I select Scopes");
 				///////////////////////////////////////////////////////////
-				driver.findElement(By.className("scope")).click();	
-				driver.findElement(By.xpath("(//input[@name='scope'])[2]")).click();	
+				//driver.findElement(By.className("scope")).click();	
+				//driver.findElement(By.xpath("(//input[@name='scope'])[2]")).click();	
+				driver.findElement(By.xpath("//input[@value='FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13']")).click();
 				driver.findElement(By.name("next")).click();	
 
 				///////////////////////////////////////////////////////////
@@ -10776,8 +10786,9 @@ return;
 				///////////////////////////////////////////////////////////
 				driver.logStep("When I select Scopes");
 				///////////////////////////////////////////////////////////
-				driver.findElement(By.className("scope")).click();	
-				driver.findElement(By.xpath("(//input[@name='scope'])[2]")).click();	
+				//driver.findElement(By.className("scope")).click();	
+				//driver.findElement(By.xpath("(//input[@name='scope'])[2]")).click();
+				driver.findElement(By.xpath("//input[@value='FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13']")).click();
 				driver.findElement(By.name("next")).click();	
 
 				///////////////////////////////////////////////////////////
@@ -10879,8 +10890,9 @@ return;
 				///////////////////////////////////////////////////////////
 				driver.logStep("When I select Scopes");
 				///////////////////////////////////////////////////////////
-				driver.findElement(By.className("scope")).click();	
-				driver.findElement(By.xpath("(//input[@name='scope'])[2]")).click();	
+				//driver.findElement(By.className("scope")).click();	
+				//driver.findElement(By.xpath("(//input[@name='scope'])[2]")).click();
+				driver.findElement(By.xpath("//input[@value='FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13']")).click();
 				driver.findElement(By.name("next")).click();	
 
 				///////////////////////////////////////////////////////////
@@ -10982,8 +10994,9 @@ return;
 				///////////////////////////////////////////////////////////
 				driver.logStep("When I select Scopes");
 				///////////////////////////////////////////////////////////
-				driver.findElement(By.className("scope")).click();	
-				driver.findElement(By.xpath("(//input[@name='scope'])[2]")).click();	
+				//driver.findElement(By.className("scope")).click();	
+				//driver.findElement(By.xpath("(//input[@name='scope'])[2]")).click();
+				driver.findElement(By.xpath("//input[@value='FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13']")).click();
 				driver.findElement(By.name("next")).click();	
 
 				///////////////////////////////////////////////////////////
@@ -11084,8 +11097,9 @@ return;
 				///////////////////////////////////////////////////////////
 				driver.logStep("When I select Scopes");
 				///////////////////////////////////////////////////////////
-				driver.findElement(By.className("scope")).click();	
-				driver.findElement(By.xpath("(//input[@name='scope'])[2]")).click();	
+				//driver.findElement(By.className("scope")).click();	
+				//driver.findElement(By.xpath("(//input[@name='scope'])[2]")).click();
+				driver.findElement(By.xpath("//input[@value='FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13']")).click();
 				driver.findElement(By.name("next")).click();	
 
 				///////////////////////////////////////////////////////////
@@ -11224,7 +11238,8 @@ return;
 
 				driver.submitLoginForm(TestRetailCustomer,TestRetailCustomerPW);
 
-				driver.findElement(By.name("scope")).click();	
+				//driver.findElement(By.name("scope")).click();
+				driver.findElement(By.xpath("//input[@value='FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13']")).click();
 				driver.findElement(By.name("next")).click();	
 				//driver.findElement(By.name("authorize")).click();	
 				driver.findElement(By.name("scope.FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13")).click();
@@ -11484,7 +11499,8 @@ try{
 	
 	driver.submitLoginForm(TestRetailCustomer,TestRetailCustomerPW);
 	
-	driver.findElement(By.name("scope")).click();	
+	//driver.findElement(By.name("scope")).click();
+	driver.findElement(By.xpath("//input[@value='FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13']")).click();
 	driver.findElement(By.name("next")).click();	
 
 	driver.findElement(By.name("scope.FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13")).click();
@@ -11631,7 +11647,8 @@ driver.quit();
 
 				driver.submitLoginForm(TestRetailCustomer,TestRetailCustomerPW);
 
-				driver.findElement(By.name("scope")).click();	
+				//driver.findElement(By.name("scope")).click();
+				driver.findElement(By.xpath("//input[@value='FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13']")).click();
 				driver.findElement(By.name("next")).click();	
 
 				driver.findElement(By.name("scope.FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13")).click();	
@@ -12050,8 +12067,9 @@ driver.quit();
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				driver.logStep("When I select Scopes");
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-				driver.findElement(By.className("scope")).click();	
-				driver.findElement(By.xpath("(//input[@name='scope'])[2]")).click();	
+				//driver.findElement(By.className("scope")).click();	
+				//driver.findElement(By.xpath("(//input[@name='scope'])[2]")).click();
+				driver.findElement(By.xpath("//input[@value='FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13']")).click();
 				driver.findElement(By.name("next")).click();	
 
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -50005,7 +50023,8 @@ if( requestBody.contains("some data") )
 	
 	
 <con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property><con:property><con:name>AuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>ServiceEndpoint</con:name><con:value>http://localhost:8086</con:value></con:property><con:property><con:name>subscriptionId</con:name><con:value>5</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>TestFile2</con:name><con:value>Gas.xml</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>ThirdPartyContext</con:name><con:value/></con:property><con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value>https://localhost:8444/ThirdParty/espi/1_1/Notification</con:value></con:property><con:property><con:name>third_party_access_token</con:name><con:value>53520584-d640-4812-a721-8a1afa459ff7</con:value></con:property><con:property><con:name>timeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>upload_access_token</con:name><con:value>03909715-b0ca-4797-9a9a-601fff1d2848</con:value></con:property><con:property><con:name>usagePointDescription1</con:name><con:value>Front Electric Meter</con:value></con:property><con:property><con:name>usagePointDescription2</con:name><con:value>Gas</con:value></con:property><con:property><con:name>usagePointId</con:name><con:value>1</con:value></con:property><con:property><con:name>usagePointUUID1</con:name><con:value>48C2A019-5598-4E16-B0F9-49E4FF27F5FB</con:value></con:property><con:property><con:name>usagePointUUID2</con:name><con:value>642EABA-8E42-4D1A-A375-AF54993C007B</con:value></con:property><con:property><con:name>userAccessToken1</con:name><con:value>cc56d10c-f04f-41db-bc0b-6a5e19140459</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>4be1fd21-795e-4350-9092-67e1090921c5</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=34_35</con:value></con:property><con:property><con:name>client_id</con:name><con:value>surface_tp</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://localhost:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>state</con:name><con:value/></con:property><con:property><con:name>client_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value>https://localhost:8443/DataCustodian/</con:value></con:property><con:property><con:name>registration_access_token_client_id</con:name><con:value>REGISTRATION_surface_tp</con:value></con:property><con:property><con:name>client_access_token_client_id</con:name><con:value>surface_tp_admin</con:value></con:property><con:property><con:name>client_access_token_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>registration_access_token_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>stunnelConfigDirectory</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stunnelStartCmd</con:name><con:value>sudo /etc/init.d/stunnel4 start</con:value></con:property><con:property><con:name>stunnelStopCmd</con:name><con:value>sudo /etc/init.d/stunnel4 stop</con:value></con:property><con:property><con:name>stunnelReceiveAddress</con:name><con:value>192.168.1.167:8444</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property><con:property><con:name>BatchList</con:name><con:value/></con:property><con:property><con:name>responseArray</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>CApathDirectory</con:name><con:value>/etc/ssl/certs</con:value></con:property><con:property><con:name>GBACertId</con:name><con:value>776198e6-59ec-5d25-950a-b34a25b93d67</con:value></con:property><con:property><con:name>TLSLibrary</con:name><con:value>Apple Inc.</con:value></con:property><con:property><con:name>TLSLibCert</con:name><con:value>2411</con:value></con:property><con:property><con:name>NISTFIPSCertScreen</con:name><con:value>http://csrc.nist.gov/groups/STM/cmvp/documents/140-1/140val-all.htm</con:value></con:property><con:property><con:name>productionAuthorizationServerDomain</con:name><con:value>https://localhost:8443</con:value></con:property><con:property><con:name>productionResourceServerDomain</con:name><con:value>https://localhost:8443</con:value></con:property><con:property><con:name>productionAuthorizationServerTLSLibrary</con:name><con:value>Apple Inc.</con:value></con:property><con:property><con:name>productionAuthorizationServerTLSLibCert</con:name><con:value>2411</con:value></con:property><con:property><con:name>productionResourceServerTLSLibrary</con:name><con:value>Symantec Corporation</con:value></con:property><con:property><con:name>productionResourceServerTLSLibCert</con:name><con:value>1937</con:value></con:property><con:property><con:name>NAESBPurchasedStandards</con:name><con:value>https://www.naesb.org//pdf2/copyright.pdf</con:value></con:property><con:property><con:name>NAESBPurchasedStandardsURI</con:name><con:value>https://www.naesb.org//pdf2/copyright.pdf</con:value></con:property><con:property><con:name>productionSFTPServerDomain</con:name><con:value>https://localhost:8443</con:value></con:property><con:property><con:name>productionSFTPServerTLSLibrary</con:name><con:value>Symantec Corporation</con:value></con:property><con:property><con:name>productionSFTPServerTLSLibCert</con:name><con:value>1937</con:value></con:property><con:property><con:name>stunnelStatusCmd</con:name><con:value>sudo netstat -lpn | grep :80*</con:value></con:property><con:property><con:name>authorizationServerIP</con:name><con:value>127.0.0.1</con:value></con:property><con:property><con:name>resourceServerIP</con:name><con:value>127.0.0.1</con:value></con:property><con:property><con:name>resourceServerPort</con:name><con:value>8443</con:value></con:property><con:property><con:name>authorizationServerPort</con:name><con:value>8443</con:value></con:property><con:property><con:name>soapUIPlatformSSLCertificate</con:name><con:value>/etc/stunnel/greenbuttonalliance_ssl_certificate_2016_11_16.pem</con:value></con:property><con:property><con:name>soapUIPlatformSSLPrivateKey</con:name><con:value>/etc/stunnel/greenbuttonalliance_2016_11_16.key</con:value></con:property></con:properties>
+
 <con:wssContainer/>
 <con:oAuth2ProfileContainer/>
-<con:sensitiveInformation/>
+<con:oAuth1ProfileContainer/><con:sensitiveInformation/>
 </con:soapui-project>
