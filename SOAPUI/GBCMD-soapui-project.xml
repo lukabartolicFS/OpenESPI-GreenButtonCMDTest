@@ -8775,7 +8775,8 @@ public boolean RunCommand(String path,String cmd)
 cmd = testRunner.testCase.getPropertyValue("cmd");
 td = testRunner.testCase.getPropertyValue("path");
 return (RunCommand(td,cmd));
-</script></con:config></con:testStep><con:properties><con:property><con:name>stdout</con:name><con:value/></con:property><con:property><con:name>cmd</con:name><con:value>sudo ln -s /etc/hosts.forstunnel /etc/hosts</con:value></con:property><con:property><con:name>path</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stderr</con:name><con:value/></con:property><con:property><con:name>returncode</con:name><con:value>0</con:value></con:property><con:property><con:name>timeout</con:name><con:value>5</con:value></con:property><con:property><con:name>uri</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/7</con:value></con:property><con:property><con:name>token</con:name><con:value>326bf68d-b49e-45b7-8296-46d80ada302d</con:value></con:property></con:properties></con:testCase><con:testCase id="978db0b7-3ecb-45f4-afd8-d7cb7e0dd584" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GenericResourceGet" searchProperties="true"><con:description>This GET will retrieve a resource via REST GET or SFTP or deferred GET with a 202 response followed by a notification
+</script></con:config></con:testStep><con:properties><con:property><con:name>stdout</con:name><con:value>issuer= /C=US/O=Symantec Corporation/OU=Symantec Trust Network/CN=Symantec Class 3 Secure Server CA - G4
+</con:value></con:property><con:property><con:name>cmd</con:name><con:value>openssl x509 -issuer -noout -in /home/ubuntu/Git/energyos/OpenESPI-GreenButtonCMDTest/SOAPUI/etc/getcert.pem</con:value></con:property><con:property><con:name>path</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stderr</con:name><con:value/></con:property><con:property><con:name>returncode</con:name><con:value>0</con:value></con:property><con:property><con:name>timeout</con:name><con:value>2</con:value></con:property><con:property><con:name>uri</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/7</con:value></con:property><con:property><con:name>token</con:name><con:value>326bf68d-b49e-45b7-8296-46d80ada302d</con:value></con:property></con:properties></con:testCase><con:testCase id="978db0b7-3ecb-45f4-afd8-d7cb7e0dd584" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GenericResourceGet" searchProperties="true"><con:description>This GET will retrieve a resource via REST GET or SFTP or deferred GET with a 202 response followed by a notification
 </con:description><con:settings/><con:testStep type="groovy" name="GenericResourceGet" id="7f4bdcdd-bd1f-4016-b05d-3176630848b5"><con:settings/><con:config><script><![CDATA[import org.xml.sax.SAXException;
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
@@ -18956,7 +18957,7 @@ if( (strResult.contains("Protocol  : TLSv1.2")) &amp;&amp; (!strResult.contains(
 	}	
 
 	// Ask testee to verify (manual procedure)
-	result = ui.getDialogs().confirm("Verify Authorization Server: " + authorizationServer + " certificate issuer is recognized by WebTrust:\n\n" + strResult, "\n");
+	result = ui.getDialogs().confirm("Verify Authorization Server: " + project.getPropertyValue("authorizationServer") + " certificate issuer is recognized by WebTrust:\n\n" + strResult, "\n");
 	log.info (result)
 
 	if(result)
@@ -19007,7 +19008,7 @@ if( (strResult.contains("Protocol  : TLSv1.2")) &amp;&amp; (!strResult.contains(
 	}
 
 	// Ask testee to verify (manual procedure)
-	result = ui.getDialogs().confirm("Verify Resource Server: " + resourceServer + " certificate issuer is recognized by WebTrust:\n\n" + strResult, "\n");
+	result = ui.getDialogs().confirm("Verify Resource Server: " + project.getPropertyValue("resourceServer") + " certificate issuer is recognized by WebTrust:\n\n" + strResult, "\n");
 	log.info (result)
 
 	if(result)
@@ -19520,7 +19521,7 @@ context.currentFeed = null;
 context.currentFeedIndex = null;</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();
 context.holder =null;
 context.currentFeed = null;
-context.currentFeedIndex = null;</con:tearDownScript><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC012 FIPS 140-2 support" searchProperties="true" id="853b39c2-bc6c-4ca1-a415-7a6cbd53db05"><con:description>Manual inspection of supporting documentation shall confirm that the Data Custodian implementation utilizes software libraries which are FIPS 140-2 level 1 or higher and listed on the CMVP website.</con:description><con:settings/><con:testStep type="groovy" name="Script will bring up browser to NIST FIPS 140-2 Certificate Screen" id="9a078733-b574-494a-9c8b-b21a58975c78"><con:settings/><con:config><script>import org.greenbutton.cmd.utils.DriverHelper;
+context.currentFeedIndex = null;</con:tearDownScript><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC012 FIPS 140-2 support" searchProperties="true" id="853b39c2-bc6c-4ca1-a415-7a6cbd53db05" disabled="true"><con:description>Manual inspection of supporting documentation shall confirm that the Data Custodian implementation utilizes software libraries which are FIPS 140-2 level 1 or higher and listed on the CMVP website.</con:description><con:settings/><con:testStep type="groovy" name="Script will bring up browser to NIST FIPS 140-2 Certificate Screen" id="9a078733-b574-494a-9c8b-b21a58975c78"><con:settings/><con:config><script>import org.greenbutton.cmd.utils.DriverHelper;
 
 def project = testRunner.testCase.testSuite.project;
 
