@@ -4646,9 +4646,6 @@ project.setPropertyValue("soapUIPlatformSSLPrivateKey",config.soapUIPlatformSSLP
 // [FB_01] Common
 project.setPropertyValue("NAESBPurchasedStandardsURI",config.NAESBPurchasedStandardsURI);
 
-// [FB_13] Security
-project.setPropertyValue("NISTFIPSCertScreen",config.NISTFIPSCertScreen);
-
 project.setPropertyValue("productionAuthorizationServerDomain",target.productionAuthorizationServerDomain);
 project.setPropertyValue("productionResourceServerDomain",target.productionResourceServerDomain);
 project.setPropertyValue("productionSFTPServerDomain", target.productionSFTPServerDomain);
@@ -8775,8 +8772,7 @@ public boolean RunCommand(String path,String cmd)
 cmd = testRunner.testCase.getPropertyValue("cmd");
 td = testRunner.testCase.getPropertyValue("path");
 return (RunCommand(td,cmd));
-</script></con:config></con:testStep><con:properties><con:property><con:name>stdout</con:name><con:value>issuer= /C=US/O=Symantec Corporation/OU=Symantec Trust Network/CN=Symantec Class 3 Secure Server CA - G4
-</con:value></con:property><con:property><con:name>cmd</con:name><con:value>openssl x509 -issuer -noout -in /home/ubuntu/Git/energyos/OpenESPI-GreenButtonCMDTest/SOAPUI/etc/getcert.pem</con:value></con:property><con:property><con:name>path</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stderr</con:name><con:value/></con:property><con:property><con:name>returncode</con:name><con:value>0</con:value></con:property><con:property><con:name>timeout</con:name><con:value>2</con:value></con:property><con:property><con:name>uri</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/7</con:value></con:property><con:property><con:name>token</con:name><con:value>326bf68d-b49e-45b7-8296-46d80ada302d</con:value></con:property></con:properties></con:testCase><con:testCase id="978db0b7-3ecb-45f4-afd8-d7cb7e0dd584" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GenericResourceGet" searchProperties="true"><con:description>This GET will retrieve a resource via REST GET or SFTP or deferred GET with a 202 response followed by a notification
+</script></con:config></con:testStep><con:properties><con:property><con:name>stdout</con:name><con:value/></con:property><con:property><con:name>cmd</con:name><con:value>sudo ln -s /etc/hosts.forstunnel /etc/hosts</con:value></con:property><con:property><con:name>path</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stderr</con:name><con:value/></con:property><con:property><con:name>returncode</con:name><con:value>0</con:value></con:property><con:property><con:name>timeout</con:name><con:value>2</con:value></con:property><con:property><con:name>uri</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/7</con:value></con:property><con:property><con:name>token</con:name><con:value>326bf68d-b49e-45b7-8296-46d80ada302d</con:value></con:property></con:properties></con:testCase><con:testCase id="978db0b7-3ecb-45f4-afd8-d7cb7e0dd584" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GenericResourceGet" searchProperties="true"><con:description>This GET will retrieve a resource via REST GET or SFTP or deferred GET with a 202 response followed by a notification
 </con:description><con:settings/><con:testStep type="groovy" name="GenericResourceGet" id="7f4bdcdd-bd1f-4016-b05d-3176630848b5"><con:settings/><con:config><script><![CDATA[import org.xml.sax.SAXException;
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
@@ -19044,9 +19040,9 @@ headers.put("Authorization","Bearer " + testRunner.testCase.testSuite.project.ge
 headers.put("Content-Type","Application/atom+xml");
 propTestStep.testRequest.setRequestHeaders(headers);
  </script></con:config></con:testStep><con:testStep type="httprequest" name="GET Resource URI" id="56836459-4a00-438e-9e49-473f4079e441"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Resource URI" id="78e4f188-7880-4f9a-89cc-aabcc1efe6c3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
-  &lt;con:entry key="Authorization" value="Bearer 592286dd-489b-46fa-8bca-c608b65f68ea"/>
+  &lt;con:entry key="Authorization" value="Bearer d75ff4d4-c5dd-4468-b838-6fef3ebe1b9b"/>
   &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
-&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://api.londonhydro.com:8086/espi/1_1/resource/Batch/Subscription/1000000579</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="abf9a02f-0549-44e3-b1ae-a2d99f0e05b1"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema Validation" id="3978bfd5-0e54-4aa4-93a1-0499147f36c1" disabled="true"><con:configuration><scriptText>import javax.xml.XMLConstants;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://api.londonhydro.com:8086/espi/1_1/resource/Batch/Subscription/1000000594</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="abf9a02f-0549-44e3-b1ae-a2d99f0e05b1"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema Validation" id="3978bfd5-0e54-4aa4-93a1-0499147f36c1" disabled="true"><con:configuration><scriptText>import javax.xml.XMLConstants;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.SchemaFactory;
@@ -19301,9 +19297,9 @@ headers.put("Authorization","Bearer " + testRunner.testCase.testSuite.project.ge
 headers.put("Content-Type","Application/atom+xml");
 propTestStep.testRequest.setRequestHeaders(headers);
  </script></con:config></con:testStep><con:testStep type="httprequest" name="GET Resource URI" id="c9886d39-ce8e-4beb-b1ed-2fb87757a2b6"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Resource URI" id="59862797-37c5-4509-8f7f-17b6ccd7152c" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
-  &lt;con:entry key="Authorization" value="Bearer 592286dd-489b-46fa-8bca-c608b65f68ea"/>
+  &lt;con:entry key="Authorization" value="Bearer d75ff4d4-c5dd-4468-b838-6fef3ebe1b9b"/>
   &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
-&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://api.londonhydro.com:8086/espi/1_1/resource/Batch/Subscription/1000000579</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="d36c1625-da09-4e8a-a2d8-1e7301df8e38"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema Validation" id="fab40464-9fbb-4e83-834c-e397764bcdd4" disabled="true"><con:configuration><scriptText>import javax.xml.XMLConstants;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://api.londonhydro.com:8086/espi/1_1/resource/Batch/Subscription/1000000594</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="d36c1625-da09-4e8a-a2d8-1e7301df8e38"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema Validation" id="fab40464-9fbb-4e83-834c-e397764bcdd4" disabled="true"><con:configuration><scriptText>import javax.xml.XMLConstants;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.SchemaFactory;
@@ -19521,79 +19517,7 @@ context.currentFeed = null;
 context.currentFeedIndex = null;</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();
 context.holder =null;
 context.currentFeed = null;
-context.currentFeedIndex = null;</con:tearDownScript><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC012 FIPS 140-2 support" searchProperties="true" id="853b39c2-bc6c-4ca1-a415-7a6cbd53db05" disabled="true"><con:description>Manual inspection of supporting documentation shall confirm that the Data Custodian implementation utilizes software libraries which are FIPS 140-2 level 1 or higher and listed on the CMVP website.</con:description><con:settings/><con:testStep type="groovy" name="Script will bring up browser to NIST FIPS 140-2 Certificate Screen" id="9a078733-b574-494a-9c8b-b21a58975c78"><con:settings/><con:config><script>import org.greenbutton.cmd.utils.DriverHelper;
-
-def project = testRunner.testCase.testSuite.project;
-
-String strNISTFIPSCertScreen = project.getPropertyValue("NISTFIPSCertScreen");
-log.info("NIST FIPS Certificate Screen URI: " + strNISTFIPSCertScreen);
-
-//DriverHelper driver = new DriverHelper(strEndpoint,strResource,"",log);
-DriverHelper driver = new DriverHelper(strNISTFIPSCertScreen,"","",log);
-
-context["driver"] = driver;
-
-driver.get(strNISTFIPSCertScreen);</script></con:config></con:testStep><con:testStep type="groovy" name="FIPS 140-2 support" id="9c38a12a-f932-47ef-8f17-7090c5aabd82"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
-
-def project = testRunner.testCase.testSuite.project
-def productionAuthorizationServerDomain = project.getPropertyValue("productionAuthorizationServerDomain");
-def productionResourceServerDomain = project.getPropertyValue("productionResourceServerDomain");
-def productionSFTPServerDomain = project.getPropertyValue("productionSFTPServerDomain");
-
-String dialogPrompt = "Review the NIST FIPS 140-2 Certificate Screen to verify Authorization Server: " + productionAuthorizationServerDomain + " is using a Valid TLS140-2 Encryption Library\n";
-
-// Ask test engineer to verify Authorization Server TLS Library Certificate is valid
-log.info("Testing Authorization Server: " + productionAuthorizationServerDomain);
-result = ui.getDialogs().confirm(dialogPrompt,"");
-//log.info (result)
-
-
-if(result)
-{
-	log.info "Authorization Server: " + productionAuthorizationServerDomain + " supports FIPS 140-2 and its certificate is Valid";
-} else {
-	log.info "Authorization Server: " + productionAuthorizationServerDomain + " does not support FIPS 140-2 or its certificate is expired";
-	testRunner.fail("Authorization Server: " + productionAuthorizationServerDomain + " does not support FIPS 140-2 or its certificate is expired");
-}
-
-
-dialogPrompt = "Review the NIST FIPS 140-2 Certificate Screen to verify Resource Server: " + productionResourceServerDomain + " is using a Valid TLS140-2 Encryption Library\n";
-
-// Ask test engineer to verify Resource Server TLS Library Certificate is valid
-log.info("Testing Resource Server: " + productionResourceServerDomain);
-result = ui.getDialogs().confirm(dialogPrompt,"");
-//log.info (result)
-
-
-if(result)
-{
-	log.info "Resource Server: " + productionResourceServerDomain + " supports FIPS 140-2 and its certificate is Valid";
-} else {
-	log.info "Resource Server: " + productionResourceServerDomain + " does not support FIPS 140-2 or its certificate is expired";
-	testRunner.fail("Resource Server: " + productionResourceServerDomain + " does not support FIPS 140-2 or its certificate is expired");
-}
-
-if(productionSFTPServerDomain != "") {
-	dialogPrompt = "Review the NIST FIPS 140-2 Certificate Screen to verify SFTP Server: " + productionSFTPServerDomain + " is using a Valid TLS140-2 Encryption Library\n";
-
-	// Ask test engineer to verify Resource Server TLS Library Certificate is valid
-	log.info("Testing Resource Server: " + productionSFTPServerDomain);
-	result = ui.getDialogs().confirm(dialogPrompt,"");
-	//log.info (result)
-
-
-	if(result)
-		{
-			log.info "Resource Server: " + productionSFTPServerDomain + " supports FIPS 140-2 and its certificate is Valid";
-	} else {
-		log.info "Resource Server: " + productionSFTPServerDomain + " does not support FIPS 140-2 or its certificate is expired";
-		testRunner.fail("Resource Server: " + productionSFTPServerDomain + " does not support FIPS 140-2 or its certificate is expired");
-	}
-}
-
-context["driver"].quit();
-context["driver"] = null;
-</script></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties/></con:testCase><con:properties/>
+context.currentFeedIndex = null;</con:tearDownScript><con:properties/></con:testCase><con:properties/>
 <con:setupScript>log.info "===== Start TestSuite =====> " + testSuite.name</con:setupScript><con:tearDownScript>def results = true;
 
 log.info "===== SUMMARY   TestSuite =====> " + testSuite.name
@@ -22464,9 +22388,9 @@ headers.put("Authorization","Bearer " + propCreateAuthResults.getPropertyValue("
 headers.put("Content-Type","Application/atom+xml");
 propTestStep.testRequest.setRequestHeaders(headers);
 </script></con:config></con:testStep><con:testStep type="httprequest" name="GET Resource URI" id="d0a25ac8-9369-4018-af8c-e36fa4da37e1"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Resource URI" id="f7cb0019-d01d-4a23-9d5a-03c0ad1ac907" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
-  &lt;con:entry key="Authorization" value="Bearer d2de33e1-d73a-4ad0-9fc1-19a84031be80"/>
+  &lt;con:entry key="Authorization" value="Bearer 121fb66a-dea8-42f4-83d0-6f2c5c5b5ea9"/>
   &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
-&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://api.londonhydro.com:8086/espi/1_1/resource/Batch/Subscription/1000000580</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="242b98a4-e03e-4073-bbc5-6fd0c9077d2a"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema Validation" id="8c21e275-db8c-4f21-b4a2-1963d06d5599" disabled="true"><con:configuration><scriptText>import javax.xml.XMLConstants;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://api.londonhydro.com:8086/espi/1_1/resource/Batch/Subscription/1000000594</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="242b98a4-e03e-4073-bbc5-6fd0c9077d2a"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema Validation" id="8c21e275-db8c-4f21-b4a2-1963d06d5599" disabled="true"><con:configuration><scriptText>import javax.xml.XMLConstants;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.SchemaFactory;
@@ -23067,268 +22991,7 @@ context.currentFeedIndex = null;</con:setupScript><con:tearDownScript>log.info "
 
 context.holder =null;
 context.currentFeed = null;
-context.currentFeedIndex = null;</con:tearDownScript><con:properties><con:property><con:name>extracted_scope_sel_uri</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>testsPerformed</con:name><con:value/></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="QRY_002 [POS][A] Query Parameters - updated-min/max" searchProperties="true" id="d4faef9f-ddb4-4d5a-b65e-e7c7000aa5e8" disabled="true"><con:description/><con:settings/><con:testStep type="calltestcase" name="Run TestCase Create Authorization" id="bf25b095-f5ac-478c-a160-071a57c76cf5"><con:settings/><con:config xsi:type="con:RunTestCaseStep" ignoreEmptyProperties="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>00812f7a-b4ce-4782-bf13-f27a979f6d00</con:targetTestCase><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>redirect_uri</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>access_token</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>resourceURI</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>authorizationURI</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>token_type</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>refresh_token</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>expires_in</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>scope</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>error</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>client_id</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>old_access_token</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>client_secret</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>authorizationServerProxy</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>resourceServerProxy</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>mockPort</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>proxyOutPort</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>authorizationServerAuthorizationEndpointProxy</con:name></con:property><con:property><con:name>authorizationServerTokenEndpointProxy</con:name></con:property><con:property><con:name>client_access_token</con:name></con:property><con:property><con:name>resourceServer</con:name></con:property><con:property><con:name>registration_access_token</con:name></con:property><con:property><con:name>client_access_token_client_id</con:name></con:property><con:property><con:name>client_access_token_secret</con:name></con:property></con:properties><con:returnProperties/><con:runMode>SINGLETON_AND_WAIT</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Extract information from authorization" id="c68213d8-20a7-4eaa-8f6a-ada47b15b38b"><con:settings/><con:config><script>import com.eviware.soapui.support.types.StringToStringMap;
-
-def propCreateAuthResults  = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
-
-propTestStep = context.testCase.getTestStepByName("GET Resource URI");
-def headers = new StringToStringMap();
-
-propTestStep.setPropertyValue("Endpoint",propCreateAuthResults.getPropertyValue("resourceURI"));
-headers.put("Authorization","Bearer " + propCreateAuthResults.getPropertyValue("access_token"));
-headers.put("Content-Type","Application/atom+xml");
-propTestStep.testRequest.setRequestHeaders(headers);
-</script></con:config></con:testStep><con:testStep type="httprequest" name="GET Resource URI" id="2a1bfb94-0679-4b24-aad9-fdfc8cb81ad2"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Resource URI" id="e7b7cc31-caa4-478c-8229-c01afceffeaf" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
-  &lt;con:entry key="Authorization" value="Bearer 0b551173-2192-490f-87a1-3c1f5626ef9d"/>
-  &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
-&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://api.londonhydro.com:8086/espi/1_1/resource/Batch/Subscription/1000000470</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="0c95678a-cf15-4c48-a460-1c22ca369f59"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema Validation" id="fe842a44-72e3-4f52-a947-f9418a0407f3"><con:configuration><scriptText>import javax.xml.XMLConstants;
-import javax.xml.transform.Source;
-import javax.xml.transform.stream.StreamSource;
-import javax.xml.validation.SchemaFactory;
-import javax.xml.validation.Schema;
-import javax.xml.validation.Validator;
-
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-
-String strSchemaFile1 = groovyUtils.projectPath + "/etc/atom.xsd";
-String strSchemaFile2 = groovyUtils.projectPath + "/etc/espiDerived.xsd";
-
-String response = messageExchange.response.contentAsString;
-
-context.ResponseBody = response;
-
-log.info("validating: " + response);
-
-StreamSource[] schemaDocuments = new StreamSource[2];
-schemaDocuments[0] = new StreamSource(strSchemaFile1);
-schemaDocuments[1] = new StreamSource(strSchemaFile2);
-Source instanceDocument = new StreamSource(new StringReader(response));
-
-SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-Schema s = sf.newSchema(schemaDocuments);
-Validator v = s.newValidator();
-v.validate(instanceDocument);</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="groovy" name="Filter Set of Interval Blocks" id="2006161f-b729-46aa-95be-4af1fde9c6a7"><con:settings/><con:config><script>import groovy.io.FileType;
-import javax.xml.XMLConstants;
-import javax.xml.transform.Source;
-import javax.xml.transform.stream.StreamSource;
-import javax.xml.validation.SchemaFactory;
-import javax.xml.validation.Schema;
-import javax.xml.validation.Validator;
-import com.eviware.soapui.support.XmlHolder;
-import com.eviware.soapui.support.types.StringToStringMap;
-
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
-
-
-
-def holder;
-
-// the following code allows us to temporarily bypass openESPI as a reference implementation
-// in order to test the following code, since openESPI currently (1/14/2015) 
-// does not handle published and updated time stamps properly
-// This code will "bypass" the true response from OpenESPI and will use a test data file
-
-//String strFile = groovyUtils.projectPath + "/sampledata/resource.xml";
-//holder = groovyUtils.getXmlHolder(new File(strFile).text);
-
-
-// this code uses the actual retreived response
-
-log.info("extracting info from: " + context.ResponseBody);
-try{
-	holder = groovyUtils.getXmlHolder(context.ResponseBody);
-} catch(org.apache.xmlbeans.XmlException e) {
-	log.error("Invalid response body: " + e.toString());
-	testRunner.fail("Invalid response body.");
-	return;
-}
-
-
-holder.declareNamespace( 'espi', 'http://naesb.org/espi');
-holder.declareNamespace( 'atom', 'http://www.w3.org/2005/Atom');
-
-String strCount = "0";
-try{
-	strCount = holder.getNodeValue("count(//espi:IntervalBlock)")
-} catch(org.apache.xmlbeans.XmlException e) {
-	log.error("Invalid response body: " + e.toString());
-	testRunner.fail("Invalid response body. Cannot query response.");
-	return;
-}
-
-if(strCount.toInteger()&lt;4){
-	log.error("Resource must contain at least 3 interval blocks");
-	testRunner.fail("Resource must contain at least 3 interval blocks");
-	return;	
-}
-
-def entryNodes = holder.getDomNodes("//espi:IntervalBlock/../../atom:updated");
-
-List listStarts = [];
-
-for(entryNode in entryNodes) {
-	String strPublished = entryNode.getFirstChild().getNodeValue();
-	Date datePublished =  new Date().parse("yyyy-MM-dd'T'HH:mm:ss'Z'",strPublished);
-//	log.info "published: " + strPublished + " date: " + datePublished.format("yyyy-MM-dd'T'HH:mm:ss'Z'");
-	listStarts.add(datePublished);
-}
-
-listStarts.sort();
-
-String strMin = listStarts.getAt(1).format("yyyy-MM-dd'T'HH:mm:ss'Z'");
-String strMax = listStarts.getAt(listStarts.size-2).format("yyyy-MM-dd'T'HH:mm:ss'Z'");
-
-if(strMin.equals(strMax)){
-	log.error("Cannot conduct test as the resource response does not contain a testable range of IntervalBlock updated dates.");
-	testRunner.fail("Cannot conduct test as the resource response does not contain a testable range of IntervalBlock updated dates.");
-	return;
-}
-
-/*
-log.info("size:" + listStarts.size);
-log.info("start:" + listStarts.getAt(0).format("yyyy-MM-dd'T'HH:mm:ss'Z'"));
-log.info("start+1:" + strMin);
-log.info("end:" + listStarts.getAt(listStarts.size-1).format("yyyy-MM-dd'T'HH:mm:ss'Z'"));
-log.info("end-1:" + strMax);
-*/
-
-context.expectedCount = listStarts.size - 2;
-
-def propCreateAuthResults  = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
-
-propTestStep = context.testCase.getTestStepByName("GET Filtered Resource URI");
-def headers = new StringToStringMap();
-
-String strEndpoint = propCreateAuthResults.getPropertyValue("resourceURI");
-strEndpoint = strEndpoint + "?updated-min=" + strMin + "&amp;updated-max=" + strMax;
-
-propTestStep.setPropertyValue("Endpoint",strEndpoint);
-headers.put("Authorization","Bearer " + propCreateAuthResults.getPropertyValue("access_token"));
-headers.put("Content-Type","Application/atom+xml");
-propTestStep.testRequest.setRequestHeaders(headers);
-
-
-
-return
-
-/*
- * TMP: code used to get intervalBlock Time stamps
- * for reference only
- * 
-def entryNodes = holder.getDomNodes("//espi:IntervalBlock/espi:interval/espi:start");
-for(entryNode in entryNodes) {
-	String strStart = entryNode.getFirstChild().getNodeValue();
-	def holderParent = new XmlHolder(entryNode.getParentNode());
-	holderParent.declareNamespace( 'espi', 'http://naesb.org/espi');
-	
-	String strDuration = holderParent.getDomNode("//espi:duration").getFirstChild().getNodeValue();
-	long lDuration = strDuration.toInteger();
-	
-	long lEnd = strStart.toInteger() + lDuration;
-	Date dateEnd = new Date( ((long)lEnd) * 1000 )
-	
-	//log.info "start: " + strStart + "Date: " + dateStart.format("yyyy-MM-dd HH:mm:ss.S");
-	log.info "end Date: " + dateEnd.format("yyyy-MM-dd HH:mm:ss");
-}
-*/
-
-
-</script></con:config></con:testStep><con:testStep type="httprequest" name="GET Filtered Resource URI" id="26c5fbcf-67ad-49f1-8bdd-26613edf3d10"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Filtered Resource URI" id="839f41c5-b5a9-4ee8-9a94-151a7518bfe0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
-  &lt;con:entry key="Authorization" value="Bearer 08963695-7f22-4370-abda-85f0e1fb9932"/>
-  &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
-&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://localhost:8086/DataCustodian/espi/1_1/resource/Batch/Subscription/7?updated-min=2012-03-03T05:00:00Z&amp;updated-max=2012-03-14T04:00:00Z</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="c546ee6a-d45f-4a5d-b25f-95f2cf4f80d2"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Schema Validation" id="748d6611-1638-4740-a908-08255ecad730"><con:configuration><scriptText>import javax.xml.XMLConstants;
-import javax.xml.transform.Source;
-import javax.xml.transform.stream.StreamSource;
-import javax.xml.validation.SchemaFactory;
-import javax.xml.validation.Schema;
-import javax.xml.validation.Validator;
-
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-
-String strSchemaFile1 = groovyUtils.projectPath + "/etc/atom.xsd";
-String strSchemaFile2 = groovyUtils.projectPath + "/etc/espiDerived.xsd";
-
-String response = messageExchange.response.contentAsString;
-
-context.ResponseBody = response;
-
-log.info("validating: " + response);
-
-StreamSource[] schemaDocuments = new StreamSource[2];
-schemaDocuments[0] = new StreamSource(strSchemaFile1);
-schemaDocuments[1] = new StreamSource(strSchemaFile2);
-Source instanceDocument = new StreamSource(new StringReader(response));
-
-SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-Schema s = sf.newSchema(schemaDocuments);
-Validator v = s.newValidator();
-v.validate(instanceDocument);</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="groovy" name="Verify Filtered Set of Interval Blocks" id="6fac550c-a358-48f7-9364-814daa31f13a"><con:settings/><con:config><script>import groovy.io.FileType;
-import javax.xml.XMLConstants;
-import javax.xml.transform.Source;
-import javax.xml.transform.stream.StreamSource;
-import javax.xml.validation.SchemaFactory;
-import javax.xml.validation.Schema;
-import javax.xml.validation.Validator;
-import com.eviware.soapui.support.XmlHolder;
-import com.eviware.soapui.support.types.StringToStringMap;
-
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context);
-
-
-
-def holder;
-
-// the following code allows us to temporarily bypass openESPI as a reference implementation
-// in order to test the following code, since openESPI currently (1/14/2015) 
-// does not handle published and updated time stamps properly
-// This code will "bypass" the true response from OpenESPI and will use a test data file
-
-// String strFile = groovyUtils.projectPath + "/sampledata/resource_filteredMinMax.xml";
-// holder = groovyUtils.getXmlHolder(new File(strFile).text);
-
-
-// this code uses the actual retreived response
-
-log.info("extracting info from: " + context.ResponseBody);
-try{
-	holder = groovyUtils.getXmlHolder(context.ResponseBody);
-} catch(org.apache.xmlbeans.XmlException e) {
-	log.error("Invalid response body: " + e.toString());
-	testRunner.fail("Invalid response body.");
-	return;
-}
-
-holder.declareNamespace( 'espi', 'http://naesb.org/espi');
-holder.declareNamespace( 'atom', 'http://www.w3.org/2005/Atom');
-
-String strCount = "0";
-try{
-	strCount = holder.getNodeValue("count(//espi:IntervalBlock)")
-} catch(org.apache.xmlbeans.XmlException e) {
-	log.error("Invalid response body: " + e.toString());
-	testRunner.fail("Invalid response body. Cannot query response.");
-	return;
-}
-
-if(strCount.toInteger()&lt;1){
-	log.error("Resource must contain at least 1 interval block");
-	testRunner.fail("Resource must contain at least 1 interval block");
-	return;	
-}
-
-if(strCount.toInteger()!=context.expectedCount){
-	log.error("Filtered response does not contain the expected  number of IntervalBlocks. Expected:" + context.expectedCount + " Actual:" + strCount);
-	testRunner.fail("Filtered response does not contain the expected  number of IntervalBlocks. Expected:" + context.expectedCount + " Actual:" + strCount);
-}
-
-return
-</script></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()
-
-testRunner.testCase.setPropertyValue("testsPerformed","");
-
-def mapFBsTested = [:];
-context.mapFBsTested = mapFBsTested;
-</con:setupScript><con:tearDownScript>log.info "===== "+ testRunner.status.toString() +" TestCase  =====> "  +  context.testCase.getLabel();</con:tearDownScript><con:properties><con:property><con:name>extracted_scope_sel_uri</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>testsPerformed</con:name><con:value/></con:property></con:properties></con:testCase><con:testCase id="e0a0ba6e-7442-4248-803e-c2f50d78e6da" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="QRY_003 [NEG][A] Query Parameters - Verify Query Parameter Contents are Validated" searchProperties="true"><con:settings/><con:testStep type="calltestcase" name="Run TestCase Create Authorization" id="4f58f18b-5338-4cb5-98ff-ebc07efac32b"><con:settings/><con:config xsi:type="con:RunTestCaseStep" ignoreEmptyProperties="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>00812f7a-b4ce-4782-bf13-f27a979f6d00</con:targetTestCase><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>redirect_uri</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>access_token</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>resourceURI</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>authorizationURI</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>token_type</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>refresh_token</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>expires_in</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>scope</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>error</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>client_id</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>old_access_token</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>client_secret</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>authorizationServerProxy</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>resourceServerProxy</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>mockPort</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>proxyOutPort</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>authorizationServerAuthorizationEndpointProxy</con:name></con:property><con:property><con:name>authorizationServerTokenEndpointProxy</con:name></con:property><con:property><con:name>client_access_token</con:name></con:property><con:property><con:name>resourceServer</con:name></con:property><con:property><con:name>registration_access_token</con:name></con:property><con:property><con:name>client_access_token_client_id</con:name></con:property><con:property><con:name>client_access_token_secret</con:name></con:property></con:properties><con:returnProperties/><con:runMode>SINGLETON_AND_WAIT</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Create URI Value for GET Resource URI with Alpha published-min Value" id="14d567df-28e7-476c-8e1d-b3a3324b2422"><con:settings/><con:config><script>import com.eviware.soapui.support.types.StringToStringMap;
+context.currentFeedIndex = null;</con:tearDownScript><con:properties><con:property><con:name>extracted_scope_sel_uri</con:name><con:value>http://localhost:8080/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>http://localhost:8081/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>http://localhost:8080/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>testsPerformed</con:name><con:value/></con:property></con:properties></con:testCase><con:testCase id="e0a0ba6e-7442-4248-803e-c2f50d78e6da" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="QRY_002 [NEG][A] Query Parameters - Verify Query Parameter Contents are Validated" searchProperties="true"><con:settings/><con:testStep type="calltestcase" name="Run TestCase Create Authorization" id="4f58f18b-5338-4cb5-98ff-ebc07efac32b"><con:settings/><con:config xsi:type="con:RunTestCaseStep" ignoreEmptyProperties="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>00812f7a-b4ce-4782-bf13-f27a979f6d00</con:targetTestCase><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>redirect_uri</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>access_token</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>resourceURI</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>authorizationURI</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>token_type</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>refresh_token</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>expires_in</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>scope</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>error</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>client_id</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>old_access_token</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>client_secret</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>authorizationServerProxy</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>resourceServerProxy</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>mockPort</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>proxyOutPort</con:name><con:value xsi:nil="true"/></con:property><con:property><con:name>authorizationServerAuthorizationEndpointProxy</con:name></con:property><con:property><con:name>authorizationServerTokenEndpointProxy</con:name></con:property><con:property><con:name>client_access_token</con:name></con:property><con:property><con:name>resourceServer</con:name></con:property><con:property><con:name>registration_access_token</con:name></con:property><con:property><con:name>client_access_token_client_id</con:name></con:property><con:property><con:name>client_access_token_secret</con:name></con:property></con:properties><con:returnProperties/><con:runMode>SINGLETON_AND_WAIT</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Create URI Value for GET Resource URI with Alpha published-min Value" id="14d567df-28e7-476c-8e1d-b3a3324b2422"><con:settings/><con:config><script>import com.eviware.soapui.support.types.StringToStringMap;
 
 def propCreateAuthResults  = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
 
@@ -23345,9 +23008,9 @@ headers.put("Authorization","Bearer " + propCreateAuthResults.getPropertyValue("
 headers.put("Content-Type","Application/atom+xml");
 propTestStep.testRequest.setRequestHeaders(headers);
 </script></con:config></con:testStep><con:testStep type="httprequest" name="GET Resource URI with Alpha published-min Value" id="f0a0167d-6491-4880-adb5-f97069dd30a3"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" name="GET Resource URI with Alpha published-min Value" id="f7cb0019-d01d-4a23-9d5a-03c0ad1ac907" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
-  &lt;con:entry key="Authorization" value="Bearer 592286dd-489b-46fa-8bca-c608b65f68ea"/>
+  &lt;con:entry key="Authorization" value="Bearer 121fb66a-dea8-42f4-83d0-6f2c5c5b5ea9"/>
   &lt;con:entry key="Content-Type" value="Application/atom+xml"/>
-&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://api.londonhydro.com:8086/espi/1_1/resource/Batch/Subscription/1000000579?published-min=All</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="242b98a4-e03e-4073-bbc5-6fd0c9077d2a"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="groovy" name="Create URI Value for GET Resource URI with Invalid Date published-min Value" id="9b655b2e-44a8-464e-83d4-db6cf1cb180b"><con:settings/><con:config><script>import com.eviware.soapui.support.types.StringToStringMap;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://api.londonhydro.com:8086/espi/1_1/resource/Batch/Subscription/1000000594?published-min=All</con:endpoint><con:request/><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="242b98a4-e03e-4073-bbc5-6fd0c9077d2a"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="groovy" name="Create URI Value for GET Resource URI with Invalid Date published-min Value" id="9b655b2e-44a8-464e-83d4-db6cf1cb180b"><con:settings/><con:config><script>import com.eviware.soapui.support.types.StringToStringMap;
 
 def propCreateAuthResults  = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
 
@@ -26894,7 +26557,7 @@ strContent = mockRequest.requestContent;
 log.info("ThirdParty Notification Mock Service (GET /Diagnostic Response) Request Content: " + strContent);
 
 </con:script><con:responseContent/></con:response></con:restMockAction></con:restMockService>
-<con:restMockService port="8081" path="/" host="openespivm" name="ThirdParty Authorization Mock Service" docroot="" id="3a34ffc3-4858-4237-a55a-0cc1f8544c4a"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"121fb66a-dea8-42f4-83d0-6f2c5c5b5ea9","token_type":"bearer","refresh_token":"78c42c1c-a70d-4610-ba6c-c025aca51455","expires_in":86399997,"scope":"FB=10;IntervalDuration=2592000;BlockDuration=monthly;HistoryLength=13","resourceURI":"https://api.londonhydro.com/espi/1_1/resource/Batch/Subscription/1000000594","authorizationURI":"https://api.londonhydro.com/espi/1_1/resource/Authorization/1000000632"}</con:value></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=10;IntervalDuration=2592000;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=10;IntervalDuration=2592000;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=LondonHydro</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://greenbutton.londonhydro.com/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://cmdcertdev.greenbuttonalliance.org/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://greenbutton.londonhydro.com/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value/></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Gigt2CaoDyrpVx7</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://greenbutton.londonhydro.com/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>state</con:name><con:value>ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8082</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="a19f663e-daf5-4eab-bc7c-0fb638c2496d"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+<con:restMockService port="8081" path="/" host="openespivm" name="ThirdParty Authorization Mock Service" docroot="" id="3a34ffc3-4858-4237-a55a-0cc1f8544c4a"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value>{"access_token":"d75ff4d4-c5dd-4468-b838-6fef3ebe1b9b","token_type":"bearer","refresh_token":"09d55270-3f25-4655-aeb5-a6d078cf0934","expires_in":86399997,"scope":"FB=4_5;IntervalDuration=3600;BlockDuration=daily;HistoryLength=13","resourceURI":"https://api.londonhydro.com/espi/1_1/resource/Batch/Subscription/1000000612","authorizationURI":"https://api.londonhydro.com/espi/1_1/resource/Authorization/1000000650"}</con:value></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=4_5;IntervalDuration=3600;BlockDuration=daily;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=4_5;IntervalDuration=3600;BlockDuration=daily;HistoryLength=13&amp;DataCustodianID=LondonHydro</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://greenbutton.londonhydro.com/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://cmdcertdev.greenbuttonalliance.org/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://greenbutton.londonhydro.com/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value/></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Gigt2CaoDyrpVx7</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://greenbutton.londonhydro.com/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>state</con:name><con:value>ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8082</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="a19f663e-daf5-4eab-bc7c-0fb638c2496d"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Examples showing how to match based on path, query param and header
 // Match based on path
 def requestPath = mockRequest.getPath()
@@ -29060,7 +28723,7 @@ else
 
 
 return 
-]]></con:dispatchPath><con:response name="GenericGetService Response" id="79bee9b3-4989-409b-8389-1bb5f4cf90d3" httpResponseStatus="200"><con:settings/><con:script>mockResponse.setResponseHttpStatus(context.responseCode);</con:script><con:responseContent>${proxiedResponse}</con:responseContent></con:response></con:restMockAction></con:restMockService><con:restMockService id="be1ca609-7ac8-4800-9d34-770c90a6e5a7" port="8085" path="/" host="openespivm" name="DC Simulator for Unit Testing - Immediate Response" docroot=""><con:settings/><con:properties/><con:restMockAction name="/" method="GET" resourcePath="/" id="095ce477-10b3-46d3-b050-13b86093009b"><con:settings/><con:defaultResponse>Response 200</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+]]></con:dispatchPath><con:response name="GenericGetService Response" id="79bee9b3-4989-409b-8389-1bb5f4cf90d3" httpResponseStatus="401"><con:settings/><con:script>mockResponse.setResponseHttpStatus(context.responseCode);</con:script><con:responseContent>${proxiedResponse}</con:responseContent></con:response></con:restMockAction></con:restMockService><con:restMockService id="be1ca609-7ac8-4800-9d34-770c90a6e5a7" port="8085" path="/" host="openespivm" name="DC Simulator for Unit Testing - Immediate Response" docroot=""><con:settings/><con:properties/><con:restMockAction name="/" method="GET" resourcePath="/" id="095ce477-10b3-46d3-b050-13b86093009b"><con:settings/><con:defaultResponse>Response 200</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Script dispatcher is used to select a response based on the incoming request.
 // Here are few examples showing how to match based on path, query param, header and body
 
@@ -29272,7 +28935,7 @@ if( requestBody.contains("some data") )
 */
 </con:dispatchPath><con:response name="Response 1 - 202" id="552f9a94-4650-43b2-b2a0-f0aa02f07719" httpResponseStatus="202"><con:settings/><con:responseContent/></con:response></con:restMockAction></con:restMockService><con:properties>
 
-	<con:property><con:name>access_token</con:name><con:value>121fb66a-dea8-42f4-83d0-6f2c5c5b5ea9</con:value></con:property><con:property><con:name>applicationInformationId</con:name><con:value>8</con:value></con:property><con:property><con:name>authorizationId</con:name><con:value>1000000390</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>greenbutton.londonhydro.com:443</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://greenbutton.londonhydro.com/oauth/authorize</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://greenbutton.londonhydro.com/oauth/token</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property>
+	<con:property><con:name>access_token</con:name><con:value>d75ff4d4-c5dd-4468-b838-6fef3ebe1b9b</con:value></con:property><con:property><con:name>applicationInformationId</con:name><con:value>8</con:value></con:property><con:property><con:name>authorizationId</con:name><con:value>1000000390</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>greenbutton.londonhydro.com:443</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://greenbutton.londonhydro.com/oauth/authorize</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://greenbutton.londonhydro.com/oauth/token</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property>
 
 		<con:name>BaseURL</con:name>
 		<con:value/>
@@ -29287,7 +28950,7 @@ if( requestBody.contains("some data") )
 	
 	
 	
-	<con:property><con:name>bulkId</con:name><con:value>1</con:value></con:property><con:property><con:name>certScopes</con:name><con:value>FB=1_3_4_5_10_11_13_14_37_39</con:value></con:property><con:property><con:name>client_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">62b91ef0-e8fc-42a6-8faf-db3f7fd4dd0f</con:value></con:property>
+	<con:property><con:name>bulkId</con:name><con:value>1</con:value></con:property><con:property><con:name>certScopes</con:name><con:value>FB=1_3_4_5_10_11_13_14_37_39</con:value></con:property><con:property><con:name>client_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property>
 	
 	
 	
@@ -29327,7 +28990,7 @@ if( requestBody.contains("some data") )
 	
 	
 	
-<con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property><con:property><con:name>AuthorizationEndpoint</con:name><con:value>http://greenbutton.londonhydro.com:8082/oauth/token</con:value></con:property><con:property><con:name>ServiceEndpoint</con:name><con:value>http://api.londonhydro.com:8086</con:value></con:property><con:property><con:name>subscriptionId</con:name><con:value>5</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>TestFile2</con:name><con:value>Gas.xml</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>ThirdPartyContext</con:name><con:value/></con:property><con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value>https://cmdcertdev.greenbuttonalliance.org/ThirdParty/espi/1_1/Notification</con:value></con:property><con:property><con:name>third_party_access_token</con:name><con:value>53520584-d640-4812-a721-8a1afa459ff7</con:value></con:property><con:property><con:name>timeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>upload_access_token</con:name><con:value>03909715-b0ca-4797-9a9a-601fff1d2848</con:value></con:property><con:property><con:name>usagePointDescription1</con:name><con:value>Front Electric Meter</con:value></con:property><con:property><con:name>usagePointDescription2</con:name><con:value>Gas</con:value></con:property><con:property><con:name>usagePointId</con:name><con:value>1</con:value></con:property><con:property><con:name>usagePointUUID1</con:name><con:value>48C2A019-5598-4E16-B0F9-49E4FF27F5FB</con:value></con:property><con:property><con:name>usagePointUUID2</con:name><con:value>642EABA-8E42-4D1A-A375-AF54993C007B</con:value></con:property><con:property><con:name>userAccessToken1</con:name><con:value>cc56d10c-f04f-41db-bc0b-6a5e19140459</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>4be1fd21-795e-4350-9092-67e1090921c5</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5;IntervalDuration=3600;BlockDuration=daily;HistoryLength=13</con:value></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://cmdcertdev.greenbuttonalliance.org/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>state</con:name><con:value/></con:property><con:property><con:name>client_secret</con:name><con:value>Gigt2CaoDyrpVx7</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value>https://greenbutton.londonhydro.com</con:value></con:property><con:property><con:name>registration_access_token_client_id</con:name><con:value>REGISTRATION_third_party</con:value></con:property><con:property><con:name>client_access_token_client_id</con:name><con:value>third_party_admin</con:value></con:property><con:property><con:name>client_access_token_secret</con:name><con:value>Gigt2CaoDyrpVx7</con:value></con:property><con:property><con:name>registration_access_token_secret</con:name><con:value>Gigt2CaoDyrpVx7</con:value></con:property><con:property><con:name>stunnelConfigDirectory</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stunnelStartCmd</con:name><con:value>sudo /etc/init.d/stunnel4 start</con:value></con:property><con:property><con:name>stunnelStopCmd</con:name><con:value>sudo /etc/init.d/stunnel4 stop</con:value></con:property><con:property><con:name>stunnelReceiveAddress</con:name><con:value>172.31.37.22:443</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8082</con:value></con:property><con:property><con:name>BatchList</con:name><con:value/></con:property><con:property><con:name>responseArray</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>CApathDirectory</con:name><con:value>/etc/ssl/certs</con:value></con:property><con:property><con:name>GBACertId</con:name><con:value>d29d4b30-1a63-532e-a6a3-d6314572eab9</con:value></con:property><con:property><con:name>TLSLibrary</con:name><con:value>Apple Inc.</con:value></con:property><con:property><con:name>TLSLibCert</con:name><con:value>2411</con:value></con:property><con:property><con:name>NISTFIPSCertScreen</con:name><con:value>http://csrc.nist.gov/groups/STM/cmvp/documents/140-1/140val-all.htm</con:value></con:property><con:property><con:name>productionAuthorizationServerDomain</con:name><con:value>https://greenbutton.londonhydro.com</con:value></con:property><con:property><con:name>productionResourceServerDomain</con:name><con:value>https://api.londonhydro.com</con:value></con:property><con:property><con:name>productionAuthorizationServerTLSLibrary</con:name><con:value>TBD</con:value></con:property><con:property><con:name>productionAuthorizationServerTLSLibCert</con:name><con:value>TBD</con:value></con:property><con:property><con:name>productionResourceServerTLSLibrary</con:name><con:value>TBD</con:value></con:property><con:property><con:name>productionResourceServerTLSLibCert</con:name><con:value>TBD</con:value></con:property><con:property><con:name>NAESBPurchasedStandards</con:name><con:value>https://www.naesb.org//pdf2/copyright.pdf</con:value></con:property><con:property><con:name>NAESBPurchasedStandardsURI</con:name><con:value>https://www.naesb.org//pdf2/copyright.pdf</con:value></con:property><con:property><con:name>productionSFTPServerDomain</con:name><con:value/></con:property><con:property><con:name>productionSFTPServerTLSLibrary</con:name><con:value>TBD</con:value></con:property><con:property><con:name>productionSFTPServerTLSLibCert</con:name><con:value>TBD</con:value></con:property><con:property><con:name>stunnelStatusCmd</con:name><con:value>sudo netstat -lpn | grep :80*</con:value></con:property><con:property><con:name>authorizationServerIP</con:name><con:value>72.14.248.197</con:value></con:property><con:property><con:name>resourceServerIP</con:name><con:value>72.14.248.226</con:value></con:property><con:property><con:name>resourceServerPort</con:name><con:value>443</con:value></con:property><con:property><con:name>authorizationServerPort</con:name><con:value>443</con:value></con:property><con:property><con:name>soapUIPlatformSSLCertificate</con:name><con:value>/etc/stunnel/greenbuttonalliance_ssl_certificate_2017_02_14.pem</con:value></con:property><con:property><con:name>soapUIPlatformSSLPrivateKey</con:name><con:value>/etc/stunnel/greenbuttonalliance_original_private_key.pem</con:value></con:property></con:properties>
+<con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property><con:property><con:name>AuthorizationEndpoint</con:name><con:value>http://greenbutton.londonhydro.com:8082/oauth/token</con:value></con:property><con:property><con:name>ServiceEndpoint</con:name><con:value>http://api.londonhydro.com:8086</con:value></con:property><con:property><con:name>subscriptionId</con:name><con:value>5</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>TestFile2</con:name><con:value>Gas.xml</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>ThirdPartyContext</con:name><con:value/></con:property><con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value/></con:property><con:property><con:name>third_party_access_token</con:name><con:value>53520584-d640-4812-a721-8a1afa459ff7</con:value></con:property><con:property><con:name>timeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>upload_access_token</con:name><con:value>03909715-b0ca-4797-9a9a-601fff1d2848</con:value></con:property><con:property><con:name>usagePointDescription1</con:name><con:value>Front Electric Meter</con:value></con:property><con:property><con:name>usagePointDescription2</con:name><con:value>Gas</con:value></con:property><con:property><con:name>usagePointId</con:name><con:value>1</con:value></con:property><con:property><con:name>usagePointUUID1</con:name><con:value>48C2A019-5598-4E16-B0F9-49E4FF27F5FB</con:value></con:property><con:property><con:name>usagePointUUID2</con:name><con:value>642EABA-8E42-4D1A-A375-AF54993C007B</con:value></con:property><con:property><con:name>userAccessToken1</con:name><con:value>cc56d10c-f04f-41db-bc0b-6a5e19140459</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>4be1fd21-795e-4350-9092-67e1090921c5</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5;IntervalDuration=3600;BlockDuration=daily;HistoryLength=13</con:value></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>state</con:name><con:value/></con:property><con:property><con:name>client_secret</con:name><con:value>Gigt2CaoDyrpVx7</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value>https://greenbutton.londonhydro.com</con:value></con:property><con:property><con:name>registration_access_token_client_id</con:name><con:value>REGISTRATION_third_party</con:value></con:property><con:property><con:name>client_access_token_client_id</con:name><con:value>third_party_admin</con:value></con:property><con:property><con:name>client_access_token_secret</con:name><con:value>Gigt2CaoDyrpVx7</con:value></con:property><con:property><con:name>registration_access_token_secret</con:name><con:value>Gigt2CaoDyrpVx7</con:value></con:property><con:property><con:name>stunnelConfigDirectory</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stunnelStartCmd</con:name><con:value>sudo /etc/init.d/stunnel4 start</con:value></con:property><con:property><con:name>stunnelStopCmd</con:name><con:value>sudo /etc/init.d/stunnel4 stop</con:value></con:property><con:property><con:name>stunnelReceiveAddress</con:name><con:value>172.31.37.22:443</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8082</con:value></con:property><con:property><con:name>BatchList</con:name><con:value/></con:property><con:property><con:name>responseArray</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>CApathDirectory</con:name><con:value>/etc/ssl/certs</con:value></con:property><con:property><con:name>GBACertId</con:name><con:value>d29d4b30-1a63-532e-a6a3-d6314572eab9</con:value></con:property><con:property><con:name>TLSLibrary</con:name><con:value>Apple Inc.</con:value></con:property><con:property><con:name>TLSLibCert</con:name><con:value>2411</con:value></con:property><con:property><con:name>NISTFIPSCertScreen</con:name><con:value>http://csrc.nist.gov/groups/STM/cmvp/documents/140-1/140val-all.htm</con:value></con:property><con:property><con:name>productionAuthorizationServerDomain</con:name><con:value>https://greenbutton.londonhydro.com</con:value></con:property><con:property><con:name>productionResourceServerDomain</con:name><con:value>https://api.londonhydro.com</con:value></con:property><con:property><con:name>productionAuthorizationServerTLSLibrary</con:name><con:value>TBD</con:value></con:property><con:property><con:name>productionAuthorizationServerTLSLibCert</con:name><con:value>TBD</con:value></con:property><con:property><con:name>productionResourceServerTLSLibrary</con:name><con:value>TBD</con:value></con:property><con:property><con:name>productionResourceServerTLSLibCert</con:name><con:value>TBD</con:value></con:property><con:property><con:name>NAESBPurchasedStandards</con:name><con:value>https://www.naesb.org//pdf2/copyright.pdf</con:value></con:property><con:property><con:name>NAESBPurchasedStandardsURI</con:name><con:value>https://www.naesb.org//pdf2/copyright.pdf</con:value></con:property><con:property><con:name>productionSFTPServerDomain</con:name><con:value/></con:property><con:property><con:name>productionSFTPServerTLSLibrary</con:name><con:value>TBD</con:value></con:property><con:property><con:name>productionSFTPServerTLSLibCert</con:name><con:value>TBD</con:value></con:property><con:property><con:name>stunnelStatusCmd</con:name><con:value>sudo netstat -lpn | grep :80*</con:value></con:property><con:property><con:name>authorizationServerIP</con:name><con:value>72.14.248.197</con:value></con:property><con:property><con:name>resourceServerIP</con:name><con:value>72.14.248.226</con:value></con:property><con:property><con:name>resourceServerPort</con:name><con:value>443</con:value></con:property><con:property><con:name>authorizationServerPort</con:name><con:value>443</con:value></con:property><con:property><con:name>soapUIPlatformSSLCertificate</con:name><con:value>/etc/stunnel/greenbuttonalliance_ssl_certificate_2017_02_14.pem</con:value></con:property><con:property><con:name>soapUIPlatformSSLPrivateKey</con:name><con:value>/etc/stunnel/greenbuttonalliance_original_private_key.pem</con:value></con:property></con:properties>
 
 <con:wssContainer/>
 <con:oAuth2ProfileContainer/>
