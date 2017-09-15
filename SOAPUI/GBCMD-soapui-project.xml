@@ -8788,10 +8788,9 @@ public boolean RunCommand(String path,String cmd)
 cmd = testRunner.testCase.getPropertyValue("cmd");
 td = testRunner.testCase.getPropertyValue("path");
 return (RunCommand(td,cmd));
-</script></con:config></con:testStep><con:properties><con:property><con:name>stdout</con:name><con:value>tcp        0      0 127.0.0.1:8080          0.0.0.0:*               LISTEN      25399/stunnel4  
-tcp        0      0 127.0.0.1:8082          0.0.0.0:*               LISTEN      25399/stunnel4  
-tcp6       0      0 :::8081                 :::*                    LISTEN      18082/java      
-tcp6       0      0 :::8086                 :::*                    LISTEN      18082/java      
+</script></con:config></con:testStep><con:properties><con:property><con:name>stdout</con:name><con:value>tcp        0      0 127.0.0.1:8080          0.0.0.0:*               LISTEN      30402/stunnel4  
+tcp        0      0 127.0.0.1:8082          0.0.0.0:*               LISTEN      30402/stunnel4  
+tcp6       0      0 :::8081                 :::*                    LISTEN      29352/java      
 </con:value></con:property><con:property><con:name>cmd</con:name><con:value>sudo netstat -lpn | grep :80*</con:value></con:property><con:property><con:name>path</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stderr</con:name><con:value/></con:property><con:property><con:name>returncode</con:name><con:value>0</con:value></con:property><con:property><con:name>timeout</con:name><con:value>2</con:value></con:property><con:property><con:name>uri</con:name><con:value>https://localhost:8443/DataCustodian/espi/1_1/resource/Batch/Subscription/7</con:value></con:property><con:property><con:name>token</con:name><con:value>326bf68d-b49e-45b7-8296-46d80ada302d</con:value></con:property></con:properties></con:testCase><con:testCase id="978db0b7-3ecb-45f4-afd8-d7cb7e0dd584" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GenericResourceGet" searchProperties="true"><con:description>This GET will retrieve a resource via REST GET or SFTP or deferred GET with a 202 response followed by a notification
 </con:description><con:settings/><con:testStep type="groovy" name="GenericResourceGet" id="7f4bdcdd-bd1f-4016-b05d-3176630848b5"><con:settings/><con:config><script><![CDATA[import org.xml.sax.SAXException;
 import org.w3c.dom.*;
@@ -25221,11 +25220,19 @@ def runner = testRunner.testCase.testSuite.project.getRestMockServiceByName("Thi
 context.mockRunner = runner;
 
 return;</script></con:config></con:testStep><con:testStep type="groovy" name="Request DataCustodian to issue Notification message with Subscription Information" id="b4655dc6-de32-4751-93ea-ff5d374b7982"><con:settings/><con:config><script>def ui = com.eviware.soapui.support.UISupport;
+
+//	Create addressability to global variables
+def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
 def project = testRunner.testCase.testSuite.project;
+
+// Extract current Subscription Id value from latest Authorization request resource URI
+subscriptionId = authCase.getPropertyValue("resourceURI");
+i = subscriptionId.lastIndexOf("/");
+subscriptionId = subscriptionId.drop(i + 1);
 
 strMessage = project.getPropertyValue("CMDTestStep") + "\n\n"
 //String strDialog = "Request Data Custodian to manually initiate a Notification that contains Subscription information.\r\n\
-strMessage = strMessage + "Request Data Custodian to manually initiate a Notification that contains Subscription information.\r\n\
+strMessage = strMessage + "Request Data Custodian to manually initiate a Notification that contains Subscription ID '" + subscriptionId + "' information.\r\n\
 \r\n\
 If you do not wish to proceed please click No.\r\n\
 After the Notification has been issued please click Yes.\r\n";
