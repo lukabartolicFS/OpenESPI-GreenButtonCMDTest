@@ -3,8 +3,8 @@ SET SESSION sql_mode='NO_AUTO_VALUE_ON_ZERO';
 
 SET sql_mode = 'PIPES_AS_CONCAT';
 
-SET @dcbaseurl = 'https://localhost:8443';
-SET @tpbaseurl = 'https://localhost:8444';
+SET @dcbaseurl = 'https://testgb.mooo.com:8443';
+SET @tpbaseurl = 'https://ec2-50-112-176-69.us-west-2.compute.amazonaws.com:8444';
 SET @aiIndex = '4';
 SET @clientId = 'surface_tp';
 
