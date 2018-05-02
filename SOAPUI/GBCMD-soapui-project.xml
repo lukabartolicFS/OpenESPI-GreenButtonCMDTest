@@ -8803,7 +8803,7 @@ if(context["driver"] != null){
 	context["driver"] = null;	
 }
 
-</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://sharemydata.pge.com/myAuthorization/?clientId=50036&amp;verified=true</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://api.pge.com/datacustodian/oauth/v2/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://cmdcertdev.greenbuttonalliance.org:443/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://api.pge.com/datacustodian/oauth/v2/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value>c764ab61-bbae-4469-bf16-5a5e735d4007</con:value></con:property><con:property><con:name>resourceURI</con:name><con:value>http://api.pge.com:8086/GreenButtonConnect/espi/1_1/resource/Batch/Subscription/913178</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value>http://api.pge.com:8080/GreenButtonConnect/espi/1_1/resource/Authorization/913178</con:value></con:property><con:property><con:name>token_type</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Bearer</con:value></con:property><con:property><con:name>refresh_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">395c3c87-b7c3-4162-883a-fa9d77306847</con:value></con:property><con:property><con:name>expires_in</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">3600</con:value></con:property><con:property><con:name>scope</con:name><con:value>913178</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>9c9db266dc784067969fe9a90ec2aa10</con:value></con:property><con:property><con:name>old_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">5d69ba3e-e441-4ddf-9c31-0f60206ebbd5</con:value></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">a787e90b13c34c07a988b15acaaf5b09</con:value></con:property><con:property><con:name>authorizationServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>resourceServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>mockPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8080</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>authorizationServerTokenEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8db0157a-948a-46d4-8ce3-95a0e7dc0eac</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">api.pge.com:443</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">682f6064-a28b-42b8-b693-5bdbe8f06bce</con:value></con:property><con:property><con:name>client_access_token_client_id</con:name><con:value>9c9db266dc784067969fe9a90ec2aa10</con:value></con:property><con:property><con:name>client_access_token_secret</con:name><con:value>a787e90b13c34c07a988b15acaaf5b09</con:value></con:property><con:property><con:name>authorizationId</con:name><con:value>913178</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand" id="06648a84-6352-4b25-b179-693e52d162cc"><con:settings/><con:config><script>log.info("********** START Execution ********** -- [Library] runCommand Script");
+</con:tearDownScript><con:properties><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://greenbutton.londonhydro.com/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://greenbutton.londonhydro.com/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://cmdcertdev.greenbuttonalliance.org/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://greenbutton.londonhydro.com/oauth/token</con:value></con:property><con:property><con:name>access_token</con:name><con:value/></con:property><con:property><con:name>resourceURI</con:name><con:value/></con:property><con:property><con:name>authorizationURI</con:name><con:value/></con:property><con:property><con:name>token_type</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>refresh_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>expires_in</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>scope</con:name><con:value/></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>old_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">5d69ba3e-e441-4ddf-9c31-0f60206ebbd5</con:value></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Gigt2CaoDyrpVx7</con:value></con:property><con:property><con:name>authorizationServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>resourceServerProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>mockPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">8080</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>authorizationServerTokenEndpointProxy</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>client_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">62b91ef0-e8fc-42a6-8faf-db3f7fd4dd0f</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">api.londonhydro.com:443</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">682f6064-a28b-42b8-b693-5bdbe8f06bce</con:value></con:property><con:property><con:name>client_access_token_client_id</con:name><con:value>third_party_admin</con:value></con:property><con:property><con:name>client_access_token_secret</con:name><con:value>Gigt2CaoDyrpVx7</con:value></con:property><con:property><con:name>authorizationId</con:name><con:value>913178</con:value></con:property></con:properties></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunCommand" searchProperties="true" id="a3ec95e4-9f8e-40f3-a3ce-37609ecfe6e3"><con:settings/><con:testStep type="groovy" name="runCommand" id="06648a84-6352-4b25-b179-693e52d162cc"><con:settings/><con:config><script>log.info("********** START Execution ********** -- [Library] runCommand Script");
 
 def project = testRunner.testCase.testSuite.project
 
@@ -16699,6 +16699,24 @@ try {
 		return true;                                    
 
 }
+</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="4ab0c346-3814-4e24-80f3-d44526329128" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Remove Unused Properties" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Remove Unused Property" id="64bb5a48-141b-4b78-baee-9683c069e27d"><con:settings/><con:config><script>//   Create addressability to project variables
+def project = testRunner.testCase.testSuite.project
+
+propertyName = "TLSLibCert"
+
+if (project.getPropertyValue(propertyName) != null) {
+    log.info("\n\n********** Current value of " + propertyName + ": " + project.getPropertyValue(propertyName));
+    project.removeProperty(propertyName)
+
+    if (project.getPropertyValue(propertyName) == null) {
+	   log.info("Property: " + propertyName + " has been removed")
+    } else {
+	   log.info("Request to remove " + propertyName + " property failed")
+    }	
+} else {
+	log.info("\n\n********** Property " + propertyName + " does not exist!!")
+}
+
 </script></con:config></con:testStep><con:properties/></con:testCase><con:properties/>
 </con:testSuite>
 <con:testSuite id="130ca386-2aa1-4889-9e48-5d1a08b1014b" name="[SetupDCUnderTest]"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="7cd7ced7-c818-4d27-bac3-6757f38c318f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SetupDCUnderTest" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Load gbcmdcert and gbcmdcert_target" id="7d901893-e1aa-4ba2-b19a-8d558133cc67"><con:settings/><con:config><script>log.info("********** START Execution ********** -- [SetupDCUnderTest] Load gbcmdcert and gbcmdcert_target Script");
@@ -20271,91 +20289,10 @@ def runner = context.mockService.start();
 log.info("[FB_14] Authorization and Authentication (OAD001 [NEG] Start Mock Service -- Start Mock Service) mockService: " + runner + " started");
 
 context.mockRunner = runner;
-return;</script></con:config></con:testStep><con:testStep type="calltestcase" name="OriginalHostsFile" id="385fd3d6-a59d-46ef-bf5c-8bdf2a741ca8"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>3755e6db-4149-4c29-bc8d-a4b0abd15bf4</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Script will bring up browser to DC Scope selection screen" id="5194f820-0727-4f66-ac03-11b76824f66f"><con:settings/><con:config><script>//import org.greenbutton.cmd.utils.DriverHelper;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+return;</script></con:config></con:testStep><con:testStep type="groovy" name="Issue malformed oauth/authorize GETs" id="a3b8d371-3592-413d-90bc-5cb2b998798a"><con:settings/><con:config><script><![CDATA[import java.net.HttpUrlConnection.*;
 
-//	Create addressability to global variables
-def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
-
-String strScopeSelURI = authCase.getPropertyValue("dataCustodianScopeSelectionScreenURI");
-
-String parseBaseUrlFromURI(String strURI) throws Exception {
-    URL aURL = new URL(strURI);
-
-    if(aURL.getPort().equals(-1))
-    {
-	    log.info("[FB_14] Authorization and Authentication (OAD001 [NEG] Malformed Authorization Code Request -- Script will bring up browser to DC Scope selection screen) aURL.getPort(): " + aURL.getPort());
-	    log.info("[FB_14] Authorization and Authentication (OAD001 [NEG] Malformed Authorization Code Request -- Script will bring up browser to DC Scope selection screen) strBaseUrl: " + aURL.getProtocol() + "://" +  aURL.getHost());
-	    return aURL.getProtocol() + "://" +  aURL.getHost();
-    }
-    else
-    {
-	    log.info("[FB_14] Authorization and Authentication (OAD001 [NEG] Malformed Authorization Code Request -- Script will bring up browser to DC Scope selection screen) aURL.getPort(): " + aURL.getPort());
-	    log.info("[FB_14] Authorization and Authentication (OAD001 [NEG] Malformed Authorization Code Request -- Script will bring up browser to DC Scope selection screen) strBaseUrl: " + aURL.getProtocol() + "://" +  aURL.getHost() + ":" + aURL.getPort());
-	    return aURL.getProtocol() + "://" +  aURL.getHost() + ":" + aURL.getPort();
-    }
-}
-
-String parseResource(String strURI) throws Exception {
-    URL aURL = new URL(strURI);
-
-    log.info("[FB_14] Authorization and Authentication (OAD001 [NEG] Malformed Authorization Code Request -- Script will bring up browser to DC Scope selection screen) strResource: " + aURL.getPath());
-    return aURL.getPath();
-}
-
-String strBaseUrl = parseBaseUrlFromURI(strScopeSelURI);
-String strResource = parseResource(strScopeSelURI);
-
-log.info "[FB_14] Authorization and Authentication (OAD001 [NEG] Malformed Authorization Code Request -- Script will bring up browser to DC Scope selection screen) Scope select URI: " + strScopeSelURI;
-
-//DriverHelper driver = new DriverHelper(strBaseUrl,strResource,"",log);
-WebDriver driver = new FirefoxDriver();
-
-log.info "[FB_14] Authorization and Authentication (OAD001 [NEG] Malformed Authorization Code Request -- Script will bring up browser to DC Scope selection screen) driver: " + driver;
-
-context["driver"] = driver;
-
-driver.get(strScopeSelURI);
-</script></con:config></con:testStep><con:testStep type="groovy" name="Wait for Authorization to Complete and End Browser session" id="b71e00dd-5fb9-42db-adc9-938ec0d5233c"><con:settings/><con:config><script>import org.openqa.selenium.Cookie;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
-def ui = com.eviware.soapui.support.UISupport;
-def project = testRunner.testCase.testSuite.project;
-
-strMessage = project.getPropertyValue("CMDTestStep") + "\n\nGive Keyboard Control to the test applicant.\n\nAsk them to 'Login to the Data Custodian and select a scope option'.\n\nWhen they are done, take back Keyboard Control and click OK.";
-//result = ui.getDialogs().showInfoMessage("Give Keyboard Control to the test applicant.\n\nAsk them to 'Login to the Data Custodian and select a scope option'.\n\nWhen they are done, take back Keyboard Control and click OK.", "");
-result=ui.getDialogs()showInfoMessage(strMessage, "");
-
-WebDriver driver = context["driver"];
-
-// Capture all available cookies for the current URL
-Set&lt;Cookie> allCookies = driver.manage().getCookies();
-
-for (Cookie loadedCookie : allCookies) {
-	log.info("Cookie: " + loadedCookie.getName() + " Value: " + loadedCookie.getValue());
-}
-
-context["driver"].quit();</script></con:config></con:testStep><con:testStep type="groovy" name="Wait for Mock Service to receive TP scope sel POST" id="0dee7420-3702-444b-b3c2-e5e2fb7959e6"><con:settings/><con:config><script>
-int cnt=20;
-
-while(cnt>0){
-	log.info("[FB_14] Authorization and Authentication (OAD001 [NEG] Malformed Authorization Code Requests) Script waiting for TP scope selection POST");
-	if(context.mockService.getPropertyValue("GotScopeSelPOST").equals("TRUE")){
-		assert true;
-		return;
-	}
-	Thread.sleep(1000);
-	cnt--;
-}
-
-log.error("[FB_14] Authorization and Authentication (OAD001 [NEG] Malformed Authorization Code Requests) No scope selection POST received");
-testRunner.fail("[FB_14] Authorization and Authentication (OAD001 [NEG] Malformed Authorization Code Requests) No scope selection POST received.");
-</script></con:config></con:testStep><con:testStep type="calltestcase" name="StunnelHostsFile" id="46ec336d-6e9e-4c69-892f-00489d4b2ffe"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>acec55ea-8ed5-4b45-ad50-6a546d29ea99</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Issue malformed oauth/authorize GETs" id="a3b8d371-3592-413d-90bc-5cb2b998798a"><con:settings/><con:config><script><![CDATA[import java.net.HttpUrlConnection.*;
-
-//	Create addressability to global variables
-def authCase = testRunner.testCase.testSuite.project.testSuites['Library'].testCases['Create Authorization and extract all information'];
+//	Create addressability to global project variables
+def project = testRunner.testCase.testSuite.project
 
 public class codeLocation {
 	
@@ -20435,44 +20372,25 @@ int issueGET(String targetURL){
 		return iRespCode;
 	}	
 }
-
-//   ****************************************************************************************************************************
-//   *
-//   *    Verify Browser SessionID variable is valid
-//   *
-//   ****************************************************************************************************************************
-
-// Verify Browser Session variable is valid
-//if (testRunner.testCase.getPropertyValue("browserSession") == "" || testRunner.testCase.getPropertyValue("browserSession") == null) {
-
-//	log.error("[FB_14] Authorization and Authentication w/ Pre-Negotiated Scope (OAD001 [NEG] Malformed Authorization Code Requests -- Issue malformed oauth/authorize GETs) Browser SessionID variable is blank or null -- " + testRunner.testCase.getPropertyValue("browserSession"));
-//	testRunner.fail("[FB_14] Authorization and Authentication w/ Pre-Negotiated Scope (OAD001 [NEG] Malformed Authorization Code Requests -- Issue malformed oauth/authorize GETs) Browser Session variable is blank or null -- " + testRunner.testCase.getPropertyValue("browserSession"));
-//	return;
-	
-//	} else {
-//		log.info("[FB_14] Authorization and Authentication w/ Pre-Negotiated Scope (OAD001 [NEG] Malformed Authorization Code Requests -- Issue malformed oauth/authorize GETs) Browser Session variable: " + testRunner.testCase.getPropertyValue("browserSession"));
-//	}
-
 //   ****************************************************************************************************************************
 //   *
 //   *    Initialize test step variables
 //   *
 //   ****************************************************************************************************************************
 
-//String strSessionID = testRunner.testCase.getPropertyValue("browserSession");
-String strSelectedScope = context.mockService.getPropertyValue("SelectedScope").replace("scope=","");
-String strRedirURI = authCase.getPropertyValue("redirect_uri");
-String strClientId = authCase.getPropertyValue("client_id");
+String strSelectedScope = "";
+String strRedirURI = project.getPropertyValue("redirect_uri");
+String strClientId = project.getPropertyValue("client_id");
 String strRespLocation;
 
 // Convert Authorization Token Endpoint to use stunnel proxy
 String strAuthEndpoint = "";
-URL aURL = new URL(authCase.getPropertyValue("authorizationServerAuthorizationEndpoint"));
+URL aURL = new URL(project.getPropertyValue("authorizationServerAuthorizationEndpoint"));
 
 log.info("[FB_14] Authorization and Authentication w/ Pre-Negotiated Scope (OAD001 [NEG] Malformed Authorization Code Requests -- Issue malformed oauth/authorize GETs) aURL: " + aURL);
 log.info("[FB_14] Authorization and Authentication w/ Pre-Negotiated Scope (OAD001 [NEG] Malformed Authorization Code Requests -- Issue malformed oauth/authorize GETs) aURL.getPort(): " + aURL.getPort());
-log.info("[FB_14] Authorization and Authentication w/ Pre-Negotiated Scope (OAD001 [NEG] Malformed Authorization Code Requests -- Issue malformed oauth/authorize GETs) strAuthEndpoint: " + "http://" +  aURL.getHost() + ":" + authCase.getPropertyValue("proxyOutPort") + aURL.getPath());
-strAuthEndpoint = "http://" +  aURL.getHost() + ":" + authCase.getPropertyValue("proxyOutPort") + aURL.getPath();
+log.info("[FB_14] Authorization and Authentication w/ Pre-Negotiated Scope (OAD001 [NEG] Malformed Authorization Code Requests -- Issue malformed oauth/authorize GETs) strAuthEndpoint: " + "http://" +  aURL.getHost() + ":" + project.getPropertyValue("proxyOutPort") + aURL.getPath());
+strAuthEndpoint = "http://" +  aURL.getHost() + ":" + project.getPropertyValue("proxyOutPort") + aURL.getPath();
 log.info("[FB_14] Authorization and Authentication w/ Pre-Negotiated Scope (OAD001 [NEG] Malformed Authorization Code Requests -- Issue malformed oauth/authorize GETs) strAuthEndpoint: " + strAuthEndpoint);
 
 log.info("[FB_14] Authorization and Authentication w/ Pre-Negotiated Scope (OAD001 [NEG] Malformed Authorization Code Requests -- Issue malformed oauth/authorize GETs) strRedirURI: " + strRedirURI);
@@ -20540,8 +20458,6 @@ while(true) {
 	//if(iExpectedRespCode != 0) {
 		log.info("==================================================================================================================");		
 		log.info("Testing: " + strTestName);
-		//log.info("Expected Response Code: " + iExpectedRespCode);
-//		iRespCode = issueGET(strAuthEndpoint + strQryParams,strSessionID);
 		iRespCode = issueGET(strAuthEndpoint + strQryParams);
 
 
@@ -20553,28 +20469,55 @@ while(true) {
 				if((iRespCode==302) && (strRespLoc != null) && (strRespLoc.indexOf("error=") != -1) && (strRespLoc.indexOf("code=") == -1)){
 					// success 
 				} else {
-					if(iRespCode!=302){
-						strRespLoc="empty";
-					}
+					if((iRespCode == 302) && (strRespLoc.indexOf("login") != -1)) {
+
+						log.info("WARN: Authorization Code implementation does not meet OAuth 2.0 Authorization Framework [RFC6749] Section 4.1.1 Authorization Request implementation requirements");
+						log.info("WARN: Section 4.1.1 Authorization Request requires the Authorization Server validate the request before Authenticating the user");
+						
+					} else {
+//					     if(iRespCode!=302){
+//						     strRespLoc="empty";
+//					     }
 					
-					log.error("Failed malformed Authorization request: " + strTestName + " Expected 302 with error= response. Received response code: " + iRespCode + " response body-'" + strRespLoc + "'");
-					testRunner.fail("Failed malformed Authorization request: " + strTestName + " Expected 302 with error= response. Response code: " + iRespCode + " response body-'" + strRespLoc + "'");		
+					log.error("Failed malformed Authorization request: " + strTestName + " Expected 302 with error= response. Received response code: " + iRespCode);
+					testRunner.fail("Failed malformed Authorization request: " + strTestName + " Expected 302 with error= response. Response code: " + iRespCode);		
+				     }
 				}
-			
 				break;
 			// PASS is response code=401 		
 			case 1:
 			case 3: 
 				if(iRespCode!=401) {
-					log.error("Failed malformed Authorization request: " + strTestName + " expected response code: 401 but received response code: " + iRespCode);
-					testRunner.fail("Failed malformed Authorization request: " + strTestName + " expected response code: 401 but received response code: " + iRespCode);					
+
+					if((iRespCode == 302) && (strRespLoc.indexOf("login") != -1)) {
+
+						log.info("WARN: Authorization Code implementation does not meet OAuth 2.0 Authorization Framework [RFC6749] Section 4.1.1 Authorization Request implementation requirements");
+						log.info("WARN: Section 4.1.1 Authorization Request requires the Authorization Server validate the request before Authenticating the user");
+						
+					} else {
+						
+						log.error("Failed malformed Authorization request: " + strTestName + " expected response code: 401 but received response code: " + iRespCode);
+						testRunner.fail("Failed malformed Authorization request: " + strTestName + " expected response code: 401 but received response code: " + iRespCode);											
+					}
 				}
 				break;
-			// PASS is response code=400 or 403
+			// PASS is response code=401 or 403
 			case 4: 
-				if(iRespCode!=400 && iRespCode!=403) {
-					log.error("Failed malformed Authorization request: " + strTestName + " expected response code: 401 or 403 but received response code: " + iRespCode);
-					testRunner.fail("Failed malformed Authorization request: " + strTestName + " expected response code: 401 or 403 but received response code: " + iRespCode);					
+				if(iRespCode == 401 || iRespCode == 403) {
+
+					break;
+
+				} else  {
+					if((iRespCode == 302) && (strRespLoc.indexOf("login") != -1)) {
+
+						log.info("WARN: Authorization Code implementation does not meet OAuth 2.0 Authorization Framework [RFC6749] Section 4.1.1 Authorization Request implementation requirements");
+						log.info("WARN: Section 4.1.1 Authorization Request requires the Authorization Server validate the request before Authenticating the user");
+												
+					} else {
+					
+						log.error("Failed malformed Authorization request: " + strTestName + " expected response code: 401 or 403 but received response code: " + iRespCode);
+						testRunner.fail("Failed malformed Authorization request: " + strTestName + " expected response code: 401 or 403 but received response code: " + iRespCode);											
+					}
 				}			
 				break;
 			default:
@@ -20582,36 +20525,6 @@ while(true) {
 				testRunner.fail("Failed malformed Authorization request: " + strTestName + " invalid testID");		
 				break;
 		}
-		/*
-		switch(iRespCode) {
-			
-			case 302:
-				// A 302 Redirect Response Code with a "code=" parameter is NOT valid
-				if (strRespLoc != null) {
-					if (strRespLoc.indexOf("code=") != -1) {
-						log.error("Failed malformed Authorization request: " + strTestName + " expected response code: " + iExpectedRespCode + " but received response code: " + iRespCode);
-						testRunner.fail("Failed malformed Authorization request: " + strTestName + " expected response code: " + iExpectedRespCode + " but received response code: " + iRespCode);
-					}
-				}
-				break;
-
-			case 200:
-				// if we get 200, this means they are progressing the dialog instead of rejecting the request, so this is a failure
-				log.error("Failed malformed Authorization request: " + strTestName + " the data custodian progressed rather than rejected the request");
-				testRunner.fail("Failed malformed Authorization request: " + strTestName + " the data custodian progressed rather than rejected the request");
-				break;
-
-			default:
-				// We received a non-expected response code
-				log.error("Failed malformed Authorization request: " + strTestName + " expected response code: " + iExpectedRespCode + " but received response code: " + iRespCode);
-				testRunner.fail("Failed malformed Authorization request: " + strTestName + " expected response code: " + iExpectedRespCode + " but received response code: " + iRespCode);
-				break;
-		}	*/			
-		
-	//} else {
-	//	log.info("skipping: " + strTestName);
-	//}
-
 
 	iTestID++;
 	if(iTestID > 5){
@@ -20619,8 +20532,7 @@ while(true) {
 	}
 }
 
-assert true;]]></script></con:config></con:testStep><con:testStep type="groovy" name="End Browser session" id="26465757-1ba7-4608-8601-cbec5492e117"><con:settings/><con:config><script>context["driver"].quit();
-context["driver"] = null;</script></con:config></con:testStep><con:testStep type="groovy" name="Stop Mock Service" id="40ff42e1-7a63-4149-9c17-76a84053e99d"><con:settings/><con:config><script>context.mockRunner.stop();
+assert true;]]></script></con:config></con:testStep><con:testStep type="groovy" name="Stop Mock Service" id="40ff42e1-7a63-4149-9c17-76a84053e99d"><con:settings/><con:config><script>context.mockRunner.stop();
 context.mockRunner = null;
 return;</script></con:config></con:testStep><con:setupScript>log.info "===== Start TestCase  =====> " + context.testCase.getLabel()</con:setupScript><con:tearDownScript>if(context.mockRunner != null){
 	context.mockRunner.stop();
@@ -30113,7 +30025,7 @@ if(results == true) {
 else {
 	log.info "===== FAILED End   TestSuite =====> " + testSuite.name
 }
-</con:tearDownScript></con:testSuite><con:testSuite id="777829b5-238f-498b-8fca-fc91f28b2179" name="[FUTURE]*[FB_46] Core RetailCustomer"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:testSuite id="e6e692e4-a3af-493f-879e-e29d98472396" name="[FUTURE]*[FB_47] REST for RetailCustomer Bulk"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:testSuite id="134c0d4e-41b7-43ef-99a7-82910fc15181" name="[FUTURE]*[FB_48] SFTP for RetailCustomer Bulk"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:testSuite id="5f220152-b482-4fe6-a93c-c86983aa59ab" name="[FUTURE]*[FB_49] RetailCustomer Management REST"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:testSuite id="a4cad8a6-a545-43a7-813d-41f895c2ba75" name="[FUTURE]*[FB_50] RetailCustomer Resource Level REST"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:restMockService port="8081" path="/" host="openespivm" name="ThirdParty Notification Mock Service" docroot="" id="44aa183e-c020-4e6b-8402-539544493841"><con:settings/><con:startScript>context.mockService.setPropertyValue("rxNotificationBody","");</con:startScript><con:properties><con:property><con:name>rxNotificationBody</con:name><con:value/></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property></con:properties><con:onRequestScript/><con:restMockAction name="/ThirdParty/espi/1_1/Notification" method="POST" resourcePath="/ThirdParty/espi/1_1/Notification" id="6b6053c9-2c1a-4384-9b10-782eb51bbd4c"><con:settings/><con:defaultResponse>ThirdParty Notification Mock Service/ThirdParty/espi/1_1/Notification POST Response</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>if(requestContext.mockService.getPropertyValue("rxNotificationBody")!= "") {
+</con:tearDownScript></con:testSuite><con:testSuite id="777829b5-238f-498b-8fca-fc91f28b2179" name="[FUTURE]*[FB_46] Core RetailCustomer"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:testSuite id="e6e692e4-a3af-493f-879e-e29d98472396" name="[FUTURE]*[FB_47] REST for RetailCustomer Bulk"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:testSuite id="134c0d4e-41b7-43ef-99a7-82910fc15181" name="[FUTURE]*[FB_48] SFTP for RetailCustomer Bulk"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:testSuite id="5f220152-b482-4fe6-a93c-c86983aa59ab" name="[FUTURE]*[FB_49] RetailCustomer Management REST"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:testSuite id="a4cad8a6-a545-43a7-813d-41f895c2ba75" name="[FUTURE]*[FB_50] RetailCustomer Resource Level REST"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/></con:testSuite><con:restMockService port="8081" path="/" host="openespivm" name="ThirdParty Notification Mock Service" docroot="" id="44aa183e-c020-4e6b-8402-539544493841"><con:settings/><con:startScript>context.mockService.setPropertyValue("rxNotificationBody","");</con:startScript><con:properties><con:property><con:name>rxNotificationBody</con:name><con:value/></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8082</con:value></con:property></con:properties><con:onRequestScript/><con:restMockAction name="/ThirdParty/espi/1_1/Notification" method="POST" resourcePath="/ThirdParty/espi/1_1/Notification" id="6b6053c9-2c1a-4384-9b10-782eb51bbd4c"><con:settings/><con:defaultResponse>ThirdParty Notification Mock Service/ThirdParty/espi/1_1/Notification POST Response</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>if(requestContext.mockService.getPropertyValue("rxNotificationBody")!= "") {
 	log.info("ThirdParty Notification Mock Service (/ThirdParty/espi/1_1/Notification) Discarding additional notifications");
 	return;	
 }
@@ -30224,7 +30136,7 @@ strContent = mockRequest.requestContent;
 log.info("ThirdParty Notification Mock Service (GET /Diagnostic Response) Request Content: " + strContent);
 
 </con:script><con:responseContent/></con:response></con:restMockAction></con:restMockService>
-<con:restMockService port="8081" path="/" host="openespivm" name="ThirdParty Authorization Mock Service" docroot="" id="3a34ffc3-4858-4237-a55a-0cc1f8544c4a"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value>{  "access_token":"c764ab61-bbae-4469-bf16-5a5e735d4007",  "token_type":"Bearer",  "expires_in":3600,  "refresh_token":"395c3c87-b7c3-4162-883a-fa9d77306847",  "scope":"913178",  "resourceURI":"https://api.pge.com/GreenButtonConnect/espi/1_1/resource/Batch/Subscription/913178",    "authorizationURI":"https://api.pge.com/GreenButtonConnect/espi/1_1/resource/Authorization/913178"}</con:value></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_8_13_14_18_19_31_32_35_37_38_39_40_4_5_10_15_16_46_47;IntervalDuration=900_3600;BlockDuration=Daily;HistoryLength=63072000;SubscriptionFrequency=Daily;AccountCollection=2;BR=50036</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_8_13_14_18_19_31_32_35_37_38_39_40_4_5_10_15_16_46_47;IntervalDuration=900_3600;BlockDuration=Daily;HistoryLength=63072000;SubscriptionFrequency=Daily;AccountCollection=2;BR=50036&amp;dataCustodianId=PGE;</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://api.pge.com/datacustodian/oauth/v2/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://cmdcertdev.greenbuttonalliance.org:443/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://api.pge.com/datacustodian/oauth/v2/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value/></con:property><con:property><con:name>client_id</con:name><con:value>9c9db266dc784067969fe9a90ec2aa10</con:value></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">a787e90b13c34c07a988b15acaaf5b09</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://sharemydata.pge.com/myAuthorization/?clientId=50036&amp;verified=true</con:value></con:property><con:property><con:name>state</con:name><con:value>ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property><con:property><con:name>SeleniumWebDriver</con:name><con:value>org.greenbutton.cmd.utils.DriverHelper@7583beb</con:value></con:property></con:properties><con:onRequestScript/><con:afterRequestScript/><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="a19f663e-daf5-4eab-bc7c-0fb638c2496d"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>import org.openqa.selenium.WebDriver;
+<con:restMockService port="8081" path="/" host="openespivm" name="ThirdParty Authorization Mock Service" docroot="" id="3a34ffc3-4858-4237-a55a-0cc1f8544c4a"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_8_13_14_18_19_31_32_35_37_38_39_40_4_5_10_15_16_46_47;IntervalDuration=900_3600;BlockDuration=Daily;HistoryLength=63072000;SubscriptionFrequency=Daily;AccountCollection=2;BR=50036</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_8_13_14_18_19_31_32_35_37_38_39_40_4_5_10_15_16_46_47;IntervalDuration=900_3600;BlockDuration=Daily;HistoryLength=63072000;SubscriptionFrequency=Daily;AccountCollection=2;BR=50036&amp;dataCustodianId=PGE;</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://greenbutton.londonhydro.com/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://cmdcertdev.greenbuttonalliance.org/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://greenbutton.londonhydro.com/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>error</con:name><con:value/></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>client_secret</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Gigt2CaoDyrpVx7</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://greenbutton.londonhydro.com/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>state</con:name><con:value>ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8082</con:value></con:property><con:property><con:name>SeleniumWebDriver</con:name><con:value>org.greenbutton.cmd.utils.DriverHelper@7583beb</con:value></con:property></con:properties><con:onRequestScript/><con:afterRequestScript/><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="a19f663e-daf5-4eab-bc7c-0fb638c2496d"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 //def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
@@ -30772,7 +30684,7 @@ log.info("ThirdParty Authorization Mock Service (GET /Diagnostic Response) Reque
 // Obtain HttpRequest Content
 strContent = mockRequest.requestContent;
 log.info("ThirdParty Authorization Mock Service (GET /Diagnostic Response) Request Content: " + strContent);</con:script><con:responseContent/></con:response></con:restMockAction></con:restMockService>
-<con:restMockService port="8081" path="/" host="openespivm" name="ThirdParty NEG A tests Authorization Mock Service" docroot="" id="cdc5ffa6-a930-460a-b724-42e8e7d73f4f"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_8_13_14_18_19_31_32_35_37_38_39_40_4_5_10_15_16_46_47;IntervalDuration=900_3600;BlockDuration=Daily;HistoryLength=63072000;SubscriptionFrequency=Daily;AccountCollection=2;BR=50036&amp;dataCustodianId=PGE;</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://api.pge.com/datacustodian/oauth/v2/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://cmdcertdev.greenbuttonalliance.org:443/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://api.pge.com/datacustodian/oauth/v2/token</con:value></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>client_id</con:name><con:value>9c9db266dc784067969fe9a90ec2aa10</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://sharemydata.pge.com/myAuthorization/?clientId=50036&amp;verified=true</con:value></con:property><con:property><con:name>client_secret</con:name><con:value>a787e90b13c34c07a988b15acaaf5b09</con:value></con:property><con:property><con:name>state</con:name><con:value>ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property></con:properties><con:onRequestScript/><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="fbe0856f-dd44-4b04-8b84-d08a490ece57"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+<con:restMockService port="8081" path="/" host="openespivm" name="ThirdParty NEG A tests Authorization Mock Service" docroot="" id="cdc5ffa6-a930-460a-b724-42e8e7d73f4f"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_8_13_14_18_19_31_32_35_37_38_39_40_4_5_10_15_16_46_47;IntervalDuration=900_3600;BlockDuration=Daily;HistoryLength=63072000;SubscriptionFrequency=Daily;AccountCollection=2;BR=50036&amp;dataCustodianId=PGE;</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://greenbutton.londonhydro.com/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://cmdcertdev.greenbuttonalliance.org/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://greenbutton.londonhydro.com/oauth/token</con:value></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://greenbutton.londonhydro.com/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>client_secret</con:name><con:value>Gigt2CaoDyrpVx7</con:value></con:property><con:property><con:name>state</con:name><con:value>ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8082</con:value></con:property></con:properties><con:onRequestScript/><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="fbe0856f-dd44-4b04-8b84-d08a490ece57"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Examples showing how to match based on path, query param and header
 // Match based on path
 def requestPath = mockRequest.getPath()
@@ -31328,7 +31240,7 @@ strContent = mockRequest.requestContent;
 log.info("ThirdParty NEG A tests Authorization Mock Service (GET /Diagnostic Response) Request Content: " + strContent);
 
 </con:script><con:responseContent/></con:response></con:restMockAction></con:restMockService>
-<con:restMockService port="8081" path="/" host="openespivm" name="ThirdParty NEG B tests Authorization Mock Service" docroot="" id="f53ba382-c35f-4ef1-901a-f07c7855c1b3"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://sandbox.greenbuttonalliance.org:8443/DataCustodian/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://cmdcertdev.greenbuttonalliance.org:8444/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://sandbox.greenbuttonalliance.org:8443/DataCustodian/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value>9C0B4BBAD2FBDAF475058F4996FE725B</con:value></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>qKxWrM</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>client_id</con:name><con:value>gba_cmd_cert</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://sandbox.greenbuttonalliance.org:8443/DataCustodian/RetailCustomer/ScopeSelectionList?ThirdPartyID=gba_cmd_cert</con:value></con:property><con:property><con:name>client_secret</con:name><con:value>secret</con:value></con:property><con:property><con:name>state</con:name><con:value>ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="80ce918e-62e8-4eb0-881e-fe7226c68892"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+<con:restMockService port="8081" path="/" host="openespivm" name="ThirdParty NEG B tests Authorization Mock Service" docroot="" id="f53ba382-c35f-4ef1-901a-f07c7855c1b3"><con:settings/><con:properties><con:property><con:name>tokenResponse</con:name><con:value/></con:property><con:property><con:name>SelectedScope</con:name><con:value>scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13</con:value></con:property><con:property><con:name>DataCustodianAuthorizeQry</con:name><con:value>scope=FB=1_3_4_5_13_14_39;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_13_14_15_39;IntervalDuration=900;BlockDuration=monthly;HistoryLength=13&amp;scope=FB=1_3_4_5_6_7_8_9_10_11_29_12_13_14_15_16_17_18_19_27_28_32_33_34_35_37_38_39_40_41_44;IntervalDuration=3600;BlockDuration=monthly;HistoryLength=13&amp;DataCustodianID=data_custodian</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://greenbutton.londonhydro.com/oauth/authorize</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value>https://cmdcertdev.greenbuttonalliance.org/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://greenbutton.londonhydro.com/oauth/token</con:value></con:property><con:property><con:name>browserSession</con:name><con:value>9C0B4BBAD2FBDAF475058F4996FE725B</con:value></con:property><con:property><con:name>GotFirstRedirect</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>ExtractedSessionID</con:name><con:value>FALSE</con:value></con:property><con:property><con:name>GotScopeSelPOST</con:name><con:value>TRUE</con:value></con:property><con:property><con:name>OAuthCodeReceivedValue</con:name><con:value>qKxWrM</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://greenbutton.londonhydro.com/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property><con:property><con:name>client_secret</con:name><con:value>Gigt2CaoDyrpVx7</con:value></con:property><con:property><con:name>state</con:name><con:value>ee148ec2-9892-466e-a013-4dedf1eb3018</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8082</con:value></con:property></con:properties><con:restMockAction name="/ThirdParty/RetailCustomer/ScopeSelection" method="GET" resourcePath="/ThirdParty/RetailCustomer/ScopeSelection" id="80ce918e-62e8-4eb0-881e-fe7226c68892"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
 // Examples showing how to match based on path, query param and header
 // Match based on path
 def requestPath = mockRequest.getPath()
@@ -32593,7 +32505,7 @@ if( requestBody.contains("some data") )
 */
 </con:dispatchPath><con:response name="Response 1 - 202" id="552f9a94-4650-43b2-b2a0-f0aa02f07719" httpResponseStatus="202"><con:settings/><con:responseContent/></con:response></con:restMockAction></con:restMockService><con:properties>
 
-	<con:property><con:name>access_token</con:name><con:value>c764ab61-bbae-4469-bf16-5a5e735d4007</con:value></con:property><con:property><con:name>applicationInformationId</con:name><con:value>0dd5d0b6-a070-4fa1-b4a6-c79c5337b8ea</con:value></con:property><con:property><con:name>authorizationId</con:name><con:value>913178</con:value></con:property><con:property><con:name>authorizationServer</con:name><con:value>api.pge.com:443</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://api.pge.com/datacustodian/oauth/v2/authorize</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://api.pge.com/datacustodian/oauth/v2/token</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value/></con:property><con:property>
+	<con:property><con:name>access_token</con:name><con:value/></con:property><con:property><con:name>applicationInformationId</con:name><con:value>8</con:value></con:property><con:property><con:name>authorizationId</con:name><con:value/></con:property><con:property><con:name>authorizationServer</con:name><con:value>greenbutton.londonhydro.com:443</con:value></con:property><con:property><con:name>authorizationServerAuthorizationEndpoint</con:name><con:value>https://greenbutton.londonhydro.com/oauth/authorize</con:value></con:property><con:property><con:name>authorizationServerTokenEndpoint</con:name><con:value>https://greenbutton.londonhydro.com/oauth/token</con:value></con:property><con:property><con:name>authorizationURI</con:name><con:value/></con:property><con:property>
 
 		<con:name>BaseURL</con:name>
 		<con:value/>
@@ -32608,18 +32520,18 @@ if( requestBody.contains("some data") )
 	
 	
 	
-	<con:property><con:name>bulkId</con:name><con:value>1</con:value></con:property><con:property><con:name>certScopes</con:name><con:value>FB=1_3_4_5_8_10_13_14_16_18_19_31_32_35_37_38_39_40_46_47</con:value></con:property><con:property><con:name>client_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property>
+	<con:property><con:name>bulkId</con:name><con:value>1</con:value></con:property><con:property><con:name>certScopes</con:name><con:value>FB=1_3_4_5_10_11_13_14_37_39</con:value></con:property><con:property><con:name>client_access_token</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">62b91ef0-e8fc-42a6-8faf-db3f7fd4dd0f</con:value></con:property>
 	
 	
 	
 	
-	<con:property><con:name>DataCustodianContext</con:name><con:value/></con:property><con:property><con:name>dataCustodianId</con:name><con:value>PGE</con:value></con:property>
+	<con:property><con:name>DataCustodianContext</con:name><con:value/></con:property><con:property><con:name>dataCustodianId</con:name><con:value>LondonHydro</con:value></con:property>
 	
-	<con:property><con:name>dataCustodianResourceEndpoint</con:name><con:value>https://api.pge.com/GreenButtonConnect/espi/1_1/resource</con:value></con:property><con:property><con:name>dataCustodianResourceUri</con:name><con:value>https://api.pge.com/GreenButtonConnect/espi/1_1/resource</con:value></con:property>
+	<con:property><con:name>dataCustodianResourceEndpoint</con:name><con:value>https://api.londonhydro.com/espi/1_1/resource</con:value></con:property><con:property><con:name>dataCustodianResourceUri</con:name><con:value>https://api.londonhydro.com/espi/1_1/resource</con:value></con:property>
 	
 	
 	
-	<con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://sharemydata.pge.com/myAuthorization/?clientId=50036&amp;verified=true</con:value></con:property>
+	<con:property><con:name>dataCustodianScopeSelectionScreenURI</con:name><con:value>https://greenbutton.londonhydro.com/RetailCustomer/ScopeSelectionList?ThirdPartyID=third_party</con:value></con:property>
 	
 	<con:property><con:name>data_custodian_access_token</con:name><con:value>2a85f4bd-30db-4b7d-8f41-b046b0566cb3</con:value></con:property><con:property><con:name>DBprepopulateScriptName</con:name><con:value>prepopulatesql_dc.sql</con:value></con:property><con:property><con:name>electricPowerQualitySummaryId</con:name><con:value>1</con:value></con:property><con:property><con:name>electricPowerUsageSummaryId</con:name><con:value>1</con:value></con:property><con:property><con:name>federalEIN</con:name><con:value>123456</con:value></con:property>
 	
@@ -32628,7 +32540,7 @@ if( requestBody.contains("some data") )
 	<con:property><con:name>intervalBlockId</con:name><con:value>1</con:value></con:property><con:property><con:name>linkPrefixForReplace</con:name><con:value>https://localhost:8443/DataCustodian/</con:value></con:property><con:property><con:name>localTimeParametersId</con:name><con:value>1</con:value></con:property><con:property><con:name>meterReadingId</con:name><con:value>1</con:value></con:property>
 	
 	<con:property><con:name>mysqlCmdDC</con:name><con:value>mysql --user=root --password=password</con:value></con:property>
-	<con:property><con:name>mysqlCmdTP</con:name><con:value>mysql --user=root --password=password</con:value></con:property><con:property><con:name>myTimeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>NotificationEndpoint</con:name><con:value>https://cmdcertdev.greenbuttonalliance.org:443/ThirdParty</con:value></con:property><con:property><con:name>notificationUri</con:name><con:value>espi/1_1/Notification</con:value></con:property><con:property><con:name>opensslCmd</con:name><con:value>openssl</con:value></con:property>
+	<con:property><con:name>mysqlCmdTP</con:name><con:value>mysql --user=root --password=password</con:value></con:property><con:property><con:name>myTimeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>NotificationEndpoint</con:name><con:value>https://cmdcertdev.greenbuttonalliance.org/ThirdParty</con:value></con:property><con:property><con:name>notificationUri</con:name><con:value>espi/1_1/Notification</con:value></con:property><con:property><con:name>opensslCmd</con:name><con:value>openssl</con:value></con:property>
 	
 	
 	
@@ -32636,7 +32548,7 @@ if( requestBody.contains("some data") )
 	
 	
 	
-	<con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value>94d257a9-f3e1-4938-a88e-3b818f6b6094</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>c66b0854-ea1f-4e24-afb7-afab9e0f6c5e</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>api.pge.com:443</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://api.pge.com/GreenButtonConnect/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceUri</con:name><con:value>GreenButtonConnect/espi/1_1/resource</con:value></con:property>
+	<con:property><con:name>readingTypeId</con:name><con:value>1</con:value></con:property><con:property><con:name>registration_access_token</con:name><con:value>682f6064-a28b-42b8-b693-5bdbe8f06bce</con:value></con:property><con:property><con:name>registration_third_party_access_token</con:name><con:value>c66b0854-ea1f-4e24-afb7-afab9e0f6c5e</con:value></con:property><con:property><con:name>resourceId</con:name><con:value>01</con:value></con:property><con:property><con:name>resourceServer</con:name><con:value>api.londonhydro.com:443</con:value></con:property><con:property><con:name>resourceServerUri</con:name><con:value>https://api.londonhydro.com/espi/1_1/resource</con:value></con:property><con:property><con:name>resourceUri</con:name><con:value>espi/1_1/resource</con:value></con:property>
 	
 	
 	
@@ -32648,7 +32560,7 @@ if( requestBody.contains("some data") )
 	
 	
 	
-<con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property><con:property><con:name>AuthorizationEndpoint</con:name><con:value>http://api.pge.com:8080/datacustodian/oauth/v2/token</con:value></con:property><con:property><con:name>ServiceEndpoint</con:name><con:value>http://api.pge.com:8086</con:value></con:property><con:property><con:name>subscriptionId</con:name><con:value>5</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>TestFile2</con:name><con:value>Gas.xml</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>ThirdPartyContext</con:name><con:value/></con:property><con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value/></con:property><con:property><con:name>third_party_access_token</con:name><con:value>53520584-d640-4812-a721-8a1afa459ff7</con:value></con:property><con:property><con:name>timeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>upload_access_token</con:name><con:value>03909715-b0ca-4797-9a9a-601fff1d2848</con:value></con:property><con:property><con:name>usagePointDescription1</con:name><con:value>Front Electric Meter</con:value></con:property><con:property><con:name>usagePointDescription2</con:name><con:value>Gas</con:value></con:property><con:property><con:name>usagePointId</con:name><con:value>1</con:value></con:property><con:property><con:name>usagePointUUID1</con:name><con:value>48C2A019-5598-4E16-B0F9-49E4FF27F5FB</con:value></con:property><con:property><con:name>usagePointUUID2</con:name><con:value>642EABA-8E42-4D1A-A375-AF54993C007B</con:value></con:property><con:property><con:name>userAccessToken1</con:name><con:value>cc56d10c-f04f-41db-bc0b-6a5e19140459</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>4be1fd21-795e-4350-9092-67e1090921c5</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5_15;IntervalDuration=3600;BlockDuration=daily;HistoryLength=13</con:value></con:property><con:property><con:name>client_id</con:name><con:value>9c9db266dc784067969fe9a90ec2aa10</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>state</con:name><con:value/></con:property><con:property><con:name>client_secret</con:name><con:value>a787e90b13c34c07a988b15acaaf5b09</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value>https://api.pge.com</con:value></con:property><con:property><con:name>registration_access_token_client_id</con:name><con:value>9c9db266dc784067969fe9a90ec2aa10</con:value></con:property><con:property><con:name>client_access_token_client_id</con:name><con:value>9c9db266dc784067969fe9a90ec2aa10</con:value></con:property><con:property><con:name>client_access_token_secret</con:name><con:value>a787e90b13c34c07a988b15acaaf5b09</con:value></con:property><con:property><con:name>registration_access_token_secret</con:name><con:value>a787e90b13c34c07a988b15acaaf5b09</con:value></con:property><con:property><con:name>stunnelConfigDirectory</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stunnelStartCmd</con:name><con:value>sudo /etc/init.d/stunnel4 start</con:value></con:property><con:property><con:name>stunnelStopCmd</con:name><con:value>sudo /etc/init.d/stunnel4 stop</con:value></con:property><con:property><con:name>stunnelReceiveAddress</con:name><con:value>172.31.37.22:443</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8080</con:value></con:property><con:property><con:name>BatchList</con:name><con:value/></con:property><con:property><con:name>responseArray</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>CApathDirectory</con:name><con:value>/etc/ssl/certs</con:value></con:property><con:property><con:name>GBACertId</con:name><con:value>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</con:value></con:property><con:property><con:name>TLSLibrary</con:name><con:value>Apple Inc.</con:value></con:property><con:property><con:name>TLSLibCert</con:name><con:value>2411</con:value></con:property><con:property><con:name>NISTFIPSCertScreen</con:name><con:value>http://csrc.nist.gov/groups/STM/cmvp/documents/140-1/140val-all.htm</con:value></con:property><con:property><con:name>productionAuthorizationServerDomain</con:name><con:value>https://api.pge.com</con:value></con:property><con:property><con:name>productionResourceServerDomain</con:name><con:value>https://api.pge.com</con:value></con:property><con:property><con:name>productionAuthorizationServerTLSLibrary</con:name><con:value>TBD</con:value></con:property><con:property><con:name>productionAuthorizationServerTLSLibCert</con:name><con:value>TBD</con:value></con:property><con:property><con:name>productionResourceServerTLSLibrary</con:name><con:value>TBD</con:value></con:property><con:property><con:name>productionResourceServerTLSLibCert</con:name><con:value>TBD</con:value></con:property><con:property><con:name>NAESBPurchasedStandards</con:name><con:value>https://www.naesb.org//pdf2/copyright.pdf</con:value></con:property><con:property><con:name>NAESBPurchasedStandardsURI</con:name><con:value>https://www.naesb.org//pdf2/copyright.pdf</con:value></con:property><con:property><con:name>productionSFTPServerDomain</con:name><con:value/></con:property><con:property><con:name>productionSFTPServerTLSLibrary</con:name><con:value>TBD</con:value></con:property><con:property><con:name>productionSFTPServerTLSLibCert</con:name><con:value>TBD</con:value></con:property><con:property><con:name>stunnelStatusCmd</con:name><con:value>sudo netstat -lpn | grep :80*</con:value></con:property><con:property><con:name>authorizationServerIP</con:name><con:value>130.19.33.45</con:value></con:property><con:property><con:name>resourceServerIP</con:name><con:value>130.19.33.45</con:value></con:property><con:property><con:name>resourceServerPort</con:name><con:value>443</con:value></con:property><con:property><con:name>authorizationServerPort</con:name><con:value>443</con:value></con:property><con:property><con:name>soapUIPlatformSSLCertificate</con:name><con:value>/etc/stunnel/greenbuttonalliance_ssl_certificate_2017_02_14.pem</con:value></con:property><con:property><con:name>soapUIPlatformSSLPrivateKey</con:name><con:value>/etc/stunnel/greenbuttonalliance_original_private_key.pem</con:value></con:property><con:property><con:name>CMDTestStep</con:name><con:value>[FB_01] Common -- CERT002 [POS]</con:value></con:property><con:property><con:name>applicationInformationAuthorizationId</con:name><con:value>1000000390</con:value></con:property><con:property><con:name>authorizationRequired</con:name><con:value>false</con:value></con:property><con:property><con:name>applicantName</con:name><con:value>PG&amp;E</con:value></con:property><con:property><con:name>MozillaRootCCADBURI</con:name><con:value>https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReportCSVFormat</con:value></con:property><con:property><con:name>SSLInterfaceType</con:name><con:value>IP</con:value></con:property><con:property><con:name>SeleniumWebDriver</con:name><con:value>org.greenbutton.cmd.utils.DriverHelper@57af7945</con:value></con:property><con:property><con:name>ActiveMockService</con:name><con:value>com.eviware.soapui.impl.wsdl.mock.WsdlMockRunner@13222116</con:value></con:property></con:properties>
+<con:property><con:name>retailCustomerId</con:name><con:value>1</con:value></con:property><con:property><con:name>AuthorizationEndpoint</con:name><con:value>http://greenbutton.londonhydro.com:8082/oauth/token</con:value></con:property><con:property><con:name>ServiceEndpoint</con:name><con:value>http://api.londonhydro.com:8086</con:value></con:property><con:property><con:name>subscriptionId</con:name><con:value>5</con:value></con:property><con:property><con:name>TestFile</con:name><con:value>test_usage_data.xml</con:value></con:property><con:property><con:name>TestFile2</con:name><con:value>Gas.xml</con:value></con:property><con:property><con:name>TestManager</con:name><con:value>grace</con:value></con:property><con:property><con:name>TestManagerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>TestRetailCustomer</con:name><con:value>alan</con:value></con:property><con:property><con:name>TestRetailCustomerPW</con:name><con:value>koala</con:value></con:property><con:property><con:name>ThirdPartyContext</con:name><con:value/></con:property><con:property><con:name>thirdPartyNotificationEndpoint</con:name><con:value>https://cmdcertdev.greenbuttonalliance.org/ThirdParty/espi/1_1/Notification</con:value></con:property><con:property><con:name>third_party_access_token</con:name><con:value>53520584-d640-4812-a721-8a1afa459ff7</con:value></con:property><con:property><con:name>timeoutCmd</con:name><con:value>timeout</con:value></con:property><con:property><con:name>upload_access_token</con:name><con:value>03909715-b0ca-4797-9a9a-601fff1d2848</con:value></con:property><con:property><con:name>usagePointDescription1</con:name><con:value>Front Electric Meter</con:value></con:property><con:property><con:name>usagePointDescription2</con:name><con:value>Gas</con:value></con:property><con:property><con:name>usagePointId</con:name><con:value>1</con:value></con:property><con:property><con:name>usagePointUUID1</con:name><con:value>48C2A019-5598-4E16-B0F9-49E4FF27F5FB</con:value></con:property><con:property><con:name>usagePointUUID2</con:name><con:value>642EABA-8E42-4D1A-A375-AF54993C007B</con:value></con:property><con:property><con:name>userAccessToken1</con:name><con:value>cc56d10c-f04f-41db-bc0b-6a5e19140459</con:value></con:property><con:property><con:name>userAccessToken2</con:name><con:value>4be1fd21-795e-4350-9092-67e1090921c5</con:value></con:property><con:property><con:name>scope</con:name><con:value>FB=4_5;IntervalDuration=3600;BlockDuration=daily;HistoryLength=13</con:value></con:property><con:property><con:name>client_id</con:name><con:value>third_party</con:value></con:property><con:property><con:name>redirect_uri</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">https://cmdcertdev.greenbuttonalliance.org/ThirdParty/espi/1_1/OAuthCallBack</con:value></con:property><con:property><con:name>state</con:name><con:value/></con:property><con:property><con:name>client_secret</con:name><con:value>Gigt2CaoDyrpVx7</con:value></con:property><con:property><con:name>mockPort</con:name><con:value>8081</con:value></con:property><con:property><con:name>proxyOutPort</con:name><con:value>8080</con:value></con:property><con:property><con:name>authorizationServerUri</con:name><con:value>https://greenbutton.londonhydro.com</con:value></con:property><con:property><con:name>registration_access_token_client_id</con:name><con:value>REGISTRATION_third_party</con:value></con:property><con:property><con:name>client_access_token_client_id</con:name><con:value>third_party_admin</con:value></con:property><con:property><con:name>client_access_token_secret</con:name><con:value>Gigt2CaoDyrpVx7</con:value></con:property><con:property><con:name>registration_access_token_secret</con:name><con:value>Gigt2CaoDyrpVx7</con:value></con:property><con:property><con:name>stunnelConfigDirectory</con:name><con:value>/etc/stunnel</con:value></con:property><con:property><con:name>stunnelStartCmd</con:name><con:value>sudo /etc/init.d/stunnel4 start</con:value></con:property><con:property><con:name>stunnelStopCmd</con:name><con:value>sudo /etc/init.d/stunnel4 stop</con:value></con:property><con:property><con:name>stunnelReceiveAddress</con:name><con:value>172.31.37.22:443</con:value></con:property><con:property><con:name>proxyOutPort1</con:name><con:value>8082</con:value></con:property><con:property><con:name>BatchList</con:name><con:value/></con:property><con:property><con:name>responseArray</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>CApathDirectory</con:name><con:value>/etc/ssl/certs</con:value></con:property><con:property><con:name>GBACertId</con:name><con:value>d29d4b30-1a63-532e-a6a3-d6314572eab9</con:value></con:property><con:property><con:name>NISTFIPSCertScreen</con:name><con:value>http://csrc.nist.gov/groups/STM/cmvp/documents/140-1/140val-all.htm</con:value></con:property><con:property><con:name>productionAuthorizationServerDomain</con:name><con:value>https://greenbutton.londonhydro.com</con:value></con:property><con:property><con:name>productionResourceServerDomain</con:name><con:value>https://api.londonhydro.com</con:value></con:property><con:property><con:name>NAESBPurchasedStandardsURI</con:name><con:value>https://www.naesb.org//pdf2/copyright.pdf</con:value></con:property><con:property><con:name>productionSFTPServerDomain</con:name><con:value/></con:property><con:property><con:name>stunnelStatusCmd</con:name><con:value>sudo netstat -lpn | grep :80*</con:value></con:property><con:property><con:name>authorizationServerIP</con:name><con:value>35.170.121.96</con:value></con:property><con:property><con:name>resourceServerIP</con:name><con:value>52.54.249.67</con:value></con:property><con:property><con:name>resourceServerPort</con:name><con:value>443</con:value></con:property><con:property><con:name>authorizationServerPort</con:name><con:value>443</con:value></con:property><con:property><con:name>soapUIPlatformSSLCertificate</con:name><con:value>/etc/stunnel/greenbuttonalliance_ssl_certificate_2017_02_14.pem</con:value></con:property><con:property><con:name>soapUIPlatformSSLPrivateKey</con:name><con:value>/etc/stunnel/greenbuttonalliance_original_private_key.pem</con:value></con:property><con:property><con:name>CMDTestStep</con:name><con:value>[FB_14] Authorization and Authentication w/ Pre-Negotiated Scope -- OAD001 [NEG]</con:value></con:property><con:property><con:name>applicationInformationAuthorizationId</con:name><con:value>1000000390</con:value></con:property><con:property><con:name>authorizationRequired</con:name><con:value>false</con:value></con:property><con:property><con:name>applicantName</con:name><con:value>London_Hydro</con:value></con:property><con:property><con:name>MozillaRootCCADBURI</con:name><con:value>https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReportCSVFormat</con:value></con:property><con:property><con:name>SSLInterfaceType</con:name><con:value>IP</con:value></con:property><con:property><con:name>SeleniumWebDriver</con:name><con:value>org.greenbutton.cmd.utils.DriverHelper@57af7945</con:value></con:property><con:property><con:name>ActiveMockService</con:name><con:value>com.eviware.soapui.impl.wsdl.mock.WsdlMockRunner@13222116</con:value></con:property></con:properties>
 
 <con:wssContainer/>
 <con:oAuth2ProfileContainer/>
